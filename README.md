@@ -459,10 +459,10 @@ umask 002
 ```
 
 #### SNMP ionformation:
-http://snmptt.sourceforge.net/docs/snmptt.shtml
-http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/mib-options.html
-https://linux.die.net/sag/
-	https://linux.die.net/man/5/snmptrapd.conf
+(http://snmptt.sourceforge.net/docs/snmptt.shtml)
+(http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/mib-options.html)
+(https://linux.die.net/sag/)
+(https://linux.die.net/man/5/snmptrapd.conf)
 
 
 
@@ -472,3 +472,64 @@ New snmptt database:
 ```
 ./check_eventdb_BSH.sh -u eventdb -p YOURPASSWORD -d DATABASENAME -t TABLENAME -C "distinct hostname,formatline,traptime,severity" -D traptime -P 120m -w 1 -c 5 -S "host_name = '%hostname%' ORDER BY traptime DESC" -M 'TEST_Alarms:' 2>/dev/null
 ```
+
+## Loganalyzer
+
+### Step 1: Download and Extract LogAnalyzer 
+
+##### Download the LogAnalyzer latest version from its official download site or use following command to download 3.6.5 ( Current latest version ) version and extract it.
+```
+wget http://download.adiscon.com/loganalyzer/loganalyzer-3.6.6.tar.gz
+tar xzf loganalyzer-3.6.6.tar.gz
+```
+
+After extracting copy the required files to web server default document root as below.
+```
+mv loganalyzer-3.6.6/src /var/www/html/loganalyzer
+```
+
+### Step 2: Create Config File 
+
+##### Now create a blank configuration file named config.php in loganalyzer directory and setup write permission to apache user.
+```
+cd /var/www/html/loganalyzer
+touch config.php
+chown apache:apache config.php
+chmod 777 config.php
+```
+
+### Step 3: Start Web Installer 
+
+##### Because of running on our dedicated graphite server add the following entry to /etc/httpd/conf.d/graphite-vhost.conf (on si0vm4124: vi /etc/httpd/loganalyzer.conf)
+```
+#n0braist
+        Alias /loganalyzer/ /var/www/html/loganalyzer/
+       <Directory /var/www/html/loganalyzer/>
+                Options All
+                AllowOverride All
+                Require all granted
+        </Directory>
+```
+
+#### Restart httpd service: 
+```
+service httpd restart
+```
+
+#### After completing above steps open following url in your favorite web browser to start LogAnalyzer web installer.
+```
+  [http://yourhost/loganalyzer/install.php]
+```
+
+#### Now follow the web installer steps.
+
+
+#### Configure a DB source and set it as default
+
+picture loganalyzer_db_mapping.png
+
+#### Configure a DB source and set it as default
+
+picture loganalyzer_source.png
+
+
