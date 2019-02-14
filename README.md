@@ -126,6 +126,8 @@ perl-Digest-MD5
 ##### Download snmptt package from https://sourceforge.net/projects/snmptt/
 (no install package in redhat repository)
 
+![snmptt_1.4.tgz](snmp/snmptt_1.4.tgz "snmptt_1.4.tgz")
+
 Unpacking:
 ```
 > tar xvfz snmptt_1.4.tgz
@@ -188,10 +190,13 @@ traphandle default /usr/sbin/snmptthandler
 
 ~~grant select on eventdb.* to 'eventdb_r'@'localhost' identified by 'YOURPASSWORD_r';~~
 
-~~
-##### For database scheme we use the scheme from eventdb
-~~ 
-tar xvfz eventdb-2.0.6.tar.gz
+
+
+~~##### For database scheme we use the scheme from eventdb~~ 
+
+![eventdb-2.0.6.tar.gz](snmp/eventdb-2.0.6.tar.gz "eventdb-2.0.6.tar.gz")
+
+~~tar xvfz eventdb-2.0.6.tar.gz~~ 
 
 ~~mysql eventdb -pYOURPASSWORD eventdb < /PATHTODOWNLOAD/eventdb/db/mysql/createTables.sql~~
 
@@ -271,6 +276,7 @@ Starting snmptt (via systemctl):  Job for snmptt.service failed because the cont
 ```
 
 ##### If this error occurs install/update Scalar::List > 1.33
+![Scalar-List-Utils-1.47.tar.gz](snmp/Scalar-List-Utils-1.47.tar.gz "Scalar-List-Utils-1.47.tar.gz")
 ``` 
 tar xvf Scalar-List-Utils-1.47.tar.gz
 cd Scalar-List-Utils-1.47
@@ -281,6 +287,7 @@ make install
 ```
 
 ##### Install Config::IniFiles
+![Config-IniFiles-2.94.tar.gz](snmp/Config-IniFiles-2.94.tar.gz "Config-IniFiles-2.94.tar.gz")
 ```
 tar xvf Config-IniFiles-2.94.tar.gz 
 cd Config-IniFiles-2.94
@@ -324,7 +331,7 @@ service snmptt restart
 
 ##### checking
 ```
-snmptrap -v 2c -c COMMUNITYSTRING IPOFTRAPRECEIVER "" .1.3.6.1.6.3.1.1.5.1
+snmptrap -v 2c -c COMMUNITYSTRING IPofTRAPRECEIVER "" .1.3.6.1.6.3.1.1.5.1
 ```
 
 
@@ -460,8 +467,11 @@ umask 002
 
 #### SNMP ionformation:
 (http://snmptt.sourceforge.net/docs/snmptt.shtml)
+
 (http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/mib-options.html)
+
 (https://linux.die.net/sag/)
+
 (https://linux.die.net/man/5/snmptrapd.conf)
 
 
@@ -524,12 +534,13 @@ service httpd restart
 #### Now follow the web installer steps.
 
 
+#### Create a DB mapping like shown
+
+![Loganalyzer mapping](snmp/loganalyzer_db_mapping.png "Loganalyzer mapping")
+
 #### Configure a DB source and set it as default
 
-picture loganalyzer_db_mapping.png
+![Loganalyzer source](snmp/loganalyzer_source.png "Loganalyzer source")
 
-#### Configure a DB source and set it as default
-
-picture loganalyzer_source.png
 
 
