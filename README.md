@@ -353,7 +353,7 @@ traphandle default /usr/sbin/snmptthandler
 
 ++++++++++++++++++++++++++++++++++++++++++
 
-#### If you want to get it more secure define here your specified communities:
+#### If you want to get it more secure define here your specified communities your tarp receiver lsiten to:
 
        There are currently three types of processing that can be specified:
 
@@ -362,7 +362,8 @@ traphandle default /usr/sbin/snmptthandler
              execute        pass the details of the trap to a specified handler program, including embedded perl. 
              Net            forward the trap to another notification receiver. 
 
-        > /etc/snmp/snmptrapd.conf.
+> /etc/snmp/snmptrapd.conf.
+        
 ```
         authCommunity log,net,execute YOURCOMMUNITYSTRING
         #disableAuthorization yes
