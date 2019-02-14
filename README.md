@@ -87,7 +87,7 @@ mibwarninglevel  1
 # authCommunity   log,execute,net public
 # traphandle SNMPv2-MIB::coldStart    /usr/bin/bin/my_great_script cold
 
-#authCommunity log BSHint
+#authCommunity log YOURCOMMUNITYSTRING
 disableAuthorization yes
 sqlMaxQueue 1
 sqlSaveInterval 9
@@ -96,14 +96,14 @@ sqlSaveInterval 9
 > /etc/my.cnf.d/snmptrapd.cnf
 ```
 [snmptrapd]
-user=netsnmp
-password=icingatwo4BSH
+user=USER
+password=PASSSWORD
 host=localhost
 ```
 
 #### So you can send traps to the database using:
 ```
-snmptrap -v 2c -c public 10.49.68.107 "TEXT" 1.2.3.4.0
+snmptrap -v 2c -c public IPofTRAPRECEIVER "TEXT" 1.2.3.4.0
 ```
 
 ## VARIANT 2: (PREFERED)
@@ -349,23 +349,27 @@ Leave empty, it is not needed.
 vi /etc/snmp/snmptrapd.conf
 disableAuthorization yes
 traphandle default /usr/sbin/snmptthandler
-
-if you want to get it more secure and just here on specified communities:
-There are currently three types of processing that can be specified:
-
-    log                log the details of the notification - either in a specified file, to standard output (or stderr), or via syslog (or similar). 
-    execute        pass the details of the trap to a specified handler program, including embedded perl. 
-    Net              forward the trap to another notification receiver. 
 ```
 
-> /etc/snmp/snmptrapd.conf.
+++++++++++++++++++++++++++++++++++++++++++
+
+#### If you want to get it more secure define here your specified communities:
+
+       There are currently three types of processing that can be specified:
+
+             log            log the details of the notification - either in a specified file, 
+                            to standard output (or stderr), or via syslog (or similar). 
+             execute        pass the details of the trap to a specified handler program, including embedded perl. 
+             Net            forward the trap to another notification receiver. 
+
+        > /etc/snmp/snmptrapd.conf.
 ```
-authCommunity log,net,execute BSHint
-#disableAuthorization yes
-traphandle default /usr/sbin/snmptthandler
+        authCommunity log,net,execute YOURCOMMUNITYSTRING
+        #disableAuthorization yes
+        traphandle default /usr/sbin/snmptthandler
 ```
 
-
+++++++++++++++++++++++++++++++++++++++++++
 
 > /etc/snmp/snmptt.ini
 ```
