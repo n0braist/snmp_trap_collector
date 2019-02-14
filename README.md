@@ -2,7 +2,7 @@
  
 ## SNMP Trap receiver (former EventDB) on RedHat
 
-##### Install snmp package:
+#### Install snmp package:
 ```
 yum install net-snmp net-snmp-utils 
 ```
@@ -10,14 +10,14 @@ yum install net-snmp net-snmp-utils
 now we have to decide if Variant 1 or 2 (2 is preferred because of translated traps)
 
 ## VARIANT 1: 
-##### Creating just a normal trap database
+#### Creating just a normal trap database
 
 Now, we need to create the database the traps will be stored in, as well as the database user we will use when logging traps.
 ```
 mysql -u root -p
 ```
 
-##### Create the database we will log traps to:
+#### Create the database we will log traps to:
 
 ```
 MariaDB [(none)]> create database net_snmp;
@@ -26,7 +26,7 @@ MariaDB [(none)]> create user 'netsnmp'@'localhost' identified by 'sekritpass';
 MariaDB [(none)]> grant all on net_snmp.* to 'netsnmp'@'localhost' identified by 'sekritpass';
 ```
  
-##### Create the schema we will enter data into. 
+#### Create the schema we will enter data into. 
 A database schema is the actual structure we write data to, including the tables. 
 Consider it the 'shape' and 'function' of the database. 
 The file describing the database schema is, as far as I can tell, not installed with snmpd. 
@@ -34,7 +34,7 @@ But it is present in the net-snmp source code distribution.
 
 I reproduced it below. 
 
-##### Copy and paste this at the MariaDB prompt:
+#### Copy and paste this at the MariaDB prompt:
 ```
 USE net_snmp;
 DROP TABLE IF EXISTS notifications;
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `varbinds` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
 
-##### Konfigurationen:
+#### Konfigurationen:
 
 > /etc/snmp/snmp.conf
 ```
@@ -108,9 +108,9 @@ snmptrap -v 2c -c public 10.49.68.107 "TEXT" 1.2.3.4.0
 
 ## VARIANT 2: (PREFERED)
 
-#### Database with trap translator: (PREFERED)
+### Database with trap translator: (PREFERED)
 
-##### Install necessary packages:
+#### Install necessary packages:
 ```
 yum install perl-NetAddr-IP perl-DBI perl-DBD-MySQL perl-Text-ParseWords perl-Getopt-Long perl-Time-HiRes perl-Sys-Syslog perl-Socket perl-AppConfig perl-Config-Tiny perl-Config-Simple perl-Scalar-List-Utils perl-Test-Simple perl-IO-stringy perl-List-MoreUtils net-snmp-perl perl-SNMP_Session
 ```
@@ -123,7 +123,7 @@ perl-threads
 perl-Digest-MD5
 ```
 
-##### Download snmptt package from https://sourceforge.net/projects/snmptt/
+#### Download snmptt package from https://sourceforge.net/projects/snmptt/
 (no install package in redhat repository)
 
 ![snmptt_1.4.tgz](snmp/snmptt_1.4.tgz "snmptt_1.4.tgz")
@@ -138,12 +138,12 @@ Unpacking:
 >install -o root -g root snmptt-init.d /etc/rc.d/init.d/snmptt
 ```
 
-##### Add the service using chkconfig:
+#### Add the service using chkconfig:
 ```
 chkconfig --add snmptt
 ```
 
-##### Configure the service to start at runlevel 2345:
+#### Configure the service to start at runlevel 2345:
 ```
 chkconfig --level 2345 snmptt on
 Snmptt will be started at the next reboot, or can be started immediately with:
@@ -160,7 +160,7 @@ install -d -o snmptt -g icinga -m 4775 /var/spool/snmptt
 install -d -o snmptt -g root -m 755 /var/log/snmptt
 ```
 
-##### configure the snmptt.ini (see part Konfigurationen below)
+#### configure the snmptt.ini (see part Konfigurationen below)
 
 We use a additional script /etc/sysconfig/snmptrapd to configure the start process of the snmptrap daemon.
 
@@ -180,7 +180,7 @@ disableAuthorization yes
 traphandle default /usr/sbin/snmptthandler
 ```
 
-##### Configuring the Database
+#### Configuring the Database
 
 ~~> mysql -u root -p~~
 
@@ -202,7 +202,7 @@ traphandle default /usr/sbin/snmptthandler
 
 
 
-##### To configure SNMPTT for MySQL, modify the following variables in the snmptt.ini file.
+#### To configure SNMPTT for MySQL, modify the following variables in the snmptt.ini file.
 ```
     mysql_dbi_enable
     mysql_dbi_host
@@ -216,7 +216,7 @@ traphandle default /usr/sbin/snmptthandler
 
 Note:  Sample values are defined in the default ini file.  Defining mysql_dbi_table_unknown is optional.
 
-##### The following MySQL script can create the database and table. Permissions etc should also be defined. Run 'mysql' as root and enter:
+#### The following MySQL script can create the database and table. Permissions etc should also be defined. Run 'mysql' as root and enter:
 ```
  CREATE DATABASE snmptt;
     grant all privileges on snmptt.* to 'YOURUSER'@'localhost' identified by 'YOURPASSWORD';
@@ -247,7 +247,7 @@ Note: If you do not want the auto-incrementing id column, remove the 'id INT...'
 
 Note: To store the traptime as a real date/time (DATETIME data type), change 'traptime VARCHAR(30),' to 'traptime DATETIME,' and set date_time_format_sql in snmptt.ini to %Y-%m-%d %H:%M:%S.
 
-##### If logging of statistics to a SQL table is required, create the snmptt_statistics table using:
+#### If logging of statistics to a SQL table is required, create the snmptt_statistics table using:
 ```
 USE snmptt;
     DROP TABLE snmptt_statistics;
@@ -260,14 +260,14 @@ USE snmptt;
 ```
 
 
-##### Now it's time to convert some MIBS for the snmptt:
+#### Now it's time to convert some MIBS for the snmptt:
 ```
 cd /usr/share/snmp/mibs/
 snmpttconvertmib --in=NET-SNMP-AGENT-MIB.txt --out=/etc/snmp/ translatedMIBS/snmptt.conf
 snmpttconvertmib --in=SNMPv2-MIB.txt --out=/etc/snmp/ translatedMIBS/snmptt.conf
 ```
 
-##### configure the snmptrapd.conf (see part Konfigurationen below)
+#### configure the snmptrapd.conf (see part Konfigurationen below)
 ```
 start snmptt
 service snmptt start
@@ -275,7 +275,7 @@ Starting snmptt (via systemctl):  Job for snmptt.service failed because the cont
 [FAILED]
 ```
 
-##### If this error occurs install/update Scalar::List > 1.33
+#### If this error occurs install/update Scalar::List > 1.33
 ![Scalar-List-Utils-1.47.tar.gz](snmp/Scalar-List-Utils-1.47.tar.gz "Scalar-List-Utils-1.47.tar.gz")
 ``` 
 tar xvf Scalar-List-Utils-1.47.tar.gz
@@ -286,7 +286,7 @@ make test
 make install
 ```
 
-##### Install Config::IniFiles
+#### Install Config::IniFiles
 ![Config-IniFiles-2.94.tar.gz](snmp/Config-IniFiles-2.94.tar.gz "Config-IniFiles-2.94.tar.gz")
 ```
 tar xvf Config-IniFiles-2.94.tar.gz 
@@ -297,12 +297,12 @@ Build test
 Build install
 ```
 
-##### Start service again 
+#### Start service again 
 ```
-##### service snmptt start
+service snmptt start
 ```
 
-#####change startscript for snmptrapd:
+#### change startscript for snmptrapd:
 ```
 original file:
 [Unit]
@@ -321,22 +321,22 @@ WantedBy=multi-user.target
 ```
 
 
-#### Do the changes in/etc/snmp/snmptrapd.conf (see part Konfigurationen below)
+### Do the changes in/etc/snmp/snmptrapd.conf (see part Konfigurationen below)
 
-##### Restart both services:
+#### Restart both services:
 ```
 service snmptrapd restart
 service snmptt restart
 ```
 
-##### checking
+#### checking
 ```
 snmptrap -v 2c -c COMMUNITYSTRING IPofTRAPRECEIVER "" .1.3.6.1.6.3.1.1.5.1
 ```
 
 
 
-##### Konfigurationen:
+#### Konfigurationen:
 
 > /etc/snmp/snmp.conf
 Leave empty, it is not needed.
@@ -487,7 +487,7 @@ New snmptt database:
 
 ### Step 1: Download and Extract LogAnalyzer 
 
-##### Download the LogAnalyzer latest version from its official download site or use following command to download 3.6.5 ( Current latest version ) version and extract it.
+#### Download the LogAnalyzer latest version from its official download site or use following command to download 3.6.5 ( Current latest version ) version and extract it.
 ```
 wget http://download.adiscon.com/loganalyzer/loganalyzer-3.6.6.tar.gz
 tar xzf loganalyzer-3.6.6.tar.gz
@@ -500,7 +500,7 @@ mv loganalyzer-3.6.6/src /var/www/html/loganalyzer
 
 ### Step 2: Create Config File 
 
-##### Now create a blank configuration file named config.php in loganalyzer directory and setup write permission to apache user.
+#### Now create a blank configuration file named config.php in loganalyzer directory and setup write permission to apache user.
 ```
 cd /var/www/html/loganalyzer
 touch config.php
@@ -510,7 +510,7 @@ chmod 777 config.php
 
 ### Step 3: Start Web Installer 
 
-##### Because of running on our dedicated graphite server add the following entry to /etc/httpd/conf.d/graphite-vhost.conf (on si0vm4124: vi /etc/httpd/loganalyzer.conf)
+#### Because of running on our dedicated graphite server add the following entry to /etc/httpd/conf.d/graphite-vhost.conf (on si0vm4124: vi /etc/httpd/loganalyzer.conf)
 ```
 #n0braist
         Alias /loganalyzer/ /var/www/html/loganalyzer/
