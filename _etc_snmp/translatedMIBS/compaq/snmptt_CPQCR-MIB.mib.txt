@@ -1,0 +1,538 @@
+#
+#
+#
+#
+MIB: CPQCR-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQCR-MIB.mib) converted on Wed Aug 22 14:19:06 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqCrController1FailureTrap .1.3.6.1.4.1.232.141.3.2.0.1 "Status Events" Normal
+FORMAT The primary controller in the subsytem has failed. $*
+SDESC
+The primary controller in the subsytem has failed.
+Details:
+The primary Controller has failed.
+User Action:
+Replace controller.  Possible causes are controller physically
+removed, actual hardware failure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrController1InformationTrap .1.3.6.1.4.1.232.141.3.2.0.2 "Status Events" Normal
+FORMAT The primary controller in the subsytem has recovered. $*
+SDESC
+The primary controller in the subsytem has recovered.
+Details:
+The primary controller has recovered.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrController2FailureTrap .1.3.6.1.4.1.232.141.3.2.0.3 "Status Events" Normal
+FORMAT The secondary controller in the subsytem has failed. $*
+SDESC
+The secondary controller in the subsytem has failed.
+Details:
+The secondary controller has failed.
+User Action:
+Replace controller.  Possible causes are controller
+physically removed, actual hardware failure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrController2InformationTrap .1.3.6.1.4.1.232.141.3.2.0.4 "Status Events" Normal
+FORMAT The secondary controller in the subsytem has recovered. $*
+SDESC
+The secondary controller in the subsytem has recovered.
+Details:
+The secondary controller has recovered.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrLogDriveInformationTrap .1.3.6.1.4.1.232.141.3.3.0.5 "Status Events" Normal
+FORMAT A RAIDset has become optimal. $*
+SDESC
+A RAIDset has become optimal.
+Details:
+A RAIDset has become optimal due to a successful completion
+of the reconstruction process.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrLogDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrLogDriveFailureTrap .1.3.6.1.4.1.232.141.3.3.0.6 "Status Events" Normal
+FORMAT A RAIDset has failed. $*
+SDESC
+A RAIDset has failed.
+Details:
+The RAIDset has failed and is off-line.
+User Action:
+Possible cause is too many failed disk drives that make up
+the RAIDset, the OS can no longer communicate with the RAIDset
+for other reasons.
+Variables:
+  1: sysName
+  2: cpqCrLogDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrLogDriveReconstructTrap .1.3.6.1.4.1.232.141.3.3.0.7 "Status Events" Normal
+FORMAT A RAIDset has started the reconstruction process. $*
+SDESC
+A RAIDset has started the reconstruction process.
+Details:
+The RAIDset has started the reconstruction process but is available
+for normal use.
+Possible causes are an available disk drive was created as
+a spare to be inserted into the set, an existing spare was
+automatically added to the set for reconstruction upon failure
+of a member disk device.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrLogDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrLogDriveReducedTrap .1.3.6.1.4.1.232.141.3.3.0.8 "Status Events" Normal
+FORMAT A RAIDset has become degraded. $*
+SDESC
+A RAIDset has become degraded.
+Details:
+A RAIDset has become degraded due to a member disk device
+failure.
+User Action:
+Replace the failed disk device; add a spare to the system
+to cause a reconstruct.
+Variables:
+  1: sysName
+  2: cpqCrLogDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrLogDriveInitializingTrap .1.3.6.1.4.1.232.141.3.3.0.9 "Status Events" Normal
+FORMAT A RAIDset is initializing. $*
+SDESC
+A RAIDset is initializing.
+Details:
+A RAIDset is in the process of being intialized.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrLogDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrDiskInformationTrap .1.3.6.1.4.1.232.141.3.5.0.10 "Status Events" Normal
+FORMAT A disk drive has recovered. $*
+SDESC
+A disk drive has recovered.
+Details:
+A disk device has recovered.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvCntlrIndex
+  3: cpqCrPhyDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrDiskFailureTrap .1.3.6.1.4.1.232.141.3.5.0.11 "Status Events" Normal
+FORMAT A disk drive has failed. $*
+SDESC
+A disk drive has failed.
+Details:
+A disk device has failed.
+User Action:
+Replace the disk device.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvCntlrIndex
+  3: cpqCrPhyDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrDiskReconstructTrap .1.3.6.1.4.1.232.141.3.5.0.12 "Status Events" Normal
+FORMAT A disk drive has started the reconstruction process. $*
+SDESC
+A disk drive has started the reconstruction process.
+Details:
+A disk member of a logical drive has begun the reconstruction
+process and will be available for use when reconstruction is
+complete.
+User Action:
+Wait for the reconstruction to complete.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrDiskAvailableTrap .1.3.6.1.4.1.232.141.3.5.0.13 "Status Events" Normal
+FORMAT A disk drive has been made available for use. $*
+SDESC
+A disk drive has been made available for use.
+Details:
+A disk drive has been physically added or set to the
+Available state. It can be used as a RAIDset member or as a Spare.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrDiskSpareTrap .1.3.6.1.4.1.232.141.3.5.0.14 "Status Events" Normal
+FORMAT A disk drive has been made a Spare. $*
+SDESC
+A disk drive has been made a Spare.
+Details:
+A disk drive has been set to Spare status from Available and
+may be used in a RAID 1, RAID 0+1 or RAID 5 logical disk should
+a member device fail in one of those RAIDsets.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvIndex
+EDESC
+#
+#
+#
+EVENT cpqCrPhyDiskInformationTrap .1.3.6.1.4.1.232.141.3.5.0.30 "Status Events" Normal
+FORMAT A disk drive has recovered. $*
+SDESC
+A disk drive has recovered.
+Details:
+A disk device has recovered.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvScsiID
+EDESC
+#
+#
+#
+EVENT cpqCrPhyDiskFailureTrap .1.3.6.1.4.1.232.141.3.5.0.31 "Status Events" Normal
+FORMAT A disk drive has failed. $*
+SDESC
+A disk drive has failed.
+Details:
+A disk device has failed.
+User Action:
+Replace the disk device.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvScsiID
+EDESC
+#
+#
+#
+EVENT cpqCrPhyDiskReconstructTrap .1.3.6.1.4.1.232.141.3.5.0.32 "Status Events" Normal
+FORMAT A disk drive has started the reconstruction process. $*
+SDESC
+A disk drive has started the reconstruction process.
+Details:
+A disk member of a logical drive has begun the reconstruction
+process and will be available for use when reconstruction is
+complete.
+User Action:
+Wait for the reconstruction to complete.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvScsiID
+EDESC
+#
+#
+#
+EVENT cpqCrPhyDiskAvailableTrap .1.3.6.1.4.1.232.141.3.5.0.33 "Status Events" Normal
+FORMAT A disk drive has been made available for use. $*
+SDESC
+A disk drive has been made available for use.
+Details:
+A disk drive has been physically added or set to the
+Available state. It can be used as a RAIDset member or as a Spare.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrPhyDrvScsiID
+EDESC
+#
+#
+#
+EVENT cpqCrPhyDiskSpareTrap .1.3.6.1.4.1.232.141.3.5.0.34 "Status Events" Normal
+FORMAT A disk drive has been made a Spare. $*
+SDESC
+A disk drive has been made a Spare.
+Details:
+A disk drive has been set to Spare status from Available and
+may be used in a RAID 1, RAID 0+1 or RAID 5 logical disk should
+a member device fail in one of those RAIDsets.
+User Action:
+None.
+Variables:
+  1: sysName
+  2: cpqCrSpareScsiID
+EDESC
+#
+#
+#
+EVENT cpqCrEMUNormalTrap .1.3.6.1.4.1.232.141.3.7.0.15 "Status Events" Normal
+FORMAT Primary enclosure state is normal. $*
+SDESC
+Primary enclosure state is normal.
+Details:
+The overall condition of the primary enclosure has returned
+to normal.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrEMUFanFailureTrap .1.3.6.1.4.1.232.141.3.7.0.16 "Status Events" MAJOR
+FORMAT Fan has failed. $*
+SDESC
+Fan has failed.
+Details:
+One of the cooling fans in the primary enclosure has
+failed.
+User Action:
+Replace the cooling fan. Possible causes are fan
+physically removed, actual hardware failure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrEMUFanInformationTrap .1.3.6.1.4.1.232.141.3.7.0.17 "Status Events" Normal
+FORMAT The fan has recovered. $*
+SDESC
+The fan has recovered.
+Details:
+The cooling fan in the primary enclosure has recovered.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrEMUPowerSupplyFailureTrap .1.3.6.1.4.1.232.141.3.7.0.18 "Status Events" MAJOR
+FORMAT Power supply has failed. $*
+SDESC
+Power supply has failed.
+Details:
+One of the power supplies in the primary enclosure has
+failed.
+User Action:
+Replace the power supply. Possible causes are power
+supply physically removed, power cord unplugged, actual
+hardware failure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrEMUPowerSupplyInformationTrap .1.3.6.1.4.1.232.141.3.7.0.19 "Status Events" Normal
+FORMAT The power supply has recovered. $*
+SDESC
+The power supply has recovered.
+Details:
+The power supply in the primary enclosure has recovered.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrEMUTemperatureWarningTrap .1.3.6.1.4.1.232.141.3.7.0.23 "Status Events" MINOR
+FORMAT Primary enclosure temperature warning. $*
+SDESC
+Primary enclosure temperature warning.
+Details:
+The temperature in the primary enclosure has triggered a
+warning condition detected by the controller.
+User Action:
+Check the cooling fans in the primary enclosure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrEMUTemperatureCriticalTrap .1.3.6.1.4.1.232.141.3.7.0.24 "Status Events" CRITICAL
+FORMAT Primary enclosure temperature critical!. $*
+SDESC
+Primary enclosure temperature critical!.
+Details:
+The temperature in the primary enclosure has triggered a
+critical condition detected by the controller.
+User Action:
+Check the cooling fans in the primary enclosure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrEMUTemperatureInformationTrap .1.3.6.1.4.1.232.141.3.7.0.25 "Status Events" Normal
+FORMAT Primary enclosure temperature normal. $*
+SDESC
+Primary enclosure temperature normal.
+Details:
+The temperature in the primary enclosure has
+returned to normal.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrExpCabFanFailureTrap .1.3.6.1.4.1.232.141.3.8.0.20 "Status Events" MAJOR
+FORMAT Fan has failed in expansion cabinet. $*
+SDESC
+Fan has failed in expansion cabinet.
+Details:
+One of the cooling fans in the expansion cabinet has
+failed.
+User Action:
+Replace the cooling fan. Possible causes are fan
+physically removed, actual hardware failure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrExpCabFanInformationTrap .1.3.6.1.4.1.232.141.3.8.0.21 "Status Events" Normal
+FORMAT Fan has recovered. $*
+SDESC
+Fan has recovered.
+Details:
+A cooling fan in the expansion cabinet has returned to a
+normal state.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrExpCabPowerSupplyFailureTrap .1.3.6.1.4.1.232.141.3.8.0.22 "Status Events" MAJOR
+FORMAT Power supply has failed. $*
+SDESC
+Power supply has failed.
+Details:
+One of the power supplies in the expansion cabinet has
+failed.
+User Action:
+Replace the power supply. Possible causes are power
+supply physically removed, power cord unplugged, actual
+hardware failure.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrExpCabPowerSupplyInformationTrap .1.3.6.1.4.1.232.141.3.8.0.29 "Status Events" Normal
+FORMAT The power supply has recovered. $*
+SDESC
+The power supply has recovered.
+Details:
+The power supply in the expansion cabinet has recovered.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrExpCabTemperatureWarningTrap .1.3.6.1.4.1.232.141.3.8.0.26 "Status Events" MINOR
+FORMAT Expansion cabinet temperature warning. $*
+SDESC
+Expansion cabinet temperature warning.
+Details:
+The temperature in the expansion cabinet has triggered a
+warning condition detected by the controller.
+User Action:
+Check the cooling fans in the expansion cabinet.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrExpCabTemperatureCriticalTrap .1.3.6.1.4.1.232.141.3.8.0.27 "Status Events" CRITICAL
+FORMAT Expansion cabinet temperature critical! $*
+SDESC
+Expansion cabinet temperature critical!
+Details:
+The temperature in the expansion cabinet has triggered a
+critical condition detected by the controller.
+User Action:
+Check the cooling fans in the expansion cabinet.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT cpqCrExpCabTemperatureInformationTrap .1.3.6.1.4.1.232.141.3.8.0.28 "Status Events" Normal
+FORMAT Expansion cabinet temperature normal. $*
+SDESC
+Expansion cabinet temperature normal.
+Details:
+The temperature in the expansion cabinet has returned to
+normal.
+User Action:
+None.
+Variables:
+  1: sysName
+EDESC

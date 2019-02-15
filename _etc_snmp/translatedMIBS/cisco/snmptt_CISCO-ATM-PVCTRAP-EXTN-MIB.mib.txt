@@ -1,0 +1,187 @@
+#
+#
+#
+#
+MIB: CISCO-ATM-PVCTRAP-EXTN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ATM-PVCTRAP-EXTN-MIB.mib) converted on Tue Aug 21 15:25:38 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT catmIntfPvcUpTrap .1.3.6.1.4.1.9.10.97.2.0.1 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has changed state back to 'up'
+since the last catmIntfPvcUpTrap was sent. 
+Variables:
+  1: ifIndex
+  2: catmIntfCurrentlyDownToUpPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcOAMFailureTrap .1.3.6.1.4.1.9.10.97.2.0.2 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has OAM loop back failed 
+since the last catmIntfPvcOAMFailuresTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfOAMFailedPVcls
+  3: catmIntfCurrentOAMFailingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcSegCCOAMFailureTrap .1.3.6.1.4.1.9.10.97.2.0.3 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has Segment CC OAM failure 
+since the last catmIntfPvcSegCCOAMFailureTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfSegCCOAMFailedPVcls
+  3: catmIntfCurSegCCOAMFailingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcEndCCOAMFailureTrap .1.3.6.1.4.1.9.10.97.2.0.4 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has End-to-End CC OAM failure 
+since the last catmIntfPvcEndCCOAMFailureTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfEndCCOAMFailedPVcls
+  3: catmIntfCurEndCCOAMFailingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcAISRDIOAMFailureTrap .1.3.6.1.4.1.9.10.97.2.0.5 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has AIS RDI OAM failure 
+since the last catmIntfPvcAISRDIOAMFailureTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfAISRDIOAMFailedPVcls
+  3: catmIntfCurAISRDIOAMFailingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcAnyOAMFailureTrap .1.3.6.1.4.1.9.10.97.2.0.6 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has one or more OAM failed 
+since the last catmIntfPvcAnyOAMFailureTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfAnyOAMFailedPVcls
+  3: catmIntfCurAnyOAMFailingPVcls
+  4: catmIntfTypeOfOAMFailure
+EDESC
+#
+#
+#
+EVENT catmIntfPvcOAMRecoverTrap .1.3.6.1.4.1.9.10.97.2.0.7 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has OAM loop back recovered 
+since the last catmIntfPvcOAMRecoversTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfOAMRcovedPVcls
+  3: catmIntfCurrentOAMRcovingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcSegCCOAMRecoverTrap .1.3.6.1.4.1.9.10.97.2.0.8 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has Segment CC OAM recovery 
+since the last catmIntfPvcSegCCOAMRecoverTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfSegCCOAMRcovedPVcls
+  3: catmIntfCurSegCCOAMRcovingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcEndCCOAMRecoverTrap .1.3.6.1.4.1.9.10.97.2.0.9 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has End-to-End CC OAM recovery 
+since the last catmIntfPvcEndCCOAMRecoverTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfEndCCOAMRcovedPVcls
+  3: catmIntfCurEndCCOAMRcovingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcAISRDIOAMRecoverTrap .1.3.6.1.4.1.9.10.97.2.0.10 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has AIS RDI OAM recovery 
+since the last catmIntfPvcAISRDIOAMRecoverTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfAISRDIOAMRcovedPVcls
+  3: catmIntfCurAISRDIOAMRcovingPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcAnyOAMRecoverTrap .1.3.6.1.4.1.9.10.97.2.0.11 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has one or more OAM recovered 
+since the last catmIntfPvcAnyOAMRecoverTrap was sent.
+Variables:
+  1: ifIndex
+  2: catmIntfAnyOAMRcovedPVcls
+  3: catmIntfCurAnyOAMRcovingPVcls
+  4: catmIntfTypeOfOAMRecover
+EDESC
+#
+#
+#
+EVENT catmIntfPvcUp2Trap .1.3.6.1.4.1.9.10.97.2.0.12 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has changed state back to 'up'
+since the last catmIntfPvcUp2Trap was sent. 
+Variables:
+  1: ifIndex
+  2: catmIntfCurrentlyDownToUpPVcls
+EDESC
+#
+#
+#
+EVENT catmIntfPvcDownTrap .1.3.6.1.4.1.9.10.97.2.0.13 "Status Events" Normal
+FORMAT A notification indicating that one or more $*
+SDESC
+A notification indicating that one or more
+PVCLs on this interface has changed state back to 'down'
+since the last catmIntfPvcDownTrap was sent. 
+Variables:
+  1: ifIndex
+  2: atmIntfPvcFailures
+  3: atmIntfCurrentlyFailingPVcls
+EDESC

@@ -1,0 +1,10 @@
+#
+#
+#
+#
+MIB: HP-DOT1X-EXTENSIONS-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-DOT1X-EXTENSIONS-MIB.mib) converted on Mon Aug 20 11:11:25 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: HP-DOT1X-EXTENSIONS-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-DOT1X-EXTENSIONS-MIB.mib) converted on Mon Aug 20 14:04:33 2012 using snmpttconvertmib v1.3

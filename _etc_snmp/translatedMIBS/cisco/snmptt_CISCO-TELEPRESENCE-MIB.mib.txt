@@ -1,0 +1,47 @@
+#
+#
+#
+#
+MIB: CISCO-TELEPRESENCE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-TELEPRESENCE-MIB.mib) converted on Tue Aug 21 15:26:39 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ctpPeripheralErrorNotification .1.3.6.1.4.1.9.9.643.0.1 "Status Events" Normal
+FORMAT This notification is sent when a peripheral error is detected. $*
+SDESC
+This notification is sent when a peripheral error is detected.
+This notification is deprecated in favor of
+ctpPeriStatusChangeNotification.
+Variables:
+  1: ctpPeripheralErrorIndex
+  2: ctpPeripheralErrorStatus
+EDESC
+#
+#
+#
+EVENT ctpSysUserAuthFailNotification .1.3.6.1.4.1.9.9.643.0.2 "Status Events" Normal
+FORMAT This notification is sent when a user authentication failure $*
+SDESC
+This notification is sent when a user authentication failure
+via a Telepresence supported access protocol is 
+detected.
+Variables:
+  1: ctpSysUserAuthFailSourceAddrType
+  2: ctpSysUserAuthFailSourceAddr
+  3: ctpSysUserAuthFailSourcePort
+  4: ctpSysUserAuthFailUserName
+  5: ctpSysUserAuthFailAccessProtocol
+EDESC
+#
+#
+#
+EVENT ctpPeriStatusChangeNotification .1.3.6.1.4.1.9.9.643.0.3 "Status Events" Normal
+FORMAT This notification is sent when a peripheral status is changed. $*
+SDESC
+This notification is sent when a peripheral status is changed.
+Variables:
+  1: ctpPeripheralErrorIndex
+  2: ctpPeripheralErrorDeviceCategory
+  3: ctpPeripheralErrorDeviceNumber
+  4: ctpPeripheralErrorStatus
+EDESC

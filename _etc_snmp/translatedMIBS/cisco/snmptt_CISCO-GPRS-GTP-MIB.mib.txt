@@ -1,0 +1,83 @@
+#
+#
+#
+#
+MIB: CISCO-GPRS-GTP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-GPRS-GTP-MIB.mib) converted on Tue Aug 21 15:26:03 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cgprsGtpGSNPathFailedNotif .1.3.6.1.4.1.9.10.48.2.0.1 "Status Events" Normal
+FORMAT The  notification is sent when the GSN peer is failed to respond  $*
+SDESC
+The  notification is sent when the GSN peer is failed to respond 
+to the GTP 'Echo Request' message for cgprsGtpN3Request times and 
+before the GSN entry is deleted from the GSN peer table.
+Variables:
+  1: cgprsGtpLastGSNidNoRespToEcho
+EDESC
+#
+#
+#
+EVENT cgprsGtpGSNPathRecoveredNotif .1.3.6.1.4.1.9.10.48.2.0.2 "Status Events" Normal
+FORMAT The  notification is sent when the GSN peer is recovered from  $*
+SDESC
+The  notification is sent when the GSN peer is recovered from 
+failure.
+Variables:
+  1: cgprsGtpLastGSNidRecovered
+EDESC
+#
+#
+#
+EVENT cgprsGtpPDPCxtActivationRejNotif .1.3.6.1.4.1.9.10.48.2.0.3 "Status Events" Normal
+FORMAT This trap indicates that a PDP Context activation was rejected due $*
+SDESC
+This trap indicates that a PDP Context activation was rejected due
+to an overload, or some other abnormal condition. The trap 
+indicates the Id of the GSN that rejected the PDP Context 
+Activation, the IMSI Id of the MS, and the reson for rejection.
+Variables:
+  1: cgprsGtpGSNidOfLastUnexpPDPCxt
+  2: cgprsGtpTIDOfLastUnexpPDPCxt
+  3: cgprsGtpRejReasonOfLastUnexpPDPCxt
+EDESC
+#
+#
+#
+EVENT cgprsGtpPrimaryChargingGWUpNotif .1.3.6.1.4.1.9.10.48.2.0.4 "Status Events" Normal
+FORMAT This notification is sent when  primary charging gateway is up. $*
+SDESC
+This notification is sent when  primary charging gateway is up.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT cgprsGtpPrimaryChargingGWDownNotif .1.3.6.1.4.1.9.10.48.2.0.5 "Status Events" Normal
+FORMAT This notification is sent when primary charging gateway is down. $*
+SDESC
+This notification is sent when primary charging gateway is down.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT cgprsGtpSecondaryChargingGWUpNotif .1.3.6.1.4.1.9.10.48.2.0.6 "Status Events" Normal
+FORMAT This notification is sent when secondary charging gateway is up. $*
+SDESC
+This notification is sent when secondary charging gateway is up.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT cgprsGtpSecondaryChargingGWDownNotif .1.3.6.1.4.1.9.10.48.2.0.7 "Status Events" Normal
+FORMAT This notification is sent when secondary charging gateway is down. $*
+SDESC
+This notification is sent when secondary charging gateway is down.
+
+Variables:
+EDESC

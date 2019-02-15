@@ -1,0 +1,272 @@
+#
+#
+#
+#
+MIB: CISCO-TELEPRESENCE-EXCHANGE-SYSTEM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-TELEPRESENCE-EXCHANGE-SYSTEM-MIB.mib) converted on Tue Aug 21 15:26:39 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoCTXSysAdminServersStatusChg .1.3.6.1.4.1.9.9.758.0.1 "Status Events" Normal
+FORMAT This notification is sent when the ctxAdminServersStatus $*
+SDESC
+This notification is sent when the ctxAdminServersStatus
+changes.  
+ctxStatusChangeNotifyEnable controls whether this notification
+is sent or not.
+Variables:
+  1: ctxAdminServersStatus
+  2: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysDatabaseServersStatusChg .1.3.6.1.4.1.9.9.758.0.2 "Status Events" Normal
+FORMAT This notification is sent when the ctxDatabaseServerStatus $*
+SDESC
+This notification is sent when the ctxDatabaseServerStatus
+changes.  
+ctxStatusChangeNotifyEnable controls whether this notification
+is sent or not.
+Variables:
+  1: ctxDatabaseServersStatus
+  2: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysCallEnginesStatusChg .1.3.6.1.4.1.9.9.758.0.3 "Status Events" Normal
+FORMAT This notification is sent when the ctxCallEnginesStatus $*
+SDESC
+This notification is sent when the ctxCallEnginesStatus
+changes.  
+ctxStatusChangeNotifyEnable controls whether this notification
+is sent or not.
+Variables:
+  1: ctxCallEnginesStatus
+  2: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysResourceStatusChg .1.3.6.1.4.1.9.9.758.0.4 "Status Events" Normal
+FORMAT This notification is sent when the ctxResourceStatus $*
+SDESC
+This notification is sent when the ctxResourceStatus
+changes.  
+ctxStatusChangeNotifyEnable controls whether this notification
+is sent or not.
+Variables:
+  1: ctxResourceStatus
+  2: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysSystemConfigStatusChg .1.3.6.1.4.1.9.9.758.0.5 "Status Events" Normal
+FORMAT This notification is sent when the ctxSystemConfigStatus $*
+SDESC
+This notification is sent when the ctxSystemConfigStatus
+changes.  
+ctxStatusChangeNotifyEnable controls whether this notification
+is sent or not.
+Variables:
+  1: ctxSystemConfigStatus
+  2: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysSystemBackupStatusChg .1.3.6.1.4.1.9.9.758.0.6 "Status Events" Normal
+FORMAT This notification is sent when the ctxSystemBackupStatus $*
+SDESC
+This notification is sent when the ctxSystemBackupStatus
+changes.  
+ctxStatusChangeNotifyEnable controls whether this notification
+is sent or not.
+Variables:
+  1: ctxSystemBackupStatus
+  2: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysLicenseFailure .1.3.6.1.4.1.9.9.758.0.7 "Status Events" Normal
+FORMAT This notification is sent for the following license $*
+SDESC
+This notification is sent for the following license
+violation failures:
+1. DEMO License Errors
+a. Warnings 5 days prior to Demo License expiration 
+if the user has not installed a permanent license.
+b. Error message immediately after the Demo License
+expiration if the user has not installed a permanent
+license.
+2. Volume Based Licensing Errors 
+a. Warning message that the system is reaching the 
+license capacity if using more than 75% of current
+licenses
+b. Error Message that the system is violating the current
+licensing capacity and will soon start rejecting the 
+calls if using more than 100% and less than 150% of
+available licenses
+c. Error message that the system will reject calls if
+claiming more than 150% of available licenses.
+ctxLicenseAlarmNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysUserAuthFailure .1.3.6.1.4.1.9.9.758.0.8 "Status Events" Normal
+FORMAT This notification will be sent when a user authentication $*
+SDESC
+This notification will be sent when a user authentication
+failure results in CTX System.
+1. User authentication errors while trying to log into
+the CTX System Admin UI.
+2. User authentication errors while trying to log into
+the CTX System CLI.
+ctxAuthFailureNotifyEnable controls whether this notification
+is sent or not.
+Variables:
+  1: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysClusterNodeDown .1.3.6.1.4.1.9.9.758.0.9 "Status Events" Normal
+FORMAT This notification will be sent when there is a network $*
+SDESC
+This notification will be sent when there is a network
+connectivity or probe monitor failure to the cluster node from
+the admin server. 
+ctxClusterNodeAlarmNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxClusterNodeType
+  2: ctxClusterNodeName
+  3: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysClusterNodeUp .1.3.6.1.4.1.9.9.758.0.10 "Status Events" Normal
+FORMAT This notification will be sent when the cluster node $*
+SDESC
+This notification will be sent when the cluster node
+connectivity is restored or when the probe monitor is successful
+in monitoring the node after being down. 
+ctxClusterNodeAlarmNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxClusterNodeType
+  2: ctxClusterNodeName
+  3: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysResourceDown .1.3.6.1.4.1.9.9.758.0.11 "Status Events" Normal
+FORMAT This notification will be sent when there is a network $*
+SDESC
+This notification will be sent when there is a network
+connectivity or probe monitor failure to the resource.  This can
+be a SIP OPTION PING, XMLRPC, or network connectivity failure. 
+The ctxNotifyMessage will contain the failure details. 
+ctxResourceAlarmNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxResourceName
+  2: ctxResourceDeviceType
+  3: ctxRegionName
+  4: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysResourceUp .1.3.6.1.4.1.9.9.758.0.12 "Status Events" Normal
+FORMAT This notification will be sent when the resource connectivity $*
+SDESC
+This notification will be sent when the resource connectivity
+is restored or when the probe monitor is successful in
+monitoring the resource after being down. 
+ctxResourceAlarmNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxResourceName
+  2: ctxResourceDeviceType
+  3: ctxRegionName
+  4: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysResourceAllocFailure .1.3.6.1.4.1.9.9.758.0.13 "Status Events" Normal
+FORMAT This notification will be sent when a resource allocation $*
+SDESC
+This notification will be sent when a resource allocation
+failure occurs.
+ctxResourceAlarmNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxResourceName
+  2: ctxResourceDeviceType
+  3: ctxRegionKey
+  4: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysCallSetupFailure .1.3.6.1.4.1.9.9.758.0.14 "Status Events" Normal
+FORMAT This notification will be sent when there is a call $*
+SDESC
+This notification will be sent when there is a call
+setup/routing failure between the CTX System and a resource.
+The cause for the setup failure will be detailed in
+ctxNotifyMessage. 
+ctxCallFailureNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxResourceName
+  2: ctxResourceDeviceType
+  3: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysCallAbnormalDisconnect .1.3.6.1.4.1.9.9.758.0.15 "Status Events" Normal
+FORMAT This notification will be sent when there is an abnormal $*
+SDESC
+This notification will be sent when there is an abnormal
+call disconnect.
+The call disconnect reason will be detailed in 
+ctxNotifyMessage.
+ctxCallFailureNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxResourceName
+  2: ctxResourceDeviceType
+  3: ctxNotifyMessage
+EDESC
+#
+#
+#
+EVENT ciscoCTXSysErrorHistoryEvent .1.3.6.1.4.1.9.9.758.0.16 "Status Events" Normal
+FORMAT This notification is sent when a new ctxErrorHistoryEntry $*
+SDESC
+This notification is sent when a new ctxErrorHistoryEntry
+is created.  
+If the event being logged does not have an organization
+name, this varbind entry will be an empty string value.
+ctxErrorHistoryEventNotifyEnable controls whether this 
+notification is sent or not.
+Variables:
+  1: ctxErrorKey
+  2: ctxErrorSeverity
+  3: ctxErrorAppName
+  4: ctxErrorAlarmId
+  5: ctxErrorAttrValStr
+  6: ctxErrorMessage
+EDESC

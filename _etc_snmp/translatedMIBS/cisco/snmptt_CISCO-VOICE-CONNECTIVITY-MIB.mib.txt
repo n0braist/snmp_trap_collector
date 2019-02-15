@@ -1,0 +1,31 @@
+#
+#
+#
+#
+MIB: CISCO-VOICE-CONNECTIVITY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-VOICE-CONNECTIVITY-MIB.mib) converted on Tue Aug 21 15:26:42 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cvcPortRegistrationStatusChange .1.3.6.1.4.1.9.9.393.0.1 "Status Events" Normal
+FORMAT A cvcPortRegistrationStatusChange notification is generated  $*
+SDESC
+A cvcPortRegistrationStatusChange notification is generated 
+when the value of cvcRegistrationStatus changes.  It can be 
+utilized by an NMS to get current registration status change 
+information.  cvcPortDeviceName and cvcCallAgentInetAddress can
+be used by NMS to get information about the port and 
+call agent from cvcPortTable and cvcCallAgentTable 
+respectively.                       
+An NMS should periodically check the value of 
+cvcLastStatusChangeTime to detect any missed 
+cvcPortRegistrationStatusChange notification-events due to 
+network problem or any other problem.
+Variables:
+  1: cvcPortDeviceName
+  2: cvcCallAgentInetAddress
+  3: cvcCallAgentPriority
+  4: cvcRegistrationStatus
+  5: cvcStatusReason
+  6: cvcLastStatusChangeTime
+  7: cvcLastRegisteredTime
+EDESC

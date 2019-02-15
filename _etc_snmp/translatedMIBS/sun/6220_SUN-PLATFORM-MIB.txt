@@ -1,0 +1,256 @@
+#
+#
+#
+#
+MIB: SUN-PLATFORM-MIB (file:/tmp/ilom-mibs_6220/6220_SUN-PLATFORM-MIB.mib) converted on Tue Jun  4 15:10:42 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT sunPlatObjectCreation .1.3.6.1.4.1.42.2.70.101.2.0.1 "Status Events" Normal
+FORMAT Indicates that an object, indicated by sunPlatNotificationObject, $*
+SDESC
+Indicates that an object, indicated by sunPlatNotificationObject,
+has been created as defined in X.721, sec. 13.6.
+REFERENCE
+X.721, sec. 13.6
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+EDESC
+#
+#
+#
+EVENT sunPlatObjectDeletion .1.3.6.1.4.1.42.2.70.101.2.0.2 "Status Events" Normal
+FORMAT Indicates that an object, indicated by sunPlatNotificationObject, $*
+SDESC
+Indicates that an object, indicated by sunPlatNotificationObject,
+has been deleted as defined in X.721, sec. 13.7.
+REFERENCE
+X.721, sec. 13.7
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+EDESC
+#
+#
+#
+EVENT sunPlatCommunicationsAlarm .1.3.6.1.4.1.42.2.70.101.2.0.3 "Status Events" Normal
+FORMAT Indicates that a communication alarm has occurred as defined $*
+SDESC
+Indicates that a communication alarm has occurred as defined
+in X.721, sec. 13.2.
+REFERENCE
+X.721, sec. 13.2
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+  7: sunPlatNotificationPerceivedSeverity
+  8: sunPlatNotificationProbableCause
+  9: sunPlatNotificationSpecificProblem
+  10: sunPlatNotificationRepairAction
+EDESC
+#
+#
+#
+EVENT sunPlatEnvironmentalAlarm .1.3.6.1.4.1.42.2.70.101.2.0.4 "Status Events" Normal
+FORMAT Indicates that an environment alarm has occurred as defined $*
+SDESC
+Indicates that an environment alarm has occurred as defined
+in X.721, sec. 13.3.
+REFERENCE
+X.721, sec. 13.3
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+  7: sunPlatNotificationPerceivedSeverity
+  8: sunPlatNotificationProbableCause
+  9: sunPlatNotificationSpecificProblem
+  10: sunPlatNotificationRepairAction
+EDESC
+#
+#
+#
+EVENT sunPlatEquipmentAlarm .1.3.6.1.4.1.42.2.70.101.2.0.5 "Status Events" Normal
+FORMAT Indicates that an equipment alarm has occurred as defined $*
+SDESC
+Indicates that an equipment alarm has occurred as defined
+in X.721, sec. 13.4.
+REFERENCE
+X.721, sec.13.4
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+  7: sunPlatNotificationPerceivedSeverity
+  8: sunPlatNotificationProbableCause
+  9: sunPlatNotificationSpecificProblem
+  10: sunPlatNotificationRepairAction
+EDESC
+#
+#
+#
+EVENT sunPlatProcessingErrorAlarm .1.3.6.1.4.1.42.2.70.101.2.0.6 "Status Events" Normal
+FORMAT Indicates that a processing error alarm has occurred as defined $*
+SDESC
+Indicates that a processing error alarm has occurred as defined
+in X.721, sec. 13.10.
+REFERENCE
+X.721, sec. 13.10
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+  7: sunPlatNotificationPerceivedSeverity
+  8: sunPlatNotificationProbableCause
+  9: sunPlatNotificationSpecificProblem
+  10: sunPlatNotificationRepairAction
+EDESC
+#
+#
+#
+EVENT sunPlatStateChange .1.3.6.1.4.1.42.2.70.101.2.0.7 "Status Events" Normal
+FORMAT Indicates that a state change has occurred on the state attribute $*
+SDESC
+Indicates that a state change has occurred on the state attribute
+identified by sunPlatNotificationChangedOID. As states are
+enumerations of type INTEGER, the old and new states are passed in
+sunPlatNotificationOldInteger and sunPlatNotificationNewInteger
+respectively.
+This is as defined in X.721, sec. 13.14.
+REFERENCE
+X.721, sec. 13.14
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationChangedOID
+  6: sunPlatNotificationOldInteger
+  7: sunPlatNotificationNewInteger
+EDESC
+#
+#
+#
+EVENT sunPlatAttributeChangeInteger .1.3.6.1.4.1.42.2.70.101.2.0.8 "Status Events" Normal
+FORMAT Indicates that attribute identified by sunPlatNotificationChangedOID $*
+SDESC
+Indicates that attribute identified by sunPlatNotificationChangedOID
+has changed from the value in sunPlatNotificationOldInteger to the
+value in sunPlatNotificationNewInteger.
+This is as defined in X.721, sec. 13.1.
+REFERENCE
+X.721, sec. 13.1
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationChangedOID
+  6: sunPlatNotificationOldInteger
+  7: sunPlatNotificationNewInteger
+EDESC
+#
+#
+#
+EVENT sunPlatAttributeChangeString .1.3.6.1.4.1.42.2.70.101.2.0.9 "Status Events" Normal
+FORMAT Indicates that attribute identified by sunPlatNotificationChangedOID $*
+SDESC
+Indicates that attribute identified by sunPlatNotificationChangedOID
+has changed from the value in sunPlatNotificationOldString to the
+value in sunPlatNotificationNewString.
+This is as defined in X.721, sec. 13.1.
+REFERENCE
+X.721, sec.13.1
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationChangedOID
+  6: sunPlatNotificationOldString
+  7: sunPlatNotificationNewString
+EDESC
+#
+#
+#
+EVENT sunPlatAttributeChangeOID .1.3.6.1.4.1.42.2.70.101.2.0.10 "Status Events" Normal
+FORMAT Indicates that attribute identified by sunPlatNotificationChangedOID $*
+SDESC
+Indicates that attribute identified by sunPlatNotificationChangedOID
+has changed from the value in sunPlatNotificationOldOID to the
+value in sunPlatNotificationNewOID.
+This is as defined in X.721, sec. 13.1.
+REFERENCE
+X.721, sec. 13.1
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationChangedOID
+  6: sunPlatNotificationOldOID
+  7: sunPlatNotificationNewOID
+EDESC
+#
+#
+#
+EVENT sunPlatQualityOfServiceAlarm .1.3.6.1.4.1.42.2.70.101.2.0.11 "Status Events" Normal
+FORMAT Indicates that a quality of service alarm has occurred as defined in $*
+SDESC
+Indicates that a quality of service alarm has occurred as defined in
+X.721, sec 13.11.
+REFERENCE
+X.721, sec.13.11
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+  7: sunPlatNotificationPerceivedSeverity
+  8: sunPlatNotificationProbableCause
+  9: sunPlatNotificationSpecificProblem
+  10: sunPlatNotificationRepairAction
+EDESC
+#
+#
+#
+EVENT sunPlatIndeterminateAlarm .1.3.6.1.4.1.42.2.70.101.2.0.12 "Status Events" Normal
+FORMAT Indicates that an alarm of an indeterminate type has occurred. $*
+SDESC
+Indicates that an alarm of an indeterminate type has occurred.
+Variables:
+  1: sunPlatNotificationEventId
+  2: sunPlatNotificationTime
+  3: sunPlatNotificationObject
+  4: sunPlatNotificationCorrelatedNotifications
+  5: sunPlatNotificationAdditionalInfo
+  6: sunPlatNotificationAdditionalText
+  7: sunPlatNotificationPerceivedSeverity
+  8: sunPlatNotificationProbableCause
+  9: sunPlatNotificationSpecificProblem
+  10: sunPlatNotificationRepairAction
+EDESC

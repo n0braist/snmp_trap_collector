@@ -1,0 +1,1632 @@
+#
+#
+#
+#
+MIB: SUN-HW-TRAP-MIB (file:/tmp/ilom-mibs_blade6000/neu/BLADE6000_SUN-HW-TRAP-MIB.mib) converted on Tue Jun  4 13:51:30 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT sunHwTrapVoltageFatalThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.1 "Status Events" CRITICAL
+FORMAT A voltage sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A voltage sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A voltage sensor has reported that its value has gone above an upper
+fatal threshold setting or below a lower fatal threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapVoltageFatalThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.2 "Status Events" INFORMATIONAL
+FORMAT A voltage sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A voltage sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting.  The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A voltage sensor has reported that its value has gone below an upper
+fatal threshold setting or above a lower fatal threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapVoltageCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.3 "Status Events" MAJOR
+FORMAT A voltage sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A voltage sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A voltage sensor has reported that its value has gone above an upper
+critical threshold setting or below a lower critical threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapVoltageCritThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.4 "Status Events" INFORMATIONAL
+FORMAT A voltage sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A voltage sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A voltage sensor has reported that its value has gone below an upper
+critical threshold setting or above a lower critical threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapVoltageNonCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.5 "Status Events" MINOR
+FORMAT A voltage sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A voltage sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A voltage sensor has reported that its value has gone above an upper
+non-critical threshold setting or below a lower non-critical threshold
+setting. The sunHwTrapThresholdType object indicates whether the threshold
+was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapVoltageOk .1.3.6.1.4.1.42.2.175.103.2.0.6 "Status Events" INFORMATIONAL
+FORMAT A voltage sensor has reported that its value is in the normal operating range.: A voltage sensor has reported that its value is in the normal operating range.
+SDESC
+A voltage sensor has reported that its value is in the normal
+operating range.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapTempFatalThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.7 "Status Events" CRITICAL
+FORMAT A temperature sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A temperature sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A temperature sensor has reported that its value has gone above an upper
+fatal threshold setting or below a lower fatal threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapTempFatalThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.8 "Status Events" INFORMATIONAL
+FORMAT A temperature sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A temperature sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A temperature sensor has reported that its value has gone below an
+upper fatal threshold setting or above a lower fatal threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapTempCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.9 "Status Events" MAJOR
+FORMAT A temperature sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A temperature sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A temperature sensor has reported that its value has gone above an
+upper critical threshold setting or below a lower critical threshold
+setting. The sunHwTrapThresholdType object indicates whether the
+threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapTempCritThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.10 "Status Events" INFORMATIONAL
+FORMAT A temperature sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A temperature sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A temperature sensor has reported that its value has gone below an
+upper critical threshold setting or above a lower critical threshold
+setting. The sunHwTrapThresholdType object indicates whether the
+threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapTempNonCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.11 "Status Events" MINOR
+FORMAT A temperature sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A temperature sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A temperature sensor has reported that its value has gone above an
+upper non-critical threshold setting or below a lower non-critical
+threshold setting. The sunHwTrapThresholdType object indicates whether
+the threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapTempOk .1.3.6.1.4.1.42.2.175.103.2.0.12 "Status Events" INFORMATIONAL
+FORMAT A temperature sensor has reported that its value is in the normal operating range.: A temperature sensor has reported that its value is in the normal operating range.
+SDESC
+A temperature sensor has reported that its value is in the normal
+operating range.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapElectricalCurrentFatalThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.13 "Status Events" CRITICAL
+FORMAT An electrical current sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: An electrical current sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+An electrical current sensor has reported that its value has gone above
+an upper fatal threshold setting or below a lower fatal threshold
+setting. The sunHwTrapThresholdType object indicates whether the
+threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapElectricalCurrentFatalThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.14 "Status Events" INFORMATIONAL
+FORMAT An electrical current sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: An electrical current sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+An electrical current sensor has reported that its value has gone below
+an upper fatal threshold setting or above a lower fatal threshold
+setting. The sunHwTrapThresholdType object indicates whether the
+threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapElectricalCurrentCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.15 "Status Events" MAJOR
+FORMAT An electrical current sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: An electrical current sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+An electrical current sensor has reported that its value has gone above
+an upper critical threshold setting or below a lower critical threshold
+setting. The sunHwTrapThresholdType object indicates whether the
+threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapElectricalCurrentCritThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.16 "Status Events" INFORMATIONAL
+FORMAT An electrical current sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: An electrical current sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+An electrical current sensor has reported that its value has gone below
+an upper critical threshold setting or above a lower critical threshold
+setting. The sunHwTrapThresholdType object indicates whether the
+threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapElectricalCurrentNonCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.17 "Status Events" MINOR
+FORMAT An electrical current sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: An electrical current sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+An electrical current sensor has reported that its value has gone above
+an upper non-critical threshold setting or below a lower non-critical
+threshold setting. The sunHwTrapThresholdType object indicates whether
+the threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapElectricalCurrentOk .1.3.6.1.4.1.42.2.175.103.2.0.18 "Status Events" INFORMATIONAL
+FORMAT An electrical current sensor has reported that its value is in the normal operating range.: An electrical current sensor has reported that its value is in the normal operating range.
+SDESC
+An electrical current sensor has reported that its value is in
+the normal operating range.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanSpeedFatalThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.19 "Status Events" CRITICAL
+FORMAT A fan speed sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A fan speed sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A fan speed sensor has reported that its value has gone above an upper
+fatal threshold setting or below a lower fatal threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanSpeedFatalThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.20 "Status Events" INFORMATIONAL
+FORMAT A fan speed sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A fan speed sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A fan speed sensor has reported that its value has gone below an upper
+fatal threshold setting or above a lower fatal threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanSpeedCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.21 "Status Events" MAJOR
+FORMAT A fan speed sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A fan speed sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A fan speed sensor has reported that its value has gone above an upper
+critical threshold setting or below a lower critical threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanSpeedCritThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.22 "Status Events" INFORMATIONAL
+FORMAT A fan speed sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A fan speed sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A fan speed sensor has reported that its value has gone below an upper
+critical threshold setting or above a lower critical threshold setting.
+The sunHwTrapThresholdType object indicates whether the threshold was
+an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanSpeedNonCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.23 "Status Events" MINOR
+FORMAT A fan speed sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A fan speed sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A fan speed sensor has reported that its value has gone above an upper
+non-critical threshold setting or below a lower non-critical threshold
+setting. The sunHwTrapThresholdType object indicates whether the
+threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanSpeedOk .1.3.6.1.4.1.42.2.175.103.2.0.24 "Status Events" INFORMATIONAL
+FORMAT A fan speed sensor has reported that its value is in the normal operating range.: A fan speed sensor has reported that its value is in the normal operating range.
+SDESC
+A fan speed sensor has reported that its value is in
+the normal operating range.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapSensorFatalThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.25 "Status Events" CRITICAL
+FORMAT A sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The  generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A sensor has reported that its value has gone above an upper fatal threshold setting or below a lower fatal threshold setting. The  generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A sensor has reported that its value has gone above an upper fatal
+threshold setting or below a lower fatal threshold setting. The 
+generic 'sensor' trap is generated when the SNMP agent does not
+recognize the component type. The sunHwTrapThresholdType object
+indicates whether the threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapSensorFatalThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.26 "Status Events" INFORMATIONAL
+FORMAT A sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A sensor has reported that its value has gone below an upper fatal threshold setting or above a lower fatal threshold setting. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A sensor has reported that its value has gone below an upper fatal
+threshold setting or above a lower fatal threshold setting. The
+generic 'sensor' trap is generated when the SNMP agent does not
+recognize the component type. The sunHwTrapThresholdType object
+indicates whether the threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapSensorCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.27 "Status Events" MAJOR
+FORMAT A sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The  generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A sensor has reported that its value has gone above an upper critical threshold setting or below a lower critical threshold setting. The  generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A sensor has reported that its value has gone above an upper critical
+threshold setting or below a lower critical threshold setting. The 
+generic 'sensor' trap is generated when the SNMP agent does not
+recognize the component type. The sunHwTrapThresholdType object
+indicates whether the threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapSensorCritThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.28 "Status Events" INFORMATIONAL
+FORMAT A sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A sensor has reported that its value has gone below an upper critical threshold setting or above a lower critical threshold setting. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A sensor has reported that its value has gone below an upper critical
+threshold setting or above a lower critical threshold setting. The
+generic 'sensor' trap is generated when the SNMP agent does not
+recognize the component type. The sunHwTrapThresholdType object
+indicates whether the threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapSensorNonCritThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.29 "Status Events" MINOR
+FORMAT A sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.: A sensor has reported that its value has gone above an upper non-critical threshold setting or below a lower non-critical threshold setting. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type. The sunHwTrapThresholdType object indicates whether the threshold was an upper or lower.
+SDESC
+A sensor has reported that its value has gone above an upper
+non-critical threshold setting or below a lower non-critical threshold
+setting. The generic 'sensor' trap is generated when the SNMP agent
+does not recognize the component type. The sunHwTrapThresholdType
+object indicates whether the threshold was an upper or lower.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapSensorThresholdOk .1.3.6.1.4.1.42.2.175.103.2.0.30 "Status Events" INFORMATIONAL
+FORMAT A sensor has reported that its value is in the normal operating range. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type.: A sensor has reported that its value is in the normal operating range. The generic 'sensor' trap is generated when the SNMP agent does not recognize the component type.
+SDESC
+A sensor has reported that its value is in the normal operating range.
+The generic 'sensor' trap is generated when the SNMP agent does not
+recognize the component type.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapPowerSupplyFault .1.3.6.1.4.1.42.2.175.103.2.0.31 "Status Events" MAJOR
+FORMAT A power supply component is suspected of causing a fault.: A power supply component is suspected of causing a fault.
+SDESC
+A power supply component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapPowerSupplyFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.64 "Status Events" INFORMATIONAL
+FORMAT A power supply component fault has been cleared.: A power supply component fault has been cleared.
+SDESC
+A power supply component fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapPowerSupplyError .1.3.6.1.4.1.42.2.175.103.2.0.32 "Status Events" MAJOR
+FORMAT A power supply sensor has detected an error.: A power supply sensor has detected an error.
+SDESC
+A power supply sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapPowerSupplyOk .1.3.6.1.4.1.42.2.175.103.2.0.33 "Status Events" INFORMATIONAL
+FORMAT A power supply sensor has returned to its normal state.: A power supply sensor has returned to its normal state.
+SDESC
+A power supply sensor has returned to its normal state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanFault .1.3.6.1.4.1.42.2.175.103.2.0.34 "Status Events" MAJOR
+FORMAT A fan component is suspected of causing a fault.: A fan component is suspected of causing a fault.
+SDESC
+A fan component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.65 "Status Events" INFORMATIONAL
+FORMAT A fan component fault has been cleared.: A fan component fault has been cleared.
+SDESC
+A fan component fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanError .1.3.6.1.4.1.42.2.175.103.2.0.35 "Status Events" MAJOR
+FORMAT A fan sensor has detected an error.: A fan sensor has detected an error.
+SDESC
+A fan sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapFanOk .1.3.6.1.4.1.42.2.175.103.2.0.36 "Status Events" INFORMATIONAL
+FORMAT A fan sensor has returned to its normal state.: A fan sensor has returned to its normal state.
+SDESC
+A fan sensor has returned to its normal state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapProcessorFault .1.3.6.1.4.1.42.2.175.103.2.0.37 "Status Events" MAJOR
+FORMAT A processor component is suspected of causing a fault.: A processor component is suspected of causing a fault.
+SDESC
+A processor component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapProcessorFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.66 "Status Events" INFORMATIONAL
+FORMAT A processor component fault has been cleared.: A processor component fault has been cleared.
+SDESC
+A processor component fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapProcessorError .1.3.6.1.4.1.42.2.175.103.2.0.38 "Status Events" MAJOR
+FORMAT A processor sensor has detected an error.: A processor sensor has detected an error.
+SDESC
+A processor sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapProcessorOk .1.3.6.1.4.1.42.2.175.103.2.0.39 "Status Events" INFORMATIONAL
+FORMAT A processor sensor has returned to its normal state.: A processor sensor has returned to its normal state.
+SDESC
+A processor sensor has returned to its normal state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapMemoryFault .1.3.6.1.4.1.42.2.175.103.2.0.40 "Status Events" MAJOR
+FORMAT A memory component is suspected of causing a fault.: A memory component is suspected of causing a fault.
+SDESC
+A memory component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapMemoryFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.67 "Status Events" INFORMATIONAL
+FORMAT A memory component fault has been cleared.: A memory component fault has been cleared.
+SDESC
+A memory component fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapMemoryError .1.3.6.1.4.1.42.2.175.103.2.0.41 "Status Events" MAJOR
+FORMAT A memory sensor has detected an error.: A memory sensor has detected an error.
+SDESC
+A memory sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapMemoryOk .1.3.6.1.4.1.42.2.175.103.2.0.42 "Status Events" INFORMATIONAL
+FORMAT A memory sensor has returned to its normal state.: A memory sensor has returned to its normal state.
+SDESC
+A memory sensor has returned to its normal state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapHardDriveFault .1.3.6.1.4.1.42.2.175.103.2.0.43 "Status Events" MAJOR
+FORMAT A hard drive component is suspected of causing a fault.: A hard drive component is suspected of causing a fault.
+SDESC
+A hard drive component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+  11: sunHwTrapHardDriveProbableCause
+EDESC
+#
+#
+#
+EVENT sunHwTrapHardDriveFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.68 "Status Events" INFORMATIONAL
+FORMAT A hard drive component fault has been cleared.: A hard drive component fault has been cleared.
+SDESC
+A hard drive component fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapHardDriveError .1.3.6.1.4.1.42.2.175.103.2.0.44 "Status Events" MAJOR
+FORMAT A hard drive sensor has detected an error.: A hard drive sensor has detected an error.
+SDESC
+A hard drive sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+  7: sunHwTrapHardDriveProbableCause
+EDESC
+#
+#
+#
+EVENT sunHwTrapHardDriveOk .1.3.6.1.4.1.42.2.175.103.2.0.45 "Status Events" INFORMATIONAL
+FORMAT A hard drive sensor has returned to its normal state.: A hard drive sensor has returned to its normal state.
+SDESC
+A hard drive sensor has returned to its normal state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapIOFault .1.3.6.1.4.1.42.2.175.103.2.0.46 "Status Events" MAJOR
+FORMAT A component in the IO subsystem is suspected of causing a fault.: A component in the IO subsystem is suspected of causing a fault.
+SDESC
+A component in the IO subsystem is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapIOFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.69 "Status Events" INFORMATIONAL
+FORMAT An IO subsystem component fault has been cleared.: An IO subsystem component fault has been cleared.
+SDESC
+An IO subsystem component fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapIOError .1.3.6.1.4.1.42.2.175.103.2.0.47 "Status Events" MAJOR
+FORMAT An IO sensor has detected an error.: An IO sensor has detected an error.
+SDESC
+An IO sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapIOOk .1.3.6.1.4.1.42.2.175.103.2.0.48 "Status Events" INFORMATIONAL
+FORMAT An IO sensor has returned to its normal state.: An IO sensor has returned to its normal state.
+SDESC
+An IO sensor has returned to its normal state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapSlotOrConnectorFault .1.3.6.1.4.1.42.2.175.103.2.0.49 "Status Events" MAJOR
+FORMAT A slot or connector component is suspected of causing a fault.: A slot or connector component is suspected of causing a fault.
+SDESC
+A slot or connector component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapSlotOrConnectorFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.70 "Status Events" INFORMATIONAL
+FORMAT A slot or connector component fault has been cleared.: A slot or connector component fault has been cleared.
+SDESC
+A slot or connector component fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapSlotOrConnectorError .1.3.6.1.4.1.42.2.175.103.2.0.50 "Status Events" MAJOR
+FORMAT A sensor associated with a slot or connector has detected an error.: A sensor associated with a slot or connector has detected an error.
+SDESC
+A sensor associated with a slot or connector has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapSlotOrConnectorOk .1.3.6.1.4.1.42.2.175.103.2.0.51 "Status Events" INFORMATIONAL
+FORMAT A sensor associated with a slot or connector has returned to its normal state.: A sensor associated with a slot or connector has returned to its normal state.
+SDESC
+A sensor associated with a slot or connector has returned
+to its normal state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapComponentFault .1.3.6.1.4.1.42.2.175.103.2.0.52 "Status Events" MAJOR
+FORMAT A component is suspected of causing a fault. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.: A component is suspected of causing a fault. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.
+SDESC
+A component is suspected of causing a fault. This generic 'component'
+trap is generated when the SNMP agent does not recognize the component
+type.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapComponentFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.71 "Status Events" INFORMATIONAL
+FORMAT A component fault has been cleared. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.: A component fault has been cleared. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.
+SDESC
+A component fault has been cleared. This generic 'component'
+trap is generated when the SNMP agent does not recognize the component
+type.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapComponentError .1.3.6.1.4.1.42.2.175.103.2.0.53 "Status Events" MAJOR
+FORMAT A sensor has detected an error. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.: A sensor has detected an error. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.
+SDESC
+A sensor has detected an error. This generic 'component' trap is
+generated when the SNMP agent does not recognize the component type.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapComponentOk .1.3.6.1.4.1.42.2.175.103.2.0.54 "Status Events" INFORMATIONAL
+FORMAT A sensor has returned to its normal state. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.: A sensor has returned to its normal state. This generic 'component' trap is generated when the SNMP agent does not recognize the component type.
+SDESC
+A sensor has returned to its normal state. This generic 'component'
+trap is generated when the SNMP agent does not recognize the component
+type.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapFruInserted .1.3.6.1.4.1.42.2.175.103.2.0.55 "Status Events" INFORMATIONAL
+FORMAT A field replaceable unit has been inserted into the system.: A field replaceable unit has been inserted into the system.
+SDESC
+A field replaceable unit has been inserted into the system.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapFruRemoved .1.3.6.1.4.1.42.2.175.103.2.0.56 "Status Events" INFORMATIONAL
+FORMAT A field replaceable unit has been removed from the system.: A field replaceable unit has been removed from the system.
+SDESC
+A field replaceable unit has been removed from the system.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapComponentDisabled .1.3.6.1.4.1.42.2.175.103.2.0.57 "Status Events" INFORMATIONAL
+FORMAT The component operational state has changed or is changing to disabled.: The component operational state has changed or is changing to disabled.
+SDESC
+The component operational state has changed or is changing
+to disabled.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapDisableReason
+  6: sunHwTrapAdditionalInfo
+  7: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapComponentEnabled .1.3.6.1.4.1.42.2.175.103.2.0.58 "Status Events" INFORMATIONAL
+FORMAT The component operational state has changed or is changing to enabled.: The component operational state has changed or is changing to enabled.
+SDESC
+The component operational state has changed or is changing
+to enabled.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+EDESC
+#
+#
+#
+EVENT sunHwTrapPreOSError .1.3.6.1.4.1.42.2.175.103.2.0.59 "Status Events" INFORMATIONAL
+FORMAT An error has been detected in the period before the operating system has taken control of the system.: An error has been detected in the period before the operating system has taken control of the system.
+SDESC
+An error has been detected in the period before the operating
+system has taken control of the system.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapHAStateChange .1.3.6.1.4.1.42.2.175.103.2.0.60 "Status Events" INFORMATIONAL
+FORMAT The high availability component identified by sunHwTrapSystemIdentifier has changed state.: The high availability component identified by sunHwTrapSystemIdentifier has changed state.
+SDESC
+The high availability component identified by sunHwTrapSystemIdentifier
+has changed state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapNewHAState
+  5: sunHwTrapOldHAState
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapSecurityIntrusion .1.3.6.1.4.1.42.2.175.103.2.0.61 "Status Events" MAJOR
+FORMAT An intrusion sensor has detected that someone may have physically tampered with the system.: An intrusion sensor has detected that someone may have physically tampered with the system.
+SDESC
+An intrusion sensor has detected that someone may have physically
+tampered with the system.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapHardDriveStatus .1.3.6.1.4.1.42.2.175.103.2.0.62 "Status Events" INFORMATIONAL
+FORMAT The hard drive identified by sunHwTrapComponentName has changed state.: The hard drive identified by sunHwTrapComponentName has changed state.
+SDESC
+The hard drive identified by sunHwTrapComponentName has changed state.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapHardDriveState
+EDESC
+#
+#
+#
+EVENT sunHwTrapTestTrap .1.3.6.1.4.1.42.2.175.103.2.0.63 "Status Events" INFORMATIONAL
+FORMAT This is a test trap: This is a test trap
+SDESC
+This is a test trap
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapTestMessage
+EDESC
+#
+#
+#
+EVENT sunHwTrapPowerConsumptionThresholdExceeded .1.3.6.1.4.1.42.2.175.103.2.0.72 "Status Events" INFORMATIONAL
+FORMAT A power consumption threshold has been exceeded.: A power consumption threshold has been exceeded.
+SDESC
+
+A power consumption threshold has been exceeded. 
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapPowerConsumptionThresholdDeasserted .1.3.6.1.4.1.42.2.175.103.2.0.73 "Status Events" INFORMATIONAL
+FORMAT A power consumption threshold has been deasserted.: A power consumption threshold has been deasserted.
+SDESC
+
+A power consumption threshold has been deasserted. 
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapThresholdType
+  6: sunHwTrapThresholdValue
+  7: sunHwTrapSensorValue
+  8: sunHwTrapAdditionalInfo
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapSeverity
+EDESC
+#
+#
+#
+EVENT sunHwTrapDriveControllerFault .1.3.6.1.4.1.42.2.175.103.2.0.74 "Status Events" MAJOR
+FORMAT A drive controller component is suspected of causing a fault.: A drive controller component is suspected of causing a fault.
+SDESC
+A drive controller component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+  11: sunHwTrapDriveControllerProbableCause
+EDESC
+#
+#
+#
+EVENT sunHwTrapDriveControllerFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.75 "Status Events" INFORMATIONAL
+FORMAT A drive controller fault has been cleared.: A drive controller fault has been cleared.
+SDESC
+A drive controller has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapDriveControllerError .1.3.6.1.4.1.42.2.175.103.2.0.76 "Status Events" MAJOR
+FORMAT A drive controller sensor has detected an error.: A drive controller sensor has detected an error.
+SDESC
+A drive controller sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+  7: sunHwTrapDriveControllerProbableCause
+EDESC
+#
+#
+#
+EVENT sunHwTrapStorageVolumeFault .1.3.6.1.4.1.42.2.175.103.2.0.77 "Status Events" MAJOR
+FORMAT A drive controller component is suspected of causing a fault.: A drive controller component is suspected of causing a fault.
+SDESC
+A RAID component is suspected of causing a fault.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapSuspectComponentName
+  5: sunHwTrapFaultClass
+  6: sunHwTrapFaultCertainty
+  7: sunHwTrapFaultMessageID
+  8: sunHwTrapFaultUUID
+  9: sunHwTrapAssocObjectId
+  10: sunHwTrapAdditionalInfo
+  11: sunHwTrapStorageVolumeProbableCause
+EDESC
+#
+#
+#
+EVENT sunHwTrapStorageVolumeFaultCleared .1.3.6.1.4.1.42.2.175.103.2.0.78 "Status Events" INFORMATIONAL
+FORMAT A storage volume fault has been cleared.: A storage volume fault has been cleared.
+SDESC
+A storage volume fault has been cleared.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAssocObjectId
+  6: sunHwTrapAdditionalInfo
+EDESC
+#
+#
+#
+EVENT sunHwTrapStorageVolumeError .1.3.6.1.4.1.42.2.175.103.2.0.79 "Status Events" MAJOR
+FORMAT A RAID sensor has detected an error.: A RAID sensor has detected an error.
+SDESC
+A RAID sensor has detected an error.
+--  Keywords for HP SIM integration
+Variables:
+  1: sunHwTrapSystemIdentifier
+  2: sunHwTrapChassisId
+  3: sunHwTrapProductName
+  4: sunHwTrapComponentName
+  5: sunHwTrapAdditionalInfo
+  6: sunHwTrapAssocObjectId
+  7: sunHwTrapStorageVolumeProbableCause
+EDESC
+#
+#
+#
+EVENT sunHwTrapFaultDiagnosed .1.3.6.1.4.1.42.2.175.103.2.0.80 "Status Events" Normal
+FORMAT Diagnosed fault has been detected. $*
+SDESC
+Diagnosed fault has been detected.
+Objects common to all suspects:
+sunHwTrapFaultMessageID,
+sunHwTrapFaultUUID,
+sunHwTrapKaUrl,
+sunHwTrapFaultDescription,
+sunHwTrapSeverity,
+sunHwTrapProductManufacturer,
+sunHwTrapProductName,
+sunHwTrapProductSn,
+sunHwTrapDiagEntity,
+sunHwTrapSystemIdentifier,
+sunHwTrapHostname,
+sunHwTrapSuspectCnt,
+List of suspects objects:
+sunHwTrapSuspectFruFaultCertainty
+sunHwTrapSuspectFruFaultClass
+sunHwTrapSuspectFruName
+sunHwTrapSuspectFruLocation
+sunHwTrapSuspectFruChassisId
+sunHwTrapSuspectFruManufacturer
+sunHwTrapSuspectFruPn
+sunHwTrapSuspectFruSn
+sunHwTrapSuspectFruRevision
+sunHwTrapSuspectFruStatus
+Variables:
+  1: sunHwTrapEventTime
+  2: sunHwTrapFaultMessageID
+  3: sunHwTrapFaultUUID
+  4: sunHwTrapKaUrl
+  5: sunHwTrapFaultDescription
+  6: sunHwTrapSeverity
+  7: sunHwTrapProductManufacturer
+  8: sunHwTrapProductName
+  9: sunHwTrapProductSn
+  10: sunHwTrapDiagEntity
+  11: sunHwTrapSystemIdentifier
+  12: sunHwTrapHostname
+  13: sunHwTrapSuspectCnt
+  14: sunHwTrapSuspectFruFaultCertainty
+  15: sunHwTrapSuspectFruFaultClass
+  16: sunHwTrapSuspectFruName
+  17: sunHwTrapSuspectFruLocation
+  18: sunHwTrapSuspectFruChassisId
+  19: sunHwTrapSuspectFruManufacturer
+  20: sunHwTrapSuspectFruPn
+  21: sunHwTrapSuspectFruSn
+  22: sunHwTrapSuspectFruRevision
+  23: sunHwTrapSuspectFruStatus
+  24: sunHwTrapSuspectFruFaultCertainty
+  25: sunHwTrapSuspectFruFaultClass
+  26: sunHwTrapSuspectFruName
+  27: sunHwTrapSuspectFruLocation
+  28: sunHwTrapSuspectFruChassisId
+  29: sunHwTrapSuspectFruManufacturer
+  30: sunHwTrapSuspectFruPn
+  31: sunHwTrapSuspectFruSn
+  32: sunHwTrapSuspectFruRevision
+  33: sunHwTrapSuspectFruStatus
+  34: sunHwTrapSuspectFruFaultCertainty
+  35: sunHwTrapSuspectFruFaultClass
+  36: sunHwTrapSuspectFruName
+  37: sunHwTrapSuspectFruLocation
+  38: sunHwTrapSuspectFruChassisId
+  39: sunHwTrapSuspectFruManufacturer
+  40: sunHwTrapSuspectFruPn
+  41: sunHwTrapSuspectFruSn
+  42: sunHwTrapSuspectFruRevision
+  43: sunHwTrapSuspectFruStatus
+  44: sunHwTrapSuspectFruFaultCertainty
+  45: sunHwTrapSuspectFruFaultClass
+  46: sunHwTrapSuspectFruName
+  47: sunHwTrapSuspectFruLocation
+  48: sunHwTrapSuspectFruChassisId
+  49: sunHwTrapSuspectFruManufacturer
+  50: sunHwTrapSuspectFruPn
+  51: sunHwTrapSuspectFruSn
+  52: sunHwTrapSuspectFruRevision
+  53: sunHwTrapSuspectFruStatus
+  54: sunHwTrapSuspectFruFaultCertainty
+  55: sunHwTrapSuspectFruFaultClass
+  56: sunHwTrapSuspectFruName
+  57: sunHwTrapSuspectFruLocation
+  58: sunHwTrapSuspectFruChassisId
+  59: sunHwTrapSuspectFruManufacturer
+  60: sunHwTrapSuspectFruPn
+  61: sunHwTrapSuspectFruSn
+  62: sunHwTrapSuspectFruRevision
+  63: sunHwTrapSuspectFruStatus
+EDESC

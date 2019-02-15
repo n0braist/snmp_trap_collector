@@ -1,0 +1,48 @@
+#
+#
+#
+#
+MIB: HP-ICF-GENERIC-RPTR (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-GENERIC-RPTR.mib) converted on Mon Aug 20 14:09:56 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpicfIntrusionTrap .1.3.6.1.4.1.11.2.14.12.4.0.1 "Status Events" Normal
+FORMAT The hpicfIntrusionTrap signifies that a port $*
+SDESC
+The hpicfIntrusionTrap signifies that a port
+security violation has been detected on a port which
+has the hubSecPtAlarmEnable flag set to 'enabled'.
+or hpSecPtrIntrusionResponse set to 'SendTrap' 
+or 'SendTrapAndDisablePort'.
+hubIntruderGroup identifies the group containing the
+port on which this intrusion occurred.
+hubIntruderPort identifies the port within the group
+on which this intrusion occurred.  hubIntruderAddress
+contains the souce MAC address of the intruder.
+hubIntruderType identifies the type of violation that
+occured: address, training, or both.  If the
+violation is of type 'training', the
+hubIntruderTrainingViolation object will indicate
+additional information on the type of violation.
+Variables:
+  1: hubIntruderGroup
+  2: hubIntruderPort
+  3: hubIntruderAddress
+  4: hubIntruderType
+  5: hubIntruderTrainingViolation
+EDESC
+#
+#
+#
+EVENT hpicfBackupLinkTrap .1.3.6.1.4.1.11.2.14.12.4.0.2 "Status Events" Normal
+FORMAT The hpicfBackupLinkTrap signifies that the primary $*
+SDESC
+The hpicfBackupLinkTrap signifies that the primary
+link for a backup link configuration has failed, and
+the agent has switched over to using the backup link.
+The instance of the hpicfBackupLinkState for the
+backup link configuration that experienced the
+primary link failure is included in the trap.
+Variables:
+  1: hpicfBackupLinkState
+EDESC

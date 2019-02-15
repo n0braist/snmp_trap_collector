@@ -1,0 +1,169 @@
+#
+#
+#
+#
+MIB: CISCO-IPSEC-FLOW-MONITOR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IPSEC-FLOW-MONITOR-MIB.mib) converted on Tue Aug 21 15:26:10 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cikeTunnelStart .1.3.6.1.4.1.9.9.171.2.0.1 "Status Events" Normal
+FORMAT This notification is generated when an IPsec Phase-1 $*
+SDESC
+This notification is generated when an IPsec Phase-1
+IKE Tunnel becomes active.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+  3: cikeTunLifeTime
+EDESC
+#
+#
+#
+EVENT cikeTunnelStop .1.3.6.1.4.1.9.9.171.2.0.2 "Status Events" Normal
+FORMAT This notification is generated when an IPsec Phase-1 $*
+SDESC
+This notification is generated when an IPsec Phase-1
+IKE Tunnel becomes inactive.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+  3: cikeTunActiveTime
+EDESC
+#
+#
+#
+EVENT cikeSysFailure .1.3.6.1.4.1.9.9.171.2.0.3 "Status Events" Normal
+FORMAT This notification is generated when the processing for $*
+SDESC
+This notification is generated when the processing for
+an IPsec Phase-1 IKE Tunnel experiences an internal
+or system capacity error.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+EDESC
+#
+#
+#
+EVENT cikeCertCrlFailure .1.3.6.1.4.1.9.9.171.2.0.4 "Status Events" Normal
+FORMAT This notification is generated when the processing for $*
+SDESC
+This notification is generated when the processing for
+an IPsec Phase-1 IKE Tunnel experiences a Certificate
+or a Certificate Revoke List (CRL) related error.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+EDESC
+#
+#
+#
+EVENT cikeProtocolFailure .1.3.6.1.4.1.9.9.171.2.0.5 "Status Events" Normal
+FORMAT This notification is generated when the processing for $*
+SDESC
+This notification is generated when the processing for
+an IPsec Phase-1 IKE Tunnel experiences a protocol
+related error.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+EDESC
+#
+#
+#
+EVENT cikeNoSa .1.3.6.1.4.1.9.9.171.2.0.6 "Status Events" Normal
+FORMAT This notification is generated when the processing for $*
+SDESC
+This notification is generated when the processing for
+an IPsec Phase-1 IKE Tunnel experiences a non-existent
+security association error.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+EDESC
+#
+#
+#
+EVENT cipSecTunnelStart .1.3.6.1.4.1.9.9.171.2.0.7 "Status Events" Normal
+FORMAT This notification is generated when an IPsec Phase-2 $*
+SDESC
+This notification is generated when an IPsec Phase-2
+Tunnel becomes active.
+Variables:
+  1: cipSecTunLifeTime
+  2: cipSecTunLifeSize
+EDESC
+#
+#
+#
+EVENT cipSecTunnelStop .1.3.6.1.4.1.9.9.171.2.0.8 "Status Events" Normal
+FORMAT This notification is generated when an IPsec Phase-2 $*
+SDESC
+This notification is generated when an IPsec Phase-2
+Tunnel becomes inactive.
+Variables:
+  1: cipSecTunActiveTime
+EDESC
+#
+#
+#
+EVENT cipSecSysFailure .1.3.6.1.4.1.9.9.171.2.0.9 "Status Events" Normal
+FORMAT This notification is generated when the processing for $*
+SDESC
+This notification is generated when the processing for
+an IPsec Phase-2 Tunnel experiences an internal
+or system capacity error.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+  3: cipSecTunActiveTime
+  4: cipSecSpiProtocol
+EDESC
+#
+#
+#
+EVENT cipSecSetUpFailure .1.3.6.1.4.1.9.9.171.2.0.10 "Status Events" Normal
+FORMAT This notification is generated when the setup for $*
+SDESC
+This notification is generated when the setup for
+an IPsec Phase-2 Tunnel fails.
+Variables:
+  1: cikePeerLocalAddr
+  2: cikePeerRemoteAddr
+EDESC
+#
+#
+#
+EVENT cipSecEarlyTunTerm .1.3.6.1.4.1.9.9.171.2.0.11 "Status Events" Normal
+FORMAT This notification is generated when an an IPsec Phase-2 $*
+SDESC
+This notification is generated when an an IPsec Phase-2
+Tunnel is terminated earily or before expected.
+Variables:
+  1: cipSecTunActiveTime
+  2: cipSecSpiProtocol
+EDESC
+#
+#
+#
+EVENT cipSecProtocolFailure .1.3.6.1.4.1.9.9.171.2.0.12 "Status Events" Normal
+FORMAT This notification is generated when the processing for $*
+SDESC
+This notification is generated when the processing for
+an IPsec Phase-2 Tunnel experiences a protocol
+related error.
+Variables:
+  1: cipSecTunActiveTime
+  2: cipSecSpiProtocol
+EDESC
+#
+#
+#
+EVENT cipSecNoSa .1.3.6.1.4.1.9.9.171.2.0.13 "Status Events" Normal
+FORMAT This notification is generated when the processing for $*
+SDESC
+This notification is generated when the processing for
+an IPsec Phase-2 Tunnel experiences a non-existent
+security association error.
+Variables:
+EDESC

@@ -1,0 +1,130 @@
+#
+#
+#
+#
+MIB: CPQIODRV-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQIODRV-MIB.mib) converted on Wed Aug 22 14:19:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqIoDrvWearoutTrap .1.3.6.1.4.1.232.0.172001 "Status Events" MINOR
+FORMAT cpqIoDrvWearoutTrap (172001): IO Drive begins to wear out
+SDESC
+IO Drive begins to wear out.
+This trap signifies that the agent has detected a wear out of 
+IO Drive configured with your system.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIoDrvInfoWearoutIndicator
+  4: cpqIoDrvInfoIndex
+  5: cpqIoDrvInfoName
+  6: cpqIoDrvInfoFirmwareVersion
+  7: cpqIoDrvInfoSparesPartNumber
+  8: cpqIoDrvInfoSerialNumber
+  9: cpqIoDrvInfoPCISlot
+EDESC
+#
+#
+#
+EVENT cpqIoDrvNonWritableTrap .1.3.6.1.4.1.232.0.172002 "Status Events" CRITICAL
+FORMAT cpqIoDrvNonWritableTrap (172002): IO Drive is not writeable due to excessive wear.
+SDESC
+
+IO Drive is not writeable due to excessive wear
+This trap signifies that IO Drive configured with system is not 
+writeable due to excessive wear.
+User Action: Replace the existing IO Drive to make it 
+writable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIoDrvInfoNonWritableIndicator
+  4: cpqIoDrvInfoIndex
+  5: cpqIoDrvInfoName
+  6: cpqIoDrvInfoFirmwareVersion
+  7: cpqIoDrvInfoSparesPartNumber
+  8: cpqIoDrvInfoSerialNumber
+  9: cpqIoDrvInfoPCISlot
+EDESC
+#
+#
+#
+EVENT cpqIoDrvFlashbackTrap .1.3.6.1.4.1.232.0.172003 "Status Events" MINOR
+FORMAT cpqIoDrvFlashbackTrap (172003): IO Drive flashback protection becomes degraded
+SDESC
+
+IO Drive flashback protection becomes degraded
+This trap signifies that IO Drive flashback protection
+configured with system is degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIoDrvInfoFlashbackIndicator
+  4: cpqIoDrvInfoIndex
+  5: cpqIoDrvInfoName
+  6: cpqIoDrvInfoFirmwareVersion
+  7: cpqIoDrvInfoSparesPartNumber
+  8: cpqIoDrvInfoSerialNumber
+  9: cpqIoDrvInfoPCISlot
+EDESC
+#
+#
+#
+EVENT cpqIoDrvTempHighTrap .1.3.6.1.4.1.232.0.172004 "Status Events" MAJOR
+FORMAT cpqIoDrvFlashbackTrap (172004): Temperature sensor of IO Drive surpasses the threshold
+SDESC
+
+Temperature sensor of IO Drive surpasses the threshold.
+This trap signifies that the temperature sensor of IO Drive 
+configured with system surpasses the threshold configured.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIoDrvInfoCurrentTemp
+  4: cpqIoDrvInfoIndex
+  5: cpqIoDrvInfoName
+  6: cpqIoDrvInfoFirmwareVersion
+  7: cpqIoDrvInfoSparesPartNumber
+  8: cpqIoDrvInfoSerialNumber
+  9: cpqIoDrvInfoPCISlot
+EDESC
+#
+#
+#
+EVENT cpqIoDrvTempOkTrap .1.3.6.1.4.1.232.0.172005 "Status Events" INFORMATIONAL
+FORMAT cpqIoDrvFlashbackTrap (172005): Temperature sensor of IO Drive set below threshold
+SDESC
+
+Temperature sensor of IO Drive set below threshold.
+This trap signifies that the temperature sensor of IO Drive 
+configured with system surpasses the threshold configured.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIoDrvInfoCurrentTemp
+  4: cpqIoDrvInfoIndex
+  5: cpqIoDrvInfoName
+  6: cpqIoDrvInfoFirmwareVersion
+  7: cpqIoDrvInfoSparesPartNumber
+  8: cpqIoDrvInfoSerialNumber
+  9: cpqIoDrvInfoPCISlot
+EDESC
+#
+#
+#
+EVENT cpqIoDrvErrorTrap .1.3.6.1.4.1.232.0.172006 "Status Events" MAJOR
+FORMAT cpqIoDrvFlashbackTrap (172006): IO Drive is in an error state.
+SDESC
+
+IO Drive is in an error state.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIoDrvInfoState
+  4: cpqIoDrvInfoIndex
+  5: cpqIoDrvInfoName
+  6: cpqIoDrvInfoFirmwareVersion
+  7: cpqIoDrvInfoSparesPartNumber
+  8: cpqIoDrvInfoSerialNumber
+  9: cpqIoDrvInfoPCISlot
+EDESC

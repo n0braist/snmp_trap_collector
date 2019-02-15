@@ -1,0 +1,44 @@
+#
+#
+#
+#
+MIB: HA-MIB (file:/tmp/SUN_IBM_MIB/HA-MIB.mib) converted on Wed Nov 12 10:16:09 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT fruStatusChanged .1.3.6.1.4.1.1588.2.1.2.2.0.1 "Status Events" Normal
+FORMAT This trap is sent when status of any FRU object is changed $*
+SDESC
+This trap is sent when status of any FRU object is changed
+Variables:
+  1: entPhysicalName
+  2: fruStatus
+EDESC
+#
+#
+#
+EVENT cpStatusChanged .1.3.6.1.4.1.1588.2.1.2.2.0.2 "Status Events" Normal
+FORMAT This trap is sent when status of any CP object is changed $*
+SDESC
+This trap is sent when status of any CP object is changed
+Variables:
+  1: cpStatus
+  2: cpLastEvent
+  3: swID
+  4: swSsn
+EDESC
+#
+#
+#
+EVENT fruHistoryTrap .1.3.6.1.4.1.1588.2.1.2.2.0.3 "Status Events" Normal
+FORMAT This trap is sent when a FRU is added or removed $*
+SDESC
+This trap is sent when a FRU is added or removed
+Variables:
+  1: fruHistoryClass
+  2: fruHistoryObjectNum
+  3: fruHistoryEvent
+  4: fruHistoryTime
+  5: fruHistoryFactoryPartNum
+  6: fruHistoryFactorySerialNum
+EDESC

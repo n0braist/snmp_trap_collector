@@ -1,0 +1,249 @@
+#
+#
+#
+#
+MIB: VMWARE-SRM-EVENT-MIB (file:/tmp/ESX/asn1-6876-mibs/VMWARE-SRM-EVENT-MIB.mib) converted on Tue Oct 21 10:49:45 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanExecuteTestBeginTrap .1.3.6.1.4.1.6876.51.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan starts a test.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanExecuteTestEndEvent .1.3.6.1.4.1.6876.51.0.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan ends a test.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmResult
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanExecuteBeginEvent .1.3.6.1.4.1.6876.51.0.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan starts a recovery.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+EDESC
+#
+#
+#
+EVENT vmwareVmwSrmRecoveryPlanExecuteEndEvent .1.3.6.1.4.1.6876.51.0.4 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan ends a recovery.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmResult
+EDESC
+#
+#
+#
+EVENT vmwareVmwSrmRecoveryVmBeginEvent .1.3.6.1.4.1.6876.51.0.5 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan starts recovering a VM.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmVmName
+  6: vmwSrmVmUuid
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryVmEndEvent .1.3.6.1.4.1.6876.51.0.6 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan has finished recovering a VM.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmVmName
+  6: vmwSrmVmUuid
+  7: vmwSrmResult
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanPromptDisplay .1.3.6.1.4.1.6876.51.0.7 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan requires user input before continuing.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmPromptString
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanPromptResponse .1.3.6.1.4.1.6876.51.0.8 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan no longer requires user input before continuing.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+EDESC
+#
+#
+#
+EVENT vmwareVmwSrmRecoveryPlanServerCommandBegin .1.3.6.1.4.1.6876.51.0.9 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan starts the execution of a command callout on SRM server's machine.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmCommandName
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanServerCommandEnd .1.3.6.1.4.1.6876.51.0.10 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan has finished the execution of a command callout on SRM server's machine.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmCommandName
+  6: vmwSrmResult
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanVmCommandBegin .1.3.6.1.4.1.6876.51.0.11 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan starts the execution of a command callout on a recovered VM.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmCommandName
+  6: vmwSrmVmName
+  7: vmwSrmVmUuid
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanVmCommandEnd .1.3.6.1.4.1.6876.51.0.12 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan has finished the execution of a command callout on a recovered VM.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmCommandName
+  6: vmwSrmVmName
+  7: vmwSrmVmUuid
+  8: vmwSrmResult
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanExecuteReprotectBegin .1.3.6.1.4.1.6876.51.0.13 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when SRM starts the reprotect workflow for a Recovery Plan.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+EDESC
+#
+#
+#
+EVENT vmwareSrmRecoveryPlanExecuteReprotectEnd .1.3.6.1.4.1.6876.51.0.14 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when SRM has finished the reprotect workflow for a Recovery Plan.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmResult
+EDESC
+#
+#
+#
+EVENT vmwareVmwSrmRecoveryPlanExecuteCleanupBegin .1.3.6.1.4.1.6876.51.0.15 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent when a Recovery Plan starts a test cleanup.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+EDESC
+#
+#
+#
+EVENT vmwSrmRecoveryPlanExecuteCleanupEnd .1.3.6.1.4.1.6876.51.0.16 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is sent a Recovery Plan ends a test cleanup.
+Variables:
+  1: vmwSrmSiteString
+  2: vmwSrmRecoveryName
+  3: vmwSrmRecoveryType
+  4: vmwSrmRecoveryState
+  5: vmwSrmResult
+EDESC

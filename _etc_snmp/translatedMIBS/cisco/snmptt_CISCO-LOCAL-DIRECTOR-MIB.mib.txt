@@ -1,0 +1,90 @@
+#
+#
+#
+#
+MIB: CISCO-LOCAL-DIRECTOR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-LOCAL-DIRECTOR-MIB.mib) converted on Tue Aug 21 15:26:17 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoLocalDirectorVirtualStateChange .1.3.6.1.4.1.9.9.99.2.0.1 "Status Events" Normal
+FORMAT When a Virtual machine changes state, a notification $*
+SDESC
+When a Virtual machine changes state, a notification
+is sent.
+Variables:
+  1: cldVirtualState
+EDESC
+#
+#
+#
+EVENT ciscoLocalDirectorRealStateChange .1.3.6.1.4.1.9.9.99.2.0.2 "Status Events" Normal
+FORMAT When a Real machine changes state, a notification is $*
+SDESC
+When a Real machine changes state, a notification is
+sent.
+Variables:
+  1: cldRealState
+EDESC
+#
+#
+#
+EVENT ciscoLocalDirectorFailoverEnableChange .1.3.6.1.4.1.9.9.99.2.0.3 "Status Events" Normal
+FORMAT Failover is turned on/off. $*
+SDESC
+Failover is turned on/off.
+Variables:
+  1: cldFailoverEnabled
+EDESC
+#
+#
+#
+EVENT ciscoLocalDirectorFailoverCableChange .1.3.6.1.4.1.9.9.99.2.0.4 "Status Events" Normal
+FORMAT Failover's serial cable has a status change. $*
+SDESC
+Failover's serial cable has a status change.
+Variables:
+  1: cldFailoverCableStatus
+EDESC
+#
+#
+#
+EVENT ciscoLocalDirectorFailoverUnitStatus .1.3.6.1.4.1.9.9.99.2.0.5 "Status Events" Normal
+FORMAT Failover event occurs. $*
+SDESC
+Failover event occurs.
+Variables:
+  1: cldFailoverUnitStatus
+EDESC
+#
+#
+#
+EVENT ciscoLocalDirectorEVirtualStateChange .1.3.6.1.4.1.9.9.99.2.0.6 "Status Events" Normal
+FORMAT When a Virtual machine changes state, a notification $*
+SDESC
+When a Virtual machine changes state, a notification
+is sent.
+Variables:
+  1: cldeVirtualState
+EDESC
+#
+#
+#
+EVENT ciscoLocalDirectorERealStateChange .1.3.6.1.4.1.9.9.99.2.0.7 "Status Events" Normal
+FORMAT When a Real machine changes state, a notification is $*
+SDESC
+When a Real machine changes state, a notification is
+sent.
+Variables:
+  1: cldeRealState
+EDESC
+#
+#
+#
+EVENT ciscoLocalDirectorExVirtualStateChange .1.3.6.1.4.1.9.9.99.2.0.8 "Status Events" Normal
+FORMAT When a Virtual machine changes state, a notification $*
+SDESC
+When a Virtual machine changes state, a notification
+is sent.
+Variables:
+  1: cldexVirtualState
+EDESC

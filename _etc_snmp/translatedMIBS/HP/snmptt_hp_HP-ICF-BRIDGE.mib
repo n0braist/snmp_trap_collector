@@ -1,0 +1,24 @@
+#
+#
+#
+#
+MIB: HP-ICF-BRIDGE (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-BRIDGE.mib) converted on Mon Aug 20 14:08:56 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpicfBridgeLoopProtectLoopDetectedNotification .1.3.6.1.4.1.11.2.14.11.5.1.12.1.5.0.1 "Status Events" Normal
+FORMAT A hpicfBridgeLoopProtectLoopDetectedNotification signifies $*
+SDESC
+A hpicfBridgeLoopProtectLoopDetectedNotification signifies
+that a loop has been detected by the loop protection protocol.
+Generation of this notification is controlled by 
+hpicfBridgeLoopProtectTrapLoopDetectEnable. To prevent 
+excessive notifications this trap is rate-limited to allow 
+a maximum of 1 notifications every 30 seconds.
+Notifications that are not sent due to rate-limiting are
+dropped, and not queued up to be sent later.
+Variables:
+  1: ifIndex
+  2: hpicfBridgeLoopProtectPortLoopCount
+  3: hpicfBridgeLoopProtectPortReceiverAction
+EDESC

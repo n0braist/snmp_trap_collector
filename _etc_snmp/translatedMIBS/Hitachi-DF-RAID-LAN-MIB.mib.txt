@@ -1,0 +1,186 @@
+#
+#
+#
+#
+MIB: Hitachi-DF-RAID-LAN-MIB (file:/tmp/Hitachi-DF-RAID-LAN-MIB.mib) converted on Mon Mar 16 15:09:21 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT systemDown .1.3.6.1.4.1.116.3.11.1.2.0.1 "Status Events" Normal
+FORMAT System down occurred. $*
+SDESC
+System down occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT driveFailure .1.3.6.1.4.1.116.3.11.1.2.0.2 "Status Events" Normal
+FORMAT Drive blocking occurred. $*
+SDESC
+Drive blocking occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT fanFailure .1.3.6.1.4.1.116.3.11.1.2.0.3 "Status Events" Normal
+FORMAT Fan failure occurred. $*
+SDESC
+Fan failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT powerSupplyFailure .1.3.6.1.4.1.116.3.11.1.2.0.4 "Status Events" Normal
+FORMAT Power supply failure occurred. $*
+SDESC
+Power supply failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT batteryFailure .1.3.6.1.4.1.116.3.11.1.2.0.5 "Status Events" Normal
+FORMAT Battery failure occurred. $*
+SDESC
+Battery failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT cacheFailure .1.3.6.1.4.1.116.3.11.1.2.0.6 "Status Events" Normal
+FORMAT Cache memory failure occurred. $*
+SDESC
+Cache memory failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT upsFailure .1.3.6.1.4.1.116.3.11.1.2.0.7 "Status Events" Normal
+FORMAT UPS failure occurred. $*
+SDESC
+UPS failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT inboxFailure .1.3.6.1.4.1.116.3.11.1.2.0.8 "Status Events" Normal
+FORMAT AC line or inbox failure occurred. $*
+SDESC
+AC line or inbox failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT backupCircuitFailure .1.3.6.1.4.1.116.3.11.1.2.0.9 "Status Events" Normal
+FORMAT Cache backup circuit failure occurred. $*
+SDESC
+Cache backup circuit failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT otherControllerFailure .1.3.6.1.4.1.116.3.11.1.2.0.10 "Status Events" Normal
+FORMAT Other controller failure occurred. $*
+SDESC
+Other controller failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT warning .1.3.6.1.4.1.116.3.11.1.2.0.11 "Status Events" Normal
+FORMAT Warning occurred. $*
+SDESC
+Warning occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT spareDriveFailure .1.3.6.1.4.1.116.3.11.1.2.0.12 "Status Events" Normal
+FORMAT Spare drive failure occurred. $*
+SDESC
+Spare drive failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT microprogramReplacementExecuted .1.3.6.1.4.1.116.3.11.1.2.0.13 "Status Events" Normal
+FORMAT Microprogram Replacement Executed. $*
+SDESC
+Microprogram Replacement Executed.
+Variables:
+EDESC
+#
+#
+#
+EVENT encFailure .1.3.6.1.4.1.116.3.11.1.2.0.14 "Status Events" Normal
+FORMAT Enclosure controller failure occurred. $*
+SDESC
+Enclosure controller failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT loopFailure .1.3.6.1.4.1.116.3.11.1.2.0.15 "Status Events" Normal
+FORMAT Loop failure occurred. $*
+SDESC
+Loop failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT pathFailure .1.3.6.1.4.1.116.3.11.1.2.0.16 "Status Events" Normal
+FORMAT Path failure occurred. $*
+SDESC
+Path failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT drivePreMainte .1.3.6.1.4.1.116.3.11.1.2.0.21 "Status Events" Normal
+FORMAT The count has exceeded the drive preventive $*
+SDESC
+The count has exceeded the drive preventive
+maintenance threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT nasServerFailure .1.3.6.1.4.1.116.3.11.1.2.0.200 "Status Events" Normal
+FORMAT NAS Server failure occurred. $*
+SDESC
+NAS Server failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT nasPathFailure .1.3.6.1.4.1.116.3.11.1.2.0.201 "Status Events" Normal
+FORMAT NAS Path failure occurred. $*
+SDESC
+NAS Path failure occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT nasUpsFailure .1.3.6.1.4.1.116.3.11.1.2.0.202 "Status Events" Normal
+FORMAT NAS UPS failure occurred. $*
+SDESC
+NAS UPS failure occurred.
+Variables:
+EDESC

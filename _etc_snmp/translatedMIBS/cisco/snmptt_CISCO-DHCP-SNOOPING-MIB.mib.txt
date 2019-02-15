@@ -1,0 +1,22 @@
+#
+#
+#
+#
+MIB: CISCO-DHCP-SNOOPING-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DHCP-SNOOPING-MIB.mib) converted on Tue Aug 21 15:25:50 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cdsBindingsNotification .1.3.6.1.4.1.9.9.380.0.1 "Status Events" Normal
+FORMAT This notification is generated when a DHCP binding $*
+SDESC
+This notification is generated when a DHCP binding
+is learnt dynamically by the device. cdsBindingsAddrType
+and cdsBindingsIpAddress provides the IP address 
+allocated for the DHCP client by the DHCP server. 
+ifName identifies the interface where the DHCP client
+connects to.
+Variables:
+  1: cdsBindingsAddrType
+  2: cdsBindingsIpAddress
+  3: ifName
+EDESC

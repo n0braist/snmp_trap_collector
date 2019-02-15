@@ -1,0 +1,49 @@
+#
+#
+#
+#
+MIB: CISCO-SSL-PROXY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SSL-PROXY-MIB.mib) converted on Tue Aug 21 15:26:35 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cspServOperStatus .1.3.6.1.4.1.9.9.370.0.1 "Status Events" Normal
+FORMAT The proxy service operation status change notification. $*
+SDESC
+The proxy service operation status change notification.
+When the Operation Status of a proxy service changes, 
+and cspGcNotifyProxyServOperStatus is 'true',
+a notification will be issued. The notification
+contains the current operation status and the down 
+reason of the proxy service.
+Variables:
+  1: cspPsOperStatus
+  2: cspPsOperDownReason
+EDESC
+#
+#
+#
+EVENT cspServCertExpiring .1.3.6.1.4.1.9.9.370.0.2 "Status Events" Normal
+FORMAT The proxy service certificate expiring notification. $*
+SDESC
+The proxy service certificate expiring notification.
+If the time interval cspGcPSCertExpireInterval is 
+positive, and cspGcNotifyPSCertExpiring is 'true', a 
+notification will be issued for every proxy service 
+certificate that will be expiring within this time 
+interval. 
+This notification is issued only once for each of 
+these certificates. If the interval is changed from a 
+positive value to 0, the proxy device will clear its 
+memory of notification issued in the past, and stop 
+issuing new notification.
+The notification contains the subject name, the
+serial number and the issuer name of the certificate,
+the serial number of the issuer's certificate,  
+and the end date on the certificate.
+Variables:
+  1: cspPskcCertSubjName
+  2: cspPskcCertSerialNum
+  3: cspPskcIssuerName
+  4: cspPskcIssuerCertSerialNum
+  5: cspPskcCertEndDate
+EDESC

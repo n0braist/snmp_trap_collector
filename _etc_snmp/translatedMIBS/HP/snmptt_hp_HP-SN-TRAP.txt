@@ -1,0 +1,638 @@
+#
+#
+#
+#
+MIB: HP-SN-TRAP-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-SN-TRAP-MIB.mib) converted on Mon Aug 20 14:14:47 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: HP-SN-TRAP-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-SN-TRAP-MIB.mib) converted on Mon Aug 20 14:15:28 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT snTrapChasPwrSupply .1.3.6.1.4.1.11.0.1 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a power supply fails $*
+SDESC
+The SNMP trap that is generated when a power supply fails
+to operate normally.
+Variables:
+  1: snChasPwrSupplyStatus
+EDESC
+#
+#
+#
+EVENT snTrapLockedAddressViolation .1.3.6.1.4.1.11.0.2 "Status Events" Normal
+FORMAT The SNMP trap that is generated when more source MAC addresses $*
+SDESC
+The SNMP trap that is generated when more source MAC addresses
+are received from a port than the maximum number of addresses
+configured to that port.
+Variables:
+  1: snSwViolatorPortNumber
+  2: snSwViolatorMacAddress
+EDESC
+#
+#
+#
+EVENT snTrapOspfIfStateChange .1.3.6.1.4.1.11.0.3 "Status Events" Normal
+FORMAT An ospfIfStateChange trap signifies that there $*
+SDESC
+An ospfIfStateChange trap signifies that there
+has been a change in the state of a non-virtual
+OSPF interface. This trap should  be  generated
+when  the interface state regresses (e.g., goes
+from Dr to Down) or progresses  to  a  terminal
+state  (i.e.,  Point-to-Point, DR Other, Dr, or
+Backup).
+Variables:
+  1: snOspfRouterId
+  2: snOspfIfStatusIpAddress
+  3: snOspfIfStatusState
+EDESC
+#
+#
+#
+EVENT snTrapOspfVirtIfStateChange .1.3.6.1.4.1.11.0.4 "Status Events" Normal
+FORMAT An ospfIfStateChange trap signifies that there $*
+SDESC
+An ospfIfStateChange trap signifies that there
+has  been a change in the state of an OSPF vir-
+tual interface.
+This trap should be generated when  the  inter-
+face  state  regresses  (e.g., goes from Point-
+to-Point to Down) or progresses to  a  terminal
+state (i.e., Point-to-Point).
+Variables:
+  1: snOspfRouterId
+  2: snOspfVirtIfStatusAreaID
+  3: snOspfVirtIfStatusNeighbor
+  4: snOspfVirtIfStatusState
+EDESC
+#
+#
+#
+EVENT snOspfNbrStateChange .1.3.6.1.4.1.11.0.5 "Status Events" Normal
+FORMAT An  ospfNbrStateChange  trap  signifies   that $*
+SDESC
+An  ospfNbrStateChange  trap  signifies   that
+there  has been a change in the state of a non-
+virtual OSPF neighbor.   This  trap  should  be
+generated  when  the  neighbor  state regresses
+(e.g., goes from Attempt or Full  to  1-Way  or
+Down)  or progresses to a terminal state (e.g.,
+2-Way or Full).  When an  neighbor  transitions
+from  or  to Full on non-broadcast multi-access
+and broadcast networks, the trap should be gen-
+erated  by the designated router.  A designated
+router transitioning to Down will be  noted  by
+ospfIfStateChange.
+Variables:
+  1: snOspfRouterId
+  2: snOspfNbrIpAddr
+  3: snOspfNbrRtrId
+  4: snOspfNbrState
+EDESC
+#
+#
+#
+EVENT snOspfVirtNbrStateChange .1.3.6.1.4.1.11.0.6 "Status Events" Normal
+FORMAT An ospfIfStateChange trap signifies that there $*
+SDESC
+An ospfIfStateChange trap signifies that there
+has  been a change in the state of an OSPF vir-
+tual neighbor.  This trap should  be  generated
+when  the  neighbor state regresses (e.g., goes
+from Attempt or  Full  to  1-Way  or  Down)  or
+progresses to a terminal state (e.g., Full).
+Variables:
+  1: snOspfRouterId
+  2: snOspfVirtNbrArea
+  3: snOspfVirtNbrRtrId
+  4: snOspfVirtNbrState
+EDESC
+#
+#
+#
+EVENT snOspfIfConfigError .1.3.6.1.4.1.11.0.7 "Status Events" Normal
+FORMAT An ospfIfConfigError  trap  signifies  that  a $*
+SDESC
+An ospfIfConfigError  trap  signifies  that  a
+packet  has  been received on a non-virtual in-
+terface  from  a  router  whose   configuration
+parameters  conflict  with this router's confi-
+guration parameters.  Note that the  event  op-
+tionMismatch  should  cause  a  trap only if it
+prevents an adjacency from forming.
+Variables:
+  1: snOspfRouterId
+  2: snOspfIfStatusIpAddress
+  3: snOspfPacketSrc
+  4: snOspfConfigErrorType
+  5: snOspfPacketType
+EDESC
+#
+#
+#
+EVENT snOspfVirtIfConfigError .1.3.6.1.4.1.11.0.8 "Status Events" Normal
+FORMAT An ospfConfigError trap signifies that a pack- $*
+SDESC
+An ospfConfigError trap signifies that a pack-
+et  has  been  received  on a virtual interface
+from a router  whose  configuration  parameters
+conflict   with   this  router's  configuration
+parameters.  Note that the event optionMismatch
+should  cause a trap only if it prevents an ad-
+jacency from forming.
+Variables:
+  1: snOspfRouterId
+  2: snOspfVirtIfStatusAreaID
+  3: snOspfVirtIfStatusNeighbor
+  4: snOspfConfigErrorType
+  5: snOspfPacketType
+EDESC
+#
+#
+#
+EVENT snOspfIfAuthFailure .1.3.6.1.4.1.11.0.9 "Status Events" Normal
+FORMAT An ospfIfAuthFailure  trap  signifies  that  a $*
+SDESC
+An ospfIfAuthFailure  trap  signifies  that  a
+packet  has  been received on a non-virtual in-
+terface from a router whose authentication  key
+or  authentication  type  conflicts  with  this
+router's authentication key  or  authentication
+type.
+Variables:
+  1: snOspfRouterId
+  2: snOspfIfStatusIpAddress
+  3: snOspfPacketSrc
+  4: snOspfConfigErrorType
+  5: snOspfPacketType
+EDESC
+#
+#
+#
+EVENT snOspfVirtIfAuthFailure .1.3.6.1.4.1.11.0.10 "Status Events" Normal
+FORMAT An ospfVirtIfAuthFailure trap signifies that a $*
+SDESC
+An ospfVirtIfAuthFailure trap signifies that a
+packet has been received on a virtual interface
+from a router whose authentication key  or  au-
+thentication  type conflicts with this router's
+authentication key or authentication type.
+Variables:
+  1: snOspfRouterId
+  2: snOspfVirtIfStatusAreaID
+  3: snOspfVirtIfStatusNeighbor
+  4: snOspfConfigErrorType
+  5: snOspfPacketType
+EDESC
+#
+#
+#
+EVENT snOspfIfRxBadPacket .1.3.6.1.4.1.11.0.11 "Status Events" Normal
+FORMAT An ospfIfRxBadPacket trap  signifies  that  an $*
+SDESC
+An ospfIfRxBadPacket trap  signifies  that  an
+OSPF  packet has been received on a non-virtual
+interface that cannot be parsed.
+Variables:
+  1: snOspfRouterId
+  2: snOspfIfStatusIpAddress
+  3: snOspfPacketSrc
+  4: snOspfPacketType
+EDESC
+#
+#
+#
+EVENT snOspfVirtIfRxBadPacket .1.3.6.1.4.1.11.0.12 "Status Events" Normal
+FORMAT An ospfRxBadPacket trap signifies that an OSPF $*
+SDESC
+An ospfRxBadPacket trap signifies that an OSPF
+packet has been received on a virtual interface
+that cannot be parsed.
+Variables:
+  1: snOspfRouterId
+  2: snOspfVirtIfStatusAreaID
+  3: snOspfVirtIfStatusNeighbor
+  4: snOspfPacketType
+EDESC
+#
+#
+#
+EVENT snOspfTxRetransmit .1.3.6.1.4.1.11.0.13 "Status Events" Normal
+FORMAT An ospfTxRetransmit  trap  signifies  than  an $*
+SDESC
+An ospfTxRetransmit  trap  signifies  than  an
+OSPF  packet  has  been retransmitted on a non-
+virtual interface.  All packets that may be re-
+transmitted  are associated with an LSDB entry.
+The LS type, LS ID, and Router ID are  used  to
+identify the LSDB entry.
+Variables:
+  1: snOspfRouterId
+  2: snOspfIfStatusIpAddress
+  3: snOspfNbrRtrId
+  4: snOspfPacketType
+  5: snOspfLsdbType
+  6: snOspfLsdbLsId
+  7: snOspfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT ospfVirtIfTxRetransmit .1.3.6.1.4.1.11.0.14 "Status Events" Normal
+FORMAT An ospfTxRetransmit  trap  signifies  than  an $*
+SDESC
+An ospfTxRetransmit  trap  signifies  than  an
+OSPF packet has been retransmitted on a virtual
+interface.  All packets that may be retransmit-
+ted  are  associated with an LSDB entry. The LS
+type, LS ID, and Router ID are used to identify
+the LSDB entry.
+Variables:
+  1: snOspfRouterId
+  2: snOspfVirtIfStatusAreaID
+  3: snOspfVirtIfStatusNeighbor
+  4: snOspfPacketType
+  5: snOspfLsdbType
+  6: snOspfLsdbLsId
+  7: snOspfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT snOspfOriginateLsa .1.3.6.1.4.1.11.0.15 "Status Events" Normal
+FORMAT An ospfOriginateLsa trap signifies that a  new $*
+SDESC
+An ospfOriginateLsa trap signifies that a  new
+LSA  has  been originated by this router.  This
+trap should not be invoked for simple refreshes
+of  LSAs  (which happesn every 30 minutes), but
+instead will only be invoked  when  an  LSA  is
+(re)originated due to a topology change.  Addi-
+tionally, this trap does not include LSAs  that
+are  being  flushed  because  they have reached
+MaxAge.
+Variables:
+  1: snOspfRouterId
+  2: snOspfLsdbAreaId
+  3: snOspfLsdbType
+  4: snOspfLsdbLsId
+  5: snOspfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT snOspfMaxAgeLsa .1.3.6.1.4.1.11.0.16 "Status Events" Normal
+FORMAT An ospfMaxAgeLsa trap signifies  that  one  of $*
+SDESC
+An ospfMaxAgeLsa trap signifies  that  one  of
+the LSA in the router's link-state database has
+aged to MaxAge.
+Variables:
+  1: snOspfRouterId
+  2: snOspfLsdbAreaId
+  3: snOspfLsdbType
+  4: snOspfLsdbLsId
+  5: snOspfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT snOspfLsdbOverflow .1.3.6.1.4.1.11.0.17 "Status Events" Normal
+FORMAT An ospfLsdbOverflow trap  signifies  that  the $*
+SDESC
+An ospfLsdbOverflow trap  signifies  that  the
+number of LSAs in the router's link-state data-
+base has exceeded ospfExtLsdbLimit.
+Variables:
+  1: snOspfRouterId
+  2: snOspfExtLsdbLimit
+EDESC
+#
+#
+#
+EVENT snOspfLsdbApproachingOverflow .1.3.6.1.4.1.11.0.18 "Status Events" Normal
+FORMAT An ospfLsdbApproachingOverflow trap  signifies $*
+SDESC
+An ospfLsdbApproachingOverflow trap  signifies
+that  the  number of LSAs in the router's link-
+state database has exceeded ninety  percent  of
+ospfExtLsdbLimit.
+Variables:
+  1: snOspfRouterId
+  2: snOspfExtLsdbLimit
+EDESC
+#
+#
+#
+EVENT snTrapL4MaxSessionLimitReached .1.3.6.1.4.1.11.0.19 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the maximum number $*
+SDESC
+The SNMP trap that is generated when the maximum number
+of connections reached.
+Variables:
+  1: snL4MaxSessionLimit
+EDESC
+#
+#
+#
+EVENT snTrapL4TcpSynLimitReached .1.3.6.1.4.1.11.0.20 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the number of TCP $*
+SDESC
+The SNMP trap that is generated when the number of TCP
+SYN limits reached.
+Variables:
+  1: snL4TcpSynLimit
+EDESC
+#
+#
+#
+EVENT snTrapL4RealServerUp .1.3.6.1.4.1.11.0.21 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the load balancing $*
+SDESC
+The SNMP trap that is generated when the load balancing
+real server is up.
+Variables:
+  1: snL4TrapRealServerIP
+  2: snL4TrapRealServerName
+EDESC
+#
+#
+#
+EVENT snTrapL4RealServerDown .1.3.6.1.4.1.11.0.22 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the load balancing $*
+SDESC
+The SNMP trap that is generated when the load balancing
+real server is down.
+Variables:
+  1: snL4TrapRealServerIP
+  2: snL4TrapRealServerName
+EDESC
+#
+#
+#
+EVENT snTrapL4RealServerPortUp .1.3.6.1.4.1.11.0.23 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the load balancing $*
+SDESC
+The SNMP trap that is generated when the load balancing
+real server TCP port is up.
+Variables:
+  1: snL4TrapRealServerIP
+  2: snL4TrapRealServerName
+  3: snL4TrapRealServerPort
+EDESC
+#
+#
+#
+EVENT snTrapL4RealServerPortDown .1.3.6.1.4.1.11.0.24 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the load balancing $*
+SDESC
+The SNMP trap that is generated when the load balancing
+real server TCP port is down.
+Variables:
+  1: snL4TrapRealServerIP
+  2: snL4TrapRealServerName
+  3: snL4TrapRealServerPort
+EDESC
+#
+#
+#
+EVENT snTrapL4RealServerMaxConnectionLimitReached .1.3.6.1.4.1.11.0.25 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the real server reaches $*
+SDESC
+The SNMP trap that is generated when the real server reaches
+maximum number of connections.
+Variables:
+  1: snL4TrapRealServerIP
+  2: snL4TrapRealServerName
+  3: snL4TrapRealServerCurConnections
+EDESC
+#
+#
+#
+EVENT snTrapL4BecomeStandby .1.3.6.1.4.1.11.0.26 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the server load $*
+SDESC
+The SNMP trap that is generated when the server load
+balancing switch changes state from active to standby.
+Variables:
+EDESC
+#
+#
+#
+EVENT snTrapL4BecomeActive .1.3.6.1.4.1.11.0.27 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the server load $*
+SDESC
+The SNMP trap that is generated when the server load
+balancing switch changes state from standby to active.
+Variables:
+EDESC
+#
+#
+#
+EVENT snTrapModuleInserted .1.3.6.1.4.1.11.0.28 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a module was inserted $*
+SDESC
+The SNMP trap that is generated when a module was inserted
+to the chassis during system running.
+Variables:
+  1: snAgentBrdIndex
+EDESC
+#
+#
+#
+EVENT snTrapModuleRemoved .1.3.6.1.4.1.11.0.29 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a module was removed $*
+SDESC
+The SNMP trap that is generated when a module was removed
+from the chassis during system running.
+Variables:
+  1: snAgentBrdIndex
+EDESC
+#
+#
+#
+EVENT snTrapChasPwrSupplyFailed .1.3.6.1.4.1.11.0.30 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a power supply fails $*
+SDESC
+The SNMP trap that is generated when a power supply fails
+to operate normally.
+Variables:
+  1: snChasPwrSupplyIndex
+  2: snChasPwrSupplyDescription
+EDESC
+#
+#
+#
+EVENT snTrapChasFanFailed .1.3.6.1.4.1.11.0.31 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a fan fails $*
+SDESC
+The SNMP trap that is generated when a fan fails
+to operate normally.
+Variables:
+  1: snChasFanIndex
+  2: snChasFanDescription
+EDESC
+#
+#
+#
+EVENT snTrapLockedAddressViolation2 .1.3.6.1.4.1.11.0.32 "Status Events" Normal
+FORMAT The SNMP trap that is generated when more source MAC addresses $*
+SDESC
+The SNMP trap that is generated when more source MAC addresses
+are received from a port than the maximum number of addresses
+configured to that port.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapFsrpIfStateChange .1.3.6.1.4.1.11.0.33 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a FSRP routing device $*
+SDESC
+The SNMP trap that is generated when a FSRP routing device
+changed state from active to standby or vice-versa.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapVrrpIfStateChange .1.3.6.1.4.1.11.0.34 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a VRRP routing device $*
+SDESC
+The SNMP trap that is generated when a VRRP routing device
+changed state from master to backup or vice-versa.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapMgmtModuleRedunStateChange .1.3.6.1.4.1.11.0.35 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the management module $*
+SDESC
+The SNMP trap that is generated when the management module
+changes redundancy state.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapTemperatureWarning .1.3.6.1.4.1.11.0.36 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the actual temperature $*
+SDESC
+The SNMP trap that is generated when the actual temperature
+reading is above the warning temperature threshold.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapAccessListDeny .1.3.6.1.4.1.11.0.37 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a packet was denied $*
+SDESC
+The SNMP trap that is generated when a packet was denied
+by an access list.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapMacFilterDeny .1.3.6.1.4.1.11.0.38 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a packet was denied $*
+SDESC
+The SNMP trap that is generated when a packet was denied
+by a MAC address filter.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbRemoteUp .1.3.6.1.4.1.11.0.39 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the connection to the remote SI is established. $*
+SDESC
+The SNMP trap that is generated when the connection to the remote SI is established.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbRemoteDown .1.3.6.1.4.1.11.0.40 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the connection to the remote SI is down. $*
+SDESC
+The SNMP trap that is generated when the connection to the remote SI is down.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbRemoteControllerUp .1.3.6.1.4.1.11.0.41 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the connection to the GSLB SI is established. $*
+SDESC
+The SNMP trap that is generated when the connection to the GSLB SI is established.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbRemoteControllerDown .1.3.6.1.4.1.11.0.42 "Status Events" Normal
+FORMAT The SNMP trap that is generated when the connection to the GSLB SI is down. $*
+SDESC
+The SNMP trap that is generated when the connection to the GSLB SI is down.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbHealthCheckIpUp .1.3.6.1.4.1.11.0.43 "Status Events" Normal
+FORMAT The SNMP trap that is generated when GSLB health check for an address transitions $*
+SDESC
+The SNMP trap that is generated when GSLB health check for an address transitions
+from down to active state.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbHealthCheckIpDown .1.3.6.1.4.1.11.0.44 "Status Events" Normal
+FORMAT The SNMP trap that is generated when GSLB health check for an address transitions $*
+SDESC
+The SNMP trap that is generated when GSLB health check for an address transitions
+from active to down state.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbHealthCheckIpPortUp .1.3.6.1.4.1.11.0.45 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a given port for a health check address is up. $*
+SDESC
+The SNMP trap that is generated when a given port for a health check address is up.
+Variables:
+  1: snAgGblTrapMessage
+EDESC
+#
+#
+#
+EVENT snTrapL4GslbHealthCheckIpPortDown .1.3.6.1.4.1.11.0.46 "Status Events" Normal
+FORMAT The SNMP trap that is generated when a given port for a health check address is down. $*
+SDESC
+The SNMP trap that is generated when a given port for a health check address is down.
+Variables:
+  1: snAgGblTrapMessage
+EDESC

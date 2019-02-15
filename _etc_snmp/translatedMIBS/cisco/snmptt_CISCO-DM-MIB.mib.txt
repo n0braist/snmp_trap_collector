@@ -1,0 +1,83 @@
+#
+#
+#
+#
+MIB: CISCO-DM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DM-MIB.mib) converted on Tue Aug 21 15:25:52 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT dmDomainIdNotAssignedNotify .1.3.6.1.4.1.9.9.302.1.3.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+If a Domain ID is not configured or assigned on a 
+VSAN, then the switch may isolate E_ports on that 
+VSAN. The conditions are : 
+- If the Domain Manager is enabled on the local 
+switch and its request for a configured static 
+Domain ID is rejected or no other Domain ID is 
+assigned, then the E_ports are isolated.
+- If the domain manager is not enabled and if a 
+static Domain ID is not configured on the VSAN, 
+then the switch will isolate all of its E_ports 
+on the VSAN.
+This notification contains the vsanIndex of the VSAN 
+on which the condition happened.
+Variables:
+  1: notifyVsanIndex
+  2: cffFcFeElementName
+EDESC
+#
+#
+#
+EVENT dmNewPrincipalSwitchNotify .1.3.6.1.4.1.9.9.302.1.3.0.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification indicates that the sending switch 
+has become the new Principal Switch on a VSAN. This 
+notification is sent soon after its election as the 
+new Principal Switch, i.e., upon expiration of a 
+Principal Switch selection timer which is equal to 
+twice Fabric  Stability Timeout value (F_S_TOV).
+This notification contains the vsanIndex of the VSAN 
+on which the switch became the Principal Switch and 
+the WWN of the switch which became the Principal 
+Switch.
+Variables:
+  1: notifyVsanIndex
+  2: cffFcFeElementName
+EDESC
+#
+#
+#
+EVENT dmFabricChangeNotify .1.3.6.1.4.1.9.9.302.1.3.0.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is sent whenever a switch sends or 
+receives a Build Fabric (BF) or a ReConfigure Fabric 
+(RCF) message on a VSAN.
+A switch can receive or issue a BuildFabric (BF) or a 
+ReConfigureFabric (RCF) message under following 
+conditions:
+- A new link causes two disjoint fabrics in a VSAN to 
+merge into one fabric. The sent/received message is
+BF if the Domain ID lists on the disjoint fabric 
+does not overlap and it is RCF if they overlap.
+- An upsteam principal ISL which connects to Principal
+switch and other switches in a VSAN fails. BF is
+issued to see if there is an alternative path to
+the Principal Switch. If not paths exit, then an RCF
+is issued.
+- A switch asks for a different set of Domain IDs 
+than the currently assigned list, the Principal 
+switch would issue an RCF.
+The notification is not sent if a 
+'dmNewPrincipalSwitchNotify' notification is sent
+for the same transition.
+This notification contains the vsanIndex of the VSAN 
+on which RCF was issued.
+Variables:
+  1: notifyVsanIndex
+EDESC

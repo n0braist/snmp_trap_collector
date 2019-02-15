@@ -1,0 +1,188 @@
+#
+#
+#
+#
+MIB: MSSSERVER8260-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8260-MIB.mib) converted on Wed Mar 13 15:58:10 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8260ELSTrapV2 .1.3.6.1.4.1.2.6.118.3.0.2 "Status Events" Normal
+FORMAT The trap announces an Event Logging System (ELS) event $*
+SDESC
+The trap announces an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8260PCAdapTypeChg .1.3.6.1.4.1.2.6.118.3.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8260PCAdapType changes and
+mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8260TempThresholdChg .1.3.6.1.4.1.2.6.118.3.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the blade. $*
+SDESC
+The trap announces a change in the temperature of the blade.
+It shall be sent if the value of the mss8260TempThreshold changes
+and mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260TempThresholdStatus
+EDESC
+#
+#
+#
+#
+MIB: MSSSERVER8260-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8260-MIB.mib) converted on Wed Mar 13 16:00:04 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8260ELSTrapV2 .1.3.6.1.4.1.2.6.118.3.0.2 "Status Events" Normal
+FORMAT The trap announces an Event Logging System (ELS) event $*
+SDESC
+The trap announces an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8260PCAdapTypeChg .1.3.6.1.4.1.2.6.118.3.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8260PCAdapType changes and
+mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8260TempThresholdChg .1.3.6.1.4.1.2.6.118.3.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the blade. $*
+SDESC
+The trap announces a change in the temperature of the blade.
+It shall be sent if the value of the mss8260TempThreshold changes
+and mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260TempThresholdStatus
+EDESC
+#
+#
+#
+#
+MIB: MSSSERVER8260-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8260-MIB.mib) converted on Fri Mar 15 09:47:07 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8260ELSTrapV2 .1.3.6.1.4.1.2.6.118.3.0.2 "Status Events" Normal
+FORMAT The trap announces an Event Logging System (ELS) event $*
+SDESC
+The trap announces an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8260PCAdapTypeChg .1.3.6.1.4.1.2.6.118.3.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8260PCAdapType changes and
+mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8260TempThresholdChg .1.3.6.1.4.1.2.6.118.3.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the blade. $*
+SDESC
+The trap announces a change in the temperature of the blade.
+It shall be sent if the value of the mss8260TempThreshold changes
+and mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260TempThresholdStatus
+EDESC
+#
+#
+#
+#
+MIB: MSSSERVER8260-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8260-MIB.mib) converted on Fri Mar 15 11:27:22 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8260ELSTrapV2 .1.3.6.1.4.1.2.6.118.3.0.2 "Status Events" Normal
+FORMAT The trap announces an Event Logging System (ELS) event $*
+SDESC
+The trap announces an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8260PCAdapTypeChg .1.3.6.1.4.1.2.6.118.3.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8260PCAdapType changes and
+mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8260TempThresholdChg .1.3.6.1.4.1.2.6.118.3.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the blade. $*
+SDESC
+The trap announces a change in the temperature of the blade.
+It shall be sent if the value of the mss8260TempThreshold changes
+and mss8260NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8260TempThresholdStatus
+EDESC

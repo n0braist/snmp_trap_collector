@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: BASP-Statistics-MIB (file:/tmp/polycom/baspStat.mib) converted on Fri Mar 13 12:28:52 2015 using snmpttconvertmib v1.3

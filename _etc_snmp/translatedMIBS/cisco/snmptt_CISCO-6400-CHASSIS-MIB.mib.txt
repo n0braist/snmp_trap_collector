@@ -1,0 +1,18 @@
+#
+#
+#
+#
+MIB: CISCO-6400-CHASSIS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-6400-CHASSIS-MIB.mib) converted on Tue Aug 21 15:25:36 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cisco6400ChassisFailureNotification .1.3.6.1.4.1.9.10.27.2.0.1 "Status Events" Normal
+FORMAT The notification signifies that the agent detects a change in $*
+SDESC
+The notification signifies that the agent detects a change in
+the c64ChassisAlarmTable, the NMS application should start
+to poll the c64ChassisAlarmTable to get up-to-date alarm
+information.
+Variables:
+  1: c64ChassisFacilityAlarmStatus
+EDESC

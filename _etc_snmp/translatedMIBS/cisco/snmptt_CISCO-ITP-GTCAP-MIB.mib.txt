@@ -1,0 +1,194 @@
+#
+#
+#
+#
+MIB: CISCO-ITP-GTCAP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ITP-GTCAP-MIB.mib) converted on Tue Aug 21 15:26:13 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoGtcapProtoErrTranAbortRcvd .1.3.6.1.4.1.9.9.695.0.1 "Status Events" Normal
+FORMAT The notification is generated, when a nonzero number $*
+SDESC
+The notification is generated, when a nonzero number
+of any of the protocol errors in transaction portion
+is received during the cgtcapNotifIntervalDuration, for
+the first time in the configured cgtcapNotifIntervalDuration. 
+During such cases, this notification will be sent at the
+end of the cgtcapNotifIntervalDuration interval, with the
+counters indicating the total protocol errors during the
+entire cgtcapNotifIntervalDuration interval Q752/14.1
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstDisplayName
+  4: cgtcapNotifIntervalDuration
+  5: cgtcapIntTranAbrtUnrecogMsgType
+  6: cgtcapIntTranAbrtIncorrectTP
+  7: cgtcapIntTranAbrtBadFmtTP
+  8: cgtcapIntTranAbrtUnrecogTID
+  9: cgtcapIntTranAbrtResrcLimit
+EDESC
+#
+#
+#
+EVENT ciscoGtcapProtoErrTranAbortSent .1.3.6.1.4.1.9.9.695.0.2 "Status Events" Normal
+FORMAT The notification is generated, when a nonzero number $*
+SDESC
+The notification is generated, when a nonzero number
+of any of the protocol errors in transaction portion
+is sent during the cgtcapNotifIntervalDuration, for 
+the first time in the configured cgtcapNotifIntervalDuration.
+During such cases, this notification will be sent at the
+end of the cgtcapNotifIntervalDuration interval, with the
+counters indicating the total protocol errors during the
+entire cgtcapNotifIntervalDuration interval Q752/14.4
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstDisplayName
+  4: cgtcapNotifIntervalDuration
+  5: cgtcapTCUser
+  6: cgtcapIntTranAbrtUnrecogMsgType
+  7: cgtcapIntTranAbrtIncorrectTP
+  8: cgtcapIntTranAbrtBadFmtTP
+  9: cgtcapIntTranAbrtUnrecogTID
+  10: cgtcapIntTranAbrtResrcLimit
+EDESC
+#
+#
+#
+EVENT ciscoGtcapProtoErrCompRejectRcvd .1.3.6.1.4.1.9.9.695.0.3 "Status Events" Normal
+FORMAT The notification is generated, when a nonzero number $*
+SDESC
+The notification is generated, when a nonzero number
+of any of the protocol errors in component portion
+is received during the cgtcapNotifIntervalDuration, for
+the first time in the configured cgtcapNotifIntervalDuration.
+During such cases, this notification will be sent at the
+end of the cgtcapNotifIntervalDuration interval, with the
+counters indicating the total protocol errors during the
+entire cgtcapNotifIntervalDuration interval Q752/14.2
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstDisplayName
+  4: cgtcapNotifIntervalDuration
+  5: cgtcapIntCompRjctUnrecogCompGP
+  6: cgtcapIntCompRjctMistypedCompGP
+  7: cgtcapIntCompRjctBadStructCompGP
+  8: cgtcapIntCompRjctUnrecogLinkedIdIP
+  9: cgtcapIntCompRjctUnrecogInvIdRRP
+  10: cgtcapIntCompRjctRetRsltUnexpRRP
+  11: cgtcapIntCompRjctUnrecogInvIdREP
+  12: cgtcapIntCompRjctUnexpRetErrREP
+EDESC
+#
+#
+#
+EVENT ciscoGtcapProtoErrCompRejectSent .1.3.6.1.4.1.9.9.695.0.4 "Status Events" Normal
+FORMAT The notification is generated, when a nonzero number $*
+SDESC
+The notification is generated, when a nonzero number
+of any of the protocol errors in component portion
+is sent during the cgtcapNotifIntervalDuration, for
+the first time in the configured cgtcapNotifIntervalDuration.
+During such cases, this notification will be sent at the
+end of the cgtcapNotifIntervalDuration interval, with the
+counters indicating the total protocol errors during the
+entire cgtcapNotifIntervalDuration interval Q752/14.5
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstDisplayName
+  4: cgtcapNotifIntervalDuration
+  5: cgtcapIntCompRjctUnrecogCompGP
+  6: cgtcapIntCompRjctMistypedCompGP
+  7: cgtcapIntCompRjctBadStructCompGP
+  8: cgtcapIntCompRjctUnrecogLinkedIdIP
+  9: cgtcapIntCompRjctUnrecogInvIdRRP
+  10: cgtcapIntCompRjctRetRsltUnexpRRP
+  11: cgtcapIntCompRjctUnrecogInvIdREP
+  12: cgtcapIntCompRjctUnexpRetErrREP
+EDESC
+#
+#
+#
+EVENT ciscoGtcapTCUserErrRejectRcvd .1.3.6.1.4.1.9.9.695.0.5 "Status Events" Normal
+FORMAT The notification is generated, when a nonzero number $*
+SDESC
+The notification is generated, when a nonzero number
+of any of the TC user errors is received during the 
+cgtcapNotifIntervalDuration, for the first time in 
+the configured cgtcapNotifIntervalDuration.  During 
+such cases, this notification will be sent at the end 
+of the cgtcapNotifIntervalDuration interval, with the
+counters indicating the total TC User errors during the
+entire cgtcapNotifIntervalDuration interval Q752/14.3
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgtcapNotifIntervalDuration
+  4: cgtcapIntUsrRjctDupInvIdIP
+  5: cgtcapIntUsrRjctUnrecogOpIP
+  6: cgtcapIntUsrRjctMistypedParamIP
+  7: cgtcapIntUsrRjctResourceLimitIP
+  8: cgtcapIntUsrRjctInitReleaseIP
+  9: cgtcapIntUsrRjctLinkedRespUnexpIP
+  10: cgtcapIntUsrRjctUnexpLinkedOpIP
+  11: cgtcapIntUsrRjctUnrecogErrREP
+  12: cgtcapIntUsrRjctUnexpErrREP
+  13: cgtcapIntUsrRjctMistypedParamRRP
+  14: cgtcapIntUsrRjctMistypedParamREP
+EDESC
+#
+#
+#
+EVENT ciscoGtcapTCUserErrRejectSent .1.3.6.1.4.1.9.9.695.0.6 "Status Events" Normal
+FORMAT The notification is generated, when a nonzero number $*
+SDESC
+The notification is generated, when a nonzero number
+of any of the TC user errors is sent during the 
+cgtcapNotifIntervalDuration, for the first time in 
+the configured cgtcapNotifIntervalDuration.  During 
+such cases, this notification will be sent at the end 
+of the cgtcapNotifIntervalDuration interval, with the
+counters indicating the total TC User errors during the
+entire cgtcapNotifIntervalDuration interval Q752/14.6
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgtcapNotifIntervalDuration
+  4: cgtcapTCUser
+  5: cgtcapIntUsrRjctDupInvIdIP
+  6: cgtcapIntUsrRjctUnrecogOpIP
+  7: cgtcapIntUsrRjctMistypedParamIP
+  8: cgtcapIntUsrRjctResourceLimitIP
+  9: cgtcapIntUsrRjctInitReleaseIP
+  10: cgtcapIntUsrRjctLinkedRespUnexpIP
+  11: cgtcapIntUsrRjctUnexpLinkedOpIP
+  12: cgtcapIntUsrRjctUnrecogErrREP
+  13: cgtcapIntUsrRjctUnexpErrREP
+  14: cgtcapIntUsrRjctMistypedParamRRP
+  15: cgtcapIntUsrRjctMistypedParamREP
+EDESC
+#
+#
+#
+EVENT ciscoGtcapActiveTranExceedThreshold .1.3.6.1.4.1.9.9.695.0.7 "Status Events" Normal
+FORMAT The notification generated when the number of open  $*
+SDESC
+The notification generated when the number of open 
+transaction IDs is greater than the thresholds during 
+the configured cgtcapNotifIntervalDuration. During such
+cases, this notification will be sent at the end of the 
+cgtcapNotifIntervalDuration interval, with the 
+cgtcapIntervalActiveTranExceeds indicating the total
+exceeded open transactions during the entire
+cgtcapNotifIntervalDuration interval Q752/13.11
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstDisplayName
+  4: cgtcapNotifIntervalDuration
+  5: cgtcapIntervalActiveTranExceeds
+EDESC

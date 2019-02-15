@@ -1,0 +1,716 @@
+#
+#
+#
+#
+MIB: HitachiComputeBlade-MIB (file:/tmp/HitachiComputeBlade.mib) converted on Wed Feb 12 14:21:02 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapSVPNon-Recoverable .1.3.6.1.4.1.116.3.39.1.1.1.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapSVPSerious .1.3.6.1.4.1.116.3.39.1.1.1.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapSVPInformation .1.3.6.1.4.1.116.3.39.1.1.1.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapSVPEvent .1.3.6.1.4.1.116.3.39.1.1.1.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapBladeNon-Recoverable .1.3.6.1.4.1.116.3.39.1.1.2.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapBladeSerious .1.3.6.1.4.1.116.3.39.1.1.2.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapBladeInformation .1.3.6.1.4.1.116.3.39.1.1.2.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapBladeEvent .1.3.6.1.4.1.116.3.39.1.1.2.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapOtherNon-Recoverable .1.3.6.1.4.1.116.3.39.1.1.20.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapOtherSerious .1.3.6.1.4.1.116.3.39.1.1.20.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapOtherInformation .1.3.6.1.4.1.116.3.39.1.1.20.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade1000alertTrapOtherEvent .1.3.6.1.4.1.116.3.39.1.1.20.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapSVPNon-Recoverable .1.3.6.1.4.1.116.3.39.2.1.1.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapSVPSerious .1.3.6.1.4.1.116.3.39.2.1.1.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapSVPInformation .1.3.6.1.4.1.116.3.39.2.1.1.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapSVPEvent .1.3.6.1.4.1.116.3.39.2.1.1.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapBladeNon-Recoverable .1.3.6.1.4.1.116.3.39.2.1.2.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapBladeSerious .1.3.6.1.4.1.116.3.39.2.1.2.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapBladeInformation .1.3.6.1.4.1.116.3.39.2.1.2.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapBladeEvent .1.3.6.1.4.1.116.3.39.2.1.2.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapOtherNon-Recoverable .1.3.6.1.4.1.116.3.39.2.1.20.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapOtherSerious .1.3.6.1.4.1.116.3.39.2.1.20.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapOtherInformation .1.3.6.1.4.1.116.3.39.2.1.20.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade320alertTrapOtherEvent .1.3.6.1.4.1.116.3.39.2.1.20.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapMmNon-Recoverable .1.3.6.1.4.1.116.3.39.10.1.1.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapMmSerious .1.3.6.1.4.1.116.3.39.10.1.1.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapMmInformation .1.3.6.1.4.1.116.3.39.10.1.1.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapMmEvent .1.3.6.1.4.1.116.3.39.10.1.1.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapBladeNon-Recoverable .1.3.6.1.4.1.116.3.39.10.1.2.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapBladeSerious .1.3.6.1.4.1.116.3.39.10.1.2.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapBladeInformation .1.3.6.1.4.1.116.3.39.10.1.2.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapBladeEvent .1.3.6.1.4.1.116.3.39.10.1.2.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapOtherNon-Recoverable .1.3.6.1.4.1.116.3.39.10.1.20.1 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapOtherSerious .1.3.6.1.4.1.116.3.39.10.1.20.2 "Status Events" Normal
+FORMAT alertTrapSerious $*
+SDESC
+alertTrapSerious
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapOtherInformation .1.3.6.1.4.1.116.3.39.10.1.20.3 "Status Events" Normal
+FORMAT alertTrapInformation $*
+SDESC
+alertTrapInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000alertTrapOtherEvent .1.3.6.1.4.1.116.3.39.10.1.20.4 "Status Events" Normal
+FORMAT alertTrapEvent $*
+SDESC
+alertTrapEvent
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertOutbreakPart
+  6: alertTrapInfoAlertID
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapMonitoringError .1.3.6.1.4.1.116.3.39.10.2.1.1 "Status Events" Normal
+FORMAT HCSMalertTrapMonitoringError $*
+SDESC
+HCSMalertTrapMonitoringError
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapMonitoringWarning .1.3.6.1.4.1.116.3.39.10.2.1.2 "Status Events" Normal
+FORMAT HCSMalertTrapMonitoringWarning $*
+SDESC
+HCSMalertTrapMonitoringWarning
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapMonitoringInformation .1.3.6.1.4.1.116.3.39.10.2.1.3 "Status Events" Normal
+FORMAT HCSMalertTrapMonitoringInformation $*
+SDESC
+HCSMalertTrapMonitoringInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapEventError .1.3.6.1.4.1.116.3.39.10.2.2.1 "Status Events" Normal
+FORMAT HCSMalertTrapEventError $*
+SDESC
+HCSMalertTrapEventError
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapEventWarning .1.3.6.1.4.1.116.3.39.10.2.2.2 "Status Events" Normal
+FORMAT HCSMalertTrapEventWarning $*
+SDESC
+HCSMalertTrapEventWarning
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapEventInformation .1.3.6.1.4.1.116.3.39.10.2.2.3 "Status Events" Normal
+FORMAT HCSMalertTrapEventInformation $*
+SDESC
+HCSMalertTrapEventInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapStatusChangeError .1.3.6.1.4.1.116.3.39.10.2.3.1 "Status Events" Normal
+FORMAT HCSMalertTrapStatusChangeError $*
+SDESC
+HCSMalertTrapStatusChangeError
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapStatusChangeWarning .1.3.6.1.4.1.116.3.39.10.2.3.2 "Status Events" Normal
+FORMAT HCSMalertTrapStatusChangeWarning $*
+SDESC
+HCSMalertTrapStatusChangeWarning
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC
+#
+#
+#
+EVENT hitachiComputeBlade2000HCSMalertTrapStatusChangeInformation .1.3.6.1.4.1.116.3.39.10.2.3.3 "Status Events" Normal
+FORMAT HCSMalertTrapStatusChangeInformation $*
+SDESC
+HCSMalertTrapStatusChangeInformation
+Variables:
+  1: alertTrapInfoLocaltime
+  2: alertTrapInfoChassisID
+  3: alertTrapInfoAlertLevel
+  4: alertTrapInfoAlertMessage
+  5: alertTrapInfoAlertID
+  6: alertTrapInfoAlertModuleType
+  7: alertTrapInfoAlertModuleLocation
+  8: alertTrapInfoAlertModuleModelName
+  9: alertTrapInfoAlertModuleSerialNum
+  10: alertTrapInfoAlertEventCode
+EDESC

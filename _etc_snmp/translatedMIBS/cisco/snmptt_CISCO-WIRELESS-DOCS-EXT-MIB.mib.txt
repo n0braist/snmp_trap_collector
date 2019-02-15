@@ -1,0 +1,48 @@
+#
+#
+#
+#
+MIB: CISCO-WIRELESS-DOCS-EXT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WIRELESS-DOCS-EXT-MIB.mib) converted on Tue Aug 21 15:26:45 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cwdxHeSuOnOffNotification .1.3.6.1.4.1.9.9.169.2.0.1 "Status Events" Normal
+FORMAT This notification indicates that the SU coming online $*
+SDESC
+This notification indicates that the SU coming online
+and going offline. A notification will be sent from HE for 
+a SU status changing to online or offline
+within the interval specified in cwdxHeSuOnOffTrapInterval.
+Variables:
+  1: cwdIfHeSuStatusMacAddress
+  2: cwdIfHeSuStatusIpAddress
+  3: cwdIfHeSuStatusDownChanIfIndex
+  4: cwdIfHeSuStatusUpChanIfIndex
+  5: cwdIfHeSuStatusServiceId
+  6: cwdxHeSuStatusValue
+EDESC
+#
+#
+#
+EVENT cwdxHeSuChOverNotification .1.3.6.1.4.1.9.9.169.2.0.2 "Status Events" Normal
+FORMAT This notification is sent at the completion of a HE  $*
+SDESC
+This notification is sent at the completion of a HE 
+channel override operation if 
+cwdxHeSuChOverTrapOnCompletion is true in the
+original entry.
+Once a channel override operation has been activated, it 
+cannot be stopped.  That is, it will run until either the 
+HE has generated downstream frequency and/or upstream 
+channel override fields in the RNG-RSP message sent to a 
+HE or cwdxHeSuChOverTimeExpiration time expired.
+In either case, the operation is completed. State in the 
+cwdxHeSuChOverState object will tell in which 
+condition the operation is completed.
+Variables:
+  1: cwdxHeSuChOverMacAddress
+  2: cwdxHeSuChOverDownFrequency
+  3: cwdxHeSuChOverUpChannelId
+  4: cwdxHeSuChOverOpInitiatedTime
+  5: cwdxHeSuChOverState
+EDESC

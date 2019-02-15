@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: RS-232-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/RS-232-MIB.my.txt) converted on Tue Sep  6 13:51:23 2016 using snmpttconvertmib v1.3

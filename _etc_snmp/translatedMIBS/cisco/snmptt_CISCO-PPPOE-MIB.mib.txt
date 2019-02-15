@@ -1,0 +1,294 @@
+#
+#
+#
+#
+MIB: CISCO-PPPOE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-PPPOE-MIB.mib) converted on Tue Aug 21 15:26:25 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cPppoeSystemSessionThresholdTrap .1.3.6.1.4.1.9.9.194.2.0.1 "Status Events" Normal
+FORMAT A notification indicating that number of active  $*
+SDESC
+A notification indicating that number of active 
+sessions on the system exceeded system sessions 
+threshold value. System sessions threshold value 
+is indicated by cPppoeSystemThresholdSessions. 
+An  agent  must  not  generate  more  than  one
+cPppoeSessionThresholdTrap `trap-event` in a
+30 second period,  where a  `trap-event` is  the
+transmission of a single trap  PDU to a  list of
+trap destinations. If additional `the number of
+PPPoE  sessions  exceeds  threshold`  condition
+occur within the 30  second `throttling` period,
+then these  trap-events should be suppressed by
+the agent. An NMS should periodically check the
+value of  cPppoeCurrSessions to  detect  any
+missed cPppoeVcSessionThresholdTrap trap-events,
+e.g. due to throttling or transmission loss.
+Where 30 is the `throttling` period of trap-event.
+Variables:
+  1: cPppoeSystemCurrSessions
+  2: cPppoeSystemMaxAllowedSessions
+  3: cPppoeSystemThresholdSessions
+EDESC
+#
+#
+#
+EVENT cPppoeVcSessionThresholdTrap .1.3.6.1.4.1.9.9.194.2.0.2 "Status Events" Normal
+FORMAT A notification indicating that number of active  $*
+SDESC
+A notification indicating that number of active 
+sessions on the  VC  exceeded vc sessions 
+threshold value. VC sessions threshold value is 
+indicated by cPppoeVcThresholdSessions.
+An  agent  must  not  generate  more  than  one
+cPppoeVcSessionThresholdTrap `trap-event` in a 
+30 second period,  where a  `trap-event` is  the
+transmission of a single trap  PDU to a  list of 
+trap destinations. If additional `the number of 
+PPPoE  sessions  exceeds  threshold`  condition 
+occur within the 30  second `throttling` period, 
+then these  trap-events should be suppressed by 
+the agent. An NMS should periodically check the 
+value of  cPppoeVcCurrSessions to  detect  any 
+missed cPppoeVcSessionThresholdTrap trap-events, 
+e.g. due to throttling or transmission loss. 
+Where 30 is the `throttling` period of trap-event.
+Variables:
+  1: cPppoeVcCurrSessions
+  2: cPppoeVcMaxAllowedSessions
+  3: cPppoeVcThresholdSessions
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionPerMACLimitNotif .1.3.6.1.4.1.9.9.194.2.0.3 "Status Events" Normal
+FORMAT A notification indicating that number of active session $*
+SDESC
+A notification indicating that number of active session
+from a particular client Ethernet MAC address has reached 
+the configured per MAC limit. There won't be any more 
+session possible from this client MAC address.
+An  agent  must  not  generate  more  than  one 
+cPppoeSystemSessionPerMACLimitNotif `trap-event` in a 
+30 second period,  where a  `trap-event` is  the 
+transmission of a single trap  PDU to a  list of 
+trap destinations. If additional `the number of 
+PPPoE  MAC sessions  exceeds the allowed limit`  condition 
+occur within the 30  second `throttling` period, 
+then these  trap-events should be suppressed by 
+the agent.
+Variables:
+  1: cPppoeSystemPerMacSessionlimit
+  2: cPppoeSystemSessionClientMacAddress
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionPerMACThrottleNotif .1.3.6.1.4.1.9.9.194.2.0.4 "Status Events" Normal
+FORMAT A notification indicating that the number of new PPPoE  $*
+SDESC
+A notification indicating that the number of new PPPoE 
+session requests coming in over a configured time 
+interval, from a particular client Ethernet MAC address,
+has crossed rate limit cPppoeSystemPerMacThrottleRatelimit.
+The client MAC address on which this event happened is 
+referred through object cPppoeSystemSessionClientMacAddress
+An agent should generate single 
+cPppoeSystemSessionPerMACThrottleNotif trap for configured
+time interval.
+Variables:
+  1: cPppoeSystemPerMacThrottleRatelimit
+  2: cPppoeSystemSessionClientMacAddress
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionPerVLANLimitNotif .1.3.6.1.4.1.9.9.194.2.0.5 "Status Events" Normal
+FORMAT A notification indicating that number of active session on $*
+SDESC
+A notification indicating that number of active session on
+a Vlan has reached the maximum limit. There won't be any 
+new PPPoE session possible on this Vlan. The maximum limit 
+can be referred through object cPppoeSystemPerVLANlimit. 
+The Vlan ID of vlan can be referred though object 
+cPppoeSystemSessionVlanID. If Vlan is QinQ, 
+cPppoeSystemSessionInnerVlanID refers the 
+inner Vlan id. In case the vlan is not QinQ 
+cPppoeSystemSessionInnerVlanID will be zero. The interface
+details can be referred through ifDescr object.
+An  agent  must  not  generate  more  than  one 
+cPppoeSystemSessionPerVLANLimitNotif `trap-event` in a 
+30 second period,  where a  `trap-event` is  the 
+transmission of a single trap  PDU to a  list of 
+trap destinations. If additional `the number of 
+PPPoE sessions on this Vlan exceeds the allowed limit`
+condition occur within the 30  second `throttling` period, 
+then these  trap-events should be suppressed by 
+the agent.
+Variables:
+  1: cPppoeSystemPerVLANlimit
+  2: ifDescr
+  3: cPppoeSystemSessionVlanID
+  4: cPppoeSystemSessionInnerVlanID
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionPerVLANThrottleNotif .1.3.6.1.4.1.9.9.194.2.0.6 "Status Events" Normal
+FORMAT A notification indicating that the number of new PPPoE  $*
+SDESC
+A notification indicating that the number of new PPPoE 
+session request coming on a particular Vlan, over a 
+configured time interval has reached rate limit. 
+The rate limit is referred through object 
+cPppoeSystemPerVLANthrottleRatelimit. 
+The Vlan ID of vlan can be referred though object 
+cPppoeSystemSessionVlanID. If Vlan is QinQ, 
+cPppoeSystemSessionInnerVlanID refers the
+inner Vlan Id. In case the vlan is not QinQ
+cPppoeSystemSessionInnerVlanID will be zero.  The 
+interface details can be referred through ifDescr object.
+An agent should generate single 
+cPppoeSystemSessionPerVLANThrottleNotif trap for the 
+configured time interval
+Variables:
+  1: cPppoeSystemPerVLANthrottleRatelimit
+  2: ifDescr
+  3: cPppoeSystemSessionVlanID
+  4: cPppoeSystemSessionInnerVlanID
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionPerVCLimitNotif .1.3.6.1.4.1.9.9.194.2.0.7 "Status Events" Normal
+FORMAT A notification indicating that number of active sessions  $*
+SDESC
+A notification indicating that number of active sessions 
+for a ATM VCI/VPI has crossed the configured maximum 
+limit.  No more session would be possible on this VC 
+interface. The maximum limit can be referred through 
+object cPppoeSystemPerVClimit, The ATM VC details are
+referred via objects cPppoeSystemSessionVci, and
+cPppoeSystemSessionVpi. The Interface details can be 
+referred via ifDescr object.
+An  agent  must  not  generate  more  than  one 
+cPppoeSystemSessionPerVCLimitTrap `trap-event` in a 
+30 second period,  where a  `trap-event` is  the 
+transmission of a single trap  PDU to a  list of 
+trap destinations. If additional `the number of 
+PPPoE sessions on this VC exceeds the allowed limit` 
+condition occur within the 30  second `throttling` period, 
+then these  trap-events should be suppressed by 
+the agent.
+Variables:
+  1: cPppoeSystemPerVClimit
+  2: ifDescr
+  3: cPppoeSystemSessionVci
+  4: cPppoeSystemSessionVpi
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionPerVCThrottleNotif .1.3.6.1.4.1.9.9.194.2.0.8 "Status Events" Normal
+FORMAT A notification indicating that the number of new PPPoE $*
+SDESC
+A notification indicating that the number of new PPPoE
+session request coming on a particular ATM VC, over a
+configured time interval has reached rate limit.
+The rate limit referred is referred through object 
+cPppoeSystemPerVLANthrottleRatelimit.
+The ATM VC details are referred via objects 
+cPppoeSystemSessionVci and cPppoeSystemSessionVpi. 
+The Interface details can be referred via ifDescr object.
+An agent should generate single
+cPppoeSystemSessionPerVLANThrottleNotif trap for the
+configured time interval
+Variables:
+  1: cPppoeSystemPerVCThrottleRatelimit
+  2: ifDescr
+  3: cPppoeSystemSessionVci
+  4: cPppoeSystemSessionVpi
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionLossThresholdNotif .1.3.6.1.4.1.9.9.194.2.0.9 "Status Events" Normal
+FORMAT A notification indicating that number of PPPoE session $*
+SDESC
+A notification indicating that number of PPPoE session
+count dropped below configured global threshold 
+watermark.  There will be only one trap send whenever
+count drops, further low count won't generate trap. 
+Number of PPPoE sessions count need to cross
+the watermark and drop below watermark to generate 
+trap again. The configured watermark can be referred
+through object cPppoeSystemSessionLossThreshold.
+An  agent  must  not  generate  more  than  one 
+cPppoeSystemSessionLossThresholdTrap `trap-event` in a 
+30 second period,  where a  `trap-event` is  the 
+transmission of a single trap  PDU to a  list of 
+trap destinations. If the PPPoE session count keep on
+fluctuating around the watermark during 30 seconds, then 
+these  trap-events should be suppressed by agent. 
+Variables:
+  1: cPppoeSystemSessionLossThreshold
+EDESC
+#
+#
+#
+EVENT cPppoePerInterfaceSessionLossThresholdNotif .1.3.6.1.4.1.9.9.194.2.0.10 "Status Events" Normal
+FORMAT A notification indicating that number of PPPoE session  $*
+SDESC
+A notification indicating that number of PPPoE session 
+initiated via a particular interface has dropped below
+the configured value for that interface.
+The interface details can be referred via ifDescr object,
+and the configured watermark can be referred through 
+cPppoePerInterfaceSessionLossThreshold object.
+There will be only one trap send whenever
+count drops, further low count won't generate trap. 
+Number of PPPoE sessions count need to cross
+the watermark and drop below watermark to generate 
+trap again.
+An  agent  must  not  generate  more  than  one 
+cPppoePerInterfaceSessionLossThresholdTrap `trap-event`
+in a 30 second period,  where a  `trap-event` is  the 
+transmission of a single trap  PDU to a  list of 
+trap destinations. If the PPPoE session count keep on
+fluctuating around the watermark during 30 seconds, then 
+these  trap-events should be suppressed by agent. 
+Variables:
+  1: ifDescr
+  2: cPppoePerInterfaceSessionLossThreshold
+EDESC
+#
+#
+#
+EVENT cPppoeSystemSessionLossPercentNotif .1.3.6.1.4.1.9.9.194.2.0.11 "Status Events" Normal
+FORMAT A notification indicating that percentage of PPPoE session $*
+SDESC
+A notification indicating that percentage of PPPoE session
+lost globally over a duration of time has crossed the 
+configured threshold. The configured percentage water mark
+can be referred through cPppoeSystemSessionLossPercent 
+object. 
+Variables:
+  1: cPppoeSystemSessionLossPercent
+EDESC
+#
+#
+#
+EVENT cPppoePerInterfaceSessionLossPercentNotif .1.3.6.1.4.1.9.9.194.2.0.12 "Status Events" Normal
+FORMAT A notification indicating that percentage of PPPoE sessions $*
+SDESC
+A notification indicating that percentage of PPPoE sessions
+lost has crossed configured threshold value for a 
+particular interface. The interface details can be referred
+through ifDescr object, and the configured threshold for 
+the interface can be referred through 
+cPppoePerInterfaceSessionLossPercent.
+Variables:
+  1: ifDescr
+  2: cPppoePerInterfaceSessionLossPercent
+EDESC

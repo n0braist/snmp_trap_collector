@@ -1,0 +1,3213 @@
+#
+#
+#
+#
+MIB: AV-VOICE-PORTAL-MIB (file:./AV-VOICE-PORTAL-MIB) converted on Tue Jan  2 13:28:16 2018 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT avpUnknown .1.3.6.1.4.1.6889.2.17.1.0.993 "Status Events" Normal
+FORMAT An unknown alarm condition $*
+SDESC
+An unknown alarm condition
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQLICE00001 .1.3.6.1.4.1.6889.2.17.1.0.1 "Status Events" Normal
+FORMAT Unable to contact WebLM server $*
+SDESC
+Unable to contact WebLM server
+REFERENCE
+QLICE00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQLICE00002 .1.3.6.1.4.1.6889.2.17.1.0.2 "Status Events" Normal
+FORMAT License grace period has exceeded $*
+SDESC
+License grace period has exceeded
+REFERENCE
+QLICE00002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQLICE00003 .1.3.6.1.4.1.6889.2.17.1.0.3 "Status Events" Normal
+FORMAT License has expired $*
+SDESC
+License has expired
+REFERENCE
+QLICE00003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQLICE00004 .1.3.6.1.4.1.6889.2.17.1.0.4 "Status Events" Normal
+FORMAT License information is not available in the database $*
+SDESC
+License information is not available in the database
+REFERENCE
+QLICE00004
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQLICE00005 .1.3.6.1.4.1.6889.2.17.1.0.5 "Status Events" Normal
+FORMAT An SQL exception has occurred. $*
+SDESC
+An SQL exception has occurred.
+REFERENCE
+QLICE00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00001 .1.3.6.1.4.1.6889.2.17.1.0.6 "Status Events" Normal
+FORMAT IPC connection to SessionManager failed $*
+SDESC
+IPC connection to SessionManager failed
+REFERENCE
+QCXI_00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00002 .1.3.6.1.4.1.6889.2.17.1.0.7 "Status Events" Normal
+FORMAT Invalid parameter sent to a function $*
+SDESC
+Invalid parameter sent to a function
+REFERENCE
+QCXI_00002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00003 .1.3.6.1.4.1.6889.2.17.1.0.8 "Status Events" Normal
+FORMAT No IPC connection, function failed $*
+SDESC
+No IPC connection, function failed
+REFERENCE
+QCXI_00003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00004 .1.3.6.1.4.1.6889.2.17.1.0.9 "Status Events" Normal
+FORMAT Caught unknown exception in function $*
+SDESC
+Caught unknown exception in function
+REFERENCE
+QCXI_00004
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00005 .1.3.6.1.4.1.6889.2.17.1.0.10 "Status Events" Normal
+FORMAT Out of memory $*
+SDESC
+Out of memory
+REFERENCE
+QCXI_00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00006 .1.3.6.1.4.1.6889.2.17.1.0.11 "Status Events" Normal
+FORMAT Error from CXI engine! $*
+SDESC
+Error from CXI engine!
+REFERENCE
+QCXI_00006
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00007 .1.3.6.1.4.1.6889.2.17.1.0.12 "Status Events" Normal
+FORMAT Error connecting to IPC channel $*
+SDESC
+Error connecting to IPC channel
+REFERENCE
+QCXI_00007
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00008 .1.3.6.1.4.1.6889.2.17.1.0.13 "Status Events" Normal
+FORMAT Error sending Ready message to SessionManager $*
+SDESC
+Error sending Ready message to SessionManager
+REFERENCE
+QCXI_00008
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00009 .1.3.6.1.4.1.6889.2.17.1.0.14 "Status Events" Normal
+FORMAT Empty log slot $*
+SDESC
+Empty log slot
+REFERENCE
+QCXI_00009
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00010 .1.3.6.1.4.1.6889.2.17.1.0.15 "Status Events" Normal
+FORMAT Non-existant session $*
+SDESC
+Non-existant session
+REFERENCE
+QCXI_00010
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00011 .1.3.6.1.4.1.6889.2.17.1.0.16 "Status Events" Normal
+FORMAT Failed to route event to a session $*
+SDESC
+Failed to route event to a session
+REFERENCE
+QCXI_00011
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00012 .1.3.6.1.4.1.6889.2.17.1.0.17 "Status Events" Normal
+FORMAT Received invalid message in function $*
+SDESC
+Received invalid message in function
+REFERENCE
+QCXI_00012
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00013 .1.3.6.1.4.1.6889.2.17.1.0.18 "Status Events" Normal
+FORMAT IPC connection failed.  Max number of attempts reached $*
+SDESC
+IPC connection failed.  Max number of attempts reached
+REFERENCE
+QCXI_00013
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00016 .1.3.6.1.4.1.6889.2.17.1.0.19 "Status Events" Normal
+FORMAT CCXML page error in event with invalid argument $*
+SDESC
+CCXML page error in event with invalid argument
+REFERENCE
+QCXI_00016
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00017 .1.3.6.1.4.1.6889.2.17.1.0.20 "Status Events" Normal
+FORMAT Handle already exists $*
+SDESC
+Handle already exists
+REFERENCE
+QCX_00017
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQADMN10001 .1.3.6.1.4.1.6889.2.17.1.0.21 "Status Events" Normal
+FORMAT MPP Maintenance caught unknown exception $*
+SDESC
+MPP Maintenance caught unknown exception
+REFERENCE
+QADMN10001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQADMN10002 .1.3.6.1.4.1.6889.2.17.1.0.22 "Status Events" Normal
+FORMAT MPP Maintenance purge failed because directory does not exist $*
+SDESC
+MPP Maintenance purge failed because directory does not exist
+REFERENCE
+QADMN10002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQADMN10003 .1.3.6.1.4.1.6889.2.17.1.0.23 "Status Events" Normal
+FORMAT MPP Maintenance purge failed cannot convert Retention Days value to integer $*
+SDESC
+MPP Maintenance purge failed cannot convert Retention Days value to integer
+REFERENCE
+QADMN10003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQADMN10004 .1.3.6.1.4.1.6889.2.17.1.0.24 "Status Events" Normal
+FORMAT MPP Maintenance purge failed due to bad Retention Days value $*
+SDESC
+MPP Maintenance purge failed due to bad Retention Days value
+REFERENCE
+QADMN10004
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQADMN10005 .1.3.6.1.4.1.6889.2.17.1.0.25 "Status Events" Normal
+FORMAT MPP Maintenance purge failed cannot convert year/month/day value to integer $*
+SDESC
+MPP Maintenance purge failed cannot convert year/month/day value to integer
+REFERENCE
+QADMN10005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00001 .1.3.6.1.4.1.6889.2.17.1.0.26 "Status Events" Normal
+FORMAT MPP System Manager initialization of mgt library failed $*
+SDESC
+MPP System Manager initialization of mgt library failed
+REFERENCE
+QSYSM00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00002 .1.3.6.1.4.1.6889.2.17.1.0.27 "Status Events" Normal
+FORMAT MPP System Manager initialization failed with error $*
+SDESC
+MPP System Manager initialization failed with error
+REFERENCE
+QSYSM00002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00003 .1.3.6.1.4.1.6889.2.17.1.0.28 "Status Events" Normal
+FORMAT MPP System Manager cannot access config file $*
+SDESC
+MPP System Manager cannot access config file
+REFERENCE
+QSYSM00003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00004 .1.3.6.1.4.1.6889.2.17.1.0.29 "Status Events" Normal
+FORMAT Cannot create message object $*
+SDESC
+Cannot create message object
+REFERENCE
+QSYSM00004
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00005 .1.3.6.1.4.1.6889.2.17.1.0.30 "Status Events" Normal
+FORMAT Cannot register message callbacks $*
+SDESC
+Cannot register message callbacks
+REFERENCE
+QSYSM00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00006 .1.3.6.1.4.1.6889.2.17.1.0.31 "Status Events" Normal
+FORMAT Cannot accept message connection $*
+SDESC
+Cannot accept message connection
+REFERENCE
+QSYSM00006
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00007 .1.3.6.1.4.1.6889.2.17.1.0.32 "Status Events" Normal
+FORMAT Cannot publish MPP configuration data $*
+SDESC
+Cannot publish MPP configuration data
+REFERENCE
+QSYSM00007
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00008 .1.3.6.1.4.1.6889.2.17.1.0.33 "Status Events" Normal
+FORMAT MPP startup aborted because process failed to start $*
+SDESC
+MPP startup aborted because process failed to start
+REFERENCE
+QSYSM00008
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00009 .1.3.6.1.4.1.6889.2.17.1.0.34 "Status Events" Normal
+FORMAT During MPP startup because process failed to start $*
+SDESC
+During MPP startup because process failed to start
+REFERENCE
+QSYSM00009
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00010 .1.3.6.1.4.1.6889.2.17.1.0.35 "Status Events" Normal
+FORMAT Failed to execute system $*
+SDESC
+Failed to execute system
+REFERENCE
+QSYSM00010
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00011 .1.3.6.1.4.1.6889.2.17.1.0.36 "Status Events" Normal
+FORMAT Unknown command was issued from the MMS $*
+SDESC
+Unknown command was issued from the MMS
+REFERENCE
+QSYSM00011
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00013 .1.3.6.1.4.1.6889.2.17.1.0.37 "Status Events" Normal
+FORMAT Command issued from the MMS was ignored because the MPP requires further configuration $*
+SDESC
+Command issued from the MMS was ignored because the MPP requires further configuration
+REFERENCE
+QSYSM00013
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00014 .1.3.6.1.4.1.6889.2.17.1.0.38 "Status Events" Normal
+FORMAT Failed to send a message $*
+SDESC
+Failed to send a message
+REFERENCE
+QSYSM00014
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00015 .1.3.6.1.4.1.6889.2.17.1.0.39 "Status Events" Normal
+FORMAT Failed to issue command to process $*
+SDESC
+Failed to issue command to process
+REFERENCE
+QSYSM00015
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00016 .1.3.6.1.4.1.6889.2.17.1.0.40 "Status Events" Normal
+FORMAT Failed to respond to MMS heartbeat request $*
+SDESC
+Failed to respond to MMS heartbeat request
+REFERENCE
+QSYSM00016
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00017 .1.3.6.1.4.1.6889.2.17.1.0.41 "Status Events" Normal
+FORMAT Failed to create process $*
+SDESC
+Failed to create process
+REFERENCE
+QSYSM00017
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00018 .1.3.6.1.4.1.6889.2.17.1.0.42 "Status Events" Normal
+FORMAT Failed to send signal to process $*
+SDESC
+Failed to send signal to process
+REFERENCE
+QSYSM00018
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00019 .1.3.6.1.4.1.6889.2.17.1.0.43 "Status Events" Normal
+FORMAT Unexpected exception occurred $*
+SDESC
+Unexpected exception occurred
+REFERENCE
+QSYSM00019
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00020 .1.3.6.1.4.1.6889.2.17.1.0.44 "Status Events" Normal
+FORMAT MPP Process stopped sending keep-alive messages is being terminated $*
+SDESC
+MPP Process stopped sending keep-alive messages is being terminated
+REFERENCE
+QSYSM00020
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00022 .1.3.6.1.4.1.6889.2.17.1.0.45 "Status Events" Normal
+FORMAT MPP Process stopped unexpectedly. Restart count of exhausted $*
+SDESC
+MPP Process stopped unexpectedly. Restart count of exhausted
+REFERENCE
+QSYSM00022
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00023 .1.3.6.1.4.1.6889.2.17.1.0.46 "Status Events" Normal
+FORMAT MPP Process initialization failed $*
+SDESC
+MPP Process initialization failed
+REFERENCE
+QSYSM00023
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00024 .1.3.6.1.4.1.6889.2.17.1.0.47 "Status Events" Normal
+FORMAT Memory allocation failure $*
+SDESC
+Memory allocation failure
+REFERENCE
+QSYSM00024
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00025 .1.3.6.1.4.1.6889.2.17.1.0.48 "Status Events" Normal
+FORMAT MPP configuration failure because configuration data is empty $*
+SDESC
+MPP configuration failure because configuration data is empty
+REFERENCE
+QSYSM00025
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00026 .1.3.6.1.4.1.6889.2.17.1.0.49 "Status Events" Normal
+FORMAT MPP Cpu use has exceeded configured threshold $*
+SDESC
+MPP Cpu use has exceeded configured threshold
+REFERENCE
+QSYSM00026
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00027 .1.3.6.1.4.1.6889.2.17.1.0.50 "Status Events" Normal
+FORMAT MPP Memory use has exceeded configured threshold $*
+SDESC
+MPP Memory use has exceeded configured threshold
+REFERENCE
+QSYSM00027
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00028 .1.3.6.1.4.1.6889.2.17.1.0.51 "Status Events" Normal
+FORMAT MPP Disk use has exceeded configured threshold $*
+SDESC
+MPP Disk use has exceeded configured threshold
+REFERENCE
+QSYSM00028
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00029 .1.3.6.1.4.1.6889.2.17.1.0.52 "Status Events" Normal
+FORMAT The MPP process cannot be stopped in its current state $*
+SDESC
+The MPP process cannot be stopped in its current state
+REFERENCE
+QSYSM00029
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQVB00001 .1.3.6.1.4.1.6889.2.17.1.0.53 "Status Events" Normal
+FORMAT An unknown exception occurred $*
+SDESC
+An unknown exception occurred
+REFERENCE
+QVB__00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQVB00002 .1.3.6.1.4.1.6889.2.17.1.0.54 "Status Events" Normal
+FORMAT Could not establish a connection with SessionManager $*
+SDESC
+Could not establish a connection with SessionManager
+REFERENCE
+QVB__00002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQVB00003 .1.3.6.1.4.1.6889.2.17.1.0.55 "Status Events" Normal
+FORMAT Browser execution terminated abnormally $*
+SDESC
+Browser execution terminated abnormally
+REFERENCE
+QVB__00003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQVB00004 .1.3.6.1.4.1.6889.2.17.1.0.56 "Status Events" Normal
+FORMAT Encountered exception creating new browser instance $*
+SDESC
+Encountered exception creating new browser instance
+REFERENCE
+QVB__00004
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQVB00005 .1.3.6.1.4.1.6889.2.17.1.0.57 "Status Events" Normal
+FORMAT Encountered exception creating voice browser factory $*
+SDESC
+Encountered exception creating voice browser factory
+REFERENCE
+QVB__00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00001 .1.3.6.1.4.1.6889.2.17.1.0.58 "Status Events" Normal
+FORMAT Network error occured on CCXML message channel $*
+SDESC
+Network error occured on CCXML message channel
+REFERENCE
+QSESM00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00002 .1.3.6.1.4.1.6889.2.17.1.0.59 "Status Events" Normal
+FORMAT Network error occured on VXML message channel $*
+SDESC
+Network error occured on VXML message channel
+REFERENCE
+QSESM00002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00003 .1.3.6.1.4.1.6889.2.17.1.0.60 "Status Events" Normal
+FORMAT Connect to CCXML process message channel failed $*
+SDESC
+Connect to CCXML process message channel failed
+REFERENCE
+QSESM00003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00004 .1.3.6.1.4.1.6889.2.17.1.0.61 "Status Events" Normal
+FORMAT Connect to VXML process message channel failed $*
+SDESC
+Connect to VXML process message channel failed
+REFERENCE
+QSESM00004
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00005 .1.3.6.1.4.1.6889.2.17.1.0.62 "Status Events" Normal
+FORMAT Unable to get CCXML message channel $*
+SDESC
+Unable to get CCXML message channel
+REFERENCE
+QSESM00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00006 .1.3.6.1.4.1.6889.2.17.1.0.63 "Status Events" Normal
+FORMAT Unable to register CCXML message channel $*
+SDESC
+Unable to register CCXML message channel
+REFERENCE
+QSESM00006
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00007 .1.3.6.1.4.1.6889.2.17.1.0.64 "Status Events" Normal
+FORMAT Unable to get VXML message channel $*
+SDESC
+Unable to get VXML message channel
+REFERENCE
+QSESM00007
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00008 .1.3.6.1.4.1.6889.2.17.1.0.65 "Status Events" Normal
+FORMAT Unable to register VXML message channel $*
+SDESC
+Unable to register VXML message channel
+REFERENCE
+QSESM00008
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00009 .1.3.6.1.4.1.6889.2.17.1.0.66 "Status Events" Normal
+FORMAT Unable to send message to CCXML channel $*
+SDESC
+Unable to send message to CCXML channel
+REFERENCE
+QSESM00009
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00010 .1.3.6.1.4.1.6889.2.17.1.0.67 "Status Events" Normal
+FORMAT Unable to send message to VXML channel $*
+SDESC
+Unable to send message to VXML channel
+REFERENCE
+QSESM00010
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00011 .1.3.6.1.4.1.6889.2.17.1.0.68 "Status Events" Normal
+FORMAT ASR connect to server failed to initialized $*
+SDESC
+ASR connect to server failed to initialized
+REFERENCE
+QSESM00011
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00012 .1.3.6.1.4.1.6889.2.17.1.0.69 "Status Events" Normal
+FORMAT ASR provider error $*
+SDESC
+ASR provider error
+REFERENCE
+QSESM00012
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00013 .1.3.6.1.4.1.6889.2.17.1.0.70 "Status Events" Normal
+FORMAT Timeout waiting for ASR to initialize $*
+SDESC
+Timeout waiting for ASR to initialize
+REFERENCE
+QSESM00013
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00014 .1.3.6.1.4.1.6889.2.17.1.0.71 "Status Events" Normal
+FORMAT TTS connect to server failed to initialized $*
+SDESC
+TTS connect to server failed to initialized
+REFERENCE
+QSESM00014
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00015 .1.3.6.1.4.1.6889.2.17.1.0.72 "Status Events" Normal
+FORMAT Timeout waiting for TTS to initialize $*
+SDESC
+Timeout waiting for TTS to initialize
+REFERENCE
+QSESM00015
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00016 .1.3.6.1.4.1.6889.2.17.1.0.73 "Status Events" Normal
+FORMAT Unable to create telephony play record endpoint $*
+SDESC
+Unable to create telephony play record endpoint
+REFERENCE
+QSESM00016
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00017 .1.3.6.1.4.1.6889.2.17.1.0.74 "Status Events" Normal
+FORMAT Unable to create telephony speech dialog object $*
+SDESC
+Unable to create telephony speech dialog object
+REFERENCE
+QSESM00017
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00018 .1.3.6.1.4.1.6889.2.17.1.0.75 "Status Events" Normal
+FORMAT Could not start ASR session $*
+SDESC
+Could not start ASR session
+REFERENCE
+QSESM00018
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00019 .1.3.6.1.4.1.6889.2.17.1.0.76 "Status Events" Normal
+FORMAT Unable to create ASR port object $*
+SDESC
+Unable to create ASR port object
+REFERENCE
+QSESM00019
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00020 .1.3.6.1.4.1.6889.2.17.1.0.77 "Status Events" Normal
+FORMAT Could not start TTS session $*
+SDESC
+Could not start TTS session
+REFERENCE
+QSESM00020
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00021 .1.3.6.1.4.1.6889.2.17.1.0.78 "Status Events" Normal
+FORMAT Unable to create TTS port object $*
+SDESC
+Unable to create TTS port object
+REFERENCE
+QSESM00021
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00022 .1.3.6.1.4.1.6889.2.17.1.0.79 "Status Events" Normal
+FORMAT Caught Exception, session is exiting $*
+SDESC
+Caught Exception, session is exiting
+REFERENCE
+QSESM00022
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00023 .1.3.6.1.4.1.6889.2.17.1.0.80 "Status Events" Normal
+FORMAT Caught Exception in main, exiting SessionManager $*
+SDESC
+Caught Exception in main, exiting SessionManager
+REFERENCE
+QSESM00023
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00024 .1.3.6.1.4.1.6889.2.17.1.0.81 "Status Events" Normal
+FORMAT Connection to (CCXML,VXML) process, failed $*
+SDESC
+Connection to (CCXML,VXML) process, failed
+REFERENCE
+QSESM00024
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00025 .1.3.6.1.4.1.6889.2.17.1.0.82 "Status Events" Normal
+FORMAT Error has occured with connection to process, unable to process calls $*
+SDESC
+Error has occured with connection to process, unable to process calls
+REFERENCE
+QSESM00025
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00026 .1.3.6.1.4.1.6889.2.17.1.0.83 "Status Events" Normal
+FORMAT Unable to reconnect to (CCXML,VXML) process, SessionManager is exiting $*
+SDESC
+Unable to reconnect to (CCXML,VXML) process, SessionManager is exiting
+REFERENCE
+QSESM00026
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00027 .1.3.6.1.4.1.6889.2.17.1.0.84 "Status Events" Normal
+FORMAT Unable to create path $*
+SDESC
+Unable to create path
+REFERENCE
+QSESM00027
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00028 .1.3.6.1.4.1.6889.2.17.1.0.85 "Status Events" Normal
+FORMAT Error opening file $*
+SDESC
+Error opening file
+REFERENCE
+QSESM00028
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00029 .1.3.6.1.4.1.6889.2.17.1.0.86 "Status Events" Normal
+FORMAT Error writing to file $*
+SDESC
+Error writing to file
+REFERENCE
+QSESM00029
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00030 .1.3.6.1.4.1.6889.2.17.1.0.87 "Status Events" Normal
+FORMAT ASR provider failed to load $*
+SDESC
+ASR provider failed to load
+REFERENCE
+QSESM00030
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00031 .1.3.6.1.4.1.6889.2.17.1.0.88 "Status Events" Normal
+FORMAT ASR provider 'CreateProvider' returned NULL $*
+SDESC
+ASR provider 'CreateProvider' returned NULL
+REFERENCE
+QSESM00031
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00032 .1.3.6.1.4.1.6889.2.17.1.0.89 "Status Events" Normal
+FORMAT Invalid ASR provider unable to find 'CreateProvider' symbol $*
+SDESC
+Invalid ASR provider unable to find 'CreateProvider' symbol
+REFERENCE
+QSESM00032
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00033 .1.3.6.1.4.1.6889.2.17.1.0.90 "Status Events" Normal
+FORMAT ASR provider failed to initialize $*
+SDESC
+ASR provider failed to initialize
+REFERENCE
+QSESM00033
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00034 .1.3.6.1.4.1.6889.2.17.1.0.91 "Status Events" Normal
+FORMAT TTS provider failed to load $*
+SDESC
+TTS provider failed to load
+REFERENCE
+QSESM00034
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00035 .1.3.6.1.4.1.6889.2.17.1.0.92 "Status Events" Normal
+FORMAT TTS provider error, 'CreateProvider' returned NULL $*
+SDESC
+TTS provider error, 'CreateProvider' returned NULL
+REFERENCE
+QSESM00035
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00036 .1.3.6.1.4.1.6889.2.17.1.0.93 "Status Events" Normal
+FORMAT Invalid TTS provider, unable to find 'CreateProvider' symbol $*
+SDESC
+Invalid TTS provider, unable to find 'CreateProvider' symbol
+REFERENCE
+QSESM00036
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00037 .1.3.6.1.4.1.6889.2.17.1.0.94 "Status Events" Normal
+FORMAT TTS provider failed to initialize $*
+SDESC
+TTS provider failed to initialize
+REFERENCE
+QSESM00037
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00038 .1.3.6.1.4.1.6889.2.17.1.0.95 "Status Events" Normal
+FORMAT Telephony provider failed to load $*
+SDESC
+Telephony provider failed to load
+REFERENCE
+QSESM00038
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00039 .1.3.6.1.4.1.6889.2.17.1.0.96 "Status Events" Normal
+FORMAT Telephony provider 'CreateProvider' returned NULL $*
+SDESC
+Telephony provider 'CreateProvider' returned NULL
+REFERENCE
+QSESM00039
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00040 .1.3.6.1.4.1.6889.2.17.1.0.97 "Status Events" Normal
+FORMAT Invalid Telephony provider unable to find 'CreateProvider' symbol $*
+SDESC
+Invalid Telephony provider unable to find 'CreateProvider' symbol
+REFERENCE
+QSESM00040
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00041 .1.3.6.1.4.1.6889.2.17.1.0.98 "Status Events" Normal
+FORMAT Telephony MakeCall to CalledURI failed $*
+SDESC
+Telephony MakeCall to CalledURI failed
+REFERENCE
+QSESM00041
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00042 .1.3.6.1.4.1.6889.2.17.1.0.99 "Status Events" Normal
+FORMAT Playfile with file failed on EndPoint $*
+SDESC
+Playfile with file failed on EndPoint
+REFERENCE
+QSESM00042
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00043 .1.3.6.1.4.1.6889.2.17.1.0.100 "Status Events" Normal
+FORMAT Record with file failed on EndPoint $*
+SDESC
+Record with file failed on EndPoint
+REFERENCE
+QSESM00043
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00044 .1.3.6.1.4.1.6889.2.17.1.0.101 "Status Events" Normal
+FORMAT TTS operation failed $*
+SDESC
+TTS operation failed
+REFERENCE
+QSESM00044
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00045 .1.3.6.1.4.1.6889.2.17.1.0.102 "Status Events" Normal
+FORMAT ASR SetParameter failed $*
+SDESC
+ASR SetParameter failed
+REFERENCE
+QSESM00045
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00046 .1.3.6.1.4.1.6889.2.17.1.0.103 "Status Events" Normal
+FORMAT LoadGrammar for grammar failed $*
+SDESC
+LoadGrammar for grammar failed
+REFERENCE
+QSESM00046
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00047 .1.3.6.1.4.1.6889.2.17.1.0.104 "Status Events" Normal
+FORMAT Activate Grammar failed $*
+SDESC
+Activate Grammar failed
+REFERENCE
+QSESM00047
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00048 .1.3.6.1.4.1.6889.2.17.1.0.105 "Status Events" Normal
+FORMAT Start Recognition failed $*
+SDESC
+Start Recognition failed
+REFERENCE
+QSESM00048
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00049 .1.3.6.1.4.1.6889.2.17.1.0.106 "Status Events" Normal
+FORMAT Start DTMF Collection failed $*
+SDESC
+Start DTMF Collection failed
+REFERENCE
+QSESM00049
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00051 .1.3.6.1.4.1.6889.2.17.1.0.107 "Status Events" Normal
+FORMAT Unable to initialize status shared memory segment $*
+SDESC
+Unable to initialize status shared memory segment
+REFERENCE
+QSESM00051
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00052 .1.3.6.1.4.1.6889.2.17.1.0.108 "Status Events" Normal
+FORMAT Unable to add station $*
+SDESC
+Unable to add station
+REFERENCE
+QSESM00052
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00053 .1.3.6.1.4.1.6889.2.17.1.0.109 "Status Events" Normal
+FORMAT Remove station failed $*
+SDESC
+Remove station failed
+REFERENCE
+QSESM00053
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00054 .1.3.6.1.4.1.6889.2.17.1.0.110 "Status Events" Normal
+FORMAT Trunks not supported at this time $*
+SDESC
+Trunks not supported at this time
+REFERENCE
+QSESM00054
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00056 .1.3.6.1.4.1.6889.2.17.1.0.111 "Status Events" Normal
+FORMAT CreateCall failed $*
+SDESC
+CreateCall failed
+REFERENCE
+QSESM00056
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00057 .1.3.6.1.4.1.6889.2.17.1.0.112 "Status Events" Normal
+FORMAT Invalid SessionHande $*
+SDESC
+Invalid SessionHande
+REFERENCE
+QSESM00057
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00064 .1.3.6.1.4.1.6889.2.17.1.0.113 "Status Events" Normal
+FORMAT TTS provider error $*
+SDESC
+TTS provider error
+REFERENCE
+QSESM00064
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00065 .1.3.6.1.4.1.6889.2.17.1.0.114 "Status Events" Normal
+FORMAT Caught Exception during initialization, SessionManager cannot start $*
+SDESC
+Caught Exception during initialization, SessionManager cannot start
+REFERENCE
+QSESM00065
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00066 .1.3.6.1.4.1.6889.2.17.1.0.195 "Status Events" Normal
+FORMAT Telephony Subsystem Error: All Stations Out-Of-Service. $*
+SDESC
+Telephony Subsystem Error: All Stations Out-Of-Service.
+REFERENCE
+QSESM00066
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00001 .1.3.6.1.4.1.6889.2.17.1.0.115 "Status Events" Normal
+FORMAT Configuration Error $*
+SDESC
+Configuration Error
+REFERENCE
+QTELE00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00002 .1.3.6.1.4.1.6889.2.17.1.0.116 "Status Events" Normal
+FORMAT Network Error $*
+SDESC
+Network Error
+REFERENCE
+QTELE00002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00003 .1.3.6.1.4.1.6889.2.17.1.0.117 "Status Events" Normal
+FORMAT Remote Endpoint Error $*
+SDESC
+Remote Endpoint Error
+REFERENCE
+QTELE00003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00004 .1.3.6.1.4.1.6889.2.17.1.0.118 "Status Events" Normal
+FORMAT Media Error $*
+SDESC
+Media Error
+REFERENCE
+QTELE00004
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00005 .1.3.6.1.4.1.6889.2.17.1.0.119 "Status Events" Normal
+FORMAT Signaling Error $*
+SDESC
+Signaling Error
+REFERENCE
+QTELE00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00006 .1.3.6.1.4.1.6889.2.17.1.0.120 "Status Events" Normal
+FORMAT Call Error $*
+SDESC
+Call Error
+REFERENCE
+QTELE00006
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00007 .1.3.6.1.4.1.6889.2.17.1.0.121 "Status Events" Normal
+FORMAT Call Force Cleared $*
+SDESC
+Call Force Cleared
+REFERENCE
+QTELE00007
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00008 .1.3.6.1.4.1.6889.2.17.1.0.122 "Status Events" Normal
+FORMAT All Channels Busy $*
+SDESC
+All Channels Busy
+REFERENCE
+QTELE00008
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00009 .1.3.6.1.4.1.6889.2.17.1.0.196 "Status Events" Normal
+FORMAT Exception Caught $*
+SDESC
+Exception Caught
+REFERENCE
+QTELE00009
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00024 .1.3.6.1.4.1.6889.2.17.1.0.197 "Status Events" Normal
+FORMAT Call Handler Initialization Failed $*
+SDESC
+Call Handler Initialization Failed
+REFERENCE
+QTELE00024
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTELE00031 .1.3.6.1.4.1.6889.2.17.1.0.200 "Status Events" Normal
+FORMAT Channel Out of Service $*
+SDESC
+Channel Out of Service
+REFERENCE
+QTELE00031
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQMMS00001 .1.3.6.1.4.1.6889.2.17.1.0.123 "Status Events" Normal
+FORMAT Cannot create message object $*
+SDESC
+Cannot create message object
+REFERENCE
+QMMS_00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQMMS00002 .1.3.6.1.4.1.6889.2.17.1.0.124 "Status Events" Normal
+FORMAT Connection failure $*
+SDESC
+Connection failure
+REFERENCE
+QMMS_00002
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQMMS00003 .1.3.6.1.4.1.6889.2.17.1.0.125 "Status Events" Normal
+FORMAT Failed to send command to MPP System Manager $*
+SDESC
+Failed to send command to MPP System Manager
+REFERENCE
+QMMS_00003
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQADMN01005 .1.3.6.1.4.1.6889.2.17.1.0.126 "Status Events" Normal
+FORMAT Alarm threshold for failed logins exceeded $*
+SDESC
+Alarm threshold for failed logins exceeded
+REFERENCE
+QADMN01005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCDH00001 .1.3.6.1.4.1.6889.2.17.1.0.127 "Status Events" Normal
+FORMAT Unable to access configuration data (CDH) $*
+SDESC
+Unable to access configuration data (CDH)
+REFERENCE
+QCDH_00001
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCDH00008 .1.3.6.1.4.1.6889.2.17.1.0.132 "Status Events" Normal
+FORMAT Scheduled event completed with errors $*
+SDESC
+Scheduled event completed with errors
+REFERENCE
+QCDH_00008
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00034 .1.3.6.1.4.1.6889.2.17.1.0.133 "Status Events" Normal
+FORMAT Bad date format in from database table $*
+SDESC
+Bad date format in from database table
+REFERENCE
+QOMS_00034
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00035 .1.3.6.1.4.1.6889.2.17.1.0.134 "Status Events" Normal
+FORMAT MPP has port that has not been configured by VPMS $*
+SDESC
+MPP has port that has not been configured by VPMS
+REFERENCE
+QOMS_00035
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00036 .1.3.6.1.4.1.6889.2.17.1.0.135 "Status Events" Normal
+FORMAT MPP has port that has not been assigned to it by VPMS $*
+SDESC
+MPP has port that has not been assigned to it by VPMS
+REFERENCE
+QOMS_00036
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00037 .1.3.6.1.4.1.6889.2.17.1.0.136 "Status Events" Normal
+FORMAT MPP has port that has been assigned to another MPP by VPMS $*
+SDESC
+MPP has port that has been assigned to another MPP by VPMS
+REFERENCE
+QOMS_00037
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00039 .1.3.6.1.4.1.6889.2.17.1.0.137 "Status Events" Normal
+FORMAT Unknown state received from MPP $*
+SDESC
+Unknown state received from MPP
+REFERENCE
+QOMS_00039
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00040 .1.3.6.1.4.1.6889.2.17.1.0.138 "Status Events" Normal
+FORMAT Unknown Exception Occurred $*
+SDESC
+Unknown Exception Occurred
+REFERENCE
+QOMS_00040
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00045 .1.3.6.1.4.1.6889.2.17.1.0.139 "Status Events" Normal
+FORMAT Error opening realtime database causing OMS to terminate $*
+SDESC
+Error opening realtime database causing OMS to terminate
+REFERENCE
+QOMS_00045
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00047 .1.3.6.1.4.1.6889.2.17.1.0.140 "Status Events" Normal
+FORMAT Unknown error opening realtime database causing OMS to terminate $*
+SDESC
+Unknown error opening realtime database causing OMS to terminate
+REFERENCE
+QOMS_00047
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00049 .1.3.6.1.4.1.6889.2.17.1.0.141 "Status Events" Normal
+FORMAT System Data Module(SDM) initialization error occured $*
+SDESC
+System Data Module(SDM) initialization error occured
+REFERENCE
+QOMS_00049
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00050 .1.3.6.1.4.1.6889.2.17.1.0.142 "Status Events" Normal
+FORMAT Failed getting session for configuration database (SDM) $*
+SDESC
+Failed getting session for configuration database (SDM)
+REFERENCE
+QOMS_00050
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00051 .1.3.6.1.4.1.6889.2.17.1.0.143 "Status Events" Normal
+FORMAT Failed getting instance of configuration database (SDM) Mananger $*
+SDESC
+Failed getting instance of configuration database (SDM) Mananger
+REFERENCE
+QOMS_00051
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00052 .1.3.6.1.4.1.6889.2.17.1.0.144 "Status Events" Normal
+FORMAT Failed getting configuration database (SDM) Voice Portal System $*
+SDESC
+Failed getting configuration database (SDM) Voice Portal System
+REFERENCE
+QOMS_00052
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00053 .1.3.6.1.4.1.6889.2.17.1.0.145 "Status Events" Normal
+FORMAT Failed getting configuration database (SDM) Voice Portal System $*
+SDESC
+Failed getting configuration database (SDM) Voice Portal System
+REFERENCE
+QOMS_00053
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00054 .1.3.6.1.4.1.6889.2.17.1.0.146 "Status Events" Normal
+FORMAT Configuration change dates container not defined $*
+SDESC
+Configuration change dates container not defined
+REFERENCE
+QOMS_00054
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00055 .1.3.6.1.4.1.6889.2.17.1.0.147 "Status Events" Normal
+FORMAT Configuration change dates resource not defined $*
+SDESC
+Configuration change dates resource not defined
+REFERENCE
+QOMS_00055
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00056 .1.3.6.1.4.1.6889.2.17.1.0.148 "Status Events" Normal
+FORMAT Exception occured while retreiving configuration change dates $*
+SDESC
+Exception occured while retreiving configuration change dates
+REFERENCE
+QOMS_00056
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00057 .1.3.6.1.4.1.6889.2.17.1.0.149 "Status Events" Normal
+FORMAT Exception occured while retreiving H.323 configuration $*
+SDESC
+Exception occured while retreiving H.323 configuration
+REFERENCE
+QOMS_00057
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00058 .1.3.6.1.4.1.6889.2.17.1.0.150 "Status Events" Normal
+FORMAT Global Settings container not defined $*
+SDESC
+Global Settings container not defined
+REFERENCE
+QOMS_00058
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00059 .1.3.6.1.4.1.6889.2.17.1.0.151 "Status Events" Normal
+FORMAT Global Settings resource not defined $*
+SDESC
+Global Settings resource not defined
+REFERENCE
+QOMS_00059
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00060 .1.3.6.1.4.1.6889.2.17.1.0.152 "Status Events" Normal
+FORMAT Exception occured while retreiving global settings $*
+SDESC
+Exception occured while retreiving global settings
+REFERENCE
+QOMS_00060
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00061 .1.3.6.1.4.1.6889.2.17.1.0.153 "Status Events" Normal
+FORMAT Error retrieving VPMS logging host IP address $*
+SDESC
+Error retrieving VPMS logging host IP address
+REFERENCE
+QOMS_00061
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00062 .1.3.6.1.4.1.6889.2.17.1.0.154 "Status Events" Normal
+FORMAT TBD $*
+SDESC
+TBD
+REFERENCE
+QOMS_00062
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00063 .1.3.6.1.4.1.6889.2.17.1.0.155 "Status Events" Normal
+FORMAT VoIP resources not found $*
+SDESC
+VoIP resources not found
+REFERENCE
+QOMS_00063
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00064 .1.3.6.1.4.1.6889.2.17.1.0.156 "Status Events" Normal
+FORMAT Exception occured while retreiving Voice over IP configuration $*
+SDESC
+Exception occured while retreiving Voice over IP configuration
+REFERENCE
+QOMS_00064
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00065 .1.3.6.1.4.1.6889.2.17.1.0.157 "Status Events" Normal
+FORMAT Exception occured while retreiving TTS configuration $*
+SDESC
+Exception occured while retreiving TTS configuration
+REFERENCE
+QOMS_00065
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00066 .1.3.6.1.4.1.6889.2.17.1.0.158 "Status Events" Normal
+FORMAT Exception occured while retreiving application configuration $*
+SDESC
+Exception occured while retreiving application configuration
+REFERENCE
+QOMS_00066
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00067 .1.3.6.1.4.1.6889.2.17.1.0.159 "Status Events" Normal
+FORMAT Exception occured while retreiving ASR configuration $*
+SDESC
+Exception occured while retreiving ASR configuration
+REFERENCE
+QOMS_00067
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00068 .1.3.6.1.4.1.6889.2.17.1.0.160 "Status Events" Normal
+FORMAT Exception occured while retreiving Media Processing Platform configuration $*
+SDESC
+Exception occured while retreiving Media Processing Platform configuration
+REFERENCE
+QOMS_00068
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00077 .1.3.6.1.4.1.6889.2.17.1.0.161 "Status Events" Normal
+FORMAT Configuration data exception occured $*
+SDESC
+Configuration data exception occured
+REFERENCE
+QOMS_00077
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00078 .1.3.6.1.4.1.6889.2.17.1.0.162 "Status Events" Normal
+FORMAT Realtime data exception occured $*
+SDESC
+Realtime data exception occured
+REFERENCE
+QOMS_00078
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00079 .1.3.6.1.4.1.6889.2.17.1.0.163 "Status Events" Normal
+FORMAT Manager exception occured $*
+SDESC
+Manager exception occured
+REFERENCE
+QOMS_00079
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00080 .1.3.6.1.4.1.6889.2.17.1.0.164 "Status Events" Normal
+FORMAT Error comitting performance data to database $*
+SDESC
+Error comitting performance data to database
+REFERENCE
+QOMS_00080
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00081 .1.3.6.1.4.1.6889.2.17.1.0.165 "Status Events" Normal
+FORMAT Error deleting performance data from database $*
+SDESC
+Error deleting performance data from database
+REFERENCE
+QOMS_00081
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00082 .1.3.6.1.4.1.6889.2.17.1.0.166 "Status Events" Normal
+FORMAT Configuration data exception occured while fetching data for OMS UI $*
+SDESC
+Configuration data exception occured while fetching data for OMS UI
+REFERENCE
+QOMS_00082
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00083 .1.3.6.1.4.1.6889.2.17.1.0.167 "Status Events" Normal
+FORMAT Realtime data exception occured while fetching data for OMS UI $*
+SDESC
+Realtime data exception occured while fetching data for OMS UI
+REFERENCE
+QOMS_00083
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00084 .1.3.6.1.4.1.6889.2.17.1.0.168 "Status Events" Normal
+FORMAT Manager exception occured while fetching data for OMS UI $*
+SDESC
+Manager exception occured while fetching data for OMS UI
+REFERENCE
+QOMS_00084
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00085 .1.3.6.1.4.1.6889.2.17.1.0.169 "Status Events" Normal
+FORMAT Unknown exception occured while fetching data for OMS UI $*
+SDESC
+Unknown exception occured while fetching data for OMS UI
+REFERENCE
+QOMS_00085
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00088 .1.3.6.1.4.1.6889.2.17.1.0.170 "Status Events" Normal
+FORMAT MPP marked Not Responding because it failed to respond to multiple poll requests $*
+SDESC
+MPP marked Not Responding because it failed to respond to multiple poll requests
+REFERENCE
+QOMS_00088
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00090 .1.3.6.1.4.1.6889.2.17.1.0.171 "Status Events" Normal
+FORMAT Manager exception occured while processing MPP schedule $*
+SDESC
+Manager exception occured while processing MPP schedule
+REFERENCE
+QOMS_00090
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00095 .1.3.6.1.4.1.6889.2.17.1.0.172 "Status Events" Normal
+FORMAT MPP unexpectedly entered the error state $*
+SDESC
+MPP unexpectedly entered the error state
+REFERENCE
+QOMS_00095
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00096 .1.3.6.1.4.1.6889.2.17.1.0.173 "Status Events" Normal
+FORMAT MPP unexpectedly entered the degraded state $*
+SDESC
+MPP unexpectedly entered the degraded state
+REFERENCE
+QOMS_00096
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00097 .1.3.6.1.4.1.6889.2.17.1.0.174 "Status Events" Normal
+FORMAT MPP unexpectedly is starting $*
+SDESC
+MPP unexpectedly is starting
+REFERENCE
+QOMS_00097
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00098 .1.3.6.1.4.1.6889.2.17.1.0.175 "Status Events" Normal
+FORMAT MPP unexpectedly stopped $*
+SDESC
+MPP unexpectedly stopped
+REFERENCE
+QOMS_00098
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00099 .1.3.6.1.4.1.6889.2.17.1.0.176 "Status Events" Normal
+FORMAT MPP unexpectedly is stopping $*
+SDESC
+MPP unexpectedly is stopping
+REFERENCE
+QOMS_00099
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00100 .1.3.6.1.4.1.6889.2.17.1.0.177 "Status Events" Normal
+FORMAT SQL exception occured saving MPP $*
+SDESC
+SQL exception occured saving MPP
+REFERENCE
+QOMS_00100
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00122 .1.3.6.1.4.1.6889.2.17.1.0.183 "Status Events" Normal
+FORMAT Configuring MPP failed with no result $*
+SDESC
+Configuring MPP failed with no result
+REFERENCE
+QOMS_00122
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00123 .1.3.6.1.4.1.6889.2.17.1.0.184 "Status Events" Normal
+FORMAT Configuring MPP failed with error $*
+SDESC
+Configuring MPP failed with error
+REFERENCE
+QOMS_00123
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00124 .1.3.6.1.4.1.6889.2.17.1.0.185 "Status Events" Normal
+FORMAT Encrypt/Decrypt Invalid Key Exception occurred $*
+SDESC
+Encrypt/Decrypt Invalid Key Exception occurred
+REFERENCE
+QOMS_00124
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00125 .1.3.6.1.4.1.6889.2.17.1.0.186 "Status Events" Normal
+FORMAT Encrypt/Decrypt No Such Algorithm Exception occurred $*
+SDESC
+Encrypt/Decrypt No Such Algorithm Exception occurred
+REFERENCE
+QOMS_00125
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00126 .1.3.6.1.4.1.6889.2.17.1.0.187 "Status Events" Normal
+FORMAT Encrypt/Decrypt No Such Padding Exception occurred $*
+SDESC
+Encrypt/Decrypt No Such Padding Exception occurred
+REFERENCE
+QOMS_00126
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00128 .1.3.6.1.4.1.6889.2.17.1.0.201 "Status Events" Normal
+FORMAT Start/Restart failure; MPP failed to accept start command after it was stopped $*
+SDESC
+Start/Restart failure; MPP failed to accept start command after it was stopped
+REFERENCE
+QOMS_00128
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00129 .1.3.6.1.4.1.6889.2.17.1.0.202 "Status Events" Normal
+FORMAT Delete MPP failure: Stop request to MPP failed (MPP must be manually stopped to complete deletion) $*
+SDESC
+Delete MPP failure: Stop request to MPP failed (MPP must be manually stopped to complete deletion)
+REFERENCE
+QOMS_00129
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00140 .1.3.6.1.4.1.6889.2.17.1.0.194 "Status Events" Normal
+FORMAT Too many consecutive database errors occurred updating the real time database, OMS terminating $*
+SDESC
+Too many consecutive database errors occurred updating the real time database, OMS terminating
+REFERENCE
+QOMS_00140
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00160 .1.3.6.1.4.1.6889.2.17.1.0.203 "Status Events" Normal
+FORMAT Failed to retrieve initial configuration change dates; OMS will terminate! $*
+SDESC
+Failed to retrieve initial configuration change dates; OMS will terminate!
+REFERENCE
+QOMS_00160
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQASR00005 .1.3.6.1.4.1.6889.2.17.1.0.198 "Status Events" Normal
+FORMAT Failed initializing ASR server $*
+SDESC
+Failed initializing ASR server
+REFERENCE
+QASR_00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQASR00007 .1.3.6.1.4.1.6889.2.17.1.0.188 "Status Events" Normal
+FORMAT Caught exception $*
+SDESC
+Caught exception
+REFERENCE
+QASR_00007
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQASR00008 .1.3.6.1.4.1.6889.2.17.1.0.189 "Status Events" Normal
+FORMAT Caught an unknown exception $*
+SDESC
+Caught an unknown exception
+REFERENCE
+QASR_00008
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTTS00005 .1.3.6.1.4.1.6889.2.17.1.0.199 "Status Events" Normal
+FORMAT Failed initializing TTS server $*
+SDESC
+Failed initializing TTS server
+REFERENCE
+QTTS_00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTTS00007 .1.3.6.1.4.1.6889.2.17.1.0.193 "Status Events" Normal
+FORMAT Caught exception $*
+SDESC
+Caught exception
+REFERENCE
+QTTS_00007
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQTTS00008 .1.3.6.1.4.1.6889.2.17.1.0.190 "Status Events" Normal
+FORMAT Caught an unknown exception $*
+SDESC
+Caught an unknown exception
+REFERENCE
+QTTS_00008
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQMRCP00005 .1.3.6.1.4.1.6889.2.17.1.0.191 "Status Events" Normal
+FORMAT Callback not registered $*
+SDESC
+Callback not registered
+REFERENCE
+QMRCP00005
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQMRCP00006 .1.3.6.1.4.1.6889.2.17.1.0.192 "Status Events" Normal
+FORMAT An unknown exception occurred $*
+SDESC
+An unknown exception occurred
+REFERENCE
+QMRCP00006
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQCXI00015 .1.3.6.1.4.1.6889.2.17.1.0.178 "Status Events" Normal
+FORMAT Attempt to use IPC after shutdown initiated $*
+SDESC
+Attempt to use IPC after shutdown initiated
+REFERENCE
+QCXI_00015
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00012 .1.3.6.1.4.1.6889.2.17.1.0.179 "Status Events" Normal
+FORMAT Command issued from the MMS was ignored because the MPP was in the wrong running state $*
+SDESC
+Command issued from the MMS was ignored because the MPP was in the wrong running state
+REFERENCE
+QSYSM00012
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSYSM00021 .1.3.6.1.4.1.6889.2.17.1.0.180 "Status Events" Normal
+FORMAT MPP Process stopped unexpectedly. Restarting the process $*
+SDESC
+MPP Process stopped unexpectedly. Restarting the process
+REFERENCE
+QSYSM00021
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSESM00050 .1.3.6.1.4.1.6889.2.17.1.0.181 "Status Events" Normal
+FORMAT No application configured for call with DNIS $*
+SDESC
+No application configured for call with DNIS
+REFERENCE
+QSESM00050
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00041 .1.3.6.1.4.1.6889.2.17.1.0.182 "Status Events" Normal
+FORMAT Exception Occurred $*
+SDESC
+Exception Occurred
+REFERENCE
+QOMS_00041
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQOMS00042 .1.3.6.1.4.1.6889.2.17.1.0.204 "Status Events" Normal
+FORMAT MPP logging attempt to system log failed $*
+SDESC
+MPP logging attempt to system log failed
+REFERENCE
+QOMS_00042
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPQSNMP02605 .1.3.6.1.4.1.6889.2.17.1.0.205 "Status Events" Normal
+FORMAT Test Alarm Notification $*
+SDESC
+Test Alarm Notification
+REFERENCE
+QSNMP02605
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPGENINFO .1.3.6.1.4.1.6889.2.17.1.0.900 "Status Events" Normal
+FORMAT Voice Portal system generic Informational alarm $*
+SDESC
+Voice Portal system generic Informational alarm
+REFERENCE
+Informational alarm - Alarm Code contained in Alarm Text
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPGENMINOR .1.3.6.1.4.1.6889.2.17.1.0.901 "Status Events" Normal
+FORMAT Voice Portal system generic Minor alarm $*
+SDESC
+Voice Portal system generic Minor alarm
+REFERENCE
+Minor alarm - Alarm Code contained in Alarm Text
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPGENMAJOR .1.3.6.1.4.1.6889.2.17.1.0.902 "Status Events" Normal
+FORMAT Voice Portal system generic Major alarm $*
+SDESC
+Voice Portal system generic Major alarm
+REFERENCE
+Major alarm - Alarm Code contained in Alarm Text
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPGENCRITICAL .1.3.6.1.4.1.6889.2.17.1.0.903 "Status Events" Normal
+FORMAT Voice Portal system generic Critical alarm $*
+SDESC
+Voice Portal system generic Critical alarm
+REFERENCE
+Critical alarm - Alarm Code contained in Alarm Text
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPSTATGREEN .1.3.6.1.4.1.6889.2.17.1.0.980 "Status Events" Normal
+FORMAT Voice Portal system status is normal - no alarms $*
+SDESC
+Voice Portal system status is normal - no alarms
+REFERENCE
+STATUS GREEN
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPSTATMINOR .1.3.6.1.4.1.6889.2.17.1.0.981 "Status Events" Normal
+FORMAT Voice Portal system status has Minor alarms $*
+SDESC
+Voice Portal system status has Minor alarms
+REFERENCE
+STATUS MINOR
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPSTATMAJOR .1.3.6.1.4.1.6889.2.17.1.0.982 "Status Events" Normal
+FORMAT Voice Portal system status has Major alarms $*
+SDESC
+Voice Portal system status has Major alarms
+REFERENCE
+STATUS MAJOR
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpTRAPSTATCRIT .1.3.6.1.4.1.6889.2.17.1.0.983 "Status Events" Normal
+FORMAT Voice Portal system status has Critical alarms $*
+SDESC
+Voice Portal system status has Critical alarms
+REFERENCE
+STATUS CRITICAL
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpCPUUtilization .1.3.6.1.4.1.6889.2.17.1.0.994 "Status Events" Normal
+FORMAT CPU Utilization $*
+SDESC
+CPU Utilization
+REFERENCE
+CPU Utilization
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpMemoryFault .1.3.6.1.4.1.6889.2.17.1.0.995 "Status Events" Normal
+FORMAT Memory Fault $*
+SDESC
+Memory Fault
+REFERENCE
+Memory Fault
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpDiskWarning .1.3.6.1.4.1.6889.2.17.1.0.996 "Status Events" Normal
+FORMAT Disk Warning $*
+SDESC
+Disk Warning
+REFERENCE
+Disk Warning
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC
+#
+#
+#
+EVENT avpDiskFull .1.3.6.1.4.1.6889.2.17.1.0.997 "Status Events" Normal
+FORMAT Disk Full $*
+SDESC
+Disk Full
+REFERENCE
+Disk Full
+Variables:
+  1: avpAlarmTime
+  2: avpAlarmLoc
+  3: avpAlarmSev
+  4: avpAlarmText
+EDESC

@@ -1,0 +1,72 @@
+#
+#
+#
+#
+MIB: CISCO-VRF-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-VRF-MIB.mib) converted on Tue Aug 21 15:26:43 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cvVrfIfUp .1.3.6.1.4.1.9.9.711.0.1 "Status Events" Normal
+FORMAT This notification is generated when: $*
+SDESC
+This notification is generated when:
+a. The ifOperStatus of an interface associated with a VRF
+changes to the up(1) state.
+b. When an interface with ifOperStatus = up(1) is 
+associated with a VRF.
+The interface is identified by ifName and the VRF is
+identified by cvVrfName varbinds respectively.
+Variables:
+  1: ifName
+  2: cvVrfName
+  3: cvVrfOperStatus
+EDESC
+#
+#
+#
+EVENT cvVrfIfDown .1.3.6.1.4.1.9.9.711.0.2 "Status Events" Normal
+FORMAT This notification is generated when: $*
+SDESC
+This notification is generated when:
+a. The ifOperStatus of an interface associated with a VRF 
+changes to the down(2) state.
+b. When an interface with ifOperStatus = up(1) state is 
+disassociated with a VRF.
+The interface is identified by ifName and the VRF is
+identified by cvVrfName varbinds respectively.
+If all the interfaces associated with the VRF are in down(2) 
+state or if there are no more interfaces associated with the
+VRF, then the cvVrfOperStatus will have a value of down(2).
+Variables:
+  1: ifName
+  2: cvVrfName
+  3: cvVrfOperStatus
+EDESC
+#
+#
+#
+EVENT cvVnetTrunkUp .1.3.6.1.4.1.9.9.711.0.3 "Status Events" Normal
+FORMAT This notification is generated when the ifOperStatus of a vNET $*
+SDESC
+This notification is generated when the ifOperStatus of a vNET
+trunk interface changes to the up(1) state. The interface is
+identified by ifName varbind. The notification will be
+generated for only those interfaces for which the
+cvInterfaceVnetTrunkEnabled object has a value of True(1).
+Variables:
+  1: ifName
+EDESC
+#
+#
+#
+EVENT cvVnetTrunkDown .1.3.6.1.4.1.9.9.711.0.4 "Status Events" Normal
+FORMAT This notification is generated when the ifOperStatus of a vNET $*
+SDESC
+This notification is generated when the ifOperStatus of a vNET
+trunk interface changes to the down(2) state. The interface is
+identified by ifName varbind. The notification will be
+generated for only those interfaces for which the
+cvInterfaceVnetTrunkEnabled object has a value of True(1).
+Variables:
+  1: ifName
+EDESC

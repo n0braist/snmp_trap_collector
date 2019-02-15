@@ -1,0 +1,25 @@
+#
+#
+#
+#
+MIB: CISCO-IF-MONITOR-NOTIF-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IF-MONITOR-NOTIF-MIB.mib) converted on Tue Aug 21 15:26:08 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cIfMonNotifEvent .1.3.6.1.4.1.9.10.999.0.1 "Status Events" Normal
+FORMAT The agent generates this notification when  $*
+SDESC
+The agent generates this notification when 
+certain errors over an interval have reached/exceeded 
+a threshold, causing a severe condition.
+The SNMP Notifications can be logged using the
+NOTIFICATION-LOG-MIB.
+Variables:
+  1: ifIndex
+  2: cIfMonNotifCount
+  3: cIfMonNotifSeverity
+  4: cIfMonNotifCause
+  5: cIfMonNotifValue
+  6: cIfMonNotifThreshold
+  7: cIfMonNotifInterval
+EDESC

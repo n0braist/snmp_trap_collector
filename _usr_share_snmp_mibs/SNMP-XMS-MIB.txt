@@ -1,0 +1,795 @@
+--
+-- Name: 		SNMP-XMS-MIB
+--
+
+SNMP-XMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- MIB Dependencies 
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32, enterprises, NOTIFICATION-TYPE         FROM SNMPv2-SMI;
+
+--
+--Module Identity Information
+--
+
+citrix 	MODULE-IDENTITY
+   	LAST-UPDATED 	"201712191100Z"
+	ORGANIZATION 	"Citrix Systems, Inc"
+  	CONTACT-INFO    "Citrix Technical Assistance Center
+					Postal: Citrix Systems, Inc.
+					851 West Cypress Creek Road
+					Fort Lauderdale, Florida 33309
+					United States
+					Tel: +1-800-4-CITRIX (+1-800-424-8749)
+					E-mail: customercare@citrix.com"
+    DESCRIPTION		"The enterprise specific MIB for XenMobile Server 10.8"
+    REVISION     	"201712191100Z"
+    DESCRIPTION		"Version 1.0"
+    ::= { enterprises 3845 }
+
+--
+-- tree level structure
+--
+
+--
+-- Xen mobile
+--
+
+	xm                              OBJECT IDENTIFIER ::= { citrix 5 }
+--
+-- Xen mobile server
+--
+
+	xms	                            OBJECT IDENTIFIER ::= { xm 1 }
+--
+-- Connectivity checks
+--
+
+	connCheck                       OBJECT IDENTIFIER ::= { xms 1 }
+
+    ldap                            OBJECT IDENTIFIER ::= { connCheck 1 }
+    dns                             OBJECT IDENTIFIER ::= { connCheck 2 }
+    googleStore                     OBJECT IDENTIFIER ::= { connCheck 3 }
+    windowsPhoneStore               OBJECT IDENTIFIER ::= { connCheck 4 }
+    windowsTabStore                 OBJECT IDENTIFIER ::= { connCheck 5 }
+    windowsSecurityToken            OBJECT IDENTIFIER ::= { connCheck 6 }
+    windowsNotificationService      OBJECT IDENTIFIER ::= { connCheck 7 }
+    applePushNotification           OBJECT IDENTIFIER ::= { connCheck 8 }
+    appleFeedback                   OBJECT IDENTIFIER ::= { connCheck 9 }
+    appleStore                      OBJECT IDENTIFIER ::= { connCheck 10 }
+    database                        OBJECT IDENTIFIER ::= { connCheck 11 }
+    googleCloudMessaging            OBJECT IDENTIFIER ::= { connCheck 12 }
+    licensing                       OBJECT IDENTIFIER ::= { connCheck 13 }
+    xenmobileServices               OBJECT IDENTIFIER ::= { connCheck 14 }
+    netscalerGateway                OBJECT IDENTIFIER ::= { connCheck 15 }
+    interNode                       OBJECT IDENTIFIER ::= { connCheck 16 }
+    xmtomcat                        OBJECT IDENTIFIER ::= { connCheck 17 }
+
+
+
+    errorFlags                      OBJECT IDENTIFIER ::= { connCheck 18 }
+    
+--
+-- Connectivity Objects
+--
+
+
+ldapAddress OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Indicates the IP address of the relevant server "
+    ::= { ldap 1 }
+
+ldapPort OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             "Indicates the status of the relevant port at the server "
+    ::= { ldap 2 } 
+
+ldapMessage OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays relevant LDAP status messages "
+    ::= { ldap 3 }         
+
+ldapReachability OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Indicates if the server is reachable "
+    ::= { ldap 4 }    
+ 
+
+ldapErrorFlag OBJECT-TYPE
+    SYNTAX                  Integer32
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Indicates presence/absence of errors in connectivity "
+    ::= { errorFlags 1 }  
+
+--
+--DNS OIDs
+--
+
+
+dnsAddress                  OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays address of relevant server "
+    ::= {dns 1}
+
+
+dnsPort                     OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays status of relevant port "
+    ::= {dns 2}
+
+dnsMessage                  OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays connectivity messages "
+    ::= {dns 3}
+
+
+dnsReachability             OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays reachability to relevant server "
+    ::= {dns 4}
+
+
+dnsErrorFlag OBJECT-TYPE
+    SYNTAX                  Integer32
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Indicates presence/absence of errors "
+    ::= { errorFlags 2 } 
+
+--
+--Google Store OIDs
+--
+
+googleStoreAddress          OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays address of relevant server "
+    ::= {googleStore 1}
+
+
+googleStorePort             OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays status of relevant port "
+    ::= {googleStore 2}
+
+googleStoreMessage          OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays connectivity messages "
+    ::= {googleStore 3}
+
+googleStoreReachability     OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays reachability to relevant server "
+    ::= {googleStore 4}    
+
+googleStoreErrorFlag OBJECT-TYPE
+    SYNTAX                  Integer32
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Indicates presence/absence of errors "
+    ::= { errorFlags 3 } 
+
+
+
+--
+--Windows Phone Store OIDs
+--
+
+
+
+
+windowsPhoneStoreAddress        OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays address of relevant server "
+    ::= {windowsPhoneStore 1}
+    
+
+
+windowsPhoneStorePort           OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays status of relevant port "
+    ::= {windowsPhoneStore 2}
+
+windowsPhoneStoreMessage        OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays connectivity messages "
+    ::= {windowsPhoneStore 3}
+
+
+windowsPhoneStoreReachability   OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays reachability to relevant server "
+    ::= {windowsPhoneStore 4}
+
+windowsPhoneStoreErrorFlag      OBJECT-TYPE
+    SYNTAX                      Integer32
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Indicates presence/absence of errors "
+    ::= { errorFlags 4 } 
+
+--
+--Windows Tab Store OIDs
+--
+
+
+windowsTabStoreAddress          OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays address of relevant server "
+    ::= {windowsTabStore 1}
+    
+
+windowsTabStorePort             OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays status of relevant port "
+    ::= {windowsTabStore 2}
+
+windowsTabStoreMessage          OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays connectivity messages "
+    ::= {windowsTabStore 3}
+
+windowsTabStoreReachability     OBJECT-TYPE
+    SYNTAX                      OCTET STRING
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Displays reachability to relevant server "
+    ::= {windowsTabStore 4}    
+
+windowsTabStoreErrorFlag        OBJECT-TYPE
+    SYNTAX                      Integer32
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION                 " Indicates presence/absence of errors "
+    ::= { errorFlags 5 } 
+
+--
+--Windows Security Token OIDs
+-- 
+
+
+
+
+windowsSecurityTokenAddress         OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {windowsSecurityToken 1}
+    
+
+windowsSecurityTokenPort            OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {windowsSecurityToken 2}
+
+windowsSecurityTokenMessage         OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {windowsSecurityToken 3}
+
+windowsSecurityTokenReachability    OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {windowsSecurityToken 4}    
+
+windowsSecurityTokenErrorFlag       OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 6 } 
+
+--
+--Windows Notification Service OIDs
+--
+
+
+
+windowsNotificationServiceAddress       OBJECT-TYPE
+    SYNTAX                              OCTET STRING
+    MAX-ACCESS                          read-only
+    STATUS                              current
+    DESCRIPTION                         " Displays address of relevant server "
+    ::= {windowsNotificationService 1}
+    
+
+windowsNotificationServicePort          OBJECT-TYPE
+    SYNTAX                              OCTET STRING
+    MAX-ACCESS                          read-only
+    STATUS                              current
+    DESCRIPTION                         " Displays status of relevant port "
+    ::= {windowsNotificationService 2}
+
+windowsNotificationServiceMessage       OBJECT-TYPE
+    SYNTAX                              OCTET STRING
+    MAX-ACCESS                          read-only
+    STATUS                              current
+    DESCRIPTION                         " Displays connectivity messages "
+    ::= {windowsNotificationService 3}
+
+windowsNotificationServiceReachability  OBJECT-TYPE
+    SYNTAX                              OCTET STRING
+    MAX-ACCESS                          read-only
+    STATUS                              current
+    DESCRIPTION                         " Displays reachability to relevant server "
+    ::= {windowsNotificationService 4}
+
+windowsNotificationServiceErrorFlag     OBJECT-TYPE
+    SYNTAX                              Integer32
+    MAX-ACCESS                          read-only
+    STATUS                              current
+    DESCRIPTION                         " Indicates presence/absence of errors "
+    ::= { errorFlags 7 } 
+
+
+--
+-- Apple Push Notification Service OIDs
+--
+
+
+
+
+applePushNotificationAddress        OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {applePushNotification 1}
+
+
+applePushNotificationPort           OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {applePushNotification 2}
+
+applePushNotificationMessage        OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {applePushNotification 3}
+
+    
+applePushNotificationReachability   OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {applePushNotification 4} 
+
+applePushNotificationErrorFlag      OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 8 }    
+
+
+--
+-- Apple Feedback OIDs
+--
+
+
+
+appleFeedbackAddress                OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {appleFeedback 1}
+    
+
+appleFeedbackPort                   OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {appleFeedback 2}
+
+appleFeedbackMessage                OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {appleFeedback 3}
+
+appleFeedbackReachability           OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {appleFeedback 4}  
+
+appleFeedbackErrorFlag              OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 9 }   
+
+
+--
+-- Apple Store OIDs
+--
+
+
+
+appleStoreAddress                   OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {appleStore 1}
+    
+
+appleStorePort                      OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {appleStore 2}
+
+appleStoreMessage                   OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {appleStore 3}
+
+appleStoreReachability              OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {appleStore 4}
+
+appleStoreErrorFlag                 OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 10 } 
+
+--
+-- Database OIDs
+--
+
+databaseAddress             OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays address of relevant server "
+    ::= {database 1}
+
+
+databasePort                OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays status of relevant port "
+    ::= {database 2}
+
+databaseMessage             OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays connectivity messages "
+    ::= {database 3}
+
+databaseReachability        OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays reachability to relevant server "
+    ::= {database 4}   
+
+databaseErrorFlag           OBJECT-TYPE
+    SYNTAX                  Integer32
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Indicates presence/absence of errors "
+    ::= { errorFlags 11 }  
+
+
+--
+--googleCloudMessaging OIDs
+--
+
+
+googleCloudMessagingAddress         OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {googleCloudMessaging 1}
+
+
+googleCloudMessagingPort            OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {googleCloudMessaging 2}
+
+googleCloudMessagingMessage         OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {googleCloudMessaging 3}
+
+
+googleCloudMessagingReachability    OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {googleCloudMessaging 4}
+
+
+googleCloudMessagingErrorFlag       OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 12 } 
+
+--
+--licensing OIDs
+--
+
+
+licensingAddress                    OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {licensing 1}
+
+
+licensingPort                       OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {licensing 2}
+
+licensingMessage                    OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {licensing 3}
+
+
+licensingReachability               OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {licensing 4}
+
+
+licensingErrorFlag OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 13 } 
+
+
+
+
+
+--
+--XM Services OIDs
+--
+
+xenmobileServicesAddress            OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {xenmobileServices 1}
+
+
+xenmobileServicesPort               OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {xenmobileServices 2}
+
+xenmobileServicesMessage            OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {xenmobileServices 3}
+
+xenmobileServicesReachability       OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {xenmobileServices 4}
+
+xenmobileServicesErrorFlag          OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 14 } 
+
+--
+-- Netscaler OIDs
+--
+
+netscalerGatewayAddress             OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {netscalerGateway 1}
+
+
+netscalerGatewayPort                OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {netscalerGateway 2}
+
+netscalerGatewayMessage             OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {netscalerGateway 3}
+
+netscalerGatewayReachability        OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {netscalerGateway 4}    
+
+netscalerGatewayErrorFlag           OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 15 } 
+
+--
+--InterNode Connectivity
+--
+interNodeAddress                    OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {interNode 1}
+
+
+interNodePort                       OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {interNode 2}
+
+interNodeMessage                    OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {interNode 3}
+
+interNodeReachability               OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {interNode 4}    
+
+
+interNodeErrorFlag                  OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of errors "
+    ::= { errorFlags 16 } 
+
+
+--
+--XM Tomcat OIDs
+--
+
+xmtomcatAddress                     OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays address of relevant server "
+    ::= {xmtomcat 1}
+
+
+xmtomcatPort                        OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays status of relevant port "
+    ::= {xmtomcat 2}
+
+xmtomcatMessage                     OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays connectivity messages "
+    ::= {xmtomcat 3}
+
+xmtomcatReachability                OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Displays reachability to relevant server "
+    ::= {xmtomcat 4}    
+
+xmtomcatErrorFlag                   OBJECT-TYPE
+    SYNTAX                          Integer32
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION                     " Indicates presence/absence of error "
+    ::= { errorFlags 17 }
+
+END

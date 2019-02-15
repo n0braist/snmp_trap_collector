@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: RITTAL-SMI-MIB (file:/tmp/RITTAL/RITTAL-SMI-MIB.mib) converted on Mon Nov 10 09:30:24 2014 using snmpttconvertmib v1.3

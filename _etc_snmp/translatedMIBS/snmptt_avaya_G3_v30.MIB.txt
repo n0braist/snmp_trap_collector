@@ -1,0 +1,370 @@
+#
+#
+#
+#
+MIB: G3-AVAYA-MIB (file:/tmp/asn1-6889-mibs/Avaya_G3_v30.MIB) converted on Tue Dec 11 11:48:45 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: G3-AVAYA-TRAP (file:/tmp/asn1-6889-mibs/Avaya_G3_v30.MIB) converted on Tue Dec 11 11:48:45 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alarmClear .1.3.6.1.4.1.6889.1.8.1.0.0 "Status Events" Normal
+FORMAT A Cleared Alarm Notification has been issued by $*
+SDESC
+A Cleared Alarm Notification has been issued by
+the switch indicating that all alarms have been
+cleared.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmCritical .1.3.6.1.4.1.6889.1.8.1.0.1 "Status Events" Normal
+FORMAT This trap is defined for future use. $*
+SDESC
+This trap is defined for future use.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT alarmMajor .1.3.6.1.4.1.6889.1.8.1.0.2 "Status Events" Normal
+FORMAT A Major alarm has been issued by the switch. The  $*
+SDESC
+A Major alarm has been issued by the switch. The 
+MIB variables provide attributes of the alarm. The 
+information contained in the g3alarmsPort, 
+g3alarmsMaintName, g3alarmsOnBrd trap variables 
+differ depending on the kind of alarm. If the 
+alarm is a voice server alarm these fields 
+contain, respectively, an equipment location, 
+maintenance object name, and flag indicating 
+whether or not the alarm was on-board. For 
+server platform alarms and messaging alarms these 
+fields contain, respectively, an alarm description
+including the source of the alarm, a string 
+indicating the resource from which the alarm 
+was generated, and an event ID associated with that 
+resource. More details on the contents of these 
+fields can be found in the appropriate product 
+maintenance documentation.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT alarmMinor .1.3.6.1.4.1.6889.1.8.1.0.3 "Status Events" Normal
+FORMAT A Minor alarm has been issued by the switch.  $*
+SDESC
+A Minor alarm has been issued by the switch. 
+The fields in this trap type has the same 
+differences, for g3alarmsPort, g3alarmsMaintName, 
+and g3alarmsOnBrd, as described above for the 
+alarmMajor trap type.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT alarmWarning .1.3.6.1.4.1.6889.1.8.1.0.4 "Status Events" Normal
+FORMAT A Warning alarm has been issued by the switch. $*
+SDESC
+A Warning alarm has been issued by the switch.
+The fields in this trap type has the same 
+differences, for g3alarmsPort, g3alarmsMaintName, 
+and g3alarmsOnBrd, as described above for the 
+alarmMajor trap type.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT alarmResolved .1.3.6.1.4.1.6889.1.8.1.0.12 "Status Events" Normal
+FORMAT An alarm has been resolved on the switch. $*
+SDESC
+An alarm has been resolved on the switch.
+The fields in this trap type has the same 
+differences, for g3alarmsPort, g3alarmsMaintName, 
+and g3alarmsOnBrd, as described above for the 
+alarmMajor trap type.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT extalarmMajor .1.3.6.1.4.1.6889.1.8.1.0.5 "Status Events" Normal
+FORMAT An external device Major alarm has been issued $*
+SDESC
+An external device Major alarm has been issued
+by the switch. The variables describe the location 
+and nature of the alarm. This trap type only
+applies to voice server alarms.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+  8: g3extdevAltName
+  9: g3extdevDescription
+  10: g3extdevID
+  11: g3extdevBuilding
+  12: g3extdevAddress
+EDESC
+#
+#
+#
+EVENT extalarmMinor .1.3.6.1.4.1.6889.1.8.1.0.6 "Status Events" Normal
+FORMAT An external device Minor alarm has been issued $*
+SDESC
+An external device Minor alarm has been issued
+by the switch. The variables describe the location 
+and nature of the alarm. This trap type only
+applies to voice server alarms.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+  8: g3extdevAltName
+  9: g3extdevDescription
+  10: g3extdevID
+  11: g3extdevBuilding
+  12: g3extdevAddress
+EDESC
+#
+#
+#
+EVENT alarmDispatch .1.3.6.1.4.1.6889.1.8.1.0.7 "Status Events" Normal
+FORMAT INADS has dispatched the alarm. $*
+SDESC
+INADS has dispatched the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmClose .1.3.6.1.4.1.6889.1.8.1.0.8 "Status Events" Normal
+FORMAT INADS has closed the alarm. $*
+SDESC
+INADS has closed the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmRestart .1.3.6.1.4.1.6889.1.8.1.0.9 "Status Events" Normal
+FORMAT A system restart has occurred on the switch. $*
+SDESC
+A system restart has occurred on the switch.
+The variables describe the location and nature of 
+the restart.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3restartDateTime
+  5: g3restartLevel
+  6: g3restartCarrier
+  7: g3restartCraftDemand
+  8: g3restartEscalated
+  9: g3restartInterchange
+  10: g3restartUnavailable
+  11: g3restartCause
+  12: g3vintageSpeArelease
+  13: g3vintageSpeBrelease
+  14: g3vintageSpeAupID
+  15: g3vintageSpeBupID
+EDESC
+#
+#
+#
+EVENT alarmNak .1.3.6.1.4.1.6889.1.8.1.0.10 "Status Events" Normal
+FORMAT A NAK was received in an attempt to forward the $*
+SDESC
+A NAK was received in an attempt to forward the
+alarm to INADS.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmNoAck .1.3.6.1.4.1.6889.1.8.1.0.11 "Status Events" Normal
+FORMAT A response other than an ACK or NAK was received $*
+SDESC
+A response other than an ACK or NAK was received
+in an attempt to forward the alarm to INADS.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT connectOther .1.3.6.1.4.1.6889.1.8.1.0.101 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to OTHER. This status indicates that the connect is
+in an unknown state.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectOff .1.3.6.1.4.1.6889.1.8.1.0.102 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to OFF. This status indicates that user set the
+connection state to off so that the Proxy Agent
+will not start up a connection with the PBX/ECS.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectDown .1.3.6.1.4.1.6889.1.8.1.0.103 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to DOWN. This status indicates that the Proxy
+Agent attempted to establish a connection with the
+PBX/ECS and failed.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectInit .1.3.6.1.4.1.6889.1.8.1.0.104 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to INIT. This status indicates that the Proxy
+Agent is in the process of attempting to connect
+to the PBX/ECS.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectUp .1.3.6.1.4.1.6889.1.8.1.0.105 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to UP. This status indicates that the Proxy
+Agent has a connection established with the PBX/ECS.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectIdle .1.3.6.1.4.1.6889.1.8.1.0.106 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to IDLE. This status indicates that a connection
+with the PBX/ECS is currently inactive due to the 
+dynamic timeout having been reached without any 
+activity. The connection will stay in the IDLE state
+until an SNMP request or alarm is received. This 
+connection status only applies if the connection 
+type is 'dynamic'.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectMax .1.3.6.1.4.1.6889.1.8.1.0.110 "Status Events" Normal
+FORMAT The connection to a PBX/ECS could not be established $*
+SDESC
+The connection to a PBX/ECS could not be established
+due to the maximum allowed number of simultaneous
+connections already being active.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT proxyDown .1.3.6.1.4.1.6889.1.8.1.0.150 "Status Events" Normal
+FORMAT The user has issued a stop proxy-agent command to $*
+SDESC
+The user has issued a stop proxy-agent command to
+bring down the Proxy Agent.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT proxyUp .1.3.6.1.4.1.6889.1.8.1.0.151 "Status Events" Normal
+FORMAT The user has issued a start proxy-agent command to $*
+SDESC
+The user has issued a start proxy-agent command to
+bring up the Proxy Agent.
+Variables:
+  1: sysName
+EDESC

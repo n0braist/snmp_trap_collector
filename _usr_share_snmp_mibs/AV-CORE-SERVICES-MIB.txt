@@ -1,0 +1,709 @@
+
+AV-CORE-SERVICES-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE, enterprises
+        FROM SNMPv2-SMI
+    MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    sysName
+        FROM SNMPv2-MIB
+    entPhysicalAssetID
+        FROM ENTITY-MIB
+    applSrvName
+        FROM APPLICATION-MIB
+    ipAdEntAddr
+        FROM IP-MIB
+    ituAlarmAdditionalText
+        FROM ITU-ALARM-MIB;
+
+csmib MODULE-IDENTITY
+       LAST-UPDATED "201303050000Z" -- March 05, 2013
+       ORGANIZATION "Avaya, Inc."
+       CONTACT-INFO "Avaya Customer Services
+
+                     Postal: Avaya, Inc.
+                             211 Mount Airy Rd
+                             Basking Ridge. NJ 07920
+                             USA
+                             Tel: +1 908 953 6000
+                             WWW: http://www.avaya.com"
+
+       DESCRIPTION  "A MIB to support Core Services
+
+         Copyright (c) 2009-2013 by Avaya Inc.  All rights reserved.
+         Redistribution and use in source and binary forms of the software
+         (Software), without modification, are permitted provided that
+         the following conditions are met:
+         (a) Redistributions of source code must retain the above copyright
+         notice and the entire license.
+         (b) Redistributions in binary form must reproduce the above copyright
+         notice and this entire license in the documentation and/or other
+         materials provided with the distribution.
+         (c) Redistribution of the Software is solely for the purpose of
+         managing and servicing Avaya products and solutions.
+         (d) BY USING AND REDISTRIBUTING THE SOFTWARE, YOU, ON BEHALF OF
+         YOURSELF AND THE ENTITY FOR WHOM YOU USE THE SOFTWARE AGREE TO ALL THE TERMS
+         AND CONDITIONS OF THIS LICENSE AND CREATE A BINDING CONTRACT BETWEEN
+         YOU AND AVAYA INC. THIS SOFTWARE IS PROVIDED BY AVAYA INC. 'AS IS'
+         AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+         THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+         PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL AVAYA INC.
+         BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+         OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+         OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+         BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+         WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+         OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+         EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        "
+
+       REVISION     "201303050000Z"  -- March 05, 2013
+       DESCRIPTION
+           "Revision 1.1.1
+           Update the Copyright"
+
+       
+       REVISION     "201003250000Z" -- 25 Mar 2010
+       DESCRIPTION
+           "Revision 1.1.0
+            In all the NOTIFICATION-TYPE definitions move the OBJECT 
+            applSrvName before the OBJECT csAlarmSeverity"
+
+       REVISION     "200501210000Z" -- 21 Jan 2005
+       DESCRIPTION
+           "Revision 1.0.0 - Budyanto Himawan
+            Original version."
+
+       ::= { avCoreServicesMibs 1 }
+       
+--
+-- The following are defined in AVAYA-GEN MIB
+--
+avaya              OBJECT IDENTIFIER ::= { enterprises 6889 }
+products           OBJECT IDENTIFIER ::= { avaya 1 }
+mibs               OBJECT IDENTIFIER ::= { avaya 2 }
+
+avCoreServicesProd OBJECT IDENTIFIER ::= { products 18 }
+avCoreServicesMibs OBJECT IDENTIFIER ::= { mibs 18 }
+
+--
+-- Top level components of this MIB
+--
+csNotifications OBJECT IDENTIFIER ::= { csmib 1 } -- Notification group
+csObjects       OBJECT IDENTIFIER ::= { csmib 2 } -- Objects
+csConformance   OBJECT IDENTIFIER ::= { csmib 3 } -- Conformance
+
+--
+-- Common Object groups for CoreServices MIB
+--
+csNotifyObj     OBJECT IDENTIFIER ::= { csObjects 3 }
+
+--
+-- Core Services Notify group (csNotifyObj)
+--
+csAlarmSeverity OBJECT-TYPE
+    SYNTAX      INTEGER {
+          cleared(1),
+          indeterminate(2),
+          critical(3),
+          major(4),
+          minor(5),
+          warning(6)
+    }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Alarm severities are based on ITUPerceivedSeverity (RFC 3877)"
+    ::= { csNotifyObj 1 }
+
+--
+-- Core services notifications (csNotifications)
+-- According to RFC 2578 section 8.5, the next to last sub-identifier
+-- in the name of any newly defined notification must have the value
+-- zero. This is to achieve compatibility with SNMPv1 traps.
+--
+
+csDiskNotifications             OBJECT IDENTIFIER ::= { csNotifications 1 }
+csDiskNotificationsPfx          OBJECT IDENTIFIER ::= { csDiskNotifications 0 }
+csCPUNotifications              OBJECT IDENTIFIER ::= { csNotifications 2 }
+csCPUNotificationsPfx           OBJECT IDENTIFIER ::= { csCPUNotifications 0 }
+csSecurityNotifications         OBJECT IDENTIFIER ::= { csNotifications 3 }
+csSecurityNotificationsPfx      OBJECT IDENTIFIER ::= { csSecurityNotifications 0 }
+csWatchdogNotifications         OBJECT IDENTIFIER ::= { csNotifications 4 }
+csWatchdogNotificationsPfx      OBJECT IDENTIFIER ::= { csWatchdogNotifications 0 }
+csModemNotifications            OBJECT IDENTIFIER ::= { csNotifications 5 }
+csModemNotificationsPfx         OBJECT IDENTIFIER ::= { csModemNotifications 0 }
+csBackupNotifications           OBJECT IDENTIFIER ::= { csNotifications 6 }
+csBackupNotificationsPfx        OBJECT IDENTIFIER ::= { csBackupNotifications 0 }
+csUpgradeNotifications          OBJECT IDENTIFIER ::= { csNotifications 7 }
+csUpgradeNotificationsPfx       OBJECT IDENTIFIER ::= { csUpgradeNotifications 0 }
+
+-- 
+-- Unknown Notifications
+--
+csUnknownNotification  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Unknown notification"
+    ::= { csNotifications 999 }
+    
+--
+-- Backup related Notifications
+--
+csBackupTerminated  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Scheduled backup has been terminated (MINOR)"
+    ::= { csBackupNotificationsPfx 1 }
+
+--
+-- Disk related Notifications
+--
+csDiskStatusTimedOut  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "sda status timed out (MAJOR)"
+    ::= { csDiskNotificationsPfx 1 }
+
+csDiskNotReady  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Harddrive not ready (MAJOR)"
+    ::= { csDiskNotificationsPfx 2 }
+
+csDiskResetTimedOut  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Harddrive reset timed out (MAJOR)"
+    ::= { csDiskNotificationsPfx 3 }
+
+csDiskResetMasterError  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Error reseting master (MAJOR)"
+    ::= { csDiskNotificationsPfx 4 }
+
+csDiskLostInterrupt  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Lost interrupt (MAJOR)"
+    ::= { csDiskNotificationsPfx 5 }
+
+csDiskFailed  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Disk failed (CRITICAL)"
+    ::= { csDiskNotificationsPfx 6 }
+
+csDiskStatusError  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Status error (MAJOR)"
+    ::= { csDiskNotificationsPfx 7 }
+
+csDiskUsageThreshold  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Disk usage has exceeded 80% (MAJOR)"
+    ::= { csDiskNotificationsPfx 8 }
+
+csDiskFull  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Disk is full (MAJOR)"
+    ::= { csDiskNotificationsPfx 9 }
+
+csDiskMBEDetected  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "MBE detected (MAJOR)"
+    ::= { csDiskNotificationsPfx 10 }
+
+--
+-- Security related Notifications
+-- 
+csSecurityLoginLockout  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Login lockout interval begins (MAJOR). This happens on the third
+         consecutive unsuccessful login attempt. The lockput will be
+         for 30 minutes."
+    ::= { csSecurityNotificationsPfx 1 }
+
+csSecurityLoginCorrupt  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Corrupt or expired authentication data (MAJOR)."
+    ::= { csSecurityNotificationsPfx 2 }
+
+csSecurityLoginFailed  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Linux login failure - access through illegal port (MAJOR)."
+    ::= { csSecurityNotificationsPfx 3 }
+
+csSecurityFileModified  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "File modified. There are 3 different severities.
+            MINOR: non-critical files of minimal security impact.
+            MAJOR: non-critical files of significant security impact.
+            CRIT : critical files of significant security impact."
+    ::= { csSecurityNotificationsPfx 4 }
+
+csSecurityFileRemoved  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "File removed. There are 3 different severities.
+            MINOR: non-critical files of minimal security impact.
+            MAJOR: non-critical files of significant security impact.
+            CRIT : critical files of significant security impact."
+    ::= { csSecurityNotificationsPfx 5 }
+
+csSecurityFileAdded  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "File added. There are 3 different severities.
+            MINOR: non-critical files of minimal security impact.
+            MAJOR: non-critical files of significant security impact.
+            CRIT : critical files of significant security impact."
+    ::= { csSecurityNotificationsPfx 6 }
+
+csSecurityInitFailed  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Failed initialization of Tripwire database (CRITICAL)"
+    ::= { csSecurityNotificationsPfx 7 }
+
+--
+-- Upgrade related Notifications
+--
+csUpgradeNoCommit  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "An upgrade has not been committed (MAJOR). This alarm is raised
+         if after 30 minutes, an upgrade has not been committed."
+    ::= { csUpgradeNotificationsPfx 1 }
+
+csUpgradeCommit  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "An upgrade has been committed (MAJOR)."
+    ::= { csUpgradeNotificationsPfx 2 }
+
+--
+-- Modem related Notifications
+--
+csModemChatError  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Chat failed/interrupted (MAJOR)."
+    ::= { csModemNotificationsPfx 1 }
+
+--
+-- Watchdog related Notifications
+--
+csWatchdogAppStartFailed  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Application could not be started after 3 tries (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 1 }
+
+csWatchdogInitTimedOut  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Timedout waiting for request server to initialize (MINOR)."
+    ::= { csWatchdogNotificationsPfx 2 }
+
+csWatchdogAppConfigParmError  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Application not started due to parameters error
+         in configuration file (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 3 }
+
+csWatchdogConfigError  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Application not started due to configuration file error (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 4 }
+
+csWatchdogRollingReboot  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Watchdog detects a rolling reboot (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 5 }
+
+csWatchdogUnintentionalDown  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Application failed unintentionally. Watchdog is bringing
+         the system down because an application failed to start correctly
+         (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 6 }
+
+csWatchdogHiMonReboot  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Watchdog hi-monitor thread is rebooting the system because
+         low-monitor thread is missing heartbeats.  (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 7 }
+
+csWatchdogStopHWTickle  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Watchdog hi-monitor thread is stopping tickling of HW (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 8 }
+
+csWatchdogProcessSick  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Process is in a sick state (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 9 }
+
+csWatchdogProcessUp  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Process is up (MINOR)."
+    ::= { csWatchdogNotificationsPfx 10 }
+
+csWatchdogProcessDown  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Process is down (MINOR)."
+    ::= { csWatchdogNotificationsPfx 11 }
+    
+csWatchdogProcessDead  NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "Process is dead (MAJOR)."
+    ::= { csWatchdogNotificationsPfx 12 }
+
+--
+-- CPU related Notifications
+--
+csCPUUtilization    NOTIFICATION-TYPE
+    OBJECTS {
+        sysName,
+        ipAdEntAddr,
+        entPhysicalAssetID,
+        applSrvName,
+        csAlarmSeverity,
+        ituAlarmAdditionalText
+    }
+    STATUS  current
+    DESCRIPTION
+        "CPU utilization is at least 90% (MINOR)."
+    ::= { csCPUNotificationsPfx 1 }
+
+
+--
+-- Conformance information
+--
+csMIBCompliances    OBJECT IDENTIFIER ::= { csConformance 1 }
+csMIBGroups         OBJECT IDENTIFIER ::= { csConformance 2 }
+
+csMIBCompliance   MODULE-COMPLIANCE
+    STATUS       current
+    DESCRIPTION
+    "The compliance statement for Core Services entities"
+    MODULE	
+    MANDATORY-GROUPS { csObjGroup, csNotificationGroup }
+    ::= { csMIBCompliances 1 }
+
+csObjGroup    OBJECT-GROUP
+    OBJECTS     { csAlarmSeverity }
+    STATUS      current
+    DESCRIPTION
+      "Core Services objects"
+    ::= { csMIBGroups 1 }
+    
+csNotificationGroup    NOTIFICATION-GROUP
+    NOTIFICATIONS { csBackupTerminated, csDiskStatusTimedOut, csDiskNotReady, csDiskResetTimedOut, csDiskResetMasterError,
+                    csDiskLostInterrupt, csDiskFailed, csDiskStatusError, csDiskUsageThreshold, csDiskFull, 
+                    csDiskMBEDetected, csSecurityLoginLockout, csSecurityLoginCorrupt, csSecurityLoginFailed,
+                    csSecurityFileModified, csSecurityFileRemoved, csSecurityFileAdded, csSecurityInitFailed,
+                    csUpgradeNoCommit, csUpgradeCommit, csModemChatError, csWatchdogAppStartFailed, csWatchdogInitTimedOut,
+                    csWatchdogAppConfigParmError, csWatchdogConfigError, csWatchdogRollingReboot, 
+                    csWatchdogUnintentionalDown, csWatchdogHiMonReboot, csWatchdogStopHWTickle,
+                    csWatchdogProcessSick, csWatchdogProcessUp, csWatchdogProcessDown, csWatchdogProcessDead, 
+                    csCPUUtilization, csUnknownNotification }
+    STATUS      current
+    DESCRIPTION
+      "Core Services Notifications"
+    ::= { csMIBGroups 2 }
+
+END

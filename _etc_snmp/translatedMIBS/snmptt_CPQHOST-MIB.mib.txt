@@ -1,0 +1,274 @@
+#
+#
+#
+#
+MIB: CPQHOST-MIB (file:/tmp/CPQ/CPQHOST-MIB.mib) converted on Mon Nov 10 12:24:24 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqHoGenericTrap .1.3.6.1.4.1.232.0.11001 "Status Events" MAJOR
+FORMAT Generic trap (11001): $1
+SDESC
+--  This trap is a generic trap, and left undefined.
+Generic trap.
+Variables:
+  1: cpqHoGenericData
+EDESC
+#
+#
+#
+EVENT cpqHoAppErrorTrap .1.3.6.1.4.1.232.0.11002 "Status Events" MAJOR
+FORMAT Application Error Trap (11002): $1
+SDESC
+An application has generated an exception.  Specific
+error information is contained in the variable
+cpqHoSwPerfAppErrorDesc.
+Variables:
+  1: cpqHoSwPerfAppErrorDesc
+EDESC
+#
+#
+#
+EVENT cpqHo2GenericTrap .1.3.6.1.4.1.232.0.11003 "Status Events" MAJOR
+FORMAT Generic trap (11003): $3
+SDESC
+--  This trap is a generic trap, and left undefined.
+Generic trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoGenericData
+EDESC
+#
+#
+#
+EVENT cpqHo2AppErrorTrap .1.3.6.1.4.1.232.0.11004 "Status Events" MAJOR
+FORMAT Application Error Trap (11004): $3
+SDESC
+An application has generated an exception.  Specific
+error information is contained in the variable
+cpqHoSwPerfAppErrorDesc.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoSwPerfAppErrorDesc
+EDESC
+#
+#
+#
+EVENT cpqHo2NicStatusOk .1.3.6.1.4.1.232.0.11005 "Status Events" MAJOR
+FORMAT Status Trap (11005): NIC Status is OK for slot $3.
+SDESC
+This trap will be sent any time the status of a NIC changes to
+the OK condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoIfPhysMapSlot
+EDESC
+#
+#
+#
+EVENT cpqHo2NicStatusFailed .1.3.6.1.4.1.232.0.11006 "Status Events" MAJOR
+FORMAT Status Trap (11006): NIC Status is Failed for slot $3.
+SDESC
+This trap will be sent any time the status of a NIC changes to
+the Failed condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoIfPhysMapSlot
+EDESC
+#
+#
+#
+EVENT cpqHo2NicSwitchoverOccurred .1.3.6.1.4.1.232.0.11007 "Status Events" MAJOR
+FORMAT Status Trap (11007): NIC switchover to slot $3 from slot $4.
+SDESC
+This trap will be sent any time the configured redundant NIC
+becomes the active NIC.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoIfPhysMapSlot
+  4: cpqHoIfPhysMapSlot
+EDESC
+#
+#
+#
+EVENT cpqHo2NicStatusOk2 .1.3.6.1.4.1.232.0.11008 "Status Events" MAJOR
+FORMAT Status Trap (11008): NIC Status is OK for slot $3, port $4.
+SDESC
+This trap will be sent any time the status of a NIC changes to
+the OK condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoIfPhysMapSlot
+  4: cpqHoIfPhysMapPort
+EDESC
+#
+#
+#
+EVENT cpqHo2NicStatusFailed2 .1.3.6.1.4.1.232.0.11009 "Status Events" MAJOR
+FORMAT Status Trap (11009): NIC Status is Failed for slot $3, port $4.
+SDESC
+This trap will be sent any time the status of a NIC changes to
+the Failed condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoIfPhysMapSlot
+  4: cpqHoIfPhysMapPort
+EDESC
+#
+#
+#
+EVENT cpqHo2NicSwitchoverOccurred2 .1.3.6.1.4.1.232.0.11010 "Status Events" MAJOR
+FORMAT Status Trap (11010): NIC switchover to slot $3, port $4 from slot $5, port $6.
+SDESC
+This trap will be sent any time the configured redundant NIC
+becomes the active NIC.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoIfPhysMapSlot
+  4: cpqHoIfPhysMapPort
+  5: cpqHoIfPhysMapSlot
+  6: cpqHoIfPhysMapPort
+EDESC
+#
+#
+#
+EVENT cpqHoProcessEventTrap .1.3.6.1.4.1.232.0.11011 "Status Events" MAJOR
+FORMAT Process Monitor Event Trap (11011): $3
+SDESC
+A monitored process has either started or stopped running.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoSwRunningTrapDesc
+EDESC
+#
+#
+#
+EVENT cpqHoProcessCountWarning .1.3.6.1.4.1.232.0.11012 "Status Events" MAJOR
+FORMAT Process Count Event Trap (11012): Process $3 has count $4 which violates the thresholds $5 to $6.
+SDESC
+A monitored process count has violated the thresholds set on cpqHoSWRunningCount
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoSWRunningName
+  4: cpqHoSWRunningCount
+  5: cpqHoSWRunningCountMin
+  6: cpqHoSWRunningCountMax
+  7: cpqHoSWRunningEventTime
+EDESC
+#
+#
+#
+EVENT cpqHoProcessCountNormal .1.3.6.1.4.1.232.0.11013 "Status Events" INFORMATIONAL
+FORMAT Process Monitor Event Trap (11013): Process $3 has count $4 which respects the thresholds $5 to $6.
+SDESC
+A monitored process count has returned back to normal.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoSWRunningName
+  4: cpqHoSWRunningCount
+  5: cpqHoSWRunningCountMin
+  6: cpqHoSWRunningCountMax
+  7: cpqHoSWRunningEventTime
+EDESC
+#
+#
+#
+EVENT cpqHoCriticalSoftwareUpdateTrap .1.3.6.1.4.1.232.0.11014 "Status Events" CRITICAL
+FORMAT Critical Software update Notification Trap (11014): $3
+SDESC
+This trap is a send to the user to notify him of a Critical Software Update.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoCriticalSoftwareUpdateData
+EDESC
+#
+#
+#
+EVENT cpqHoCrashDumpNotEnabledTrap .1.3.6.1.4.1.232.0.11015 "Status Events" WARNING
+FORMAT Crash Dump not enabled Notification Trap (11015): Crash Dump is not enabled.
+SDESC
+This trap is sent to the user to notify him that the Crash Dump is not enabled.
+This trap is not sent if cpqHoCrashDumpMonitoring is disabled.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoCrashDumpState
+EDESC
+#
+#
+#
+EVENT cpqHoBootPagingFileTooSmallTrap .1.3.6.1.4.1.232.0.11016 "Status Events" WARNING
+FORMAT Boot Paging File Or Memory Dump Target Volume Too Small Notification Trap (11016): The paging file size of the boot volume ($4) or the target volume of the memory dump file is not large enough to hold a crash dump in the event of a system crash ($5).
+SDESC
+This trap is sent when the paging file size of the boot volume or the target volume of the memory dump file is too small to hold a crash dump.
+This trap is not sent if cpqHoCrashDumpMonitoring is disabled.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoCrashDumpState
+  4: cpqHoBootPagingFileSize
+  5: cpqHoBootPagingFileMinimumSize
+EDESC
+#
+#
+#
+EVENT cpqHoSWRunningStatusChangeTrap .1.3.6.1.4.1.232.0.11017 "Status Events" WARNING
+FORMAT Software status change Notification Trap (11017): Software status change for $3, description = $5, id = $9
+SDESC
+This trap notifies the user that the running software has changed status, configuration status, or redundancy mode.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoSWRunningName
+  4: cpqHoSWRunningDesc
+  5: cpqHoSwRunningTrapDesc
+  6: cpqHoSWRunningVersion
+  7: cpqHoSWRunningStatus
+  8: cpqHoSWRunningConfigStatus
+  9: cpqHoSWRunningIdentifier
+  10: cpqHoSWRunningRedundancyMode
+EDESC
+#
+#
+#
+EVENT cpqHo2PowerThresholdTrap .1.3.6.1.4.1.232.0.11018 "Status Events" MINOR
+FORMAT Power Threshold Exceeded (11018): $7
+SDESC
+--  This trap notifies user of a power threshold breach.
+Power threshold exceeded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqPwrWarnType
+  4: cpqPwrWarnThreshold
+  5: cpqPwrWarnDuration
+  6: cpqSerialNum
+  7: cpqServerUUID
+EDESC
+#
+#
+#
+EVENT cpqHoBootPagingFileOrFreeSpaceTooSmallTrap .1.3.6.1.4.1.232.0.11019 "Status Events" WARNING
+FORMAT Boot Paging File Or Memory Dump Target Volume Too Small Notification Trap (11016): The paging file size of the boot volume ($4) or the free space of the memory dump target volume ($5) is not large enough to hold a crash dump in the event of a system crash ($6).
+SDESC
+This trap is sent when the paging file size of the boot volume or the free space of memory dump target volume is too small to hold a crash dump.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHoCrashDumpState
+  4: cpqHoBootPagingFileSize
+  5: cpqHoBootPagingFileVolumeFreeSpace
+  6: cpqHoBootPagingFileMinimumSize
+EDESC

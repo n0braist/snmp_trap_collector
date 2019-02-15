@@ -1,0 +1,37 @@
+#
+#
+#
+#
+MIB: CISCOWORKS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCOWORKS-MIB.mib) converted on Tue Aug 21 15:26:47 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cwAppLogTrap .1.3.6.1.4.1.9.14.1.2.0.1 "Status Events" Normal
+FORMAT A cwAppLogTrap is sent by nmlogd when a CiscoWorks  $*
+SDESC
+A cwAppLogTrap is sent by nmlogd when a CiscoWorks 
+application logs a message to system log file on 
+CiscoWorks workstation.  This is also sent by
+CiscoWorks Blue processes.
+Variables:
+  1: sysUpTime
+  2: cwLogDate
+  3: cwLogSource
+  4: cwLogApp
+  5: cwLogMsg
+EDESC
+#
+#
+#
+EVENT cwDevLogTrap .1.3.6.1.4.1.9.14.1.2.0.2 "Status Events" Normal
+FORMAT A cwDevLogTrap is sent by nmlogd when a device logs $*
+SDESC
+A cwDevLogTrap is sent by nmlogd when a device logs
+a message to system log file on CiscoWorks 
+workstation.
+Variables:
+  1: sysUpTime
+  2: cwLogDate
+  3: cwLogSource
+  4: cwLogMsg
+EDESC

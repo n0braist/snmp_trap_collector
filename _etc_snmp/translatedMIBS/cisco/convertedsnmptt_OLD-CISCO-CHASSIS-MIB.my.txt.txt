@@ -1,0 +1,21 @@
+#
+#
+#
+#
+MIB: OLD-CISCO-CHASSIS-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/OLD-CISCO-CHASSIS-MIB.my.txt) converted on Tue Sep  6 13:51:22 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT chassisChangeTrap .1.3.6.1.4.1.9.3.6.16.0.1 "Status Events" Normal
+FORMAT --$1NP%
+SDESC
+--%DNP%
+This trap is issued when the value of	--%DNP%
+sysUpTimeAtLastChassisChange has been	--%DNP%
+updated due to the addition or removal of	--%DNP%
+a card, which is identified by the variables.--%DNP%
+Variables:
+  1: cardType
+  2: cardDescr
+  3: cardSerial
+EDESC

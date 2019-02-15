@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-IP-PROTOCOL-FILTER-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IP-PROTOCOL-FILTER-CAPABILITY.mib) converted on Tue Aug 21 15:26:10 2012 using snmpttconvertmib v1.3

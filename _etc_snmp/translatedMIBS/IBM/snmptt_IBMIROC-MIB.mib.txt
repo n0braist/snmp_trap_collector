@@ -1,0 +1,336 @@
+#
+#
+#
+#
+MIB: IBMIROC-MIB (file:/tmp/IBM_asn1-2-mibs/IBMIROC-MIB.mib) converted on Wed Mar 13 15:58:08 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT frrcvdFECN .1.3.6.1.4.1.2.6.119.6.1.0.1 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated forward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdBECN .1.3.6.1.4.1.2.6.119.6.1.0.2 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated backward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdCLLM .1.3.6.1.4.1.2.6.119.6.1.0.3 "Status Events" Normal
+FORMAT This trap indicates that a CLLM message was received $*
+SDESC
+This trap indicates that a CLLM message was received
+from the network.
+Variables:
+  1: frCLLMCauseIfIndex
+  2: frCLLMCauseCode
+  3: frCLLMDlciList
+EDESC
+#
+#
+#
+EVENT mosMemLow .1.3.6.1.4.1.2.6.119.6.2.0.1 "Status Events" Normal
+FORMAT This trap indicates that the free heap amount has $*
+SDESC
+This trap indicates that the free heap amount has
+dropped below a given percentage of the total heap
+memory available. The default percentage is 10%,
+however this threshhold can be modified by the user
+via a patch variable.
+Variables:
+  1: proResMemHeapTotal
+  2: proResMemHeapNeverAlloc
+EDESC
+#
+#
+#
+EVENT elsTrap .1.3.6.1.4.1.2.6.119.6.3.0.2 "Status Events" Normal
+FORMAT When the routing subsystem ELS component is configured to $*
+SDESC
+When the routing subsystem ELS component is configured to
+generate SNMP traps, the following trap is generated.
+It contains a single varBind containing a text string in one
+of the two following formats.
+If ELS timestamping is enabled:
+hr:min:sec subsys_name.event_num: message_text
+For example - 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+If ELS timestamping is disabled:
+subsys_name.event_num: message_text
+For example - IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+NOTE: The following subsystems cannot have their events sent
+in SNMP traps (ARP, ICMP, UDP, SNMP and IP (excluding
+IP access control events)). This restriction is due to the
+fact that these subsystems are involved in sending an SNMP
+trap and allowing them could cause an infinite loop in the
+router software.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+#
+MIB: IBMIROC-MIB (file:/tmp/IBM_asn1-2-mibs/IBMIROC-MIB.mib) converted on Wed Mar 13 16:00:02 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT frrcvdFECN .1.3.6.1.4.1.2.6.119.6.1.0.1 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated forward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdBECN .1.3.6.1.4.1.2.6.119.6.1.0.2 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated backward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdCLLM .1.3.6.1.4.1.2.6.119.6.1.0.3 "Status Events" Normal
+FORMAT This trap indicates that a CLLM message was received $*
+SDESC
+This trap indicates that a CLLM message was received
+from the network.
+Variables:
+  1: frCLLMCauseIfIndex
+  2: frCLLMCauseCode
+  3: frCLLMDlciList
+EDESC
+#
+#
+#
+EVENT mosMemLow .1.3.6.1.4.1.2.6.119.6.2.0.1 "Status Events" Normal
+FORMAT This trap indicates that the free heap amount has $*
+SDESC
+This trap indicates that the free heap amount has
+dropped below a given percentage of the total heap
+memory available. The default percentage is 10%,
+however this threshhold can be modified by the user
+via a patch variable.
+Variables:
+  1: proResMemHeapTotal
+  2: proResMemHeapNeverAlloc
+EDESC
+#
+#
+#
+EVENT elsTrap .1.3.6.1.4.1.2.6.119.6.3.0.2 "Status Events" Normal
+FORMAT When the routing subsystem ELS component is configured to $*
+SDESC
+When the routing subsystem ELS component is configured to
+generate SNMP traps, the following trap is generated.
+It contains a single varBind containing a text string in one
+of the two following formats.
+If ELS timestamping is enabled:
+hr:min:sec subsys_name.event_num: message_text
+For example - 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+If ELS timestamping is disabled:
+subsys_name.event_num: message_text
+For example - IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+NOTE: The following subsystems cannot have their events sent
+in SNMP traps (ARP, ICMP, UDP, SNMP and IP (excluding
+IP access control events)). This restriction is due to the
+fact that these subsystems are involved in sending an SNMP
+trap and allowing them could cause an infinite loop in the
+router software.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+#
+MIB: IBMIROC-MIB (file:/tmp/IBM_asn1-2-mibs/IBMIROC-MIB.mib) converted on Fri Mar 15 09:47:05 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT frrcvdFECN .1.3.6.1.4.1.2.6.119.6.1.0.1 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated forward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdBECN .1.3.6.1.4.1.2.6.119.6.1.0.2 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated backward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdCLLM .1.3.6.1.4.1.2.6.119.6.1.0.3 "Status Events" Normal
+FORMAT This trap indicates that a CLLM message was received $*
+SDESC
+This trap indicates that a CLLM message was received
+from the network.
+Variables:
+  1: frCLLMCauseIfIndex
+  2: frCLLMCauseCode
+  3: frCLLMDlciList
+EDESC
+#
+#
+#
+EVENT mosMemLow .1.3.6.1.4.1.2.6.119.6.2.0.1 "Status Events" Normal
+FORMAT This trap indicates that the free heap amount has $*
+SDESC
+This trap indicates that the free heap amount has
+dropped below a given percentage of the total heap
+memory available. The default percentage is 10%,
+however this threshhold can be modified by the user
+via a patch variable.
+Variables:
+  1: proResMemHeapTotal
+  2: proResMemHeapNeverAlloc
+EDESC
+#
+#
+#
+EVENT elsTrap .1.3.6.1.4.1.2.6.119.6.3.0.2 "Status Events" Normal
+FORMAT When the routing subsystem ELS component is configured to $*
+SDESC
+When the routing subsystem ELS component is configured to
+generate SNMP traps, the following trap is generated.
+It contains a single varBind containing a text string in one
+of the two following formats.
+If ELS timestamping is enabled:
+hr:min:sec subsys_name.event_num: message_text
+For example - 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+If ELS timestamping is disabled:
+subsys_name.event_num: message_text
+For example - IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+NOTE: The following subsystems cannot have their events sent
+in SNMP traps (ARP, ICMP, UDP, SNMP and IP (excluding
+IP access control events)). This restriction is due to the
+fact that these subsystems are involved in sending an SNMP
+trap and allowing them could cause an infinite loop in the
+router software.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+#
+MIB: IBMIROC-MIB (file:/tmp/IBM_asn1-2-mibs/IBMIROC-MIB.mib) converted on Fri Mar 15 11:27:20 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT frrcvdFECN .1.3.6.1.4.1.2.6.119.6.1.0.1 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated forward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdBECN .1.3.6.1.4.1.2.6.119.6.1.0.2 "Status Events" Normal
+FORMAT This trap indicates that a frame was received $*
+SDESC
+This trap indicates that a frame was received
+from the network on this virtual circuit and it
+indicated backward congestion.
+Variables:
+  1: frCircuitIfIndex
+  2: frCircuitDlci
+EDESC
+#
+#
+#
+EVENT frrcvdCLLM .1.3.6.1.4.1.2.6.119.6.1.0.3 "Status Events" Normal
+FORMAT This trap indicates that a CLLM message was received $*
+SDESC
+This trap indicates that a CLLM message was received
+from the network.
+Variables:
+  1: frCLLMCauseIfIndex
+  2: frCLLMCauseCode
+  3: frCLLMDlciList
+EDESC
+#
+#
+#
+EVENT mosMemLow .1.3.6.1.4.1.2.6.119.6.2.0.1 "Status Events" Normal
+FORMAT This trap indicates that the free heap amount has $*
+SDESC
+This trap indicates that the free heap amount has
+dropped below a given percentage of the total heap
+memory available. The default percentage is 10%,
+however this threshhold can be modified by the user
+via a patch variable.
+Variables:
+  1: proResMemHeapTotal
+  2: proResMemHeapNeverAlloc
+EDESC
+#
+#
+#
+EVENT elsTrap .1.3.6.1.4.1.2.6.119.6.3.0.2 "Status Events" Normal
+FORMAT When the routing subsystem ELS component is configured to $*
+SDESC
+When the routing subsystem ELS component is configured to
+generate SNMP traps, the following trap is generated.
+It contains a single varBind containing a text string in one
+of the two following formats.
+If ELS timestamping is enabled:
+hr:min:sec subsys_name.event_num: message_text
+For example - 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+If ELS timestamping is disabled:
+subsys_name.event_num: message_text
+For example - IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc
+NOTE: The following subsystems cannot have their events sent
+in SNMP traps (ARP, ICMP, UDP, SNMP and IP (excluding
+IP access control events)). This restriction is due to the
+fact that these subsystems are involved in sending an SNMP
+trap and allowing them could cause an infinite loop in the
+router software.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC

@@ -1,0 +1,77 @@
+#
+#
+#
+#
+MIB: CISCO-IETF-DHCP-SERVER-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IETF-DHCP-SERVER-MIB.mib) converted on Tue Aug 21 15:26:05 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cDhcpv4ServerFreeAddressLow .1.3.6.1.4.1.9.10.102.0.2.0.1 "Status Events" Normal
+FORMAT This notification signifies that the number of available IPv4 $*
+SDESC
+This notification signifies that the number of available IPv4
+addresses for a particular shared network has fallen below the 
+value of cDhcpv4ServerSharedNetFreeAddrLowThreshold for that 
+shared network.
+Variables:
+  1: cDhcpv4ServerSharedNetFreeAddrLowThreshold
+  2: cDhcpv4ServerSharedNetFreeAddresses
+EDESC
+#
+#
+#
+EVENT cDhcpv4ServerFreeAddressHigh .1.3.6.1.4.1.9.10.102.0.2.0.2 "Status Events" Normal
+FORMAT This notification signifies that the number of available IPv4 $*
+SDESC
+This notification signifies that the number of available IPv4
+addresses for a particular shared network has risen above the 
+value of cDhcpv4ServerSharedNetFreeAddrHighThreshold for that 
+shared network.
+Variables:
+  1: cDhcpv4ServerSharedNetFreeAddrHighThreshold
+  2: cDhcpv4ServerSharedNetFreeAddresses
+EDESC
+#
+#
+#
+EVENT cDhcpv4ServerStartTime .1.3.6.1.4.1.9.10.102.0.2.0.3 "Status Events" Normal
+FORMAT This notification signifies that the server of the specified $*
+SDESC
+This notification signifies that the server of the specified
+type has started on the host from which this notification has 
+been sent.
+Variables:
+  1: cDhcpv4ServerNotifyServerStart
+EDESC
+#
+#
+#
+EVENT cDhcpv4ServerStopTime .1.3.6.1.4.1.9.10.102.0.2.0.4 "Status Events" Normal
+FORMAT This notification signifies that the server of the specified $*
+SDESC
+This notification signifies that the server of the specified
+type has stopped normally on the host from which this 
+notification has been sent.
+Variables:
+  1: cDhcpv4ServerNotifyServerStop
+EDESC
+#
+#
+#
+EVENT cDhcpv4ServerDuplicateAddress .1.3.6.1.4.1.9.10.102.0.2.0.5 "Status Events" Normal
+FORMAT This notification signifies that a duplicate IPv4 address has $*
+SDESC
+This notification signifies that a duplicate IPv4 address has
+been detected.  The DHCP server can detect this condition 
+through the ping-before-offer mechanism.  Alternatively, the 
+client may have sent a DHCPDECLINE back to the server; this is 
+assumed to be the result of the client detecting that the 
+address was in use.  In either case, the DHCP server marks the 
+IPv4 address as unavailable for leasing to clients.  The 
+cDhcpv4ServerNotifyClientOrServerDetected object indicates 
+whether the client or server detected this condition.
+Variables:
+  1: cDhcpv4ServerNotifyDuplicateIpAddr
+  2: cDhcpv4ServerNotifyDuplicateMac
+  3: cDhcpv4ServerNotifyClientOrServerDetected
+EDESC

@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-SWITCH-MULTICAST-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SWITCH-MULTICAST-CAPABILITY.mib) converted on Tue Aug 21 15:26:37 2012 using snmpttconvertmib v1.3

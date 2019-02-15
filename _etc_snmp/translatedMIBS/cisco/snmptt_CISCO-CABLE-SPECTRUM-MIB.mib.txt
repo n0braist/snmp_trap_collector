@@ -1,0 +1,44 @@
+#
+#
+#
+#
+MIB: CISCO-CABLE-SPECTRUM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CABLE-SPECTRUM-MIB.mib) converted on Tue Aug 21 15:25:41 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ccsHoppingNotification .1.3.6.1.4.1.9.9.114.2.0.1 "Status Events" Normal
+FORMAT A notification is sent when there's a change in $*
+SDESC
+A notification is sent when there's a change in
+frequency (hopping), modulation, or profile.
+In the case of frequency hopping,
+ccsUpSpecMgmtHopCondition would indicate whether
+SNR or modemOffline that caused the hopping.
+Variables:
+  1: ccsUpSpecMgmtHopCondition
+  2: ccsUpSpecMgmtFromCenterFreq
+  3: ccsUpSpecMgmtToCenterFreq
+  4: ccsUpSpecMgmtFromBandWidth
+  5: ccsUpSpecMgmtToBandWidth
+  6: ccsUpSpecMgmtFromModProfile
+  7: ccsUpSpecMgmtToModProfile
+EDESC
+#
+#
+#
+EVENT ccsSpecMgmtNotification .1.3.6.1.4.1.9.9.114.2.0.2 "Status Events" Normal
+FORMAT A notification is sent when there's a change in $*
+SDESC
+A notification is sent when there's a change in
+frequency hopping, modulation, or profile.
+ccsUpSpecMgmtCriteria is used to indicate the  
+cause(s).
+Variables:
+  1: ccsUpSpecMgmtCriteria
+  2: ccsUpSpecMgmtFromCenterFreq
+  3: ccsUpSpecMgmtToCenterFreq
+  4: ccsUpSpecMgmtFromBandWidth
+  5: ccsUpSpecMgmtToBandWidth
+  6: ccsUpSpecMgmtFromModProfile
+  7: ccsUpSpecMgmtToModProfile
+EDESC

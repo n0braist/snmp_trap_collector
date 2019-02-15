@@ -1,0 +1,260 @@
+#
+#
+#
+#
+MIB: MSSSERVER8210-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8210-MIB.mib) converted on Wed Mar 13 15:58:10 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8210ELSTrapV2 .1.3.6.1.4.1.2.6.118.2.0.2 "Status Events" Normal
+FORMAT The trap announces that an Event Logging System (ELS) event $*
+SDESC
+The trap announces that an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8210PCAdapTypeChg .1.3.6.1.4.1.2.6.118.2.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8210PCAdapType changes and
+mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8210TempThresholdChg .1.3.6.1.4.1.2.6.118.2.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the stand-alone. $*
+SDESC
+The trap announces a change in the temperature of the stand-alone.
+It shall be sent if the value of the mss8210TempThreshold changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210TempThresholdStatus
+EDESC
+#
+#
+#
+EVENT mss8210PCIAdapStatusChg .1.3.6.1.4.1.2.6.118.2.0.5 "Status Events" Normal
+FORMAT The trap announces a change in the status of the PCI adapter. $*
+SDESC
+The trap announces a change in the status of the PCI adapter.
+It shall be sent if the value of either mss8210PCIAdapConfigType,
+mss8210PCIAdapOperStatus, mss8210PCIAdapDiagStatus,
+mss8210PCIAdapNetworkStatus or mss8210PCIAdapFaultStatus changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCIAdapConfigType
+  2: mss8210PCIAdapOperStatus
+  3: mss8210PCIAdapDiagStatus
+  4: mss8210PCIAdapNetworkStatus
+  5: mss8210PCIAdapFaultStatus
+EDESC
+#
+#
+#
+#
+MIB: MSSSERVER8210-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8210-MIB.mib) converted on Wed Mar 13 16:00:03 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8210ELSTrapV2 .1.3.6.1.4.1.2.6.118.2.0.2 "Status Events" Normal
+FORMAT The trap announces that an Event Logging System (ELS) event $*
+SDESC
+The trap announces that an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8210PCAdapTypeChg .1.3.6.1.4.1.2.6.118.2.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8210PCAdapType changes and
+mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8210TempThresholdChg .1.3.6.1.4.1.2.6.118.2.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the stand-alone. $*
+SDESC
+The trap announces a change in the temperature of the stand-alone.
+It shall be sent if the value of the mss8210TempThreshold changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210TempThresholdStatus
+EDESC
+#
+#
+#
+EVENT mss8210PCIAdapStatusChg .1.3.6.1.4.1.2.6.118.2.0.5 "Status Events" Normal
+FORMAT The trap announces a change in the status of the PCI adapter. $*
+SDESC
+The trap announces a change in the status of the PCI adapter.
+It shall be sent if the value of either mss8210PCIAdapConfigType,
+mss8210PCIAdapOperStatus, mss8210PCIAdapDiagStatus,
+mss8210PCIAdapNetworkStatus or mss8210PCIAdapFaultStatus changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCIAdapConfigType
+  2: mss8210PCIAdapOperStatus
+  3: mss8210PCIAdapDiagStatus
+  4: mss8210PCIAdapNetworkStatus
+  5: mss8210PCIAdapFaultStatus
+EDESC
+#
+#
+#
+#
+MIB: MSSSERVER8210-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8210-MIB.mib) converted on Fri Mar 15 09:47:07 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8210ELSTrapV2 .1.3.6.1.4.1.2.6.118.2.0.2 "Status Events" Normal
+FORMAT The trap announces that an Event Logging System (ELS) event $*
+SDESC
+The trap announces that an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8210PCAdapTypeChg .1.3.6.1.4.1.2.6.118.2.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8210PCAdapType changes and
+mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8210TempThresholdChg .1.3.6.1.4.1.2.6.118.2.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the stand-alone. $*
+SDESC
+The trap announces a change in the temperature of the stand-alone.
+It shall be sent if the value of the mss8210TempThreshold changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210TempThresholdStatus
+EDESC
+#
+#
+#
+EVENT mss8210PCIAdapStatusChg .1.3.6.1.4.1.2.6.118.2.0.5 "Status Events" Normal
+FORMAT The trap announces a change in the status of the PCI adapter. $*
+SDESC
+The trap announces a change in the status of the PCI adapter.
+It shall be sent if the value of either mss8210PCIAdapConfigType,
+mss8210PCIAdapOperStatus, mss8210PCIAdapDiagStatus,
+mss8210PCIAdapNetworkStatus or mss8210PCIAdapFaultStatus changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCIAdapConfigType
+  2: mss8210PCIAdapOperStatus
+  3: mss8210PCIAdapDiagStatus
+  4: mss8210PCIAdapNetworkStatus
+  5: mss8210PCIAdapFaultStatus
+EDESC
+#
+#
+#
+#
+MIB: MSSSERVER8210-MIB (file:/tmp/IBM_asn1-2-mibs/MSSSERVER8210-MIB.mib) converted on Fri Mar 15 11:27:21 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mssServer8210ELSTrapV2 .1.3.6.1.4.1.2.6.118.2.0.2 "Status Events" Normal
+FORMAT The trap announces that an Event Logging System (ELS) event $*
+SDESC
+The trap announces that an Event Logging System (ELS) event
+occurred. The variable proElsSubSysEventMsg provides a textual
+description of the event. The variable is in one of two
+formats. If ELS timestamping is enabled, the format is
+hr:min:sec subsys_name.event_num: message_text. An example
+would be 09:32:56 IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+If ELS timestamping is disabled, the format is
+subsys_name.event_num: message_text. An example would be
+IP.008: no rte 9.7.1.8 -> 9.7.4.3 dsc.
+Variables:
+  1: proElsSubSysEventMsg
+EDESC
+#
+#
+#
+EVENT mss8210PCAdapTypeChg .1.3.6.1.4.1.2.6.118.2.0.3 "Status Events" Normal
+FORMAT The trap announces a change in the type of PC card. It shall be $*
+SDESC
+The trap announces a change in the type of PC card. It shall be
+sent if the value of the mss8210PCAdapType changes and
+mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCAdapType
+EDESC
+#
+#
+#
+EVENT mss8210TempThresholdChg .1.3.6.1.4.1.2.6.118.2.0.4 "Status Events" Normal
+FORMAT The trap announces a change in the temperature of the stand-alone. $*
+SDESC
+The trap announces a change in the temperature of the stand-alone.
+It shall be sent if the value of the mss8210TempThreshold changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210TempThresholdStatus
+EDESC
+#
+#
+#
+EVENT mss8210PCIAdapStatusChg .1.3.6.1.4.1.2.6.118.2.0.5 "Status Events" Normal
+FORMAT The trap announces a change in the status of the PCI adapter. $*
+SDESC
+The trap announces a change in the status of the PCI adapter.
+It shall be sent if the value of either mss8210PCIAdapConfigType,
+mss8210PCIAdapOperStatus, mss8210PCIAdapDiagStatus,
+mss8210PCIAdapNetworkStatus or mss8210PCIAdapFaultStatus changes
+and mss8210NotifyStatus has a value of enabled(1).
+Variables:
+  1: mss8210PCIAdapConfigType
+  2: mss8210PCIAdapOperStatus
+  3: mss8210PCIAdapDiagStatus
+  4: mss8210PCIAdapNetworkStatus
+  5: mss8210PCIAdapFaultStatus
+EDESC

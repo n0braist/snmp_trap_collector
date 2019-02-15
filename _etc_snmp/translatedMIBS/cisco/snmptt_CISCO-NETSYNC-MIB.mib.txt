@@ -1,0 +1,81 @@
+#
+#
+#
+#
+MIB: CISCO-NETSYNC-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-NETSYNC-MIB.mib) converted on Tue Aug 21 15:26:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoNetsyncSelectedT0Clock .1.3.6.1.4.1.9.9.761.0.1 "Status Events" Normal
+FORMAT T0 clock selection notification. $*
+SDESC
+T0 clock selection notification.
+This notification is generated when one
+of the following conditions is met:
+- A new clock source is selected by the
+T0 clock selection.
+- The clock quality of a T0 selected clock 
+source is changed.
+- The configured priority of a T0 selected
+clock source is changed.
+
+Variables:
+  1: cnsSelInpSrcName
+  2: cnsSelInpSrcIntfType
+  3: cnsSelInpSrcQualityLevel
+  4: cnsSelInpSrcPriority
+EDESC
+#
+#
+#
+EVENT ciscoNetsyncSelectedT4Clock .1.3.6.1.4.1.9.9.761.0.2 "Status Events" Normal
+FORMAT T4 clock selection notification. $*
+SDESC
+T4 clock selection notification.
+This notification is generated when one
+of the following conditions is met:
+- A new clock source is selected by the
+T4 clock selection.
+- The clock quality of a T4 selected clock 
+source is changed.
+- The configured priority of a T4 selected
+clock source is changed.
+
+Variables:
+  1: cnsExtOutName
+  2: cnsT4ClkSrcName
+  3: cnsT4ClkSrcIntfType
+  4: cnsT4ClkSrcQualityLevel
+  5: cnsT4ClkSrcPriority
+EDESC
+#
+#
+#
+EVENT ciscoNetsyncInputSignalFailureStatus .1.3.6.1.4.1.9.9.761.0.3 "Status Events" Normal
+FORMAT Input clock source signal failure notification. $*
+SDESC
+Input clock source signal failure notification.
+This notification is generated when a signal
+failure event is reported on an input clock source.
+One of the conditions a signal failure event
+could be due to interface shutdown.
+Variables:
+  1: cnsInpSrcName
+  2: cnsInpSrcIntfType
+  3: cnsInpSrcFailClear
+EDESC
+#
+#
+#
+EVENT ciscoNetsyncInputAlarmStatus .1.3.6.1.4.1.9.9.761.0.4 "Status Events" Normal
+FORMAT Input clock source alarm notification. $*
+SDESC
+Input clock source alarm notification.
+This notification is generated when an alarm
+event is reported on an input clock source.
+Variables:
+  1: cnsInpSrcName
+  2: cnsInpSrcIntfType
+  3: cnsInpSrcAlarmInfo
+  4: cnsInpSrcAlarmClear
+EDESC

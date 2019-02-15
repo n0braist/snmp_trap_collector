@@ -1,0 +1,153 @@
+#
+#
+#
+#
+MIB: INTEL-LAN-ADAPTERS-MIB (file:/tmp/polycom/INTELLAN.mib) converted on Fri Mar 13 12:28:37 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT physicalAdapterLinkUpTrap .1.3.6.1.4.1.343.2.7.2.3.1.1.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Adapter has reached a linkup state.
+Variables:
+  1: physicalAdapterIndex
+EDESC
+#
+#
+#
+EVENT physicalAdapterLinkDownTrap .1.3.6.1.4.1.343.2.7.2.3.1.1.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Adapter has reached a link down state.
+Variables:
+  1: physicalAdapterIndex
+EDESC
+#
+#
+#
+EVENT physicalAdapterAddedTrap .1.3.6.1.4.1.343.2.7.2.3.1.1.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Adapter has been installed.
+Variables:
+  1: physicalAdapterIndex
+EDESC
+#
+#
+#
+EVENT physicalAdapterRemovedTrap .1.3.6.1.4.1.343.2.7.2.3.1.1.4 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Adapter has been uninstalled.
+Variables:
+  1: physicalAdapterIndex
+EDESC
+#
+#
+#
+EVENT physicalAdapterOnlineDiagPassedTrap .1.3.6.1.4.1.343.2.7.2.3.1.1.5 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Adapter's online diagnostics passed.
+Variables:
+  1: physicalAdapterIndex
+EDESC
+#
+#
+#
+EVENT physicalAdapterOnlineDiagFailedTrap .1.3.6.1.4.1.343.2.7.2.3.1.1.6 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Adapter's online diagnostics failed. 
+Online diagnostics might fail because of link loss or other hardware issues.
+Variables:
+  1: physicalAdapterIndex
+EDESC
+#
+#
+#
+EVENT virtualAdapterAddedTrap .1.3.6.1.4.1.343.2.7.2.3.2.1.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Virtual adapter has been added to a team.
+Variables:
+  1: virtualAdapterIndex
+  2: ansId
+EDESC
+#
+#
+#
+EVENT virtualAdapterRemovedTrap .1.3.6.1.4.1.343.2.7.2.3.2.1.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Virtual adapter has been removed from a team.
+Variables:
+  1: virtualAdapterIndex
+EDESC
+#
+#
+#
+EVENT ansTeamFailoverTrap .1.3.6.1.4.1.343.2.7.2.3.3.1.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+The primary team member has been changed.
+Variables:
+  1: ansId
+  2: ansTeamCurrentPrimaryIndex
+  3: ansTeamPreviousPrimaryIndex
+EDESC
+#
+#
+#
+EVENT ansAddedTrap .1.3.6.1.4.1.343.2.7.2.3.3.1.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Team has been added.
+Variables:
+  1: ansId
+EDESC
+#
+#
+#
+EVENT ansRemovedTrap .1.3.6.1.4.1.343.2.7.2.3.3.1.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Team has been removed.
+Variables:
+  1: ansId
+EDESC
+#
+#
+#
+EVENT teamMemberAddedTrap .1.3.6.1.4.1.343.2.7.2.3.4.1.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Member has been added to a team.
+Variables:
+  1: ansMemberIndex
+  2: ansId
+EDESC
+#
+#
+#
+EVENT teamMemberRemovedTrap .1.3.6.1.4.1.343.2.7.2.3.4.1.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Member has been removed from a team.
+Variables:
+  1: ansMemberIndex
+EDESC

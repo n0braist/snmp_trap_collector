@@ -1,0 +1,45 @@
+#
+#
+#
+#
+MIB: CISCO-GSLB-DNS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-GSLB-DNS-MIB.mib) converted on Tue Aug 21 15:26:03 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoGslbDnsEventClause .1.3.6.1.4.1.9.9.595.0.1 "Status Events" Normal
+FORMAT This notification is sent when transition occurs from use $*
+SDESC
+This notification is sent when transition occurs from use
+of one clause to another for selecting an answer on a DNS
+rule match.
+For example a transition is said to have occured, when a
+DNS rule uses a clause identified by cgdSecondClauseId
+instead of cgdFirstClauseId.
+-cgdFirstClauseId contains the clause number used for
+selecting the most recent answer for a DNS rule.
+-cgdSecondClauseId contains the clause number that was
+previously used to select an answer for the DNS rule.
+Variables:
+  1: sysName
+  2: cgdFirstClauseId
+  3: cgdSecondClauseId
+  4: cgdDroppedDnsClauseNotifs
+EDESC
+#
+#
+#
+EVENT ciscoGslbAnswerEventStatusChange .1.3.6.1.4.1.9.9.595.0.2 "Status Events" Normal
+FORMAT This notification is sent when the value of cgdAnswerStatus $*
+SDESC
+This notification is sent when the value of cgdAnswerStatus
+changes from one state to another.
+Variables:
+  1: sysName
+  2: cgdAnswerName
+  3: cgdAnswerType
+  4: cgdAnswerAddressType
+  5: cgdAnswerAddress
+  6: cgdAnswerStatus
+  7: cgdAnswerPrevStatus
+  8: cgdDroppedAnsNotifs
+EDESC

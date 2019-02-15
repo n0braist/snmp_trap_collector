@@ -1,0 +1,403 @@
+DENYALLv2-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    OBJECT-TYPE, MODULE-IDENTITY, Integer32, enterprises FROM SNMPv2-SMI
+    MODULE-COMPLIANCE,OBJECT-GROUP FROM SNMPv2-CONF
+    DisplayString, TruthValue FROM SNMPv2-TC;
+
+--
+
+-- A brief description and update information about this mib.
+
+--
+denyall MODULE-IDENTITY
+    LAST-UPDATED "201307240000Z"-- 2013
+    ORGANIZATION "DENY-ALL"
+    CONTACT-INFO
+    "Author: Deny All
+    email: support@denyall.com
+    "
+    DESCRIPTION "MIB for rWeb by SNMP"
+    REVISION     "201307240000Z"
+    DESCRIPTION "description"
+    ::= { enterprises 18433 }
+
+--
+-- top level structure
+--
+denyallConformance  OBJECT IDENTIFIER ::= { denyall 8 }
+deviceEntry         OBJECT IDENTIFIER ::= { denyall 9 }
+
+-- entry point for other DenyAll products MIBs
+products     OBJECT IDENTIFIER ::= { denyall 10 }
+-- products numbers assignments :
+--   1    Denyall WAF (i-suite)
+
+deviceName OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The name of the device"
+  ::= { deviceEntry 1}
+
+deviceMgmtInterface OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The management network interface of the device"
+  ::= { deviceEntry 2}
+
+deviceMgmtIPAddress OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The management IP address of the device"
+  ::= { deviceEntry 3}
+
+deviceMgmtPort OBJECT-TYPE
+  SYNTAX      Integer32 (0..65535)
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The management port number of the device"
+  ::= { deviceEntry 4}
+
+deviceCpuUsage OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The average usage of all CPUs (last 5 seconds)"
+  ::= { deviceEntry 5}
+
+deviceRamUsage OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The average usage of RAM (last 5 seconds)"
+  ::= { deviceEntry 6}
+
+deviceSwapUsage OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The average usage of SWAP (last 5 seconds)"
+  ::= { deviceEntry 7}
+
+deviceHddUsage OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The average disk usage of the most occupied disk partition (last 5 seconds)"
+  ::= { deviceEntry 8}
+
+applicationTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF ApplicationEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A table of applications returning various statistics."
+    ::= { denyall 7 }
+
+applicationEntry OBJECT-TYPE
+    SYNTAX     ApplicationEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "An entry containing an application and its statistics."
+    INDEX      { applicationIndex }
+    ::= { applicationTable 1 }
+
+ApplicationEntry ::= SEQUENCE {
+  applicationIndex               Integer32           ,
+  name                           DisplayString       ,
+  serverName                     DisplayString       ,
+  description                    DisplayString       ,
+  alias                          DisplayString       ,
+  groupName                      DisplayString       ,
+  adminEmail                     DisplayString       ,
+  bootStatus                     DisplayString       ,
+  applicationStatus              DisplayString       ,
+  incomingMode                   DisplayString       ,
+  incomingIPAddress              DisplayString       ,
+  incomingInterface              DisplayString       ,
+  incomingURI                    DisplayString       ,
+  incomingPort                   Integer32           ,
+  outgoingMode                   DisplayString       ,
+  outgoingAddress                DisplayString       ,
+  hasSSL                         TruthValue          ,
+  securityProfileName            DisplayString       ,
+  securityMode                   DisplayString       ,
+  accelerationProfileName        DisplayString       ,
+  authenticationProfileName      DisplayString       ,
+  avgResponseTime                Integer32           ,
+  requestCount                   Integer32           ,
+  requestThroughputRate          Integer32           ,
+  requestThroughputVolume        Integer32           ,
+  responseThroughputRate         Integer32           ,
+  responseThroughputVolume       Integer32           ,
+  securityAlertCount             Integer32
+}
+
+applicationIndex OBJECT-TYPE
+  SYNTAX      Integer32 (0..65535)
+  MAX-ACCESS  not-accessible
+  STATUS      current
+  DESCRIPTION "Reference Index for each observed application"
+  ::= { applicationEntry 1}
+
+name OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The name of the application"
+  ::= { applicationEntry 2}
+
+serverName OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The server name of the application"
+  ::= { applicationEntry 3}
+
+description OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The description of the application"
+  ::= { applicationEntry 4}
+
+alias OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The aliases of the application"
+  ::= { applicationEntry 5}
+
+groupName OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The group name of the application"
+  ::= { applicationEntry 6}
+
+adminEmail OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The administrator email address"
+  ::= { applicationEntry 7}
+
+bootStatus OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The startup type of the application : start; empty"
+  ::= { applicationEntry 8}
+
+applicationStatus OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The active status of the application : True; False"
+  ::= { applicationEntry 9}
+
+incomingMode OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The application incoming mode : directInConnection; pollingInConnection; transparentInConnection"
+  ::= { applicationEntry 10}
+
+incomingIPAddress OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The incoming IP address of the application"
+  ::= { applicationEntry 11}
+
+incomingInterface OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The incoming network interface of the application"
+  ::= { applicationEntry 12}
+
+incomingURI OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The incoming URI of the application"
+  ::= { applicationEntry 13}
+
+incomingPort OBJECT-TYPE
+  SYNTAX      Integer32 (0..65535)
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The incoming port number of the application"
+  ::= { applicationEntry 14}
+
+outgoingMode OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The outgoing mode : backendOutConnection; farmOutConnection; poolingOutConnection; manualOutConnection"
+  ::= { applicationEntry 15}
+
+outgoingAddress OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The outgoing address of the application"
+  ::= { applicationEntry 16}
+
+hasSSL OBJECT-TYPE
+  SYNTAX      TruthValue
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The SSL status of the application"
+  ::= { applicationEntry 17}
+
+securityProfileName OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The security profile used by the application"
+  ::= { applicationEntry 18}
+
+securityMode OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The security mode of the application : Block; Report only"
+  ::= { applicationEntry 19}
+
+accelerationProfileName OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The acceleration profile used by the application"
+  ::= { applicationEntry 20}
+
+authenticationProfileName OBJECT-TYPE
+  SYNTAX      DisplayString
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The authentication profile used by the application"
+  ::= { applicationEntry 21}
+
+avgResponseTime OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The average response time of in milliseconds (last 5 minutes)"
+  ::= { applicationEntry 22}
+
+requestCount OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The number of requests served by the application (last 5 minutes)"
+  ::= { applicationEntry 23}
+
+requestThroughputRate OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The request thoughput rate in kbps (last 5 minutes)"
+  ::= { applicationEntry 24}
+
+requestThroughputVolume OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The request thoughput volume in kBytes (last 5 minutes)"
+  ::= { applicationEntry 25}
+
+responseThroughputRate OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The response thoughput rate in kbps (last 5 minutes)"
+  ::= { applicationEntry 26}
+
+responseThroughputVolume OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The response thoughput volume in kBytes (last 5 minutes)"
+  ::= { applicationEntry 27}
+
+securityAlertCount OBJECT-TYPE
+  SYNTAX      Integer32
+  MAX-ACCESS  read-only
+  STATUS      current
+  DESCRIPTION "The number of security alerts (last 5 minutes)"
+  ::= { applicationEntry 28}
+
+
+denyallCompliances  OBJECT IDENTIFIER ::= { denyallConformance 1 }
+denyallGroups   OBJECT IDENTIFIER ::= { denyallConformance 2 }
+
+denyallCompliance  MODULE-COMPLIANCE
+        STATUS  current
+        DESCRIPTION
+                "The compliance statement for agents which
+                 implement the DENYALL-MIB."
+        MODULE
+                MANDATORY-GROUPS {
+                        applicationInfoGroup,
+                        deviceInfoGroup
+                }
+
+        ::= { denyallCompliances 1 }
+
+applicationInfoGroup  OBJECT-GROUP
+OBJECTS {
+  name                          ,
+  serverName                    ,
+  description                   ,
+  alias                         ,
+  groupName                     ,
+  adminEmail                    ,
+  bootStatus                    ,
+  applicationStatus             ,
+  incomingMode                  ,
+  incomingIPAddress             ,
+  incomingInterface             ,
+  incomingURI                   ,
+  incomingPort                  ,
+  outgoingMode                  ,
+  outgoingAddress               ,
+  hasSSL                        ,
+  securityProfileName           ,
+  securityMode                  ,
+  accelerationProfileName       ,
+  authenticationProfileName     ,
+  avgResponseTime               ,
+  requestCount                  ,
+  requestThroughputRate         ,
+  requestThroughputVolume       ,
+  responseThroughputRate        ,
+  responseThroughputVolume      ,
+  securityAlertCount
+  }
+    STATUS  current
+    DESCRIPTION
+       "This group defines application info."
+    ::= { denyallGroups 2 }
+
+deviceInfoGroup  OBJECT-GROUP
+  OBJECTS {
+    deviceName,
+    deviceMgmtInterface,
+    deviceMgmtIPAddress,
+    deviceMgmtPort,
+    deviceCpuUsage,
+    deviceRamUsage,
+    deviceSwapUsage,
+    deviceHddUsage
+  }
+  STATUS current
+  DESCRIPTION "This group defines application info."
+      ::= { denyallGroups 1 }
+
+END

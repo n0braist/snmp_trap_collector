@@ -1,0 +1,34 @@
+#
+#
+#
+#
+MIB: NET-SNMP-AGENT-MIB (file:/tmp/NET-SNMP-AGENT-MIB.mib) converted on Thu Nov 13 12:43:11 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT nsNotifyStart .1.3.6.1.4.1.8072.4.0.1 "Status Events" Normal
+FORMAT An indication that the agent has started running. $*
+SDESC
+An indication that the agent has started running.
+Variables:
+EDESC
+#
+#
+#
+EVENT nsNotifyShutdown .1.3.6.1.4.1.8072.4.0.2 "Status Events" Normal
+FORMAT An indication that the agent is in the process of being shut down. $*
+SDESC
+An indication that the agent is in the process of being shut down.
+Variables:
+EDESC
+#
+#
+#
+EVENT nsNotifyRestart .1.3.6.1.4.1.8072.4.0.3 "Status Events" Normal
+FORMAT An indication that the agent has been restarted. $*
+SDESC
+An indication that the agent has been restarted.
+This does not imply anything about whether the configuration has
+changed or not (unlike the standard coldStart or warmStart traps)
+Variables:
+EDESC

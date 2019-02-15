@@ -1,0 +1,68 @@
+#
+#
+#
+#
+MIB: CISCO-CDL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CDL-MIB.mib) converted on Tue Aug 21 15:25:44 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT coCdlRxAggDefectIndChange .1.3.6.1.4.1.9.10.88.0.1 "Status Events" Normal
+FORMAT This notification is sent when the value of the hop-by-hop $*
+SDESC
+This notification is sent when the value of the hop-by-hop
+forward defect indication (FDI-H), hop-by-hop backward defect
+indication (BDI-H), or end-to-end (aggregate path) forward
+defect indication (FDI-E) bit received on an interface changes.
+To minimize the probability of prematurely reacting to
+momentary signal variations, a soak time may be incorporated
+into the notification in the following manner. A notification
+is generated after a defect is first detected, when the defect
+persists for a period of time that exceeds the set soak
+interval specified by coCdlDefectIndSetSoakInterval. A
+notification is generated after a defect stops being detected,
+when the defect does not appear over a period of time that
+exceeds the clear soak interval specified by
+coCdlDefectIndClearSoakInterval.
+When changes in CDL defect indications are received for
+multiple interfaces within a short time span, notifications
+should be deferred so that each notification is generated at
+least one coCdlDINotifyThrottleInterval after the previous
+notification.
+
+Variables:
+  1: coCdlRxAggDefectIndCurrStatus
+  2: coCdlRxAggDefectIndLastChange
+EDESC
+#
+#
+#
+EVENT coCdlFromCdlNetFlowDIChange .1.3.6.1.4.1.9.10.88.0.2 "Status Events" Normal
+FORMAT This notification is sent when the value of the received $*
+SDESC
+This notification is sent when the value of the received
+end-to-end path forward defect indication or the received
+end-to-end path backward defect indication changes.
+Note that the end-to-end path forward defect indication is
+implicit, i.e. it is not signalled using a bit. An end-to-end
+path forward defect is inferred when no CDL Ethernet or Idle
+packets are received over a pre-determined length of time.
+To minimize the probability of prematurely reacting to
+momentary signal variations, a soak time may be incorporated
+into the notification in the following manner. A notification
+is generated after a defect is first detected, when the defect
+persists for a period of time that exceeds the set soak
+interval specified by coCdlDefectIndSetSoakInterval. A
+notification is generated after a defect stops being detected,
+when the defect does not appear over a period of time that
+exceeds the clear soak interval specified by
+coCdlDefectIndClearSoakInterval.
+When changes in CDL defect indications are received for
+multiple interfaces within a short time span, notifications
+should be deferred so that each notification is generated at
+least one coCdlDINotifyThrottleInterval after the previous
+notification.
+
+Variables:
+  1: coCdlFromCdlNetFlowDICurrStatus
+  2: coCdlFromCdlNetFlowDILastChange
+EDESC

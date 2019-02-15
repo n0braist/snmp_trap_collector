@@ -1,0 +1,71 @@
+#
+#
+#
+#
+MIB: CISCO-ENERGYWISE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ENERGYWISE-MIB.mib) converted on Tue Aug 21 15:25:54 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cewLevelChange .1.3.6.1.4.1.9.9.683.0.1 "Status Events" Normal
+FORMAT The SNMP entity generates the cewLevelChange when $*
+SDESC
+The SNMP entity generates the cewLevelChange when
+the value of cewEntityEnergyLevel has changed.
+Variables:
+  1: cewEntEnergyLevel
+EDESC
+#
+#
+#
+EVENT cewNeighborAdded .1.3.6.1.4.1.9.9.683.0.2 "Status Events" Normal
+FORMAT The SNMP entity generates a ceweighborAdded when $*
+SDESC
+The SNMP entity generates a ceweighborAdded when
+it discovers a Cisco EnergyWise entity neighbor.
+Variables:
+  1: cewNeighborId
+  2: cewNeighborType
+EDESC
+#
+#
+#
+EVENT cewNeighborDeleted .1.3.6.1.4.1.9.9.683.0.3 "Status Events" Normal
+FORMAT The SNMP entity generates a cewNeighborDeleted trap when an $*
+SDESC
+The SNMP entity generates a cewNeighborDeleted trap when an
+Cisco EnergyWise entity neighbor is deleted.  A neighbor can
+be deleted in the following ways:
+1. The neighbor lost its connection with the current Cisco 
+EnergyWise entity.
+2. The management station deletes a neighbor entry.
+3. Another management interfaces (e.g., local console)
+deletes the static neighbor.
+Variables:
+  1: cewNeighborId
+  2: cewNeighborType
+EDESC
+#
+#
+#
+EVENT cewEventOccured .1.3.6.1.4.1.9.9.683.0.4 "Status Events" Normal
+FORMAT The SNMP entity generates cewEventOccured when an $*
+SDESC
+The SNMP entity generates cewEventOccured when an
+Cisco EnergyWise event occurs.
+Variables:
+  1: cewEventLevel
+  2: cewEventOccuredErrorCode
+EDESC
+#
+#
+#
+EVENT cewEventOccuredRev1 .1.3.6.1.4.1.9.9.683.0.5 "Status Events" Normal
+FORMAT The SNMP entity generates cewEventOccured when an $*
+SDESC
+The SNMP entity generates cewEventOccured when an
+Cisco EnergyWise event occurs.
+Variables:
+  1: cewEventLevel
+  2: cewEventImportance
+  3: cewEventOccuredErrorCode
+EDESC

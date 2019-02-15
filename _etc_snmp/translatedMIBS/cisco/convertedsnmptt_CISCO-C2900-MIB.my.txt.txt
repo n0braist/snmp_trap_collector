@@ -1,0 +1,52 @@
+#
+#
+#
+#
+MIB: CISCO-C2900-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-C2900-MIB.my.txt) converted on Tue Sep  6 13:51:21 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT c2900AddressViolation .1.3.6.1.4.1.9.9.87.2.0.1 "Status Events" Normal
+FORMAT The addressViolation notification is generated $*
+SDESC
+The addressViolation notification is generated
+when an address violation is detected
+on a secured port. The generation of the
+addressViolation notification can be enabled
+or suppressed using the object
+c2900ConfigAddressViolationAction.
+The particular secured port is indicated by
+the value of c2900PortIfIndex.
+Variables:
+  1: c2900PortIfIndex
+EDESC
+#
+#
+#
+EVENT c2900BroadcastStorm .1.3.6.1.4.1.9.9.87.2.0.2 "Status Events" Normal
+FORMAT The broadcastStorm notification is generated $*
+SDESC
+The broadcastStorm notification is generated
+upon detecting a port is receiving
+broadcast packets at a rate crossing
+the specified broadcast threshold.
+This trap is only for the rising threshold.
+The particular port is indicated by the values of
+c2900PortModuleIndex and c2900PortIndex, and the
+value of the threshold is given by
+c2900PortBroadcastRisingThreshold.
+Variables:
+  1: c2900PortBroadcastRisingThreshold
+EDESC
+#
+#
+#
+EVENT c2900RpsFailed .1.3.6.1.4.1.9.9.87.2.0.3 "Status Events" Normal
+FORMAT A redundant power system (RPS) is connected to the $*
+SDESC
+A redundant power system (RPS) is connected to the
+switch. The RpsFailed notification is generated
+upon detecting RPS failure.
+Variables:
+  1: sysName
+EDESC

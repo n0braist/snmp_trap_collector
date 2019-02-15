@@ -1,0 +1,251 @@
+#
+#
+#
+#
+MIB: CISCO-ENHANCED-SLB-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ENHANCED-SLB-MIB.mib) converted on Tue Aug 21 15:25:55 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cesRealServerStateUp .1.3.6.1.4.1.9.9.470.0.1 "Status Events" Normal
+FORMAT This notification is generated when a real server $*
+SDESC
+This notification is generated when a real server
+changes to 'inservice' state by the user intervention.
+The cesServerFarmName refers to the server farm
+to which the real server identified by the 
+cesRealServerName is associated.
+The cesServerFarmRserverBackupPort refers to the
+real server port.  This object contains the value
+of cesServerFarmRserverPort.
+Variables:
+  1: cesRealServerName
+  2: cesServerFarmRserverBackupPort
+  3: cesServerFarmName
+  4: cesServerFarmRserverAdminStatus
+  5: cesServerFarmRserverOperStatus
+  6: cesRserverIpAddressType
+  7: cesRserverIpAddress
+EDESC
+#
+#
+#
+EVENT cesRealServerStateDown .1.3.6.1.4.1.9.9.470.0.2 "Status Events" Normal
+FORMAT This notification is generated when a real server $*
+SDESC
+This notification is generated when a real server
+changes to 'outOfService' state by the user intervention.
+The cesServerFarmName refers to the server farm
+to which the real server identified by the 
+cesRealServerName is associated.
+The cesServerFarmRserverBackupPort refers to the
+real server port.  This object contains the value
+of cesServerFarmRserverPort.
+Variables:
+  1: cesRealServerName
+  2: cesServerFarmRserverBackupPort
+  3: cesServerFarmName
+  4: cesServerFarmRserverAdminStatus
+  5: cesServerFarmRserverOperStatus
+  6: cesServerFarmRserverStateDescr
+  7: cesRserverIpAddressType
+  8: cesRserverIpAddress
+EDESC
+#
+#
+#
+EVENT cesRealServerStateChange .1.3.6.1.4.1.9.9.470.0.3 "Status Events" Normal
+FORMAT This notification generated when a real server $*
+SDESC
+This notification generated when a real server
+changes to a new state other than that is initiated
+by the user.  This notification is sent for the 
+reasons that are specified in objects:
+cesServerFarmRserverOperStatus 
+cesRserverStatechangeDescr.
+The cesServerFarmName refers to the server farm
+to which the real server identified by the 
+cesRealServerName is associated.
+The cesServerFarmRserverBackupPort refers to the
+real server port.  This object contains the value
+of cesServerFarmRserverPort.
+The cesProbeName object with zero length
+octet string specifies that real server state
+change is not due to probe failure.
+Variables:
+  1: cesRealServerName
+  2: cesServerFarmRserverBackupPort
+  3: cesServerFarmName
+  4: cesServerFarmRserverAdminStatus
+  5: cesServerFarmRserverOperStatus
+  6: cesServerFarmRserverStateDescr
+  7: cesRserverIpAddressType
+  8: cesRserverIpAddress
+  9: cesProbeName
+EDESC
+#
+#
+#
+EVENT cesRserverStateUp .1.3.6.1.4.1.9.9.470.0.4 "Status Events" Normal
+FORMAT This notification is generated when the real server $*
+SDESC
+This notification is generated when the real server
+identified in cesRserverTable changes state to 
+'inservice' by the user intervention.
+Variables:
+  1: cesRealServerName
+  2: cesRserverAdminStatus
+  3: cesRserverOperStatus
+  4: cesRserverIpAddressType
+  5: cesRserverIpAddress
+EDESC
+#
+#
+#
+EVENT cesRserverStateDown .1.3.6.1.4.1.9.9.470.0.5 "Status Events" Normal
+FORMAT This notification is generated when the real server $*
+SDESC
+This notification is generated when the real server
+identified in cesRserverTable changes to 
+'outOfService' state by the user intervention.
+Variables:
+  1: cesRealServerName
+  2: cesRserverAdminStatus
+  3: cesRserverOperStatus
+  4: cesRserverIpAddressType
+  5: cesRserverIpAddress
+EDESC
+#
+#
+#
+EVENT cesRserverStateChange .1.3.6.1.4.1.9.9.470.0.6 "Status Events" Normal
+FORMAT This notification generated when the real server $*
+SDESC
+This notification generated when the real server
+identified in cesRserverTable changes to a new 
+state other than that is initiated by the user.  
+This notification is sent for the reasons that 
+are specified in objects:
+cesRserverOperStatus 
+cesRserverStatechangeDescr.
+The cesProbeName object with zero length
+octet string specifies that real server state
+change is not due to probe failure.
+Variables:
+  1: cesRealServerName
+  2: cesRserverAdminStatus
+  3: cesRserverOperStatus
+  4: cesRserverStatechangeDescr
+  5: cesRserverIpAddressType
+  6: cesRserverIpAddress
+  7: cesProbeName
+EDESC
+#
+#
+#
+EVENT cesRealServerStateUpRev1 .1.3.6.1.4.1.9.9.470.0.7 "Status Events" Normal
+FORMAT This notification is generated when a real server $*
+SDESC
+This notification is generated when a real server
+changes to 'inservice' state by the user intervention.
+The cesServerFarmName refers to the server farm
+to which the real server identified by the 
+cesRealServerName is associated.
+The cesServerFarmRserverBackupPort refers to the
+real server port. This object contains the value
+of cesServerFarmRserverPort.
+The cesServerFarmRserverAdminStatus refers to the
+administrative state of the real server.
+The cesServerFarmRserverOperStatus refers to the 
+current state of the real server.
+The cesRserverIpAddress refers to the internet
+address of the real server.
+The cesRserverIpAddressType refers to the type of
+internet address in cesRserverIpAddress.
+The cesServerFarmRserverDescr refers to the
+description configured for the real server.
+Variables:
+  1: cesRealServerName
+  2: cesServerFarmRserverBackupPort
+  3: cesServerFarmName
+  4: cesServerFarmRserverAdminStatus
+  5: cesServerFarmRserverOperStatus
+  6: cesRserverIpAddressType
+  7: cesRserverIpAddress
+  8: cesServerFarmRserverDescr
+EDESC
+#
+#
+#
+EVENT cesRealServerStateDownRev1 .1.3.6.1.4.1.9.9.470.0.8 "Status Events" Normal
+FORMAT This notification is generated when a real server $*
+SDESC
+This notification is generated when a real server
+changes to 'outOfService' state by the user intervention.
+The cesServerFarmName refers to the server farm
+to which the real server identified by the 
+cesRealServerName is associated.
+The cesServerFarmRserverBackupPort refers to the
+real server port. This object contains the value
+of cesServerFarmRserverPort.
+The cesServerFarmRserverAdminStatus refers to the
+administrative state of the real server.
+The cesServerFarmRserverOperStatus refers to the 
+current state of the real server.
+The cesRserverIpAddress refers to the internet
+address of the real server.
+The cesRserverIpAddressType refers to the type of
+internet address in cesRserverIpAddress.
+The cesServerFarmRserverDescr refers to the
+description configured for the real server.
+Variables:
+  1: cesRealServerName
+  2: cesServerFarmRserverBackupPort
+  3: cesServerFarmName
+  4: cesServerFarmRserverAdminStatus
+  5: cesServerFarmRserverOperStatus
+  6: cesServerFarmRserverStateDescr
+  7: cesRserverIpAddressType
+  8: cesRserverIpAddress
+  9: cesServerFarmRserverDescr
+EDESC
+#
+#
+#
+EVENT cesRealServerStateChangeRev1 .1.3.6.1.4.1.9.9.470.0.9 "Status Events" Normal
+FORMAT This notification is generated when a real server $*
+SDESC
+This notification is generated when a real server
+changes to a new state other than that is initiated
+by the user.  This notification is sent for the 
+reasons that are specified in objects:
+cesServerFarmRserverOperStatus 
+cesRserverStatechangeDescr.
+The cesServerFarmName refers to the server farm
+to which the real server identified by the 
+cesRealServerName is associated.
+The cesServerFarmRserverBackupPort refers to the
+real server port. This object contains the value
+of cesServerFarmRserverPort.
+The cesServerFarmRserverAdminStatus refers to the
+administrative state of the real server.
+The cesRserverIpAddress refers to the internet
+address of the real server.
+The cesRserverIpAddressType refers to the type of
+internet address in cesRserverIpAddress.
+The cesProbeName object with zero length
+octet string specifies that real server state
+change is not due to probe failure.
+The cesServerFarmRserverDescr refers to the
+description configured for the real server.
+Variables:
+  1: cesRealServerName
+  2: cesServerFarmRserverBackupPort
+  3: cesServerFarmName
+  4: cesServerFarmRserverAdminStatus
+  5: cesServerFarmRserverOperStatus
+  6: cesServerFarmRserverStateDescr
+  7: cesRserverIpAddressType
+  8: cesRserverIpAddress
+  9: cesProbeName
+  10: cesServerFarmRserverDescr
+EDESC

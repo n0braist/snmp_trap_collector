@@ -1,0 +1,70 @@
+#
+#
+#
+#
+MIB: CISCO-CONTENT-NETWORK-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CONTENT-NETWORK-MIB.mib) converted on Tue Aug 21 15:25:48 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ccnNotifServerStart .1.3.6.1.4.1.9.9.216.2.0.1 "Status Events" Normal
+FORMAT The servers on this device are being started.  This object is $*
+SDESC
+The servers on this device are being started.  This object is
+deprecated by ccnNotifOnline.
+Variables:
+EDESC
+#
+#
+#
+EVENT ccnNotifServerStop .1.3.6.1.4.1.9.9.216.2.0.2 "Status Events" Normal
+FORMAT The servers on this device are being stopped.  This object is $*
+SDESC
+The servers on this device are being stopped.  This object is
+deprecated by ccnNotifOnline, ccnNotifNeedsAttention and
+ccnNotifWaitingForCdm.
+Variables:
+EDESC
+#
+#
+#
+EVENT ccnNotifOffline .1.3.6.1.4.1.9.9.216.2.0.3 "Status Events" Normal
+FORMAT The device is about to disconnect from the network. $*
+SDESC
+The device is about to disconnect from the network.
+Variables:
+EDESC
+#
+#
+#
+EVENT ccnNotifNeedsAttention .1.3.6.1.4.1.9.9.216.2.0.4 "Status Events" Normal
+FORMAT The device is on the network, but is unregistered (not $*
+SDESC
+The device is on the network, but is unregistered (not
+associated with any CDN) or needs some other adjustment which
+cannot be done via the CDM administrator interface (such as
+repairing a disk, completing a software upgrade, or configuring
+the CDM database).
+Variables:
+EDESC
+#
+#
+#
+EVENT ccnNotifWaitingForCdm .1.3.6.1.4.1.9.9.216.2.0.5 "Status Events" Normal
+FORMAT The device (CE or CR) is waiting for configuration information $*
+SDESC
+The device (CE or CR) is waiting for configuration information
+from the CDM.  The device is on the network and is either
+failing to communicate with the CDM or is being told explictly
+by the CDM to continue waiting pending activation by the CDN
+administrator.
+Variables:
+EDESC
+#
+#
+#
+EVENT ccnNotifOnline .1.3.6.1.4.1.9.9.216.2.0.6 "Status Events" Normal
+FORMAT The device is operational and ready to participate in the CDN. $*
+SDESC
+The device is operational and ready to participate in the CDN.
+Variables:
+EDESC

@@ -1,0 +1,176 @@
+#
+#
+#
+#
+MIB: CISCO-ITP-GRT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ITP-GRT-MIB.mib) converted on Tue Aug 21 15:26:12 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoGrtDestStateChange .1.3.6.1.4.1.9.9.334.0.1 "Status Events" Normal
+FORMAT This notification is generated whenever one or more $*
+SDESC
+This notification is generated whenever one or more
+destination changes states. This notification 
+contains a list of destination state changes in the
+cgrtDestNotifChanges object.  State changes are
+accumulated until the cgrtDestNotifChanges is 
+full or the maximum delay time is reached.  The delay
+time is specified by the cgrtDestNotifDelayTime 
+object.
+It may be necessary to suppress the sending of 
+notification when a large number destinations change 
+state, due the failure of some common resource.  The 
+number of notifications can be controlled by 
+specifying values for cgrtDestNotifWindowTime 
+and cgrtDestNotifMaxPerWindow objects.  When the 
+number of destination state changes exceed the 
+specified value the last notification will indicate 
+that notifications are suppressed for the remainder
+of the window.
+This notification is deprecated by 
+ciscoGrtDestStateChangeRev1.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgrtDestNotifSupFlag
+  4: cgrtDestNotifChanges
+EDESC
+#
+#
+#
+EVENT ciscoGrtMgmtStateChange .1.3.6.1.4.1.9.9.334.0.2 "Status Events" Normal
+FORMAT This notification is generated whenever one or more $*
+SDESC
+This notification is generated whenever one or more
+management routes change state.  This notification
+contains a list of management route state changes 
+in the cgrtMgmtNotifChanges object.  State changes 
+are accumulated until the cgrtMgmtNotifChanges
+is full or the maximum delay time is reached.  The 
+delay time is specified by the 
+cgrtMgmtNotifDelayTime object.
+It may be necessary to suppress the sending of 
+notification when a large number of routes change 
+state, due the failure of some common resource.
+The number of notifications can be controlled by 
+specifying values for cgrtMgmtNotifWindowTime 
+and cgrtMgmtNotifMaxPerWindow objects.  When the 
+number of route state changes exceed the specified
+value the last notification will indicate that
+notifications are suppressed for the remainder
+of the window.
+This notification is deprecated by
+ciscoGrtMgmtStateChangeRev1.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgrtMgmtNotifSupFlag
+  4: cgrtMgmtNotifChanges
+EDESC
+#
+#
+#
+EVENT ciscoGrtRouteTableLoad .1.3.6.1.4.1.9.9.334.0.3 "Status Events" Normal
+FORMAT This notification is generated whenever a load  $*
+SDESC
+This notification is generated whenever a load 
+operation is started or completed.  Route table
+configurations can be loaded by CLI requests. 
+In addition, route tables can loaded using
+configuration statements.  This allows route
+tables to be reloaded whenever a device restarts.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgrtInstLoadStatus
+  4: cgrtInstTableName
+  5: cgrtInstLastURL
+EDESC
+#
+#
+#
+EVENT ciscoGrtDestStateChangeRev1 .1.3.6.1.4.1.9.9.334.0.4 "Status Events" Normal
+FORMAT This notification is generated whenever one or more $*
+SDESC
+This notification is generated whenever one or more
+destination changes states within the 
+cgrtDestNotifWindowTimeRev1 duration.  Latest state 
+information at the end of cgrtDestNotifWindowTimeRev1
+is provided.
+It may be necessary to suppress the sending of
+notification when a large number destinations change
+state, due the failure of some common resource.  The
+number of notifications can be controlled by
+specifying values for cgrtDestNotifWindowTimeRev1
+and cgrtDestNotifMaxPerWindowRev1 objects.  When the
+number of destination state changes exceed the
+specified value, the notification will provide a  
+count of notifications that got suppressed for the 
+remainder of the window.
+This notification deprecates ciscoGrtDestStateChange.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgrtDestNotifSuppressed
+  4: cgrtDestDisplay
+  5: cgrtDestStatus
+  6: cgrtDestCongestion
+EDESC
+#
+#
+#
+EVENT ciscoGrtMgmtStateChangeRev1 .1.3.6.1.4.1.9.9.334.0.5 "Status Events" Normal
+FORMAT This notification is generated whenever one or more $*
+SDESC
+This notification is generated whenever one or more
+management routes change states within the 
+cgrtMgmtNotifWindowTimeRev1 duration.  Latest state
+information at the end of cgrtMgmtNotifWindowTimeRev1
+is provided.
+It may be necessary to suppress the sending of
+notification when a large number of routes change
+state, due the failure of some common resource.  The
+number of notifications can be controlled by
+specifying values for cgrtMgmtNotifWindowTimeRev1
+and cgrtMgmtNotifMaxPerWindowRev1 objects.  When the
+number of route state changes exceed the specified
+value, the last notification will provide a count
+of notifications that got suppressed for the 
+remainder of the window.
+This notification deprecates ciscoGrtMgmtStateChange.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgrtRouteStatus
+  4: cgrtRouteMgmtStatus
+  5: cgrtRouteDynamic
+  6: cgrtRouteAdminStatus
+  7: cgrtRouteNotifSuppressed
+  8: cgrtRouteDisplay
+EDESC
+#
+#
+#
+EVENT ciscoGrtNoRouteMSUDiscards .1.3.6.1.4.1.9.9.334.0.6 "Status Events" Normal
+FORMAT This notification is generated whenever one or more $*
+SDESC
+This notification is generated whenever one or more
+MSU discards happen due to route data error for a
+specific signalling point instance in the configured
+cgrtNoRouteMSUsNotifWindowTime.  For cases when there
+is a non-zero number of MSUs discarded, this
+notification will be sent at the end of the
+cgrtNoRouteMSUsNotifWindowTime interval, with
+cgrtIntervalNoRouteMSUs indicating the total count of
+MSUs discarded for that specific signalling point
+instance during the entire cgrtNoRouteMSUsNotifWindowTime
+interval Q752/5.5.
+REFERENCE
+ANSI GR-82-CORE 6.4.2 System Total Measurements Item 32.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstDisplayName
+  4: cgrtNoRouteMSUsInterval
+  5: cgrtIntervalNoRouteMSUs
+EDESC

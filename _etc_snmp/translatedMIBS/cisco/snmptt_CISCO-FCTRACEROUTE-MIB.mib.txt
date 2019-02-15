@@ -1,0 +1,28 @@
+#
+#
+#
+#
+MIB: CISCO-FCTRACEROUTE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-FCTRACEROUTE-MIB.mib) converted on Tue Aug 21 15:26:00 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT fcTraceRouteCompletionNotify .1.3.6.1.4.1.9.9.296.1.3.0.1 "Status Events" Normal
+FORMAT This notification is generated whenever a  $*
+SDESC
+This notification is generated whenever a 
+trace route test is completed and the
+corresponding instance of 
+fcTraceRouteTrapOnCompletion is set to 'true'.
+The agent is encouraged to append, at the end 
+of this notification's varbindlist, one varbind
+for each hop of the traced route. Each such
+appended varbind would contain an instance of
+fcTraceRouteHopsHopAddr object. If the number of
+varbinds required would cause the notification
+to approach it's maximum size, the number of
+instances of fcTraceRouteHopsHopAddr will be
+truncated suitably.
+Variables:
+  1: fcTraceRouteTargetAddr
+  2: fcTraceRouteOperStatus
+EDESC

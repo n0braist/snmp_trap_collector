@@ -1,0 +1,79 @@
+#
+#
+#
+#
+MIB: CISCO-ISDN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ISDN-MIB.mib) converted on Tue Aug 21 15:26:12 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT demandNbrCallInformation .1.3.6.1.4.1.9.9.26.2.0.1 "Status Events" Normal
+FORMAT This trap/inform is sent to the manager whenever a successful  $*
+SDESC
+This trap/inform is sent to the manager whenever a successful 
+call clears, or a failed call attempt is determined to have 
+ultimately failed. In the event that call retry is active, 
+then this is after all retry attempts have failed. However, 
+only one such trap is sent in between successful call
+attempts; subsequent call attempts result in no trap.
+Variables:
+  1: demandNbrLogIf
+  2: demandNbrName
+  3: demandNbrAddress
+  4: demandNbrLastDuration
+  5: demandNbrClearReason
+  6: demandNbrClearCode
+EDESC
+#
+#
+#
+EVENT demandNbrCallDetails .1.3.6.1.4.1.9.9.26.2.0.2 "Status Events" Normal
+FORMAT This trap/inform is sent to the manager whenever a call  $*
+SDESC
+This trap/inform is sent to the manager whenever a call 
+connects, or  clears, or a failed call attempt is determined to 
+have ultimately failed. In the event that call retry is active, 
+then this is after all retry attempts have failed. However, 
+only one such trap is sent in between successful call
+attempts; subsequent call attempts result in no trap.
+Whenever a call connects, demandNbrLastDuration, 
+demandNbrClearReason, and demandNbrClearCode objects are not
+included in the trap.
+Variables:
+  1: demandNbrLogIf
+  2: demandNbrName
+  3: demandNbrAddress
+  4: demandNbrLastDuration
+  5: demandNbrClearReason
+  6: demandNbrClearCode
+  7: demandNbrCallOrigin
+EDESC
+#
+#
+#
+EVENT demandNbrLayer2Change .1.3.6.1.4.1.9.9.26.2.0.3 "Status Events" Normal
+FORMAT This trap/inform is sent to the manager whenever the $*
+SDESC
+This trap/inform is sent to the manager whenever the
+D-channel of an interface changes state.
+Variables:
+  1: ifIndex
+  2: isdnLapdOperStatus
+EDESC
+#
+#
+#
+EVENT demandNbrCNANotification .1.3.6.1.4.1.9.9.26.2.0.4 "Status Events" Normal
+FORMAT This trap/inform is sent to the manager whenever the $*
+SDESC
+This trap/inform is sent to the manager whenever the
+an incoming call request is rejected with cause
+'requested circuit/channel not available' (CNA),
+code number 44.
+isdnSignalingIfIndex is the ifIndex value of the interface
+associated with this signaling channel.
+ifIndex is the interface index of the requested bearer channel 
+
+Variables:
+  1: isdnSignalingIfIndex
+  2: ifIndex
+EDESC

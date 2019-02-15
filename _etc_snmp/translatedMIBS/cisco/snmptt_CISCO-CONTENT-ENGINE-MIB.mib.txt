@@ -1,0 +1,164 @@
+#
+#
+#
+#
+MIB: CISCO-CONTENT-ENGINE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CONTENT-ENGINE-MIB.mib) converted on Tue Aug 21 15:25:47 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoContentEngineReadDiskError .1.3.6.1.4.1.9.9.178.2.0.1 "Status Events" Normal
+FORMAT First read error occurred on the disk that is being $*
+SDESC
+First read error occurred on the disk that is being
+accessed.  Additional information about the error
+is logged to syslog.
+Variables:
+EDESC
+#
+#
+#
+EVENT ciscoContentEngineWriteDiskError .1.3.6.1.4.1.9.9.178.2.0.2 "Status Events" Normal
+FORMAT First write error occurred on the disk that is being $*
+SDESC
+First write error occurred on the disk that is being
+accessed.  Additional information about the error
+is logged to syslog.
+Variables:
+EDESC
+#
+#
+#
+EVENT ciscoContentEngineWriteTransFailed .1.3.6.1.4.1.9.9.178.2.0.3 "Status Events" Normal
+FORMAT Failed writing to working transaction log located in $*
+SDESC
+Failed writing to working transaction log located in
+/local1/working.log.  Possible causes are system
+errors or the log having been removed.
+Variables:
+EDESC
+#
+#
+#
+EVENT ciscoContentEngineDataDiskFailed .1.3.6.1.4.1.9.9.178.2.0.4 "Status Events" Normal
+FORMAT A Content Engine data drive failed.  Additional $*
+SDESC
+A Content Engine data drive failed.  Additional
+information about the error is logged to syslog. 
+Variables:
+EDESC
+#
+#
+#
+EVENT ciscoContentEngineOverloadBypass .1.3.6.1.4.1.9.9.178.2.0.5 "Status Events" Normal
+FORMAT A high watermark of percentage of capacity for transparent $*
+SDESC
+A high watermark of percentage of capacity for transparent
+requests redirected to the Content Engine via WCCP
+(Web Cache Control Protocol) has been reached.
+Subsequent WCCP requests are rejected and forwarded
+to the Origin Server until the utilization falls
+below a low watermark.
+Variables:
+EDESC
+#
+#
+#
+EVENT ciscoContentEngineDiskFailed .1.3.6.1.4.1.9.9.178.2.0.6 "Status Events" Normal
+FORMAT A Content Engine data drive failed.  This object supersedes $*
+SDESC
+A Content Engine data drive failed.  This object supersedes
+ciscoContentEngineDataDiskFailed. Additional
+information about the error is logged to syslog. 
+Variables:
+  1: cceFailedDiskName
+EDESC
+#
+#
+#
+EVENT cceAlarmCriticalRaised .1.3.6.1.4.1.9.9.178.2.0.7 "Status Events" Normal
+FORMAT The Agent generates this trap when any module raises $*
+SDESC
+The Agent generates this trap when any module raises
+a Critical alarm.
+Variables:
+  1: cceAlarmHistId
+  2: cceAlarmHistModuleId
+  3: cceAlarmHistCategory
+  4: cceAlarmHistInfo
+  5: cceAlarmHistTimeStamp
+EDESC
+#
+#
+#
+EVENT cceAlarmCriticalCleared .1.3.6.1.4.1.9.9.178.2.0.8 "Status Events" Normal
+FORMAT The Agent generates this trap when any module clears  $*
+SDESC
+The Agent generates this trap when any module clears 
+a Critical alarm.
+Variables:
+  1: cceAlarmHistId
+  2: cceAlarmHistModuleId
+  3: cceAlarmHistCategory
+  4: cceAlarmHistInfo
+  5: cceAlarmHistTimeStamp
+EDESC
+#
+#
+#
+EVENT cceAlarmMajorRaised .1.3.6.1.4.1.9.9.178.2.0.9 "Status Events" Normal
+FORMAT The Agent generates this trap when any module raises  $*
+SDESC
+The Agent generates this trap when any module raises 
+a Major alarm.
+Variables:
+  1: cceAlarmHistId
+  2: cceAlarmHistModuleId
+  3: cceAlarmHistCategory
+  4: cceAlarmHistInfo
+  5: cceAlarmHistTimeStamp
+EDESC
+#
+#
+#
+EVENT cceAlarmMajorCleared .1.3.6.1.4.1.9.9.178.2.0.10 "Status Events" Normal
+FORMAT The Agent generates this trap when any module clears  $*
+SDESC
+The Agent generates this trap when any module clears 
+a Major alarm.
+Variables:
+  1: cceAlarmHistId
+  2: cceAlarmHistModuleId
+  3: cceAlarmHistCategory
+  4: cceAlarmHistInfo
+  5: cceAlarmHistTimeStamp
+EDESC
+#
+#
+#
+EVENT cceAlarmMinorRaised .1.3.6.1.4.1.9.9.178.2.0.11 "Status Events" Normal
+FORMAT The Agent generates this trap when any module raises  $*
+SDESC
+The Agent generates this trap when any module raises 
+a Minor alarm.
+Variables:
+  1: cceAlarmHistId
+  2: cceAlarmHistModuleId
+  3: cceAlarmHistCategory
+  4: cceAlarmHistInfo
+  5: cceAlarmHistTimeStamp
+EDESC
+#
+#
+#
+EVENT cceAlarmMinorCleared .1.3.6.1.4.1.9.9.178.2.0.12 "Status Events" Normal
+FORMAT The Agent generates this trap when any module clears  $*
+SDESC
+The Agent generates this trap when any module clears 
+a Minor alarm.
+Variables:
+  1: cceAlarmHistId
+  2: cceAlarmHistModuleId
+  3: cceAlarmHistCategory
+  4: cceAlarmHistInfo
+  5: cceAlarmHistTimeStamp
+EDESC

@@ -1,0 +1,16 @@
+#
+#
+#
+#
+MIB: VMWARE-CIMOM-MIB (file:/tmp/ESX/asn1-6876-mibs/VMWARE-CIMOM-MIB.mib) converted on Tue Oct 21 10:49:44 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT vmwCimOmHeartbeat .1.3.6.1.4.1.6876.4.90.0.401 "Status Events" Normal
+FORMAT This notification, if the agent is so configured, will be sent  $*
+SDESC
+This notification, if the agent is so configured, will be sent 
+on a periodic basis to indicate cimom indication delivery is functioning.
+Variables:
+  1: vmwEnvIndicationTime
+EDESC

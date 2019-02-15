@@ -1,0 +1,165 @@
+#
+#
+#
+#
+MIB: CPQSTDEQ-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQSTDEQ-MIB.mib) converted on Wed Aug 22 14:19:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqSeCpuThresholdPassed .1.3.6.1.4.1.232.0.1001 "Status Events" MINOR
+FORMAT CPU error threshold passed (1001): CPU internal corrected errors have passed a set threshold.
+SDESC
+This trap is sent when an internal CPU error threshold has been
+passed on a particular CPU causing it to go degraded. This trap
+will be sent when cpqSeCpuThreshPassed transitions from false to
+true.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSeCpuSlot
+  4: cpqSeCpuSocketNumber
+EDESC
+#
+#
+#
+EVENT cpqSePCCardThermalDegraded .1.3.6.1.4.1.232.0.1002 "Status Events" MAJOR
+FORMAT PC Card Thermal Degraded Status (1002): Safe PC Card $5 Thermal operating conditions exceeded.
+SDESC
+This trap is sent when the PC Card Slot Thermal Sensor threshold has been
+exceeded for safe operations thereby causing degraded operations. This trap
+will be sent when cpqSePCCardStatus transitions from Normal (1) to Thermal
+Degraded (2).
+The manufacturer and product information strings as well as the slot number
+for the degraded PC Card is provided as parameters for this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSePCCardDeviceInfo
+  4: cpqSePCCardProductInfo
+  5: cpqSePCCardSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqSePCCardThermalFailure .1.3.6.1.4.1.232.0.1003 "Status Events" CRITICAL
+FORMAT PC Card Thermal Failure Status (1003): Degraded PC Card $5 Thermal operating conditions exceeded.
+SDESC
+This trap is sent when the PC Card Slot Thermal Sensor threshold has been
+exceeded for degraded operations thereby causing failed operations.
+This trap will be sent when cpqSePCCardStatus transitions from Thermal Degraded
+(2) to Thermal Failure (3).
+The manufacturer and product information strings as well as the slot number
+for the failed PC Card is provided as parameters for this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSePCCardDeviceInfo
+  4: cpqSePCCardProductInfo
+  5: cpqSePCCardSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqSePCCardThermalSafe .1.3.6.1.4.1.232.0.1004 "Status Events" INFORMATIONAL
+FORMAT PC Card Thermal Safe Operations Status (1004): Degraded/Failed PC Card $3 Thermal conditions restored to Safe operations.
+SDESC
+This trap is sent when the PC Card Slot Thermal Sensor threshold has been
+crossed which restored the thermal status to normal operations. This trap will be sent
+when cpqSePCCardStatus transitions from Thermal Degraded (2) or Thermal Failure
+(3) to Normal (1).
+The number of the recovered PC Card slot is provided as a parameter for this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSePCCardSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqSe2CpuThresholdPassed .1.3.6.1.4.1.232.0.1005 "Status Events" MINOR
+FORMAT CPU error threshold passed (1005): CPU internal corrected errors have passed a set threshold.
+SDESC
+This trap is sent when an internal CPU error threshold has been
+passed on a particular CPU causing it to go degraded. This trap
+will be sent when cpqSeCpuThreshPassed transitions from false to
+true.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSeCpuSlot
+  4: cpqSeCpuSocketNumber
+  5: cpqSeCpuSpeed
+  6: cpqSeCpuExtSpeed
+  7: cpqSeCpuCacheSize
+EDESC
+#
+#
+#
+EVENT cpqSeCpuStatusChange .1.3.6.1.4.1.232.0.1006 "Status Events" MAJOR
+FORMAT Processor Monitor Event Trap: Processor in Slot $5 status change to $9
+SDESC
+This trap is sent when CPU status changed.
+CPU can be brought down to Stop state and removed
+from O.S Active set or Brought back to Running state
+and made member of O.S Active set.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSeCpuUnitIndex
+  4: cpqSeCpuSlot
+  5: cpqSeCpuName
+  6: cpqSeCpuSpeed
+  7: cpqSeCpuStep
+  8: cpqSeCpuStatus
+  9: cpqSeCpuExtSpeed
+  10: cpqSeCpuSocketNumber
+  11: cpqSeCpuHwLocation
+EDESC
+#
+#
+#
+EVENT cpqSeCpuPowerPodstatusChange .1.3.6.1.4.1.232.0.1007 "Status Events" MAJOR
+FORMAT Processor Monitor Event Trap: Processor in Slot $5 Power supply status is $9
+SDESC
+This Trap is sent if CPU Power Pod status changes.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSeCpuUnitIndex
+  4: cpqSeCpuSlot
+  5: cpqSeCpuName
+  6: cpqSeCpuSpeed
+  7: cpqSeCpuStep
+  8: cpqSeCpuPowerpodStatus
+  9: cpqSeCpuExtSpeed
+  10: cpqSeCpuSocketNumber
+  11: cpqSeCpuHwLocation
+EDESC
+#
+#
+#
+EVENT cpqSeUSBStorageDeviceAttached .1.3.6.1.4.1.232.0.1008 "Status Events" INFORMATIONAL
+FORMAT USB storage device attached (1008): A USB storage device has been attached to the system.
+SDESC
+This trap is sent when a USB storage device has been attached 
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSeUSBDeviceType
+  4: cpqSeUSBDeviceName
+EDESC
+#
+#
+#
+EVENT cpqSeUSBStorageDeviceRemoved .1.3.6.1.4.1.232.0.1009 "Status Events" INFORMATIONAL
+FORMAT USB storage device removed (1009): A USB storage device has been removed from the system.
+SDESC
+This trap is sent when a attached USB storage device is removed 
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSeUSBDeviceType
+  4: cpqSeUSBDeviceName
+EDESC

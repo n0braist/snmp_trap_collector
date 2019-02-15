@@ -1,0 +1,37 @@
+#
+#
+#
+#
+MIB: CPQSANEVENT-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQSANEVENT-MIB.mib) converted on Wed Aug 22 14:19:22 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT sanEventTrap .1.3.6.1.4.1.232.151.101.0.1 "Status Events" Normal
+FORMAT This trap signals (using SNMP) an event has been published to the HP OpenView Storage Management Appliance. $*
+SDESC
+This trap signals (using SNMP) an event has been published to the HP OpenView Storage Management Appliance.
+Variables:
+  1: sanEventEventCode
+  2: sanEventIPAddress
+  3: sanEventSeverity
+  4: sanEventCategory
+  5: sanEventGroup
+  6: sanEventSourceType
+  7: sanEventSourceSubtype
+  8: sanEventURL
+  9: sanEventDesc
+EDESC
+#
+#
+#
+EVENT sanTestTrap .1.3.6.1.4.1.232.151.101.0.2 "Status Events" Normal
+FORMAT HP OpenView Storage Management Appliance has sent a test trap. $*
+SDESC
+HP OpenView Storage Management Appliance has sent a test trap.
+Variables:
+  1: sanEventIPAddress
+  2: sanEventSeverity
+  3: sanEventSourceType
+  4: sanEventSourceSubtype
+  5: sanEventURL
+EDESC

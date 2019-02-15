@@ -1,0 +1,17 @@
+#
+#
+#
+#
+MIB: CISCO-VLAN-MEMBERSHIP-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-VLAN-MEMBERSHIP-MIB.my.txt) converted on Tue Sep  6 13:51:22 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT vmVmpsChange .1.3.6.1.4.1.9.9.68.2.0.1 "Status Events" Normal
+FORMAT  A VMPS change notification is generated whenever $*
+SDESC
+ A VMPS change notification is generated whenever
+vmVmpsChanges is incremented. The IP address
+of the new VMPS is sent.
+Variables:
+  1: vmVmpsIpAddress
+EDESC

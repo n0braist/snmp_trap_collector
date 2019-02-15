@@ -1,0 +1,5872 @@
+POLYCOM-DMA-MIB DEFINITIONS ::= BEGIN
+
+-- OUTLINE
+--
+-- The objects defined within this MIB are for the monitoring of the Polycom DMA 7000 system. In the
+-- table below, the object identifier has an implied base of the DMA OID:
+--    iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).polycom(13885).dma(13)
+--
+-- OID                  ENTRY
+-- ===                  =====
+-- .1                   dmaInternal1
+-- .2                   dmaMonitoring1
+-- .2.1                 dmaConfig
+-- .2.1.1               cfgIdentity
+-- .2.1.1.1             cfgProductInfo
+-- .2.1.1.1.1           cfgProdInfoManufacturer
+-- .2.1.1.1.2           cfgProdInfoModel
+-- .2.1.1.1.3           cfgProdInfoHardwareInfo
+-- .2.1.1.1.3.1         cfgProdInfoHWModel
+-- .2.1.1.1.3.2         cfgProdInfoHWSerialNumber
+-- .2.1.1.1.4           cfgProdInfoSoftwareInfo
+-- .2.1.1.1.4.1         cfgProdInfoSWVersion
+-- .2.1.1.1.4.2         cfgProdInfoSWExtendedVersion
+-- .2.1.1.1.4.2.1       cfgProdInfoSWExtVerPlatformVersion
+-- .2.1.1.1.4.2.2       cfgProdInfoSWExtVerApplicationVersion
+-- .2.1.2               cfgServer
+-- .2.1.2.1             cfgNetwork
+-- .2.1.2.1.1           cfgNetworkHostname
+-- .2.1.2.1.2           cfgInterfacesCount
+-- .2.1.2.1.3           cfgInterfacesTable
+-- .2.1.2.1.3.1         cfgInterfacesEntry
+-- .2.1.2.1.3.1.1       cfgIfIndex
+-- .2.1.2.1.3.1.2       cfgIfName
+-- .2.1.2.1.3.1.3       cfgIfEnabled
+-- .2.1.2.1.3.1.4       cfgIfMACAddress
+-- .2.1.2.1.3.1.5       cfgIfIPv4Address
+-- .2.1.2.1.3.1.6       cfgIfIPv4SubnetMask
+-- .2.1.2.1.3.1.7       cfgIfIPv4Gateway
+-- .2.1.2.1.3.1.8       cfgIfIPv6Address
+-- .2.1.2.1.3.1.9       cfgIfIPv6PrefixLength
+-- .2.1.3               cfgCallserver
+-- .2.1.3.1             cfgCsSupercluster
+-- .2.1.3.1.1           cfgCsSiteTopology
+-- .2.1.3.1.1.1         cfgCsTerritoriesCount
+-- .2.1.3.1.1.2         cfgCsTerritoriesTable
+-- .2.1.3.1.1.2.1       cfgCsTerritoriesEntry
+-- .2.1.3.1.1.2.1.1     cfgCsTerritoryIndex
+-- .2.1.3.1.1.2.1.2     cfgCsTerritoryName
+-- .2.1.3.1.1.2.1.3     cfgCsTerritoryPrimaryCluster
+-- .2.1.3.1.1.2.1.4     cfgCsTerritoryBackupCluster
+-- .2.1.3.1.2           cfgCsIntegrations
+-- .2.1.3.1.2.1         cfgCsIntDirectoryService
+-- .2.1.3.1.2.1.1       cfgCsIntDirSvcMSActiveDirectory
+-- .2.1.3.1.2.1.1.1     cfgCsIntMSADEnabled
+-- .2.1.3.1.2.1.1.2     cfgCsIntMSADResponsibleTerritory
+-- .2.1.3.1.2.1.1.3     cfgCsIntMSADServerAddress
+-- .2.1.3.1.2.1.1.4     cfgCsIntMSADUserId
+-- .2.1.3.1.2.2         cfgCsIntCalendaring
+-- .2.1.3.1.2.2.1       cfgCsIntCalMSExchange
+-- .2.1.3.1.2.2.1.1     cfgCsIntMSExchEnabled
+-- .2.1.3.1.2.2.1.2     cfgCsIntMSExchResponsibleTerritory
+-- .2.1.3.1.2.2.1.3     cfgCsIntMSExchServerAddress
+-- .2.1.3.1.2.2.1.4     cfgCsIntMSExchUserId
+-- .2.1.3.1.2.3         cfgCsIntSiteTopology
+-- .2.1.3.1.2.3.1       cfgCsIntSiteTopoPolycomCMA
+-- .2.1.3.1.2.3.1.1     cfgCsIntPlcmCMAEnabled
+-- .2.1.3.1.2.3.1.2     cfgCsIntPlcmCMAServerAddress
+-- .2.1.3.1.2.3.1.3     cfgCsIntPlcmCMAUserId
+-- .2.1.3.1.2.4         cfgCsIntNetwork
+-- .2.1.3.1.2.4.1       cfgCsIntNetBandwidthManagement
+-- .2.1.3.1.2.4.1.1     cfgCsIntNetBWMgmtJuniperSRC
+-- .2.1.3.1.2.4.1.1.1   cfgCsIntJuniperSRCEnabled
+-- .2.1.3.1.2.4.1.1.2   cfgCsIntJuniperSRCServerAddress
+-- .2.1.3.1.2.4.1.1.3   cfgCsIntJuniperSRCServerPort
+-- .2.1.3.1.2.4.1.1.4   cfgCsIntJuniperSRCUserId
+-- .2.1.3.1.2.4.1.1.5   cfgCsIntJuniperSRCSubscriberURI
+-- .2.1.3.2             cfgCsCluster
+-- .2.1.3.2.1           cfgCsSignaling
+-- .2.1.3.2.1.1         cfgCsSgnlH323
+-- .2.1.3.2.1.1.1       cfgCsSgnlH323Enabled
+-- .2.1.3.2.1.1.2       cfgCsSgnlH323H225Port
+-- .2.1.3.2.1.1.3       cfgCsSgnlH323RASPort
+-- .2.1.3.2.1.2         cfgCsSgnlSIP
+-- .2.1.3.2.1.2.1       cfgCsSgnlSIPEnabled
+-- .2.1.3.2.1.2.2       cfgCsSgnlSIPTCPPort
+-- .2.1.3.2.1.2.3       cfgCsSgnlSIPUDPPort
+-- .2.1.3.2.1.2.4       cfgCsSgnlSIPTLSPort
+-- .2.1.4               cfgDevices
+-- .2.2                 dmaStatus
+-- .2.2.1               stServers
+-- .2.2.1.1             stServerCount
+-- .2.2.1.2             stIdentity
+-- .2.2.1.2.1           stHardwareInfoTable
+-- .2.2.1.2.1.1         stHardwareInfoEntry
+-- .2.2.1.2.1.1.1       stHWIndex
+-- .2.2.1.2.1.1.2       stHWHostName
+-- .2.2.1.2.1.1.3       stHWSerialNumber
+-- .2.2.1.2.2           stVersionTable
+-- .2.2.1.2.2.1         stVersionEntry
+-- .2.2.1.2.2.1.1       stVerIndex
+-- .2.2.1.2.2.1.2       stVerHostName
+-- .2.2.1.2.2.1.3       stVerVersion
+-- .2.2.1.2.3           stSystemInfoTable
+-- .2.2.1.2.3.1         stSystemInfoEntry
+-- .2.2.1.2.3.1.1       stSysInfoIndex
+-- .2.2.1.2.3.1.2       stSysInfoHostName
+-- .2.2.1.2.3.1.3       stSysInfoSystemDate
+-- .2.2.1.2.3.1.4       stSysInfoUptime
+-- .2.2.1.2.3.1.5       stSysInfoTimeSource
+-- .2.2.1.3             stNetwork
+-- .2.2.1.3.1           stNetClusterAffiliationTable
+-- .2.2.1.3.1.1         stNetClusterAffiliationEntry
+-- .2.2.1.3.1.1.1       stNetClusterAffilIndex
+-- .2.2.1.3.1.1.2       stNetClusterAffilHostName
+-- .2.2.1.3.1.1.3       stNetClusterAffilClusterName
+-- .2.2.1.3.2           stNetPrivateInterfaceTable
+-- .2.2.1.3.2.1         stNetPrivateInterfaceEntry
+-- .2.2.1.3.2.1.1       stNetPvtIndex
+-- .2.2.1.3.2.1.2       stNetPvtHostName
+-- .2.2.1.3.2.1.3       stNetPvtInterfaceName
+-- .2.2.1.3.2.1.4       stNetPvtLinkStatus
+-- .2.2.1.3.2.1.5       stNetPvtMACAddress
+-- .2.2.1.3.2.1.6       stNetPvtIPv4Address
+-- .2.2.1.3.2.1.7       stNetPvtIPv6Address
+-- .2.2.1.3.3           stNetManagementInterfaceTable
+-- .2.2.1.3.3.1         stNetManagementInterfaceEntry
+-- .2.2.1.3.3.1.1       stNetMgmtIndex
+-- .2.2.1.3.3.1.2       stNetMgmtHostName
+-- .2.2.1.3.3.1.3       stNetMgmtInterfaceName
+-- .2.2.1.3.3.1.4       stNetMgmtLinkStatus
+-- .2.2.1.3.3.1.5       stNetMgmtMACAddress
+-- .2.2.1.3.3.1.6       stNetMgmtIPv4Address
+-- .2.2.1.3.3.1.7       stNetMgmtIPv6Address
+-- .2.2.1.3.4           stNetSignalingInterfaceTable
+-- .2.2.1.3.4.1         stNetSignalingInterfaceEntry
+-- .2.2.1.3.4.1.1       stNetSgnlIndex
+-- .2.2.1.3.4.1.2       stNetSgnlHostName
+-- .2.2.1.3.4.1.3       stNetSgnlInterfaceName
+-- .2.2.1.3.4.1.4       stNetSgnlLinkStatus
+-- .2.2.1.3.4.1.5       stNetSgnlMACAddress
+-- .2.2.1.3.4.1.6       stNetSgnlIPv4Address
+-- .2.2.1.3.4.1.7       stNetSgnlIPv6Address
+-- .2.2.1.4             stResources
+-- .2.2.1.4.1           stRsrcCPUUsageTable
+-- .2.2.1.4.1.1         stRsrcCPUUsageEntry
+-- .2.2.1.4.1.1.1       stRsrcCPUUsageIndex
+-- .2.2.1.4.1.1.2       stRsrcCPUUsageHostName
+-- .2.2.1.4.1.1.3       stRsrcCPUUsageCPUUtilizationPct
+-- .2.2.1.4.2           stRsrcMemoryUsageTable
+-- .2.2.1.4.2.1         stRsrcMemoryUsageEntry
+-- .2.2.1.4.2.1.1       stRsrcMemUsageIndex
+-- .2.2.1.4.2.1.2       stRsrcMemUsageHostName
+-- .2.2.1.4.2.1.3       stRsrcMemUsageTotalMemory
+-- .2.2.1.4.2.1.4       stRsrcMemUsageBuffersAndCache
+-- .2.2.1.4.2.1.5       stRsrcMemUsageUsed
+-- .2.2.1.4.2.1.6       stRsrcMemUsageFree
+-- .2.2.1.4.3           stRsrcSwapSpaceTable
+-- .2.2.1.4.3.1         stRsrcSwapSpaceEntry
+-- .2.2.1.4.3.1.1       stRsrcSwapIndex
+-- .2.2.1.4.3.1.2       stRsrcSwapHostName
+-- .2.2.1.4.3.1.3       stRsrcSwapTotal
+-- .2.2.1.4.3.1.4       stRsrcSwapUsed
+-- .2.2.1.4.4           stRsrcDiskSpaceTable
+-- .2.2.1.4.4.1         stRsrcDiskSpaceEntry
+-- .2.2.1.4.4.1.1       stRsrcDiskIndex
+-- .2.2.1.4.4.1.2       stRsrcDiskHostName
+-- .2.2.1.4.4.1.3       stRsrcDiskTotal
+-- .2.2.1.4.4.1.4       stRsrcDiskUsed
+-- .2.2.1.4.5           stRsrcLogSpaceTable
+-- .2.2.1.4.5.1         stRsrcLogSpaceEntry
+-- .2.2.1.4.5.1.1       stRsrcLogIndex
+-- .2.2.1.4.5.1.2       stRsrcLogHostName
+-- .2.2.1.4.5.1.3       stRsrcLogTotal
+-- .2.2.1.4.5.1.4       stRsrcLogUsed
+-- .2.2.1.4.5.1.5       stRsrcLogWarningThreshold
+-- .2.2.1.4.5.1.6       stRsrcLogNextPurge
+-- .2.2.2               stDevices
+-- .2.2.2.1             stMCUs
+-- .2.2.2.1.1           stMCUCount
+-- .2.2.2.1.2           stMCUStatusTable
+-- .2.2.2.1.2.1         stMCUStatusEntry
+-- .2.2.2.1.2.1.1       stMCUStIndex
+-- .2.2.2.1.2.1.2       stMCUStName
+-- .2.2.2.1.2.1.3       stMCUStServiceStatus
+-- .2.2.2.1.2.1.4       stMCUStHasAlert
+-- .2.2.2.1.2.1.5       stMCUStRecordingAvailable
+-- .2.2.2.1.2.1.6       stMCUStIVRAvailable
+-- .2.2.2.1.3           stMCUVideoPortUsageTable
+-- .2.2.2.1.3.1         stMCUVideoPortUsageEntry
+-- .2.2.2.1.3.1.1       stMCUVidUsageIndex
+-- .2.2.2.1.3.1.2       stMCUVidUsageName
+-- .2.2.2.1.3.1.3       stMCUVidUsageMCUTotal
+-- .2.2.2.1.3.1.4       stMCUVidUsageMCUUsed
+-- .2.2.2.1.3.1.5       stMCUVidUsageDMATotal
+-- .2.2.2.1.3.1.6       stMCUVidUsageDMAUsed
+-- .2.2.2.1.3.1.7       stMCUVidUsageCMAReserved
+-- .2.2.2.1.4           stMCUVoicePortUsageTable
+-- .2.2.2.1.4.1         stMCUVoicePortUsageEntry
+-- .2.2.2.1.4.1.1       stMCUVoxUsageIndex
+-- .2.2.2.1.4.1.2       stMCUVoxUsageName
+-- .2.2.2.1.4.1.3       stMCUVoxUsageMCUTotal
+-- .2.2.2.1.4.1.4       stMCUVoxUsageMCUUsed
+-- .2.2.2.1.4.1.5       stMCUVoxUsageDMATotal
+-- .2.2.2.1.4.1.6       stMCUVoxUsageDMAUsed
+-- .2.2.2.2             stMCUsPerCluster
+-- .2.2.2.2.1           stMCUsPerClusterCount
+-- .2.2.2.2.2           stMCUPCConnectionStatusTable
+-- .2.2.2.2.2.1         stMCUPCConnectionStatusEntry
+-- .2.2.2.2.2.1.1       stMCUPCConnStIndex
+-- .2.2.2.2.2.1.2       stMCUPCConnStName
+-- .2.2.2.2.2.1.3       stMCUPCConnStClusterName
+-- .2.2.2.2.2.1.4       stMCUPCConnStConnectionStatus
+-- .2.2.2.2.3           stMCUPCReliabilityStatsTable
+-- .2.2.2.2.3.1         stMCUPCReliabilityStatsEntry
+-- .2.2.2.2.3.1.1       stMCUPCRelIndex
+-- .2.2.2.2.3.1.2       stMCUPCRelName
+-- .2.2.2.2.3.1.3       stMCUPCRelClusterName
+-- .2.2.2.2.3.1.4       stMCUPCRelDisconnects
+-- .2.2.2.2.3.1.5       stMCUPCRelCallFailureRate
+-- .2.2.3               stClusters
+-- .2.2.3.1             stClustersCount
+-- .2.2.3.2             stClustersTable
+-- .2.2.3.2.1           stClustersEntry
+-- .2.2.3.2.1.1         stClIndex
+-- .2.2.3.2.1.2         stClClusterName
+-- .2.2.3.2.1.3         stClClusterStatus
+-- .2.2.3.3             stLicensesTable
+-- .2.2.3.3.1           stLicensesEntry
+-- .2.2.3.3.1.1         stLicIndex
+-- .2.2.3.3.1.2         stLicClusterName
+-- .2.2.3.3.1.3         stLicLicenseStatus
+-- .2.2.3.3.1.4         stLicLicensedCalls
+-- .2.2.3.3.1.5         stLicCallserverActiveCalls
+-- .2.2.4               stCallserver
+-- .2.2.4.1             stCsSupercluster
+-- .2.2.4.1.1           stCsSiteTopology
+-- .2.2.4.1.1.1         stCsConfMgrTerritoriesCount
+-- .2.2.4.1.1.2         stCsConfMgrTerritoriesTable
+-- .2.2.4.1.1.2.1       stCsConfMgrTerritoriesEntry
+-- .2.2.4.1.1.2.1.1     stCsConfMgrTerrIndex
+-- .2.2.4.1.1.2.1.2     stCsConfMgrTerrName
+-- .2.2.4.1.2           stCsIntegrations
+-- .2.2.4.1.2.1         stCsIntDirectoryService
+-- .2.2.4.1.2.1.1       stCsIntDirSvcMSActiveDirectory
+-- .2.2.4.1.2.1.1.1     stCsIntMSADEnabled
+-- .2.2.4.1.2.1.1.2     stCsIntMSADCacheStatus
+-- .2.2.4.1.2.1.1.3     stCsIntMSADCachingCluster
+-- .2.2.4.1.2.1.1.4     stCsIntMSADCachingServer
+-- .2.2.4.1.2.1.1.5     stCsIntMSADConnectionSecure
+-- .2.2.4.1.2.1.1.6     stCsIntMSADCacheRefreshDate
+-- .2.2.4.1.2.1.1.7     stCsIntMSADEnterpriseConfRooms
+-- .2.2.4.1.2.2         stCsIntCalendaring
+-- .2.2.4.1.2.2.1       stCsIntCalMSExchange
+-- .2.2.4.1.2.2.1.1     stCsIntMSExchEnabled
+-- .2.2.4.1.2.2.1.2     stCsIntMSExchSubscriptionStatus
+-- .2.2.4.1.2.2.1.3     stCsIntMSExchIntegratingCluster
+-- .2.2.4.1.2.2.1.4     stCsIntMSExchIntegratingServer
+-- .2.2.4.1.2.2.1.5     stCsIntMSExchMailbox
+-- .2.2.4.1.2.2.1.6     stCsIntMSExchMeetingsToday
+-- .2.2.4.1.2.3         stCsIntSiteTopology
+-- .2.2.4.1.2.3.1       stCsIntSiteTopoPolycomCMA
+-- .2.2.4.1.2.3.1.1     stCsIntPlcmCMAEnabled
+-- .2.2.4.1.2.3.1.2     stCsIntPlcmCMAConnectionStatus
+-- .2.2.4.1.2.3.1.3     stCsIntPlcmCMALastContactDate
+-- .2.2.4.1.2.3.1.4     stCsIntPlcmCMATimeSinceLastRefresh
+-- .2.2.4.1.2.3.1.5     stCsIntPlcmCMATerritories
+-- .2.2.4.1.2.3.1.6     stCsIntPlcmCMASites
+-- .2.2.4.1.2.3.1.7     stCsIntPlcmCMASiteLinks
+-- .2.2.4.1.2.3.1.8     stCsIntPlcmCMAMPLSClouds
+-- .2.2.4.1.2.4         stCsIntNetwork
+-- .2.2.4.1.2.4.1       stCsIntNetBandwidthManagement
+-- .2.2.4.1.2.4.1.1     stCsIntNetBWMgmtJuniperSRC
+-- .2.2.4.1.2.4.1.1.1   stCsIntJuniperSRCEnabled
+-- .2.2.4.2             stCsDevices
+-- .2.2.4.2.1           stCsConfMgrMCUs
+-- .2.2.4.2.1.1         stCsConfMgrMCUsCount
+-- .2.2.4.2.1.2         stCsConfMgrMCUsTable
+-- .2.2.4.2.1.2.1       stCsConfMgrMCUsEntry
+-- .2.2.4.2.1.2.1.1     stCsCMMCUIndex
+-- .2.2.4.2.1.2.1.2     stCsCMMCUName
+-- .2.3                 dmaUsage
+-- .2.3.1               useConfHistory
+-- .2.3.1.1             useConfHistoryMaximumParticipants
+-- .2.3.1.1.1           useCHMaxPartsLast60MinutesCount
+-- .2.3.1.1.2           useCHMaxPartsLast60MinutesTable
+-- .2.3.1.1.2.1         useCHMaxPartsLast60MinutesEntry
+-- .2.3.1.1.2.1.1       useCHMaxParts60MinIndex
+-- .2.3.1.1.2.1.2       useCHMaxParts60MinClusterName
+-- .2.3.1.1.2.1.3       useCHMaxParts60MinTimestamp
+-- .2.3.1.1.2.1.4       useCHMaxParts60MinMaxSimultaneousCalls
+-- .2.3.1.1.2.1.5       useCHMaxParts60MinMaxAdHocCalls
+-- .2.3.1.1.2.1.6       useCHMaxParts60MinMaxPCOCalls
+-- .2.3.1.1.3           useCHMaxPartsLast24HoursCount
+-- .2.3.1.1.4           useCHMaxPartsLast24HoursTable
+-- .2.3.1.1.4.1         useCHMaxPartsLast24HoursEntry
+-- .2.3.1.1.4.1.1       useCHMaxParts24HrIndex
+-- .2.3.1.1.4.1.2       useCHMaxParts24HrClusterName
+-- .2.3.1.1.4.1.3       useCHMaxParts24HrTimestamp
+-- .2.3.1.1.4.1.4       useCHMaxParts24HrMaxSimultaneousCalls
+-- .2.3.1.1.4.1.5       useCHMaxParts24HrMaxAdHocCalls
+-- .2.3.1.1.4.1.6       useCHMaxParts24HrMaxPCOCalls
+-- .2.3.1.1.5           useCHMaxPartsLast180DaysCount
+-- .2.3.1.1.6           useCHMaxPartsLast180DaysTable
+-- .2.3.1.1.6.1         useCHMaxPartsLast180DaysEntry
+-- .2.3.1.1.6.1.1       useCHMaxParts180DaysIndex
+-- .2.3.1.1.6.1.2       useCHMaxParts180DaysClusterName
+-- .2.3.1.1.6.1.3       useCHMaxParts180DaysTimestamp
+-- .2.3.1.1.6.1.4       useCHMaxParts180DaysMaxSimultaneousCalls
+-- .2.3.1.1.6.1.5       useCHMaxParts180DaysMaxAdHocCalls
+-- .2.3.1.1.6.1.6       useCHMaxParts180DaysMaxPCOCalls
+-- .2.3.2               useCurrentConferences
+-- .2.3.2.1             useCurrentConfsConfManagerUsage
+-- .2.3.2.1.1           useConfMgrUsageCount
+-- .2.3.2.1.2           useConfMgrUsageTable
+-- .2.3.2.1.2.1         useConfMgrUsageEntry
+-- .2.3.2.1.2.1.1       useCMUsageIndex
+-- .2.3.2.1.2.1.2       useCMUsageClusterName
+-- .2.3.2.1.2.1.3       useCMUsageActiveConfs
+-- .2.3.2.1.2.1.4       useCMUsageActiveParts
+-- .2.3.2.1.2.1.5       useCMUsageTotalVideoPorts
+-- .2.3.2.1.2.1.6       useCMUsageUsedVideoPorts
+-- .2.3.2.1.2.1.7       useCMUsageTotalVoicePorts
+-- .2.3.2.1.2.1.8       useCMUsageUsedVoicePorts
+-- .2.3.2.1.2.1.9       useCMUsageLocalUsers
+-- .2.3.2.1.2.1.10      useCMUsageCustomConfRooms
+-- .2.3.3               useDevices
+-- .2.3.3.1             useDevRegistrations
+-- .2.3.3.1.1           useDevRegistrationsCount
+-- .2.3.3.1.2           useDevRegistrationsTable
+-- .2.3.3.1.2.1         useDevRegistrationsEntry
+-- .2.3.3.1.2.1.1       useDevRegIndex
+-- .2.3.3.1.2.1.2       useDevRegClusterName
+-- .2.3.3.1.2.1.3       useDevRegActiveEndpointReg
+-- .2.3.3.1.2.1.4       useDevRegInactiveEndpointReg
+-- .2.3.3.1.2.1.5       useDevRegFailedEndpointRegLast24Hours
+-- .2.3.4               useSignalingStacks
+-- .2.3.4.1             useSignalingStacksMonitorStartTime
+-- .2.3.4.2             useSignalingStacksMonitorEndTime
+-- .2.3.4.3             useH323Stack
+-- .2.3.4.3.1           useH323StackInboundEventQueue
+-- .2.3.4.3.1.1         useH323StackInboundEventQueueAvgSize
+-- .2.3.4.3.1.2         useH323StackInboundEventQueueMaxSize
+-- .2.3.4.3.1.3         useH323StackInboundEventQueueMinSize
+-- .2.3.4.3.2           useH323StackHandleRRQ
+-- .2.3.4.3.2.1         useH323StackHandleRRQCount
+-- .2.3.4.3.2.2         useH323StackHandleRRQAvgTime
+-- .2.3.4.3.2.3         useH323StackHandleRRQMaxTime
+-- .2.3.4.3.2.4         useH323StackHandleRRQMinTime
+-- .2.3.4.3.3           useH323StackHandleURQ
+-- .2.3.4.3.3.1         useH323StackHandleURQCount
+-- .2.3.4.3.3.2         useH323StackHandleURQAvgTime
+-- .2.3.4.3.3.3         useH323StackHandleURQMaxTime
+-- .2.3.4.3.3.4         useH323StackHandleURQMinTime
+-- .2.3.4.3.4           useH323StackHandleARQ
+-- .2.3.4.3.4.1         useH323StackHandleARQCount
+-- .2.3.4.3.4.2         useH323StackHandleARQAvgTime
+-- .2.3.4.3.4.3         useH323StackHandleARQMaxTime
+-- .2.3.4.3.4.4         useH323StackHandleARQMinTime
+-- .2.3.4.3.5           useH323StackHandleDRQ
+-- .2.3.4.3.5.1         useH323StackHandleDRQCount
+-- .2.3.4.3.5.2         useH323StackHandleDRQAvgTime
+-- .2.3.4.3.5.3         useH323StackHandleDRQMaxTime
+-- .2.3.4.3.5.4         useH323StackHandleDRQMinTime
+-- .2.3.4.4             useSipStack
+-- .2.3.4.4.1           useSipStackHandleRegistrationRequest
+-- .2.3.4.4.1.1         useSipStackHandleRegistrationRequestCount
+-- .2.3.4.4.1.2         useSipStackHandleRegistrationRequestAvgTime
+-- .2.3.4.4.1.3         useSipStackHandleRegistrationRequestMaxTime
+-- .2.3.4.4.1.4         useSipStackHandleRegistrationRequestMinTime
+-- .2.3.4.4.2           useSipStackHandleUnregistrationRequest
+-- .2.3.4.4.2.1         useSipStackHandleUnregistrationRequestCount
+-- .2.3.4.4.2.2         useSipStackHandleUnregistrationRequestAvgTime
+-- .2.3.4.4.2.3         useSipStackHandleUnregistrationRequestMaxTime
+-- .2.3.4.4.2.4         useSipStackHandleUnregistrationRequestMinTime
+-- .2.3.4.4.3           useSipStackHandleNewCallRequest
+-- .2.3.4.4.3.1         useSipStackHandleNewCallRequestCount
+-- .2.3.4.4.3.2         useSipStackHandleNewCallRequestAvgTime
+-- .2.3.4.4.3.3         useSipStackHandleNewCallRequestMaxTime
+-- .2.3.4.4.3.4         useSipStackHandleNewCallRequestMinTime
+-- .2.3.4.4.4           useSipStackHandleModifyCallRequest
+-- .2.3.4.4.4.1         useSipStackHandleModifyCallRequestCount
+-- .2.3.4.4.4.2         useSipStackHandleModifyCallRequestAvgTime
+-- .2.3.4.4.4.3         useSipStackHandleModifyCallRequestMaxTime
+-- .2.3.4.4.4.4         useSipStackHandleModifyCallRequestMinTime
+-- .2.3.4.4.5           useSipStackHandleEndCallRequest
+-- .2.3.4.4.5.1         useSipStackHandleEndCallRequestCount
+-- .2.3.4.4.5.2         useSipStackHandleEndCallRequestAvgTime
+-- .2.3.4.4.5.3         useSipStackHandleEndCallRequestMaxTime
+-- .2.3.4.4.5.4         useSipStackHandleEndCallRequestMinTime
+-- .2.4                 dmaAlerts
+-- .2.4.1               alActiveAlerts
+-- .2.4.1.1             alActiveAlertsCount
+-- .2.4.1.2             alActiveAlertsTable
+-- .2.4.1.2.1           alActiveAlertsEntry
+-- .2.4.1.2.1.1         alActAlertIndex
+-- .2.4.1.2.1.2         alActAlertID
+-- .2.4.1.2.1.3         alActAlertTimestamp
+-- .2.4.1.2.1.4         alActAlertCode
+-- .2.4.1.2.1.5         alActAlertSeverity
+-- .2.4.1.2.1.6         alActAlertDescription
+-- .2.5                 dmaNotifications
+-- .2.5.1               ntfObjects
+-- .2.5.1.1             ntfObjAlertID
+-- .2.5.1.2             ntfObjAlertTimestamp
+-- .2.5.1.3             ntfObjAlertCode
+-- .2.5.1.4             ntfObjAlertSeverity
+-- .2.5.1.5             ntfObjAlertDescription
+-- .2.5.2               ntfAlertNotifications
+-- .2.5.2.0             ntfAlertNotificationObjects
+-- .2.5.2.0.1001        ntfAlertClusterBusyOut
+-- .2.5.2.0.1002        ntfAlertClusterOutOfService
+-- .2.5.2.0.1003        ntfAlertClusterOrphan
+-- .2.5.2.0.1004        ntfAlertClusterUnreachable
+-- .2.5.2.0.1005        ntfAlertClusterPendingReplication
+-- .2.5.2.0.1101        ntfAlertTerritoryNotActiveBothClustersNotInService
+-- .2.5.2.0.1102        ntfAlertTerritoryNotActiveClusterNotInService
+-- .2.5.2.0.1103        ntfAlertTerritoryNoClustersAssigned
+-- .2.5.2.0.1104        ntfAlertTerritoryPrimaryClusterNotInService
+-- .2.5.2.0.1105        ntfAlertTerritoryBothClustersNotResponding
+-- .2.5.2.0.1106        ntfAlertTerritoryClusterNotResponding
+-- .2.5.2.0.1107        ntfAlertTerritoryPrimaryClusterNotResponding
+-- .2.5.2.0.1108        ntfAlertTerritoryFailedOver
+-- .2.5.2.0.2001        ntfAlertCMAUser
+-- .2.5.2.0.2002        ntfAlertCMAUnreachable
+-- .2.5.2.0.2004        ntfAlertCMAInconsistentTerritories
+-- .2.5.2.0.2101        ntfAlertEntDirIntegrationFailed
+-- .2.5.2.0.2102        ntfAlertEntDirNoConfRooms
+-- .2.5.2.0.2103        ntfAlertEntDirPrimaryClusterNotInService
+-- .2.5.2.0.2104        ntfAlertEntDirNotAvailable
+-- .2.5.2.0.2105        ntfAlertEntDirNotAvailableNoBackup
+-- .2.5.2.0.2106        ntfAlertEntDirUserAuthConnectionFailed
+-- .2.5.2.0.2107        ntfAlertEntDirCachingConnectionFailed
+-- .2.5.2.0.2108        ntfAlertEntDirPrimaryClusterNotResponding
+-- .2.5.2.0.2201        ntfAlertExchangePrimaryClusterNotInServiceBackupAvailable
+-- .2.5.2.0.2202        ntfAlertExchangeBothClustersNotInService
+-- .2.5.2.0.2203        ntfAlertExchangePrimaryClusterNotInService
+-- .2.5.2.0.2401        ntfAlertDmaHistoryDataStoreOutOfService
+-- .2.5.2.0.2402        ntfAlertDmaConfigurationDataStoreOutOfService
+-- .2.5.2.0.2501        ntfAlertCdrServiceConnectionUnresponsive
+-- .2.5.2.0.2502        ntfAlertCdrBufferingOverflow
+-- .2.5.2.0.2503		ntfAlertCdrClientError
+-- .2.5.2.0.2504		ntfAlertCdrCredentialsInvalid
+-- .2.5.2.0.2601        ntfAlertLyncServerConnectionUnresponsive
+-- .2.5.2.0.2602		ntfAlertLyncServerCredentialsInvalid
+-- .2.5.2.0.2603		ntfAlertLyncServerAccountUriInvalid
+-- .2.5.2.0.2604        ntfAlertLyncServerConnectionUnresponsiveScheduling
+-- .2.5.2.0.2605		ntfAlertLyncServerCredentialsInvalidScheduling
+-- .2.5.2.0.3001        ntfAlertSignalingNotEnabled
+-- .2.5.2.0.3101        ntfAlertCertExpired
+-- .2.5.2.0.3102        ntfAlertCertExpireNow
+-- .2.5.2.0.3103        ntfAlertCertExpireSoon
+-- .2.5.2.0.3104        ntfAlertCertSecExpired
+-- .2.5.2.0.3105        ntfAlertCertSecExpireSoon
+-- .2.5.2.0.3201        ntfAlertLicenseNoKeys
+-- .2.5.2.0.3202        ntfAlertLicenseInvalidKeys
+-- .2.5.2.0.3203        ntfAlertLicenseNoEulaAcceptance
+-- .2.5.2.0.3301        ntfAlertNetworkSingleNodeDetected
+-- .2.5.2.0.3302        ntfAlertNetworkPrivateActive
+-- .2.5.2.0.3303        ntfAlertNetworkPrivateError
+-- .2.5.2.0.3304        ntfAlertNetworkPublicError
+-- .2.5.2.0.3305        ntfAlertNetworkSignalingError
+-- .2.5.2.0.3401        ntfAlertResourceDiskSpace
+-- .2.5.2.0.3402        ntfAlertResourceLogsPurge
+-- .2.5.2.0.3403        ntfAlertResourceLogsExceedLimit
+-- .2.5.2.0.3404        ntfAlertResourceLogsNearLimit
+-- .2.5.2.0.3405        ntfAlertResourceCPUOver50Percent
+-- .2.5.2.0.3406        ntfAlertResourceCPUOver75Percent
+-- .2.5.2.0.3501        ntfAlertAVVirusDetected
+-- .2.5.2.0.3502        ntfAlertAVUnsuccessful
+-- .2.5.2.0.3503        ntfAlertAVNeverSucceeded
+-- .2.5.2.0.3601        ntfAlertDataSyncVersion
+-- .2.5.2.0.3602        ntfAlertDataSyncSystemTime
+-- .2.5.2.0.3603        ntfAlertDataSyncADIntegration
+-- .2.5.2.0.3604        ntfAlertDataSyncADConfRooms
+-- .2.5.2.0.3605        ntfAlertDataSyncCustomConfRooms
+-- .2.5.2.0.3606        ntfAlertDataSyncLocalUsers
+-- .2.5.2.0.3801        ntfAlertServerFailover
+-- .2.5.2.0.3802        ntfAlertServerRestart
+-- .2.5.2.0.3803        ntfAlertServerImpaired
+-- .2.5.2.0.4001        ntfAlertMCUBusyOut
+-- .2.5.2.0.4002        ntfAlertMCUOutOfService
+-- .2.5.2.0.4003        ntfAlertMCUMultipleWarnings
+-- .2.5.2.0.4004        ntfAlertMCUInsufficientUserConnections
+-- .2.5.2.0.4005        ntfAlertMCUDisconnected
+-- .2.5.2.0.4009        ntfAlertMCUDisconnectsInPast24HoursWarning
+-- .2.5.2.0.4010        ntfAlertMCUDisconnectsInPast24HoursCritical
+-- .2.5.2.0.4011        ntfAlertMCUCallFailureRateWarning
+-- .2.5.2.0.4012        ntfAlertMCUCallFailureRateCritical
+-- .2.5.2.0.4013        ntfAlertMCUNoCapacity
+-- .2.5.2.0.4014        ntfAlertMCUVideoCapacityChange
+-- .2.5.2.0.4015        ntfAlertMCUAudioCapacityChange
+-- .2.5.2.0.4016        ntfAlertMCUAutoBusyOut
+-- .2.5.2.0.4017        ntfAlertMCUAutoOutOfService
+-- .2.5.2.0.5001        ntfAlertITPSystemConfigurationError
+-- .2.5.2.0.5002        ntfAlertEndpointSignalingAlert
+-- .2.5.2.0.5003        ntfAlertEndpointUnregistered
+-- .2.5.2.0.5004        ntfAlertCallLoopDetected
+-- .2.5.2.0.6001        ntfAlertConfMgrNoTerritories
+-- .2.5.2.0.6201        ntfAlertConfMgrLyncServerExpirationIntervalTooSmall
+-- .2.5.2.0.6202        ntfAlertConfMgrLyncServerMaxConferenceCountExceeded
+-- .2.5.2.0.6203        ntfAlertConfMgrLyncServerPresencePublishingIncomplete
+-- .2.5.2.0.7001        ntfAlertCallServerRegistrationDataIncomplete
+-- .2.9                 dmaConformance
+-- .2.9.1               dmaConformanceGroups
+-- .2.9.1.1             dmaConformanceConfig
+-- .2.9.1.2             dmaConformanceStatus
+-- .2.9.1.3             dmaConformanceUsage
+-- .2.9.1.4             dmaConformanceAlerts
+-- .2.9.1.5             dmaConformanceNotifications
+-- .2.9.1.5.1           dmaConformanceNtfObjects
+-- .2.9.1.5.2           dmaConformanceNtfAlertNotifications
+-- .2.10                dmaCompliance
+
+
+IMPORTS
+   TEXTUAL-CONVENTION, DisplayString, TruthValue, DateAndTime
+      FROM SNMPv2-TC
+   MODULE-IDENTITY, OBJECT-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+   Unsigned32, IpAddress, TimeTicks
+      FROM SNMPv2-SMI
+   OBJECT-GROUP, NOTIFICATION-GROUP, MODULE-COMPLIANCE
+      FROM SNMPv2-CONF
+   polycom
+      FROM POLYCOM-BASE-MIB
+;
+
+dma MODULE-IDENTITY
+   LAST-UPDATED   "201305220000Z"
+   ORGANIZATION   "Polycom, Inc."
+   CONTACT-INFO   "http://www.polycom.com/dma"
+   DESCRIPTION    "This MIB defines the SNMP interface for monitoring the Polycom Distributed Media
+                  Application(tm) DMA(tm) 7000 system.
+                  Copyright (c) 2011-2013 Polycom, Inc."
+
+   REVISION       "201305220000Z"
+   DESCRIPTION    "New alerts."
+   REVISION       "201208220000Z"
+   DESCRIPTION    "New alerts."
+   REVISION       "201109220000Z"
+   DESCRIPTION    "Initial draft."
+
+   ::= { polycom 13 }
+
+-- TEXTUAL CONVENTIONS
+
+GeneralString ::= TEXTUAL-CONVENTION
+   DISPLAY-HINT   "512a"
+   STATUS         current
+   DESCRIPTION    "A typical string, up to 512 bytes in length."
+   SYNTAX         OCTET STRING (SIZE (0..512))
+
+Ipv6Address ::= TEXTUAL-CONVENTION
+   DISPLAY-HINT   "39a"
+   STATUS         current
+   DESCRIPTION    "An IPv6 address, represented as a string."
+   SYNTAX         OCTET STRING (SIZE (0..23))
+
+PortNumber ::= TEXTUAL-CONVENTION
+   DISPLAY-HINT   "d"
+	STATUS		   current
+	DESCRIPTION	   "A numbered network port."
+	SYNTAX		   Unsigned32 (0..65535)
+
+-- DMA
+
+-- dma.1
+dmaInternal1 OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "This OID is used within the internal processes of the DMA system and is not provided
+               for monitoring purposes."
+   ::= { dma 1 }
+
+-- dma.2
+dmaMonitoring1 OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "This OID contains the DMA system's monitoring data exposed over SNMP."
+   ::= { dma 2 }
+
+-- DMA CONFIG
+
+-- dma.2.1
+dmaConfig OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains configuration data for the DMA system."
+   ::= { dmaMonitoring1 1 }
+
+-- dma.2.1.1
+cfgIdentity OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Identification info for the server from which data is being retrieved."
+   ::= { dmaConfig 1 }
+
+-- dma.2.1.1.1
+cfgProductInfo OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Information about the DMA product."
+   ::= { cfgIdentity 1 }
+
+-- dma.2.1.1.1.1
+cfgProdInfoManufacturer OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Manufacturer of the DMA product."
+   ::= { cfgProductInfo 1 }
+
+-- dma.2.1.1.1.2
+cfgProdInfoModel OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Model of the DMA product."
+   ::= { cfgProductInfo 2 }
+
+-- dma.2.1.1.1.3
+cfgProdInfoHardwareInfo OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Information about the server's hardware."
+   ::= { cfgProductInfo 3 }
+
+-- dma.2.1.1.1.3.1
+cfgProdInfoHWModel OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Server's hardware model."
+   ::= { cfgProdInfoHardwareInfo 1 }
+
+-- dma.2.1.1.1.3.2
+cfgProdInfoHWSerialNumber OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Server's serial number (used for license keys)."
+   ::= { cfgProdInfoHardwareInfo 2 }
+
+-- dma.2.1.1.1.4
+cfgProdInfoSoftwareInfo OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Information about the server's software."
+   ::= { cfgProductInfo 4 }
+
+-- dma.2.1.1.1.4.1
+cfgProdInfoSWVersion OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The product's version."
+   ::= { cfgProdInfoSoftwareInfo 1 }
+
+-- dma.2.1.1.1.4.2
+cfgProdInfoSWExtendedVersion OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Additional version information supplementary to the product version."
+   ::= { cfgProdInfoSoftwareInfo 2 }
+
+-- dma.2.1.1.1.4.2.1
+cfgProdInfoSWExtVerPlatformVersion OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The version of the DMA application server (platform)."
+   ::= { cfgProdInfoSWExtendedVersion 1 }
+
+-- dma.2.1.1.1.4.2.2
+cfgProdInfoSWExtVerApplicationVersion OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The version of the Ad-hoc Video server (application)."
+   ::= { cfgProdInfoSWExtendedVersion 2 }
+
+-- dma.2.1.2
+cfgServer OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configuration applied to the server from which data is being retrieved."
+   ::= { dmaConfig 2 }
+
+-- dma.2.1.2.1
+cfgNetwork OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains info about the server's network settings."
+   ::= { cfgServer 1 }
+
+-- dma.2.1.2.1.1
+cfgNetworkHostname OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The hostname configured for the server."
+   ::= { cfgNetwork 1 }
+   
+-- dma.2.1.2.1.2
+cfgInterfacesCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in cfgInterfacesTable."
+   ::= { cfgNetwork 2 }
+
+-- dma.2.1.2.1.3
+cfgInterfacesTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF CfgInterfacesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Specified network interfaces."
+   ::= { cfgNetwork 3 }
+
+-- dma.2.1.2.1.3.1
+cfgInterfacesEntry OBJECT-TYPE
+   SYNTAX      CfgInterfacesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in cfgInterfacesTable."
+   INDEX       { cfgIfIndex }
+   ::= { cfgInterfacesTable 1 }
+
+CfgInterfacesEntry ::= SEQUENCE
+{
+   cfgIfIndex              Unsigned32,
+   cfgIfName               GeneralString,
+   cfgIfEnabled            TruthValue,
+   cfgIfMACAddress         DisplayString,
+   cfgIfIPv4Address        IpAddress,
+   cfgIfIPv4SubnetMask     IpAddress,
+   cfgIfIPv4Gateway        IpAddress,
+   cfgIfIPv6Address        Ipv6Address,
+   cfgIfIPv6PrefixLength   Unsigned32
+}
+
+-- dma.2.1.2.1.3.1.1
+cfgIfIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "cfgInterfacesTable index."
+   ::= { cfgInterfacesEntry 1 }
+
+-- dma.2.1.2.1.3.1.2
+cfgIfName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the network interface."
+   ::= { cfgInterfacesEntry 2 }
+
+-- dma.2.1.2.1.3.1.3
+cfgIfEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if network configuration utilizes this interface."
+   ::= { cfgInterfacesEntry 3 }
+
+-- dma.2.1.2.1.3.1.4
+cfgIfMACAddress OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "MAC address for this interface."
+   ::= { cfgInterfacesEntry 4 }
+
+-- dma.2.1.2.1.3.1.5
+cfgIfIPv4Address OBJECT-TYPE
+   SYNTAX      IpAddress
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv4 address assigned to this interface."
+   ::= { cfgInterfacesEntry 5 }
+
+-- dma.2.1.2.1.3.1.6
+cfgIfIPv4SubnetMask OBJECT-TYPE
+   SYNTAX      IpAddress
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv4 subnet mask assigned to this interface."
+   ::= { cfgInterfacesEntry 6 }
+
+-- dma.2.1.2.1.3.1.7
+cfgIfIPv4Gateway OBJECT-TYPE
+   SYNTAX      IpAddress
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv4 gateway assigned to this interface."
+   ::= { cfgInterfacesEntry 7 }
+
+-- dma.2.1.2.1.3.1.8
+cfgIfIPv6Address OBJECT-TYPE
+   SYNTAX      Ipv6Address
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv6 address assigned to this interface."
+   ::= { cfgInterfacesEntry 8 }
+
+-- dma.2.1.2.1.3.1.9
+cfgIfIPv6PrefixLength OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv6 prefix assigned to this interface."
+   ::= { cfgInterfacesEntry 9 }
+
+-- dma.2.1.3
+cfgCallserver OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configuration for the DMA call server."
+   ::= { dmaConfig 3 }
+
+-- dma.2.1.3.1
+cfgCsSupercluster OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Call server configuration common to any supercluster member."
+   ::= { cfgCallserver 1 }
+
+-- dma.2.1.3.1.1
+cfgCsSiteTopology OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Site topology configuration for the call server."
+   ::= { cfgCsSupercluster 1 }
+
+-- dma.2.1.3.1.1.1
+cfgCsTerritoriesCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in cfgCsTerritoriesTable."
+   ::= { cfgCsSiteTopology 1 }
+
+-- dma.2.1.3.1.1.2
+cfgCsTerritoriesTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF CfgCsTerritoriesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Configured territories."
+   ::= { cfgCsSiteTopology 2 }
+
+-- dma.2.1.3.1.1.2.1
+cfgCsTerritoriesEntry OBJECT-TYPE
+   SYNTAX      CfgCsTerritoriesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in cfgCsTerritoriesTable."
+   INDEX       { cfgCsTerritoryIndex }
+   ::= { cfgCsTerritoriesTable 1 }
+
+CfgCsTerritoriesEntry ::= SEQUENCE
+{
+   cfgCsTerritoryIndex           Unsigned32,
+   cfgCsTerritoryName            GeneralString,
+   cfgCsTerritoryPrimaryCluster  GeneralString,
+   cfgCsTerritoryBackupCluster   GeneralString
+}
+
+-- dma.2.1.3.1.1.2.1.1
+cfgCsTerritoryIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "cfgCsTerritoriesTable index."
+   ::= { cfgCsTerritoriesEntry 1 }
+
+-- dma.2.1.3.1.1.2.1.2
+cfgCsTerritoryName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the territory."
+   ::= { cfgCsTerritoriesEntry 2 }
+
+-- dma.2.1.3.1.1.2.1.3
+cfgCsTerritoryPrimaryCluster OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster assigned primary responsibility for this territory."
+   ::= { cfgCsTerritoriesEntry 3 }
+
+-- dma.2.1.3.1.1.2.1.4
+cfgCsTerritoryBackupCluster OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster assigned backup responsibility for this territory."
+   ::= { cfgCsTerritoriesEntry 4 }
+
+-- dma.2.1.3.1.2
+cfgCsIntegrations OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configurations for systems with which the DMA integrates."
+   ::= { cfgCsSupercluster 2 }
+
+-- dma.2.1.3.1.2.1
+cfgCsIntDirectoryService OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configurations for directory service integration."
+   ::= { cfgCsIntegrations 1 }
+
+-- dma.2.1.3.1.2.1.1
+cfgCsIntDirSvcMSActiveDirectory OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configuration for Microsoft Active Directory integration."
+   ::= { cfgCsIntDirectoryService 1 }
+
+-- dma.2.1.3.1.2.1.1.1
+cfgCsIntMSADEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if Active Directory integration is enabled."
+   ::= { cfgCsIntDirSvcMSActiveDirectory 1 }
+
+-- dma.2.1.3.1.2.1.1.2
+cfgCsIntMSADResponsibleTerritory OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the territory responsible for Active Directory integration."
+   ::= { cfgCsIntDirSvcMSActiveDirectory 2 }
+
+-- dma.2.1.3.1.2.1.1.3
+cfgCsIntMSADServerAddress OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Address of the Active Directory server."
+   ::= { cfgCsIntDirSvcMSActiveDirectory 3 }
+
+-- dma.2.1.3.1.2.1.1.4
+cfgCsIntMSADUserId OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "User ID of the service account used to integrate with Active Directory."
+   ::= { cfgCsIntDirSvcMSActiveDirectory 4 }
+
+-- dma.2.1.3.1.2.2
+cfgCsIntCalendaring OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configurations for calendaring service integration."
+   ::= { cfgCsIntegrations 2 }
+   
+-- dma.2.1.3.1.2.2.1
+cfgCsIntCalMSExchange OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configuration for Microsoft Exchange Server integration."
+   ::= { cfgCsIntCalendaring 1 }
+
+-- dma.2.1.3.1.2.2.1.1
+cfgCsIntMSExchEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if Exchange integration is enabled."
+   ::= { cfgCsIntCalMSExchange 1 }
+
+-- dma.2.1.3.1.2.2.1.2
+cfgCsIntMSExchResponsibleTerritory OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the territory responsible for Exchange integration."
+   ::= { cfgCsIntCalMSExchange 2 }
+
+-- dma.2.1.3.1.2.2.1.3
+cfgCsIntMSExchServerAddress OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Address of the Exchange server."
+   ::= { cfgCsIntCalMSExchange 3 }
+
+-- dma.2.1.3.1.2.2.1.4
+cfgCsIntMSExchUserId OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "User ID of the service account used to integrate with Exchange."
+   ::= { cfgCsIntCalMSExchange 4 }
+
+-- dma.2.1.3.1.2.3
+cfgCsIntSiteTopology OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configurations for site topology service integration."
+   ::= { cfgCsIntegrations 3 }
+
+-- dma.2.1.3.1.2.3.1
+cfgCsIntSiteTopoPolycomCMA OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configuration for Polycom CMA system integration."
+   ::= { cfgCsIntSiteTopology 1 }
+
+-- dma.2.1.3.1.2.3.1.1
+cfgCsIntPlcmCMAEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if CMA integration is enabled."
+   ::= { cfgCsIntSiteTopoPolycomCMA 1 }
+
+-- dma.2.1.3.1.2.3.1.2
+cfgCsIntPlcmCMAServerAddress OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Address of the CMA system."
+   ::= { cfgCsIntSiteTopoPolycomCMA 2 }
+
+-- dma.2.1.3.1.2.3.1.3
+cfgCsIntPlcmCMAUserId OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "User ID of the service account used to integrate with the CMA system."
+   ::= { cfgCsIntSiteTopoPolycomCMA 3 }
+
+-- dma.2.1.3.1.2.4
+cfgCsIntNetwork OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configurations for network integrations."
+   ::= { cfgCsIntegrations 4 }
+
+-- dma.2.1.3.1.2.4.1
+cfgCsIntNetBandwidthManagement OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configurations for bandwidth management integrations."
+   ::= { cfgCsIntNetwork 1 }
+
+-- dma.2.1.3.1.2.4.1.1
+cfgCsIntNetBWMgmtJuniperSRC OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configuration for Juniper Networks SRC integration."
+   ::= { cfgCsIntNetBandwidthManagement 1 }
+
+-- dma.2.1.3.1.2.4.1.1.1
+cfgCsIntJuniperSRCEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if Juniper SRC integration is enabled."
+   ::= { cfgCsIntNetBWMgmtJuniperSRC 1 }
+
+-- dma.2.1.3.1.2.4.1.1.2
+cfgCsIntJuniperSRCServerAddress OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Address of the Juniper SRC server."
+   ::= { cfgCsIntNetBWMgmtJuniperSRC 2 }
+
+-- dma.2.1.3.1.2.4.1.1.3
+cfgCsIntJuniperSRCServerPort OBJECT-TYPE
+   SYNTAX      PortNumber
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Connection port of the Juniper SRC server."
+   ::= { cfgCsIntNetBWMgmtJuniperSRC 3 }
+
+-- dma.2.1.3.1.2.4.1.1.4
+cfgCsIntJuniperSRCUserId OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "User ID of the service account used to connect to the Juniper SRC server."
+   ::= { cfgCsIntNetBWMgmtJuniperSRC 4 }
+
+-- dma.2.1.3.1.2.4.1.1.5
+cfgCsIntJuniperSRCSubscriberURI OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "URI used for the Juniper SRC server connection."
+   ::= { cfgCsIntNetBWMgmtJuniperSRC 5 }
+
+-- dma.2.1.3.2
+cfgCsCluster OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Call server configuration specific to the cluster from which data is being
+					retrieved."
+   ::= { cfgCallserver 2 }
+
+-- dma.2.1.3.2.1
+cfgCsSignaling OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Signaling configuration for the cluster."
+   ::= { cfgCsCluster 1 }
+
+-- dma.2.1.3.2.1.1
+cfgCsSgnlH323 OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "H.323 signaling configuration for the cluster."
+   ::= { cfgCsSignaling 1 }
+
+-- dma.2.1.3.2.1.1.1
+cfgCsSgnlH323Enabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if H.323 signaling is enabled."
+   ::= { cfgCsSgnlH323 1 }
+
+-- dma.2.1.3.2.1.1.2
+cfgCsSgnlH323H225Port OBJECT-TYPE
+   SYNTAX      PortNumber
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The configured H.225 port."
+   ::= { cfgCsSgnlH323 2 }
+
+-- dma.2.1.3.2.1.1.3
+cfgCsSgnlH323RASPort OBJECT-TYPE
+   SYNTAX      PortNumber
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The configured RAS port."
+   ::= { cfgCsSgnlH323 3 }
+
+-- dma.2.1.3.2.1.2
+cfgCsSgnlSIP OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "SIP signaling configuration for the cluster."
+   ::= { cfgCsSignaling 2 }
+
+-- dma.2.1.3.2.1.2.1
+cfgCsSgnlSIPEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if SIP signaling is enabled."
+   ::= { cfgCsSgnlSIP 1 }
+
+-- dma.2.1.3.2.1.2.2
+cfgCsSgnlSIPTCPPort OBJECT-TYPE
+   SYNTAX      PortNumber
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The configured TCP transport SIP port."
+   ::= { cfgCsSgnlSIP 2 }
+
+-- dma.2.1.3.2.1.2.3
+cfgCsSgnlSIPUDPPort OBJECT-TYPE
+   SYNTAX      PortNumber
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The configured UDP transport SIP port."
+   ::= { cfgCsSgnlSIP 3 }
+
+-- dma.2.1.3.2.1.2.4
+cfgCsSgnlSIPTLSPort OBJECT-TYPE
+   SYNTAX      PortNumber
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "The configured TLS transport SIP port."
+   ::= { cfgCsSgnlSIP 4 }
+
+-- dma.2.1.4
+cfgDevices OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Configuration for devices connecting to the DMA call server."
+   ::= { dmaConfig 4 }
+
+-- DMA STATUS
+
+-- dma.2.2
+dmaStatus OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains status data for the DMA system."
+   ::= { dmaMonitoring1 2 }
+
+-- dma.2.2.1
+stServers OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status of DMA servers."
+   ::= { dmaStatus 1 }
+
+-- dma.2.2.1.1
+stServerCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in the tables within stServers."
+   ::= { stServers 1 }
+
+-- dma.2.2.1.2
+stIdentity OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Server identity statuses."
+   ::= { stServers 2 }
+
+-- dma.2.2.1.2.1
+stHardwareInfoTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StHardwareInfoEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Server hardware identification."
+   ::= { stIdentity 1 }
+
+-- dma.2.2.1.2.1.1
+stHardwareInfoEntry OBJECT-TYPE
+   SYNTAX      StHardwareInfoEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stHardwareInfoTable."
+   INDEX       { stHWIndex }
+   ::= { stHardwareInfoTable 1 }
+
+StHardwareInfoEntry ::= SEQUENCE
+{
+   stHWIndex         Unsigned32,
+   stHWHostName      DisplayString,
+   stHWSerialNumber  GeneralString
+}
+
+-- dma.2.2.1.2.1.1.1
+stHWIndex OBJECT-TYPE
+   SYNTAX    	Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stHardwareInfoTable index."
+   ::= { stHardwareInfoEntry 1 }
+
+-- dma.2.2.1.2.1.1.2
+stHWHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the server."
+   ::= { stHardwareInfoEntry 2 }
+
+-- dma.2.2.1.2.1.1.3
+stHWSerialNumber OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Server's serial number."
+   ::= { stHardwareInfoEntry 3 }
+
+-- dma.2.2.1.2.2
+stVersionTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StVersionEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Server version information."
+   ::= { stIdentity 2 }
+
+-- dma.2.2.1.2.2.1
+stVersionEntry OBJECT-TYPE
+   SYNTAX      StVersionEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stVersionTable"
+   INDEX       { stVerIndex }
+   ::= { stVersionTable 1 }
+
+StVersionEntry ::= SEQUENCE
+{
+   stVerIndex     Unsigned32,
+   stVerHostName  DisplayString,
+   stVerVersion   GeneralString
+}
+
+-- dma.2.2.1.2.2.1.1
+stVerIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stVersionTable index."
+   ::= { stVersionEntry 1 }
+
+-- dma.2.2.1.2.2.1.2
+stVerHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stVersionEntry 2 }
+
+-- dma.2.2.1.2.2.1.3
+stVerVersion OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Product version of the server."
+   ::= { stVersionEntry 3 }
+
+-- dma.2.2.1.2.3
+stSystemInfoTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StSystemInfoEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Server statuses."
+   ::= { stIdentity 3 }
+
+-- dma.2.2.1.2.3.1
+stSystemInfoEntry OBJECT-TYPE
+   SYNTAX      StSystemInfoEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stSystemInfoTable."
+   INDEX       { stSysInfoIndex }
+   ::= { stSystemInfoTable 1 }
+
+StSystemInfoEntry ::= SEQUENCE
+{
+   stSysInfoIndex       Unsigned32,
+   stSysInfoHostName    DisplayString,
+   stSysInfoSystemDate  DateAndTime,
+   stSysInfoUptime      TimeTicks,
+   stSysInfoTimeSource  INTEGER
+}
+
+-- dma.2.2.1.2.3.1.1
+stSysInfoIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stSystemInfoTable index."
+   ::= { stSystemInfoEntry 1 }
+
+-- dma.2.2.1.2.3.1.2
+stSysInfoHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stSystemInfoEntry 2 }
+
+-- dma.2.2.1.2.3.1.3
+stSysInfoSystemDate OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Server's current system date."
+   ::= { stSystemInfoEntry 3 }
+
+-- dma.2.2.1.2.3.1.4
+stSysInfoUptime OBJECT-TYPE
+   SYNTAX      TimeTicks
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "How long the server has been powered up."
+   ::= { stSystemInfoEntry 4 }
+
+-- dma.2.2.1.2.3.1.5
+stSysInfoTimeSource OBJECT-TYPE
+   SYNTAX      INTEGER
+               { internal(1), external(2) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Server's source for time synchronization - internal/external."
+   ::= { stSystemInfoEntry 5 }
+
+-- dma.2.2.1.3
+stNetwork OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Server network statuses."
+   ::= { stServers 3 }
+
+-- dma.2.2.1.3.1
+stNetClusterAffiliationTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StNetClusterAffiliationEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Matches servers with the clusters to which they belong."
+   ::= { stNetwork 1 }
+
+-- dma.2.2.1.3.1.1
+stNetClusterAffiliationEntry OBJECT-TYPE
+   SYNTAX      StNetClusterAffiliationEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stNetClusterAffiliationTable."
+   INDEX       { stNetClusterAffilIndex }
+   ::= { stNetClusterAffiliationTable 1 }
+
+StNetClusterAffiliationEntry ::= SEQUENCE
+{
+   stNetClusterAffilIndex        Unsigned32,
+   stNetClusterAffilHostName     DisplayString,
+   stNetClusterAffilClusterName  DisplayString
+}
+
+-- dma.2.2.1.3.1.1.1
+stNetClusterAffilIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stNetClusterAffiliationTable index."
+   ::= { stNetClusterAffiliationEntry 1 }
+
+-- dma.2.2.1.3.1.1.2
+stNetClusterAffilHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stNetClusterAffiliationEntry 2 }
+
+-- dma.2.2.1.3.1.1.3
+stNetClusterAffilClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster to which the server belongs."
+   ::= { stNetClusterAffiliationEntry 3 }
+
+-- dma.2.2.1.3.2
+stNetPrivateInterfaceTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StNetPrivateInterfaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Information about the private network interfaces of servers."
+   ::= { stNetwork 2 }
+
+-- dma.2.2.1.3.2.1
+stNetPrivateInterfaceEntry OBJECT-TYPE
+   SYNTAX      StNetPrivateInterfaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stNetPrivateInterfaceTable."
+   INDEX       { stNetPvtIndex }
+   ::= { stNetPrivateInterfaceTable 1 }
+
+StNetPrivateInterfaceEntry ::= SEQUENCE
+{
+   stNetPvtIndex           Unsigned32,
+   stNetPvtHostName        DisplayString,
+   stNetPvtInterfaceName   GeneralString,
+   stNetPvtLinkStatus      INTEGER,
+   stNetPvtMACAddress      DisplayString,
+   stNetPvtIPv4Address     IpAddress,
+   stNetPvtIPv6Address     Ipv6Address
+}
+
+-- dma.2.2.1.3.2.1.1
+stNetPvtIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stNetPrivateInterfaceTable index."
+   ::= { stNetPrivateInterfaceEntry 1 }
+
+-- dma.2.2.1.3.2.1.2
+stNetPvtHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stNetPrivateInterfaceEntry 2 }
+
+-- dma.2.2.1.3.2.1.3
+stNetPvtInterfaceName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the network interface configured for private network."
+   ::= { stNetPrivateInterfaceEntry 3 }
+
+-- dma.2.2.1.3.2.1.4
+stNetPvtLinkStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { up(1), down(2) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Link status of the private network interface."
+   ::= { stNetPrivateInterfaceEntry 4 }
+
+-- dma.2.2.1.3.2.1.5
+stNetPvtMACAddress OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "MAC address of the private network interface."
+   ::= { stNetPrivateInterfaceEntry 5 }
+
+-- dma.2.2.1.3.2.1.6
+stNetPvtIPv4Address OBJECT-TYPE
+   SYNTAX      IpAddress
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv4 address assigned to the private network interface."
+   ::= { stNetPrivateInterfaceEntry 6 }
+
+-- dma.2.2.1.3.2.1.7
+stNetPvtIPv6Address OBJECT-TYPE
+   SYNTAX      Ipv6Address
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv6 address assigned to the private network interface."
+   ::= { stNetPrivateInterfaceEntry 7 }
+
+-- dma.2.2.1.3.3
+stNetManagementInterfaceTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StNetManagementInterfaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Information about the management network interfaces of servers."
+   ::= { stNetwork 3 }
+
+-- dma.2.2.1.3.3.1
+stNetManagementInterfaceEntry OBJECT-TYPE
+   SYNTAX      StNetManagementInterfaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stNetManagementInterfaceTable."
+   INDEX       { stNetMgmtIndex }
+   ::= { stNetManagementInterfaceTable 1 }
+
+StNetManagementInterfaceEntry ::= SEQUENCE
+{
+   stNetMgmtIndex          Unsigned32,
+   stNetMgmtHostName       DisplayString,
+   stNetMgmtInterfaceName  GeneralString,
+   stNetMgmtLinkStatus     INTEGER,
+   stNetMgmtMACAddress     DisplayString,
+   stNetMgmtIPv4Address    IpAddress,
+   stNetMgmtIPv6Address    Ipv6Address
+}
+
+-- dma.2.2.1.3.3.1.1
+stNetMgmtIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stNetManagementInterfaceTable index."
+   ::= { stNetManagementInterfaceEntry 1 }
+
+-- dma.2.2.1.3.3.1.2
+stNetMgmtHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stNetManagementInterfaceEntry 2 }
+
+-- dma.2.2.1.3.3.1.3
+stNetMgmtInterfaceName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the network interface configured for management network."
+   ::= { stNetManagementInterfaceEntry 3 }
+
+-- dma.2.2.1.3.3.1.4
+stNetMgmtLinkStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { up(1), down(2) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Link status of the management network interface."
+   ::= { stNetManagementInterfaceEntry 4 }
+
+-- dma.2.2.1.3.3.1.5
+stNetMgmtMACAddress OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "MAC address of the management network interface."
+   ::= { stNetManagementInterfaceEntry 5 }
+
+-- dma.2.2.1.3.3.1.6
+stNetMgmtIPv4Address OBJECT-TYPE
+   SYNTAX      IpAddress
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv4 address assigned to the management network interface."
+   ::= { stNetManagementInterfaceEntry 6 }
+
+-- dma.2.2.1.3.3.1.7
+stNetMgmtIPv6Address OBJECT-TYPE
+   SYNTAX      Ipv6Address
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv6 address assigned to the management network interface."
+   ::= { stNetManagementInterfaceEntry 7 }
+
+-- dma.2.2.1.3.4
+stNetSignalingInterfaceTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StNetSignalingInterfaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Information about the signaling network interfaces of servers."
+   ::= { stNetwork 4 }
+
+-- dma.2.2.1.3.4.1
+stNetSignalingInterfaceEntry OBJECT-TYPE
+   SYNTAX      StNetSignalingInterfaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stNetSignalingInterfaceTable"
+   INDEX       { stNetSgnlIndex }
+   ::= { stNetSignalingInterfaceTable 1 }
+
+StNetSignalingInterfaceEntry ::= SEQUENCE
+{
+   stNetSgnlIndex          Unsigned32,
+   stNetSgnlHostName       DisplayString,
+   stNetSgnlInterfaceName  GeneralString,
+   stNetSgnlLinkStatus     INTEGER,
+   stNetSgnlMACAddress     DisplayString,
+   stNetSgnlIPv4Address    IpAddress,
+   stNetSgnlIPv6Address    Ipv6Address
+}
+
+-- dma.2.2.1.3.4.1.1
+stNetSgnlIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stNetSignalingInterfaceTable index."
+   ::= { stNetSignalingInterfaceEntry 1 }
+
+-- dma.2.2.1.3.4.1.2
+stNetSgnlHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stNetSignalingInterfaceEntry 2 }
+
+-- dma.2.2.1.3.4.1.3
+stNetSgnlInterfaceName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the network interface configured for signaling network."
+   ::= { stNetSignalingInterfaceEntry 3 }
+
+-- dma.2.2.1.3.4.1.4
+stNetSgnlLinkStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { up(1), down(2) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Link status of the signaling network interface."
+   ::= { stNetSignalingInterfaceEntry 4 }
+
+-- dma.2.2.1.3.4.1.5
+stNetSgnlMACAddress OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "MAC address of the signaling network interface."
+   ::= { stNetSignalingInterfaceEntry 5 }
+
+-- dma.2.2.1.3.4.1.6
+stNetSgnlIPv4Address OBJECT-TYPE
+   SYNTAX      IpAddress
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv4 address assigned to the signaling network interface."
+   ::= { stNetSignalingInterfaceEntry 6 }
+
+-- dma.2.2.1.3.4.1.7
+stNetSgnlIPv6Address OBJECT-TYPE
+   SYNTAX      Ipv6Address
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "IPv6 address assigned to the signaling network interface."
+   ::= { stNetSignalingInterfaceEntry 7 }
+
+-- dma.2.2.1.4
+stResources OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Server resources status."
+   ::= { stServers 4 }
+
+-- dma.2.2.1.4.1
+stRsrcCPUUsageTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StRsrcCPUUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "CPU usage information for the servers."
+   ::= { stResources 1 }
+
+-- dma.2.2.1.4.1.1
+stRsrcCPUUsageEntry OBJECT-TYPE
+   SYNTAX      StRsrcCPUUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stRsrcCPUUsageTable."
+   INDEX       { stRsrcCPUUsageIndex }
+   ::= { stRsrcCPUUsageTable 1 }
+
+StRsrcCPUUsageEntry ::= SEQUENCE
+{
+   stRsrcCPUUsageIndex              Unsigned32,
+   stRsrcCPUUsageHostName           DisplayString,
+   stRsrcCPUUsageCPUUtilizationPct  Unsigned32
+}
+
+-- dma.2.2.1.4.1.1.1
+stRsrcCPUUsageIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stRsrcCPUUsageTable index."
+   ::= { stRsrcCPUUsageEntry 1 }
+
+-- dma.2.2.1.4.1.1.2
+stRsrcCPUUsageHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stRsrcCPUUsageEntry 2 }
+
+-- dma.2.2.1.4.1.1.3
+stRsrcCPUUsageCPUUtilizationPct OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "CPU utilization percentage of the server."
+   ::= { stRsrcCPUUsageEntry 3 }
+
+-- dma.2.2.1.4.2
+stRsrcMemoryUsageTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StRsrcMemoryUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Memory usage information for the servers."
+   ::= { stResources 2 }
+
+-- dma.2.2.1.4.2.1
+stRsrcMemoryUsageEntry OBJECT-TYPE
+   SYNTAX      StRsrcMemoryUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stRsrcMemoryUsageTable."
+   INDEX       { stRsrcMemUsageIndex }
+   ::= { stRsrcMemoryUsageTable 1 }
+
+StRsrcMemoryUsageEntry ::= SEQUENCE
+{
+   stRsrcMemUsageIndex           Unsigned32,
+   stRsrcMemUsageHostName        DisplayString,
+   stRsrcMemUsageTotalMemory     Unsigned32,
+   stRsrcMemUsageBuffersAndCache Unsigned32,
+   stRsrcMemUsageUsed            Unsigned32,
+   stRsrcMemUsageFree            Unsigned32
+}
+
+-- dma.2.2.1.4.2.1.1
+stRsrcMemUsageIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stRsrcMemoryUsageTable index."
+   ::= { stRsrcMemoryUsageEntry 1 }
+
+-- dma.2.2.1.4.2.1.2
+stRsrcMemUsageHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stRsrcMemoryUsageEntry 2 }
+
+-- dma.2.2.1.4.2.1.3
+stRsrcMemUsageTotalMemory OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total system memory in the server (MB)."
+   ::= { stRsrcMemoryUsageEntry 3 }
+
+-- dma.2.2.1.4.2.1.4
+stRsrcMemUsageBuffersAndCache OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "System memory used for buffers and cache (MB)."
+   ::= { stRsrcMemoryUsageEntry 4 }
+
+-- dma.2.2.1.4.2.1.5
+stRsrcMemUsageUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "System memory used by processes (MB)."
+   ::= { stRsrcMemoryUsageEntry 5 }
+
+-- dma.2.2.1.4.2.1.6
+stRsrcMemUsageFree OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "System memory unused (MB)."
+   ::= { stRsrcMemoryUsageEntry 6 }
+
+-- dma.2.2.1.4.3
+stRsrcSwapSpaceTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StRsrcSwapSpaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Swap space information for the servers."
+   ::= { stResources 3 }
+
+-- dma.2.2.1.4.3.1
+stRsrcSwapSpaceEntry OBJECT-TYPE
+   SYNTAX      StRsrcSwapSpaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stRsrcSwapSpaceTable"
+   INDEX       { stRsrcSwapIndex }
+   ::= { stRsrcSwapSpaceTable 1 }
+
+StRsrcSwapSpaceEntry ::= SEQUENCE
+{
+   stRsrcSwapIndex      Unsigned32,
+   stRsrcSwapHostName   DisplayString,
+   stRsrcSwapTotal      Unsigned32,
+   stRsrcSwapUsed       Unsigned32
+}
+
+-- dma.2.2.1.4.3.1.1
+stRsrcSwapIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stRsrcSpaceTable index."
+   ::= { stRsrcSwapSpaceEntry 1 }
+
+-- dma.2.2.1.4.3.1.2
+stRsrcSwapHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stRsrcSwapSpaceEntry 2 }
+
+-- dma.2.2.1.4.3.1.3
+stRsrcSwapTotal OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total swap space allocated in the system (MB)."
+   ::= { stRsrcSwapSpaceEntry 3 }
+
+-- dma.2.2.1.4.3.1.4
+stRsrcSwapUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Swap space used by the system (MB)."
+   ::= { stRsrcSwapSpaceEntry 4 }
+
+-- dma.2.2.1.4.4
+stRsrcDiskSpaceTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StRsrcDiskSpaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Disk space usage information for the servers."
+   ::= { stResources 4 }
+
+-- dma.2.2.1.4.4.1
+stRsrcDiskSpaceEntry OBJECT-TYPE
+   SYNTAX      StRsrcDiskSpaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stRsrcDiskSpaceTable."
+   INDEX       { stRsrcDiskIndex }
+   ::= { stRsrcDiskSpaceTable 1 }
+
+StRsrcDiskSpaceEntry ::= SEQUENCE
+{
+   stRsrcDiskIndex      Unsigned32,
+   stRsrcDiskHostName   DisplayString,
+   stRsrcDiskTotal      Unsigned32,
+   stRsrcDiskUsed       Unsigned32
+}
+
+-- dma.2.2.1.4.4.1.1
+stRsrcDiskIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stRsrcDiskSpaceTable index."
+   ::= { stRsrcDiskSpaceEntry 1 }
+
+-- dma.2.2.1.4.4.1.2
+stRsrcDiskHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stRsrcDiskSpaceEntry 2 }
+
+-- dma.2.2.1.4.4.1.3
+stRsrcDiskTotal OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total disk space available for DMA usage (MB)."
+   ::= { stRsrcDiskSpaceEntry 3 }
+
+-- dma.2.2.1.4.4.1.4
+stRsrcDiskUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Disk space used by DMA (MB)."
+   ::= { stRsrcDiskSpaceEntry 4 }
+
+-- dma.2.2.1.4.5
+stRsrcLogSpaceTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StRsrcLogSpaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Log space usage information for the servers."
+   ::= { stResources 5 }
+
+-- dma.2.2.1.4.5.1
+stRsrcLogSpaceEntry OBJECT-TYPE
+   SYNTAX      StRsrcLogSpaceEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stRsrcLogSpaceTable"
+   INDEX       { stRsrcLogIndex }
+   ::= { stRsrcLogSpaceTable 1 }
+
+StRsrcLogSpaceEntry ::= SEQUENCE
+{
+   stRsrcLogIndex             Unsigned32,
+   stRsrcLogHostName          DisplayString,
+   stRsrcLogTotal             Unsigned32,
+   stRsrcLogUsed              Unsigned32,
+   stRsrcLogWarningThreshold  Unsigned32,
+   stRsrcLogNextPurge         DateAndTime
+}
+
+-- dma.2.2.1.4.5.1.1
+stRsrcLogIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stRsrcLogSpaceTable index."
+   ::= { stRsrcLogSpaceEntry 1 }
+
+-- dma.2.2.1.4.5.1.2
+stRsrcLogHostName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Hostname of the server."
+   ::= { stRsrcLogSpaceEntry 2 }
+
+-- dma.2.2.1.4.5.1.3
+stRsrcLogTotal OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total disk space allocated for log archive storage (MB)."
+   ::= { stRsrcLogSpaceEntry 3 }
+
+-- dma.2.2.1.4.5.1.4
+stRsrcLogUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Disk space used by log archives (MB)."
+   ::= { stRsrcLogSpaceEntry 4 }
+
+-- dma.2.2.1.4.5.1.5
+stRsrcLogWarningThreshold OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Percentage of log archive capacity at which a system alert should be generated."
+   ::= { stRsrcLogSpaceEntry 5 }
+
+-- dma.2.2.1.4.5.1.6
+stRsrcLogNextPurge OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Date at which log archives will be subject to purging, based on age and
+               configuration."
+   ::= { stRsrcLogSpaceEntry 6 }
+
+-- dma.2.2.2
+stDevices OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status of devices connecting to DMA systems."
+   ::= { dmaStatus 2 }
+
+-- dma.2.2.2.1
+stMCUs OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status of MCUs connecting to DMA systems."
+   ::= { stDevices 1 }
+
+-- dma.2.2.2.1.1
+stMCUCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in the tables within stMCUs."
+   ::= { stMCUs 1 }
+
+-- dma.2.2.2.1.2
+stMCUStatusTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StMCUStatusEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Basic status information about configured MCUs."
+   ::= { stMCUs 2 }
+
+-- dma.2.2.2.1.2.1
+stMCUStatusEntry OBJECT-TYPE
+   SYNTAX      StMCUStatusEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stMCUStatusTable."
+   INDEX       { stMCUStIndex }
+   ::= { stMCUStatusTable 1 }
+
+StMCUStatusEntry ::= SEQUENCE
+{
+   stMCUStIndex               Unsigned32,
+   stMCUStName                GeneralString,
+   stMCUStServiceStatus       INTEGER,
+   stMCUStHasAlert            TruthValue,
+   stMCUStRecordingAvailable  TruthValue,
+   stMCUStIVRAvailable        TruthValue
+}
+
+-- dma.2.2.2.1.2.1.1
+stMCUStIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stMCUStatusTable index."
+   ::= { stMCUStatusEntry 1 }
+
+-- dma.2.2.2.1.2.1.2
+stMCUStName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the MCU."
+   ::= { stMCUStatusEntry 2 }
+
+-- dma.2.2.2.1.2.1.3
+stMCUStServiceStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { inService(1), busyOut(2), outOfService(3) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Service status of the MCU."
+   ::= { stMCUStatusEntry 3 }
+
+-- dma.2.2.2.1.2.1.4
+stMCUStHasAlert OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if the MCU has an alert condition."
+   ::= { stMCUStatusEntry 4 }
+
+-- dma.2.2.2.1.2.1.5
+stMCUStRecordingAvailable OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if the MCU can provide conference recording services."
+   ::= { stMCUStatusEntry 5 }
+
+-- dma.2.2.2.1.2.1.6
+stMCUStIVRAvailable OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if the MCU can provide IVR services."
+   ::= { stMCUStatusEntry 6 }
+
+-- dma.2.2.2.1.3
+stMCUVideoPortUsageTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StMCUVideoPortUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Video port usage information for configured MCUs."
+   ::= { stMCUs 3 }
+
+-- dma.2.2.2.1.3.1
+stMCUVideoPortUsageEntry OBJECT-TYPE
+   SYNTAX      StMCUVideoPortUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stMCUVideoPortUsageTable."
+   INDEX       { stMCUVidUsageIndex }
+   ::= { stMCUVideoPortUsageTable 1 }
+
+StMCUVideoPortUsageEntry ::= SEQUENCE
+{
+   stMCUVidUsageIndex         Unsigned32,
+   stMCUVidUsageName          GeneralString,
+   stMCUVidUsageMCUTotal      Unsigned32,
+   stMCUVidUsageMCUUsed       Unsigned32,
+   stMCUVidUsageDMATotal      Unsigned32,
+   stMCUVidUsageDMAUsed       Unsigned32,
+   stMCUVidUsageCMAReserved   Unsigned32
+}
+
+-- dma.2.2.2.1.3.1.1
+stMCUVidUsageIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stMCUVideoPortUsageTable index."
+   ::= { stMCUVideoPortUsageEntry 1 }
+
+-- dma.2.2.2.1.3.1.2
+stMCUVidUsageName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the MCU."
+   ::= { stMCUVideoPortUsageEntry 2 }
+
+-- dma.2.2.2.1.3.1.3
+stMCUVidUsageMCUTotal OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total video ports available on the MCU."
+   ::= { stMCUVideoPortUsageEntry 3 }
+
+-- dma.2.2.2.1.3.1.4
+stMCUVidUsageMCUUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Video ports in use on the MCU."
+   ::= { stMCUVideoPortUsageEntry 4 }
+
+-- dma.2.2.2.1.3.1.5
+stMCUVidUsageDMATotal OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total video ports on the MCU available to DMA."
+   ::= { stMCUVideoPortUsageEntry 5 }
+
+-- dma.2.2.2.1.3.1.6
+stMCUVidUsageDMAUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Video ports in use on the MCU by DMA."
+   ::= { stMCUVideoPortUsageEntry 6 }
+
+-- dma.2.2.2.1.3.1.7
+stMCUVidUsageCMAReserved OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Video ports on the MCU reserved for CMA."
+   ::= { stMCUVideoPortUsageEntry 7 }
+
+-- dma.2.2.2.1.4
+stMCUVoicePortUsageTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StMCUVoicePortUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Voice port usage information for configured MCUs."
+   ::= { stMCUs 4 }
+
+-- dma.2.2.2.1.4.1
+stMCUVoicePortUsageEntry OBJECT-TYPE
+   SYNTAX      StMCUVoicePortUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stMCUVoicePortUsageTable."
+   INDEX       { stMCUVoxUsageIndex }
+   ::= { stMCUVoicePortUsageTable 1 }
+
+StMCUVoicePortUsageEntry ::= SEQUENCE
+{
+   stMCUVoxUsageIndex      Unsigned32,
+   stMCUVoxUsageName       GeneralString,
+   stMCUVoxUsageMCUTotal   Unsigned32,
+   stMCUVoxUsageMCUUsed    Unsigned32,
+   stMCUVoxUsageDMATotal   Unsigned32,
+   stMCUVoxUsageDMAUsed    Unsigned32
+}
+
+-- dma.2.2.2.1.4.1.1
+stMCUVoxUsageIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stMCUVoicePortUsageTable index."
+   ::= { stMCUVoicePortUsageEntry 1 }
+
+-- dma.2.2.2.1.4.1.2
+stMCUVoxUsageName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the MCU."
+   ::= { stMCUVoicePortUsageEntry 2 }
+
+-- dma.2.2.2.1.4.1.3
+stMCUVoxUsageMCUTotal OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total voice ports available on the MCU."
+   ::= { stMCUVoicePortUsageEntry 3 }
+
+-- dma.2.2.2.1.4.1.4
+stMCUVoxUsageMCUUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Voice ports in use on the MCU."
+   ::= { stMCUVoicePortUsageEntry 4 }
+
+-- dma.2.2.2.1.4.1.5
+stMCUVoxUsageDMATotal OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Total voice ports on the MCU available to DMA."
+   ::= { stMCUVoicePortUsageEntry 5 }
+
+-- dma.2.2.2.1.4.1.6
+stMCUVoxUsageDMAUsed OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Voice ports in use on the MCU by DMA."
+   ::= { stMCUVoicePortUsageEntry 6 }
+
+-- dma.2.2.2.2
+stMCUsPerCluster OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Per-cluster status of MCUs connecting to the DMA."
+   ::= { stDevices 2 }
+
+-- dma.2.2.2.2.1
+stMCUsPerClusterCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in the tables within stMCUsPerCluster."
+   ::= { stMCUsPerCluster 1 }
+
+-- dma.2.2.2.2.2
+stMCUPCConnectionStatusTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StMCUPCConnectionStatusEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Connection status information for configured MCUs."
+   ::= { stMCUsPerCluster 2 }
+
+-- dma.2.2.2.2.2.1
+stMCUPCConnectionStatusEntry OBJECT-TYPE
+   SYNTAX      StMCUPCConnectionStatusEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stMCUPCConnectionStatusTable"
+   INDEX       { stMCUPCConnStIndex }
+   ::= { stMCUPCConnectionStatusTable 1 }
+
+StMCUPCConnectionStatusEntry ::= SEQUENCE
+{
+   stMCUPCConnStIndex            Unsigned32,
+   stMCUPCConnStName             GeneralString,
+   stMCUPCConnStClusterName      DisplayString,
+   stMCUPCConnStConnectionStatus INTEGER
+}
+
+-- dma.2.2.2.2.2.1.1
+stMCUPCConnStIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stMCUPCConnectionStatusTable index."
+   ::= { stMCUPCConnectionStatusEntry 1 }
+
+-- dma.2.2.2.2.2.1.2
+stMCUPCConnStName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the MCU."
+   ::= { stMCUPCConnectionStatusEntry 2 }
+
+-- dma.2.2.2.2.2.1.3
+stMCUPCConnStClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster from which the MCU status is being observed."
+   ::= { stMCUPCConnectionStatusEntry 3 }
+
+-- dma.2.2.2.2.2.1.4
+stMCUPCConnStConnectionStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { notConfigured(1), notConnected(2), connected(3), connectedSecurely(4) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Status of the connection to the MCU."
+   ::= { stMCUPCConnectionStatusEntry 4 }
+
+-- dma.2.2.2.2.3
+stMCUPCReliabilityStatsTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StMCUPCReliabilityStatsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Reliability statistics information for configured MCUs."
+   ::= { stMCUsPerCluster 3 }
+
+-- dma.2.2.2.2.3.1
+stMCUPCReliabilityStatsEntry OBJECT-TYPE
+   SYNTAX      StMCUPCReliabilityStatsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stMCUPCReliabilityStatsTable."
+   INDEX       { stMCUPCRelIndex }
+   ::= { stMCUPCReliabilityStatsTable 1 }
+
+StMCUPCReliabilityStatsEntry ::= SEQUENCE
+{
+   stMCUPCRelIndex            Unsigned32,
+   stMCUPCRelName             GeneralString,
+   stMCUPCRelClusterName      DisplayString,
+   stMCUPCRelDisconnects      Unsigned32,
+   stMCUPCRelCallFailureRate  Unsigned32
+}
+
+-- dma.2.2.2.2.3.1.1
+stMCUPCRelIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stMCUPCReliabilityStatsTable index."
+   ::= { stMCUPCReliabilityStatsEntry 1 }
+
+-- dma.2.2.2.2.3.1.2
+stMCUPCRelName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the MCU."
+   ::= { stMCUPCReliabilityStatsEntry 2 }
+
+-- dma.2.2.2.2.3.1.3
+stMCUPCRelClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster from which the MCU status is being observed."
+   ::= { stMCUPCReliabilityStatsEntry 3 }
+
+-- dma.2.2.2.2.3.1.4
+stMCUPCRelDisconnects OBJECT-TYPE
+   SYNTAX      Unsigned32
+   UNITS       "hundredths"
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of MCU disconnects observed by this cluster in the past 24 hours, divided
+               by the number of conference manager territories. This integer should be divided by
+               100 to get the intended value."
+   ::= { stMCUPCReliabilityStatsEntry 4 }
+
+-- dma.2.2.2.2.3.1.5
+stMCUPCRelCallFailureRate OBJECT-TYPE
+   SYNTAX      Unsigned32
+   UNITS       "hundredths"
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Current call failure rate observed by this cluster. This integer should be divided
+               by 100 to get the intended value."
+   ::= { stMCUPCReliabilityStatsEntry 5 }
+
+-- dma.2.2.3
+stClusters OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Information about clusters in the DMA supercluster."
+   ::= { dmaStatus 3 }
+
+-- dma.2.2.3.1
+stClustersCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in the tables within stClusters."
+   ::= { stClusters 1 }
+
+-- dma.2.2.3.2
+stClustersTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StClustersEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Status of individual clusters in the supercluster."
+   ::= { stClusters 2 }
+
+-- dma.2.2.3.2.1
+stClustersEntry OBJECT-TYPE
+   SYNTAX      StClustersEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stClustersTable."
+   INDEX       { stClIndex }
+   ::= { stClustersTable 1 }
+
+StClustersEntry ::= SEQUENCE
+{
+   stClIndex         Unsigned32,
+   stClClusterName   DisplayString,
+   stClClusterStatus INTEGER
+}
+
+-- dma.2.2.3.2.1.1
+stClIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stClustersTable index."
+   ::= { stClustersEntry 1 }
+
+-- dma.2.2.3.2.1.2
+stClClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the cluster."
+   ::= { stClustersEntry 2 }
+
+-- dma.2.2.3.2.1.3
+stClClusterStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { inService(1), busyOut(2), outOfService(3) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Service status of the cluster."
+   ::= { stClustersEntry 3 }
+
+-- dma.2.2.3.3
+stLicensesTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StLicensesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Licensing status of clusters in the supercluster."
+   ::= { stClusters 3 }
+
+-- dma.2.2.3.3.1
+stLicensesEntry OBJECT-TYPE
+   SYNTAX      StLicensesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stLicensesTable."
+   INDEX       { stLicIndex }
+   ::= { stLicensesTable 1 }
+
+
+StLicensesEntry ::= SEQUENCE
+{
+   stLicIndex                 Unsigned32,
+   stLicClusterName           DisplayString,
+   stLicLicenseStatus         INTEGER,
+   stLicLicensedCalls         Unsigned32,
+   stLicCallserverActiveCalls Unsigned32
+}
+
+-- dma.2.2.3.3.1.1
+stLicIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stLicensesTable index."
+   ::= { stLicensesEntry 1 }
+
+-- dma.2.2.3.3.1.2
+stLicClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the cluster."
+   ::= { stLicensesEntry 2 }
+
+-- dma.2.2.3.3.1.3
+stLicLicenseStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { valid(1), invalid(2), notInstalled(3) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "State of the cluster's license."
+   ::= { stLicensesEntry 3 }
+
+-- dma.2.2.3.3.1.4
+stLicLicensedCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent calls afforded by the installed license."
+   ::= { stLicensesEntry 4 }
+
+-- dma.2.2.3.3.1.5
+stLicCallserverActiveCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of license slots used by the currently active calls."
+   ::= { stLicensesEntry 5 }
+
+-- dma.2.2.4
+stCallserver OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status of the DMA call server."
+   ::= { dmaStatus 4 }
+
+-- dma.2.2.4.1
+stCsSupercluster OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Call server status shared across the supercluster."
+   ::= { stCallserver 1 }
+
+-- dma.2.2.4.1.1
+stCsSiteTopology OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Supercluster-wide site topology status."
+   ::= { stCsSupercluster 1 }
+
+-- dma.2.2.4.1.1.1
+stCsConfMgrTerritoriesCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in stCsConfMgrTerritoriesTable."
+   ::= { stCsSiteTopology 1 }
+
+-- dma.2.2.4.1.1.2
+stCsConfMgrTerritoriesTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StCsConfMgrTerritoriesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Territories configured to host conference rooms."
+   ::= { stCsSiteTopology 2 }
+
+-- dma.2.2.4.1.1.2.1
+stCsConfMgrTerritoriesEntry OBJECT-TYPE
+   SYNTAX      StCsConfMgrTerritoriesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stCsConfMgrTerritoriesTable."
+   INDEX       { stCsConfMgrTerrIndex }
+   ::= { stCsConfMgrTerritoriesTable 1 }
+
+StCsConfMgrTerritoriesEntry ::= SEQUENCE
+{
+   stCsConfMgrTerrIndex Unsigned32,
+   stCsConfMgrTerrName  GeneralString
+}
+
+-- dma.2.2.4.1.1.2.1.1
+stCsConfMgrTerrIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stCsConfMgrTerritoriesTable index."
+   ::= { stCsConfMgrTerritoriesEntry 1 }
+
+-- dma.2.2.4.1.1.2.1.2
+stCsConfMgrTerrName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the territory."
+   ::= { stCsConfMgrTerritoriesEntry 2 }
+
+-- dma.2.2.4.1.2
+stCsIntegrations OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for systems with which the DMA integrates."
+   ::= { stCsSupercluster 2 }
+
+-- dma.2.2.4.1.2.1
+stCsIntDirectoryService OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for directory service integration."
+   ::= { stCsIntegrations 1 }
+
+-- dma.2.2.4.1.2.1.1
+stCsIntDirSvcMSActiveDirectory OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for Microsoft Active Directory integration."
+   ::= { stCsIntDirectoryService 1 }
+
+-- dma.2.2.4.1.2.1.1.1
+stCsIntMSADEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if Active Directory integration is enabled."
+   ::= { stCsIntDirSvcMSActiveDirectory 1 }
+
+-- dma.2.2.4.1.2.1.1.2
+stCsIntMSADCacheStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { disabled(1), connecting(2), integrated(3), integratedWithoutEncryption(4),
+               failed(5), outdated(6), failedNoSuchEnterpriseUser(7),
+               failedEnterpriseAuthentication(8), failedInvalidEnterpriseCredentials(9),
+               failedEnterpriseAuthenticationWithCode(10), failedConnection(11) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Status of Active Directory caching."
+   ::= { stCsIntDirSvcMSActiveDirectory 2 }
+
+-- dma.2.2.4.1.2.1.1.3
+stCsIntMSADCachingCluster OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of cluster performing AD caching."
+   ::= { stCsIntDirSvcMSActiveDirectory 3 }
+
+-- dma.2.2.4.1.2.1.1.4
+stCsIntMSADCachingServer OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of server performing AD caching."
+   ::= { stCsIntDirSvcMSActiveDirectory 4 }
+
+-- dma.2.2.4.1.2.1.1.5
+stCsIntMSADConnectionSecure OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if connection to AD is encrypted."
+   ::= { stCsIntDirSvcMSActiveDirectory 5 }
+
+-- dma.2.2.4.1.2.1.1.6
+stCsIntMSADCacheRefreshDate OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Time of last cache refresh."
+   ::= { stCsIntDirSvcMSActiveDirectory 6 }
+
+-- dma.2.2.4.1.2.1.1.7
+stCsIntMSADEnterpriseConfRooms OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of enterprise conference rooms generated by AD integration."
+   ::= { stCsIntDirSvcMSActiveDirectory 7 }
+
+-- dma.2.2.4.1.2.2
+stCsIntCalendaring OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for calendaring integration."
+   ::= { stCsIntegrations 2 }
+
+-- dma.2.2.4.1.2.2.1
+stCsIntCalMSExchange OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for Microsoft Exchange integration."
+   ::= { stCsIntCalendaring 1 }
+
+-- dma.2.2.4.1.2.2.1.1
+stCsIntMSExchEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if Exchange integration is enabled."
+   ::= { stCsIntCalMSExchange 1 }
+
+-- dma.2.2.4.1.2.2.1.2
+stCsIntMSExchSubscriptionStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { unknown(1), unavailable(2), error(3), disabled(4),
+               ignoredNoEnterpriseDirectory(5), ignoredMailboxNotFound(6), authFailed(7),
+               subscriptionPending(8), processingOk(9) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Status of Exchange mailbox subscription and processing."
+   ::= { stCsIntCalMSExchange 2 }
+
+-- dma.2.2.4.1.2.2.1.3
+stCsIntMSExchIntegratingCluster OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of cluster performing Exchange integration."
+   ::= { stCsIntCalMSExchange 3 }
+
+-- dma.2.2.4.1.2.2.1.4
+stCsIntMSExchIntegratingServer OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of server performing Exchange integration."
+   ::= { stCsIntCalMSExchange 4 }
+
+-- dma.2.2.4.1.2.2.1.5
+stCsIntMSExchMailbox OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Detected SMTP email address for Exchange integration service account."
+   ::= { stCsIntCalMSExchange 5 }
+
+-- dma.2.2.4.1.2.2.1.6
+stCsIntMSExchMeetingsToday OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of PCO-scheduled meetings scheduled for the current calendar day, per the
+               service account's Exchange calendar."
+   ::= { stCsIntCalMSExchange 6 }
+
+-- dma.2.2.4.1.2.3
+stCsIntSiteTopology OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for site topology service integration."
+   ::= { stCsIntegrations 3 }
+
+-- dma.2.2.4.1.2.3.1
+stCsIntSiteTopoPolycomCMA OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for Polycom CMA system integration."
+   ::= { stCsIntSiteTopology 1 }
+
+-- dma.2.2.4.1.2.3.1.1
+stCsIntPlcmCMAEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if CMA integration is enabled."
+   ::= { stCsIntSiteTopoPolycomCMA 1 }
+
+-- dma.2.2.4.1.2.3.1.2
+stCsIntPlcmCMAConnectionStatus OBJECT-TYPE
+   SYNTAX      INTEGER
+               { connectionOk(1), connectionFailed(2) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Status of the connection to the CMA system."
+   ::= { stCsIntSiteTopoPolycomCMA 2 }
+
+-- dma.2.2.4.1.2.3.1.3
+stCsIntPlcmCMALastContactDate OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Time of the DMA's last contact with the CMA system."
+   ::= { stCsIntSiteTopoPolycomCMA 3 }
+
+-- dma.2.2.4.1.2.3.1.4
+stCsIntPlcmCMATimeSinceLastRefresh OBJECT-TYPE
+   SYNTAX      TimeTicks
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Time elapsed since the DMA last synchronized its data to that provided by the CMA
+               system."
+   ::= { stCsIntSiteTopoPolycomCMA 4 }
+
+-- dma.2.2.4.1.2.3.1.5
+stCsIntPlcmCMATerritories OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of territories provided by the CMA system."
+   ::= { stCsIntSiteTopoPolycomCMA 5 }
+
+-- dma.2.2.4.1.2.3.1.6
+stCsIntPlcmCMASites OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of sites provided by the CMA system."
+   ::= { stCsIntSiteTopoPolycomCMA 6 }
+
+-- dma.2.2.4.1.2.3.1.7
+stCsIntPlcmCMASiteLinks OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of site links provided by the CMA system."
+   ::= { stCsIntSiteTopoPolycomCMA 7 }
+
+-- dma.2.2.4.1.2.3.1.8
+stCsIntPlcmCMAMPLSClouds OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of MPLS clouds provided by the CMA system."
+   ::= { stCsIntSiteTopoPolycomCMA 8 }
+
+-- dma.2.2.4.1.2.4
+stCsIntNetwork OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for network integrations."
+   ::= { stCsIntegrations 4 }
+
+-- dma.2.2.4.1.2.4.1
+stCsIntNetBandwidthManagement OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for bandwidth management integrations."
+   ::= { stCsIntNetwork 1 }
+
+-- dma.2.2.4.1.2.4.1.1
+stCsIntNetBWMgmtJuniperSRC OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for Juniper Networks SRC integration."
+   ::= { stCsIntNetBandwidthManagement 1 }
+
+-- dma.2.2.4.1.2.4.1.1.1
+stCsIntJuniperSRCEnabled OBJECT-TYPE
+   SYNTAX      TruthValue
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "True if Juniper SRC integration is enabled."
+   ::= { stCsIntNetBWMgmtJuniperSRC 1 }
+
+-- dma.2.2.4.2
+stCsDevices OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for devices connecting to the DMA call server."
+   ::= { stCallserver 2 }
+
+-- dma.2.2.4.2.1
+stCsConfMgrMCUs OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Status for MCUs connecting to the DMA call server."
+   ::= { stCsDevices 1 }
+
+-- dma.2.2.4.2.1.1
+stCsConfMgrMCUsCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in stCsConfMgrMCUsTables,"
+   ::= { stCsConfMgrMCUs 1 }
+
+-- dma.2.2.4.2.1.2
+stCsConfMgrMCUsTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF StCsConfMgrMCUsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "MCUs configured as enabled for conference rooms."
+   ::= { stCsConfMgrMCUs 2 }
+
+-- dma.2.2.4.2.1.2.1
+stCsConfMgrMCUsEntry OBJECT-TYPE
+   SYNTAX      StCsConfMgrMCUsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in stCsConfMgrMCUsTable"
+   INDEX       { stCsCMMCUIndex }
+   ::= { stCsConfMgrMCUsTable 1 }
+
+StCsConfMgrMCUsEntry ::= SEQUENCE
+{
+   stCsCMMCUIndex Unsigned32,
+   stCsCMMCUName  GeneralString
+}
+
+-- dma.2.2.4.2.1.2.1.1
+stCsCMMCUIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "stCsConfMgrMCUsTable index."
+   ::= { stCsConfMgrMCUsEntry 1 }
+
+-- dma.2.2.4.2.1.2.1.2
+stCsCMMCUName OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the MCU."
+   ::= { stCsConfMgrMCUsEntry 2 }
+
+-- DMA USAGE
+
+-- dma.2.3
+dmaUsage OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains usage data for the DMA system."
+   ::= { dmaMonitoring1 3 }
+
+-- dma.2.3.1
+useConfHistory OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains conference history data."
+   ::= { dmaUsage 1 }
+
+-- dma.2.3.1.1
+useConfHistoryMaximumParticipants OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains historical data regarding maximum concurrent conference participant
+               counts."
+   ::= { useConfHistory 1 }
+
+-- dma.2.3.1.1.1
+useCHMaxPartsLast60MinutesCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in useCHMaxPartsLast60MinutesTable."
+   ::= { useConfHistoryMaximumParticipants 1 }
+
+-- dma.2.3.1.1.2
+useCHMaxPartsLast60MinutesTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF UseCHMaxPartsLast60MinutesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Maximum concurrent conference participant counts for the past hour, taken at
+               one-minute intervals."
+   ::= { useConfHistoryMaximumParticipants 2 }
+
+-- dma.2.3.1.1.2.1
+useCHMaxPartsLast60MinutesEntry OBJECT-TYPE
+   SYNTAX      UseCHMaxPartsLast60MinutesEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in useCHMaxPartsLast60MinutesTable."
+   INDEX       { useCHMaxParts60MinIndex }
+   ::= { useCHMaxPartsLast60MinutesTable 1 }
+
+UseCHMaxPartsLast60MinutesEntry ::= SEQUENCE
+{
+   useCHMaxParts60MinIndex                Unsigned32,
+   useCHMaxParts60MinClusterName          DisplayString,
+   useCHMaxParts60MinTimestamp            DateAndTime,
+   useCHMaxParts60MinMaxSimultaneousCalls Unsigned32,
+   useCHMaxParts60MinMaxAdHocCalls        Unsigned32,
+   useCHMaxParts60MinMaxPCOCalls          Unsigned32
+}
+
+-- dma.2.3.1.1.2.1.1
+useCHMaxParts60MinIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "useCHMaxPartsLast60MinutesTable index."
+   ::= { useCHMaxPartsLast60MinutesEntry 1 }
+
+-- dma.2.3.1.1.2.1.2
+useCHMaxParts60MinClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster in which the participant count entry was recorded."
+   ::= { useCHMaxPartsLast60MinutesEntry 2 }
+
+-- dma.2.3.1.1.2.1.3
+useCHMaxParts60MinTimestamp OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Time at which the participant count entry was recorded."
+   ::= { useCHMaxPartsLast60MinutesEntry 3 }
+
+-- dma.2.3.1.1.2.1.4
+useCHMaxParts60MinMaxSimultaneousCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent calls recorded on the cluster during the specified
+               one-minute interval."
+   ::= { useCHMaxPartsLast60MinutesEntry 4 }
+
+-- dma.2.3.1.1.2.1.5
+useCHMaxParts60MinMaxAdHocCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maxmimum number of concurrent ad-hoc calls recorded on the cluster during the
+               specified one-minute interval."
+   ::= { useCHMaxPartsLast60MinutesEntry 5 }
+
+-- dma.2.3.1.1.2.1.6
+useCHMaxParts60MinMaxPCOCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent calls to PCO-scheduled conference rooms recorded on
+               the cluster during the specified one-minute interval."
+   ::= { useCHMaxPartsLast60MinutesEntry 6 }
+
+-- dma.2.3.1.1.3
+useCHMaxPartsLast24HoursCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in useCHMaxPartsLast24HoursTable."
+   ::= { useConfHistoryMaximumParticipants 3 }
+
+-- dma.2.3.1.1.4
+useCHMaxPartsLast24HoursTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF UseCHMaxPartsLast24HoursEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Maximum concurrent conference participant counts for the past day, taken at
+               one-hour intervals."
+   ::= { useConfHistoryMaximumParticipants 4 }
+
+-- dma.2.3.1.1.4.1
+useCHMaxPartsLast24HoursEntry OBJECT-TYPE
+   SYNTAX      UseCHMaxPartsLast24HoursEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in useCHMaxPartsLast24HoursTable."
+   INDEX       { useCHMaxParts24HrIndex }
+   ::= { useCHMaxPartsLast24HoursTable 1 }
+
+UseCHMaxPartsLast24HoursEntry ::= SEQUENCE
+{
+   useCHMaxParts24HrIndex                 Unsigned32,
+   useCHMaxParts24HrClusterName           DisplayString,
+   useCHMaxParts24HrTimestamp             DateAndTime,
+   useCHMaxParts24HrMaxSimultaneousCalls  Unsigned32,
+   useCHMaxParts24HrMaxAdHocCalls         Unsigned32,
+   useCHMaxParts24HrMaxPCOCalls           Unsigned32
+}
+
+-- dma.2.3.1.1.4.1.1
+useCHMaxParts24HrIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "useCHMaxPartsLast24HoursTable index."
+   ::= { useCHMaxPartsLast24HoursEntry 1 }
+
+-- dma.2.3.1.1.4.1.2
+useCHMaxParts24HrClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster in which the participant count entry was recorded."
+   ::= { useCHMaxPartsLast24HoursEntry 2 }
+
+-- dma.2.3.1.1.4.1.3
+useCHMaxParts24HrTimestamp OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Time at which the participant count entry was recorded."
+   ::= { useCHMaxPartsLast24HoursEntry 3 }
+
+-- dma.2.3.1.1.4.1.4
+useCHMaxParts24HrMaxSimultaneousCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent calls recorded on the cluster during the specified
+               one-hour interval."
+   ::= { useCHMaxPartsLast24HoursEntry 4 }
+
+-- dma.2.3.1.1.4.1.5
+useCHMaxParts24HrMaxAdHocCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent ad-hoc calls recorded on the cluster during the
+               specified one-hour interval."
+   ::= { useCHMaxPartsLast24HoursEntry 5 }
+
+-- dma.2.3.1.1.4.1.6
+useCHMaxParts24HrMaxPCOCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent calls to PCO-scheduled conference rooms recorded on
+               the cluster during the specified one-hour interval."
+   ::= { useCHMaxPartsLast24HoursEntry 6 }
+
+-- dma.2.3.1.1.5
+useCHMaxPartsLast180DaysCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in useCHMaxPartsLast180DaysTable."
+   ::= { useConfHistoryMaximumParticipants 5 }
+
+-- dma.2.3.1.1.6
+useCHMaxPartsLast180DaysTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF UseCHMaxPartsLast180DaysEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Maximum concurrent conference participant counts for the past 180 days, taken at
+               one-day intervals."
+   ::= { useConfHistoryMaximumParticipants 6 }
+
+-- dma.2.3.1.1.6.1
+useCHMaxPartsLast180DaysEntry OBJECT-TYPE
+   SYNTAX      UseCHMaxPartsLast180DaysEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in useCHMaxPartsLast180DaysTable."
+   INDEX       { useCHMaxParts180DaysIndex }
+   ::= { useCHMaxPartsLast180DaysTable 1 }
+
+UseCHMaxPartsLast180DaysEntry ::= SEQUENCE
+{
+   useCHMaxParts180DaysIndex                 Unsigned32,
+   useCHMaxParts180DaysClusterName           DisplayString,
+   useCHMaxParts180DaysTimestamp             DateAndTime,
+   useCHMaxParts180DaysMaxSimultaneousCalls  Unsigned32,
+   useCHMaxParts180DaysMaxAdHocCalls         Unsigned32,
+   useCHMaxParts180DaysMaxPCOCalls           Unsigned32
+}
+
+-- dma.2.3.1.1.6.1.1
+useCHMaxParts180DaysIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "useCHMaxPartsLast180DaysTable index."
+   ::= { useCHMaxPartsLast180DaysEntry 1 }
+
+-- dma.2.3.1.1.6.1.2
+useCHMaxParts180DaysClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Cluster in which the participant count entry was recorded."
+   ::= { useCHMaxPartsLast180DaysEntry 2 }
+
+-- dma.2.3.1.1.6.1.3
+useCHMaxParts180DaysTimestamp OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Time at which the participant count entry was recorded."
+   ::= { useCHMaxPartsLast180DaysEntry 3 }
+
+-- dma.2.3.1.1.6.1.4
+useCHMaxParts180DaysMaxSimultaneousCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent calls recorded on the cluster during the specified
+               one-day interval."
+   ::= { useCHMaxPartsLast180DaysEntry 4 }
+
+-- dma.2.3.1.1.6.1.5
+useCHMaxParts180DaysMaxAdHocCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent ad-hoc calls recorded on the cluster during the
+               specified one-day interval."
+   ::= { useCHMaxPartsLast180DaysEntry 5 }
+
+-- dma.2.3.1.1.6.1.6
+useCHMaxParts180DaysMaxPCOCalls OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum number of concurrent calls to PCO-scheduled conference rooms recorded on
+               the cluster during the specified one-minute interval."
+   ::= { useCHMaxPartsLast180DaysEntry 6 }
+
+-- dma.2.3.2
+useCurrentConferences OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains current conferences usage data."
+   ::= { dmaUsage 2 }
+
+-- dma.2.3.2.1
+useCurrentConfsConfManagerUsage OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains usage data for the conference manager feature of DMA."
+   ::= { useCurrentConferences 1 }
+
+-- dma.2.3.2.1.1
+useConfMgrUsageCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in useConfMgrUsageTable."
+   ::= { useCurrentConfsConfManagerUsage 1 }
+
+-- dma.2.3.2.1.2
+useConfMgrUsageTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF UseConfMgrUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Usage information (conferences, calls, etc.) for the DMA conference manager."
+   ::= { useCurrentConfsConfManagerUsage 2 }
+
+-- dma.2.3.2.1.2.1
+useConfMgrUsageEntry OBJECT-TYPE
+   SYNTAX      UseConfMgrUsageEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in useConfMgrUsageTable."
+   INDEX       { useCMUsageIndex }
+   ::= { useConfMgrUsageTable 1 }
+
+UseConfMgrUsageEntry ::= SEQUENCE
+{
+   useCMUsageIndex            Unsigned32,
+   useCMUsageClusterName      DisplayString,
+   useCMUsageActiveConfs      Unsigned32,
+   useCMUsageActiveParts      Unsigned32,
+   useCMUsageTotalVideoPorts  Unsigned32,
+   useCMUsageUsedVideoPorts   Unsigned32,
+   useCMUsageTotalVoicePorts  Unsigned32,
+   useCMUsageUsedVoicePorts   Unsigned32,
+   useCMUsageLocalUsers       Unsigned32,
+   useCMUsageCustomConfRooms  Unsigned32
+}
+
+-- dma.2.3.2.1.2.1.1
+useCMUsageIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "useConfMgrUsageTable index."
+   ::= { useConfMgrUsageEntry 1 }
+
+-- dma.2.3.2.1.2.1.2
+useCMUsageClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the cluster in which the usage data was recorded."
+   ::= { useConfMgrUsageEntry 2 }
+
+-- dma.2.3.2.1.2.1.3
+useCMUsageActiveConfs OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of active conferences being serviced by the cluster."
+   ::= { useConfMgrUsageEntry 3 }
+
+-- dma.2.3.2.1.2.1.4
+useCMUsageActiveParts OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of active conference participants being serviced by the cluster."
+   ::= { useConfMgrUsageEntry 4 }
+
+-- dma.2.3.2.1.2.1.5
+useCMUsageTotalVideoPorts OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of video ports available to the cluster."
+   ::= { useConfMgrUsageEntry 5 }
+
+-- dma.2.3.2.1.2.1.6
+useCMUsageUsedVideoPorts OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of video ports used in the cluster."
+   ::= { useConfMgrUsageEntry 6 }
+
+-- dma.2.3.2.1.2.1.7
+useCMUsageTotalVoicePorts OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of voice ports available to the cluster."
+   ::= { useConfMgrUsageEntry 7 }
+
+-- dma.2.3.2.1.2.1.8
+useCMUsageUsedVoicePorts OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of voice ports used in the cluster."
+   ::= { useConfMgrUsageEntry 8 }
+
+-- dma.2.3.2.1.2.1.9
+useCMUsageLocalUsers OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of local users in the cluster's database."
+   ::= { useConfMgrUsageEntry 9 }
+
+-- dma.2.3.2.1.2.1.10
+useCMUsageCustomConfRooms OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of custom conference rooms in the cluster's database."
+   ::= { useConfMgrUsageEntry 10 }
+
+-- dma.2.3.3
+useDevices OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains device-related usage data."
+   ::= { dmaUsage 3 }
+
+-- dma.2.3.3.1
+useDevRegistrations OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains information about devices currently registered to the DMA."
+   ::= { useDevices 1 }
+
+-- dma.2.3.3.1.1
+useDevRegistrationsCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries in useDevRegistrationsTable."
+   ::= { useDevRegistrations 1 }
+
+-- dma.2.3.3.1.2
+useDevRegistrationsTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF UseDevRegistrationsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Device registrations per cluster."
+   ::= { useDevRegistrations 2 }
+
+-- dma.2.3.3.1.2.1
+useDevRegistrationsEntry OBJECT-TYPE
+   SYNTAX      UseDevRegistrationsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in useDevRegistrationsTable."
+   INDEX       { useDevRegIndex }
+   ::= { useDevRegistrationsTable 1 }
+
+UseDevRegistrationsEntry ::= SEQUENCE
+{
+   useDevRegIndex                         Unsigned32,
+   useDevRegClusterName                   DisplayString,
+   useDevRegActiveEndpointReg             Unsigned32,
+   useDevRegInactiveEndpointReg           Unsigned32,
+   useDevRegFailedEndpointRegLast24Hours  Unsigned32
+}
+
+-- dma.2.3.3.1.2.1.1
+useDevRegIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "useDevRegistrationsTable index."
+   ::= { useDevRegistrationsEntry 1 }
+
+-- dma.2.3.3.1.2.1.2
+useDevRegClusterName OBJECT-TYPE
+   SYNTAX      DisplayString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Name of the cluster in which the usage data was recorded."
+   ::= { useDevRegistrationsEntry 2 }
+
+-- dma.2.3.3.1.2.1.3
+useDevRegActiveEndpointReg OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of endpoints with an active registration status."
+   ::= { useDevRegistrationsEntry 3 }
+
+-- dma.2.3.3.1.2.1.4
+useDevRegInactiveEndpointReg OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of endpoints with an inactive registration status."
+   ::= { useDevRegistrationsEntry 4 }
+
+-- dma.2.3.3.1.2.1.5
+useDevRegFailedEndpointRegLast24Hours OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of registration attempts that resulted in failure over the last 24 hours, as
+               determined by retained registration history."
+   ::= { useDevRegistrationsEntry 5 }
+
+-- dma.2.3.4
+useSignalingStacks OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains signaling stacks usage data in a monitoring interval."
+   ::= { dmaUsage 4 }
+
+-- dma.2.3.4.1
+useSignalingStacksMonitorStartTime OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Start time of a monitoring interval."
+   ::= { useSignalingStacks 1 }
+
+-- dma.2.3.4.2
+useSignalingStacksMonitorEndTime OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "End time of a monitoring interval."
+   ::= { useSignalingStacks 2 }
+
+-- dma.2.3.4.3
+useH323Stack OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains H323 stack usage data in a monitoring interval."
+   ::= { useSignalingStacks 3 }
+
+-- dma.2.3.4.3.1
+useH323StackInboundEventQueue OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains inbound RAS event queue usage data in a monitoring interval."
+   ::= { useH323Stack 1 }
+
+-- dma.2.3.4.3.1.1
+useH323StackInboundEventQueueAvgSize OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average inbound RAS event queue size in a monitoring interval.."
+   ::= { useH323StackInboundEventQueue 1 }
+
+-- dma.2.3.4.3.1.2
+useH323StackInboundEventQueueMaxSize OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum inbound RAS event queue size in a monitoring interval."
+   ::= { useH323StackInboundEventQueue 2 }
+
+-- dma.2.3.4.3.1.3
+useH323StackInboundEventQueueMinSize OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum inbound RAS event queue size in a monitoring interval."
+   ::= { useH323StackInboundEventQueue 3 }
+
+-- dma.2.3.4.3.2
+useH323StackHandleRRQ OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains handleRRQ usage data in a monitoring interval."
+   ::= { useH323Stack 2 }
+
+-- dma.2.3.4.3.2.1
+useH323StackHandleRRQCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleRRQ count in a monitoring interval."
+   ::= { useH323StackHandleRRQ 1 }
+
+-- dma.2.3.4.3.2.2
+useH323StackHandleRRQAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleRRQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleRRQ 2 }
+
+-- dma.2.3.4.3.2.3
+useH323StackHandleRRQMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleRRQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleRRQ 3 }
+
+-- dma.2.3.4.3.2.4
+useH323StackHandleRRQMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleRRQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleRRQ 4 }
+
+-- dma.2.3.4.3.3
+useH323StackHandleURQ OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains handleURQ usage data in a monitoring interval."
+   ::= { useH323Stack 3}
+
+-- dma.2.3.4.3.3.1
+useH323StackHandleURQCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleURQ count in a monitoring interval."
+   ::= { useH323StackHandleURQ 1 }
+
+-- dma.2.3.4.3.3.2
+useH323StackHandleURQAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleURQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleURQ 2 }
+
+-- dma.2.3.4.3.3.3
+useH323StackHandleURQMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleURQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleURQ 3 }
+
+-- dma.2.3.4.3.3.4
+useH323StackHandleURQMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleURQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleURQ 4 }
+
+-- dma.2.3.4.3.4
+useH323StackHandleARQ OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains handleARQ usage data in a monitoring interval."
+   ::= { useH323Stack 4}
+
+-- dma.2.3.4.3.4.1
+useH323StackHandleARQCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleARQ count in a monitoring interval."
+   ::= { useH323StackHandleARQ 1 }
+
+-- dma.2.3.4.3.4.2
+useH323StackHandleARQAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleARQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleARQ 2 }
+
+-- dma.2.3.4.3.4.3
+useH323StackHandleARQMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleARQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleARQ 3}
+
+-- dma.2.3.4.3.4.4
+useH323StackHandleARQMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleARQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleARQ 4 }
+
+-- dma.2.3.4.3.5
+useH323StackHandleDRQ OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains handleDRQ usage data in a monitoring interval."
+   ::= { useH323Stack 5}
+
+-- dma.2.3.4.3.5.1
+useH323StackHandleDRQCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleDRQ count in a monitoring interval."
+   ::= { useH323StackHandleDRQ 1 }
+
+-- dma.2.3.4.3.5.2
+useH323StackHandleDRQAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleDRQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleDRQ 2 }
+
+-- dma.2.3.4.3.5.3
+useH323StackHandleDRQMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleDRQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleDRQ 3 }
+
+-- dma.2.3.4.3.5.4
+useH323StackHandleDRQMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleDRQ time in milliseconds in a monitoring interval."
+   ::= { useH323StackHandleDRQ 4 }
+
+-- dma.2.3.4.4
+useSipStack OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains Sip stack usage data in a monitoring interval."
+   ::= { useSignalingStacks 4 }
+
+-- dma.2.3.4.4.1
+useSipStackHandleRegistrationRequest OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains handleRegistrationRequest usage data in a monitoring interval."
+   ::= { useSipStack 1 }
+
+-- dma.2.3.4.4.1.1
+useSipStackHandleRegistrationRequestCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleRegistrationRequest count in a monitoring interval."
+   ::= { useSipStackHandleRegistrationRequest 1 }
+
+-- dma.2.3.4.4.1.2
+useSipStackHandleRegistrationRequestAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleRegistrationRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleRegistrationRequest 2 }
+
+-- dma.2.3.4.4.1.3
+useSipStackHandleRegistrationRequestMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleRegistrationRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleRegistrationRequest 3 }
+
+-- dma.2.3.4.4.1.4
+useSipStackHandleRegistrationRequestMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleRegistrationRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleRegistrationRequest 4 }
+
+-- dma.2.3.4.4.2
+useSipStackHandleUnregistrationRequest OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION " Contains handleUnregistrationRequest usage data in a monitoring interval."
+   ::= { useSipStack 2}
+
+-- dma.2.3.4.4.2.1
+useSipStackHandleUnregistrationRequestCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleUnregistrationRequest count in a monitoring interval."
+   ::= { useSipStackHandleUnregistrationRequest 1 }
+
+-- dma.2.3.4.4.2.2
+useSipStackHandleUnregistrationRequestAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleUnregistrationRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleUnregistrationRequest 2 }
+
+-- dma.2.3.4.4.2.3
+useSipStackHandleUnregistrationRequestMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleUnregistrationRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleUnregistrationRequest 3 }
+
+-- dma.2.3.4.4.2.4
+useSipStackHandleUnregistrationRequestMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleUnregistrationRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleUnregistrationRequest 4 }
+
+-- dma.2.3.4.4.3
+useSipStackHandleNewCallRequest OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION " Contains handleNewCallRequest usage data in a monitoring interval."
+   ::= { useSipStack 3}
+
+-- dma.2.3.4.4.3.1
+useSipStackHandleNewCallRequestCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleNewCallRequest count in a monitoring interval."
+   ::= { useSipStackHandleNewCallRequest 1 }
+
+-- dma.2.3.4.4.3.2
+useSipStackHandleNewCallRequestAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleNewCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleNewCallRequest 2 }
+
+-- dma.2.3.4.4.3.3
+useSipStackHandleNewCallRequestMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleNewCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleNewCallRequest 3 }
+
+-- dma.2.3.4.4.3.4
+useSipStackHandleNewCallRequestMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleNewCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleNewCallRequest 4 }
+
+-- dma.2.3.4.4.4
+useSipStackHandleModifyCallRequest OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains handleModifyCallRequest usage data in a monitoring interval."
+   ::= { useSipStack 4 }
+
+-- dma.2.3.4.4.4.1
+useSipStackHandleModifyCallRequestCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleModifyCallRequest count in a monitoring interval."
+   ::= { useSipStackHandleModifyCallRequest 1 }
+
+-- dma.2.3.4.4.4.2
+useSipStackHandleModifyCallRequestAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleModifyCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleModifyCallRequest 2 }
+
+-- dma.2.3.4.4.4.3
+useSipStackHandleModifyCallRequestMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleModifyCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleModifyCallRequest 3 }
+
+-- dma.2.3.4.4.4.4
+useSipStackHandleModifyCallRequestMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleModifyCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleModifyCallRequest 4 }
+
+-- dma.2.3.4.4.5
+useSipStackHandleEndCallRequest OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains handleEndCallRequest usage data in a monitoring interval."
+   ::= { useSipStack 5 }
+
+-- dma.2.3.4.4.5.1
+useSipStackHandleEndCallRequestCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "handleEndCallRequest count in a monitoring interval."
+   ::= { useSipStackHandleEndCallRequest 1 }
+
+-- dma.2.3.4.4.5.2
+useSipStackHandleEndCallRequestAvgTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Average handleEndCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleEndCallRequest 2 }
+
+-- dma.2.3.4.4.5.3
+useSipStackHandleEndCallRequestMaxTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Maximum handleEndCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleEndCallRequest 3 }
+
+-- dma.2.3.4.4.5.4
+useSipStackHandleEndCallRequestMinTime OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Minimum handleEndCallRequest time in milliseconds in a monitoring interval."
+   ::= { useSipStackHandleEndCallRequest 4 }
+
+-- DMA ALERTS
+
+-- dma.2.4
+dmaAlerts OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains alert data for the DMA system."
+   ::= { dmaMonitoring1 4 }
+
+-- dma.2.4.1
+alActiveAlerts OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains alerts currently active on the DMA system."
+   ::= { dmaAlerts 1 }
+
+-- dma.2.4.1.1
+alActiveAlertsCount OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Number of indexed entries (active alerts) in alActiveAlertsTable."
+   ::= { alActiveAlerts 1 }
+
+-- dma.2.4.1.2
+alActiveAlertsTable OBJECT-TYPE
+   SYNTAX      SEQUENCE OF AlActiveAlertsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "Alerts currently active on the DMA system."
+   ::= { alActiveAlerts 2 }
+
+-- dma.2.4.1.2.1
+alActiveAlertsEntry OBJECT-TYPE
+   SYNTAX      AlActiveAlertsEntry
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "An entry in alActiveAlertsTable"
+   INDEX       { alActAlertIndex }
+   ::= { alActiveAlertsTable 1 }
+
+AlActiveAlertsEntry ::= SEQUENCE
+{
+   alActAlertIndex         Unsigned32,
+   alActAlertID            GeneralString,
+   alActAlertTimestamp     DateAndTime,
+   alActAlertCode          Unsigned32,
+   alActAlertSeverity      INTEGER,
+   alActAlertDescription   OCTET STRING
+}
+
+-- dma.2.4.1.2.1.1
+alActAlertIndex OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  not-accessible
+   STATUS      current
+   DESCRIPTION "alActiveAlertsTable index."
+   ::= { alActiveAlertsEntry 1 }
+
+-- dma.2.4.1.2.1.2
+alActAlertID OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Internal identifier for the alert."
+   ::= { alActiveAlertsEntry 2 }
+
+-- dma.2.4.1.2.1.3
+alActAlertTimestamp OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Time the alert was generated."
+   ::= { alActiveAlertsEntry 3 }
+
+-- dma.2.4.1.2.1.4
+alActAlertCode OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Code of the alert."
+   ::= { alActiveAlertsEntry 4 }
+
+-- dma.2.4.1.2.1.5
+alActAlertSeverity OBJECT-TYPE
+   SYNTAX      INTEGER
+               { warn(1), severe(2), critical(3) }
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Severity of the alert."
+   ::= { alActiveAlertsEntry 5 }
+
+-- dma.2.4.1.2.1.6
+alActAlertDescription OBJECT-TYPE
+   SYNTAX      OCTET STRING
+   MAX-ACCESS  read-only
+   STATUS      current
+   DESCRIPTION "Text of the alert message."
+   ::= { alActiveAlertsEntry 6 }
+
+-- DMA NOTIFICATIONS
+
+-- dma.2.5
+dmaNotifications OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "DMA alert notifications."
+   ::= { dmaMonitoring1 5 }
+
+-- dma.2.5.1
+ntfObjects OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Objects that will be included in alert notifications."
+   ::= { dmaNotifications 1 }
+
+-- dma.2.5.1.1
+ntfObjAlertID OBJECT-TYPE
+   SYNTAX      GeneralString
+   MAX-ACCESS  accessible-for-notify
+   STATUS      current
+   DESCRIPTION "Internal identifier for the alert."
+   ::= { ntfObjects 1 }
+
+-- dma.2.5.1.2
+ntfObjAlertTimestamp OBJECT-TYPE
+   SYNTAX      DateAndTime
+   MAX-ACCESS  accessible-for-notify
+   STATUS      current
+   DESCRIPTION "Time the alert was generated."
+   ::= { ntfObjects 2 }
+
+-- dma.2.5.1.3
+ntfObjAlertCode OBJECT-TYPE
+   SYNTAX      Unsigned32
+   MAX-ACCESS  accessible-for-notify
+   STATUS      current
+   DESCRIPTION "Code of the alert."
+   ::= { ntfObjects 3 }
+
+-- dma.2.5.1.4
+ntfObjAlertSeverity OBJECT-TYPE
+   SYNTAX      INTEGER
+               { warn(1), severe(2), critical(3) }
+   MAX-ACCESS  accessible-for-notify
+   STATUS      current
+   DESCRIPTION "Severity of the alert."
+   ::= { ntfObjects 4 }
+
+-- dma.2.5.1.5
+ntfObjAlertDescription OBJECT-TYPE
+   SYNTAX      OCTET STRING
+   MAX-ACCESS  accessible-for-notify
+   STATUS      current
+   DESCRIPTION "Text of the alert message."
+   ::= { ntfObjects 5 }
+
+-- dma.2.5.2
+ntfAlertNotifications OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains alert notification objects."
+   ::= { dmaNotifications 2 }
+
+-- dma.2.5.2.0
+ntfAlertNotificationObjects OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Alert notification objects."
+   ::= { ntfAlertNotifications 0 }
+
+-- dma.2.5.2.0.1001
+ntfAlertClusterBusyOut NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster is in the busied-out state."
+   ::= { ntfAlertNotificationObjects 1001 }
+
+-- dma.2.5.2.0.1002
+ntfAlertClusterOutOfService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster is in the out-of-service state."
+   ::= { ntfAlertNotificationObjects 1002 }
+
+-- dma.2.5.2.0.1003
+ntfAlertClusterOrphan NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster's replication link is no longer valid."
+   ::= { ntfAlertNotificationObjects 1003 }
+
+-- dma.2.5.2.0.1004
+ntfAlertClusterUnreachable NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster is not communicating with the supercluster."
+   ::= { ntfAlertNotificationObjects 1004 }
+
+-- dma.2.5.2.0.1005
+ntfAlertClusterPendingReplication NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster has inconsistencies between its server's (or servers') data and the
+               supercluster's data."
+   ::= { ntfAlertNotificationObjects 1005 }
+
+-- dma.2.5.2.0.1101
+ntfAlertTerritoryNotActiveBothClustersNotInService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A territory with both a primary and backup cluster configured is inactive because
+               neither cluster is in a viable state."
+   ::= { ntfAlertNotificationObjects 1101 }
+
+-- dma.2.5.2.0.1102
+ntfAlertTerritoryNotActiveClusterNotInService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A territory with only a primary cluster configured is inactive because that cluster
+               is not in a viable state."
+   ::= { ntfAlertNotificationObjects 1102 }
+
+-- dma.2.5.2.0.1103
+ntfAlertTerritoryNoClustersAssigned NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A territory is inactive because it no cluster(s) assigned to service it."
+   ::= { ntfAlertNotificationObjects 1103 }
+
+-- dma.2.5.2.0.1104
+ntfAlertTerritoryPrimaryClusterNotInService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A territory with a primary and backup cluster configured is currently running on
+               its backup cluster."
+   ::= { ntfAlertNotificationObjects 1104 }
+   
+-- dma.2.5.2.0.1105
+ntfAlertTerritoryBothClustersNotResponding NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Both clusters in a territory with a primary and backup are not responding."
+   ::= { ntfAlertNotificationObjects 1105 }
+
+-- dma.2.5.2.0.1106
+ntfAlertTerritoryClusterNotResponding NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The primary cluster in a single cluster territory is not responding."
+   ::= { ntfAlertNotificationObjects 1106 }
+
+-- dma.2.5.2.0.1107
+ntfAlertTerritoryPrimaryClusterNotResponding NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The primary cluster in a territory is not responding. This territory may fail
+                over to its backup cluster."
+   ::= { ntfAlertNotificationObjects 1107 }
+
+-- dma.2.5.2.0.1108
+ntfAlertTerritoryFailedOver NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A Territory has failed over to its backup cluster."
+   ::= { ntfAlertNotificationObjects 1108 }
+   
+-- dma.2.5.2.0.2001
+ntfAlertCMAUser NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An error occurred while attempting to synchronize data to the resource management system."
+   ::= { ntfAlertNotificationObjects 2001 }
+
+-- dma.2.5.2.0.2002
+ntfAlertCMAUnreachable NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The responsible DMA cluster is unable to communicate with the resource management system."
+   ::= { ntfAlertNotificationObjects 2002 }
+
+-- .2.5.2.0.2004
+ntfAlertCMAInconsistentTerritories NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A resource management system has inconsistent territory definitions in its site topology."
+   ::= { ntfAlertNotificationObjects 2004 }
+
+-- dma.2.5.2.0.2101
+ntfAlertEntDirIntegrationFailed NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The DMA system's cache of user and group data could not be updated from the
+               Active Directory server."
+   ::= { ntfAlertNotificationObjects 2101 }
+
+-- dma.2.5.2.0.2102
+ntfAlertEntDirNoConfRooms NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "After successfully updating user and group data from the Active Directory server,
+               no conference rooms were generated."
+   ::= { ntfAlertNotificationObjects 2102 }
+
+-- dma.2.5.2.0.2103
+ntfAlertEntDirPrimaryClusterNotInService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The primary cluster for the territory configured for Active Directory integration
+               is not in a viable state; the backup cluster is active but does not assume
+               responsibility for updating the user and group data cache."
+   ::= { ntfAlertNotificationObjects 2103 }
+
+-- dma.2.5.2.0.2104
+ntfAlertEntDirNotAvailable NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The user and group data cache cannot be updated from the Active Directory server
+               because both the primary and backup clusters for the responsible territory are not
+               in a viable state."
+   ::= { ntfAlertNotificationObjects 2104 }
+
+-- dma.2.5.2.0.2105
+ntfAlertEntDirNotAvailableNoBackup NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The user and group data cache cannot be updated from the Active Directory server
+               because the primary cluster for the responsible territory is not in a viable state
+               and no backup cluster is configured."
+   ::= { ntfAlertNotificationObjects 2105 }
+
+-- dma.2.5.2.0.2106
+ntfAlertEntDirUserAuthConnectionFailed NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster was unable to connect to the Active Directory for the purpose of
+               authenticating a user's credentials."
+   ::= { ntfAlertNotificationObjects 2106 }
+
+-- dma.2.5.2.0.2107
+ntfAlertEntDirCachingConnectionFailed NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster responsible for updating the user and groups data cache was unable to
+               communicate with the Active Directory server."
+   ::= { ntfAlertNotificationObjects 2107 }
+
+-- dma.2.5.2.0.2108
+ntfAlertEntDirPrimaryClusterNotResponding NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The primary cluster for the territory configured for Active Directory integration
+               is not in a viable state; the backup cluster is active but does not assume
+               responsibility for updating the user and group data cache."
+   ::= { ntfAlertNotificationObjects 2108 }
+
+-- dma.2.5.2.0.2201
+ntfAlertExchangePrimaryClusterNotInServiceBackupAvailable NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The primary cluster servicing the territory responsible for Exchange integration is
+               not in a viable state; the backup cluster is currently assuming this duty."
+   ::= { ntfAlertNotificationObjects 2201 }
+
+-- dma.2.5.2.0.2202
+ntfAlertExchangeBothClustersNotInService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Both the primary and backup cluster configured for the territory responsible for
+               Exchange integration are not in a viable state."
+   ::= { ntfAlertNotificationObjects 2202 }
+
+-- dma.2.5.2.0.2203
+ntfAlertExchangePrimaryClusterNotInService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The primary cluster servicing the territory responsible for Exchange integration is
+               not in a viable state; no backup cluster is configured."
+   ::= { ntfAlertNotificationObjects 2203 }
+
+-- dma.2.5.2.0.2401
+ntfAlertDmaHistoryDataStoreOutOfService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA can no longer get a connection to the History data source."
+   ::= { ntfAlertNotificationObjects 2401 }
+
+-- dma.2.5.2.0.2402
+ntfAlertDmaConfigurationDataStoreOutOfService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA can no longer get a connection to the Configuration data source."
+   ::= { ntfAlertNotificationObjects 2402 }
+
+-- dma.2.5.2.0.2501
+ntfAlertCdrServiceConnectionUnresponsive NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA can no longer get a connection to the CDR service."
+   ::= { ntfAlertNotificationObjects 2501 }
+   
+-- dma.2.5.2.0.2502
+ntfAlertCdrBufferingOverflow NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA has no available space to buffer CDR events, and is discarding some events."
+   ::= { ntfAlertNotificationObjects 2502 }
+   
+-- dma.2.5.2.0.2503
+ntfAlertCdrClientError NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "CDR service is not accepting events. Events are being buffered."
+   ::= { ntfAlertNotificationObjects 2503 }
+   
+-- dma.2.5.2.0.2504
+ntfAlertCdrCredentialsInvalid NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA cannot authenticate with CDR service due to invalid credentials."
+   ::= { ntfAlertNotificationObjects 2504 }
+
+-- dma.2.5.2.0.2601
+ntfAlertLyncServerConnectionUnresponsive NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA can no longer get a connection to the Lync server for presence."
+   ::= { ntfAlertNotificationObjects 2601 }
+   
+-- dma.2.5.2.0.2602
+ntfAlertLyncServerCredentialsInvalid NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA cannot authenticate with Lync server for presence."
+   ::= { ntfAlertNotificationObjects 2602 }
+
+-- dma.2.5.2.0.2603
+ntfAlertLyncServerAccountUriInvalid NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Lync server account URI is invalid."
+   ::= { ntfAlertNotificationObjects 2603 }
+
+-- dma.2.5.2.0.2604
+ntfAlertLyncServerConnectionUnresponsiveScheduling NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA can no longer get a connection to the Lync server for scheduling."
+   ::= { ntfAlertNotificationObjects 2604 }
+   
+-- dma.2.5.2.0.2605
+ntfAlertLyncServerCredentialsInvalidScheduling NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "DMA cannot authenticate with Lync server due to invalid credentials for scheduling."
+   ::= { ntfAlertNotificationObjects 2605 }
+   
+-- dma.2.5.2.0.3001
+ntfAlertSignalingNotEnabled NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "No signaling interface is enabled for the cluster; calls to the cluster cannot be
+               processed."
+   ::= { ntfAlertNotificationObjects 3001 }
+
+-- dma.2.5.2.0.3101
+ntfAlertCertExpired NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster's server certificate has expired."
+   ::= { ntfAlertNotificationObjects 3101 }
+
+-- dma.2.5.2.0.3102
+ntfAlertCertExpireNow NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster's server certificate will expire within 1 day."
+   ::= { ntfAlertNotificationObjects 3102 }
+
+-- dma.2.5.2.0.3103
+ntfAlertCertExpireSoon NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster's server certificate will expire soon (30 days or less)."
+   ::= { ntfAlertNotificationObjects 3103 }
+
+-- dma.2.5.2.0.3104
+ntfAlertCertSecExpired NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "One or more CA certificates on the cluster has expired."
+   ::= { ntfAlertNotificationObjects 3104 }
+
+-- dma.2.5.2.0.3105
+ntfAlertCertSecExpireSoon NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "One or more CA certificates on the cluster will expire soon (30 days or less)."
+   ::= { ntfAlertNotificationObjects 3105 }
+
+-- dma.2.5.2.0.3201
+ntfAlertLicenseNoKeys NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "No license key is installed on the cluster."
+   ::= { ntfAlertNotificationObjects 3201 }
+
+-- dma.2.5.2.0.3202
+ntfAlertLicenseInvalidKeys NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An invalid license key is installed on the cluster."
+   ::= { ntfAlertNotificationObjects 3202 }
+
+-- dma.2.5.2.0.3203
+ntfAlertLicenseNoEulaAcceptance NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The EULA for the cluster has not been accepted."
+   ::= { ntfAlertNotificationObjects 3203 }
+
+-- dma.2.5.2.0.3301
+ntfAlertNetworkSingleNodeDetected NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster is configured to have two servers, but communication between the two
+               servers is not working."
+   ::= { ntfAlertNotificationObjects 3301 }
+
+-- dma.2.5.2.0.3302
+ntfAlertNetworkPrivateActive NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A cluster is configured to have one server, but the private network interface is
+               enabled and active."
+   ::= { ntfAlertNotificationObjects 3302 }
+
+-- dma.2.5.2.0.3303
+ntfAlertNetworkPrivateError NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The private network interface has a problem."
+   ::= { ntfAlertNotificationObjects 3303 }
+
+-- dma.2.5.2.0.3304
+ntfAlertNetworkPublicError NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The public management (or combined) network interface has a problem."
+   ::= { ntfAlertNotificationObjects 3304 }
+
+-- dma.2.5.2.0.3305
+ntfAlertNetworkSignalingError NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The signaling network interface has a problem."
+   ::= { ntfAlertNotificationObjects 3305 }
+
+-- dma.2.5.2.0.3401
+ntfAlertResourceDiskSpace NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The disk space used by DMA is at 85% or more of capacity."
+   ::= { ntfAlertNotificationObjects 3401 }
+
+-- dma.2.5.2.0.3402
+ntfAlertResourceLogsPurge NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The age of older log archives on the server is approaching the configured retention
+               period and will be subject to purging."
+   ::= { ntfAlertNotificationObjects 3402 }
+
+-- dma.2.5.2.0.3403
+ntfAlertResourceLogsExceedLimit NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The size of the log archives on the server is greater than the allocated 1 GB
+               capacity; older logs will be deleted to return to a disk space usage within
+               capacity."
+   ::= { ntfAlertNotificationObjects 3403 }
+
+-- dma.2.5.2.0.3404
+ntfAlertResourceLogsNearLimit NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The size of the log archives on the server is greater than the configured warning
+               threshold of allocated capacity."
+   ::= { ntfAlertNotificationObjects 3404 }
+
+-- dma.2.5.2.0.3405
+ntfAlertResourceCPUOver50Percent NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The server's CPU usage is unusually high."
+   ::= { ntfAlertNotificationObjects 3405 }
+
+-- dma.2.5.2.0.3406
+ntfAlertResourceCPUOver75Percent NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The server's CPU usage is exceptionally high."
+   ::= { ntfAlertNotificationObjects 3406 }
+
+-- dma.2.5.2.0.3501
+ntfAlertAVVirusDetected NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The most recent system scan of the server detected malware."
+   ::= { ntfAlertNotificationObjects 3501 }
+
+-- dma.2.5.2.0.3502
+ntfAlertAVUnsuccessful NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The most recent system scan of the server did not complete successfully."
+   ::= { ntfAlertNotificationObjects 3502 }
+
+-- dma.2.5.2.0.3503
+ntfAlertAVNeverSucceeded NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The server has never completed a full system scan."
+   ::= { ntfAlertNotificationObjects 3503 }
+
+-- dma.2.5.2.0.3601
+ntfAlertDataSyncVersion NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster contains servers running different versions of the DMA software."
+   ::= { ntfAlertNotificationObjects 3601 }
+
+-- dma.2.5.2.0.3602
+ntfAlertDataSyncSystemTime NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "There is a discrepancy of more than 10 seconds between the system times on the
+               cluster's servers."
+   ::= { ntfAlertNotificationObjects 3602 }
+
+-- dma.2.5.2.0.3603
+ntfAlertDataSyncADIntegration NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster's servers observe different statuses for Active Directory integration."
+   ::= { ntfAlertNotificationObjects 3603 }
+
+-- dma.2.5.2.0.3604
+ntfAlertDataSyncADConfRooms NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster's servers have different counts of enterprise conference rooms."
+   ::= { ntfAlertNotificationObjects 3604 }
+
+-- dma.2.5.2.0.3605
+ntfAlertDataSyncCustomConfRooms NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster's servers have different counts of custom conference rooms."
+   ::= { ntfAlertNotificationObjects 3605 }
+
+-- dma.2.5.2.0.3606
+ntfAlertDataSyncLocalUsers NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The cluster's servers have non-identical sets of local users."
+   ::= { ntfAlertNotificationObjects 3606 }
+   
+-- .2.5.2.0.3801
+ntfAlertServerFailover NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The active server in the cluster has failed over to the secondary server"
+   ::= { ntfAlertNotificationObjects 3801 }
+   
+-- .2.5.2.0.3802       
+ntfAlertServerRestart NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Server has been restarted by the HA subsystem"
+   ::= { ntfAlertNotificationObjects 3802 }
+   
+-- .2.5.2.0.3803        
+ntfAlertServerImpaired NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The server is operating in an impaired state"
+   ::= { ntfAlertNotificationObjects 3803 }
+-- dma.2.5.2.0.4001
+ntfAlertMCUBusyOut NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU is in the busied-out state."
+   ::= { ntfAlertNotificationObjects 4001 }
+
+-- dma.2.5.2.0.4002
+ntfAlertMCUOutOfService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU is in the out-of-service state."
+   ::= { ntfAlertNotificationObjects 4002 }
+
+-- dma.2.5.2.0.4003
+ntfAlertMCUMultipleWarnings NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU has one or more warnings present."
+   ::= { ntfAlertNotificationObjects 4003 }
+
+-- dma.2.5.2.0.4004
+ntfAlertMCUInsufficientUserConnections NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU is configured with an insufficient number of user connections."
+   ::= { ntfAlertNotificationObjects 4004 }
+
+-- dma.2.5.2.0.4005
+ntfAlertMCUDisconnected NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU is not connected to the system."
+   ::= { ntfAlertNotificationObjects 4005 }
+
+-- dma.2.5.2.0.4009
+ntfAlertMCUDisconnectsInPast24HoursWarning NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The connection with an MCU over the past 24 hours has been lost up to 3 times."
+   ::= { ntfAlertNotificationObjects 4009 }
+
+-- dma.2.5.2.0.4010
+ntfAlertMCUDisconnectsInPast24HoursCritical NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The connection with an MCU over the past 24 hours has been lost 4 or more times."
+   ::= { ntfAlertNotificationObjects 4010 }
+   
+-- dma.2.5.2.0.4011
+ntfAlertMCUCallFailureRateWarning NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The call failure rate on an MCU has exceeded 40%."
+   ::= { ntfAlertNotificationObjects 4011 }
+   
+-- dma.2.5.2.0.4012
+ntfAlertMCUCallFailureRateCritical NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The call failure rate on an MCU has exceeded 80%."
+   ::= { ntfAlertNotificationObjects 4012 }
+   
+-- dma.2.5.2.0.4013
+ntfAlertMCUNoCapacity NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU has no audio or video capacity."
+   ::= { ntfAlertNotificationObjects 4013 }
+
+   -- dma.2.5.2.0.4014
+ntfAlertMCUVideoCapacityChange NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The video capacity of an MCU has changed."
+   ::= { ntfAlertNotificationObjects 4014 }
+   
+-- dma.2.5.2.0.4015
+ntfAlertMCUAudioCapacityChange NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "The audio capacity of an MCU has changed."
+   ::= { ntfAlertNotificationObjects 4015 }
+
+-- dma.2.5.2.0.4016
+ntfAlertMCUAutoBusyOut NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU is in the auto busied-out state."
+   ::= { ntfAlertNotificationObjects 4016 }
+
+-- dma.2.5.2.0.4017
+ntfAlertMCUAutoOutOfService NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An MCU is in the auto out-of-service state."
+   ::= { ntfAlertNotificationObjects 4017 }
+
+-- dma.2.5.2.0.5001
+ntfAlertITPSystemConfigurationError NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A device identifying itself as an ITP system has registered to the call server with
+               invalid or incomplete configuration data."
+   ::= { ntfAlertNotificationObjects 5001 }
+
+-- dma.2.5.2.0.5002
+ntfAlertEndpointSignalingAlert NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "One or more endpoints are sending excessive signaling traffic and have been temporarily blacklisted
+               and may have been quarantined."
+   ::= { ntfAlertNotificationObjects 5002 }
+
+-- dma.2.5.2.0.5003
+ntfAlertEndpointUnregistered NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "An endpoint is no longer registered to the call server."
+   ::= { ntfAlertNotificationObjects 5003 }
+
+-- dma.2.5.2.0.5004
+ntfAlertCallLoopDetected NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "A call was dropped due to routing loop."
+   ::= { ntfAlertNotificationObjects 5004 }
+
+-- dma.2.5.2.0.6001
+ntfAlertConfMgrNoTerritories NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "No territories are configured to host conference rooms; the DMA conference manager
+               cannot process conferences."
+   ::= { ntfAlertNotificationObjects 6001 }
+
+-- .2.5.2.0.6201
+ntfAlertConfMgrLyncServerExpirationIntervalTooSmall NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Notification that the expiration interval defined on the presence server is too small."
+   ::= { ntfAlertNotificationObjects 6201 }
+   
+-- .2.5.2.0.6202
+ntfAlertConfMgrLyncServerMaxConferenceCountExceeded NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Notification that the Polycom conference contact publishing limit defined for the presence server is too small."
+   ::= { ntfAlertNotificationObjects 6202 }   
+   
+-- .2.5.2.0.6203
+ntfAlertConfMgrLyncServerPresencePublishingIncomplete NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Notification that presence publication could not be accomplished for all Polycom conference contacts within the expiration interval."
+   ::= { ntfAlertNotificationObjects 6203 }    
+
+-- dma.2.5.2.0.7001
+ntfAlertCallServerRegistrationDataIncomplete NOTIFICATION-TYPE
+   OBJECTS
+   {
+      ntfObjAlertID,
+      ntfObjAlertTimestamp,
+      ntfObjAlertCode,
+      ntfObjAlertSeverity,
+      ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "History retention settings for registration data limits the period for which failed
+               registrations can be counted to less than 24 hours."
+   ::= { ntfAlertNotificationObjects 7001 }
+
+-- DMA CONFORMANCE
+
+-- dma.2.9
+dmaConformance OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains conformance objects for the DMA MIB."
+   ::= { dmaMonitoring1 9 }
+
+-- .2.9.1
+dmaConformanceGroups OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains conformance groups."
+   ::= { dmaConformance 1 }
+
+-- .2.9.1.1
+dmaConformanceConfig OBJECT-GROUP
+   OBJECTS
+   {
+--    dmaConfig
+--       cfgIdentity
+--          cfgProductInfo
+               cfgProdInfoManufacturer,
+               cfgProdInfoModel,
+--             cfgProdInfoHardwareInfo
+                  cfgProdInfoHWModel,
+                  cfgProdInfoHWSerialNumber,
+--             cfgProdInfoSoftwareInfo
+                  cfgProdInfoSWVersion,
+--                cfgProdInfoSWExtendedVersion
+                     cfgProdInfoSWExtVerPlatformVersion,
+                     cfgProdInfoSWExtVerApplicationVersion,
+--       cfgServer
+--          cfgNetwork
+               cfgNetworkHostname,
+               cfgInterfacesCount,
+--             cfgInterfacesTable
+--                cfgInterfacesEntry
+--                   cfgIfIndex
+                     cfgIfName,
+                     cfgIfEnabled,
+                     cfgIfMACAddress,
+                     cfgIfIPv4Address,
+                     cfgIfIPv4SubnetMask,
+                     cfgIfIPv4Gateway,
+                     cfgIfIPv6Address,
+                     cfgIfIPv6PrefixLength,
+--       cfgCallserver
+--          cfgCsSupercluster
+--             cfgCsSiteTopology
+                  cfgCsTerritoriesCount,
+--                cfgCsTerritoriesTable
+--                   cfgCsTerritoriesEntry
+--                      cfgCsTerritoryIndex
+                        cfgCsTerritoryName,
+                        cfgCsTerritoryPrimaryCluster,
+                        cfgCsTerritoryBackupCluster,
+--             cfgCsIntegrations
+--                cfgCsIntDirectoryService
+--                   cfgCsIntDirSvcMSActiveDirectory
+                        cfgCsIntMSADEnabled,
+                        cfgCsIntMSADResponsibleTerritory,
+                        cfgCsIntMSADServerAddress,
+                        cfgCsIntMSADUserId,
+--                cfgCsIntCalendaring
+--                   cfgCsIntCalMSExchange
+                        cfgCsIntMSExchEnabled,
+                        cfgCsIntMSExchResponsibleTerritory,
+                        cfgCsIntMSExchServerAddress,
+                        cfgCsIntMSExchUserId,
+--                cfgCsIntSiteTopology
+--                   cfgCsIntSiteTopoPolycomCMA
+                        cfgCsIntPlcmCMAEnabled,
+                        cfgCsIntPlcmCMAServerAddress,
+                        cfgCsIntPlcmCMAUserId,
+--                cfgCsIntNetwork
+--                   cfgCsIntNetBandwidthManagement
+--                      cfgCsIntNetBWMgmtJuniperSRC
+                           cfgCsIntJuniperSRCEnabled,
+                           cfgCsIntJuniperSRCServerAddress,
+                           cfgCsIntJuniperSRCServerPort,
+                           cfgCsIntJuniperSRCUserId,
+                           cfgCsIntJuniperSRCSubscriberURI,
+--          cfgCsCluster
+--             cfgCsSignaling
+--                cfgCsSgnlH323
+                     cfgCsSgnlH323Enabled,
+                     cfgCsSgnlH323H225Port,
+                     cfgCsSgnlH323RASPort,
+--                cfgCsSgnlSIP
+                     cfgCsSgnlSIPEnabled,
+                     cfgCsSgnlSIPTCPPort,
+                     cfgCsSgnlSIPUDPPort,
+                     cfgCsSgnlSIPTLSPort
+--       cfgDevices
+   }
+   STATUS      current
+   DESCRIPTION "Conformance group for dmaConfig."
+   ::= { dmaConformanceGroups 1 }
+   
+-- .2.9.1.2
+dmaConformanceStatus OBJECT-GROUP
+   OBJECTS
+   {
+--    dmaStatus
+--       stServers
+            stServerCount,
+--          stIdentity
+--             stHardwareInfoTable
+--                stHardwareInfoEntry
+--                   stHWIndex
+                     stHWHostName,
+                     stHWSerialNumber,
+--             stVersionTable
+--                stVersionEntry
+--                   stVerIndex
+                     stVerHostName,
+                     stVerVersion,
+--             stSystemInfoTable
+--                stSystemInfoEntry
+--                   stSysInfoIndex
+                     stSysInfoHostName,
+                     stSysInfoSystemDate,
+                     stSysInfoUptime,
+                     stSysInfoTimeSource,
+--          stNetwork
+--             stNetClusterAffiliationTable
+--                stNetClusterAffiliationEntry
+--                   stNetClusterAffilIndex
+                     stNetClusterAffilHostName,
+                     stNetClusterAffilClusterName,
+--             stNetPrivateInterfaceTable
+--                stNetPrivateInterfaceEntry
+--                   stNetPvtIndex
+                     stNetPvtHostName,
+                     stNetPvtInterfaceName,
+                     stNetPvtLinkStatus,
+                     stNetPvtMACAddress,
+                     stNetPvtIPv4Address,
+                     stNetPvtIPv6Address,
+--             stNetManagementInterfaceTable
+--                stNetManagementInterfaceEntry
+--                   stNetMgmtIndex
+                     stNetMgmtHostName,
+                     stNetMgmtInterfaceName,
+                     stNetMgmtLinkStatus,
+                     stNetMgmtMACAddress,
+                     stNetMgmtIPv4Address,
+                     stNetMgmtIPv6Address,
+--             stNetSignalingInterfaceTable
+--                stNetSignalingInterfaceEntry
+--                   stNetSgnlIndex
+                     stNetSgnlHostName,
+                     stNetSgnlInterfaceName,
+                     stNetSgnlLinkStatus,
+                     stNetSgnlMACAddress,
+                     stNetSgnlIPv4Address,
+                     stNetSgnlIPv6Address,
+--          stResources
+--             stRsrcCPUUsageTable
+--                stRsrcCPUUsageEntry
+--                   stRsrcCPUUsageIndex
+                     stRsrcCPUUsageHostName,
+                     stRsrcCPUUsageCPUUtilizationPct,
+--             stRsrcMemoryUsageTable
+--                stRsrcMemoryUsageEntry
+--                   stRsrcMemUsageIndex
+                     stRsrcMemUsageHostName,
+                     stRsrcMemUsageTotalMemory,
+                     stRsrcMemUsageBuffersAndCache,
+                     stRsrcMemUsageUsed,
+                     stRsrcMemUsageFree,
+--             stRsrcSwapSpaceTable
+--                stRsrcSwapSpaceEntry
+--                   stRsrcSwapIndex
+                     stRsrcSwapHostName,
+                     stRsrcSwapTotal,
+                     stRsrcSwapUsed,
+--             stRsrcDiskSpaceTable
+--                stRsrcDiskSpaceEntry
+--                   stRsrcDiskIndex
+                     stRsrcDiskHostName,
+                     stRsrcDiskTotal,
+                     stRsrcDiskUsed,
+--             stRsrcLogSpaceTable
+--                stRsrcLogSpaceEntry
+--                   stRsrcLogIndex
+                     stRsrcLogHostName,
+                     stRsrcLogTotal,
+                     stRsrcLogUsed,
+                     stRsrcLogWarningThreshold,
+                     stRsrcLogNextPurge,
+--       stDevices
+--          stMCUs
+               stMCUCount,
+--             stMCUStatusTable
+--                stMCUStatusEntry
+--                   stMCUStIndex
+                     stMCUStName,
+                     stMCUStServiceStatus,
+                     stMCUStHasAlert,
+                     stMCUStRecordingAvailable,
+                     stMCUStIVRAvailable,
+--             stMCUVideoPortUsageTable
+--                stMCUVideoPortUsageEntry
+--                   stMCUVidUsageIndex
+                     stMCUVidUsageName,
+                     stMCUVidUsageMCUTotal,
+                     stMCUVidUsageMCUUsed,
+                     stMCUVidUsageDMATotal,
+                     stMCUVidUsageDMAUsed,
+                     stMCUVidUsageCMAReserved,
+--             stMCUVoicePortUsageTable
+--                stMCUVoicePortUsageEntry
+--                   stMCUVoxUsageIndex
+                     stMCUVoxUsageName,
+                     stMCUVoxUsageMCUTotal,
+                     stMCUVoxUsageMCUUsed,
+                     stMCUVoxUsageDMATotal,
+                     stMCUVoxUsageDMAUsed,
+--          stMCUsPerCluster
+               stMCUsPerClusterCount,
+--             stMCUPCConnectionStatusTable
+--                stMCUPCConnectionStatusEntry
+--                   stMCUPCConnStIndex
+                     stMCUPCConnStName,
+                     stMCUPCConnStClusterName,
+                     stMCUPCConnStConnectionStatus,
+--             stMCUPCReliabilityStatsTable
+--                stMCUPCReliabilityStatsEntry
+--                   stMCUPCRelIndex
+                     stMCUPCRelName,
+                     stMCUPCRelClusterName,
+                     stMCUPCRelDisconnects,
+                     stMCUPCRelCallFailureRate,
+--       stClusters
+            stClustersCount,
+--          stClustersTable
+--             stClustersEntry
+--                stClIndex
+                  stClClusterName,
+                  stClClusterStatus,
+--          stLicensesTable
+--             stLicensesEntry
+--                stLicIndex
+                  stLicClusterName,
+                  stLicLicenseStatus,
+                  stLicLicensedCalls,
+                  stLicCallserverActiveCalls,
+--       stCallserver
+--          stCsSupercluster
+--             stCsSiteTopology
+                  stCsConfMgrTerritoriesCount,
+--                stCsConfMgrTerritoriesTable
+--                   stCsConfMgrTerritoriesEntry
+--                      stCsConfMgrTerrIndex
+                        stCsConfMgrTerrName,
+--             stCsIntegrations
+--                stCsIntDirectoryService
+--                   stCsIntDirSvcMSActiveDirectory
+                        stCsIntMSADEnabled,
+                        stCsIntMSADCacheStatus,
+                        stCsIntMSADCachingCluster,
+                        stCsIntMSADCachingServer,
+                        stCsIntMSADConnectionSecure,
+                        stCsIntMSADCacheRefreshDate,
+                        stCsIntMSADEnterpriseConfRooms,
+--                stCsIntCalendaring
+--                   stCsIntCalMSExchange
+                        stCsIntMSExchEnabled,
+                        stCsIntMSExchSubscriptionStatus,
+                        stCsIntMSExchIntegratingCluster,
+                        stCsIntMSExchIntegratingServer,
+                        stCsIntMSExchMailbox,
+                        stCsIntMSExchMeetingsToday,
+--                stCsIntSiteTopology
+--                   stCsIntSiteTopoPolycomCMA
+                        stCsIntPlcmCMAEnabled,
+                        stCsIntPlcmCMAConnectionStatus,
+                        stCsIntPlcmCMALastContactDate,
+                        stCsIntPlcmCMATimeSinceLastRefresh,
+                        stCsIntPlcmCMATerritories,
+                        stCsIntPlcmCMASites,
+                        stCsIntPlcmCMASiteLinks,
+                        stCsIntPlcmCMAMPLSClouds,
+--                stCsIntNetwork
+--                   stCsIntNetBandwidthManagement
+--                      stCsIntNetBWMgmtJuniperSRC
+                           stCsIntJuniperSRCEnabled,
+--          stCsDevices
+--             stCsConfMgrMCUs
+                  stCsConfMgrMCUsCount,
+--                stCsConfMgrMCUsTable
+--                   stCsConfMgrMCUsEntry
+--                      stCsCMMCUIndex
+                        stCsCMMCUName
+   }
+   STATUS      current
+   DESCRIPTION "Conformance group for dmaStatus."
+   ::= { dmaConformanceGroups 2 }
+   
+-- .2.9.1.3
+dmaConformanceUsage OBJECT-GROUP
+   OBJECTS
+   {
+--    dmaUsage
+--       useConfHistory
+--          useConfHistoryMaximumParticipants
+               useCHMaxPartsLast60MinutesCount,
+--             useCHMaxPartsLast60MinutesTable
+--                useCHMaxPartsLast60MinutesEntry
+--                   useCHMaxParts60MinIndex
+                     useCHMaxParts60MinClusterName,
+                     useCHMaxParts60MinTimestamp,
+                     useCHMaxParts60MinMaxSimultaneousCalls,
+                     useCHMaxParts60MinMaxAdHocCalls,
+                     useCHMaxParts60MinMaxPCOCalls,
+               useCHMaxPartsLast24HoursCount,
+--             useCHMaxPartsLast24HoursTable
+--                useCHMaxPartsLast24HoursEntry
+--                   useCHMaxParts24HrIndex
+                     useCHMaxParts24HrClusterName,
+                     useCHMaxParts24HrTimestamp,
+                     useCHMaxParts24HrMaxSimultaneousCalls,
+                     useCHMaxParts24HrMaxAdHocCalls,
+                     useCHMaxParts24HrMaxPCOCalls,
+               useCHMaxPartsLast180DaysCount,
+--             useCHMaxPartsLast180DaysTable
+--                useCHMaxPartsLast180DaysEntry
+--                   useCHMaxParts180DaysIndex
+                     useCHMaxParts180DaysClusterName,
+                     useCHMaxParts180DaysTimestamp,
+                     useCHMaxParts180DaysMaxSimultaneousCalls,
+                     useCHMaxParts180DaysMaxAdHocCalls,
+                     useCHMaxParts180DaysMaxPCOCalls,
+--       useCurrentConferences
+--          useCurrentConfsConfManagerUsage
+               useConfMgrUsageCount,
+--             useConfMgrUsageTable
+--                useConfMgrUsageEntry
+--                   useCMUsageIndex
+                     useCMUsageClusterName,
+                     useCMUsageActiveConfs,
+                     useCMUsageActiveParts,
+                     useCMUsageTotalVideoPorts,
+                     useCMUsageUsedVideoPorts,
+                     useCMUsageTotalVoicePorts,
+                     useCMUsageUsedVoicePorts,
+                     useCMUsageLocalUsers,
+                     useCMUsageCustomConfRooms,
+--       useDevices
+--          useDevRegistrations
+               useDevRegistrationsCount,
+--             useDevRegistrationsTable
+--                useDevRegistrationsEntry
+--                   useDevRegIndex
+                     useDevRegClusterName,
+                     useDevRegActiveEndpointReg,
+                     useDevRegInactiveEndpointReg,
+                     useDevRegFailedEndpointRegLast24Hours,
+--       useSignalingStacks
+			useSignalingStacksMonitorStartTime,
+			useSignalingStacksMonitorEndTime,
+--          useH323Stack,
+--			   useH323StackInboundEventQueue,
+                  useH323StackInboundEventQueueAvgSize,
+                  useH323StackInboundEventQueueMaxSize,
+                  useH323StackInboundEventQueueMinSize,
+--             useH323StackHandleRRQ,
+                  useH323StackHandleRRQCount,
+                  useH323StackHandleRRQAvgTime,
+                  useH323StackHandleRRQMaxTime,               
+                  useH323StackHandleRRQMinTime,
+--             useH323StackHandleURQ,                   
+                  useH323StackHandleURQCount,
+                  useH323StackHandleURQAvgTime,
+                  useH323StackHandleURQMaxTime,
+                  useH323StackHandleURQMinTime,
+--             useH323StackHandleARQ,                  
+                  useH323StackHandleARQCount,
+                  useH323StackHandleARQAvgTime,
+                  useH323StackHandleARQMaxTime,
+                  useH323StackHandleARQMinTime,
+--             useH323StackHandleDRQ,               
+                  useH323StackHandleDRQCount,
+                  useH323StackHandleDRQAvgTime,
+                  useH323StackHandleDRQMaxTime,
+                  useH323StackHandleDRQMinTime,
+--          useSipStack,
+--             useSipStackHandleRegistrationRequest,
+                  useSipStackHandleRegistrationRequestCount,
+                  useSipStackHandleRegistrationRequestAvgTime,
+                  useSipStackHandleRegistrationRequestMaxTime,
+                  useSipStackHandleRegistrationRequestMinTime,
+--             useSipStackHandleRegistrationRequest,
+                  useSipStackHandleUnregistrationRequestCount,
+                  useSipStackHandleUnregistrationRequestAvgTime,
+                  useSipStackHandleUnregistrationRequestMaxTime,
+                  useSipStackHandleUnregistrationRequestMinTime,
+--             useSipStackHandleRegistrationRequest,
+                  useSipStackHandleNewCallRequestCount,
+                  useSipStackHandleNewCallRequestAvgTime,
+                  useSipStackHandleNewCallRequestMaxTime,
+                  useSipStackHandleNewCallRequestMinTime,
+--             useSipStackHandleRegistrationRequest,
+                  useSipStackHandleModifyCallRequestCount,
+                  useSipStackHandleModifyCallRequestAvgTime,
+                  useSipStackHandleModifyCallRequestMaxTime,
+                  useSipStackHandleModifyCallRequestMinTime,
+--             useSipStackHandleRegistrationRequest,
+                  useSipStackHandleEndCallRequestCount,
+                  useSipStackHandleEndCallRequestAvgTime,
+                  useSipStackHandleEndCallRequestMaxTime,
+                  useSipStackHandleEndCallRequestMinTime
+   }
+   STATUS      current
+   DESCRIPTION "Conformance group for dmaUsage."
+   ::= { dmaConformanceGroups 3 }
+   
+-- .2.9.1.4
+dmaConformanceAlerts OBJECT-GROUP
+   OBJECTS
+   {
+--    dmaAlerts
+--       alActiveAlerts
+            alActiveAlertsCount,
+--          alActiveAlertsTable
+--             alActiveAlertsEntry
+--                alActAlertIndex
+                  alActAlertID,
+                  alActAlertTimestamp,
+                  alActAlertCode,
+                  alActAlertSeverity,
+                  alActAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Conformance group for dmaAlerts."
+   ::= { dmaConformanceGroups 4 }
+   
+-- .2.9.1.5.1           dmaConformanceNtfObjects
+-- .2.9.1.5.2           dmaConformanceNtfAlertNotifications
+-- .2.9.1.5
+dmaConformanceNotifications OBJECT-IDENTITY
+   STATUS      current
+   DESCRIPTION "Contains conformance groups for notifications."
+   ::= { dmaConformanceGroups 5 }
+
+-- .2.9.1.5.1
+dmaConformanceNtfObjects OBJECT-GROUP
+   OBJECTS
+   {
+--    dmaNotifications
+--       ntfObjects
+            ntfObjAlertID,
+            ntfObjAlertTimestamp,
+            ntfObjAlertCode,
+            ntfObjAlertSeverity,
+            ntfObjAlertDescription
+   }
+   STATUS      current
+   DESCRIPTION "Conformance group for notification objects."
+   ::= { dmaConformanceNotifications 1 }
+
+-- .2.9.1.5.2
+dmaConformanceNtfAlertNotifications NOTIFICATION-GROUP
+   NOTIFICATIONS
+   {
+--    dmaNotifications
+--       ntfAlertNotifications
+--          ntfAlertNotificationObjects
+               ntfAlertClusterBusyOut,
+               ntfAlertClusterOutOfService,
+               ntfAlertClusterOrphan,
+               ntfAlertClusterUnreachable,
+               ntfAlertClusterPendingReplication,
+               ntfAlertTerritoryNotActiveBothClustersNotInService,
+               ntfAlertTerritoryNotActiveClusterNotInService,
+               ntfAlertTerritoryNoClustersAssigned,
+               ntfAlertTerritoryPrimaryClusterNotInService,
+               ntfAlertTerritoryBothClustersNotResponding,
+               ntfAlertTerritoryClusterNotResponding,
+               ntfAlertTerritoryPrimaryClusterNotResponding,
+               ntfAlertTerritoryFailedOver,
+               ntfAlertCMAUser,
+               ntfAlertCMAUnreachable,
+               ntfAlertCMAInconsistentTerritories,
+               ntfAlertEntDirIntegrationFailed,
+               ntfAlertEntDirNoConfRooms,
+               ntfAlertEntDirPrimaryClusterNotInService,
+               ntfAlertEntDirNotAvailable,
+               ntfAlertEntDirNotAvailableNoBackup,
+               ntfAlertEntDirUserAuthConnectionFailed,
+               ntfAlertEntDirCachingConnectionFailed,
+               ntfAlertEntDirPrimaryClusterNotResponding,
+               ntfAlertExchangePrimaryClusterNotInServiceBackupAvailable,
+               ntfAlertExchangeBothClustersNotInService,
+               ntfAlertExchangePrimaryClusterNotInService,
+               ntfAlertDmaHistoryDataStoreOutOfService,
+               ntfAlertDmaConfigurationDataStoreOutOfService,
+               ntfAlertCdrServiceConnectionUnresponsive,
+               ntfAlertCdrBufferingOverflow,
+               ntfAlertCdrClientError,
+               ntfAlertCdrCredentialsInvalid,
+               ntfAlertLyncServerConnectionUnresponsive,
+               ntfAlertLyncServerCredentialsInvalid,
+               ntfAlertLyncServerAccountUriInvalid,
+               ntfAlertLyncServerConnectionUnresponsiveScheduling,
+               ntfAlertLyncServerCredentialsInvalidScheduling,
+               ntfAlertSignalingNotEnabled,
+               ntfAlertCertExpired,
+               ntfAlertCertExpireNow,
+               ntfAlertCertExpireSoon,
+               ntfAlertCertSecExpired,
+               ntfAlertCertSecExpireSoon,
+               ntfAlertLicenseNoKeys,
+               ntfAlertLicenseInvalidKeys,
+               ntfAlertLicenseNoEulaAcceptance,
+               ntfAlertNetworkSingleNodeDetected,
+               ntfAlertNetworkPrivateActive,
+               ntfAlertNetworkPrivateError,
+               ntfAlertNetworkPublicError,
+               ntfAlertNetworkSignalingError,
+               ntfAlertResourceDiskSpace,
+               ntfAlertResourceLogsPurge,
+               ntfAlertResourceLogsExceedLimit,
+               ntfAlertResourceLogsNearLimit,
+               ntfAlertResourceCPUOver50Percent,
+               ntfAlertResourceCPUOver75Percent,
+               ntfAlertAVVirusDetected,
+               ntfAlertAVUnsuccessful,
+               ntfAlertAVNeverSucceeded,
+               ntfAlertDataSyncVersion,
+               ntfAlertDataSyncSystemTime,
+               ntfAlertDataSyncADIntegration,
+               ntfAlertDataSyncADConfRooms,
+               ntfAlertDataSyncCustomConfRooms,
+               ntfAlertDataSyncLocalUsers,
+			   ntfAlertServerFailover,
+               ntfAlertServerRestart,
+               ntfAlertServerImpaired,               
+               ntfAlertMCUBusyOut,
+               ntfAlertMCUOutOfService,
+               ntfAlertMCUMultipleWarnings,
+               ntfAlertMCUInsufficientUserConnections,
+               ntfAlertMCUDisconnected,
+               ntfAlertMCUDisconnectsInPast24HoursWarning,
+               ntfAlertMCUDisconnectsInPast24HoursCritical,
+               ntfAlertMCUCallFailureRateWarning,
+               ntfAlertMCUCallFailureRateCritical,
+               ntfAlertMCUNoCapacity,
+               ntfAlertMCUVideoCapacityChange,
+               ntfAlertMCUAudioCapacityChange,
+               ntfAlertMCUAutoBusyOut,
+               ntfAlertMCUAutoOutOfService,               
+               ntfAlertITPSystemConfigurationError,
+               ntfAlertEndpointSignalingAlert,
+               ntfAlertEndpointUnregistered,
+               ntfAlertCallLoopDetected,
+               ntfAlertConfMgrNoTerritories,
+               ntfAlertConfMgrLyncServerExpirationIntervalTooSmall,
+               ntfAlertConfMgrLyncServerMaxConferenceCountExceeded,
+               ntfAlertConfMgrLyncServerPresencePublishingIncomplete,
+               ntfAlertCallServerRegistrationDataIncomplete
+   }
+   STATUS      current
+   DESCRIPTION "Conformance group for alert notifications."
+   ::= { dmaConformanceNotifications 2 }
+
+-- .2.10
+dmaCompliance MODULE-COMPLIANCE
+   STATUS      current
+   DESCRIPTION "Specification of MIB object compliance."
+   MODULE      POLYCOM-DMA-MIB
+   MANDATORY-GROUPS
+   {
+      -- .2.9.1.1
+      dmaConformanceConfig,
+      -- .2.9.1.2
+      dmaConformanceStatus,
+      -- .2.9.1.3
+      dmaConformanceUsage,
+      -- .2.9.1.4
+      dmaConformanceAlerts,
+      -- .2.9.1.5.1
+      dmaConformanceNtfObjects,
+      -- .2.9.1.5.2
+      dmaConformanceNtfAlertNotifications
+   }
+   ::= { dmaMonitoring1 10 }
+
+END

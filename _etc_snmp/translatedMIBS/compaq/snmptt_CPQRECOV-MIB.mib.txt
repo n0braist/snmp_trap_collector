@@ -1,0 +1,72 @@
+#
+#
+#
+#
+MIB: CPQRECOV-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQRECOV-MIB.mib) converted on Wed Aug 22 14:19:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqRsPartnerFailed .1.3.6.1.4.1.232.0.13001 "Status Events" CRITICAL
+FORMAT Recovery Server Failure (13001): The partner server has failed and this server has taken over operations.
+SDESC
+Recovery Server partner server failure.
+The Recovery Agent reports that the partner server has failed.  This
+server has taken over the partner's operations.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqRsStandbyCableFailure .1.3.6.1.4.1.232.0.13002 "Status Events" CRITICAL
+FORMAT Standby Recovery Server Interconnect Failure (13002): Standby Recovery Server reports the local serial interconnect has failed.
+SDESC
+Recovery Server serial interconnect failure.
+The Standby Recovery Agent reports that the local serial interconnect is not
+connected or has failed.  The primary server is being shutdown in anticipation
+of the startup of the standby server.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqRsStandbyFailure .1.3.6.1.4.1.232.0.13003 "Status Events" CRITICAL
+FORMAT Recovery Server Failure (13003): Recovery Server reports the standby server has failed.
+SDESC
+Recovery Server standby server failure.
+The Recovery Agent reports that the standby server has failed or the standby's serial
+interconnect is not connected.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqRsOnlineCableFailure .1.3.6.1.4.1.232.0.13004 "Status Events" CRITICAL
+FORMAT On-Line Recovery Server Interconnect Failure (13004): On-Line Recovery Server reports the local serial interconnect has failed.
+SDESC
+On-Line Recovery Server serial interconnect failure.
+The On-Line Recovery Agent reports that the local serial interconnect is not
+connected or has failed.  However, network operations confirm that the partner
+is still operating correctly.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqRsFailoverFailed .1.3.6.1.4.1.232.0.13005 "Status Events" CRITICAL
+FORMAT On-Line Recovery Server Failover Failure (13005): On-Line Recovery Server reports the failover attempt has failed.
+SDESC
+On-Line Recovery Server Failover failure.
+The On-Line Recovery Agent reports that an attempt to take on the operations
+of the partner server was attempted and failed.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC

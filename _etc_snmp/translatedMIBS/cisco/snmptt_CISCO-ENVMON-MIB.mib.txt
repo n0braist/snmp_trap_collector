@@ -1,0 +1,144 @@
+#
+#
+#
+#
+MIB: CISCO-ENVMON-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ENVMON-MIB.mib) converted on Tue Aug 21 15:25:57 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoEnvMonShutdownNotification .1.3.6.1.4.1.9.9.13.3.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+Variables:
+  1: ciscoEnvMonMIBNotifications1
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonVoltageNotification .1.3.6.1.4.1.9.9.13.3.0.2 "Status Events" Normal
+FORMAT A ciscoEnvMonVoltageNotification is sent if the voltage  $*
+SDESC
+A ciscoEnvMonVoltageNotification is sent if the voltage 
+measured at a given testpoint is outside the normal range 
+for the testpoint (i.e. is at the warning, critical, or
+shutdown stage).  Since such a notification is usually 
+generated before the shutdown state is reached, it can 
+convey more data and has a better chance of being sent 
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonVoltStatusChangeNotif.
+Variables:
+  1: ciscoEnvMonVoltageStatusDescr
+  2: ciscoEnvMonVoltageStatusValue
+  3: ciscoEnvMonVoltageState
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonTemperatureNotification .1.3.6.1.4.1.9.9.13.3.0.3 "Status Events" Normal
+FORMAT A ciscoEnvMonTemperatureNotification is sent if the  $*
+SDESC
+A ciscoEnvMonTemperatureNotification is sent if the 
+temperature measured at a given testpoint is outside 
+the normal range for the testpoint (i.e. is at the warning, 
+critical, or shutdown stage).  Since such a Notification 
+is usually generated before the shutdown state is reached,
+it can convey more data and has a better chance of being
+sent than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of 
+ciscoEnvMonTempStatusChangeNotif.
+Variables:
+  1: ciscoEnvMonTemperatureStatusDescr
+  2: ciscoEnvMonTemperatureStatusValue
+  3: ciscoEnvMonTemperatureState
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonFanNotification .1.3.6.1.4.1.9.9.13.3.0.4 "Status Events" Normal
+FORMAT A ciscoEnvMonFanNotification is sent if any one of $*
+SDESC
+A ciscoEnvMonFanNotification is sent if any one of
+the fans in the fan array (where extant) fails. 
+Since such a notification is usually generated before 
+the shutdown state is reached, it can convey more 
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of
+ciscoEnvMonFanStatusChangeNotif.
+Variables:
+  1: ciscoEnvMonFanStatusDescr
+  2: ciscoEnvMonFanState
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonRedundantSupplyNotification .1.3.6.1.4.1.9.9.13.3.0.5 "Status Events" Normal
+FORMAT A ciscoEnvMonRedundantSupplyNotification is sent if $*
+SDESC
+A ciscoEnvMonRedundantSupplyNotification is sent if
+the redundant power supply (where extant) fails. 
+Since such a notification is usually generated before 
+the shutdown state is reached, it can convey more 
+data and has a better chance of being sent
+than does the ciscoEnvMonShutdownNotification.
+This notification is deprecated in favour of 
+ciscoEnvMonSuppStatusChangeNotif.
+Variables:
+  1: ciscoEnvMonSupplyStatusDescr
+  2: ciscoEnvMonSupplyState
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonVoltStatusChangeNotif .1.3.6.1.4.1.9.9.13.3.0.6 "Status Events" Normal
+FORMAT A ciscoEnvMonVoltStatusChangeNotif is sent if there is  $*
+SDESC
+A ciscoEnvMonVoltStatusChangeNotif is sent if there is 
+change in the state of a device being monitored
+by ciscoEnvMonVoltageState.
+Variables:
+  1: ciscoEnvMonVoltageStatusDescr
+  2: ciscoEnvMonVoltageStatusValue
+  3: ciscoEnvMonVoltageState
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonTempStatusChangeNotif .1.3.6.1.4.1.9.9.13.3.0.7 "Status Events" Normal
+FORMAT A ciscoEnvMonTempStatusChangeNotif is sent if there  $*
+SDESC
+A ciscoEnvMonTempStatusChangeNotif is sent if there 
+is change in the state of a device being monitored
+by ciscoEnvMonTemperatureState.
+Variables:
+  1: ciscoEnvMonTemperatureStatusDescr
+  2: ciscoEnvMonTemperatureStatusValue
+  3: ciscoEnvMonTemperatureState
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonFanStatusChangeNotif .1.3.6.1.4.1.9.9.13.3.0.8 "Status Events" Normal
+FORMAT A ciscoEnvMonFanStatusChangeNotif is sent if there  $*
+SDESC
+A ciscoEnvMonFanStatusChangeNotif is sent if there 
+is change in the state of a device being monitored
+by ciscoEnvMonFanState.
+Variables:
+  1: ciscoEnvMonFanStatusDescr
+  2: ciscoEnvMonFanState
+EDESC
+#
+#
+#
+EVENT ciscoEnvMonSuppStatusChangeNotif .1.3.6.1.4.1.9.9.13.3.0.9 "Status Events" Normal
+FORMAT A ciscoEnvMonSupplyStatChangeNotif is sent if there  $*
+SDESC
+A ciscoEnvMonSupplyStatChangeNotif is sent if there 
+is change in the state of a device being monitored
+by ciscoEnvMonSupplyState.
+Variables:
+  1: ciscoEnvMonSupplyStatusDescr
+  2: ciscoEnvMonSupplyState
+EDESC

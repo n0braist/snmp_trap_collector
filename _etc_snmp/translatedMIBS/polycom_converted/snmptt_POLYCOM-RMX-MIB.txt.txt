@@ -1,0 +1,29 @@
+#
+#
+#
+#
+MIB: POLYCOM-RMX-MIB (file:/tmp/polycom/POLYCOM-RMX-MIB.txt) converted on Fri Mar 13 12:28:51 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT rmxNewAlarm .1.3.6.1.4.1.13885.9.1.1.2.2.0.1 "Status Events" Normal
+FORMAT New active alarm $*
+SDESC
+New active alarm
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+EDESC
+#
+#
+#
+EVENT rmxNewAlarm .1.3.6.1.4.1.13885.9.1.1.2.2.0.1 "Status Events" Normal
+FORMAT New active alarm $*
+SDESC
+New active alarm
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+EDESC

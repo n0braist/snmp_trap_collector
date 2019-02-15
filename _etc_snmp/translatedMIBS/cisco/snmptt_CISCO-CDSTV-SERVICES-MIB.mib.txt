@@ -1,0 +1,31 @@
+#
+#
+#
+#
+MIB: CISCO-CDSTV-SERVICES-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CDSTV-SERVICES-MIB.mib) converted on Tue Aug 21 15:25:45 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cdstvServiceUp .1.3.6.1.4.1.9.9.729.0.1 "Status Events" Normal
+FORMAT The SNMP entity generates the cdstvServiceUp notification when $*
+SDESC
+The SNMP entity generates the cdstvServiceUp notification when
+the status (indicated by the object cdstvServiceStatus) of a
+service being monitored (indicated by the object
+cdstvServiceName) changes to 'up'.
+Variables:
+  1: cdstvServiceName
+EDESC
+#
+#
+#
+EVENT cdstvServiceDown .1.3.6.1.4.1.9.9.729.0.2 "Status Events" Normal
+FORMAT The SNMP entity generates the cdstvServiceDown notification $*
+SDESC
+The SNMP entity generates the cdstvServiceDown notification
+when the status (indicated by the object cdstvServiceStatus) 
+of a service being monitored (indicated by the object 
+cdstvServiceName), changes to 'down'.
+Variables:
+  1: cdstvServiceName
+EDESC

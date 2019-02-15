@@ -1,0 +1,79 @@
+#
+#
+#
+#
+MIB: CISCO-DSP-MGMT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DSP-MGMT-MIB.mib) converted on Tue Aug 21 15:25:54 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cdspMIBCardStateNotification .1.3.6.1.4.1.9.9.86.2.0.1 "Status Events" Normal
+FORMAT A cdspMIBCardStateNotification is sent when the cdspCardState $*
+SDESC
+A cdspMIBCardStateNotification is sent when the cdspCardState
+enters into normal(1) state and enters into or exits from
+fatal(4) state.
+Variables:
+  1: cdspCardState
+EDESC
+#
+#
+#
+EVENT cdspOperStateNotification .1.3.6.1.4.1.9.9.86.2.0.2 "Status Events" Normal
+FORMAT A cdspOperStateNotification is sent when the cdspOperState $*
+SDESC
+A cdspOperStateNotification is sent when the cdspOperState
+enters into normal(1) state or shutdown(2) state.
+The value of entPhysicalName contains the name of the
+DSP.
+Variables:
+  1: cdspOperState
+  2: entPhysicalName
+EDESC
+#
+#
+#
+EVENT cdspVideoUsageNotification .1.3.6.1.4.1.9.9.86.2.0.3 "Status Events" Normal
+FORMAT This notification is sent when cdspCardVideoPoolUtilization $*
+SDESC
+This notification is sent when cdspCardVideoPoolUtilization
+reaches the specified threshold 
+(cdspCardVideoPoolUtilizationThreshold).
+cdspCardVideoPoolUtilization indicates the DSP video pool usage
+at the time this notification is sent.
+cdspCardVideoPoolUtilizationThreshold indicates the threshold
+configured to trigger this notification.
+DSP video pool resource usage (cdspCardVideoPoolUtilization) is
+updated and compared against the threshold
+(cdspCardVideoPoolUtilizationThreshold) in the events below:
+1.  A call that requires DSP video resource connects.
+2.  A call that requires DSP video resource disconnects.
+3.  DSPFarm profile for video resource is enabled.
+4.  DSPFarm profile for video resource is disabled.
+During comparison, if usage is larger than threshold, this 
+notification is generated.
+Variables:
+  1: cdspCardVideoPoolUtilization
+  2: cdspCardVideoPoolUtilizationThreshold
+EDESC
+#
+#
+#
+EVENT cdspVideoOutOfResourceNotification .1.3.6.1.4.1.9.9.86.2.0.4 "Status Events" Normal
+FORMAT A cdspVideoOutOfResourceNotification is sent when there is not $*
+SDESC
+A cdspVideoOutOfResourceNotification is sent when there is not
+enough DSP resource in the video pool of the system for video
+services.
+cdspCardVideoPoolUtilization indicates the DSP video pool usage
+at the time this notification is sent.
+cdspCardVideoPoolUtilizationThreshold indicates the threshold
+configured to trigger this notification.
+DSP video resources required is computed for each incoming call
+that requires DSP video resources.  If there is not enough
+video resource, this call will not have any video capabilities
+and is treated as audio-only; and this notification is
+generated.
+Variables:
+  1: cdspCardVideoPoolUtilization
+  2: cdspCardVideoPoolUtilizationThreshold
+EDESC

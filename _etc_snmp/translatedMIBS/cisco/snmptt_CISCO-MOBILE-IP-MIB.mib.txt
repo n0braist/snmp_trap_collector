@@ -1,0 +1,84 @@
+#
+#
+#
+#
+MIB: CISCO-MOBILE-IP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-MOBILE-IP-MIB.mib) converted on Tue Aug 21 15:26:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cmiMrStateChange .1.3.6.1.4.1.9.9.174.0.1 "Status Events" Normal
+FORMAT The Mobile Router state change notification. This $*
+SDESC
+The Mobile Router state change notification. This
+notification is sent when the Mobile Router has
+undergone a state change from its previous
+state of Mobile IP. Generation of this notification
+is controlled by the cmiTrapControl object.
+Variables:
+  1: mnState
+EDESC
+#
+#
+#
+EVENT cmiMrCoaChange .1.3.6.1.4.1.9.9.174.0.2 "Status Events" Normal
+FORMAT The Mobile Router care-of-address change notification. $*
+SDESC
+The Mobile Router care-of-address change notification.
+This notification is sent when the Mobile Router has
+changed its care-of-address. Generation of this
+notification is controlled by the cmiTrapControl
+object.
+Variables:
+  1: mnRegCOA
+  2: mnRegAgentAddress
+EDESC
+#
+#
+#
+EVENT cmiMrNewMA .1.3.6.1.4.1.9.9.174.0.3 "Status Events" Normal
+FORMAT The Mobile Router new agent discovery notification. $*
+SDESC
+The Mobile Router new agent discovery notification.
+This notification is sent when the Mobile Router has
+heard an agent advertisement from a new mobile agent.
+Generation of this notification is controlled by the
+cmiTrapControl object.
+Variables:
+  1: cmiMrMaIsHa
+  2: cmiMrMaAdvFlags
+  3: cmiMrMaAdvRcvIf
+EDESC
+#
+#
+#
+EVENT cmiHaMnRegReqFailed .1.3.6.1.4.1.9.9.174.0.4 "Status Events" Normal
+FORMAT The MN registration request failed notification. $*
+SDESC
+The MN registration request failed notification.
+This notification is sent when the registration
+request from MN is rejected by Home Agent.
+Variables:
+  1: cmiNtRegCOAType
+  2: cmiNtRegCOA
+  3: cmiNtRegHAAddrType
+  4: cmiNtRegHomeAgent
+  5: cmiNtRegHomeAddressType
+  6: cmiNtRegHomeAddress
+  7: cmiNtRegNAI
+  8: cmiNtRegDeniedCode
+EDESC
+#
+#
+#
+EVENT cmiHaMaxBindingsNotif .1.3.6.1.4.1.9.9.174.0.5 "Status Events" Normal
+FORMAT This notification is generated when the registration $*
+SDESC
+This notification is generated when the registration
+request from an MN is rejected by the home agent, and
+the total number of registrations on the home agent
+has already reached the maximum number of allowed
+bindings represented by cmiHaMaximumBindings.
+Variables:
+  1: cmiHaRegTotalMobilityBindings
+  2: cmiHaMaximumBindings
+EDESC

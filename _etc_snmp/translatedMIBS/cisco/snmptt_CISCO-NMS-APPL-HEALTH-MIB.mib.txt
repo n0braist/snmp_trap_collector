@@ -1,0 +1,22 @@
+#
+#
+#
+#
+MIB: CISCO-NMS-APPL-HEALTH-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-NMS-APPL-HEALTH-MIB.mib) converted on Tue Aug 21 15:26:22 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cnaHealthNotif .1.3.6.1.4.1.9.9.237.0.1 "Status Events" Normal
+FORMAT This notification is sent out to notify normal	startup, shutdown, $*
+SDESC
+This notification is sent out to notify normal	startup, shutdown,
+intermediate health/status (ex: busy etc.), failed or exit status.
+Variables:
+  1: cnaHealthNotifSeqNum
+  2: cnaHealthStatusChangeTime
+  3: cnaHealthName
+  4: cnaHealthStatus
+  5: cnaHealthSevLevel
+  6: cnaHealthComLineArgs
+  7: cnaHealthStatusDesc
+EDESC

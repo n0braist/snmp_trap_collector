@@ -1,0 +1,205 @@
+#
+#
+#
+#
+MIB: SW-MIB (file:/tmp/SW_v7_1.mib) converted on Mon Nov 17 16:25:29 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT swFault .1.3.6.1.4.1.1588.2.1.1.1.0.1 "Status Events" CRITICAL
+FORMAT Switch is faulty.: Faulty reason: $1 and SSN is #$2,GroupName $3,GroupType $4,GroupMemPosition $5
+SDESC
+Obsoleted this trap as firmware doesn't support this trap.
+A swFault(1) is generated whenever the diagnostics
+detects a fault with the switch.
+Variables:
+  1: swDiagResult
+  2: swSsn
+EDESC
+#
+#
+#
+EVENT swSensorScn .1.3.6.1.4.1.1588.2.1.1.1.0.2 "Status Events" INFORMATIONAL
+FORMAT A sensor (temperature, fan, etc.) changed its operational state.: $5: is currently in state $1 and SSN is #$6
+SDESC
+A swSensorScn(2) is generated whenever an
+environment sensor changes its operational state. For instance,
+a fan stop working. The VarBind in the Trap Data Unit shall
+contain the corresponding instance of the sensor
+status, sensor index, sensor type, sensor value (reading)
+and sensor information.	Note that the sensor information contains the type of sensor
+and its number in textual format.
+Variables:
+  1: swSensorStatus
+  2: swSensorIndex
+  3: swSensorType
+  4: swSensorValue
+  5: swSensorInfo
+  6: swSsn
+EDESC
+#
+#
+#
+EVENT swFCPortScn .1.3.6.1.4.1.1588.2.1.1.1.0.3 "Status Events" INFORMATIONAL
+FORMAT A Fibre Channel Port changed its operational state.: Port Index $2 changed state to $1  Port Name: $3 and SSN is #$4
+SDESC
+This trap is sent whenever an FC port operational status or
+its type changed. The events that trigger this trap are
+port goes to online/offline, port type changed to 
+E-port/F-port/FL-port. swFCPortName and swSsn are optional 
+varbind in the trap PDU 
+Variables:
+  1: swFCPortOpStatus
+  2: swFCPortIndex
+  3: swFCPortName
+  4: swFCPortWwn
+  5: swFCPortPrevType
+  6: swFCPortBrcdType
+  7: swSsn
+  8: swFCPortFlag
+  9: swVfId
+EDESC
+#
+#
+#
+EVENT swEventTrap .1.3.6.1.4.1.1588.2.1.1.1.0.4 "Status Events" INFORMATIONAL
+FORMAT A firmware event has been logged: Event Index $1: $2 (severity level $3) - $5 SSN is #$6
+SDESC
+This trap is generated when an event whose
+level at or below swEventTrapLevel occurs.
+Variables:
+  1: swEventIndex
+  2: swEventTimeInfo
+  3: swEventLevel
+  4: swEventRepeatCount
+  5: swEventDescr
+  6: swSsn
+  7: swVfId
+EDESC
+#
+#
+#
+EVENT swFabricWatchTrap .1.3.6.1.4.1.1588.2.1.1.1.0.5 "Status Events" WARNING
+FORMAT Fabric Watch has generated an event: Threshold $3 in Class/Area $1 at index $2 has generated event $7 with $5 on $6. The event severity is $8. trap severity level is $9 and SSN is #$10
+SDESC
+trap to be sent by Fabric Watch to notify of an event.
+Variables:
+  1: swFwClassAreaIndex
+  2: swFwThresholdIndex
+  3: swFwName
+  4: swFwLabel
+  5: swFwLastEventVal
+  6: swFwLastEventTime
+  7: swFwLastEvent
+  8: swFwLastState
+  9: swFwLastSeverityLevel
+  10: swSsn
+  11: swVfId
+EDESC
+#
+#
+#
+EVENT swTrackChangesTrap .1.3.6.1.4.1.1588.2.1.1.1.0.6 "Status Events" INFORMATIONAL
+FORMAT Track changes has generated a trap: $1 and SSN is #$2
+SDESC
+trap to be sent for tracking login/logout/config changes.
+Variables:
+  1: swTrackChangesInfo
+  2: swSsn
+  3: swVfId
+EDESC
+#
+#
+#
+EVENT swIPv6ChangeTrap .1.3.6.1.4.1.1588.2.1.1.1.0.7 "Status Events" INFORMATIONAL
+FORMAT IPv6 address status change has generated a trap: 
+SDESC
+This trap is generated when an ipv6 address
+status change event occurs.
+Variables:
+  1: swIPv6Address
+  2: swIPv6Status
+EDESC
+#
+#
+#
+EVENT swPmgrEventTrap .1.3.6.1.4.1.1588.2.1.1.1.0.8 "Status Events" INFORMATIONAL
+FORMAT Partition manager status change has generated a trap: pmgr event of type $1 occured on $5 swVfId and SSN is #$4. Time is $2 and the description is $3  	
+SDESC
+This trap is generated when any partition manager
+change happens.
+Variables:
+  1: swPmgrEventType
+  2: swPmgrEventTime
+  3: swPmgrEventDescr
+  4: swSsn
+  5: swVfId
+EDESC
+#
+#
+#
+EVENT swFabricReconfigTrap .1.3.6.1.4.1.1588.2.1.1.1.0.9 "Status Events" INFORMATIONAL
+FORMAT Fabric reconfiguration has generated a trap: 
+SDESC
+trap to be sent for tracking fabric reconfiguration
+Variables:
+  1: swDomainID
+EDESC
+#
+#
+#
+EVENT swFabricSegmentTrap .1.3.6.1.4.1.1588.2.1.1.1.0.10 "Status Events" INFORMATIONAL
+FORMAT Fabric segmentation has generated a trap: 
+SDESC
+trap to be sent for tracking segmentation
+Variables:
+  1: swFCPortIndex
+  2: swFCPortName
+  3: swSsn
+  4: swFCPortFlag
+  5: swVfId
+EDESC
+#
+#
+#
+EVENT swExtTrap .1.3.6.1.4.1.1588.2.1.1.1.0.11 "Status Events" Normal
+FORMAT THIS IS INTERNAL TRAP $*
+SDESC
+THIS IS INTERNAL TRAP
+Variables:
+EDESC
+#
+#
+#
+EVENT swStateChangeTrap .1.3.6.1.4.1.1588.2.1.1.1.0.12 "Status Events" Normal
+FORMAT This trap is sent whenever switch state changes to online/offline $*
+SDESC
+This trap is sent whenever switch state changes to online/offline
+Variables:
+  1: swOperStatus
+  2: swVfId
+EDESC
+#
+#
+#
+EVENT swPortMoveTrap .1.3.6.1.4.1.1588.2.1.1.1.0.13 "Status Events" Normal
+FORMAT This trap is sent when ports are moved from one switch to another $*
+SDESC
+This trap is sent when ports are moved from one switch to another
+Variables:
+  1: swPortList
+  2: swVfId
+EDESC
+#
+#
+#
+EVENT swDeviceStatusTrap .1.3.6.1.4.1.1588.2.1.1.1.0.15 "Status Events" Normal
+FORMAT This trap is sent whenever there is a device login or logout $*
+SDESC
+This trap is sent whenever there is a device login or logout
+Variables:
+  1: swFCPortSpecifier
+  2: swDeviceStatus
+  3: swEndDevicePortID
+  4: swNsNodeName
+EDESC

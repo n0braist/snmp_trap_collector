@@ -1,0 +1,156 @@
+#
+#
+#
+#
+MIB: CISCO-BGP4-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-BGP4-MIB.mib) converted on Tue Aug 21 15:25:39 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cbgpFsmStateChange .1.3.6.1.4.1.9.9.187.0.1 "Status Events" Normal
+FORMAT The BGP cbgpFsmStateChange notification is generated $*
+SDESC
+The BGP cbgpFsmStateChange notification is generated
+for every BGP FSM state change. The bgpPeerRemoteAddr
+value is attached to the notification object ID.
+Variables:
+  1: bgpPeerLastError
+  2: bgpPeerState
+  3: cbgpPeerLastErrorTxt
+  4: cbgpPeerPrevState
+EDESC
+#
+#
+#
+EVENT cbgpBackwardTransition .1.3.6.1.4.1.9.9.187.0.2 "Status Events" Normal
+FORMAT The cbgpBackwardTransition Event is generated when the $*
+SDESC
+The cbgpBackwardTransition Event is generated when the
+BGP FSM moves from a higher numbered state to a lower
+numbered state. The bgpPeerRemoteAddr value is attached
+to the notification object ID.
+Variables:
+  1: bgpPeerLastError
+  2: bgpPeerState
+  3: cbgpPeerLastErrorTxt
+  4: cbgpPeerPrevState
+EDESC
+#
+#
+#
+EVENT cbgpPrefixThresholdExceeded .1.3.6.1.4.1.9.9.187.0.3 "Status Events" Normal
+FORMAT The cbgpPrefixThresholdExceeded notification is $*
+SDESC
+The cbgpPrefixThresholdExceeded notification is
+generated when prefix count exceeds the configured
+warning threshold on a session for an address
+family. The bgpPeerRemoteAddr, cbgpPeerAddrFamilyAfi
+and cbgpPeerAddrFamilySafi values are attached to the
+notification object ID.
+Variables:
+  1: cbgpPeerPrefixAdminLimit
+  2: cbgpPeerPrefixThreshold
+EDESC
+#
+#
+#
+EVENT cbgpPrefixThresholdClear .1.3.6.1.4.1.9.9.187.0.4 "Status Events" Normal
+FORMAT The cbgpPrefixThresholdClear notification is $*
+SDESC
+The cbgpPrefixThresholdClear notification is
+generated when prefix count drops below the configured
+clear threshold on a session for an address family once
+cbgpPrefixThresholdExceeded is generated. This won't
+be generated if the peer session goes down after the
+generation of cbgpPrefixThresholdExceeded.
+The bgpPeerRemoteAddr, cbgpPeerAddrFamilyAfi and
+cbgpPeerAddrFamilySafi values are attached to the
+notification object ID.
+Variables:
+  1: cbgpPeerPrefixAdminLimit
+  2: cbgpPeerPrefixClearThreshold
+EDESC
+#
+#
+#
+EVENT cbgpPeer2EstablishedNotification .1.3.6.1.4.1.9.9.187.0.5 "Status Events" Normal
+FORMAT The cbgpPeer2EstablishedNotification notification $*
+SDESC
+The cbgpPeer2EstablishedNotification notification
+is generated when the BGP FSM enters the established
+state.
+Variables:
+  1: cbgpPeer2LastError
+  2: cbgpPeer2State
+EDESC
+#
+#
+#
+EVENT cbgpPeer2BackwardTransNotification .1.3.6.1.4.1.9.9.187.0.6 "Status Events" Normal
+FORMAT The cbgpPeer2BackwardTransNotification notification $*
+SDESC
+The cbgpPeer2BackwardTransNotification notification
+is generated when the BGP FSM moves from a higher
+numbered state to a lower numbered state.
+Variables:
+  1: cbgpPeer2LastError
+  2: cbgpPeer2State
+EDESC
+#
+#
+#
+EVENT cbgpPeer2FsmStateChange .1.3.6.1.4.1.9.9.187.0.7 "Status Events" Normal
+FORMAT The cbgpPeer2FsmStateChange notification is generated $*
+SDESC
+The cbgpPeer2FsmStateChange notification is generated
+for every BGP FSM state change.
+Variables:
+  1: cbgpPeer2LastError
+  2: cbgpPeer2State
+  3: cbgpPeer2LastErrorTxt
+  4: cbgpPeer2PrevState
+EDESC
+#
+#
+#
+EVENT cbgpPeer2BackwardTransition .1.3.6.1.4.1.9.9.187.0.8 "Status Events" Normal
+FORMAT The cbgpPeer2BackwardTransition notification is $*
+SDESC
+The cbgpPeer2BackwardTransition notification is
+generated when the BGP FSM moves from a higher numbered
+state to a lower numbered state.
+Variables:
+  1: cbgpPeer2LastError
+  2: cbgpPeer2State
+  3: cbgpPeer2LastErrorTxt
+  4: cbgpPeer2PrevState
+EDESC
+#
+#
+#
+EVENT cbgpPeer2PrefixThresholdExceeded .1.3.6.1.4.1.9.9.187.0.9 "Status Events" Normal
+FORMAT The cbgpPeer2PrefixThresholdExceeded notification is $*
+SDESC
+The cbgpPeer2PrefixThresholdExceeded notification is
+generated when prefix count exceeds the configured
+warning threshold on a session for an address
+family.
+Variables:
+  1: cbgpPeer2PrefixAdminLimit
+  2: cbgpPeer2PrefixThreshold
+EDESC
+#
+#
+#
+EVENT cbgpPeer2PrefixThresholdClear .1.3.6.1.4.1.9.9.187.0.10 "Status Events" Normal
+FORMAT The cbgpPeer2PrefixThresholdClear notification is $*
+SDESC
+The cbgpPeer2PrefixThresholdClear notification is
+generated when prefix count drops below the configured
+clear threshold on a session for an address family once
+cbgpPeer2PrefixThresholdExceeded is generated.
+This will not be generated if the peer session goes down
+after the generation of cbgpPrefixThresholdExceeded.
+Variables:
+  1: cbgpPeer2PrefixAdminLimit
+  2: cbgpPeer2PrefixClearThreshold
+EDESC

@@ -1,0 +1,91 @@
+#
+#
+#
+#
+MIB: CISCO-RTTMON-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-RTTMON-MIB.my.txt) converted on Tue Sep  6 13:51:22 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT rttMonConnectionChangeNotification .1.3.6.1.4.1.9.9.42.2.0.1 "Status Events" Normal
+FORMAT This notification is only valid when the RttMonRttType $*
+SDESC
+This notification is only valid when the RttMonRttType
+is 'echo' or 'pathEcho'.
+A rttMonConnectionChangeNotification indicates that a
+connection to a target (not to a hop along the path
+to a target) has either failed on establishment or 
+been lost and when reestablished.  Precisely, this
+has resulted in rttMonCtrlOperConnectionLostOccurred
+changing value.
+If History is not being collected, the instance values 
+for the rttMonHistoryCollectionAddress object will not 
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.
+Variables:
+  1: rttMonCtrlAdminTag
+  2: rttMonHistoryCollectionAddress
+  3: rttMonCtrlOperConnectionLostOccurred
+EDESC
+#
+#
+#
+EVENT rttMonTimeoutNotification .1.3.6.1.4.1.9.9.42.2.0.2 "Status Events" Normal
+FORMAT A rttMonTimeoutNotification indicates the occurrence of  $*
+SDESC
+A rttMonTimeoutNotification indicates the occurrence of 
+a timeout for a RTT operation, and it indicates the 
+clearing of such a condition by a subsequent RTT 
+operation. Precisely, this has resulted in 
+rttMonCtrlOperTimeoutOccurred changing value. 
+When the RttMonRttType is 'pathEcho', this 
+notification will only be sent when the timeout 
+occurs during an operation to the target and not to
+a hop along the path to the target.  This also 
+applies to the clearing of the timeout. 
+If History is not being collected, the instance values 
+for the rttMonHistoryCollectionAddress object will not 
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.
+Variables:
+  1: rttMonCtrlAdminTag
+  2: rttMonHistoryCollectionAddress
+  3: rttMonCtrlOperTimeoutOccurred
+EDESC
+#
+#
+#
+EVENT rttMonThresholdNotification .1.3.6.1.4.1.9.9.42.2.0.3 "Status Events" Normal
+FORMAT A rttMonThresholdNotification indicates the  $*
+SDESC
+A rttMonThresholdNotification indicates the 
+occurrence of a threshold violation for a RTT operation,
+and it indicates the previous violation has subsided for
+a subsequent RTT operation.  Precisely, this has resulted
+in rttMonCtrlOperOverThresholdOccurred changing value.  
+When the RttMonRttType is 'pathEcho', this 
+notification will only be sent when the threshold
+violation occurs during an operation to the target and
+not to a hop along the path to the target.  This also
+applies to the subsiding of a threshold condition.
+If History is not being collected, the instance values 
+for the rttMonHistoryCollectionAddress object will not 
+be valid.  When RttMonRttType is not 'echo' or 'pathEcho'
+the rttMonHistoryCollectionAddress object will be null.
+Variables:
+  1: rttMonCtrlAdminTag
+  2: rttMonHistoryCollectionAddress
+  3: rttMonCtrlOperOverThresholdOccurred
+EDESC
+#
+#
+#
+EVENT rttMonVerifyErrorNotification .1.3.6.1.4.1.9.9.42.2.0.4 "Status Events" Normal
+FORMAT A rttMonVerifyErrorNotification indicates the  $*
+SDESC
+A rttMonVerifyErrorNotification indicates the 
+occurrence of a data corruption in an RTT operation.
+Variables:
+  1: rttMonCtrlAdminTag
+  2: rttMonHistoryCollectionAddress
+  3: rttMonCtrlOperVerifyErrorOccurred
+EDESC

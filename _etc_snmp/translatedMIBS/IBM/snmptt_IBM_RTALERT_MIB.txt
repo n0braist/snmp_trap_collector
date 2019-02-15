@@ -1,0 +1,585 @@
+#
+#
+#
+#
+MIB: RSASPPALT-MIB (file:/tmp/IBM_Hardware/IBM_RTALERT.MIB) converted on Mon Dec  2 13:44:00 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ibmSpTrapTempC .1.3.6.1.4.1.2.6.158.4.0.0 "Status Events" Normal
+FORMAT Critical Alert: Temperature threshold exceeded. $*
+SDESC
+Critical Alert: Temperature threshold exceeded.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapVoltC .1.3.6.1.4.1.2.6.158.4.0.1 "Status Events" Normal
+FORMAT Critical Alert: Voltage threshold exceeded. $*
+SDESC
+Critical Alert: Voltage threshold exceeded.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapTampC .1.3.6.1.4.1.2.6.158.4.0.2 "Status Events" Normal
+FORMAT Critical Alert: Physical intrusion of system has occurred. $*
+SDESC
+Critical Alert: Physical intrusion of system has occurred.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapMffC .1.3.6.1.4.1.2.6.158.4.0.3 "Status Events" Normal
+FORMAT Critical Alert: Multiple fan failure. $*
+SDESC
+Critical Alert: Multiple fan failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPsC .1.3.6.1.4.1.2.6.158.4.0.4 "Status Events" Normal
+FORMAT Critical Alert: Power supply failure. $*
+SDESC
+Critical Alert: Power supply failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapHdC .1.3.6.1.4.1.2.6.158.4.0.5 "Status Events" Normal
+FORMAT Critical Alert: Hard disk drive failure. $*
+SDESC
+Critical Alert: Hard disk drive failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapVrmC .1.3.6.1.4.1.2.6.158.4.0.6 "Status Events" Normal
+FORMAT Critical Alert: Voltage Regulator Module(VRM) failure. $*
+SDESC
+Critical Alert: Voltage Regulator Module(VRM) failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapSffC .1.3.6.1.4.1.2.6.158.4.0.11 "Status Events" Normal
+FORMAT Critical Alert: Single Fan failure. $*
+SDESC
+Critical Alert: Single Fan failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapIhcC .1.3.6.1.4.1.2.6.158.4.0.36 "Status Events" Normal
+FORMAT Critical Alert: Incompatible hardware configuration. $*
+SDESC
+Critical Alert: Incompatible hardware configuration.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapRdpsN .1.3.6.1.4.1.2.6.158.4.0.10 "Status Events" Normal
+FORMAT Non-Critical Alert: Redundant Power Supply failure. $*
+SDESC
+Non-Critical Alert: Redundant Power Supply failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapTempN .1.3.6.1.4.1.2.6.158.4.0.12 "Status Events" Normal
+FORMAT Non-Critical Alert: Temperature threshold exceeded. $*
+SDESC
+Non-Critical Alert: Temperature threshold exceeded.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapVoltN .1.3.6.1.4.1.2.6.158.4.0.13 "Status Events" Normal
+FORMAT Non-Critical Alert: Voltage threshold exceeded. $*
+SDESC
+Non-Critical Alert: Voltage threshold exceeded.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapRmN .1.3.6.1.4.1.2.6.158.4.0.32 "Status Events" Normal
+FORMAT Non-Critical Alert: Redundant module. $*
+SDESC
+Non-Critical Alert: Redundant module.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapRLogin .1.3.6.1.4.1.2.6.158.4.0.30 "Status Events" Normal
+FORMAT Sev-Off Alert: Event Remote Login. $*
+SDESC
+Sev-Off Alert: Event Remote Login.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapLogFull .1.3.6.1.4.1.2.6.158.4.0.7 "Status Events" Normal
+FORMAT Sev-Off Alert: Event error log 100 percent full. $*
+SDESC
+Sev-Off Alert: Event error log 100 percent full.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapLog75 .1.3.6.1.4.1.2.6.158.4.0.14 "Status Events" Normal
+FORMAT Sev-Off Alert: Event error log 75 percent full. $*
+SDESC
+Sev-Off Alert: Event error log 75 percent full.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapSecDvS .1.3.6.1.4.1.2.6.158.4.0.15 "Status Events" Normal
+FORMAT System Alert: Secondary Device warning. $*
+SDESC
+System Alert: Secondary Device warning.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPostToS .1.3.6.1.4.1.2.6.158.4.0.20 "Status Events" Normal
+FORMAT System Alert: Post Timeout value exceeded. $*
+SDESC
+System Alert: Post Timeout value exceeded.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapOsToS .1.3.6.1.4.1.2.6.158.4.0.21 "Status Events" Normal
+FORMAT System Alert: OS Timeout value exceeded. $*
+SDESC
+System Alert: OS Timeout value exceeded.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapAppS .1.3.6.1.4.1.2.6.158.4.0.22 "Status Events" Normal
+FORMAT System Alert: Application Alert. $*
+SDESC
+System Alert: Application Alert.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPoffS .1.3.6.1.4.1.2.6.158.4.0.23 "Status Events" Normal
+FORMAT System Alert: Power Off. $*
+SDESC
+System Alert: Power Off.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPonS .1.3.6.1.4.1.2.6.158.4.0.24 "Status Events" Normal
+FORMAT System Alert: Power On. $*
+SDESC
+System Alert: Power On.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapBootS .1.3.6.1.4.1.2.6.158.4.0.25 "Status Events" Normal
+FORMAT System Alert: System Boot Failure. $*
+SDESC
+System Alert: System Boot Failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapLdrToS .1.3.6.1.4.1.2.6.158.4.0.26 "Status Events" Normal
+FORMAT System Alert: OS Loader Timeout. $*
+SDESC
+System Alert: OS Loader Timeout.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPFAS .1.3.6.1.4.1.2.6.158.4.0.27 "Status Events" Normal
+FORMAT System Alert: Predictive Failure Analysis(PFA) information. $*
+SDESC
+System Alert: Predictive Failure Analysis(PFA) information.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapKVMSwitchS .1.3.6.1.4.1.2.6.158.4.0.33 "Status Events" Normal
+FORMAT System Alert: Keyboard/Video/Mouse(KVM) or Medial Tray(MT) switching failure. $*
+SDESC
+System Alert: Keyboard/Video/Mouse(KVM) or Medial Tray(MT) switching failure.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapSysInvS .1.3.6.1.4.1.2.6.158.4.0.34 "Status Events" Normal
+FORMAT System Alert: Inventory. $*
+SDESC
+System Alert: Inventory.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapSysLogS .1.3.6.1.4.1.2.6.158.4.0.35 "Status Events" Normal
+FORMAT System Alert: System Log 75% full. $*
+SDESC
+System Alert: System Log 75% full.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapNwChangeS .1.3.6.1.4.1.2.6.158.4.0.37 "Status Events" Normal
+FORMAT System Alert: Network change notification. $*
+SDESC
+System Alert: Network change notification.
+Variables:
+  1: ibmSpTrapDateTime
+  2: ibmSpTrapAppId
+  3: ibmSpTrapSpTxtId
+  4: ibmSpTrapSpNumId
+  5: ibmSpTrapSysUuid
+  6: ibmSpTrapSysSern
+  7: ibmSpTrapAppType
+  8: ibmSpTrapPriority
+  9: ibmSpTrapMsgText
+  10: ibmSpTrapHostContact
+  11: ibmSpTrapHostLocation
+EDESC

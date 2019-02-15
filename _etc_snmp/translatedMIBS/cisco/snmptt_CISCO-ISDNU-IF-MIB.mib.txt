@@ -1,0 +1,19 @@
+#
+#
+#
+#
+MIB: CISCO-ISDNU-IF-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ISDNU-IF-MIB.mib) converted on Tue Aug 21 15:26:12 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciuIfLoopStatusNotification .1.3.6.1.4.1.9.9.18.2.0.1 "Status Events" Normal
+FORMAT  A ciuIfLoopStatusNotification is sent when there is a $*
+SDESC
+ A ciuIfLoopStatusNotification is sent when there is a
+change in ciscoIsdnuIfLoopStatus object. The status change
+occurs when the ISDN BRI integrated U interface enters into
+or exits from Loopback or Maintenance modes.
+
+Variables:
+  1: ciuIfLoopStatus
+EDESC

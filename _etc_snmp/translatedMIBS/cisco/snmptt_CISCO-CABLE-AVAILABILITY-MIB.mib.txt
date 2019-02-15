@@ -1,0 +1,42 @@
+#
+#
+#
+#
+MIB: CISCO-CABLE-AVAILABILITY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CABLE-AVAILABILITY-MIB.mib) converted on Tue Aug 21 15:25:40 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ccaHCCPOnNotification .1.3.6.1.4.1.9.9.242.2.0.1 "Status Events" Normal
+FORMAT A notification that is sent when failover occurred and  $*
+SDESC
+A notification that is sent when failover occurred and 
+this interface is taking over the traffic from the peer.
+For example if Protect is taking over a Working member 
+from it's protection group,this notification is
+sent by the Protect. When Working is restored to operation
+and is now taking over from the Protect, this
+notification is sent by Working.
+Variables:
+  1: ccaHCCPGroupIfStatus
+  2: ccaHCCPGroupIfLastSwitchReason
+  3: ccaHCCPMemberState
+EDESC
+#
+#
+#
+EVENT ccaHCCPOffNotification .1.3.6.1.4.1.9.9.242.2.0.2 "Status Events" Normal
+FORMAT A notification that is sent when failover occurs and this $*
+SDESC
+A notification that is sent when failover occurs and this
+interface is turning over all traffic to it's peer and is 
+now blocking. 
+For example if Protect is taking over a Working member
+from it's protection group,this notification is
+sent by the Working. When Working is restored to operation
+and is now taking over from the Protect, this   
+notification is sent by Protect.
+Variables:
+  1: ccaHCCPGroupIfStatus
+  2: ccaHCCPGroupIfLastSwitchReason
+  3: ccaHCCPMemberState
+EDESC

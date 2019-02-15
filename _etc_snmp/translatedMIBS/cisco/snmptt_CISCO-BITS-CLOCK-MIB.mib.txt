@@ -1,0 +1,48 @@
+#
+#
+#
+#
+MIB: CISCO-BITS-CLOCK-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-BITS-CLOCK-MIB.mib) converted on Tue Aug 21 15:25:40 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoBitsClockSource .1.3.6.1.4.1.9.9.459.0.1 "Status Events" Normal
+FORMAT Indicates the clock source has switch roles as clock  $*
+SDESC
+Indicates the clock source has switch roles as clock 
+source as indicated by cBitsClkSourceRoleCurrent
+Variables:
+  1: entPhysicalDescr
+  2: cBitsClkSourceDescription
+  3: cBitsClkSourceRoleAdmin
+  4: cBitsClkSourceRoleCurrent
+EDESC
+#
+#
+#
+EVENT ciscoBitsClockFreerun .1.3.6.1.4.1.9.9.459.0.2 "Status Events" Normal
+FORMAT An external clock source is unavailable.  The internal  $*
+SDESC
+An external clock source is unavailable.  The internal 
+clock will operate in freerun mode using appropiate 
+local oscillator. Therefore, it does not provide 
+synchronous clocking. This is the least stable of 
+all operating modes. 
+Variables:
+  1: entPhysicalDescr
+EDESC
+#
+#
+#
+EVENT ciscoBitsClockHoldover .1.3.6.1.4.1.9.9.459.0.3 "Status Events" Normal
+FORMAT An external clock source is unavailable. The internal  $*
+SDESC
+An external clock source is unavailable. The internal 
+clock will operate in holdover mode. The network clock 
+module has stored information about the incoming clock
+signal, it can faithfully reproduce the lost signal 
+while in holdover mode until a switchover to 
+another clock source occurs. 
+Variables:
+  1: entPhysicalDescr
+EDESC

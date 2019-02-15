@@ -1,0 +1,393 @@
+WITS-CS-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+   witsCSFamily
+      FROM WITS-CSFAMILY-MIB
+   MODULE-IDENTITY,
+   OBJECT-TYPE,
+   Counter32,
+   Gauge32,
+   Integer32
+      FROM SNMPv2-SMI
+   OBJECT-GROUP
+      FROM SNMPv2-CONF;
+
+witsCS MODULE-IDENTITY
+   LAST-UPDATED "200506081709Z"
+   ORGANIZATION "Witness Systems"
+   CONTACT-INFO
+      "support@witness.com"
+   DESCRIPTION
+      "The MIB for items common to all ContactStores"
+   REVISION "200506081709Z"
+   DESCRIPTION
+      "Initial version."
+   ::= { witsCSFamily 1 }
+
+
+witscsType OBJECT-TYPE
+   SYNTAX  INTEGER {
+         cscm(2)  -- ContactStore for Communication Manager
+         }
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The type of the ContactStore"
+   ::= { witsCS 1 }
+
+
+witscsSerial OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The serial number of the ContactStore"
+   ::= { witsCS 2 }
+
+
+witscsVersion OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The software version of the ContactStore"
+   ::= { witsCS 3 }
+
+
+witscsStats OBJECT IDENTIFIER    ::= { witsCS 4 }
+
+witscsUpTime OBJECT-TYPE
+   SYNTAX  Gauge32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The recorder's uptime"
+   ::= { witscsStats 1 }
+
+
+witscsRecsEver OBJECT-TYPE
+   SYNTAX  Counter32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The total number of recordings ever made by this recorder"
+   ::= { witscsStats 2 }
+
+
+witscsRecsThisRun OBJECT-TYPE
+   SYNTAX  Counter32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The total number of recordings made by the recorder since restart"
+   ::= { witscsStats 3 }
+
+
+witscsRecsToday OBJECT-TYPE
+   SYNTAX  Counter32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The total number of recordings made today"
+   ::= { witscsStats 4 }
+
+
+witscsHealth OBJECT IDENTIFIER   ::= { witsCS 5 }
+
+witscsFreeMem OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The amount of free process memory"
+   ::= { witscsHealth 1 }
+
+
+witscsFreeCalls OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The amount of disk space free in the calls partition"
+   ::= { witscsHealth 2 }
+
+
+witscsAlarms OBJECT IDENTIFIER   ::= { witsCS 6 }
+
+witscsMajorAlarms OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The number of major alarms"
+   ::= { witscsAlarms 1 }
+
+
+witscsMinorAlarms OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The number of minor alarms"
+   ::= { witscsAlarms 2 }
+
+
+witscsWarnings OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The number of warning alarms"
+   ::= { witscsAlarms 3 }
+
+
+witscsInfos OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The number of information alarms"
+   ::= { witscsAlarms 4 }
+
+
+witscsTotalAlarms OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The total number of alarms"
+   ::= { witscsAlarms 5 }
+
+
+witscsAlarmsDetails OBJECT IDENTIFIER  ::= { witscsAlarms 6 }
+
+witscsAlarmsCount OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The size of the alarms details table"
+   ::= { witscsAlarmsDetails 1 }
+
+
+witscsAlarmsTable OBJECT-TYPE
+   SYNTAX  SEQUENCE OF WitscsAlarmsTableEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscsAlarmsDetails 2 }
+
+
+witscsAlarmsTableEntry OBJECT-TYPE
+   SYNTAX  WitscsAlarmsTableEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   INDEX {
+      witscsAlarmIndex }
+   ::= { witscsAlarmsTable 1 }
+
+
+WitscsAlarmsTableEntry ::= SEQUENCE {
+
+   witscsAlarmIndex    Integer32,
+   witscsAlarmTime     OCTET STRING,
+   witscsAlarmSeverity INTEGER,
+   witscsAlarmBody     OCTET STRING,
+   witscsAlarmToken    OCTET STRING,
+   witscsAlarmP1       OCTET STRING,
+   witscsAlarmP2       OCTET STRING,
+   witscsAlarmP3       OCTET STRING,
+   witscsAlarmP4       OCTET STRING,
+   witscsAlarmP5       OCTET STRING,
+   witscsAlarmP6       OCTET STRING,
+   witscsAlarmP7       OCTET STRING,
+   witscsAlarmP8       OCTET STRING,
+   witscsAlarmP9       OCTET STRING,
+   witscsAlarmP10      OCTET STRING }
+
+
+witscsAlarmIndex OBJECT-TYPE
+   SYNTAX  Integer32 (1..999999999999)
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The unique alarm identifier"
+   ::= { witscsAlarmsTableEntry 1 }
+
+
+witscsAlarmTime OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The time of the alarm"
+   ::= { witscsAlarmsTableEntry 2 }
+
+
+witscsAlarmSeverity OBJECT-TYPE
+   SYNTAX  INTEGER {
+         info(0),    -- Information
+         warn(1),    -- Warn
+         minor(2),   -- Minor
+         major(3)    -- Major
+         }
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The level of the alarm"
+   ::= { witscsAlarmsTableEntry 3 }
+
+
+witscsAlarmBody OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The full alarm in English"
+   ::= { witscsAlarmsTableEntry 4 }
+
+
+witscsAlarmToken OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The name of the alarm error message"
+   ::= { witscsAlarmsTableEntry 5 }
+
+
+witscsAlarmP1 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 6 }
+
+
+witscsAlarmP2 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 7 }
+
+
+witscsAlarmP3 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 8 }
+
+
+witscsAlarmP4 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 9 }
+
+
+witscsAlarmP5 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 10 }
+
+
+witscsAlarmP6 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 11 }
+
+
+witscsAlarmP7 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 12 }
+
+
+witscsAlarmP8 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 13 }
+
+
+witscsAlarmP9 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 14 }
+
+
+witscsAlarmP10 OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "An alarm parameter"
+   ::= { witscsAlarmsTableEntry 15 }
+
+
+witscsConformance OBJECT IDENTIFIER    ::= { witsCS 99 }
+
+witscsGroups OBJECT IDENTIFIER   ::= { witscsConformance 1 }
+
+witscsGroup1 OBJECT-GROUP
+   OBJECTS {
+      witscsType,
+      witscsSerial,
+      witscsVersion,
+      witscsUpTime,
+      witscsRecsEver,
+      witscsRecsThisRun,
+      witscsRecsToday,
+      witscsFreeMem,
+      witscsFreeCalls,
+      witscsMajorAlarms,
+      witscsMinorAlarms,
+      witscsWarnings,
+      witscsInfos,
+      witscsTotalAlarms,
+      witscsAlarmsCount,
+      witscsAlarmIndex,
+      witscsAlarmTime,
+      witscsAlarmSeverity,
+      witscsAlarmBody,
+      witscsAlarmToken,
+      witscsAlarmP1,
+      witscsAlarmP2,
+      witscsAlarmP3,
+      witscsAlarmP4,
+      witscsAlarmP5,
+      witscsAlarmP6,
+      witscsAlarmP7,
+      witscsAlarmP8,
+      witscsAlarmP9,
+      witscsAlarmP10 }
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscsGroups 1 }
+
+END

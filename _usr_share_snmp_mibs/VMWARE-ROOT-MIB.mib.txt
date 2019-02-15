@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: VMWARE-ROOT-MIB (file:./VMWARE-ROOT-MIB.mib) converted on Tue Oct 21 10:44:31 2014 using snmpttconvertmib v1.3

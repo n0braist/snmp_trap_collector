@@ -1,0 +1,80 @@
+#
+#
+#
+#
+MIB: CISCO-TAP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-TAP-MIB.mib) converted on Tue Aug 21 15:26:38 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cTapMIBActive .1.3.6.1.4.1.9.9.252.0.1 "Status Events" Normal
+FORMAT This Notification is sent when an intercepting router or $*
+SDESC
+This Notification is sent when an intercepting router or
+switch is first capable of intercepting a packet corresponding
+to a configured data stream. If the configured data stream is
+an IP one, the value of the corresponding cTapStreamIpStatus 
+is included in this notification. If the configured data stream
+is an IEEE 802 one, the value of the corresponding 
+cTapStream802Status is included in this notification. 
+This notification may be generated in conjunction with the
+intercept application, which is designed to expect the
+notification to be sent as reliably as possible, e.g., through
+the use of a finite number of retransmissions until
+acknowledged, as and when such mechanisms are available; for
+example, with SNMPv3, this would be an InformRequest.  Filter
+installation can take a long period of time, during which call
+progress may be delayed.
+Variables:
+EDESC
+#
+#
+#
+EVENT cTapMediationTimedOut .1.3.6.1.4.1.9.9.252.0.2 "Status Events" Normal
+FORMAT When an intercept is autonomously removed by an intercepting $*
+SDESC
+When an intercept is autonomously removed by an intercepting
+device, such as due to the time specified in
+cTapMediationTimeout arriving, the device notifies the manager
+of the action.
+Variables:
+  1: cTapMediationStatus
+EDESC
+#
+#
+#
+EVENT cTapMediationDebug .1.3.6.1.4.1.9.9.252.0.3 "Status Events" Normal
+FORMAT When there is intervention needed due to some events related $*
+SDESC
+When there is intervention needed due to some events related
+to entries configured in cTapMediationTable, the device
+notifies the manager of the event.
+This notification may be generated in conjunction with the
+intercept application, which is designed to expect the
+notification to be sent as reliably as possible, e.g., through
+the use of a finite number of retransmissions until
+acknowledged, as and when such mechanisms are available; for
+example, with SNMPv3, this would be an InformRequest.
+Variables:
+  1: cTapMediationContentId
+  2: cTapDebugIndex
+EDESC
+#
+#
+#
+EVENT cTapStreamIpDebug .1.3.6.1.4.1.9.9.252.0.4 "Status Events" Normal
+FORMAT When there is intervention needed due to some events related $*
+SDESC
+When there is intervention needed due to some events related
+to entries configured in cTapStreamIpTable, the device
+notifies the manager of the event.
+This notification may be generated in conjunction with the
+intercept application, which is designed to expect the
+notification to be sent as reliably as possible, e.g., through
+the use of a finite number of retransmissions until
+acknowledged, as and when such mechanisms are available; for
+example, with SNMPv3, this would be an InformRequest.
+Variables:
+  1: cTapMediationContentId
+  2: cTapStreamIpIndex
+  3: cTapDebugIndex
+EDESC

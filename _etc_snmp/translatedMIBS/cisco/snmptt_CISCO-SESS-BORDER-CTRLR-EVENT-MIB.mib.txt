@@ -1,0 +1,612 @@
+#
+#
+#
+#
+MIB: CISCO-SESS-BORDER-CTRLR-EVENT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SESS-BORDER-CTRLR-EVENT-MIB.mib) converted on Tue Aug 21 15:26:31 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT csbSourceAlertEvent .1.3.6.1.4.1.9.9.658.0.1 "Status Events" Normal
+FORMAT This notification is generated when after SIP/H.248 call $*
+SDESC
+This notification is generated when after SIP/H.248 call
+establishment with one party, the media packets are received
+from some unexpected source/party (or some wrong/unexpected IP
+address).
+This is to alert that some unwanted data packets are received 
+by the system from an undesirable IP/port.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbSrcAlertVdbeId
+  7: csbSrcAlertGateId
+  8: csbSrcAlertFlowPairId
+  9: csbSrcAlertLocalAddressType
+  10: csbSrcAlertLocalAddress
+  11: csbSrcAlertLocalPort
+  12: csbSrcAlertRemoteAddressType
+  13: csbSrcAlertRemoteAddress
+  14: csbSrcAlertRemotePort
+  15: csbSrcAlertVpnId
+  16: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbDynamicBlackListEvent .1.3.6.1.4.1.9.9.658.0.2 "Status Events" Normal
+FORMAT This notification is generated when a source is added to or $*
+SDESC
+This notification is generated when a source is added to or
+removed from the blacklist table. Dynamic blacklists put in
+place automatically (subject to a set of configurable
+constraints) by the SBC when it detects an attempt to disrupt
+traffic flowing through it. Dynamic blacklisting does not
+require management interference. Blacklist table is 
+restricted only to SBC service. This table is not made
+available to NM. For more Information on Dynamic Blacklisting
+refer to the following link:
+http://lbj.cisco.com/push_targets1/ucdit/cc/td/doc/product/ioxso
+ft/iox34/cgcr34/sbc_c34/sbc34dos.htm
+or 
+Search cisco.com using keywords 'DoS Prevention and Dynamic
+Blacklisting'.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbDynamicBlackListSubFamily
+  7: csbDynamicBlackListVpnId
+  8: csbDynamicBlackListAddressType
+  9: csbDynamicBlackListAddress
+  10: csbDynamicBlackListTransportType
+  11: csbDynamicBlackListPortNumber
+  12: csbDynamicBlackListSrcBlocked
+  13: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbAdjacencyStatus .1.3.6.1.4.1.9.9.658.0.3 "Status Events" Normal
+FORMAT This notification is generated when an Adjacency is attached $*
+SDESC
+This notification is generated when an Adjacency is attached
+to (or detached from) the SBC.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbAdjacencyState
+  7: csbAdjacencyType
+  8: csbAdjacencyName
+  9: csbAdjacencyAccountName
+  10: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbServiceStateEvent .1.3.6.1.4.1.9.9.658.0.4 "Status Events" Normal
+FORMAT This notification is generated when there is a change in the $*
+SDESC
+This notification is generated when there is a change in the
+state of a service card. The changes in the service state are:
+-Active 
+-Standby
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbSBCServiceState
+  7: csbSBCServiceSlot
+  8: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbSystemCongestionAlarmEvent .1.3.6.1.4.1.9.9.658.0.5 "Status Events" Normal
+FORMAT This notification is generated when CPU/Memory congestion in $*
+SDESC
+This notification is generated when CPU/Memory congestion in
+SBC is raised or cleared.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbCongestionAlarmType
+  7: csbCongestionAlarmState
+  8: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbSLAViolation .1.3.6.1.4.1.9.9.658.0.6 "Status Events" Normal
+FORMAT This notification is generated when there is a violation of $*
+SDESC
+This notification is generated when there is a violation of
+Service Level Agreement as described in the policy tables. The
+typical service level agreements include maximum number of
+calls allowed, max call rate, max bandwidth etc.
+This notification has been replaced by the csbSLAViolationRev1 
+notification.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbSLAPolicyAccountName
+  7: csbSLAPolicyScope
+  8: csbSLAPolicyLimit
+  9: csbSLACurrentUsage
+  10: csbSLAViolationEvent
+  11: csbSLAPolicyRestriction
+  12: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbRadiusConnectionStatus .1.3.6.1.4.1.9.9.658.0.7 "Status Events" Normal
+FORMAT This notification is generated when the connection to the $*
+SDESC
+This notification is generated when the connection to the
+radius server changes (connected or disconnected).
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbRadiusConnectionState
+  7: csbRadiusType
+  8: csbRadiusServerName
+  9: csbRadiusServerAddressType
+  10: csbRadiusServerAddress
+  11: csbRadiusServerPriority
+  12: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbDiameterConnectionStatus .1.3.6.1.4.1.9.9.658.0.8 "Status Events" Normal
+FORMAT This notification is generated when the connection to the $*
+SDESC
+This notification is generated when the connection to the
+diameter server changes (connected or disconnected).
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbDiameterConnectionState
+  7: csbDiameterType
+  8: csbDiameterGroupName
+  9: csbDiameterServerName
+  10: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbH248ControllerStatus .1.3.6.1.4.1.9.9.658.0.9 "Status Events" Normal
+FORMAT This notification is generated when in distributed deployment $*
+SDESC
+This notification is generated when in distributed deployment
+model, a DBE is attached or detached from the SBC.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbH248ControllerState
+  7: csb248ControllerAddressType
+  8: csbH248ControllerAddress
+  9: csbH248ControllerPort
+  10: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbSLAViolationRev1 .1.3.6.1.4.1.9.9.658.0.10 "Status Events" Normal
+FORMAT This notification is generated when there is a violation of $*
+SDESC
+This notification is generated when there is a violation of
+Service Level Agreement as described in the policy tables. The
+typical service level agreements include maximum number of
+alls allowed, max call rate, max bandwidth etc.
+This notification replaces the csbSLAViolation notification.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbSLAPolicyAccountName
+  7: csbSLAPolicyScope
+  8: csbSLAPolicyLimitRev1
+  9: csbSLACurrentUsageRev1
+  10: csbSLAViolationEvent
+  11: csbSLAPolicyRestriction
+  12: csbAlarmDescription
+EDESC
+#
+#
+#
+EVENT csbQOSUnansweredCallRatioEvent .1.3.6.1.4.1.9.9.658.0.11 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for Unanswered $*
+SDESC
+This notification is generated when QOS metric for Unanswered
+Call Ratio (UCR) crosses a configured threshold and attains
+either of minor, major or critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertCurrentLevel
+  11: csbQOSAlertPreviousLevel
+  12: csbQOSNormalAlertCount
+  13: csbQOSMinorAlertCount
+  14: csbQOSCriticalAlertCount
+  15: csbAlarmDescription
+  16: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSUnansweredCallRatioClearEvent .1.3.6.1.4.1.9.9.658.0.12 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for unanswered $*
+SDESC
+This notification is generated when QOS metric for unanswered
+call ratio (UCR) reaches back to normal level from one of the
+major/minor/critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertPreviousLevel
+  11: csbQOSNormalAlertCount
+  12: csbQOSMinorAlertCount
+  13: csbQOSCriticalAlertCount
+  14: csbAlarmDescription
+  15: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSPercentPktLostEvent .1.3.6.1.4.1.9.9.658.0.13 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for percentage $*
+SDESC
+This notification is generated when QOS metric for percentage
+of media packets lost crosses a configured threshold and attains
+either of minor, major or critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertCurrentLevel
+  11: csbQOSAlertPreviousLevel
+  12: csbQOSNormalAlertCount
+  13: csbQOSMinorAlertCount
+  14: csbQOSCriticalAlertCount
+  15: csbAlarmDescription
+  16: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSPercentPktLostClearEvent .1.3.6.1.4.1.9.9.658.0.14 "Status Events" Normal
+FORMAT This notification is raised whenever QOS metric for percentage $*
+SDESC
+This notification is raised whenever QOS metric for percentage
+media packet lost reaches back to normal level from one of the
+major/minor/critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertPreviousLevel
+  11: csbQOSNormalAlertCount
+  12: csbQOSMinorAlertCount
+  13: csbQOSCriticalAlertCount
+  14: csbAlarmDescription
+  15: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSPercentPktDropEvent .1.3.6.1.4.1.9.9.658.0.15 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for percentage $*
+SDESC
+This notification is generated when QOS metric for percentage
+of media packets dropped crosses a configured threshold and
+attains either of minor, major or critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertCurrentLevel
+  11: csbQOSAlertPreviousLevel
+  12: csbQOSNormalAlertCount
+  13: csbQOSMinorAlertCount
+  14: csbQOSCriticalAlertCount
+  15: csbAlarmDescription
+  16: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSPercentPktDropClearEvent .1.3.6.1.4.1.9.9.658.0.16 "Status Events" Normal
+FORMAT This notification is raised whenever QOS metric for percentage $*
+SDESC
+This notification is raised whenever QOS metric for percentage
+media packet dropped reaches back to normal level from one of
+the major/minor/critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertPreviousLevel
+  11: csbQOSNormalAlertCount
+  12: csbQOSMinorAlertCount
+  13: csbQOSCriticalAlertCount
+  14: csbAlarmDescription
+  15: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSRoundTripDelayEvent .1.3.6.1.4.1.9.9.658.0.17 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for round trip $*
+SDESC
+This notification is generated when QOS metric for round trip
+delay(RTD) crosses a configured threshold and
+attains either of minor, major or critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertCurrentLevel
+  11: csbQOSAlertPreviousLevel
+  12: csbQOSNormalAlertCount
+  13: csbQOSMinorAlertCount
+  14: csbQOSCriticalAlertCount
+  15: csbAlarmDescription
+  16: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSRoundTripDelayClearEvent .1.3.6.1.4.1.9.9.658.0.18 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for round trip $*
+SDESC
+This notification is generated when QOS metric for round trip
+delay(RTD) reaches back to normal level from one of the
+major/minor/critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertPreviousLevel
+  11: csbQOSNormalAlertCount
+  12: csbQOSMinorAlertCount
+  13: csbQOSCriticalAlertCount
+  14: csbAlarmDescription
+  15: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSLocalJitterEvent .1.3.6.1.4.1.9.9.658.0.19 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for local media $*
+SDESC
+This notification is generated when QOS metric for local media
+packet jitter crosses a configured threshold and attains either
+of minor, major or critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertCurrentLevel
+  11: csbQOSAlertPreviousLevel
+  12: csbQOSNormalAlertCount
+  13: csbQOSMinorAlertCount
+  14: csbQOSCriticalAlertCount
+  15: csbAlarmDescription
+  16: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSLocalJitterClearEvent .1.3.6.1.4.1.9.9.658.0.20 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for local media $*
+SDESC
+This notification is generated when QOS metric for local media
+packet jitter reaches back to normal level from one of the
+major/minor/critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertPreviousLevel
+  11: csbQOSNormalAlertCount
+  12: csbQOSMinorAlertCount
+  13: csbQOSCriticalAlertCount
+  14: csbAlarmDescription
+  15: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSRemoteJitterEvent .1.3.6.1.4.1.9.9.658.0.21 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for remote media $*
+SDESC
+This notification is generated when QOS metric for remote media
+packet jitter crosses a configured threshold and attains either
+of minor, major or critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertCurrentLevel
+  11: csbQOSAlertPreviousLevel
+  12: csbQOSNormalAlertCount
+  13: csbQOSMinorAlertCount
+  14: csbQOSCriticalAlertCount
+  15: csbAlarmDescription
+  16: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSRemoteJitterClearEvent .1.3.6.1.4.1.9.9.658.0.22 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for remote media $*
+SDESC
+This notification is generated when QOS metric for remote media
+packet jitter reaches back to normal level from one of the
+major/minor/critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertPreviousLevel
+  11: csbQOSNormalAlertCount
+  12: csbQOSMinorAlertCount
+  13: csbQOSCriticalAlertCount
+  14: csbAlarmDescription
+  15: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSMoscqeEvent .1.3.6.1.4.1.9.9.658.0.23 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for moscqe - $*
+SDESC
+This notification is generated when QOS metric for moscqe -
+Mean Opinion Score(MOS) - value crosses a configured threshold
+and attains either of minor, major or critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertCurrentLevel
+  11: csbQOSAlertPreviousLevel
+  12: csbQOSNormalAlertCount
+  13: csbQOSMinorAlertCount
+  14: csbQOSCriticalAlertCount
+  15: csbAlarmDescription
+  16: csbQOSMajorAlertCount
+EDESC
+#
+#
+#
+EVENT csbQOSMoscqeClearEvent .1.3.6.1.4.1.9.9.658.0.24 "Status Events" Normal
+FORMAT This notification is generated when QOS metric for moscqe - $*
+SDESC
+This notification is generated when QOS metric for moscqe -
+Mean Opinion Score(MOS) -  value reaches back to normal level
+from one of the major/minor/critical level.
+Variables:
+  1: csbAlarmSubsystem
+  2: csbAlarmSeverity
+  3: csbAlarmID
+  4: csbAlarmTime
+  5: csbSBCServiceName
+  6: csbQOSAlertType
+  7: csbAdjacencyName
+  8: csbQOSAlertSummaryPeriod
+  9: csbQOSAlertCurrentValue
+  10: csbQOSAlertPreviousLevel
+  11: csbQOSNormalAlertCount
+  12: csbQOSMinorAlertCount
+  13: csbQOSCriticalAlertCount
+  14: csbAlarmDescription
+  15: csbQOSMajorAlertCount
+EDESC

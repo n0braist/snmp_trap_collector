@@ -1,0 +1,53 @@
+WITS-TRAP-MIB DEFINITIONS ::= BEGIN
+    IMPORTS
+    witsCSFamily
+        FROM WITS-CSFAMILY-MIB
+    MODULE-IDENTITY, NOTIFICATION-TYPE
+        FROM SNMPv2-SMI
+    NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    witscsAlarmIndex, witscsAlarmTime, witscsAlarmSeverity,
+    witscsAlarmBody, witscsAlarmToken, witscsAlarmNumber,
+	witscsAlarmActive, witscsAlarmClientId
+        FROM WITS-CS-MIB;
+
+    witsTraps MODULE-IDENTITY
+        LAST-UPDATED        "200604051741Z"
+        ORGANIZATION        "Verint Systems"
+        CONTACT-INFO        "support@witness.com"
+        DESCRIPTION         "The MIB for Verint specific traps"
+
+        REVISION            "200604051741Z"
+        DESCRIPTION         "Initial version."
+        --1,3,6,1,4,1,1815,1,1,2
+        ::= { witsCSFamily 2 }
+
+
+    alarmTrap NOTIFICATION-TYPE
+        OBJECTS {           
+                        witscsAlarmIndex,
+                        witscsAlarmTime,
+                        witscsAlarmSeverity,
+                        witscsAlarmBody,
+                        witscsAlarmToken,
+                        witscsAlarmNumber,
+                        witscsAlarmActive,
+                        witscsAlarmClientId
+                }
+        STATUS              current
+        DESCRIPTION         "A generic trap for all alarms. The variable bindings
+                            in the trap PDU contain the detailed alarm information."
+        --1,3,6,1,4,1,1815,1,1,2,1
+        ::= { witsTraps 1 }
+
+    trapGroups NOTIFICATION-GROUP
+        NOTIFICATIONS       {
+                                alarmTrap
+                            }
+        STATUS              current
+        DESCRIPTION         "The group that contains all Verint specific trap."
+        --1,3,6,1,4,1,1815,1,1,2,99
+        ::= { witsTraps 99 }
+
+
+END

@@ -1,0 +1,78 @@
+#
+#
+#
+#
+MIB: CISCO-SMART-INSTALL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SMART-INSTALL-MIB.mib) converted on Tue Aug 21 15:26:33 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT csiOperationModeChange .1.3.6.1.4.1.9.9.725.0.1 "Status Events" Normal
+FORMAT This notification is generated when the director operation $*
+SDESC
+This notification is generated when the director operation
+mode changes.  csiOperationMode indicates the director
+operation mode.
+Variables:
+  1: csiOperationMode
+EDESC
+#
+#
+#
+EVENT csiDeviceAdded .1.3.6.1.4.1.9.9.725.0.2 "Status Events" Normal
+FORMAT This notification is generated when a network device joins the $*
+SDESC
+This notification is generated when a network device joins the
+Smart Install network.
+csiDeviceName indicates the device host name.
+csiDeviceAddressType indicates the device Internet address
+type.
+csiDeviceAddress indicates the device Internet address.
+csiDeviceMacAddress indicates the device MAC address.
+Variables:
+  1: csiDeviceName
+  2: csiDeviceAddressType
+  3: csiDeviceAddress
+  4: csiDeviceMacAddress
+EDESC
+#
+#
+#
+EVENT csiDeviceLost .1.3.6.1.4.1.9.9.725.0.3 "Status Events" Normal
+FORMAT This notification is generated when director loses connectivity $*
+SDESC
+This notification is generated when director loses connectivity
+to a device.
+csiDeviceName indicates the device host name.
+csiDeviceAddressType indicates the device Internet address
+type.
+csiDeviceAddress indicates the device Internet address.
+csiDeviceMacAddress indicates the device MAC address.
+Variables:
+  1: csiDeviceName
+  2: csiDeviceAddressType
+  3: csiDeviceAddress
+  4: csiDeviceMacAddress
+EDESC
+#
+#
+#
+EVENT csiFileLoadFailed .1.3.6.1.4.1.9.9.725.0.4 "Status Events" Normal
+FORMAT This notification is generated when a file upload or download $*
+SDESC
+This notification is generated when a file upload or download
+operation has failed.
+csiDeviceName indicates the device host name.
+csiDeviceAddressType indicates the device Internet address
+type.
+csiDeviceAddress indicates the device Internet address.
+csiDeviceMacAddress indicates the device MAC address.
+csiNotifOperationType indicates the file operation type.
+csiNotifOperationResult indicates the file operation result.
+Variables:
+  1: csiDeviceName
+  2: csiDeviceAddressType
+  3: csiDeviceAddress
+  4: csiDeviceMacAddress
+  5: csiNotifOperationType
+  6: csiNotifOperationResult
+EDESC

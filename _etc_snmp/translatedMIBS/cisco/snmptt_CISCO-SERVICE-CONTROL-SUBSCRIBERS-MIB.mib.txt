@@ -1,0 +1,21 @@
+#
+#
+#
+#
+MIB: CISCO-SERVICE-CONTROL-SUBSCRIBERS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SERVICE-CONTROL-SUBSCRIBERS-MIB.mib) converted on Tue Aug 21 15:26:31 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cServiceControlSubscriberMapping .1.3.6.1.4.1.9.9.628.0.1 "Status Events" Normal
+FORMAT This notification is sent by the service control entity when $*
+SDESC
+This notification is sent by the service control entity when
+some external entity attempts to create illegal or inconsistent
+subscriber mappings. The
+cServiceControlSubscriberMappingFailedReason contains a message
+describing the problem and entPhysicalName contains the name of
+the service control entity generating the notification.
+Variables:
+  1: entPhysicalName
+  2: cServiceControlSubscriberMappingFailedReason
+EDESC

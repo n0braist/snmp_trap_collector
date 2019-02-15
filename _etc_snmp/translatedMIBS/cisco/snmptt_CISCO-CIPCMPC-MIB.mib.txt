@@ -1,0 +1,36 @@
+#
+#
+#
+#
+MIB: CISCO-CIPCMPC-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CIPCMPC-MIB.mib) converted on Tue Aug 21 15:25:46 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cipCmpcDirectionMismatch .1.3.6.1.4.1.9.9.72.2.0.1 "Status Events" Normal
+FORMAT This trap indicates that the  $*
+SDESC
+This trap indicates that the 
+configured direction for the specified
+CMPC subchannel does not match
+the direction specified by the host.
+The CMPC subchannel will not activate
+as long as this mismatch exists.
+Variables:
+  1: cipCmpcSubChannelAdminDirection
+EDESC
+#
+#
+#
+EVENT cipCmpcSeqNumError .1.3.6.1.4.1.9.9.72.2.0.2 "Status Events" Normal
+FORMAT This trap indicates that the CMPC  $*
+SDESC
+This trap indicates that the CMPC 
+TG has detected an MPC sequence 
+number error.
+This error will cause the CMPC TG
+to disconnect.
+Variables:
+  1: cipCmpcTgOperLastSeqNumFailureCause
+  2: cipCmpcTgOperExpectedReceiveSeqNum
+  3: cipCmpcTgOperLastSeqNumReceived
+EDESC

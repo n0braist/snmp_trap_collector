@@ -1,0 +1,185 @@
+#
+#
+#
+#
+MIB: LSERIES-TAPE-LIBRARY-MIB (file:/tmp/SL_MIBS_2012-08-20/LSERIES-TAPE-LIBRARY-MIB.mib) converted on Tue Aug 21 08:31:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT lserTrapError .1.3.6.1.4.1.1211.1.12.0.1 "Status Events" Normal
+FORMAT An error trap - condition which is critical to machine operation encountered $*
+SDESC
+An error trap - condition which is critical to machine operation encountered
+Variables:
+  1: lserTrapText
+  2: lserTrapSeverity
+EDESC
+#
+#
+#
+EVENT lserTrapWarning .1.3.6.1.4.1.1211.1.12.0.2 "Status Events" Normal
+FORMAT A warning trap - condition which may need attention has been encountered $*
+SDESC
+A warning trap - condition which may need attention has been encountered
+Variables:
+  1: lserTrapText
+  2: lserTrapSeverity
+EDESC
+#
+#
+#
+EVENT lserTrapInformation .1.3.6.1.4.1.1211.1.12.0.3 "Status Events" Normal
+FORMAT An information trap - information is presented for activity monitoring $*
+SDESC
+An information trap - information is presented for activity monitoring
+Variables:
+  1: lserTrapText
+  2: lserTrapSeverity
+EDESC
+#
+#
+#
+EVENT lserTrapConfiguration .1.3.6.1.4.1.1211.1.12.0.4 "Status Events" Normal
+FORMAT A configuration trap - reporting machine configuration activity $*
+SDESC
+A configuration trap - reporting machine configuration activity
+Variables:
+  1: lserTrapText
+  2: lserTrapSeverity
+EDESC
+#
+#
+#
+EVENT lserTrapAgentStart .1.3.6.1.4.1.1211.1.12.0.11 "Status Events" Normal
+FORMAT This trap is sent when the agent starts $*
+SDESC
+This trap is sent when the agent starts
+Variables:
+  1: lserAgentBootDate
+EDESC
+#
+#
+#
+EVENT lserTrapLibStatusGood .1.3.6.1.4.1.1211.1.12.0.21 "Status Events" Normal
+FORMAT This trap is sent when the library status changes to Good $*
+SDESC
+This trap is sent when the library status changes to Good
+Variables:
+  1: lserLibState
+  2: lserLibStkBaseModel
+  3: lserLibSerialNumber
+  4: lserLibNetworkName
+EDESC
+#
+#
+#
+EVENT lserTrapLibStatusCheck .1.3.6.1.4.1.1211.1.12.0.25 "Status Events" Normal
+FORMAT This trap is sent when the library status changes to a check condition (error, warning, unknown ...) $*
+SDESC
+This trap is sent when the library status changes to a check condition (error, warning, unknown ...)
+Variables:
+  1: lserLibState
+  2: lserLibStkBaseModel
+  3: lserLibSerialNumber
+  4: lserLibNetworkName
+EDESC
+#
+#
+#
+EVENT lserTrapDrvStatusGood .1.3.6.1.4.1.1211.1.12.0.41 "Status Events" Normal
+FORMAT This trap sent when a drive status changes to good $*
+SDESC
+This trap sent when a drive status changes to good
+Variables:
+  1: lserLibNetworkName
+  2: lserDriveState
+  3: lserDriveIndex
+  4: lserDriveSerialNum
+EDESC
+#
+#
+#
+EVENT lserTrapDrvStatusCheck .1.3.6.1.4.1.1211.1.12.0.45 "Status Events" Normal
+FORMAT This trap sent when a drive status changes to a check condition (error, warning, unknown ...) $*
+SDESC
+This trap sent when a drive status changes to a check condition (error, warning, unknown ...)
+Variables:
+  1: lserLibNetworkName
+  2: lserDriveState
+  3: lserDriveIndex
+  4: lserDriveSerialNum
+EDESC
+#
+#
+#
+EVENT lserTrapCapStatusGood .1.3.6.1.4.1.1211.1.12.0.61 "Status Events" Normal
+FORMAT This trap sent when a CAP status changes to good $*
+SDESC
+This trap sent when a CAP status changes to good
+Variables:
+  1: lserLibNetworkName
+  2: lserCapState
+  3: lserCapIndex
+EDESC
+#
+#
+#
+EVENT lserTrapCapStatusOpen .1.3.6.1.4.1.1211.1.12.0.63 "Status Events" Normal
+FORMAT This trap sent when a CAP status changes to open $*
+SDESC
+This trap sent when a CAP status changes to open
+Variables:
+  1: lserLibNetworkName
+  2: lserCapState
+  3: lserCapIndex
+EDESC
+#
+#
+#
+EVENT lserTrapCapStatusCheck .1.3.6.1.4.1.1211.1.12.0.65 "Status Events" Normal
+FORMAT This trap sent when a CAP status changes to a check condition (error, warning, unknown ...) $*
+SDESC
+This trap sent when a CAP status changes to a check condition (error, warning, unknown ...)
+Variables:
+  1: lserLibNetworkName
+  2: lserCapState
+  3: lserCapIndex
+EDESC
+#
+#
+#
+EVENT lserTrapPtpStatusGood .1.3.6.1.4.1.1211.1.12.0.81 "Status Events" Normal
+FORMAT This trap sent when a PTP status changes to good $*
+SDESC
+This trap sent when a PTP status changes to good
+Variables:
+  1: lserLibNetworkName
+  2: lserPtpState
+  3: lserPtpIndex
+EDESC
+#
+#
+#
+EVENT lserTrapPtpStatusCheck .1.3.6.1.4.1.1211.1.12.0.85 "Status Events" Normal
+FORMAT This trap sent when a PTP status changes to a check condition (error, warning, unknown ...) $*
+SDESC
+This trap sent when a PTP status changes to a check condition (error, warning, unknown ...)
+Variables:
+  1: lserLibNetworkName
+  2: lserPtpState
+  3: lserPtpIndex
+EDESC
+#
+#
+#
+EVENT lserTrapMediaStat .1.3.6.1.4.1.1211.1.12.0.101 "Status Events" Normal
+FORMAT This trap is sent when a media statistic is generated $*
+SDESC
+This trap is sent when a media statistic is generated
+Variables:
+  1: lserMediaErrorTapeLabel
+  2: lserMediaErrorDriveSerialNum
+  3: lserMediaErrorDateTime
+  4: lserLibMediaErrorEnum
+  5: lserMediaErrorOccurrenceCount
+EDESC

@@ -1,0 +1,81 @@
+#
+#
+#
+#
+MIB: CISCO-CALLHOME-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CALLHOME-MIB.mib) converted on Tue Aug 21 15:25:42 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ccmSmtpServerFailNotif .1.3.6.1.4.1.9.9.300.0.1 "Status Events" Normal
+FORMAT A ccmSmtpServerFailNotif is sent if the device fails on $*
+SDESC
+A ccmSmtpServerFailNotif is sent if the device fails on
+sending an e-mail notification through an SMTP server in
+ccmSmtpServersTable.
+For each SMTP server, an agent should not generate more
+than one ccmSmtpServerFailNotif 'notification-event'
+in a given time interval (ten seconds is the suggested
+default). A 'notification-event' is the transmission of
+a single trap or inform PDU to a list of notification
+destinations.
+If within the throttling period, additional failures to
+send a message through same server occur, then 
+notification-events for these failure should be suppressed
+by the agent until the current throttling period expires.
+Variables:
+  1: ccmSmtpServersPort
+EDESC
+#
+#
+#
+EVENT ccmAlertGroupTypeAddedNotif .1.3.6.1.4.1.9.9.300.0.2 "Status Events" Normal
+FORMAT A ccmAlertGroupTypeAddedNotif is sent, when $*
+SDESC
+A ccmAlertGroupTypeAddedNotif is sent, when
+a new entry corresponds to the 
+'callHomealertGroupName' object in this 
+notification is added into the 
+callHomeAlertGroupTypeTable.
+Variables:
+  1: callHomeAlertGroupName
+EDESC
+#
+#
+#
+EVENT ccmAlertGroupTypeDeletedNotif .1.3.6.1.4.1.9.9.300.0.3 "Status Events" Normal
+FORMAT A ccmAlertGroupTypeAddedNotif is sent, when an $*
+SDESC
+A ccmAlertGroupTypeAddedNotif is sent, when an
+entry corresponds to 'callHomeAlertGroupName'
+object in this notification is deleted 
+from the callHomeAlertGroupTypeTable.
+Variables:
+  1: callHomeAlertGroupName
+EDESC
+#
+#
+#
+EVENT ccmSmtpMsgSendFailNotif .1.3.6.1.4.1.9.9.300.0.4 "Status Events" Normal
+FORMAT A ccmSmtpMsgSendFailNotif is generated if the device $*
+SDESC
+A ccmSmtpMsgSendFailNotif is generated if the device
+fails to send an e-mail notification through all of the
+SMTP servers in ccmSmtpServersTable.
+Variables:
+EDESC
+#
+#
+#
+EVENT ccmEventNotif .1.3.6.1.4.1.9.9.300.0.5 "Status Events" Normal
+FORMAT This notification is generated every time a Call Home $*
+SDESC
+This notification is generated every time a Call Home
+external event is triggered in the system. Internal events 
+like Periodic Configuration and Inventory events do not 
+generate notifications.
+Variables:
+  1: sysName
+  2: ccmEventDescription
+  3: ccmEventTime
+  4: ccmEventUrgencyLevel
+EDESC

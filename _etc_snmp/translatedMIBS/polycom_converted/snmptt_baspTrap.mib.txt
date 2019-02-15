@@ -1,0 +1,20 @@
+#
+#
+#
+#
+MIB: Brcm-BASPTrap-MIB (file:/tmp/polycom/baspTrap.mib) converted on Fri Mar 13 12:28:52 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT failoverEvent .1.3.6.1.4.1.4413.1.2.3.0.1 "Status Events" MINOR
+FORMAT $*
+SDESC
+
+This trap is generated to indicate that adapter Fail-Over 
+event has occured
+Variables:
+  1: trapAdapterName
+  2: trapTeamName
+  3: trapCauseDirection
+  4: trapAdapterActivityCause
+EDESC

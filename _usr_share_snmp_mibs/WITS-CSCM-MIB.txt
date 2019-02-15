@@ -1,0 +1,450 @@
+WITS-CSCM-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+   witsCSFamily
+      FROM WITS-CSFAMILY-MIB
+   MODULE-IDENTITY,
+   OBJECT-IDENTITY,
+   OBJECT-TYPE,
+   Integer32
+      FROM SNMPv2-SMI
+   OBJECT-GROUP
+      FROM SNMPv2-CONF;
+
+witscscmMIB MODULE-IDENTITY
+   LAST-UPDATED "201001291148Z"
+   ORGANIZATION "Witness Systems"
+   CONTACT-INFO
+      "support@witness.com"
+   DESCRIPTION
+      "The MIB for
+      ContactStore for Communication Manager
+      specific objects"
+   REVISION "201001291148Z"
+   DESCRIPTION
+      "Initial version."
+   ::= { witsCSFamily 2 }
+
+
+witscscmChannelsDetails OBJECT IDENTIFIER    ::= { witscscmMIB 1 }
+
+witscscmChannelsCount OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The number of channels"
+   ::= { witscscmChannelsDetails 1 }
+
+
+witscscmChannelsTable OBJECT-TYPE
+   SYNTAX  SEQUENCE OF WitscscmChannelEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscscmChannelsDetails 2 }
+
+
+witscscmChannelEntry OBJECT-TYPE
+   SYNTAX  WitscscmChannelEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   INDEX {
+      witscscmChannelIndex }
+   ::= { witscscmChannelsTable 1 }
+
+
+WitscscmChannelEntry ::= SEQUENCE {
+
+   witscscmChannelIndex       INTEGER,
+   witscscmChannelDesignation OCTET STRING,
+   witscscmChannelType        INTEGER,
+   witscscmChannelState       INTEGER,
+   witscscmChannelTarget      OCTET STRING,
+   witscscmChannelComment     OCTET STRING,
+   witscscmChannelCodec       OCTET STRING }
+
+
+witscscmChannelIndex OBJECT-TYPE
+   SYNTAX  INTEGER (1..9999)
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The channel index"
+   ::= { witscscmChannelEntry 1 }
+
+
+witscscmChannelDesignation OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The channel designation - e.g. port number, softphone number"
+   ::= { witscscmChannelEntry 2 }
+
+
+witscscmChannelType OBJECT-TYPE
+   SYNTAX  INTEGER {
+         ondemand(1)    -- On Demand port
+         }
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The type of recording this channel is doing"
+   ::= { witscscmChannelEntry 3 }
+
+
+witscscmChannelState OBJECT-TYPE
+   SYNTAX  INTEGER {
+         idle(1)  -- not in use
+         }
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The state the channel is in"
+   ::= { witscscmChannelEntry 4 }
+
+
+witscscmChannelTarget OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "What the channel is recording"
+   ::= { witscscmChannelEntry 5 }
+
+
+witscscmChannelComment OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The administrator's comment"
+   ::= { witscscmChannelEntry 6 }
+
+
+witscscmChannelCodec OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The channel's codec"
+   ::= { witscscmChannelEntry 7 }
+
+
+witscscmLinksDetails OBJECT IDENTIFIER    ::= { witscscmMIB 2 }
+
+witscscmLinksCount OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The number of external links"
+   ::= { witscscmLinksDetails 1 }
+
+
+witscscmLinksTable OBJECT-TYPE
+   SYNTAX  SEQUENCE OF WitscscmLinksEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscscmLinksDetails 2 }
+
+
+witscscmLinksEntry OBJECT-TYPE
+   SYNTAX  WitscscmLinksEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   INDEX {
+      witscscmLinkIndex }
+   ::= { witscscmLinksTable 1 }
+
+
+WitscscmLinksEntry ::= SEQUENCE {
+
+   witscscmLinkIndex INTEGER,
+   witscscmLinkType  INTEGER,
+   witscscmLinkState INTEGER,
+   witscscmLinkPath  OCTET STRING }
+
+
+witscscmLinkIndex OBJECT-TYPE
+   SYNTAX  INTEGER (1..99)
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscscmLinksEntry 1 }
+
+
+witscscmLinkType OBJECT-TYPE
+   SYNTAX  INTEGER {
+         dmcc(0),
+         jtapi(1),
+         unify(2),
+         qcm(3),
+         upload(4),
+         toprimary(5),
+         tostandby(6),
+         toslave(7) }
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The link type"
+   ::= { witscscmLinksEntry 2 }
+
+
+witscscmLinkState OBJECT-TYPE
+   SYNTAX  INTEGER {
+         down(0),
+         up(1) }
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The link state"
+   ::= { witscscmLinksEntry 3 }
+
+
+witscscmLinkPath OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The link's connection detail"
+   ::= { witscscmLinksEntry 4 }
+
+
+witscscmDVD OBJECT IDENTIFIER    ::= { witscscmMIB 3 }
+
+witscscmDVDDevice OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The path of the dvd drive"
+   ::= { witscscmDVD 1 }
+
+
+witscscmDVDState OBJECT-TYPE
+   SYNTAX  INTEGER {
+         foreign(1) }
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The state of the dvd"
+   ::= { witscscmDVD 2 }
+
+
+witscscmDVDLabel OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The label of any readable disk in the drive"
+   ::= { witscscmDVD 3 }
+
+
+witscscmDVDFree OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The amount of free space (in MB)"
+   ::= { witscscmDVD 4 }
+
+
+witscscmDiskSpace OBJECT IDENTIFIER    ::= { witscscmMIB 4 }
+
+witscscmRootSpace OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The amount of free space in / (in MB)"
+   ::= { witscscmDiskSpace 1 }
+
+
+witscscmVarSpace OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The amount of free space in /var (in MB)"
+   ::= { witscscmDiskSpace 2 }
+
+
+witscscmArchiveDestDetails OBJECT IDENTIFIER    ::= { witscscmMIB 5 }
+
+witscscmArchiveDestCount OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The number of archive destinations"
+   ::= { witscscmArchiveDestDetails 1 }
+
+
+witscscmArchiveDestTable OBJECT-TYPE
+   SYNTAX  SEQUENCE OF WitscscmArchiveDestEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscscmArchiveDestDetails 2 }
+
+
+witscscmArchiveDestEntry OBJECT-TYPE
+   SYNTAX  WitscscmArchiveDestEntry
+   MAX-ACCESS not-accessible
+   STATUS current
+   DESCRIPTION
+      ""
+   INDEX {
+	witscscmArchiveDestId }
+   ::= { witscscmArchiveDestTable 1 }
+
+
+
+WitscscmArchiveDestEntry ::= SEQUENCE {
+
+   witscscmArchiveDestId INTEGER,
+   witscscmArchiveDestPath  OCTET STRING,
+   witscscmArchiveDestState OCTET STRING,
+   witscscmArchiveDestLabel OCTET STRING,
+   witscscmArchiveDestFree INTEGER,
+   witscscmArchiveDestCallsPending INTEGER,
+   witscscmArchiveDestMBPending INTEGER,
+   witscscmArchiveDestOldestWaiting INTEGER
+ }
+
+
+
+witscscmArchiveDestId OBJECT-TYPE
+   SYNTAX  INTEGER (1..9999)
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The archive destination identifier"
+   ::= { witscscmArchiveDestEntry 1 }
+
+
+
+witscscmArchiveDestPath OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The path of the archive destination"
+   ::= { witscscmArchiveDestEntry 2 }
+
+
+witscscmArchiveDestState OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The state of the archive destination"
+   ::= { witscscmArchiveDestEntry 3 }
+
+
+witscscmArchiveDestLabel OBJECT-TYPE
+   SYNTAX  OCTET STRING
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The label of the archive destination"
+   ::= { witscscmArchiveDestEntry 4 }
+
+
+witscscmArchiveDestFree OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The amount of free space (in MB)"
+   ::= { witscscmArchiveDestEntry  5 }
+
+
+witscscmArchiveDestCallsPending OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "Number of calls pending to be archived"
+   ::= { witscscmArchiveDestEntry  6 }
+
+
+witscscmArchiveDestMBPending OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "The amount of MB pending to be archived"
+   ::= { witscscmArchiveDestEntry  7 }
+
+
+witscscmArchiveDestOldestWaiting OBJECT-TYPE
+   SYNTAX  Integer32
+   MAX-ACCESS read-only
+   STATUS current
+   DESCRIPTION
+      "How long oldest call waiting (in mins)"
+   ::= { witscscmArchiveDestEntry  8 }
+
+
+
+witscscmConformance OBJECT-IDENTITY
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscscmMIB 99 }
+
+witscscmGroups OBJECT-IDENTITY
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscscmConformance 1 }
+
+witscscm OBJECT-GROUP
+   OBJECTS {
+      witscscmChannelsCount,
+      witscscmChannelIndex,
+      witscscmChannelDesignation,
+      witscscmChannelType,
+      witscscmChannelState,
+      witscscmChannelTarget,
+      witscscmChannelComment,
+      witscscmChannelCodec,
+      witscscmLinksCount,
+      witscscmLinkIndex,
+      witscscmLinkType,
+      witscscmLinkState,
+      witscscmLinkPath,
+      witscscmDVDDevice,
+      witscscmDVDState,
+      witscscmDVDLabel,
+      witscscmDVDFree,
+      witscscmRootSpace,
+      witscscmVarSpace,
+      witscscmArchiveDestCount,
+      witscscmArchiveDestId,
+      witscscmArchiveDestPath,
+      witscscmArchiveDestState,
+      witscscmArchiveDestLabel,
+      witscscmArchiveDestFree,
+      witscscmArchiveDestCallsPending,
+      witscscmArchiveDestMBPending,
+      witscscmArchiveDestOldestWaiting
+}
+   STATUS current
+   DESCRIPTION
+      ""
+   ::= { witscscmGroups 1 }
+
+END

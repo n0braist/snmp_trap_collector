@@ -1,0 +1,121 @@
+#
+#
+#
+#
+MIB: CPQCLUSTER-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQCLUSTER-MIB.mib) converted on Wed Aug 22 14:19:05 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqClusterDegraded .1.3.6.1.4.1.232.0.15001 "Status Events" MAJOR
+FORMAT Cluster Degraded (15001): Cluster $3 has become degraded.
+SDESC
+This trap will be sent any time the condition of the cluster
+becomes degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterName
+EDESC
+#
+#
+#
+EVENT cpqClusterFailed .1.3.6.1.4.1.232.0.15002 "Status Events" MAJOR
+FORMAT Cluster Failed (15002): Cluster $3 has failed.
+SDESC
+This trap will be sent any time the condition of the cluster
+becomes failed.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterName
+EDESC
+#
+#
+#
+EVENT cpqClusterNodeDegraded .1.3.6.1.4.1.232.0.15003 "Status Events" MAJOR
+FORMAT Cluster Node Degraded (15003): Cluster service on $3 has become degraded.
+SDESC
+This trap will be sent any time the condition of a node in
+the cluster becomes degraded.
+User Action: Make a note of the cluster node name then
+check the node for the cause of the degraded condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterNodeName
+EDESC
+#
+#
+#
+EVENT cpqClusterNodeFailed .1.3.6.1.4.1.232.0.15004 "Status Events" MAJOR
+FORMAT Cluster Node Failed (15004): Cluster service on $3 has failed.
+SDESC
+This trap will be sent any time the condition of a node in
+the cluster becomes failed.
+User Action: Make a note of the cluster node name
+then check the node for the cause of the failure.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterNodeName
+EDESC
+#
+#
+#
+EVENT cpqClusterResourceDegraded .1.3.6.1.4.1.232.0.15005 "Status Events" MAJOR
+FORMAT Cluster Resource Degraded (15005): Cluster resource $3 has become degraded.
+SDESC
+This trap will be sent any time the condition of a cluster
+resource becomes degraded.
+User Action: Make a note of the cluster resource name then
+check the resource for the cause of the degraded condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterResourceName
+EDESC
+#
+#
+#
+EVENT cpqClusterResourceFailed .1.3.6.1.4.1.232.0.15006 "Status Events" MAJOR
+FORMAT Cluster Resource Failed (15006): Cluster resource $3 has failed.
+SDESC
+This trap will be sent any time the condition of a cluster
+resource becomes failed.
+User Action: Make a note of the cluster resource name
+then check the resource for the cause of the failure.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterResourceName
+EDESC
+#
+#
+#
+EVENT cpqClusterNetworkDegraded .1.3.6.1.4.1.232.0.15007 "Status Events" MAJOR
+FORMAT Cluster Network Degraded (15007): Cluster network $3 has become degraded.
+SDESC
+This trap will be sent any time the condition of a cluster
+network becomes degraded.
+User Action: Make a note of the cluster network name then
+check the network for the cause of the degraded condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterNetworkName
+EDESC
+#
+#
+#
+EVENT cpqClusterNetworkFailed .1.3.6.1.4.1.232.0.15008 "Status Events" MAJOR
+FORMAT Cluster Network Failed (15008): Cluster network $3 has failed.
+SDESC
+This trap will be sent any time the condition of a cluster
+network becomes failed.
+User Action: Make a note of the cluster network name
+then check the network for the cause of the failure.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqClusterNetworkName
+EDESC

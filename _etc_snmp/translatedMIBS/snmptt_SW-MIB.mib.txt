@@ -1,0 +1,135 @@
+#
+#
+#
+#
+MIB: SW-MIB (file:/tmp/SW-MIB.mib) converted on Mon Oct 27 11:40:48 2014 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: SW-MIB (file:/tmp/SW-MIB.mib) converted on Mon Oct 27 11:42:03 2014 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: SW-MIB (file:/tmp/SW-MIB.mib) converted on Mon Oct 27 11:44:06 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT swFault .1.3.6.1.4.1.1588.2.1.1.1.0.1 "Status Events" CRITICAL
+FORMAT Switch is faulty.: Faulty reason: $1 and SSN is #$2,GroupName $3,GroupType $4,GroupMemPosition $5
+SDESC
+Obsoleted this trap as firmware doesn't support this trap.
+A swFault(1) is generated whenever the diagnostics
+detects a fault with the switch.
+Variables:
+  1: swDiagResult
+  2: swSsn
+  3: swGroupName
+  4: swGroupType
+  5: swGroupMemPos
+EDESC
+#
+#
+#
+EVENT swSensorScn .1.3.6.1.4.1.1588.2.1.1.1.0.2 "Status Events" INFORMATIONAL
+FORMAT A sensor (temperature, fan, etc.) changed its operational state.: $5: is currently in state $1 and SSN is #$6
+SDESC
+A swSensorScn(2) is generated whenever an
+environment sensor changes its operational state. For instance,
+a fan stop working. The VarBind in the Trap Data Unit shall
+contain the corresponding instance of the sensor
+status, sensor index, sensor type, sensor value (reading)
+and sensor information. Note that the sensor information
+contains the type of sensor and its number in textual format.
+Variables:
+  1: swSensorStatus
+  2: swSensorIndex
+  3: swSensorType
+  4: swSensorValue
+  5: swSensorInfo
+  6: swSsn
+  7: swGroupName
+  8: swGroupType
+  9: swGroupMemPos
+EDESC
+#
+#
+#
+EVENT swFCPortScn .1.3.6.1.4.1.1588.2.1.1.1.0.3 "Status Events" INFORMATIONAL
+FORMAT A Fibre Channel Port changed its operational state.: Port Index $2 changed state to $1  Port Name: $3 and SSN is #$4
+SDESC
+A swFCPortScn(3) is generated whenever an FC_Port
+changes its operational state. For instance, the FC_Port
+goes from on-line to offline. The VarBind in the Trap Data
+Unit shall contain the corresponding instance of the
+FC_Port's operational status, index, swFCPortName,swSsn and
+swFCPortFlag. swSsn is optional varbind sent when swExtTrap
+is also enabled. The three arguments swGroupName, swGroupType,
+swGroupMemPos belong to swGroup table which is obsolete
+and not implemented.
+Variables:
+  1: swFCPortOpStatus
+  2: swFCPortIndex
+  3: swFCPortName
+  4: swSsn
+  5: swFCPortFlag
+  6: swGroupName
+  7: swGroupType
+  8: swGroupMemPos
+EDESC
+#
+#
+#
+EVENT swEventTrap .1.3.6.1.4.1.1588.2.1.1.1.0.4 "Status Events" INFORMATIONAL
+FORMAT A firmware event has been logged: Event $1: $2 (severity level $3) - $5 SSN is #$6
+SDESC
+This trap is generated when an event whose
+level at or below swEventTrapLevel occurs.
+Variables:
+  1: swEventIndex
+  2: swEventTimeInfo
+  3: swEventLevel
+  4: swEventRepeatCount
+  5: swEventDescr
+  6: swSsn
+  7: swGroupName
+  8: swGroupType
+  9: swGroupMemPos
+EDESC
+#
+#
+#
+EVENT swFabricWatchTrap .1.3.6.1.4.1.1588.2.1.1.1.0.5 "Status Events" WARNING
+FORMAT Fabric Watch has generated an event: Threshold $3 in Class/Area $1 at index $2 has generated event $7 with $5 on $6. This event is $8. This event label is $4, event severity level is $9 and SSN is #$10
+SDESC
+trap to be sent by Fabric Watch to notify of an event
+Variables:
+  1: swFwClassAreaIndex
+  2: swFwThresholdIndex
+  3: swFwName
+  4: swFwLabel
+  5: swFwLastEventVal
+  6: swFwLastEventTime
+  7: swFwLastEvent
+  8: swFwLastState
+  9: swFwLastSeverityLevel
+  10: swSsn
+  11: swGroupName
+  12: swGroupType
+  13: swGroupMemPos
+EDESC
+#
+#
+#
+EVENT swTrackChangesTrap .1.3.6.1.4.1.1588.2.1.1.1.0.6 "Status Events" INFORMATIONAL
+FORMAT Track changes has generated a trap: $1 and SSN is #$2
+SDESC
+trap to be sent for tracking login/logout/config changes
+Variables:
+  1: swTrackChangesInfo
+  2: swSsn
+  3: swGroupName
+  4: swGroupType
+  5: swGroupMemPos
+EDESC

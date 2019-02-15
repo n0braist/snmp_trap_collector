@@ -1,0 +1,996 @@
+#
+#
+#
+#
+MIB: CPQHLTH-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQHLTH-MIB.mib) converted on Wed Aug 22 14:19:07 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqHeCorrectableMemoryError .1.3.6.1.4.1.232.6.0.1 "Status Events" MINOR
+FORMAT Correctable Memory Error Occurred (1): Total correctable errors = $1.
+SDESC
+A correctable memory error occurred.
+The error has been corrected.  The current number of correctable
+memory errors is reported in the variable cpqHeCorrMemTotalErrs.
+Variables:
+  1: cpqHeCorrMemTotalErrs
+EDESC
+#
+#
+#
+EVENT cpqHeCorrectableMemoryLogDisabled .1.3.6.1.4.1.232.6.0.2 "Status Events" CRITICAL
+FORMAT Memory Error Tracking Disabled (2): Too many memory errors - tracking now disabled.
+SDESC
+Correctable memory error tracking disabled.
+The frequency of errors is so high that the error tracking
+logic has been temporarily disabled.  The cpqHeCorrMemLogStatus
+variable indicated the current tracking status.
+Variables:
+  1: cpqHeCorrMemLogStatus
+EDESC
+#
+#
+#
+EVENT cpqHe2CorrectableMemoryError .1.3.6.1.4.1.232.0.6001 "Status Events" MINOR
+FORMAT Correctable Memory Error Occurred (6001): Total correctable errors = $1.
+SDESC
+A correctable memory error occurred.
+The error has been corrected.  The current number of correctable
+memory errors is reported in the variable cpqHeCorrMemTotalErrs.
+Variables:
+  1: cpqHeCorrMemTotalErrs
+EDESC
+#
+#
+#
+EVENT cpqHe2CorrectableMemoryLogDisabled .1.3.6.1.4.1.232.0.6002 "Status Events" CRITICAL
+FORMAT Memory Error Tracking Disabled (6002): Too many memory errors - tracking now disabled.
+SDESC
+Correctable memory error tracking disabled.
+The frequency of errors is so high that the error tracking
+logic has been temporarily disabled.  The cpqHeCorrMemLogStatus
+variable indicated the current tracking status.
+Variables:
+  1: cpqHeCorrMemLogStatus
+EDESC
+#
+#
+#
+EVENT cpqHeThermalTempFailed .1.3.6.1.4.1.232.0.6003 "Status Events" CRITICAL
+FORMAT Thermal Failure (6003): System will be shutdown due to this thermal condition.
+SDESC
+The temperature status has been set to failed.
+The system will be shutdown due to this thermal condition.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeThermalTempDegraded .1.3.6.1.4.1.232.0.6004 "Status Events" CRITICAL
+FORMAT Thermal Status Degraded (6004): Temperature out of range.  Shutdown may occur.
+SDESC
+The temperature status has been set to degraded.
+The server's temperature is outside of the normal operating
+range.  The server will be shutdown if the
+cpqHeThermalDegradedAction variable is set to shutdown(3).
+Variables:
+  1: cpqHeThermalDegradedAction
+EDESC
+#
+#
+#
+EVENT cpqHeThermalTempOk .1.3.6.1.4.1.232.0.6005 "Status Events" INFORMATIONAL
+FORMAT Temperature OK (6005): Temperature has returned to normal range.
+SDESC
+The temperature status has been set to ok.
+The server's temperature has returned to the normal operating
+range.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeThermalSystemFanFailed .1.3.6.1.4.1.232.0.6006 "Status Events" CRITICAL
+FORMAT System Fan Failure (6006): Required fan not operating normally.  Shutdown may occur.
+SDESC
+The system fan status has been set to failed.
+A required system fan is not operating normally.  The system
+will be shutdown if the cpqHeThermalDegradedAction variable
+is set to shutdown(3).
+Variables:
+  1: cpqHeThermalDegradedAction
+EDESC
+#
+#
+#
+EVENT cpqHeThermalSystemFanDegraded .1.3.6.1.4.1.232.0.6007 "Status Events" CRITICAL
+FORMAT System Fan Degraded (6007): An optional fan is not operating normally.
+SDESC
+The system fan status has been set to degraded.
+An optional system fan is not operating normally.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeThermalSystemFanOk .1.3.6.1.4.1.232.0.6008 "Status Events" INFORMATIONAL
+FORMAT System Fan OK (6008): System fan has returned to normal operation.
+SDESC
+The system fan status has been set to ok.
+Any previously non-operational system fans have returned to
+normal operation.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeThermalCpuFanFailed .1.3.6.1.4.1.232.0.6009 "Status Events" CRITICAL
+FORMAT CPU Fan Failure (6009): CPU fan has failed.  Server will be shutdown.
+SDESC
+
+The CPU fan status has been set to failed.
+A processor fan is not operating normally.  The server will be
+shutdown.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeThermalCpuFanOk .1.3.6.1.4.1.232.0.6010 "Status Events" INFORMATIONAL
+FORMAT CPU Fan OK (6010): CPU fan is now OK.
+SDESC
+The CPU fan status has been set to ok.
+Any previously non-operational processor fans have returned
+to normal operation.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeAsrConfirmation .1.3.6.1.4.1.232.0.6011 "Status Events" MINOR
+FORMAT Server Operational (6011): Server is operational again after ASR shutdown.
+SDESC
+The server is operational again.
+The server has previously been shutdown by the
+Automatic Server Recovery (ASR) feature and has just
+become operational again.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeThermalConfirmation .1.3.6.1.4.1.232.0.6012 "Status Events" MINOR
+FORMAT Server Operational (6012): Server is operational again after thermal shutdown.
+SDESC
+The server is operational again.
+The server has previously been shutdown due to a thermal
+anomaly on the server and has just become operational again.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHePostError .1.3.6.1.4.1.232.0.6013 "Status Events" MINOR
+FORMAT POST Errors Occurred (6013): Errors occurred during server restart.
+SDESC
+One or more POST errors occurred.
+Power On Self-Test (POST) errors occur during the server
+restart process.  
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHeFltTolPwrSupplyDegraded .1.3.6.1.4.1.232.0.6014 "Status Events" CRITICAL 
+FORMAT Server Power Supply Degraded (6014): The server power supply status has become degraded.
+SDESC
+The fault tolerant power supply sub-system condition has been
+set to degraded.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqHe3CorrectableMemoryError .1.3.6.1.4.1.232.0.6015 "Status Events" MINOR
+FORMAT Correctable Memory Error Occurred (6015): Total correctable errors = $3.
+SDESC
+A correctable memory error occurred.
+The error has been corrected.  The current number of correctable
+memory errors is reported in the variable cpqHeCorrMemTotalErrs.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeCorrMemTotalErrs
+EDESC
+#
+#
+#
+EVENT cpqHe3CorrectableMemoryLogDisabled .1.3.6.1.4.1.232.0.6016 "Status Events" CRITICAL
+FORMAT Memory Error Tracking Disabled (6016): Too many memory errors - tracking now disabled.
+SDESC
+Correctable memory error tracking disabled.
+The frequency of errors is so high that the error tracking
+logic has been temporarily disabled.  The cpqHeCorrMemLogStatus
+variable indicated the current tracking status.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeCorrMemLogStatus
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalTempFailed .1.3.6.1.4.1.232.0.6017 "Status Events" CRITICAL
+FORMAT Thermal Failure (6017): System will be shutdown due to this thermal condition.
+SDESC
+The temperature status has been set to failed.
+The system will be shutdown due to this thermal condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalTempDegraded .1.3.6.1.4.1.232.0.6018 "Status Events" CRITICAL
+FORMAT Thermal Status Degraded (6018): Temperature out of range.  Shutdown may occur.
+SDESC
+The temperature status has been set to degraded.
+The server's temperature is outside of the normal operating
+range.  The server will be shutdown if the
+cpqHeThermalDegradedAction variable is set to shutdown(3).
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeThermalDegradedAction
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalTempOk .1.3.6.1.4.1.232.0.6019 "Status Events" INFORMATIONAL
+FORMAT Temperature OK (6019): Temperature has returned to normal range.
+SDESC
+The temperature status has been set to ok.
+The server's temperature has returned to the normal operating
+range.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalSystemFanFailed .1.3.6.1.4.1.232.0.6020 "Status Events" CRITICAL
+FORMAT System Fan Failure (6020): Required fan not operating normally.  Shutdown may occur.
+SDESC
+The system fan status has been set to failed.
+A required system fan is not operating normally.  The system
+will be shutdown if the cpqHeThermalDegradedAction variable
+is set to shutdown(3).
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeThermalDegradedAction
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalSystemFanDegraded .1.3.6.1.4.1.232.0.6021 "Status Events" CRITICAL
+FORMAT System Fan Degraded (6021): An optional fan is not operating normally.
+SDESC
+The system fan status has been set to degraded.
+An optional system fan is not operating normally.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalSystemFanOk .1.3.6.1.4.1.232.0.6022 "Status Events" INFORMATIONAL
+FORMAT System Fan OK (6022): System fan has returned to normal operation.
+SDESC
+The system fan status has been set to ok.
+Any previously non-operational system fans have returned to
+normal operation.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalCpuFanFailed .1.3.6.1.4.1.232.0.6023 "Status Events" CRITICAL
+FORMAT CPU Fan Failure (6023): CPU fan has failed.  Server will be shutdown.
+SDESC
+The CPU fan status has been set to failed.
+A processor fan is not operating normally.  The server will be
+shutdown.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalCpuFanOk .1.3.6.1.4.1.232.0.6024 "Status Events" INFORMATIONAL
+FORMAT CPU Fan OK (6024): CPU fan is now OK.
+SDESC
+The CPU fan status has been set to ok.
+Any previously non-operational processor fans have returned
+to normal operation.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3AsrConfirmation .1.3.6.1.4.1.232.0.6025 "Status Events" MINOR
+FORMAT Server Operational (6025): Server is operational again after ASR shutdown.
+SDESC
+The server is operational again.
+The server has previously been shutdown by the
+Automatic Server Recovery (ASR) feature and has just
+become operational again.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3ThermalConfirmation .1.3.6.1.4.1.232.0.6026 "Status Events" MINOR
+FORMAT Server Operational (6026): Server is operational again after thermal shutdown.
+SDESC
+The server is operational again.
+The server has previously been shutdown due to a thermal
+anomaly on the server and has just become operational again.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3PostError .1.3.6.1.4.1.232.0.6027 "Status Events" MINOR
+FORMAT POST Errors Occurred (6027): Errors occurred during server restart.
+SDESC
+One or more POST errors occurred.
+Power On Self-Test (POST) errors occur during the server
+restart process. Details of the POST error messages can 
+be found in Integrated Management Log 
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolPwrSupplyDegraded .1.3.6.1.4.1.232.0.6028 "Status Events" CRITICAL
+FORMAT Server Power Supply Degraded (6028): The server power supply status has become degraded.
+SDESC
+The fault tolerant power supply sub-system condition has been
+set to degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3CorrMemReplaceMemModule .1.3.6.1.4.1.232.0.6029 "Status Events" MINOR
+FORMAT Corr Mem Errors Require a Replacement Memory Module. (6029): Correctable memory errs require a replacement memory module.
+SDESC
+A correctable memory log entry indicates a memory module needs
+to be replaced.
+The errors have been corrected, but the memory module should be
+replaced.  The error information is reported in the variable
+cpqHeCorrMemErrDesc.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolPowerSupplyDegraded .1.3.6.1.4.1.232.0.6030 "Status Events" CRITICAL
+FORMAT Power Supply Degraded (6030): The Power Supply Degraded on Chassis $3, Bay $4.
+SDESC
+The fault tolerant power supply condition has been set
+to degraded for the specified chassis and bay location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+  4: cpqHeFltTolPowerSupplyBay
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolPowerSupplyFailed .1.3.6.1.4.1.232.0.6031 "Status Events" CRITICAL
+FORMAT Power Supply Failed (6031): The Power Supply Failed on Chassis $3, Bay $4.
+SDESC
+The fault tolerant power supply condition has been set
+to failed for the specified chassis and bay location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+  4: cpqHeFltTolPowerSupplyBay
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolPowerRedundancyLost .1.3.6.1.4.1.232.0.6032 "Status Events" MAJOR
+FORMAT Power Redundancy Lost (6032): The Power Supplies are no longer redundant on Chassis $3.
+SDESC
+The Fault Tolerant Power Supplies have lost redundancy for
+the specified chassis.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolPowerSupplyInserted .1.3.6.1.4.1.232.0.6033 "Status Events" INFORMATIONAL
+FORMAT Power Supply Inserted (6033): The Power Supply Inserted on Chassis $3, Bay $4.
+SDESC
+A Fault Tolerant Power Supply has been inserted into the
+specified chassis and bay location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+  4: cpqHeFltTolPowerSupplyBay
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolPowerSupplyRemoved .1.3.6.1.4.1.232.0.6034 "Status Events" MAJOR
+FORMAT Power Supply Removed (6034): The Power Supply Removed on Chassis $3, Bay $4.
+SDESC
+A Fault Tolerant Power Supply has been removed from the
+specified chassis and bay location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+  4: cpqHeFltTolPowerSupplyBay
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolFanDegraded .1.3.6.1.4.1.232.0.6035 "Status Events" CRITICAL
+FORMAT Fan Degraded (6035): The Fan Degraded on Chassis $3, Fan $4.
+SDESC
+The Fault Tolerant Fan condition has been set to degraded
+for the specified chassis and fan.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolFanChassis
+  4: cpqHeFltTolFanIndex
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolFanFailed .1.3.6.1.4.1.232.0.6036 "Status Events" CRITICAL
+FORMAT Fan Failed (6036): The Fan Failed on Chassis $3, Fan $4.
+SDESC
+The Fault Tolerant Fan condition has been set to failed
+for the specified chassis and fan.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolFanChassis
+  4: cpqHeFltTolFanIndex
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolFanRedundancyLost .1.3.6.1.4.1.232.0.6037 "Status Events" MAJOR
+FORMAT Fan Redundancy Lost (6037): The Fans are no longer redundant on Chassis $3. 
+SDESC
+The Fault Tolerant Fans have lost redundancy for the
+specified chassis.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolFanChassis
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolFanInserted .1.3.6.1.4.1.232.0.6038 "Status Events" INFORMATIONAL
+FORMAT Fan Inserted (6038): The Fan Inserted on Chassis $3, Fan $4.
+SDESC
+A Fault Tolerant Fan has been inserted into the specified
+chassis and fan location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolFanChassis
+  4: cpqHeFltTolFanIndex
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolFanRemoved .1.3.6.1.4.1.232.0.6039 "Status Events" MAJOR
+FORMAT Fan Removed (6039): The Fan Removed on Chassis $3, Fan $4.
+SDESC
+A Fault Tolerant Fan has been removed from the specified
+chassis and fan location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolFanChassis
+  4: cpqHeFltTolFanIndex
+EDESC
+#
+#
+#
+EVENT cpqHe3TemperatureFailed .1.3.6.1.4.1.232.0.6040 "Status Events" CRITICAL
+FORMAT Thermal Failure (6040): Temperature Exceeded on Chassis $3, Location $4.
+SDESC
+The temperature status has been set to failed in the
+specified chassis and location.
+The system will be shutdown due to this condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeTemperatureChassis
+  4: cpqHeTemperatureLocale
+EDESC
+#
+#
+#
+EVENT cpqHe3TemperatureDegraded .1.3.6.1.4.1.232.0.6041 "Status Events" CRITICAL
+FORMAT Thermal Status Degraded (6041): Temperature out of range on Chassis $4, Location $5. Shutdown may occur.
+SDESC
+The temperature status has been set to degraded in the
+specified chassis and location.
+The server's temperature is outside of the normal operating
+range.  The server will be shutdown if the
+cpqHeThermalDegradedAction variable is set to shutdown(3).
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeThermalDegradedAction
+  4: cpqHeTemperatureChassis
+  5: cpqHeTemperatureLocale
+EDESC
+#
+#
+#
+EVENT cpqHe3TemperatureOk .1.3.6.1.4.1.232.0.6042 "Status Events" INFORMATIONAL
+FORMAT Thermal Status OK (6042): Temperature Normal on Chassis $3, Location $4.
+SDESC
+The temperature status has been set to ok in the
+specified chassis and location.
+The server's temperature has returned to the normal operating
+range.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeTemperatureChassis
+  4: cpqHeTemperatureLocale
+EDESC
+#
+#
+#
+EVENT cpqHe3PowerConverterDegraded .1.3.6.1.4.1.232.0.6043 "Status Events" CRITICAL
+FORMAT Power Converter Degraded (6043): The Power Converter Degraded on Chassis $3, Slot $4, Socket $5.
+SDESC
+The DC-DC Power Converter condition has been set to degraded
+for the specified chassis, slot and socket.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHePwrConvChassis
+  4: cpqHePwrConvSlot
+  5: cpqHePwrConvSocket
+EDESC
+#
+#
+#
+EVENT cpqHe3PowerConverterFailed .1.3.6.1.4.1.232.0.6044 "Status Events" CRITICAL
+FORMAT Power Converter Failed (6044): The Power Converter Failed on Chassis $3, Slot $4, Socket $5.
+SDESC
+The DC-DC Power Converter condition has been set to failed
+for the specified chassis, slot and socket.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHePwrConvChassis
+  4: cpqHePwrConvSlot
+  5: cpqHePwrConvSocket
+EDESC
+#
+#
+#
+EVENT cpqHe3PowerConverterRedundancyLost .1.3.6.1.4.1.232.0.6045 "Status Events" CRITICAL
+FORMAT Power Converter Redundancy Lost (6045): The Power Converters are no longer redundant on Chassis $3.
+SDESC
+The DC-DC Power Converters have lost redundancy for the
+specified chassis.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHePwrConvChassis
+EDESC
+#
+#
+#
+EVENT cpqHe3CacheAccelParityError .1.3.6.1.4.1.232.0.6046 "Status Events" CRITICAL
+FORMAT Cache Accel Parity Errors may require a module. (6046): Cache Accelerator errors may require a replacement module.
+SDESC
+A cache accelerator parity error indicates a cache module
+needs to be replaced.
+The error information is reported in the variable
+cpqHeEventLogErrorDesc.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHeResilientMemOnlineSpareEngaged .1.3.6.1.4.1.232.0.6047 "Status Events" MAJOR
+FORMAT Online Spare Memory Engaged (6047): The Advanced Memory Protection subsystem has engaged the online spare memory.
+SDESC
+Advanced Memory Protection Online Spare Engaged.
+The Advanced Memory Protection subsystem has detected a memory
+fault. The Online Spare Memory has been activated.
+User Action: Schedule server down-time to replace the faulty
+memory.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe4FltTolPowerSupplyOk .1.3.6.1.4.1.232.0.6048 "Status Events" INFORMATIONAL
+FORMAT Power Supply OK (6048): The Power Supply is OK on Chassis $3, Bay $4, Status $5, Model $6, Serial Num $7, Firmware $9.
+SDESC
+The fault tolerant power supply condition has been set back
+to the OK state for the specified chassis and bay location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+  4: cpqHeFltTolPowerSupplyBay
+  5: cpqHeFltTolPowerSupplyStatus
+  6: cpqHeFltTolPowerSupplyModel
+  7: cpqHeFltTolPowerSupplySerialNumber
+  8: cpqHeFltTolPowerSupplyAutoRev
+  9: cpqHeFltTolPowerSupplyFirmwareRev
+  10: cpqHeFltTolPowerSupplySparePartNum
+  11: cpqSiServerSystemId
+EDESC
+#
+#
+#
+EVENT cpqHe4FltTolPowerSupplyDegraded .1.3.6.1.4.1.232.0.6049 "Status Events" CRITICAL
+FORMAT Power Supply Degraded (6049): The Power Supply is Degraded on Chassis $3, Bay $4, Status $5, Model $6, Serial Num $7, Firmware $9.
+SDESC
+The fault tolerant power supply condition has been set
+to degraded for the specified chassis and bay location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+  4: cpqHeFltTolPowerSupplyBay
+  5: cpqHeFltTolPowerSupplyStatus
+  6: cpqHeFltTolPowerSupplyModel
+  7: cpqHeFltTolPowerSupplySerialNumber
+  8: cpqHeFltTolPowerSupplyAutoRev
+  9: cpqHeFltTolPowerSupplyFirmwareRev
+  10: cpqHeFltTolPowerSupplySparePartNum
+  11: cpqSiServerSystemId
+EDESC
+#
+#
+#
+EVENT cpqHe4FltTolPowerSupplyFailed .1.3.6.1.4.1.232.0.6050 "Status Events" CRITICAL
+FORMAT Power Supply Failed (6050): The Power Supply is Failed on Chassis $3, Bay $4, Status $5, Model $6, Serial Num $7, Firmware $9.
+SDESC
+The fault tolerant power supply condition has been set
+to failed for the specified chassis and bay location.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+  4: cpqHeFltTolPowerSupplyBay
+  5: cpqHeFltTolPowerSupplyStatus
+  6: cpqHeFltTolPowerSupplyModel
+  7: cpqHeFltTolPowerSupplySerialNumber
+  8: cpqHeFltTolPowerSupplyAutoRev
+  9: cpqHeFltTolPowerSupplyFirmwareRev
+  10: cpqHeFltTolPowerSupplySparePartNum
+  11: cpqSiServerSystemId
+EDESC
+#
+#
+#
+EVENT cpqHeResilientMemMirroredMemoryEngaged .1.3.6.1.4.1.232.0.6051 "Status Events" MAJOR
+FORMAT Mirrored Memory Engaged (6051): The Advanced Memory Protection subsystem has engaged the online spare memory.
+SDESC
+Advanced Memory Protection Mirrored Memory Engaged.
+The Advanced Memory Protection subsystem has detected a memory
+fault. Mirrored Memory has been activated.
+User Action: Replace the faulty memory.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHeResilientAdvancedECCMemoryEngaged .1.3.6.1.4.1.232.0.6052 "Status Events" MAJOR
+FORMAT Advanced ECC Memory Engaged (6052): The Advanced Memory Protection subsystem has engaged the advanced ECC memory.
+SDESC
+Advanced Memory Protection Advanced ECC Memory Engaged.
+The Advanced Memory Protection subsystem has detected a memory
+fault. Advanced ECC has been activated.
+User Action: Replace the faulty memory.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHeResilientMemXorMemoryEngaged .1.3.6.1.4.1.232.0.6053 "Status Events" MAJOR
+FORMAT Advanced XOR Memory Engaged (6053): The Advanced Memory Protection subsystem has engaged the XOR memory.
+SDESC
+Advanced Memory Protection XOR Engine Memory Engaged.
+The Advanced Memory Protection subsystem has detected a memory
+fault. The XOR engine has been activated.
+User Action: Replace the faulty memory.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolPowerRedundancyRestored .1.3.6.1.4.1.232.0.6054 "Status Events" INFORMATIONAL
+FORMAT Power Redundancy Restored (6054): The Power Supplies are now redundant on Chassis $3.
+SDESC
+The Fault Tolerant Power Supplies have returned to a redundant
+state for the specified chassis.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolPowerSupplyChassis
+EDESC
+#
+#
+#
+EVENT cpqHe3FltTolFanRedundancyRestored .1.3.6.1.4.1.232.0.6055 "Status Events" INFORMATIONAL
+FORMAT Fan Redundancy Restored (6055): The Fans are now redundant on Chassis $3.
+SDESC
+The Fault Tolerant Fans have returned to a redundant state for
+the specified chassis.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeFltTolFanChassis
+EDESC
+#
+#
+#
+EVENT cpqHe4CorrMemReplaceMemModule .1.3.6.1.4.1.232.0.6056 "Status Events" MINOR
+FORMAT Corrected Memory Errors - Replace Memory Module. (6056): Correctable memory errors require a replacement of the memory module in slot $3, socket $4.
+SDESC
+Corrected Memory Errors Detected
+The errors have been corrected, but the memory module should be
+replaced.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMemBoardIndex
+  4: cpqHeResMemModuleIndex
+  5: cpqHeResMemModuleSparePartNo
+  6: cpqSiMemModuleSize
+  7: cpqSiServerSystemId
+EDESC
+#
+#
+#
+EVENT cpqHeResMemBoardRemoved .1.3.6.1.4.1.232.0.6057 "Status Events" MAJOR
+FORMAT Memory Board or Cartridge Removed (6057): Memory Board or Cartridge Removed from Slot $3.
+SDESC
+
+Memory board or cartridge removed.
+An Advanced Memory Protection sub-system board or cartridge has
+been removed from the system.
+User Action: Insure the board or cartridge has memory correctly
+installed and re-insert the memory board or cartridge back into
+the system.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMemBoardSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqHeResMemBoardInserted .1.3.6.1.4.1.232.0.6058 "Status Events" INFORMATIONAL
+FORMAT Memory Board or Cartridge Inserted (6058): Memory Board or Cartridge Inserted into Slot $3.
+SDESC
+Memory board or cartridge inserted.
+An Advanced Memory Protection sub-system board or cartridge has
+been inserted into the system.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMemBoardSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqHeResMemBoardBusError .1.3.6.1.4.1.232.0.6059 "Status Events" CRITICAL
+FORMAT Memory Board or Cartridge Bus Error Detected (6059): Memory Board or Cartridge Bus Error Detected in Slot $3.
+SDESC
+Memory board or cartridge bus error detected.
+An Advanced Memory Protection sub-system board or cartridge
+bus error has been detected.
+User Action: Replace the indicated board or cartridge.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMemBoardSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqHeEventOccurred .1.3.6.1.4.1.232.0.6060 "Status Events" INFORMATIONAL
+FORMAT Event has occurred (6060): Event $6 has occurred, Severity $4 
+SDESC
+An event has occurred.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeEventLogEntryNumber
+  4: cpqHeEventLogEntrySeverity
+  5: cpqHeEventLogUpdateTime
+  6: cpqHeEventLogErrorDesc
+EDESC
+#
+#
+#
+EVENT cpqHeManagementProcInReset .1.3.6.1.4.1.232.0.6061 "Status Events" MINOR
+FORMAT Management processor is currently in reset. (6061): The Management processor is in the process of being reset.
+SDESC
+The Management processor is currently in reset
+The management processor is currently in the process of being reset
+because of a firmware update or some other event.
+User action: None
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHeManagementProcReady .1.3.6.1.4.1.232.0.6062 "Status Events" INFORMATIONAL
+FORMAT Management processor is ready. (6062): The Management processor is ready after a successfull reset.
+SDESC
+The Management processor is ready
+The management processor has successfully reset and is now available
+again.
+User action: None
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHeManagementProcFailedReset .1.3.6.1.4.1.232.0.6063 "Status Events" CRITICAL
+FORMAT Management processor failed reset. (6063): The Management processor failed reset.
+SDESC
+The Management processor failed reset
+The management processor was not successfully reset and is not 
+operational.
+User action: Reset the management procesessor again or re-flash
+the management processor firmware.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqHe5CorrMemReplaceMemModule .1.3.6.1.4.1.232.0.6064 "Status Events" MINOR
+FORMAT Corrected Memory Errors - Replace Memory Module. (6064): Correctable memory errors require a replacement of the memory module in slot $3, cpu $4, riser $5, socket %d.
+SDESC
+Corrected Memory Errors Detected
+The errors have been corrected, but the memory module should be
+replaced. Value 0 for CPU means memory is not Processor based
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMem2BoardNum
+  4: cpqHeResMem2CpuNum
+  5: cpqHeResMem2RiserNum
+  6: cpqHeResMem2ModuleNum
+  7: cpqHeResMem2ModulePartNo
+  8: cpqHeResMem2ModuleSize
+  9: cpqSiServerSystemId
+EDESC
+#
+#
+#
+EVENT cpqHe5ResMemBoardRemoved .1.3.6.1.4.1.232.0.6065 "Status Events" MAJOR
+FORMAT Memory Board or Cartridge or Riser Removed (6065): Memory Board or Cartridge or riser Removed from Slot $3, Cpu $4 Riser $5.
+SDESC
+
+Memory board or cartridge or riser removed.
+An Advanced Memory Protection sub-system board or cartridge or riser has
+been removed from the system. Value 0 for CPU means memory is not processor based.
+User Action: Insure the board or cartridge or riser has memory correctly
+installed and re-insert the memory board or cartridge or CPU back into
+the system.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMem2BoardSlotNum
+  4: cpqHeResMem2BoardCpuNum
+  5: cpqHeResMem2BoardRiserNum
+EDESC
+#
+#
+#
+EVENT cpqHe5ResMemBoardInserted .1.3.6.1.4.1.232.0.6066 "Status Events" INFORMATIONAL
+FORMAT Memory Board or Cartridge Inserted (6066): Memory Board or Cartridge Inserted into Slot $3, Cpu $4, Riser $5.
+SDESC
+Memory board or cartridge or riser inserted.
+An Advanced Memory Protection sub-system board or cartridge or riser 
+Has been inserted into the system. Value 0 for CPU means memory is not processor based.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMem2BoardSlotNum
+  4: cpqHeResMem2BoardCpuNum
+  5: cpqHeResMem2BoardRiserNum
+EDESC
+#
+#
+#
+EVENT cpqHe5ResMemBoardBusError .1.3.6.1.4.1.232.0.6067 "Status Events" CRITICAL
+FORMAT Memory Board or Cartridge or Riser Bus Error Detected (6067): Memory Board or Cartridge Bus Error Detected in Slot $3, Cpu $4, Riser $5.
+SDESC
+Memory board or cartridge or Riser bus error detected.
+An Advanced Memory Protection sub-system board or cartridge or Riser
+bus error has been detected. Value 0 for CPU means memory is not processor based.
+User Action: Replace the indicated board or cartridge or Riser.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqHeResMem2BoardSlotNum
+  4: cpqHeResMem2BoardCpuNum
+  5: cpqHeResMem2BoardRiserNum
+EDESC
+#
+#
+#
+EVENT cpqHeResilientMemLockStepMemoryEngaged .1.3.6.1.4.1.232.0.6068 "Status Events" MAJOR
+FORMAT Advanced LockStep Memory Engaged (6068): The Advanced Memory Protection subsystem has engaged the LockStep memory.
+SDESC
+Advanced Memory Protection LockStep Engine Memory Engaged.
+The Advanced Memory Protection subsystem has detected a memory
+fault. The LockStep engine has been activated.
+User Action: Replace the faulty memory.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC

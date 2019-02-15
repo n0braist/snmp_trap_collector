@@ -1,0 +1,22 @@
+#
+#
+#
+#
+MIB: CISCO-GSLB-SYSTEM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-GSLB-SYSTEM-MIB.mib) converted on Tue Aug 21 15:26:04 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoGslbSystemPeerEventStatus .1.3.6.1.4.1.9.9.589.0.1 "Status Events" Normal
+FORMAT This notification is sent when the value of $*
+SDESC
+This notification is sent when the value of
+cgsPeerStatus changes from one state to another.
+This notification is reported only by a GSLB device
+with cgsNodeService value of 'primary'.
+Variables:
+  1: sysName
+  2: cgsPeerDnsName
+  3: cgsPeerService
+  4: cgsPeerPrevStatus
+  5: cgsPeerStatus
+EDESC

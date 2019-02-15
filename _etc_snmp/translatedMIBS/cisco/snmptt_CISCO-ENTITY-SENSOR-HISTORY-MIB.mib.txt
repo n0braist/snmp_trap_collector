@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-ENTITY-SENSOR-HISTORY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ENTITY-SENSOR-HISTORY-MIB.mib) converted on Tue Aug 21 15:25:57 2012 using snmpttconvertmib v1.3

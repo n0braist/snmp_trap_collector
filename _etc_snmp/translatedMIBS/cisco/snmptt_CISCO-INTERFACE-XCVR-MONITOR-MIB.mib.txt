@@ -1,0 +1,31 @@
+#
+#
+#
+#
+MIB: CISCO-INTERFACE-XCVR-MONITOR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-INTERFACE-XCVR-MONITOR-MIB.mib) converted on Tue Aug 21 15:26:09 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cIfXcvrMonStatusChangeNotif .1.3.6.1.4.1.9.9.706.0.1 "Status Events" Normal
+FORMAT This notification trap indicates the current status of the $*
+SDESC
+This notification trap indicates the current status of the
+alarm and warning monitoring parameters for all the sensors 
+based on the digital diagnostic monitoring information.
+This notification is generated whenever there is a change 
+in the status of atleast one of the monitoring parameters
+of the sensors on the transceiver in an interface.
+Variables:
+  1: ifName
+  2: cIfXcvrMonDigitalDiagTempAlarm
+  3: cIfXcvrMonDigitalDiagTempWarning
+  4: cIfXcvrMonDigitalDiagVoltAlarm
+  5: cIfXcvrMonDigitalDiagVoltWarning
+  6: cIfXcvrMonDigitalDiagCurrAlarm
+  7: cIfXcvrMonDigitalDiagCurrWarning
+  8: cIfXcvrMonDigitalDiagRxPwrAlarm
+  9: cIfXcvrMonDigitalDiagRxPwrWarning
+  10: cIfXcvrMonDigitalDiagTxPwrAlarm
+  11: cIfXcvrMonDigitalDiagTxPwrWarning
+  12: cIfXcvrMonDigitalDiagTxFaultAlarm
+EDESC

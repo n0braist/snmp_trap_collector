@@ -1,0 +1,115 @@
+#
+#
+#
+#
+MIB: HORIZON-LIBRARY-MONITOR-MIB (file:/tmp/SL_MIBS_2012-08-20/HORIZON-LIBRARY-MONITOR-MIB.mib) converted on Tue Aug 21 08:13:06 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hlmTrpErr .1.3.6.1.4.1.1211.1.5.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A error trap message
+Variables:
+  1: hlmTrpMsg
+EDESC
+#
+#
+#
+EVENT hlmTrpWar .1.3.6.1.4.1.1211.1.5.0.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A warning trap message
+Variables:
+  1: hlmTrpMsg
+EDESC
+#
+#
+#
+EVENT hlmTrpInfo .1.3.6.1.4.1.1211.1.5.0.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+An info trap message
+Variables:
+  1: hlmTrpMsg
+EDESC
+#
+#
+#
+EVENT hlmTrpUncl .1.3.6.1.4.1.1211.1.5.0.4 "Status Events" Normal
+FORMAT $*
+SDESC
+
+An unclassified trap message
+Variables:
+  1: hlmTrpMsg
+EDESC
+#
+#
+#
+EVENT hlmTrpNorStatus .1.3.6.1.4.1.1211.1.5.0.5 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A normal status notification trap
+Variables:
+  1: hlmTrpOid
+EDESC
+#
+#
+#
+EVENT hlmTrpUnkStatus .1.3.6.1.4.1.1211.1.5.0.6 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A unknown status  notification trap
+Variables:
+  1: hlmTrpOid
+EDESC
+#
+#
+#
+EVENT hlmTrpWarStatus .1.3.6.1.4.1.1211.1.5.0.7 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A warning status  notification trap
+Variables:
+  1: hlmTrpOid
+EDESC
+#
+#
+#
+EVENT hlmTrpMinStatus .1.3.6.1.4.1.1211.1.5.0.8 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A minor status notification trap
+Variables:
+  1: hlmTrpOid
+EDESC
+#
+#
+#
+EVENT hlmTrpMajStatus .1.3.6.1.4.1.1211.1.5.0.9 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A major status notification trap
+Variables:
+  1: hlmTrpOid
+EDESC
+#
+#
+#
+EVENT hlmTrpCriStatus .1.3.6.1.4.1.1211.1.5.0.10 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A critical status notification trap
+Variables:
+  1: hlmTrpOid
+EDESC

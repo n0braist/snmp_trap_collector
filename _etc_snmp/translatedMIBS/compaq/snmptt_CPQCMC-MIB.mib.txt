@@ -1,0 +1,341 @@
+#
+#
+#
+#
+MIB: CPQCMC-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQCMC-MIB.mib) converted on Wed Aug 22 14:19:05 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqCmcalarmTemp1 .1.3.6.1.4.1.232.153.0.153001 "Status Events" MAJOR
+FORMAT Temperature-alarm (153001): Location: $4, Message: Rack temp sensor 1 $5 from: $3, contact $2
+SDESC
+The temperature at rack sensor 1 is outside the specified threshold.  Action: Check the air handling system for the rack and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusTemp1
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmTemp2 .1.3.6.1.4.1.232.153.0.153002 "Status Events" MAJOR
+FORMAT Temperature-alarm (153002): Location: $4, Message: Rack temp sensor 2 $5 from: $3, contact $2
+SDESC
+The temperature at rack sensor 2 is outside the specified threshold.  Action: Check the air handling system for the rack and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusTemp2
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmFan1 .1.3.6.1.4.1.232.153.0.153003 "Status Events" MAJOR
+FORMAT Fan-alarm (153003): Location: $4, Rack fan 1 status: $5 from: $3, contact $2
+SDESC
+The status of Fan 1 has changed.  Action: Refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusFan1
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmFan2 .1.3.6.1.4.1.232.153.0.153004 "Status Events" MAJOR
+FORMAT Fan-alarm (153004): Location: $4, Rack fan 2 status: $5 from: $3, contact $2
+SDESC
+The status of Fan 2 has changed.  Action: Refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusFan2
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmVoltage .1.3.6.1.4.1.232.153.0.153005 "Status Events" MAJOR
+FORMAT Voltage-alarm (153005): Location: $4, Message: Rack supply voltage $5 from: $3, contact $2
+SDESC
+The AC voltage of the rack is outside the specified threshold.  Action: Check the incoming power source and ensure all cables are inserted correctly.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusVoltage
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmHumidity .1.3.6.1.4.1.232.153.0.153006 "Status Events" MAJOR
+FORMAT Humidity-alarm (153006): Location: $4, Message: $5 from: $3, contact $2
+SDESC
+The humidity of the rack is outside the specified threshold.  Action: Check the
+air handling system for the rack and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusHumidity
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmInput1 .1.3.6.1.4.1.232.153.0.153007 "Status Events" MINOR
+FORMAT Door/sidepanel-alarm (153007): Location: $4, Message: Rack access point 1 $5 from: $3, contact $2
+SDESC
+The door or sidepanel of the rack has been opened (access point #1).  Action: Check for unauthorized intrusion and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusInput1
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmInput2 .1.3.6.1.4.1.232.153.0.153008 "Status Events" MINOR
+FORMAT Door/sidepanel-alarm (153008): Location: $4, Message: Rack access point 2 $5 from: $3, contact $2
+SDESC
+The door or sidepanel of the rack has been opened (access point #2).  Action: Check for unauthorized intrusion and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusInput2
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmInput3 .1.3.6.1.4.1.232.153.0.153009 "Status Events" MINOR
+FORMAT Door/sidepanel-alarm (153009): Location: $4, Message: Rack access point 3 $5 from: $3, contact $2
+SDESC
+The door or sidepanel of the rack has been opened (access point #3).  Action: Check for unauthorized intrusion and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusInput3
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmInput4 .1.3.6.1.4.1.232.153.0.153010 "Status Events" MINOR
+FORMAT Door/sidepanel-alarm (153010): Location: $4, Message: Rack access point 4 $5 from: $3, contact $2
+SDESC
+The door or sidepanel of the rack has been opened (access point #4).  Action: Check for unauthorized intrusion and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusInput4
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmLock1 .1.3.6.1.4.1.232.153.0.153011 "Status Events" MAJOR
+FORMAT Door-locking-alarm (153011): Location: $4, Message: Rack lock #1 $5 from: $3, contact $2
+SDESC
+Rack door lock #1 alarm.  Action: Ensure the door is completely closed and check for unauthorized intrusion and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusLock1Lock
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmLock2 .1.3.6.1.4.1.232.153.0.153012 "Status Events" MAJOR
+FORMAT Door-locking-alarm (153012): Location: $4, Message: Rack lock #1 $5 from: $3, contact $2
+SDESC
+Rack door lock #2 alarm.  Action: Ensure the door is completely closed and check for unauthorized intrusion and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusLock2Lock
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmSmoke .1.3.6.1.4.1.232.153.0.153013 "Status Events" MAJOR
+FORMAT Smoke-alarm (153013): Location: $4, Message: Rack smoke detector - smoke: $5 from: $3, contact $2
+SDESC
+The rack smoke detector has detected smoke.  Action: Investigate rack for an over temperature condition and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusSmoke
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmShock .1.3.6.1.4.1.232.153.0.153014 "Status Events" MAJOR
+FORMAT Shock-alarm (153014): Location: $4, Message: Rack shock detector - shock: $5 from: $3, contact $2
+SDESC
+The rack shock detector has detected a vibration to the rack.  Action: Investigate rack.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusShock
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmAux1 .1.3.6.1.4.1.232.153.0.153015 "Status Events" MAJOR
+FORMAT Aux-alarm (153015): Location: $4, Message: aux input #1 $5 from: $3, contact $2
+SDESC
+The rack auxiliary alarm input #1 has been triggered.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusAux1
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmAux2 .1.3.6.1.4.1.232.153.0.153016 "Status Events" MAJOR
+FORMAT Aux-alarm (153016): Location: $4, Message: aux input #2 $5 from: $3, contact $2
+SDESC
+The rack auxiliary alarm input #2 has been triggered.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusAux2
+EDESC
+#
+#
+#
+EVENT cpqCmcalarm1 .1.3.6.1.4.1.232.153.0.153017 "Status Events" MAJOR
+FORMAT NMS-alarm (153017): Location: $4, Message: $5 from: $3, contact $2
+SDESC
+Alarm 1, set from Network management
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusAlarm1
+EDESC
+#
+#
+#
+EVENT cpqCmcalarm2 .1.3.6.1.4.1.232.153.0.153018 "Status Events" MAJOR
+FORMAT NMS-alarm (153018): Location: $4, Message: $5 from: $3, contact $2
+SDESC
+Alarm 2, set from Network management
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusAlarm2
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmLock1Dev .1.3.6.1.4.1.232.153.0.153019 "Status Events" MAJOR
+FORMAT Door-locking-alarm of device (153019): Location: $4, Status: door lock device #1 $5 from: $3, contact $2
+SDESC
+The rack door locking device #1 has failed.  Action: Check the device lock cable or failed battery and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusLock1Dev
+EDESC
+#
+#
+#
+EVENT cpqCmcalarmLock2Dev .1.3.6.1.4.1.232.153.0.153020 "Status Events" MAJOR
+FORMAT Door-locking-alarm of device (153020): Location: $4, Status: door lock device #2 $5 from: $3, contact $2
+SDESC
+The rack door locking device #2 has failed.  Action: Check the device lock cable or failed battery and refer to Trap Details for more information.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+  5: cpqCmcStatusLock2Dev
+EDESC
+#
+#
+#
+EVENT cpqCmcSetupChanged .1.3.6.1.4.1.232.153.0.153100 "Status Events" INFORMATIONAL
+FORMAT Setup has changed (153100): Location: $4, Name: $3, contact $2
+SDESC
+Setup of CMC has changed.
+--
+--
+Variables:
+  1: sysDescr
+  2: sysContact
+  3: sysName
+  4: sysLocation
+EDESC

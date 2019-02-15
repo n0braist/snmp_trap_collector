@@ -1,0 +1,1063 @@
+#
+#
+#
+#
+MIB: CPQIDA-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQIDA-MIB.mib) converted on Wed Aug 22 14:19:19 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqDaLogDrvStatusChange .1.3.6.1.4.1.232.3.0.1 "Status Events" CRITICAL
+FORMAT Logical Drive Status Change (1): Status is now $1.
+SDESC
+Logical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array logical drive.  The variable
+cpqDaLogDrvStatus indicates the current logical drive status.
+Variables:
+  1: cpqDaLogDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDaSpareStatusChange .1.3.6.1.4.1.232.3.0.2 "Status Events" CRITICAL
+FORMAT Spare Drive Status Change (2): Status is now $1 for a spare on bus $2.
+SDESC
+Spare Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array spare drive.  The variable
+cpqDaSpareStatus indicates the current spare drive status.  The
+variable cpqDaSpareBusNumber indicates the SCSI bus number
+associated with this drive.
+Variables:
+  1: cpqDaSpareStatus
+  2: cpqDaSpareBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDaPhyDrvStatusChange .1.3.6.1.4.1.232.3.0.3 "Status Events" CRITICAL
+FORMAT Physical Drive Status Change (3): Status is now $1 for a physical drive on bus $2.
+SDESC
+Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array physical drive.  The variable
+cpaDaPhyDrvStatus indicates the current physical drive status.
+The variable cpqDaPhyDrvBusNumber indicates the SCSI bus number
+associated with this drive.
+Variables:
+  1: cpqDaPhyDrvStatus
+  2: cpqDaPhyDrvBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDaPhyDrvThreshPassedTrap .1.3.6.1.4.1.232.3.0.4 "Status Events" CRITICAL
+FORMAT Physical Drive Threshold Passed (4): Factory threshold passed for a physical on bus $2.
+SDESC
+Physical Drive Threshold Passed.
+This trap signifies that the agent has detected a factory
+threshold associated with one of the physical drive objects on
+a drive array has been exceeded.  The variable
+cpqDaPhyDrvBusNumber indicates the SCSI bus number associated
+with the drive.
+Variables:
+  1: cpqDaPhyDrvThreshPassed
+  2: cpqDaPhyDrvBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDaAccelStatusChange .1.3.6.1.4.1.232.3.0.5 "Status Events" CRITICAL
+FORMAT Accelerator Board Status Change (5): Status is now $1.
+SDESC
+Accelerator Board Status Change.
+This trap signifies that the agent has detected a change in the
+cpqDaAccelStatus of an array accelerator write cache.  The
+current status is represented by the variable cpqDaAccelStatus.
+Variables:
+  1: cpqDaAccelStatus
+EDESC
+#
+#
+#
+EVENT cpqDaAccelBadDataTrap .1.3.6.1.4.1.232.3.0.6 "Status Events" CRITICAL
+FORMAT Accelerator Board Bad Data (6): Accelerator lost battery power.  Data Loss possible.
+SDESC
+Accelerator Board Bad Data.
+This trap signifies that the agent has detected an array
+accelerator cache board that has lost battery power.  If data
+was being stored in the accelerator memory when the server lost
+power, that data has been lost.
+Variables:
+  1: cpqDaAccelBadData
+EDESC
+#
+#
+#
+EVENT cpqDaAccelBatteryFailed .1.3.6.1.4.1.232.3.0.7 "Status Events" CRITICAL
+FORMAT Accelerator Board Battery Failed (7): Battery failed.  Status ($1).
+SDESC
+Accelerator Board Battery Failed.
+This trap signifies that the agent has detected a battery
+failure associated with the array accelerator cache board.
+The current battery status is indicated by the
+cpqDaAccelBattery variable.
+Variables:
+  1: cpqDaAccelBattery
+EDESC
+#
+#
+#
+EVENT cpqDa2LogDrvStatusChange .1.3.6.1.4.1.232.0.3001 "Status Events" CRITICAL
+FORMAT Logical Drive Status Change (3001): Status is now $1.
+SDESC
+Logical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array logical drive.  The variable
+cpqDaLogDrvStatus indicates the current logical drive status.
+Variables:
+  1: cpqDaLogDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDa2SpareStatusChange .1.3.6.1.4.1.232.0.3002 "Status Events" CRITICAL
+FORMAT Spare Drive Status Change (3002): Spare Status is now $1 on bus $2.
+SDESC
+Spare Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array spare drive.  The variable
+cpqDaSpareStatus indicates the current spare drive status.
+The variable cpqDaSpareBusNumber indicates the SCSI bus number
+associated with this drive.
+Variables:
+  1: cpqDaSpareStatus
+  2: cpqDaSpareBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDa2PhyDrvStatusChange .1.3.6.1.4.1.232.0.3003 "Status Events" CRITICAL
+FORMAT Physical Drive Status Change (3003): Status is now $1 for a physical drive on bus $2.
+SDESC
+Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array physical drive.  The variable
+cpaDaPhyDrvStatus indicates the current physical drive status.
+The variable cpqDaPhyDrvBusNumber indicates the SCSI bus number
+associated with this drive.
+Variables:
+  1: cpqDaPhyDrvStatus
+  2: cpqDaPhyDrvBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDa2PhyDrvThreshPassedTrap .1.3.6.1.4.1.232.0.3004 "Status Events" CRITICAL
+FORMAT Physical Drive Threshold Passed (3004): Factory threshold passed for a physical on bus $2.
+SDESC
+Physical Drive Threshold Passed.
+This trap signifies that the agent has detected a factory
+threshold associated with one of the physical drive objects on
+a drive array has been exceeded.  The variable
+cpqDaPhyDrvBusNumber indicates the SCSI bus number associated
+with the drive.
+Variables:
+  1: cpqDaPhyDrvThreshPassed
+  2: cpqDaPhyDrvBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDa2AccelStatusChange .1.3.6.1.4.1.232.0.3005 "Status Events" CRITICAL
+FORMAT Accelerator Board Status Change (3005): Status is now $1.
+SDESC
+Accelerator Board Status Change.
+This trap signifies that the Insight Agent has detected a
+change in the cpqDaAccelStatus of array accelerator cache.
+The current status is represented by the variable
+cpqDaAccelStatus.
+Variables:
+  1: cpqDaAccelStatus
+EDESC
+#
+#
+#
+EVENT cpqDa2AccelBadDataTrap .1.3.6.1.4.1.232.0.3006 "Status Events" CRITICAL
+FORMAT Accelerator Board Bad Data (3006): Accelerator lost battery power.  Data Loss possible.
+SDESC
+Accelerator Board Bad Data.
+This trap signifies that the agent has detected an array
+accelerator cache board that has lost battery power.  If data
+was being stored in the accelerator memory when the server lost
+power, that data has been lost.
+Variables:
+  1: cpqDaAccelBadData
+EDESC
+#
+#
+#
+EVENT cpqDa2AccelBatteryFailed .1.3.6.1.4.1.232.0.3007 "Status Events" CRITICAL
+FORMAT Accelerator Board Battery Failed (3007): Battery status is $1.
+SDESC
+Accelerator Board Battery Failed.
+This trap signifies that the agent has detected a battery
+failure associated with the array accelerator cache board.  The
+current battery status is indicated by the cpqDaAccelBattery
+variable.
+Variables:
+  1: cpqDaAccelBattery
+EDESC
+#
+#
+#
+EVENT cpqDa3LogDrvStatusChange .1.3.6.1.4.1.232.0.3008 "Status Events" CRITICAL
+FORMAT Logical Drive Status Change (3008): Status is now $3.
+SDESC
+Logical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array logical drive.  The variable
+cpqDaLogDrvStatus indicates the current logical drive status.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaLogDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDa3SpareStatusChange .1.3.6.1.4.1.232.0.3009 "Status Events" CRITICAL
+FORMAT Spare Drive Status Change (3009): Spare Status is now $3 on bus $4.
+SDESC
+Spare Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array spare drive.  The variable
+cpqDaSpareStatus indicates the current spare drive status.  The
+variable cpqDaSpareBusNumber indicates the SCSI bus number
+associated with this drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaSpareStatus
+  4: cpqDaSpareBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDa3PhyDrvStatusChange .1.3.6.1.4.1.232.0.3010 "Status Events" CRITICAL
+FORMAT Physical Drive Status Change (3010): Status is now $3 for a physical drive on bus $4.
+SDESC
+Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array physical drive.  The variable
+cpaDaPhyDrvStatus indicates the current physical drive status.
+The variable cpqDaPhyDrvBusNumber indicates the SCSI bus number
+associated with this drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaPhyDrvStatus
+  4: cpqDaPhyDrvBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDa3PhyDrvThreshPassedTrap .1.3.6.1.4.1.232.0.3011 "Status Events" CRITICAL
+FORMAT Physical Drive Threshold Passed (3011): Factory threshold passed for a physical on bus $3.
+SDESC
+Physical Drive Threshold Passed.
+This trap signifies that the agent has detected a factory
+threshold associated with one of the physical drive objects on
+a drive array has been exceeded.  The variable
+cpqDaPhyDrvBusNumber indicates the SCSI bus number associated
+with the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaPhyDrvThreshPassed
+  4: cpqDaPhyDrvBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDa3AccelStatusChange .1.3.6.1.4.1.232.0.3012 "Status Events" CRITICAL
+FORMAT Accelerator Board Status Change (3012): Status is now $3.
+SDESC
+Accelerator Board Status Change.
+This trap signifies that the agent has detected a change in the
+cpqDaAccelStatus of an array accelerator cache board.  The
+current status is represented by the variable cpqDaAccelStatus.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaAccelStatus
+EDESC
+#
+#
+#
+EVENT cpqDa3AccelBadDataTrap .1.3.6.1.4.1.232.0.3013 "Status Events" CRITICAL
+FORMAT Accelerator Board Bad Data (3013): Accelerator lost battery power.  Data Loss possible.
+SDESC
+Accelerator Board Bad Data.
+This trap signifies that the agent has detected an array
+accelerator cache board that has lost battery power.  If data
+was being stored in the accelerator memory when the server lost
+power, that data has been lost.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaAccelBadData
+EDESC
+#
+#
+#
+EVENT cpqDa3AccelBatteryFailed .1.3.6.1.4.1.232.0.3014 "Status Events" CRITICAL
+FORMAT Accelerator Board Battery Failed (3014): Battery status is $3.
+SDESC
+Accelerator Board Battery Failed.
+This trap signifies that the agent has detected a battery
+failure associated with the array accelerator cache board.  The
+current battery status is indicated by the cpqDaAccelBattery
+variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaAccelBattery
+EDESC
+#
+#
+#
+EVENT cpqDaCntlrStatusChange .1.3.6.1.4.1.232.0.3015 "Status Events" CRITICAL
+FORMAT Controller Status Change (3015): Status is now $4.
+SDESC
+Controller Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array controller.  The variable
+cpqDaCntlrBoardStatus indicates the current controller status.
+User Action: If the board status is generalFailure(3), the
+you may need to replace the controller.  If the board status
+is cableProblem(4), check the cable connections between the
+controller and the storage system.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrSlot
+  4: cpqDaCntlrBoardStatus
+EDESC
+#
+#
+#
+EVENT cpqDaCntlrActive .1.3.6.1.4.1.232.0.3016 "Status Events" INFORMATIONAL
+FORMAT Duplex Controller Active (3016): Controller in slot $3 is now active.
+SDESC
+Controller Active.
+This trap signifies that the agent has detected that a backup
+array controller in a duplexed pair has switched over to the
+active role.  The variable cpqDaCntlrSlot indicates the
+active controller slot and cpqDaCntlrPartnerSlot indicates the
+backup.
+User Action: Check the partner controller for problems.
+If this was the result of a user initiated switch over,
+no action is required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrSlot
+  4: cpqDaCntlrPartnerSlot
+EDESC
+#
+#
+#
+EVENT cpqDa4SpareStatusChange .1.3.6.1.4.1.232.0.3017 "Status Events" CRITICAL
+FORMAT Spare Drive Status Change (3017): Spare Status is now $3.
+SDESC
+Spare Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array spare drive.  The variable
+cpqDaSpareStatus indicates the current spare drive status.
+User Action: If the spare drive status is failed, replace
+the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaSpareStatus
+  4: cpqDaSpareCntlrIndex
+  5: cpqDaSpareBusNumber
+  6: cpqDaSpareBay
+EDESC
+#
+#
+#
+EVENT cpqDa4PhyDrvStatusChange .1.3.6.1.4.1.232.0.3018 "Status Events" CRITICAL
+FORMAT Physical Drive Status Change (3018): Physical Drive Status is now $3.
+SDESC
+Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array physical drive.  The variable
+cpaDaPhyDrvStatus indicates the current physical drive status.
+User Action: If the physical drive failed or predicting
+failure, replace the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaPhyDrvStatus
+  4: cpqDaPhyDrvCntlrIndex
+  5: cpqDaPhyDrvBusNumber
+  6: cpqDaPhyDrvBay
+EDESC
+#
+#
+#
+EVENT cpqDa4PhyDrvThreshPassedTrap .1.3.6.1.4.1.232.0.3019 "Status Events" CRITICAL
+FORMAT Physical Drive Threshold Passed (3019): Factory threshold passed for a physical drive.
+SDESC
+Physical Drive Threshold Passed.
+This trap signifies that the agent has detected a factory
+threshold associated with one of the physical drive objects on
+a drive array has been exceeded.
+User Action: If the physical drive is predicting failure,
+replace the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaPhyDrvCntlrIndex
+  4: cpqDaPhyDrvBusNumber
+  5: cpqDaPhyDrvBay
+EDESC
+#
+#
+#
+EVENT cpqDaTapeLibraryStatusChange .1.3.6.1.4.1.232.0.3020 "Status Events" CRITICAL
+FORMAT Tape Library Status Change (3020): Status is now $7 for the tape library.
+SDESC
+Tape Library Status Change.
+This trap signifies that the agent has detected a change in
+the status of a tape library.  The variable
+cpqDaTapeLibraryStatus indicates the current tape library
+status.  The variable cpqDaTapeLibraryScsiTarget indicates
+the SCSI ID of the tape library.
+User Action: If the tape library is failed, check the tape
+library front panel.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaTapeLibraryCntlrIndex
+  4: cpqDaTapeLibraryScsiBus
+  5: cpqDaTapeLibraryScsiTarget
+  6: cpqDaTapeLibraryScsiLun
+  7: cpqDaTapeLibraryStatus
+EDESC
+#
+#
+#
+EVENT cpqDaTapeLibraryDoorStatusChange .1.3.6.1.4.1.232.0.3021 "Status Events" CRITICAL
+FORMAT Tape Library Door Status Change (3021): The door is $7 for tape library.
+SDESC
+Tape Library Door Status Change.
+This trap signifies that the agent has detected a change in
+the door status of a tape library.  The variable
+cpqDaTapeLibraryDoorStatus indicates the current tape library
+door status.  The variable cpqDaTapeLibraryScsiTarget indicates
+the the SCSI ID of the tape library.
+User Action: If the tape library door is open, close the tape
+library door.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaTapeLibraryCntlrIndex
+  4: cpqDaTapeLibraryScsiBus
+  5: cpqDaTapeLibraryScsiTarget
+  6: cpqDaTapeLibraryScsiLun
+  7: cpqDaTapeLibraryDoorStatus
+EDESC
+#
+#
+#
+EVENT cpqDaTapeDriveStatusChange .1.3.6.1.4.1.232.0.3022 "Status Events" CRITICAL
+FORMAT Tape Drive Status Change (3022): Status is now $7 for a tape drive.
+SDESC
+Tape Drive Status Change.
+This trap signifies that the agent has detected a change in
+the status of a tape drive.  The variable cpqDaTapeDrvStatus
+indicates the current tape status.  The variable
+cpqDaTapeDrvScsiIdIndex indicates the the SCSI ID of the tape
+drive.
+User Action: If the tape is failed, check the tape and
+all SCSI connections.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaTapeDrvCntlrIndex
+  4: cpqDaTapeDrvBusIndex
+  5: cpqDaTapeDrvScsiIdIndex
+  6: cpqDaTapeDrvLunIndex
+  7: cpqDaTapeDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDaTapeDriveCleaningRequired .1.3.6.1.4.1.232.0.3023 "Status Events" MAJOR
+FORMAT Tape Drive Cleaning Required (3023): Cleaning is needed for the tape drive.
+SDESC
+Tape Drive Cleaning Required trap.
+The agent has detected a tape drive that needs to have a
+cleaning tape inserted and run.  This will cause the tape
+drive heads to be cleaned.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaTapeDrvCntlrIndex
+  4: cpqDaTapeDrvBusIndex
+  5: cpqDaTapeDrvScsiIdIndex
+  6: cpqDaTapeDrvLunIndex
+EDESC
+#
+#
+#
+EVENT cpqDaTapeDriveCleanTapeReplace .1.3.6.1.4.1.232.0.3024 "Status Events" MAJOR
+FORMAT Tape Drive Cleaning Tape Needs Replacing (3024): Cleaning tape needs replacing
+SDESC
+Tape Drive Cleaning Tape Needs Replacing.
+The agent has detected that an autoloader tape unit has a
+cleaning tape that has been fully used and therefore needs to
+be replaced with a new cleaning tape.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaTapeDrvCntlrIndex
+  4: cpqDaTapeDrvBusIndex
+  5: cpqDaTapeDrvScsiIdIndex
+  6: cpqDaTapeDrvLunIndex
+EDESC
+#
+#
+#
+EVENT cpqDa5AccelStatusChange .1.3.6.1.4.1.232.0.3025 "Status Events" CRITICAL
+FORMAT Accelerator Board Status Change (3025): Status is now $7.
+SDESC
+Accelerator Board Status Change.
+This trap signifies that the agent has detected a change in
+the status of an array accelerator cache board.  The current
+status is represented by the variable cpqDaAccelStatus.
+User Action: If the accelerator board status is permDisabled(5),
+you may need to replace the accelerator board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrSlot
+  4: cpqDaCntlrModel
+  5: cpqDaAccelSerialNumber
+  6: cpqDaAccelTotalMemory
+  7: cpqDaAccelStatus
+  8: cpqDaAccelErrCode
+EDESC
+#
+#
+#
+EVENT cpqDa5AccelBadDataTrap .1.3.6.1.4.1.232.0.3026 "Status Events" CRITICAL
+FORMAT Accelerator Board Bad Data (3026): Accelerator lost battery power.  Data Loss possible.
+SDESC
+Accelerator Board Bad Data.
+This trap signifies that the agent has detected an array
+accelerator cache board that has lost battery power.  If
+data was being stored in the accelerator cache memory when the
+server lost power, that data has been lost.
+User Action: Verify that no data has been lost.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrSlot
+  4: cpqDaCntlrModel
+  5: cpqDaAccelSerialNumber
+  6: cpqDaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqDa5AccelBatteryFailed .1.3.6.1.4.1.232.0.3027 "Status Events" CRITICAL
+FORMAT Accelerator Board Battery Failed (3027): Battery status is failed.
+SDESC
+Accelerator Board Battery Failed.
+This trap signifies that the agent has detected a battery
+failure associated with the array accelerator cache board.
+User Action: Replace the Accelerator Cache Board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrSlot
+  4: cpqDaCntlrModel
+  5: cpqDaAccelSerialNumber
+  6: cpqDaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqDa5CntlrStatusChange .1.3.6.1.4.1.232.0.3028 "Status Events" CRITICAL
+FORMAT Controller Status Change (3028): Status is now $4.
+SDESC
+Controller Status Change.
+This trap signifies that the agent has detected a change in
+the status of a drive array controller.  The variable
+cpqDaCntlrBoardStatus indicates the current controller status.
+User Action: If the board status is generalFailure(3), you
+may need to replace the controller.  If the board status is
+cableProblem(4), check the cable connections between the
+controller and the storage system.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrSlot
+  4: cpqDaCntlrBoardStatus
+  5: cpqDaCntlrModel
+  6: cpqDaCntlrSerialNumber
+  7: cpqDaCntlrFWRev
+  8: cpqDaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqDa5PhyDrvStatusChange .1.3.6.1.4.1.232.0.3029 "Status Events" CRITICAL
+FORMAT Physical Drive Status Change (3029): Physical Drive Status is now $3.
+SDESC
+Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array physical drive.  The variable
+cpaDaPhyDrvStatus indicates the current physical drive status.
+User Action: If the physical drive status is failed(3) or
+predictiveFailure(4), replace the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaPhyDrvStatus
+  4: cpqDaPhyDrvCntlrIndex
+  5: cpqDaPhyDrvBusNumber
+  6: cpqDaPhyDrvBay
+  7: cpqDaPhyDrvModel
+  8: cpqDaPhyDrvFWRev
+  9: cpqDaPhyDrvSerialNum
+  10: cpqDaPhyDrvFailureCode
+EDESC
+#
+#
+#
+EVENT cpqDa5PhyDrvThreshPassedTrap .1.3.6.1.4.1.232.0.3030 "Status Events" CRITICAL
+FORMAT Physical Drive Threshold Passed (3030): Factory threshold passed for a physical drive.
+SDESC
+Physical Drive Threshold Passed.
+This trap signifies that the agent has detected a factory
+threshold associated with one of the physical drive objects
+on a drive array has been exceeded.
+User Action: Replace the physical drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaPhyDrvCntlrIndex
+  4: cpqDaPhyDrvBusNumber
+  5: cpqDaPhyDrvBay
+  6: cpqDaPhyDrvModel
+  7: cpqDaPhyDrvFWRev
+  8: cpqDaPhyDrvSerialNum
+EDESC
+#
+#
+#
+EVENT cpqDa2TapeLibraryStatusChange .1.3.6.1.4.1.232.0.3031 "Status Events" CRITICAL
+FORMAT Tape Library Status Change (3031): Status is now $10 for the tape library.
+SDESC
+Tape Library Status Change.
+This trap signifies that the agent has detected a change in
+the status of a tape library.  The variable
+cpqDaTapeLibraryStatus indicates the current tape library
+status.  The variable cpqDaTapeLibraryScsiTarget indicates
+the SCSI ID of the tape library.
+User Action: If the tape library is failed, check the tape
+library front panel.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaTapeLibraryCntlrIndex
+  4: cpqDaTapeLibraryScsiBus
+  5: cpqDaTapeLibraryScsiTarget
+  6: cpqDaTapeLibraryScsiLun
+  7: cpqDaTapeLibraryModel
+  8: cpqDaTapeLibraryFWRev
+  9: cpqDaTapeLibrarySerialNumber
+  10: cpqDaTapeLibraryStatus
+EDESC
+#
+#
+#
+EVENT cpqDa2TapeDriveStatusChange .1.3.6.1.4.1.232.0.3032 "Status Events" CRITICAL
+FORMAT Tape Drive Status Change (3032): Status is now $10 for a tape drive.
+SDESC
+Tape Drive Status Change.
+This trap signifies that the agent has detected a change in
+the status of a tape drive.  The variable cpqDaTapeDrvStatus
+indicates the current tape status.  The variable
+cpqDaTapeDrvScsiIdIndex indicates the the SCSI ID of the tape
+drive.
+User Action: If the tape is failed, check the tape and
+all SCSI connections.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaTapeDrvCntlrIndex
+  4: cpqDaTapeDrvBusIndex
+  5: cpqDaTapeDrvScsiIdIndex
+  6: cpqDaTapeDrvLunIndex
+  7: cpqDaTapeDrvName
+  8: cpqDaTapeDrvFwRev
+  9: cpqDaTapeDrvSerialNumber
+  10: cpqDaTapeDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDa6CntlrStatusChange .1.3.6.1.4.1.232.0.3033 "Status Events" CRITICAL
+FORMAT Controller Status Change (3033): Status is now $5.
+SDESC
+Controller Status Change.
+This trap signifies that the agent has detected a change in
+the status of a drive array controller.  The variable
+cpqDaCntlrBoardStatus indicates the current controller status.
+User Action: If the board status is generalFailure(3), you
+may need to replace the controller.  If the board status is
+cableProblem(4), check the cable connections between the
+controller and the storage system.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaCntlrIndex
+  5: cpqDaCntlrBoardStatus
+  6: cpqDaCntlrModel
+  7: cpqDaCntlrSerialNumber
+  8: cpqDaCntlrFWRev
+  9: cpqDaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqDa6LogDrvStatusChange .1.3.6.1.4.1.232.0.3034 "Status Events" CRITICAL
+FORMAT Logical Drive Status Change (3034): Status is now $6.
+SDESC
+Logical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array logical drive.  The variable
+cpqDaLogDrvStatus indicates the current logical drive status.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaLogDrvCntlrIndex
+  5: cpqDaLogDrvIndex
+  6: cpqDaLogDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDa6SpareStatusChange .1.3.6.1.4.1.232.0.3035 "Status Events" CRITICAL
+FORMAT Spare Drive Status Change (3035): Spare Status is now $6.
+SDESC
+Spare Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array spare drive.  The variable
+cpqDaSpareStatus indicates the current spare drive status.
+User Action: If the spare drive status is failed, replace
+the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaSpareCntlrIndex
+  5: cpqDaSparePhyDrvIndex
+  6: cpqDaSpareStatus
+  7: cpqDaSpareBusNumber
+  8: cpqDaSpareBay
+EDESC
+#
+#
+#
+EVENT cpqDa6PhyDrvStatusChange .1.3.6.1.4.1.232.0.3036 "Status Events" CRITICAL
+FORMAT Physical Drive Status Change (3036): Physical Drive Status is now $12.
+SDESC
+Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array physical drive.  The variable
+cpaDaPhyDrvStatus indicates the current physical drive status.
+User Action: If the physical drive status is failed(3) or
+predictiveFailure(4), replace the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaPhyDrvCntlrIndex
+  5: cpqDaPhyDrvIndex
+  6: cpqDaPhyDrvBusNumber
+  7: cpqDaPhyDrvBay
+  8: cpqDaPhyDrvModel
+  9: cpqDaPhyDrvFWRev
+  10: cpqDaPhyDrvSerialNum
+  11: cpqDaPhyDrvFailureCode
+  12: cpqDaPhyDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDa6PhyDrvThreshPassedTrap .1.3.6.1.4.1.232.0.3037 "Status Events" CRITICAL
+FORMAT Physical Drive Threshold Passed (3037): Factory threshold passed for a physical drive.
+SDESC
+Physical Drive Threshold Passed.
+This trap signifies that the agent has detected a factory
+threshold associated with one of the physical drive objects
+on a drive array has been exceeded.
+User Action: Replace the physical drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaPhyDrvCntlrIndex
+  5: cpqDaPhyDrvIndex
+  6: cpqDaPhyDrvBusNumber
+  7: cpqDaPhyDrvBay
+  8: cpqDaPhyDrvModel
+  9: cpqDaPhyDrvFWRev
+  10: cpqDaPhyDrvSerialNum
+EDESC
+#
+#
+#
+EVENT cpqDa6AccelStatusChange .1.3.6.1.4.1.232.0.3038 "Status Events" CRITICAL
+FORMAT Accelerator Board Status Change (3038): Status is now $8.
+SDESC
+Accelerator Board Status Change.
+This trap signifies that the agent has detected a change in
+the status of an array accelerator cache board.  The current
+status is represented by the variable cpqDaAccelStatus.
+User Action: If the accelerator board status is permDisabled(5),
+you may need to replace the accelerator board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaCntlrModel
+  5: cpqDaAccelCntlrIndex
+  6: cpqDaAccelSerialNumber
+  7: cpqDaAccelTotalMemory
+  8: cpqDaAccelStatus
+  9: cpqDaAccelErrCode
+EDESC
+#
+#
+#
+EVENT cpqDa6AccelBadDataTrap .1.3.6.1.4.1.232.0.3039 "Status Events" CRITICAL
+FORMAT Accelerator Board Bad Data (3039): Accelerator lost battery power.  Data Loss possible.
+SDESC
+Accelerator Board Bad Data.
+This trap signifies that the agent has detected an array
+accelerator cache board that has lost battery power.  If
+data was being stored in the accelerator cache memory when the
+server lost power, that data has been lost.
+User Action: Verify that no data has been lost.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaCntlrModel
+  5: cpqDaAccelCntlrIndex
+  6: cpqDaAccelSerialNumber
+  7: cpqDaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqDa6AccelBatteryFailed .1.3.6.1.4.1.232.0.3040 "Status Events" CRITICAL
+FORMAT Accelerator Board Battery Failed (3040): Battery status is failed.
+SDESC
+Accelerator Board Battery Failed.
+This trap signifies that the agent has detected a battery
+failure associated with the array accelerator cache board.
+User Action: Replace the Accelerator Cache Board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaCntlrModel
+  5: cpqDaAccelCntlrIndex
+  6: cpqDaAccelSerialNumber
+  7: cpqDaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqDa6TapeLibraryStatusChange .1.3.6.1.4.1.232.0.3041 "Status Events" CRITICAL
+FORMAT Tape Library Status Change (3041): Status is now $11 for the tape library.
+SDESC
+Tape Library Status Change.
+This trap signifies that the agent has detected a change in
+the status of a tape library.  The variable
+cpqDaTapeLibraryStatus indicates the current tape library
+status.  The variable cpqDaTapeLibraryScsiTarget indicates
+the SCSI ID of the tape library.
+User Action: If the tape library is failed, check the tape
+library front panel.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaTapeLibraryCntlrIndex
+  5: cpqDaTapeLibraryScsiBus
+  6: cpqDaTapeLibraryScsiTarget
+  7: cpqDaTapeLibraryScsiLun
+  8: cpqDaTapeLibraryModel
+  9: cpqDaTapeLibraryFWRev
+  10: cpqDaTapeLibrarySerialNumber
+  11: cpqDaTapeLibraryStatus
+EDESC
+#
+#
+#
+EVENT cpqDa6TapeLibraryDoorStatusChange .1.3.6.1.4.1.232.0.3042 "Status Events" CRITICAL
+FORMAT Tape Library Door Status Change (3042): The door is $11 for tape library.
+SDESC
+Tape Library Door Status Change.
+This trap signifies that the agent has detected a change in
+the door status of a tape library.  The variable
+cpqDaTapeLibraryDoorStatus indicates the current tape library
+door status.  The variable cpqDaTapeLibraryScsiTarget indicates
+the the SCSI ID of the tape library.
+User Action: If the tape library door is open, close the tape
+library door.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaTapeLibraryCntlrIndex
+  5: cpqDaTapeLibraryScsiBus
+  6: cpqDaTapeLibraryScsiTarget
+  7: cpqDaTapeLibraryScsiLun
+  8: cpqDaTapeLibraryModel
+  9: cpqDaTapeLibraryFWRev
+  10: cpqDaTapeLibrarySerialNumber
+  11: cpqDaTapeLibraryDoorStatus
+EDESC
+#
+#
+#
+EVENT cpqDa6TapeDriveStatusChange .1.3.6.1.4.1.232.0.3043 "Status Events" CRITICAL
+FORMAT Tape Drive Status Change (3043): Status is now $11 for a tape drive.
+SDESC
+Tape Drive Status Change.
+This trap signifies that the agent has detected a change in
+the status of a tape drive.  The variable cpqDaTapeDrvStatus
+indicates the current tape status.  The variable
+cpqDaTapeDrvScsiIdIndex indicates the the SCSI ID of the tape
+drive.
+User Action: If the tape is failed, check the tape and
+all SCSI connections.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaTapeDrvCntlrIndex
+  5: cpqDaTapeDrvBusIndex
+  6: cpqDaTapeDrvScsiIdIndex
+  7: cpqDaTapeDrvLunIndex
+  8: cpqDaTapeDrvName
+  9: cpqDaTapeDrvFwRev
+  10: cpqDaTapeDrvSerialNumber
+  11: cpqDaTapeDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqDa6TapeDriveCleaningRequired .1.3.6.1.4.1.232.0.3044 "Status Events" MAJOR
+FORMAT Tape Drive Cleaning Required (3044): Cleaning is needed for the tape drive.
+SDESC
+Tape Drive Cleaning Required trap.
+The agent has detected a tape drive that needs to have a
+cleaning tape inserted and run.  This will cause the tape
+drive heads to be cleaned.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaTapeDrvCntlrIndex
+  5: cpqDaTapeDrvBusIndex
+  6: cpqDaTapeDrvScsiIdIndex
+  7: cpqDaTapeDrvLunIndex
+  8: cpqDaTapeDrvName
+  9: cpqDaTapeDrvFwRev
+  10: cpqDaTapeDrvSerialNumber
+EDESC
+#
+#
+#
+EVENT cpqDa6TapeDriveCleanTapeReplace .1.3.6.1.4.1.232.0.3045 "Status Events" MAJOR
+FORMAT Tape Drive Cleaning Tape Needs Replacing (3045): Cleaning tape needs replacing
+SDESC
+Tape Drive Cleaning Tape Needs Replacing.
+The agent has detected that an autoloader tape unit has a
+cleaning tape that has been fully used and therefore needs to
+be replaced with a new cleaning tape.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaTapeDrvCntlrIndex
+  5: cpqDaTapeDrvBusIndex
+  6: cpqDaTapeDrvScsiIdIndex
+  7: cpqDaTapeDrvLunIndex
+  8: cpqDaTapeDrvName
+  9: cpqDaTapeDrvFwRev
+  10: cpqDaTapeDrvSerialNumber
+EDESC
+#
+#
+#
+EVENT cpqDa7PhyDrvStatusChange .1.3.6.1.4.1.232.0.3046 "Status Events" CRITICAL
+FORMAT Physical Drive Status Change (3046): Physical Drive Status is now $12.
+SDESC
+Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array physical drive.  The variable
+cpaDaPhyDrvStatus indicates the current physical drive status.
+User Action: If the physical drive status is failed(3) or
+predictiveFailure(4), replace the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaPhyDrvCntlrIndex
+  5: cpqDaPhyDrvIndex
+  6: cpqDaPhyDrvLocationString
+  7: cpqDaPhyDrvType
+  8: cpqDaPhyDrvModel
+  9: cpqDaPhyDrvFWRev
+  10: cpqDaPhyDrvSerialNum
+  11: cpqDaPhyDrvFailureCode
+  12: cpqDaPhyDrvStatus
+  13: cpqDaPhyDrvBusNumber
+EDESC
+#
+#
+#
+EVENT cpqDa7SpareStatusChange .1.3.6.1.4.1.232.0.3047 "Status Events" CRITICAL
+FORMAT Spare Drive Status Change (3047): Spare Status is now $6.
+SDESC
+Spare Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a drive array spare drive.  The variable
+cpqDaSpareStatus indicates the current spare drive status.
+User Action: If the spare drive status is failed, replace
+the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqDaCntlrHwLocation
+  4: cpqDaSpareCntlrIndex
+  5: cpqDaSparePhyDrvIndex
+  6: cpqDaSpareStatus
+  7: cpqDaSpareLocationString
+  8: cpqDaSpareBusNumber
+EDESC

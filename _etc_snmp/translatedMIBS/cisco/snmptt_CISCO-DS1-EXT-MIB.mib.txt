@@ -1,0 +1,21 @@
+#
+#
+#
+#
+MIB: CISCO-DS1-EXT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DS1-EXT-MIB.mib) converted on Tue Aug 21 15:25:54 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cds1StatThresholdAlarm .1.3.6.1.4.1.9.9.229.1.4.0.1 "Status Events" Normal
+FORMAT A cds1StatThresholdAlarm trap is sent by an agent to  $*
+SDESC
+A cds1StatThresholdAlarm trap is sent by an agent to 
+notify the NMS about a statistical alarm condition.
+Such an alarm condition exists when a statistical counter 
+exceeds its specified threshold.
+For example : If value in object dsx1CurrentBESs exceeds 
+the value in the object cds1Current15MinBESsThreshold, a  
+cds1StatThresholdAlarm trap will be generated.
+Variables:
+  1: cds1StatisticalAlarmState
+EDESC

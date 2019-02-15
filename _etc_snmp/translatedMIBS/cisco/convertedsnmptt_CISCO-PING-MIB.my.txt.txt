@@ -1,0 +1,28 @@
+#
+#
+#
+#
+MIB: CISCO-PING-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-PING-MIB.my.txt) converted on Tue Sep  6 13:51:22 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoPingCompletion .1.3.6.1.4.1.9.9.16.2.0.1 "Status Events" Normal
+FORMAT A ciscoPingCompleted trap is sent at the completion $*
+SDESC
+A ciscoPingCompleted trap is sent at the completion
+of a sequence of pings if such a trap was requested
+when the sequence was initiated.  In addition to the
+above listed objects (which are always present),
+the message will contain the following objects if 
+any responses were received:
+ciscoPingMinRtt
+ciscoPingAvgRtt
+ciscoPingMaxRtt
+It will also contain the following object if the ping
+is to a VPN address:
+ciscoPingVrfName
+Variables:
+  1: ciscoPingCompleted
+  2: ciscoPingSentPackets
+  3: ciscoPingReceivedPackets
+EDESC

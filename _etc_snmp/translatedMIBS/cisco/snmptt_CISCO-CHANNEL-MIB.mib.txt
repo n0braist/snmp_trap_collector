@@ -1,0 +1,39 @@
+#
+#
+#
+#
+MIB: CISCO-CHANNEL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CHANNEL-MIB.mib) converted on Tue Aug 21 15:25:46 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cipCardLinkFailure .1.3.6.1.4.1.9.9.20.1.5.1 "Status Events" Normal
+FORMAT This trap indicates that a significant link event has been recognized $*
+SDESC
+This trap indicates that a significant link event has been recognized
+resulting in the degradation of the interface line quality.
+(This trap was deactivated 6/97, below trap is now sent on link failures)
+Variables:
+  1: cipCardDtrBrdIndex
+  2: cipCardDtrBrdStatus
+  3: cipCardDtrBrdSignal
+  4: linkIncidentTrapCause
+  5: implicitIncidents
+  6: codeViolationErrors
+  7: linkFailureSignalOrSyncLoss
+  8: linkFailureNOSs
+  9: linkFailureSequenceTimeouts
+  10: linkFailureInvalidSequences
+EDESC
+#
+#
+#
+EVENT cipCardDtrBrdLinkFailure .1.3.6.1.4.1.9.9.20.1.5.2 "Status Events" Normal
+FORMAT This trap indicates that a significant link event has been recognized $*
+SDESC
+This trap indicates that a significant link event has been recognized
+resulting in the degradation of the interface line quality.
+Variables:
+  1: cipCardDtrBrdStatus
+  2: cipCardDtrBrdSignal
+  3: linkIncidentTrapCause
+EDESC

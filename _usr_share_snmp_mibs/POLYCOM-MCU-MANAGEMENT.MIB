@@ -1,0 +1,2774 @@
+POLYCOM-MCU-MANAGEMENT-MIB DEFINITIONS ::= BEGIN		
+		
+	IMPORTS 
+			OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE, Gauge32, Integer32, Unsigned32
+			FROM SNMPv2-SMI
+		DisplayString, TruthValue, DateAndTime, TimeInterval, TimeStamp
+			FROM SNMPv2-TC
+		InetPortNumber, InetAddressIPv4, InetAddressIPv6, InetAddress, InetAddressType
+			FROM INET-ADDRESS-MIB
+		NOTIFICATION-GROUP, OBJECT-GROUP
+			FROM SNMPv2-CONF
+		polycom
+			FROM POLYCOM-BASE-MIB;
+
+	polycom-mcu-management-MIB MODULE-IDENTITY
+        LAST-UPDATED        "201409161346Z"
+        ORGANIZATION        "Polycom, Inc."
+        CONTACT-INFO        "DL-SNMPWorkingGroup@Polycom.com"
+        DESCRIPTION			"This module is used for monitoring a unified communications network." 
+		
+		REVISION	"201409161346Z"
+		DESCRIPTION	"165361-166648"
+
+	::= { polycom 130 }
+
+
+	--Notification group                           
+		polycom-mcu-managementNotifications OBJECT IDENTIFIER 
+		::= {  polycom-mcu-management-MIB 0 }
+			
+		haNodeStatusChange NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification from a high availability service that a node's status changed."
+        ::= { polycom-mcu-managementNotifications 3}
+        
+securityFailedAuthAttempt NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID, 
+				notificationVariableServerName
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an authentication attempt has failed."
+        ::= { polycom-mcu-managementNotifications 17}
+        
+bridgeDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a bridge has gone down."
+        ::= { polycom-mcu-managementNotifications 29}
+        
+dmaDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a DMA has gone down."
+        ::= { polycom-mcu-managementNotifications 37}
+        
+ldapConnectionDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an LDAP connection has gone down."
+        ::= { polycom-mcu-managementNotifications 39}
+        
+ldapConnectionFail NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an attempt to connect to an LDAP system failed."
+        ::= { polycom-mcu-managementNotifications 53}
+        
+certificateAboutToExpire NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a certificate is about to expire."
+        ::= { polycom-mcu-managementNotifications 57}
+        
+certificateExpired NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a certificate has expired."
+        ::= { polycom-mcu-managementNotifications 59}
+        
+cpuUsageExceeded NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableValueOID, 
+				notificationVariableThreshold, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the threshold for maximum CPU usage has been exceeded."
+        ::= { polycom-mcu-managementNotifications 61}
+        
+diskSpaceUsageExceeded NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableValueOID, 
+				notificationVariableThreshold, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the threshold for maximum disk space usage has been exceeded."
+        ::= { polycom-mcu-managementNotifications 65}
+        
+callFailed NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a call attempt has failed."
+        ::= { polycom-mcu-managementNotifications 80}
+        
+presenceServerDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableServerName
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an attempt to connect to the presence server failed."
+        ::= { polycom-mcu-managementNotifications 87}
+        
+presenceServerMaxEndpointExpirationTooSmall NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID, 
+				notificationVariableServerName
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the expiration interval defined on the presence server is too small."
+        ::= { polycom-mcu-managementNotifications 114}
+        
+presenceServerMaxConferenceCountTooSmall NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID, 
+				notificationVariableServerName
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the Polycom conference contact publishing limit defined for the presence server is too small."
+        ::= { polycom-mcu-managementNotifications 115}
+        
+presenceServerPresencePublicationIncomplete NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID, 
+				notificationVariableServerName
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that presence publication could not be accomplished for all Polycom conference contacts within the expiration interval."
+        ::= { polycom-mcu-managementNotifications 116}
+        
+invalidServerConfigurationParameter NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID, 
+				notificationVariableServerName
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the server configuration parameter is invalid."
+        ::= { polycom-mcu-managementNotifications 117}
+        
+serverUnreachable NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID, 
+				notificationVariableConferenceID, 
+				notificationVariableServerName, 
+				notificationVariableServerType
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the server is not reachable."
+        ::= { polycom-mcu-managementNotifications 118}
+        
+serverOK NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID, 
+				notificationVariableConferenceID, 
+				notificationVariableServerName, 
+				notificationVariableServerType
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the server that was previously reported as unreachable is now reachable."
+        ::= { polycom-mcu-managementNotifications 119}
+        
+licenseVersionIncompatible NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a version of software is incompatible with its license."
+        ::= { polycom-mcu-managementNotifications 120}
+        
+licenseMissing NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an expected license is missing."
+        ::= { polycom-mcu-managementNotifications 121}
+        
+
+	--Object group                           
+		polycom-mcu-managementObjects	OBJECT IDENTIFIER
+		::= {  polycom-mcu-management-MIB 1 }
+			
+		
+	--Section   
+		identity OBJECT IDENTIFIER
+		::= {  polycom-mcu-managementObjects 1 }
+			
+	-- Scalar
+		identitySoftwareInfo OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Information about software currently installed on the device."
+    	::= { identity 1 }
+		
+	-- Scalar
+		identityDeviceType OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"This device's type."
+    	::= { identity 3 }
+		
+	-- Scalar
+		identityDeviceModel OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The device's model."
+    	::= { identity 4 }
+		
+	-- Scalar
+		identityDeviceSerialNumber OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The device's serial number."
+    	::= { identity 5 }
+		
+	--Section   
+		service OBJECT IDENTIFIER
+		::= {  polycom-mcu-managementObjects 2 }
+			
+	--Group                           
+		serviceH323 OBJECT IDENTIFIER
+		::= {	service 7 }
+			
+		
+	-- Table  
+		serviceH323GatekeeperTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceH323GatekeeperEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of gatekeepers status information"
+        ::= { serviceH323 3 }
+
+	-- Entry        
+		serviceH323GatekeeperEntry OBJECT-TYPE
+			SYNTAX              ServiceH323GatekeeperEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of gatekeepers status information"
+			INDEX {
+					serviceH323GatekeeperIndex
+			}
+        ::= { serviceH323GatekeeperTable 1 }
+ 
+	-- Sequence       
+		ServiceH323GatekeeperEntry ::= SEQUENCE {
+			serviceH323GatekeeperIndex  Unsigned32,
+			serviceH323GatekeeperStatus  INTEGER,
+			serviceH323GatekeeperH239Enabled  Integer32
+		}
+			
+	--Index                                                                          
+		serviceH323GatekeeperIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceH323GatekeeperEntry 1 }
+
+
+	-- Column                                                                          
+		serviceH323GatekeeperStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The status of the gatekeeper."
+        ::= { serviceH323GatekeeperEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceH323GatekeeperH239Enabled OBJECT-TYPE
+			SYNTAX				Integer32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "H239 enabled."
+        ::= { serviceH323GatekeeperEntry 3 }
+		
+	--Group                           
+		serviceSip OBJECT IDENTIFIER
+		::= {	service 8 }
+			
+		
+	-- Table  
+		serviceSipProxyTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceSipProxyEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of SIP proxies status information"
+        ::= { serviceSip 2 }
+
+	-- Entry        
+		serviceSipProxyEntry OBJECT-TYPE
+			SYNTAX              ServiceSipProxyEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of SIP proxies status information"
+			INDEX {
+					serviceSipProxyIndex
+			}
+        ::= { serviceSipProxyTable 1 }
+ 
+	-- Sequence       
+		ServiceSipProxyEntry ::= SEQUENCE {
+			serviceSipProxyIndex  Unsigned32,
+			serviceSipProxyStatus  INTEGER
+		}
+			
+	--Index                                                                          
+		serviceSipProxyIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceSipProxyEntry 1 }
+
+
+	-- Column                                                                          
+		serviceSipProxyStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The status of the SIP proxy."
+        ::= { serviceSipProxyEntry 2 }
+		
+	--Group                           
+		serviceTopology OBJECT IDENTIFIER
+		::= {	service 14 }
+			
+		
+	-- Scalar
+		serviceTopologyTerritoryCount OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The number of territories."
+    	::= { serviceTopology 7 }
+		
+	-- Table  
+		serviceTopologyTerritoryTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceTopologyTerritoryEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Territory table."
+        ::= { serviceTopology 8 }
+
+	-- Entry        
+		serviceTopologyTerritoryEntry OBJECT-TYPE
+			SYNTAX              ServiceTopologyTerritoryEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Territory table."
+			INDEX {
+					serviceTopologyTerritoryIndex
+			}
+        ::= { serviceTopologyTerritoryTable 1 }
+ 
+	-- Sequence       
+		ServiceTopologyTerritoryEntry ::= SEQUENCE {
+			serviceTopologyTerritoryIndex  Unsigned32,
+			serviceTopologyTerritoryId  OCTET STRING,
+			serviceTopologyTerritoryPrimaryCluster  OCTET STRING,
+			serviceTopologyTerritoryBackupCluster  OCTET STRING,
+			serviceTopologyTerritoryVMRCapable  TruthValue
+		}
+			
+	--Index                                                                          
+		serviceTopologyTerritoryIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceTopologyTerritoryEntry 1 }
+
+
+	-- Column                                                                          
+		serviceTopologyTerritoryId OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The territory's ID."
+        ::= { serviceTopologyTerritoryEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceTopologyTerritoryPrimaryCluster OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name if the primary cluster for this territory."
+        ::= { serviceTopologyTerritoryEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceTopologyTerritoryBackupCluster OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name if the backup cluster for this territory."
+        ::= { serviceTopologyTerritoryEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceTopologyTerritoryVMRCapable OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Indicates whether this territory is capable of MVR calls or not."
+        ::= { serviceTopologyTerritoryEntry 5 }
+		
+	--Group                           
+		serviceCallServer OBJECT IDENTIFIER
+		::= {	service 15 }
+			
+		
+	-- Scalar
+		serviceCallServerClusterName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The name of the cluster."
+    	::= { serviceCallServer 1 }
+		
+	-- Scalar
+		serviceCallServerActiveRegistrations OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of active registrations."
+    	::= { serviceCallServer 2 }
+		
+	-- Table  
+		serviceCallServerActiveCallsTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceCallServerActiveCallsEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of active calls status information."
+        ::= { serviceCallServer 3 }
+
+	-- Entry        
+		serviceCallServerActiveCallsEntry OBJECT-TYPE
+			SYNTAX              ServiceCallServerActiveCallsEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of active calls status information."
+			INDEX {
+					serviceCallServerActiveCallsIndex
+			}
+        ::= { serviceCallServerActiveCallsTable 1 }
+ 
+	-- Sequence       
+		ServiceCallServerActiveCallsEntry ::= SEQUENCE {
+			serviceCallServerActiveCallsIndex  Unsigned32,
+			serviceCallServerActiveCallsActiveH323  Unsigned32,
+			serviceCallServerActiveCallsActiveSIP  Unsigned32,
+			serviceCallServerActiveCallsLimit  Unsigned32,
+			serviceCallServerActiveCallsCeiling  Unsigned32
+		}
+			
+	--Index                                                                          
+		serviceCallServerActiveCallsIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceCallServerActiveCallsEntry 1 }
+
+
+	-- Column                                                                          
+		serviceCallServerActiveCallsActiveH323 OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of active H323 calls"
+        ::= { serviceCallServerActiveCallsEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceCallServerActiveCallsActiveSIP OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of active SIP calls"
+        ::= { serviceCallServerActiveCallsEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceCallServerActiveCallsLimit OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Active calls limit."
+        ::= { serviceCallServerActiveCallsEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceCallServerActiveCallsCeiling OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Active calls ceiling."
+        ::= { serviceCallServerActiveCallsEntry 5 }
+		
+	-- Scalar
+		serviceCallServerInactiveRegistrations OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of inactive registrations."
+    	::= { serviceCallServer 4 }
+		
+	-- Scalar
+		serviceCallServerFailedRegistrationsLast24Hours OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of failed registrations in the last 24 hours"
+    	::= { serviceCallServer 5 }
+		
+	--Group                           
+		serviceHA OBJECT IDENTIFIER
+		::= {	service 16 }
+			
+		
+	-- Scalar
+		serviceHASuperClstrStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				inService(1),
+				busyOut(2),
+				outOfService(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The service status of the super cluster."
+    	::= { serviceHA 1 }
+		
+	-- Scalar
+		serviceHANumberOfLocalClstrs OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The number of local clusters in the super cluster."
+    	::= { serviceHA 3 }
+		
+	-- Table  
+		serviceHASuperClstrTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceHASuperClstrEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { serviceHA 4 }
+
+	-- Entry        
+		serviceHASuperClstrEntry OBJECT-TYPE
+			SYNTAX              ServiceHASuperClstrEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+			INDEX {
+					serviceHASuperClstrLocalClstrIndex
+			}
+        ::= { serviceHASuperClstrTable 1 }
+ 
+	-- Sequence       
+		ServiceHASuperClstrEntry ::= SEQUENCE {
+			serviceHASuperClstrLocalClstrIndex  Unsigned32,
+			serviceHASuperClstrLocalClstrName  DisplayString,
+			serviceHASuperClstrLocalClstrStatus  INTEGER,
+			serviceHASuperClstrLocalClstrStatusChgReason  DisplayString,
+			serviceHASuperClstrLocalClstrNumberOfServers  Unsigned32,
+			serviceHASuperClstrLocalClstrCSVListOfServers  DisplayString
+		}
+			
+	--Index                                                                          
+		serviceHASuperClstrLocalClstrIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceHASuperClstrEntry 1 }
+
+
+	-- Column                                                                          
+		serviceHASuperClstrLocalClstrName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the local cluster."
+        ::= { serviceHASuperClstrEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceHASuperClstrLocalClstrStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				inService(1),
+				busyOut(2),
+				outOfService(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The service status of the local cluster."
+        ::= { serviceHASuperClstrEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceHASuperClstrLocalClstrStatusChgReason OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The cause of the last cluster status change."
+        ::= { serviceHASuperClstrEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceHASuperClstrLocalClstrNumberOfServers OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of servers in the local cluster."
+        ::= { serviceHASuperClstrEntry 5 }
+		
+
+	-- Column                                                                          
+		serviceHASuperClstrLocalClstrCSVListOfServers OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Comma-separated list of servers in the local cluster."
+        ::= { serviceHASuperClstrEntry 6 }
+		
+	-- Table  
+		serviceHAClstrResourceTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceHAClstrResourceEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { serviceHA 6 }
+
+	-- Entry        
+		serviceHAClstrResourceEntry OBJECT-TYPE
+			SYNTAX              ServiceHAClstrResourceEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+			INDEX {
+					serviceHAClstrResourceIndex
+			}
+        ::= { serviceHAClstrResourceTable 1 }
+ 
+	-- Sequence       
+		ServiceHAClstrResourceEntry ::= SEQUENCE {
+			serviceHAClstrResourceIndex  Unsigned32,
+			serviceHAClstrResourceName  DisplayString,
+			serviceHAClstrResourceGroup  DisplayString,
+			serviceHAClstrResourceDescription  DisplayString,
+			serviceHAClstrResourceServerName  DisplayString
+		}
+			
+	--Index                                                                          
+		serviceHAClstrResourceIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceHAClstrResourceEntry 1 }
+
+
+	-- Column                                                                          
+		serviceHAClstrResourceName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the cluster resource."
+        ::= { serviceHAClstrResourceEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceHAClstrResourceGroup OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the group the cluster resource is a member of."
+        ::= { serviceHAClstrResourceEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceHAClstrResourceDescription OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Cluster resource description."
+        ::= { serviceHAClstrResourceEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceHAClstrResourceServerName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the server the resource runs on."
+        ::= { serviceHAClstrResourceEntry 5 }
+		
+	-- Table  
+		serviceHAServerTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceHAServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { serviceHA 7 }
+
+	-- Entry        
+		serviceHAServerEntry OBJECT-TYPE
+			SYNTAX              ServiceHAServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+			INDEX {
+					serviceHAServerIndex
+			}
+        ::= { serviceHAServerTable 1 }
+ 
+	-- Sequence       
+		ServiceHAServerEntry ::= SEQUENCE {
+			serviceHAServerIndex  Unsigned32,
+			serviceHAServerName  DisplayString,
+			serviceHAServerStatus  INTEGER,
+			serviceHAServerIPAddress  InetAddress
+		}
+			
+	--Index                                                                          
+		serviceHAServerIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceHAServerEntry 1 }
+
+
+	-- Column                                                                          
+		serviceHAServerName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Server name."
+        ::= { serviceHAServerEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceHAServerStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Server operational status."
+        ::= { serviceHAServerEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceHAServerIPAddress OBJECT-TYPE
+			SYNTAX				InetAddress
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Server IP address."
+        ::= { serviceHAServerEntry 4 }
+		
+	--Group                           
+		serviceConferenceServer OBJECT IDENTIFIER
+		::= {	service 17 }
+			
+		
+	-- Scalar
+		serviceConferenceServerTotalVoicePorts OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The total number of voice ports the device has."
+    	::= { serviceConferenceServer 2 }
+		
+	-- Scalar
+		serviceConferenceServerTotalVideoPorts OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The total number of video ports the device has."
+    	::= { serviceConferenceServer 3 }
+		
+	-- Scalar
+		serviceConferenceServerTotalVoicePortsUsed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The total number of voice ports that are currently in use."
+    	::= { serviceConferenceServer 6 }
+		
+	-- Scalar
+		serviceConferenceServerVoicePortsUsedPercentage OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The percentage of voice ports in use."
+    	::= { serviceConferenceServer 7 }
+		
+	-- Scalar
+		serviceConferenceServerTotalVideoPortsUsed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The total number of video ports that are currently in use."
+    	::= { serviceConferenceServer 8 }
+		
+	-- Scalar
+		serviceConferenceServerVideoPortsUsedPercentage OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The percentage of video ports in use"
+    	::= { serviceConferenceServer 9 }
+		
+	-- Scalar
+		serviceConferenceServerTotalNumberActiveParticipants OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		""
+    	::= { serviceConferenceServer 10 }
+		
+	-- Scalar
+		serviceConferenceServerNumberReservedVideoPorts OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The number of video ports of any type on the device that are reserved"
+    	::= { serviceConferenceServer 12 }
+		
+	-- Scalar
+		serviceConferenceServerNumberReservedVoicePorts OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The number of voice ports of any type on the device that are reserved"
+    	::= { serviceConferenceServer 13 }
+		
+	-- Table  
+		serviceConferenceServerMCUTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceConferenceServerMCUEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "currently in conference"
+        ::= { serviceConferenceServer 14 }
+
+	-- Entry        
+		serviceConferenceServerMCUEntry OBJECT-TYPE
+			SYNTAX              ServiceConferenceServerMCUEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "currently in conference"
+			INDEX {
+					serviceConferenceServerMCUIndex
+			}
+        ::= { serviceConferenceServerMCUTable 1 }
+ 
+	-- Sequence       
+		ServiceConferenceServerMCUEntry ::= SEQUENCE {
+			serviceConferenceServerMCUIndex  Unsigned32,
+			serviceConferenceServerMCUName  DisplayString,
+			serviceConferenceServerMCUConnectionStatus  INTEGER,
+			serviceConferenceServerMCUServiceabilityStatus  INTEGER,
+			serviceConferenceServerMCUIVRCapable  TruthValue,
+			serviceConferenceServerMCURecordingCapable  TruthValue,
+			serviceConferenceServerMCUSVCCapable  TruthValue,
+			serviceConferenceServerMCUAlarming  TruthValue,
+			serviceConferenceServerMCUVideoUsageResourceManagerReserved  Unsigned32,
+			serviceConferenceServerMCUTotalVideoPorts  Unsigned32,
+			serviceConferenceServerMCUVideoUsageMCUTotal  Unsigned32,
+			serviceConferenceServerMCUVideoUsageMCUUsed  Unsigned32,
+			serviceConferenceServerMCUVideoUsageDMATotal  Unsigned32,
+			serviceConferenceServerMCUVideoUsageDMAUsed  Unsigned32,
+			serviceConferenceServerMCUVoiceUsageResourceManagerReserved  Unsigned32,
+			serviceConferenceServerMCUTotalVoicePorts  Unsigned32,
+			serviceConferenceServerMCUVoiceUsageMCUTotal  Unsigned32,
+			serviceConferenceServerMCUVoiceUsageMCUUsed  Unsigned32,
+			serviceConferenceServerMCUVoiceUsageDMATotal  Unsigned32,
+			serviceConferenceServerMCUVoiceUsageDMAUsed  Unsigned32,
+			serviceConferenceServerMCUReliabilityDisconnects  Unsigned32,
+			serviceConferenceServerMCUReliabilityCallFailureRate  Unsigned32,
+			serviceConferenceServerMCULyncCascadingCapable  TruthValue
+		}
+			
+	--Index                                                                          
+		serviceConferenceServerMCUIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The primary index for the table."
+        ::= { serviceConferenceServerMCUEntry 1 }
+
+
+	-- Column                                                                          
+		serviceConferenceServerMCUName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The MCU name."
+        ::= { serviceConferenceServerMCUEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUConnectionStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				notConfigured(1),
+				notConnected(2),
+				connected(3),
+				connectedSecurely(4)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The MCU connection status."
+        ::= { serviceConferenceServerMCUEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUServiceabilityStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Is the device in service?"
+        ::= { serviceConferenceServerMCUEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUIVRCapable OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Is the device IVR capable?"
+        ::= { serviceConferenceServerMCUEntry 5 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCURecordingCapable OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Is the MCU capable of recording?"
+        ::= { serviceConferenceServerMCUEntry 6 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUSVCCapable OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Is the MCU SVC capable?"
+        ::= { serviceConferenceServerMCUEntry 7 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUAlarming OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Is the MCU currently alarming?"
+        ::= { serviceConferenceServerMCUEntry 8 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVideoUsageResourceManagerReserved OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of ports reserved for the Resource Manager."
+        ::= { serviceConferenceServerMCUEntry 9 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUTotalVideoPorts OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The total number of video ports."
+        ::= { serviceConferenceServerMCUEntry 10 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVideoUsageMCUTotal OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The total number of video ports on the MCU."
+        ::= { serviceConferenceServerMCUEntry 11 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVideoUsageMCUUsed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of video ports used on the MCU."
+        ::= { serviceConferenceServerMCUEntry 12 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVideoUsageDMATotal OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The total number of video ports on the MCU available to DMA."
+        ::= { serviceConferenceServerMCUEntry 13 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVideoUsageDMAUsed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of video ports on the MCU used by DMA."
+        ::= { serviceConferenceServerMCUEntry 14 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVoiceUsageResourceManagerReserved OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of voice ports reserved for the Resource Maneger."
+        ::= { serviceConferenceServerMCUEntry 15 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUTotalVoicePorts OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Total number of voice ports."
+        ::= { serviceConferenceServerMCUEntry 16 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVoiceUsageMCUTotal OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of voice ports on the MCU."
+        ::= { serviceConferenceServerMCUEntry 17 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVoiceUsageMCUUsed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of voice ports used on the MCU."
+        ::= { serviceConferenceServerMCUEntry 18 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVoiceUsageDMATotal OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of voice ports available to DMA on the MCU."
+        ::= { serviceConferenceServerMCUEntry 19 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUVoiceUsageDMAUsed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of voice ports used by DMA on the MCU."
+        ::= { serviceConferenceServerMCUEntry 20 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUReliabilityDisconnects OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of MCU disconnects observed by this cluster in the past 24 hours, divided by the number of conference manager territories. This integer should be divided by 100 to get the intended value."
+        ::= { serviceConferenceServerMCUEntry 21 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCUReliabilityCallFailureRate OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The current call failure rate observed by this cluster. This integer should be divided by 100 to get the intended value."
+        ::= { serviceConferenceServerMCUEntry 22 }
+		
+
+	-- Column                                                                          
+		serviceConferenceServerMCULyncCascadingCapable OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Indicates whether an MCU supports Lync cascading."
+        ::= { serviceConferenceServerMCUEntry 23 }
+		
+	--Section   
+		hardware OBJECT IDENTIFIER
+		::= {  polycom-mcu-managementObjects 3 }
+			
+	--Group                           
+		hardwareNIC OBJECT IDENTIFIER
+		::= {	hardware 10 }
+			
+		
+	-- Scalar
+		hardwareNICStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Roll-up of the status info from all the status entries in the table."
+    	::= { hardwareNIC 1 }
+		
+	-- Table  
+		hardwareNICNICsTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF HardwareNICNICsEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of NICs status information."
+        ::= { hardwareNIC 2 }
+
+	-- Entry        
+		hardwareNICNICsEntry OBJECT-TYPE
+			SYNTAX              HardwareNICNICsEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of NICs status information."
+			INDEX {
+					hardwareNICNICsIndex
+			}
+        ::= { hardwareNICNICsTable 1 }
+ 
+	-- Sequence       
+		HardwareNICNICsEntry ::= SEQUENCE {
+			hardwareNICNICsIndex  Unsigned32,
+			hardwareNICNICsName  DisplayString,
+			hardwareNICNICsMAC  DisplayString,
+			hardwareNICNICsSpeed  Unsigned32,
+			hardwareNICNICsDuplex  DisplayString,
+			hardwareNICNICsStatus  INTEGER,
+			hardwareNICNICsIPType  Integer32
+		}
+			
+	--Index                                                                          
+		hardwareNICNICsIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { hardwareNICNICsEntry 1 }
+
+
+	-- Column                                                                          
+		hardwareNICNICsName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the network interface card."
+        ::= { hardwareNICNICsEntry 2 }
+		
+
+	-- Column                                                                          
+		hardwareNICNICsMAC OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The MAC address of the network interface card."
+        ::= { hardwareNICNICsEntry 3 }
+		
+
+	-- Column                                                                          
+		hardwareNICNICsSpeed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The speed of the network interface card (Mbps)."
+        ::= { hardwareNICNICsEntry 4 }
+		
+
+	-- Column                                                                          
+		hardwareNICNICsDuplex OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The duplex mode of the network interface card."
+        ::= { hardwareNICNICsEntry 5 }
+		
+
+	-- Column                                                                          
+		hardwareNICNICsStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The status of the hardware network interface card."
+        ::= { hardwareNICNICsEntry 6 }
+		
+
+	-- Column                                                                          
+		hardwareNICNICsIPType OBJECT-TYPE
+			SYNTAX				Integer32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Supported IP versions."
+        ::= { hardwareNICNICsEntry 7 }
+		
+	--Section   
+		call OBJECT IDENTIFIER
+		::= {  polycom-mcu-managementObjects 4 }
+			
+	-- Table  
+		callActiveCallsTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF CallActiveCallsEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { call 1 }
+
+	-- Entry        
+		callActiveCallsEntry OBJECT-TYPE
+			SYNTAX              CallActiveCallsEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+			INDEX {
+					callActiveCallsIndex
+			}
+        ::= { callActiveCallsTable 1 }
+ 
+	-- Sequence       
+		CallActiveCallsEntry ::= SEQUENCE {
+			callActiveCallsIndex  Unsigned32,
+			callActiveCallsCallID  DisplayString,
+			callActiveCallsConfID  DisplayString,
+			callActiveCallsVoiceJitterRX  Unsigned32,
+			callActiveCallsVoiceJitterTX  Unsigned32,
+			callActiveCallsVoiceLatencyRX  Unsigned32,
+			callActiveCallsVoiceLatencyTX  Unsigned32,
+			callActiveCallsVoicePacketLossRX  Unsigned32,
+			callActiveCallsVoicePacketLossTX  Unsigned32,
+			callActiveCallsVoiceProtocolRX  DisplayString,
+			callActiveCallsVoiceProtocolTX  DisplayString,
+			callActiveCallsMaxVoiceJitterRX  Unsigned32,
+			callActiveCallsMaxVoiceJitterTX  Unsigned32,
+			callActiveCallsTotalPacketsLostRX  Unsigned32,
+			callActiveCallsTotalPacketsLostTX  Unsigned32,
+			callActiveCallsPctPacketLostRX  Unsigned32,
+			callActiveCallsPctPacketLostTX  Unsigned32,
+			callActiveCallsOverallLatencyRX  Unsigned32,
+			callActiveCallsOverallLatencyTX  Unsigned32,
+			callActiveCallsOverallJitterRX  Unsigned32,
+			callActiveCallsOverallJitterTX  Unsigned32,
+			callActiveCallsContentFormatRsltnRX  DisplayString,
+			callActiveCallsContentFormatRsltnTX  DisplayString,
+			callActiveCallsContentFrameRateRX  DisplayString,
+			callActiveCallsContentFrameRateTX  DisplayString,
+			callActiveCallsContentJitterRX  Unsigned32,
+			callActiveCallsContentJitterTX  Unsigned32,
+			callActiveCallsContentLatencyRX  Unsigned32,
+			callActiveCallsContentLatencyTX  Unsigned32,
+			callActiveCallsContentPacketLossRX  Unsigned32,
+			callActiveCallsContentPacketLossTX  Unsigned32,
+			callActiveCallsContentProtocolRX  DisplayString,
+			callActiveCallsContentProtocolTX  DisplayString,
+			callActiveCallsContentRateRX  Unsigned32,
+			callActiveCallsContentRateTX  Unsigned32,
+			callActiveCallsContentRateUsedRX  Unsigned32,
+			callActiveCallsContentRateUsedTX  Unsigned32,
+			callActiveCallsVideoAnnexRX  DisplayString,
+			callActiveCallsVideoAnnexTX  DisplayString,
+			callActiveCallsVideoFECErrorsRX  Unsigned32,
+			callActiveCallsVideoFECErrorsTX  Unsigned32,
+			callActiveCallsVideoRsltnRX  DisplayString,
+			callActiveCallsVideoRsltnTX  DisplayString,
+			callActiveCallsVideoFrameRateRX  DisplayString,
+			callActiveCallsVideoFrameRateTX  DisplayString,
+			callActiveCallsVideoJitterRX  Unsigned32,
+			callActiveCallsVideoJitterTX  Unsigned32,
+			callActiveCallsVideoLatencyRX  Unsigned32,
+			callActiveCallsVideoLatencyTX  Unsigned32,
+			callActiveCallsVideoPacketLossRX  Unsigned32,
+			callActiveCallsVideoPacketLossTX  Unsigned32,
+			callActiveCallsVideoProtocolRX  DisplayString,
+			callActiveCallsVideoProtocolTX  DisplayString,
+			callActiveCallsVideoRateRX  Unsigned32,
+			callActiveCallsVideoRateTX  Unsigned32,
+			callActiveCallsVideoRateUsedRX  Unsigned32,
+			callActiveCallsVideoRateUsedTX  Unsigned32,
+			callActiveCallsFarSiteName  DisplayString,
+			callActiveCallsFarSiteSystemType  DisplayString,
+			callActiveCallsCallType  DisplayString,
+			callActiveCallsEncryption  DisplayString,
+			callActiveCallsPrecedenceLevel  DisplayString,
+			callActiveCallsSendingContent  TruthValue
+		}
+			
+	--Index                                                                          
+		callActiveCallsIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { callActiveCallsEntry 1 }
+
+
+	-- Column                                                                          
+		callActiveCallsCallID OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The CallID of the call this entry refers to."
+        ::= { callActiveCallsEntry 2 }
+		
+
+	-- Column                                                                          
+		callActiveCallsConfID OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The ID of the conf this call is a part of."
+        ::= { callActiveCallsEntry 3 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoiceJitterRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive voice jitter."
+        ::= { callActiveCallsEntry 4 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoiceJitterTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit voice jitter."
+        ::= { callActiveCallsEntry 5 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoiceLatencyRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive voice latency."
+        ::= { callActiveCallsEntry 6 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoiceLatencyTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit voice latency."
+        ::= { callActiveCallsEntry 7 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoicePacketLossRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive voice packet loss."
+        ::= { callActiveCallsEntry 8 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoicePacketLossTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit voice packet loss."
+        ::= { callActiveCallsEntry 9 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoiceProtocolRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive voice protocol."
+        ::= { callActiveCallsEntry 10 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVoiceProtocolTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit voice protocol."
+        ::= { callActiveCallsEntry 11 }
+		
+
+	-- Column                                                                          
+		callActiveCallsMaxVoiceJitterRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive voice max jitter."
+        ::= { callActiveCallsEntry 12 }
+		
+
+	-- Column                                                                          
+		callActiveCallsMaxVoiceJitterTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit voice max jitter."
+        ::= { callActiveCallsEntry 13 }
+		
+
+	-- Column                                                                          
+		callActiveCallsTotalPacketsLostRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive total packets lost."
+        ::= { callActiveCallsEntry 14 }
+		
+
+	-- Column                                                                          
+		callActiveCallsTotalPacketsLostTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit total packets lost."
+        ::= { callActiveCallsEntry 15 }
+		
+
+	-- Column                                                                          
+		callActiveCallsPctPacketLostRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive percentage packets lost."
+        ::= { callActiveCallsEntry 16 }
+		
+
+	-- Column                                                                          
+		callActiveCallsPctPacketLostTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit percentage packets lost."
+        ::= { callActiveCallsEntry 17 }
+		
+
+	-- Column                                                                          
+		callActiveCallsOverallLatencyRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive overall latency."
+        ::= { callActiveCallsEntry 18 }
+		
+
+	-- Column                                                                          
+		callActiveCallsOverallLatencyTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit overall latency."
+        ::= { callActiveCallsEntry 19 }
+		
+
+	-- Column                                                                          
+		callActiveCallsOverallJitterRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive overall latency."
+        ::= { callActiveCallsEntry 20 }
+		
+
+	-- Column                                                                          
+		callActiveCallsOverallJitterTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit overall latency."
+        ::= { callActiveCallsEntry 21 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentFormatRsltnRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive content format."
+        ::= { callActiveCallsEntry 22 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentFormatRsltnTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit content format."
+        ::= { callActiveCallsEntry 23 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentFrameRateRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive content frame rate."
+        ::= { callActiveCallsEntry 24 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentFrameRateTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit content frame rate."
+        ::= { callActiveCallsEntry 25 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentJitterRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive content jitter."
+        ::= { callActiveCallsEntry 26 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentJitterTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit content jitter."
+        ::= { callActiveCallsEntry 27 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentLatencyRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive content latency."
+        ::= { callActiveCallsEntry 28 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentLatencyTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit content latency."
+        ::= { callActiveCallsEntry 29 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentPacketLossRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive packet loss."
+        ::= { callActiveCallsEntry 30 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentPacketLossTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit packet loss."
+        ::= { callActiveCallsEntry 31 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentProtocolRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive content protocol."
+        ::= { callActiveCallsEntry 32 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentProtocolTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit content protocol."
+        ::= { callActiveCallsEntry 33 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentRateRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive content protocol."
+        ::= { callActiveCallsEntry 34 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentRateTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit content rate."
+        ::= { callActiveCallsEntry 35 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentRateUsedRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive used content rate."
+        ::= { callActiveCallsEntry 36 }
+		
+
+	-- Column                                                                          
+		callActiveCallsContentRateUsedTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit used content rate."
+        ::= { callActiveCallsEntry 37 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoAnnexRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Video annex receive protocol."
+        ::= { callActiveCallsEntry 38 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoAnnexTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Video annex transmit protocol."
+        ::= { callActiveCallsEntry 39 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoFECErrorsRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Video forward error corection receive."
+        ::= { callActiveCallsEntry 40 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoFECErrorsTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Video forward error corection transmit."
+        ::= { callActiveCallsEntry 41 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoRsltnRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { callActiveCallsEntry 42 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoRsltnTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { callActiveCallsEntry 43 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoFrameRateRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive video frame rate."
+        ::= { callActiveCallsEntry 44 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoFrameRateTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit video frame rate."
+        ::= { callActiveCallsEntry 45 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoJitterRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive video jitter."
+        ::= { callActiveCallsEntry 46 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoJitterTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit video jitter."
+        ::= { callActiveCallsEntry 47 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoLatencyRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive video lantency."
+        ::= { callActiveCallsEntry 48 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoLatencyTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit video lantency."
+        ::= { callActiveCallsEntry 49 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoPacketLossRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive video packet loss."
+        ::= { callActiveCallsEntry 50 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoPacketLossTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit video packet loss."
+        ::= { callActiveCallsEntry 51 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoProtocolRX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive video protocol."
+        ::= { callActiveCallsEntry 52 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoProtocolTX OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit video protocol."
+        ::= { callActiveCallsEntry 53 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoRateRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive video rate."
+        ::= { callActiveCallsEntry 54 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoRateTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit video rate."
+        ::= { callActiveCallsEntry 55 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoRateUsedRX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Receive video rate used."
+        ::= { callActiveCallsEntry 56 }
+		
+
+	-- Column                                                                          
+		callActiveCallsVideoRateUsedTX OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Transmit video rate used."
+        ::= { callActiveCallsEntry 57 }
+		
+
+	-- Column                                                                          
+		callActiveCallsFarSiteName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Far end display name."
+        ::= { callActiveCallsEntry 58 }
+		
+
+	-- Column                                                                          
+		callActiveCallsFarSiteSystemType OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Far end system type."
+        ::= { callActiveCallsEntry 59 }
+		
+
+	-- Column                                                                          
+		callActiveCallsCallType OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Call type."
+        ::= { callActiveCallsEntry 60 }
+		
+
+	-- Column                                                                          
+		callActiveCallsEncryption OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Encryption algorithm used."
+        ::= { callActiveCallsEntry 61 }
+		
+
+	-- Column                                                                          
+		callActiveCallsPrecedenceLevel OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { callActiveCallsEntry 62 }
+		
+
+	-- Column                                                                          
+		callActiveCallsSendingContent OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Content sharing indicator."
+        ::= { callActiveCallsEntry 63 }
+		
+	--Section   
+		conference OBJECT IDENTIFIER
+		::= {  polycom-mcu-managementObjects 5 }
+			
+	-- Scalar
+		conferenceNumberActiveConferences OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The number of ongoing conferences."
+    	::= { conference 1 }
+		
+	--Section   
+		externalIntegration OBJECT IDENTIFIER
+		::= {  polycom-mcu-managementObjects 6 }
+			
+	-- Scalar
+		externalIntegrationStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Overal status of the external services integration."
+    	::= { externalIntegration 1 }
+		
+	--Group                           
+		externalIntegrationExchange OBJECT IDENTIFIER
+		::= {	externalIntegration 12 }
+			
+		
+	-- Scalar
+		externalIntegrationExchangeStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Status of the integration with the Exchange service."
+    	::= { externalIntegrationExchange 1 }
+		
+	-- Table  
+		externalIntegrationExchangeServerTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ExternalIntegrationExchangeServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of Exchange servers integration status information."
+        ::= { externalIntegrationExchange 2 }
+
+	-- Entry        
+		externalIntegrationExchangeServerEntry OBJECT-TYPE
+			SYNTAX              ExternalIntegrationExchangeServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Table of Exchange servers integration status information."
+			INDEX {
+					externalIntegrationExchangeServerIndex
+			}
+        ::= { externalIntegrationExchangeServerTable 1 }
+ 
+	-- Sequence       
+		ExternalIntegrationExchangeServerEntry ::= SEQUENCE {
+			externalIntegrationExchangeServerIndex  Unsigned32,
+			externalIntegrationExchangeServerName  DisplayString,
+			externalIntegrationExchangeServerIpAddress  InetAddress,
+			externalIntegrationExchangeServerSubscriptionStatus  INTEGER,
+			externalIntegrationExchangeServerMeetingsScheduledToday  Unsigned32,
+			externalIntegrationExchangeServerIntegrator  DisplayString
+		}
+			
+	--Index                                                                          
+		externalIntegrationExchangeServerIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { externalIntegrationExchangeServerEntry 1 }
+
+
+	-- Column                                                                          
+		externalIntegrationExchangeServerName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Display name."
+        ::= { externalIntegrationExchangeServerEntry 2 }
+		
+
+	-- Column                                                                          
+		externalIntegrationExchangeServerIpAddress OBJECT-TYPE
+			SYNTAX				InetAddress
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "IP address."
+        ::= { externalIntegrationExchangeServerEntry 3 }
+		
+
+	-- Column                                                                          
+		externalIntegrationExchangeServerSubscriptionStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				unknown(1),
+				unavailable(2),
+				error(3),
+				disabled(4),
+				ignoredNoEnterpriseDirectory(5),
+				ignoredMailboxNotFound(6),
+				authFailed(7),
+				subscriptionPending(8),
+				subscriptionOK(9)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Subscription status."
+        ::= { externalIntegrationExchangeServerEntry 4 }
+		
+
+	-- Column                                                                          
+		externalIntegrationExchangeServerMeetingsScheduledToday OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of meetings scheduled for today."
+        ::= { externalIntegrationExchangeServerEntry 5 }
+		
+
+	-- Column                                                                          
+		externalIntegrationExchangeServerIntegrator OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Indicates which single member of the supercluster performed the integration to the Exchange Server"
+        ::= { externalIntegrationExchangeServerEntry 6 }
+		
+	--Group                           
+		externalIntegrationDirectorySvcs OBJECT IDENTIFIER
+		::= {	externalIntegration 13 }
+			
+		
+	-- Scalar
+		externalIntegrationDirectorySvcsStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Operational status."
+    	::= { externalIntegrationDirectorySvcs 1 }
+		
+	-- Scalar
+		externalIntegrationDirectorySvcsId OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"OBSOLETE. Replaced by the Id column in the table that follows. Use the table entry, do NOT implement this."
+    	::= { externalIntegrationDirectorySvcs 2 }
+		
+	-- Table  
+		externalIntegrationDirectorySvcsServerTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ExternalIntegrationDirectorySvcsServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { externalIntegrationDirectorySvcs 3 }
+
+	-- Entry        
+		externalIntegrationDirectorySvcsServerEntry OBJECT-TYPE
+			SYNTAX              ExternalIntegrationDirectorySvcsServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+			INDEX {
+					externalIntegrationDirectorySvcsServerIndex
+			}
+        ::= { externalIntegrationDirectorySvcsServerTable 1 }
+ 
+	-- Sequence       
+		ExternalIntegrationDirectorySvcsServerEntry ::= SEQUENCE {
+			externalIntegrationDirectorySvcsServerIndex  Unsigned32,
+			externalIntegrationDirectorySvcsServerStatus  INTEGER,
+			externalIntegrationDirectorySvcsServerId  DisplayString,
+			externalIntegrationDirectorySvcsServerCacheStatus  INTEGER,
+			externalIntegrationDirectorySvcsServerConnectionSecure  TruthValue,
+			externalIntegrationDirectorySvcsServerCacheRefreshDate  DateAndTime,
+			externalIntegrationDirectorySvcsServerEnterpriseConferenceRooms  Unsigned32,
+			externalIntegrationDirectorySvcsServerIntegrator  DisplayString
+		}
+			
+	--Index                                                                          
+		externalIntegrationDirectorySvcsServerIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { externalIntegrationDirectorySvcsServerEntry 1 }
+
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Directory service operational status."
+        ::= { externalIntegrationDirectorySvcsServerEntry 2 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerId OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The user ID of the service account used to integrate with enterprise directory."
+        ::= { externalIntegrationDirectorySvcsServerEntry 3 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerCacheStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				connecting(2),
+				integratedWithEncryption(3),
+				integratedWithoutEncryption(4),
+				failed(5),
+				outdated(6),
+				failedNoSuchEnterpriseUser(7),
+				failedEnterpriseAuthentication(8),
+				failedInvalidEnterpriseCredentials(9),
+				failedEnterpriseAuthenticationWithCode(10),
+				failedConnection(11)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The status of the enterprise directory caching."
+        ::= { externalIntegrationDirectorySvcsServerEntry 4 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerConnectionSecure OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Indicates whether the connection is secure or not."
+        ::= { externalIntegrationDirectorySvcsServerEntry 5 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerCacheRefreshDate OBJECT-TYPE
+			SYNTAX				DateAndTime
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The time of last cache refresh."
+        ::= { externalIntegrationDirectorySvcsServerEntry 6 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerEnterpriseConferenceRooms OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of enterprise conference rooms generated by enterprise directory integration."
+        ::= { externalIntegrationDirectorySvcsServerEntry 7 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerIntegrator OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the cluster integrating with the enterprise directory service."
+        ::= { externalIntegrationDirectorySvcsServerEntry 8 }
+		
+	--Group                           
+		externalIntegrationNTP OBJECT IDENTIFIER
+		::= {	externalIntegration 15 }
+			
+		
+	-- Table  
+		externalIntegrationNTPServerTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ExternalIntegrationNTPServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "description"
+        ::= { externalIntegrationNTP 1 }
+
+	-- Entry        
+		externalIntegrationNTPServerEntry OBJECT-TYPE
+			SYNTAX              ExternalIntegrationNTPServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "description"
+			INDEX {
+					externalIntegrationNTPServerIndex
+			}
+        ::= { externalIntegrationNTPServerTable 1 }
+ 
+	-- Sequence       
+		ExternalIntegrationNTPServerEntry ::= SEQUENCE {
+			externalIntegrationNTPServerIndex  Unsigned32,
+			externalIntegrationNTPServerStatus  INTEGER,
+			externalIntegrationNTPServerIpAddress  InetAddress
+		}
+			
+	--Index                                                                          
+		externalIntegrationNTPServerIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table"
+        ::= { externalIntegrationNTPServerEntry 1 }
+
+
+	-- Column                                                                          
+		externalIntegrationNTPServerStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The operational status of the NTP server."
+        ::= { externalIntegrationNTPServerEntry 2 }
+		
+
+	-- Column                                                                          
+		externalIntegrationNTPServerIpAddress OBJECT-TYPE
+			SYNTAX				InetAddress
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Name of the server"
+        ::= { externalIntegrationNTPServerEntry 3 }
+		
+	--Group                           
+		externalIntegrationTopology OBJECT IDENTIFIER
+		::= {	externalIntegration 18 }
+			
+		
+	--Section   
+		notificationVariable OBJECT IDENTIFIER
+		::= {  polycom-mcu-managementObjects 99 }
+			
+	-- Scalar
+		notificationVariableNodeName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 1 }
+		
+	-- Scalar
+		notificationVariableReportingNodeName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 2 }
+		
+	-- Scalar
+		notificationVariableType OBJECT-TYPE
+			SYNTAX				INTEGER {
+				problem(1),
+				resolution(2),
+				info(3)
+			}
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 3 }
+		
+	-- Scalar
+		notificationVariableClass OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 4 }
+		
+	-- Scalar
+		notificationVariableKey OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 5 }
+		
+	-- Scalar
+		notificationVariableSummary OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 6 }
+		
+	-- Scalar
+		notificationVariableSeverity OBJECT-TYPE
+			SYNTAX				INTEGER {
+				emergency(0),
+				alert(1),
+				critical(2),
+				error(3),
+				warning(4),
+				notice(5),
+				informational(6),
+				debug(7)
+			}
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"The notification's severity level."
+    	::= { notificationVariable 7 }
+		
+	-- Scalar
+		notificationVariableValueOID OBJECT-TYPE
+			SYNTAX				OBJECT IDENTIFIER
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"For threshold notifications this object points to the OID where the current value can be retrieved."
+    	::= { notificationVariable 8 }
+		
+	-- Scalar
+		notificationVariableThreshold OBJECT-TYPE
+			SYNTAX				INTEGER
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"For threshold notifications this object contains the value of the threshold that was breached."
+    	::= { notificationVariable 9 }
+		
+	-- Scalar
+		notificationVariableConferenceID OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"This object contains the conference ID with which the notification is associated."
+    	::= { notificationVariable 10 }
+		
+	-- Scalar
+		notificationVariableServerName OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"This object contains the name of the server the notification reports about."
+    	::= { notificationVariable 11 }
+		
+	-- Scalar
+		notificationVariableServerType OBJECT-TYPE
+			SYNTAX				INTEGER {
+				lync(0),
+				license(1)
+			}
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 12 }
+		
+		polycom-mcu-managementMIBConformance OBJECT IDENTIFIER ::= { polycom-mcu-management-MIB 2 }
+		
+		polycom-mcu-managementMIBGroups OBJECT IDENTIFIER ::= { polycom-mcu-managementMIBConformance 2 }	
+			
+		identityObjects OBJECT-GROUP
+        OBJECTS { 
+        	identitySoftwareInfo, 
+			identityDeviceType, 
+			identityDeviceModel, 
+			identityDeviceSerialNumber
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the identity section"
+        ::= { polycom-mcu-managementMIBGroups 1 }
+       
+		serviceObjects OBJECT-GROUP
+        OBJECTS { 
+        	serviceH323GatekeeperIndex, 
+			serviceH323GatekeeperStatus, 
+			serviceH323GatekeeperH239Enabled, 
+			serviceSipProxyIndex, 
+			serviceSipProxyStatus, 
+			serviceTopologyTerritoryCount, 
+			serviceTopologyTerritoryIndex, 
+			serviceTopologyTerritoryId, 
+			serviceTopologyTerritoryPrimaryCluster, 
+			serviceTopologyTerritoryBackupCluster, 
+			serviceTopologyTerritoryVMRCapable, 
+			serviceCallServerClusterName, 
+			serviceCallServerActiveRegistrations, 
+			serviceCallServerActiveCallsIndex, 
+			serviceCallServerActiveCallsActiveH323, 
+			serviceCallServerActiveCallsActiveSIP, 
+			serviceCallServerActiveCallsLimit, 
+			serviceCallServerActiveCallsCeiling, 
+			serviceCallServerInactiveRegistrations, 
+			serviceCallServerFailedRegistrationsLast24Hours, 
+			serviceHASuperClstrStatus, 
+			serviceHANumberOfLocalClstrs, 
+			serviceHASuperClstrLocalClstrIndex, 
+			serviceHASuperClstrLocalClstrName, 
+			serviceHASuperClstrLocalClstrStatus, 
+			serviceHASuperClstrLocalClstrStatusChgReason, 
+			serviceHASuperClstrLocalClstrNumberOfServers, 
+			serviceHASuperClstrLocalClstrCSVListOfServers, 
+			serviceHAClstrResourceIndex, 
+			serviceHAClstrResourceName, 
+			serviceHAClstrResourceGroup, 
+			serviceHAClstrResourceDescription, 
+			serviceHAClstrResourceServerName, 
+			serviceHAServerIndex, 
+			serviceHAServerName, 
+			serviceHAServerStatus, 
+			serviceHAServerIPAddress, 
+			serviceConferenceServerTotalVoicePorts, 
+			serviceConferenceServerTotalVideoPorts, 
+			serviceConferenceServerTotalVoicePortsUsed, 
+			serviceConferenceServerVoicePortsUsedPercentage, 
+			serviceConferenceServerTotalVideoPortsUsed, 
+			serviceConferenceServerVideoPortsUsedPercentage, 
+			serviceConferenceServerTotalNumberActiveParticipants, 
+			serviceConferenceServerNumberReservedVideoPorts, 
+			serviceConferenceServerNumberReservedVoicePorts, 
+			serviceConferenceServerMCUIndex, 
+			serviceConferenceServerMCUName, 
+			serviceConferenceServerMCUConnectionStatus, 
+			serviceConferenceServerMCUServiceabilityStatus, 
+			serviceConferenceServerMCUIVRCapable, 
+			serviceConferenceServerMCURecordingCapable, 
+			serviceConferenceServerMCUSVCCapable, 
+			serviceConferenceServerMCUAlarming, 
+			serviceConferenceServerMCUVideoUsageResourceManagerReserved, 
+			serviceConferenceServerMCUTotalVideoPorts, 
+			serviceConferenceServerMCUVideoUsageMCUTotal, 
+			serviceConferenceServerMCUVideoUsageMCUUsed, 
+			serviceConferenceServerMCUVideoUsageDMATotal, 
+			serviceConferenceServerMCUVideoUsageDMAUsed, 
+			serviceConferenceServerMCUVoiceUsageResourceManagerReserved, 
+			serviceConferenceServerMCUTotalVoicePorts, 
+			serviceConferenceServerMCUVoiceUsageMCUTotal, 
+			serviceConferenceServerMCUVoiceUsageMCUUsed, 
+			serviceConferenceServerMCUVoiceUsageDMATotal, 
+			serviceConferenceServerMCUVoiceUsageDMAUsed, 
+			serviceConferenceServerMCUReliabilityDisconnects, 
+			serviceConferenceServerMCUReliabilityCallFailureRate, 
+			serviceConferenceServerMCULyncCascadingCapable
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the service section"
+        ::= { polycom-mcu-managementMIBGroups 2 }
+       
+		hardwareObjects OBJECT-GROUP
+        OBJECTS { 
+        	hardwareNICStatus, 
+			hardwareNICNICsIndex, 
+			hardwareNICNICsName, 
+			hardwareNICNICsMAC, 
+			hardwareNICNICsSpeed, 
+			hardwareNICNICsDuplex, 
+			hardwareNICNICsStatus, 
+			hardwareNICNICsIPType
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the hardware section"
+        ::= { polycom-mcu-managementMIBGroups 3 }
+       
+		callObjects OBJECT-GROUP
+        OBJECTS { 
+        	callActiveCallsIndex, 
+			callActiveCallsCallID, 
+			callActiveCallsConfID, 
+			callActiveCallsVoiceJitterRX, 
+			callActiveCallsVoiceJitterTX, 
+			callActiveCallsVoiceLatencyRX, 
+			callActiveCallsVoiceLatencyTX, 
+			callActiveCallsVoicePacketLossRX, 
+			callActiveCallsVoicePacketLossTX, 
+			callActiveCallsVoiceProtocolRX, 
+			callActiveCallsVoiceProtocolTX, 
+			callActiveCallsMaxVoiceJitterRX, 
+			callActiveCallsMaxVoiceJitterTX, 
+			callActiveCallsTotalPacketsLostRX, 
+			callActiveCallsTotalPacketsLostTX, 
+			callActiveCallsPctPacketLostRX, 
+			callActiveCallsPctPacketLostTX, 
+			callActiveCallsOverallLatencyRX, 
+			callActiveCallsOverallLatencyTX, 
+			callActiveCallsOverallJitterRX, 
+			callActiveCallsOverallJitterTX, 
+			callActiveCallsContentFormatRsltnRX, 
+			callActiveCallsContentFormatRsltnTX, 
+			callActiveCallsContentFrameRateRX, 
+			callActiveCallsContentFrameRateTX, 
+			callActiveCallsContentJitterRX, 
+			callActiveCallsContentJitterTX, 
+			callActiveCallsContentLatencyRX, 
+			callActiveCallsContentLatencyTX, 
+			callActiveCallsContentPacketLossRX, 
+			callActiveCallsContentPacketLossTX, 
+			callActiveCallsContentProtocolRX, 
+			callActiveCallsContentProtocolTX, 
+			callActiveCallsContentRateRX, 
+			callActiveCallsContentRateTX, 
+			callActiveCallsContentRateUsedRX, 
+			callActiveCallsContentRateUsedTX, 
+			callActiveCallsVideoAnnexRX, 
+			callActiveCallsVideoAnnexTX, 
+			callActiveCallsVideoFECErrorsRX, 
+			callActiveCallsVideoFECErrorsTX, 
+			callActiveCallsVideoRsltnRX, 
+			callActiveCallsVideoRsltnTX, 
+			callActiveCallsVideoFrameRateRX, 
+			callActiveCallsVideoFrameRateTX, 
+			callActiveCallsVideoJitterRX, 
+			callActiveCallsVideoJitterTX, 
+			callActiveCallsVideoLatencyRX, 
+			callActiveCallsVideoLatencyTX, 
+			callActiveCallsVideoPacketLossRX, 
+			callActiveCallsVideoPacketLossTX, 
+			callActiveCallsVideoProtocolRX, 
+			callActiveCallsVideoProtocolTX, 
+			callActiveCallsVideoRateRX, 
+			callActiveCallsVideoRateTX, 
+			callActiveCallsVideoRateUsedRX, 
+			callActiveCallsVideoRateUsedTX, 
+			callActiveCallsFarSiteName, 
+			callActiveCallsFarSiteSystemType, 
+			callActiveCallsCallType, 
+			callActiveCallsEncryption, 
+			callActiveCallsPrecedenceLevel, 
+			callActiveCallsSendingContent
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the call section"
+        ::= { polycom-mcu-managementMIBGroups 4 }
+       
+		conferenceObjects OBJECT-GROUP
+        OBJECTS { 
+        	conferenceNumberActiveConferences
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the conference section"
+        ::= { polycom-mcu-managementMIBGroups 5 }
+       
+		externalIntegrationObjects OBJECT-GROUP
+        OBJECTS { 
+        	externalIntegrationStatus, 
+			externalIntegrationExchangeStatus, 
+			externalIntegrationExchangeServerIndex, 
+			externalIntegrationExchangeServerName, 
+			externalIntegrationExchangeServerIpAddress, 
+			externalIntegrationExchangeServerSubscriptionStatus, 
+			externalIntegrationExchangeServerMeetingsScheduledToday, 
+			externalIntegrationExchangeServerIntegrator, 
+			externalIntegrationDirectorySvcsStatus, 
+			externalIntegrationDirectorySvcsId, 
+			externalIntegrationDirectorySvcsServerIndex, 
+			externalIntegrationDirectorySvcsServerStatus, 
+			externalIntegrationDirectorySvcsServerId, 
+			externalIntegrationDirectorySvcsServerCacheStatus, 
+			externalIntegrationDirectorySvcsServerConnectionSecure, 
+			externalIntegrationDirectorySvcsServerCacheRefreshDate, 
+			externalIntegrationDirectorySvcsServerEnterpriseConferenceRooms, 
+			externalIntegrationDirectorySvcsServerIntegrator, 
+			externalIntegrationNTPServerIndex, 
+			externalIntegrationNTPServerStatus, 
+			externalIntegrationNTPServerIpAddress
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the externalIntegration section"
+        ::= { polycom-mcu-managementMIBGroups 6 }
+       
+		notificationVariableObjects OBJECT-GROUP
+        OBJECTS { 
+        	notificationVariableNodeName, 
+			notificationVariableReportingNodeName, 
+			notificationVariableType, 
+			notificationVariableClass, 
+			notificationVariableKey, 
+			notificationVariableSummary, 
+			notificationVariableSeverity, 
+			notificationVariableValueOID, 
+			notificationVariableThreshold, 
+			notificationVariableConferenceID, 
+			notificationVariableServerName, 
+			notificationVariableServerType
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the notificationVariable section"
+        ::= { polycom-mcu-managementMIBGroups 7 }
+       
+		
+		notificationObjects NOTIFICATION-GROUP
+        NOTIFICATIONS {
+      		haNodeStatusChange, 
+			securityFailedAuthAttempt, 
+			bridgeDown, 
+			dmaDown, 
+			ldapConnectionDown, 
+			ldapConnectionFail, 
+			certificateAboutToExpire, 
+			certificateExpired, 
+			cpuUsageExceeded, 
+			diskSpaceUsageExceeded, 
+			callFailed, 
+			presenceServerDown, 
+			presenceServerMaxEndpointExpirationTooSmall, 
+			presenceServerMaxConferenceCountTooSmall, 
+			presenceServerPresencePublicationIncomplete, 
+			invalidServerConfigurationParameter, 
+			serverUnreachable, 
+			serverOK, 
+			licenseVersionIncompatible, 
+			licenseMissing
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all of the notification objects"
+        ::= { polycom-mcu-managementMIBGroups 99 }
+       
+		
+		END

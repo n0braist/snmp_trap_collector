@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: HP-SN-ROOT-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-SN-ROOT-MIB.mib) converted on Mon Aug 20 14:14:25 2012 using snmpttconvertmib v1.3

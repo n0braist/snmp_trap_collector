@@ -1,0 +1,69 @@
+#
+#
+#
+#
+MIB: CISCO-LICENSE-MGR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-LICENSE-MGR-MIB.mib) converted on Tue Aug 21 15:26:17 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT clmLicenseExpiryNotify .1.3.6.1.4.1.9.9.369.3.0.1 "Status Events" Normal
+FORMAT A clmLicenseCountExpiryNotify is sent, when a  $*
+SDESC
+A clmLicenseCountExpiryNotify is sent, when a 
+feature license expires.
+Variables:
+  1: clmLicenseExpiryDate
+EDESC
+#
+#
+#
+EVENT clmNoLicenseForFeatureNotify .1.3.6.1.4.1.9.9.369.3.0.2 "Status Events" Normal
+FORMAT A 'clmNoLicenseForFeatureNotify' is sent, when an  $*
+SDESC
+A 'clmNoLicenseForFeatureNotify' is sent, when an 
+license is issued for a feature which does 
+not have license. The license will expire after
+a grace period, which is mentioned in the 
+'clmLicenseGracePeriod' object of this
+notification. This notification is also sent once
+every 24 hours from the start of the grace period.
+In the last 7 days before grace period expiry this
+notification is sent once every hour.   
+Variables:
+  1: clmLicenseGracePeriod
+EDESC
+#
+#
+#
+EVENT clmLicenseFileMissingNotify .1.3.6.1.4.1.9.9.369.3.0.3 "Status Events" Normal
+FORMAT A clmLicenseFileMissingNotify is generated when the $*
+SDESC
+A clmLicenseFileMissingNotify is generated when the
+system detects that one or more installed license
+files are missing.  To correct this fault, any
+files which might be missing should be reinstalled,
+e.g., if it's unknown which ones are missing, then 
+all files can be re-installed, ignoring any 'duplicate
+license' messages.
+Variables:
+  1: clmNoOfMissingUsageLicenses
+EDESC
+#
+#
+#
+EVENT clmLicenseExpiryWarningNotify .1.3.6.1.4.1.9.9.369.3.0.4 "Status Events" Normal
+FORMAT A 'clmLicenseExpiryWarningNotify' is sent,  $*
+SDESC
+A 'clmLicenseExpiryWarningNotify' is sent, 
+when an license issued for a feature is 
+going to expire, and the feature is use. This
+notification is sent once in a day starting 30
+days before license expiry. In the last 7 days
+before expiry this notification is sent once 
+every hour.
+The license will expire on the date and time, 
+mentioned in the 'clmLicenseExpiryDate' object of 
+this notification.   
+Variables:
+  1: clmLicenseExpiryDate
+EDESC

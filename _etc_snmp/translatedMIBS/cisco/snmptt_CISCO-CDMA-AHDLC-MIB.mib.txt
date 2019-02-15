@@ -1,0 +1,18 @@
+#
+#
+#
+#
+MIB: CISCO-CDMA-AHDLC-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CDMA-AHDLC-MIB.mib) converted on Tue Aug 21 15:25:44 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cCdmaAhdlcEngineDownNotif .1.3.6.1.4.1.9.9.997.0.1 "Status Events" Normal
+FORMAT This notification indicates an AHDLC engine $*
+SDESC
+This notification indicates an AHDLC engine
+is 'down' due to some fault though the desired
+state of the engine is 'up'.
+Variables:
+  1: cCdmaAhdlcEngineOperState
+  2: cCdmaAhdlcEngineAdminState
+EDESC

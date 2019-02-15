@@ -1,0 +1,1500 @@
+#
+#
+#
+#
+MIB: IDRAC-MIB (file:/tmp/polycom/iDRAC-MIB.mib) converted on Fri Mar 13 12:28:54 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alertAmperageProbeNormal .1.3.6.1.4.1.674.10892.5.3.2.1.0.2179 "Status Events" INFORMATIONAL
+FORMAT System: Amperage Normal: $2
+SDESC
+Current sensor reading is within range.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertAmperageProbeWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2178 "Status Events" MINOR
+FORMAT System: Amperage Warning: $2
+SDESC
+Current sensor has detected a warning value.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertAmperageProbeFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2177 "Status Events" CRITICAL
+FORMAT System: Amperage Failure: $2
+SDESC
+Current sensor has detected a failure value.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertAutomaticSystemRecovery .1.3.6.1.4.1.674.10892.5.3.2.1.0.2233 "Status Events" CRITICAL
+FORMAT System: Automatic System Recovery: $2
+SDESC
+Automatic system recovery (ASR) was performed.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertBatteryNormal .1.3.6.1.4.1.674.10892.5.3.2.1.0.2227 "Status Events" INFORMATIONAL
+FORMAT System: Battery Normal: $2
+SDESC
+Battery state has returned to normal;
+or battery presence had been detected.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertBatteryWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2226 "Status Events" MINOR
+FORMAT System: Battery Warning: $2
+SDESC
+Battery is low.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertBatteryFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2225 "Status Events" CRITICAL
+FORMAT System: Battery Failure: $2
+SDESC
+Battery has failed or battery is absent.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertProcessorDeviceStatusNormal .1.3.6.1.4.1.674.10892.5.3.2.1.0.2243 "Status Events" INFORMATIONAL
+FORMAT System: Processor Device Status Normal: $2
+SDESC
+Processor device status has returned to normal.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertProcessorDeviceStatusWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2242 "Status Events" MINOR
+FORMAT System: Processor Device Status Warning: $2
+SDESC
+Processor device status has detected a warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertProcessorDeviceStatusFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2241 "Status Events" CRITICAL
+FORMAT System: Processor Device Status Failure: $2
+SDESC
+Processor device status has detected a failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertProcessorDeviceAbsent .1.3.6.1.4.1.674.10892.5.3.2.1.0.2457 "Status Events" CRITICAL
+FORMAT System: Processor Device Absent: $2
+SDESC
+Processor device is absent.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertFanInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2155 "Status Events" INFORMATIONAL
+FORMAT System: Fan Information: $2
+SDESC
+Fan information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertFanWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2154 "Status Events" MINOR
+FORMAT System: Fan Warning: $2
+SDESC
+Fan warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertFanFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2153 "Status Events" CRITICAL
+FORMAT System: Fan Failure: $2
+SDESC
+Fan failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertHardwareConfigurationInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2331 "Status Events" INFORMATIONAL
+FORMAT System: Hardware Configuration Information: $2
+SDESC
+Hardware configuration information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertHardwareConfigurationWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2330 "Status Events" MINOR
+FORMAT System: Hardware Configuration Warning: $2
+SDESC
+Hardware configuration warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertHardwareConfigurationFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2329 "Status Events" CRITICAL
+FORMAT System: Hardware Configuration Failure: $2
+SDESC
+Hardware configuration failure or critical event.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertMemoryDeviceInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2267 "Status Events" INFORMATIONAL
+FORMAT System: Memory Device Infomation: $2
+SDESC
+Memory device informational event.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertMemoryDeviceWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2266 "Status Events" MINOR
+FORMAT System: Memory Device Noncritical: $2
+SDESC
+Memory device status is noncritical.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertMemoryDeviceFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2265 "Status Events" CRITICAL
+FORMAT System: Memory Device Critical: $2
+SDESC
+Memory device status is critical.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertNetworkInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2091 "Status Events" INFORMATIONAL
+FORMAT System: Network Information : $2
+SDESC
+Network information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertNetworkWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2090 "Status Events" MINOR
+FORMAT System: Network Warning : $2
+SDESC
+Network warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertNetworkFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2089 "Status Events" CRITICAL
+FORMAT System: Network Failure: $2
+SDESC
+Network failure or critical event.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertOSInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2411 "Status Events" INFORMATIONAL
+FORMAT System: Operating System Information: $2
+SDESC
+An OS graceful stop occurred;
+or an OS graceful shut-down occurred.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertOSFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2409 "Status Events" CRITICAL
+FORMAT System: Operating System Failure: $2
+SDESC
+A critical stop occurred during OS load;
+or a runtime critical stop occurred.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPCIDeviceInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2419 "Status Events" INFORMATIONAL
+FORMAT System: PCI Device Information: $2
+SDESC
+An informational event was detected for a PCI device.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPCIDeviceWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2418 "Status Events" MINOR
+FORMAT System: PCI Device Warning: $2
+SDESC
+A warning event was detected for a PCI device.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPCIDeviceFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2417 "Status Events" CRITICAL
+FORMAT System: PCI Device Failure: $2
+SDESC
+An error was detected for a PCI device.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPhysicalDiskInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2299 "Status Events" INFORMATIONAL
+FORMAT System: Physical Disk Information: $2
+SDESC
+Physical disk information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPhysicalDiskWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2298 "Status Events" MINOR
+FORMAT System: Physical Disk Warning: $2
+SDESC
+Physical disk warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPhysicalDiskFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2297 "Status Events" CRITICAL
+FORMAT System: Physical Disk Failure: $2
+SDESC
+Physical disk failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertBiosPostFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2425 "Status Events" CRITICAL
+FORMAT System: BIOS POST Failure: $2
+SDESC
+System BIOS detected a failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyNormal .1.3.6.1.4.1.674.10892.5.3.2.1.0.2187 "Status Events" INFORMATIONAL
+FORMAT System: Power Supply Normal: $2
+SDESC
+Power supply has returned to normal.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2186 "Status Events" MINOR
+FORMAT System: Power Supply Warning: $2
+SDESC
+Power supply has detected a warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2185 "Status Events" CRITICAL
+FORMAT System: Power Supply Failure: $2
+SDESC
+Power supply has detected a failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyAbsent .1.3.6.1.4.1.674.10892.5.3.2.1.0.2465 "Status Events" CRITICAL
+FORMAT System: Power Supply Absent: $2
+SDESC
+Power supply is absent.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPowerUsageInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2275 "Status Events" INFORMATIONAL
+FORMAT System: Power Usage Information: $2
+SDESC
+System performance restored.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPowerUsageWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2274 "Status Events" MINOR
+FORMAT System: Power Usage Warning: $2
+SDESC
+System performance degraded.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertPowerUsageFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2273 "Status Events" CRITICAL
+FORMAT System: Power Usage Failure: $2
+SDESC
+The system halted because system power exceeds capacity;
+or the system performance degraded because power draw exceeds the
+power threshold.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertRedundancyInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2475 "Status Events" INFORMATIONAL
+FORMAT System: Redundancy Information: $2
+SDESC
+Redundancy information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertRedundancyDegraded .1.3.6.1.4.1.674.10892.5.3.2.1.0.2474 "Status Events" MINOR
+FORMAT System: Redundancy Degraded: $2
+SDESC
+Redundancy is degraded.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertRedundancyLost .1.3.6.1.4.1.674.10892.5.3.2.1.0.2473 "Status Events" CRITICAL
+FORMAT System: Redundancy Lost: $2
+SDESC
+Redundancy is lost.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertIntegratedDualSDModuleInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2211 "Status Events" INFORMATIONAL
+FORMAT System: Integrated Dual SD Module Information: $2
+SDESC
+Integrated Dual SD Module information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertIntegratedDualSDModuleWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2210 "Status Events" MINOR
+FORMAT System: Integrated Dual SD Module Warning: $2
+SDESC
+Integrated Dual SD Module warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertIntegratedDualSDModuleFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2209 "Status Events" CRITICAL
+FORMAT System: Integrated Dual SD Module Failure: $2
+SDESC
+Integrated Dual SD Module failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertIntegratedDualSDModuleAbsent .1.3.6.1.4.1.674.10892.5.3.2.1.0.2481 "Status Events" CRITICAL
+FORMAT System: Integrated Dual SD Module absent.: $2
+SDESC
+Integrated Dual SD Module is absent.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertIntegratedDualSDModuleRedundancyInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2491 "Status Events" INFORMATIONAL
+FORMAT System: Integrated Dual SD Module Redundancy Information: $2
+SDESC
+Integrated Dual SD Module redundancy information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertIntegratedDualSDModuleRedundancyDegraded .1.3.6.1.4.1.674.10892.5.3.2.1.0.2490 "Status Events" MINOR
+FORMAT System: Integrated Dual SD Module Redundancy Degraded: $2
+SDESC
+Integrated Dual SD Module redundancy is degraded.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertIntegratedDualSDModuleRedundancyLost .1.3.6.1.4.1.674.10892.5.3.2.1.0.2489 "Status Events" CRITICAL
+FORMAT System: Integrated Dual SD Module Redundancy Lost: $2
+SDESC
+Integrated Dual SD Module redundancy is lost.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertSecurityInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2387 "Status Events" INFORMATIONAL
+FORMAT System: Security Information: $2
+SDESC
+Security information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertSecurityFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2385 "Status Events" CRITICAL
+FORMAT System: Security Failure: $2
+SDESC
+Security failure or critical event.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertSystemEventLogInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2379 "Status Events" INFORMATIONAL
+FORMAT System: System Event Log Information: $2
+SDESC
+System Event Log information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertSystemEventLogWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2378 "Status Events" MINOR
+FORMAT System: System Event Log Warning: $2
+SDESC
+System Event Log warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertSystemEventLogFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2377 "Status Events" CRITICAL
+FORMAT System: System Event Log Failure: $2
+SDESC
+System Event Log failure or critical event.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeNormal .1.3.6.1.4.1.674.10892.5.3.2.1.0.2163 "Status Events" INFORMATIONAL
+FORMAT System: Temperature Normal: $2
+SDESC
+Temperature sensor value is within range.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2162 "Status Events" MINOR
+FORMAT System: Temperature Warning: $2
+SDESC
+Temperature sensor has detected a warning value.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2161 "Status Events" CRITICAL
+FORMAT System: Temperature Failure: $2
+SDESC
+Temperature sensor has detected a failure value.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertvFlashMediaDeviceInformation .1.3.6.1.4.1.674.10892.5.3.2.1.0.2507 "Status Events" INFORMATIONAL
+FORMAT System: vFlash Media Device Information: $2
+SDESC
+vFlash Media device information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertvFlashMediaDeviceWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2506 "Status Events" MINOR
+FORMAT System: vFlash Media Device Warning: $2
+SDESC
+vFlash Media device warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertvFlashMediaDeviceFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2505 "Status Events" CRITICAL
+FORMAT System: vFlash Media Device Failure: $2
+SDESC
+vFlash Media device failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertvFlashMediaDeviceAbsent .1.3.6.1.4.1.674.10892.5.3.2.1.0.2515 "Status Events" INFORMATIONAL
+FORMAT System: vFlash Media Device Absent: $2
+SDESC
+vFlash Media device is absent.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertVoltageProbeNormal .1.3.6.1.4.1.674.10892.5.3.2.1.0.2171 "Status Events" INFORMATIONAL
+FORMAT System: Voltage Normal: $2
+SDESC
+Voltage sensor reading is within range.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertVoltageProbeWarning .1.3.6.1.4.1.674.10892.5.3.2.1.0.2170 "Status Events" MINOR
+FORMAT System: Voltage Warning: $2
+SDESC
+Voltage sensor has detected a warning value.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertVoltageProbeFailure .1.3.6.1.4.1.674.10892.5.3.2.1.0.2169 "Status Events" CRITICAL
+FORMAT System: Voltage Failure: $2
+SDESC
+Voltage sensor has detected a failure value.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageBatteryInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4275 "Status Events" INFORMATIONAL
+FORMAT Storage: Battery Information: $2
+SDESC
+Battery information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageBatteryWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4274 "Status Events" MINOR
+FORMAT Storage: Battery Warning: $2
+SDESC
+Battery warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageBatteryFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4273 "Status Events" CRITICAL
+FORMAT Storage: Battery Failure: $2
+SDESC
+Battery failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageControllerInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4331 "Status Events" INFORMATIONAL
+FORMAT Storage: Controller Information: $2
+SDESC
+Controller information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageControllerWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4330 "Status Events" MINOR
+FORMAT Storage: Controller Warning: $2
+SDESC
+Controller warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageControllerFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4329 "Status Events" CRITICAL
+FORMAT Storage: Controller Failure: $2
+SDESC
+Controller failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageEnclosureInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4339 "Status Events" INFORMATIONAL
+FORMAT Storage: Enclosure Information: $2
+SDESC
+Enclosure information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageEnclosureWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4338 "Status Events" MINOR
+FORMAT Storage: Enclosure Warning: $2
+SDESC
+Enclosure warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageEnclosureFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4337 "Status Events" CRITICAL
+FORMAT Storage: Enclosure Failure: $2
+SDESC
+Enclosure failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageFanInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4203 "Status Events" INFORMATIONAL
+FORMAT Storage: Fan Information: $2
+SDESC
+Fan information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageFanWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4202 "Status Events" MINOR
+FORMAT Storage: Fan Warning: $2
+SDESC
+Fan warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageFanFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4201 "Status Events" CRITICAL
+FORMAT Storage: Fan Failure: $2
+SDESC
+Fan failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStoragePhysicalDiskInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4347 "Status Events" INFORMATIONAL
+FORMAT Storage: Physical Disk Information: $2
+SDESC
+Physical disk information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStoragePhysicalDiskWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4346 "Status Events" MINOR
+FORMAT Storage: Physical Disk Warning: $2
+SDESC
+Physical disk warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStoragePhysicalDiskFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4345 "Status Events" CRITICAL
+FORMAT Storage: Physical Disk Failure: $2
+SDESC
+Physical disk failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStoragePowerSupplyInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4235 "Status Events" INFORMATIONAL
+FORMAT Storage: Power Supply Information: $2
+SDESC
+Power supply information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStoragePowerSupplyWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4234 "Status Events" MINOR
+FORMAT Storage: Power Supply Warning: $2
+SDESC
+Power supply warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStoragePowerSupplyFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4233 "Status Events" CRITICAL
+FORMAT Storage: Power Supply Failure: $2
+SDESC
+Power supply failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageManagementInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4179 "Status Events" INFORMATIONAL
+FORMAT Storage: Storage Management Information: $2
+SDESC
+Storage Management Information.
+There is no global status change associated with this trap.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageManagementWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4178 "Status Events" MINOR
+FORMAT Storage: Storage Management Warning: $2
+SDESC
+Storage Management has detected a device independent warning
+condition. There is no global status change associated with this
+trap.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageManagementFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4177 "Status Events" CRITICAL
+FORMAT Storage: Storage Management Failure: $2
+SDESC
+Storage Management has detected a device independent error condition.
+There is no global status change associated with this trap.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageTemperatureProbeInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4211 "Status Events" INFORMATIONAL
+FORMAT Storage: Temperature Probe Information: $2
+SDESC
+Temperature probe information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageTemperatureProbeWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4210 "Status Events" MINOR
+FORMAT Storage: Temperature Probe Warning: $2
+SDESC
+Temperature probe warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageTemperatureProbeFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4209 "Status Events" CRITICAL
+FORMAT Storage: Temperature Probe Failure: $2
+SDESC
+Temperature probe failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageVirtualDiskInformation .1.3.6.1.4.1.674.10892.5.3.2.2.0.4355 "Status Events" INFORMATIONAL
+FORMAT Storage: Virtual Disk Information: $2
+SDESC
+Virtual disk information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageVirtualDiskWarning .1.3.6.1.4.1.674.10892.5.3.2.2.0.4354 "Status Events" MINOR
+FORMAT Storage: Virtual Disk Warning: $2
+SDESC
+Virtual disk warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertStorageVirtualDiskFailure .1.3.6.1.4.1.674.10892.5.3.2.2.0.4353 "Status Events" CRITICAL
+FORMAT Storage: Virtual Disk Failure: $2
+SDESC
+Virtual disk failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertDebugInformation .1.3.6.1.4.1.674.10892.5.3.2.4.0.8595 "Status Events" INFORMATIONAL
+FORMAT Audit: Debug Information: $2
+SDESC
+Debug authorized.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertDebugWarning .1.3.6.1.4.1.674.10892.5.3.2.4.0.8594 "Status Events" MINOR
+FORMAT Audit: Debug Warning: $2
+SDESC
+Debug authorization failed.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertiDRACIPAddressChange .1.3.6.1.4.1.674.10892.5.3.2.4.0.8499 "Status Events" INFORMATIONAL
+FORMAT iDRAC IP address has changed: $2
+SDESC
+iDRAC IP address has changed.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertLicenseInformation .1.3.6.1.4.1.674.10892.5.3.2.4.0.8515 "Status Events" INFORMATIONAL
+FORMAT Audit: License Information: $2
+SDESC
+License information.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertLicenseWarning .1.3.6.1.4.1.674.10892.5.3.2.4.0.8514 "Status Events" MINOR
+FORMAT Audit: License Warning: $2
+SDESC
+License warning.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertLicenseFailure .1.3.6.1.4.1.674.10892.5.3.2.4.0.8513 "Status Events" CRITICAL
+FORMAT Audit: License Failure: $2
+SDESC
+License failure.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertSystemPowerStateChangeInformation .1.3.6.1.4.1.674.10892.5.3.2.4.0.8579 "Status Events" INFORMATIONAL
+FORMAT Audit: System Power State Change Information: $2
+SDESC
+Host is going through a power state change
+(powering on or powering off).
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC
+#
+#
+#
+EVENT alertTestTrapEvent .1.3.6.1.4.1.674.10892.5.3.2.5.0.10395 "Status Events" INFORMATIONAL
+FORMAT Configuration: iDRAC Test Trap Event: $2
+SDESC
+The iDRAC generated a test trap event in response to a user request.
+Variables:
+  1: alertMessageID
+  2: alertMessage
+  3: alertCurrentStatus
+  4: alertSystemServiceTag
+  5: alertSystemFQDN
+  6: alertFQDD
+EDESC

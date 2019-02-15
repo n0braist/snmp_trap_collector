@@ -1,0 +1,64 @@
+#
+#
+#
+#
+MIB: CISCO-DOT3-OAM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DOT3-OAM-MIB.mib) converted on Tue Aug 21 15:25:54 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cdot3OamThresholdEvent .1.3.6.1.4.1.9.10.136.0.1 "Status Events" Normal
+FORMAT A cdot3OamThresholdEvent notification is sent when a local or $*
+SDESC
+A cdot3OamThresholdEvent notification is sent when a local or
+remote threshold crossing event is detected.  A local
+threshold crossing event is detected by the local entity,
+while a remote threshold crossing event is detected by the
+reception of an Ethernet OAM Event Notification OAMPDU
+indicating a threshold event.  
+This notification should not be sent more than once per
+second.
+The OAM entity can be derived from extracting the ifIndex from
+the variable bindings.  The objects in the notification
+correspond to the values in a row instance of in the
+cdot3OamEventLogTable.  
+The management entity should periodically check
+cdot3OamEventLogTable to detect any missed events.
+Variables:
+  1: cdot3OamEventLogTimestamp
+  2: cdot3OamEventLogOui
+  3: cdot3OamEventLogType
+  4: cdot3OamEventLogLocation
+  5: cdot3OamEventLogWindowHi
+  6: cdot3OamEventLogWindowLo
+  7: cdot3OamEventLogThresholdHi
+  8: cdot3OamEventLogThresholdLo
+  9: cdot3OamEventLogValue
+  10: cdot3OamEventLogRunningTotal
+  11: cdot3OamEventLogEventTotal
+EDESC
+#
+#
+#
+EVENT cdot3OamNonThresholdEvent .1.3.6.1.4.1.9.10.136.0.2 "Status Events" Normal
+FORMAT A cdot3OamNonThresholdEvent notification is sent when a local $*
+SDESC
+A cdot3OamNonThresholdEvent notification is sent when a local
+or remote non-threshold crossing event is detected.  A local
+event is detected by the local entity, while a remote event is
+detected by the reception of an Ethernet OAM Event
+Notification OAMPDU indicating a non-threshold crossing event.  
+This notification should not be sent more than once per
+second.
+The OAM entity can be derived from extracting the ifIndex from
+the variable bindings.  The objects in the notification
+correspond to the values in a row instance of the
+cdot3OamEventLogTable.  
+The management entity should periodically check
+cdot3OamEventLogTable to detect any missed events.
+Variables:
+  1: cdot3OamEventLogTimestamp
+  2: cdot3OamEventLogOui
+  3: cdot3OamEventLogType
+  4: cdot3OamEventLogLocation
+  5: cdot3OamEventLogEventTotal
+EDESC

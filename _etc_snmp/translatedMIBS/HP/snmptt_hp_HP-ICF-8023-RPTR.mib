@@ -1,0 +1,124 @@
+#
+#
+#
+#
+MIB: HP-ICF-8023-RPTR (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-8023-RPTR.mib) converted on Mon Aug 20 11:32:37 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: HP-ICF-8023-RPTR (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-8023-RPTR.mib) converted on Mon Aug 20 14:04:48 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpicfLinkBeatTrap .1.3.6.1.4.1.11.2.14.12.2.0.1 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS DEPRECATED ********* $*
+SDESC
+********* THIS NOTIFICATION IS DEPRECATED *********
+A hpicfLinkBeatTrap is device type specific to ICF
+hubs.  It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+This trap has been deprecated.  It is replaced by the
+hpicfMediaAvailDetectTrap and the
+hpicfMediaAvailLostTrap.
+Variables:
+  1: rpMauMediaAvailable
+EDESC
+#
+#
+#
+EVENT hpicfPartitionTrap .1.3.6.1.4.1.11.2.14.12.2.0.2 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS DEPRECATED ********* $*
+SDESC
+********* THIS NOTIFICATION IS DEPRECATED *********
+A hpicfPartitionTrap is device type specific to ICF
+hubs.  It signifies that the hub hardware has
+detected a change of state in a port's partition
+status.  The current value of the port's partition
+status is returned in the PDU.
+This trap has been deprecated.  It is replaced by the
+hpicfPortPartitionTrap and the hpicfPortHealTrap.
+Variables:
+  1: rptrPortAutoPartitionState
+EDESC
+#
+#
+#
+EVENT hpicfMediaAvailDetectTrap .1.3.6.1.4.1.11.2.14.12.2.0.3 "Status Events" Normal
+FORMAT A hpicfMediaAvailDetectTraps is device type specific $*
+SDESC
+A hpicfMediaAvailDetectTraps is device type specific
+to ICF hubs.  It signifies that the hub hardware has
+detected an instance of rpMauMediaAvailable for one
+of the repeater's ports has entered the 'available'
+state from some other state.  Note that this trap is
+only generated for instances of rpMauMediaAvailable
+associated with MAUs attached to repeater ports for
+which the corresponding instance of the
+hpRptrPtMediaAvailTrapEnable object is equal to
+'true'.
+The previous value of the instance of the
+rpMauMediaAvailable object that entered the 'active'
+state is returned in the PDU.
+Variables:
+  1: rpMauMediaAvailable
+EDESC
+#
+#
+#
+EVENT hpicfMediaAvailLostTrap .1.3.6.1.4.1.11.2.14.12.2.0.4 "Status Events" Normal
+FORMAT A hpicfMediaAvailLostTraps is device type specific $*
+SDESC
+A hpicfMediaAvailLostTraps is device type specific
+to ICF hubs.  It signifies that the hub hardware has
+detected an instance of rpMauMediaAvailable for one
+of the repeater's ports that had been in the
+'available' state has exited that state.  Note that
+this trap is only generated for instances of
+rpMauMediaAvailable associated with MAUs attached to
+repeater ports for which the corresponding instance
+of the hpRptrPtMediaAvailTrapEnable object is equal
+to 'true'.
+The new value of the instance of the
+rpMauMediaAvailable object that exited the 'active'
+state is returned in the PDU.
+Variables:
+  1: rpMauMediaAvailable
+EDESC
+#
+#
+#
+EVENT hpicfPortPartitionTrap .1.3.6.1.4.1.11.2.14.12.2.0.5 "Status Events" Normal
+FORMAT A hpicfPortPartitionTrap is device type specific $*
+SDESC
+A hpicfPortPartitionTrap is device type specific
+to ICF hubs.  It signifies that the hub hardware has
+detected that an instance of
+rptrPortAutoPartitionState for one of the repeater's
+ports has changed from the 'notAutoPartitioned' state
+to the 'autoPartitioned' state.  The current value of
+the instance of the rptrPortAutoPartitionState for
+the port that auto-partitioned is returned in the
+PDU.
+Variables:
+  1: rptrPortAutoPartitionState
+EDESC
+#
+#
+#
+EVENT hpicfPortHealTrap .1.3.6.1.4.1.11.2.14.12.2.0.6 "Status Events" Normal
+FORMAT A hpicfPortHealTrap is device type specific to ICF $*
+SDESC
+A hpicfPortHealTrap is device type specific to ICF
+hubs.  It signifies that the hub hardware has
+detected that an instance of
+rptrPortAutoPartitionState for one of the repeater's
+ports has changed from the 'autoPartitioned' state
+to the 'notAutoPartitioned' state.  The current value
+of the instance of the rptrPortAutoPartitionState for
+the port that healed is returned in the PDU.
+Variables:
+  1: rptrPortAutoPartitionState
+EDESC

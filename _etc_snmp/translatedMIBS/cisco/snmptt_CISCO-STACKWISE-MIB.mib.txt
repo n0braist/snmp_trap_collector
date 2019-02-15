@@ -1,0 +1,320 @@
+#
+#
+#
+#
+MIB: CISCO-STACKWISE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-STACKWISE-MIB.mib) converted on Tue Aug 21 15:26:36 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cswStackPortChange .1.3.6.1.4.1.9.9.500.0.0.1 "Status Events" Normal
+FORMAT This notification is generated when the state $*
+SDESC
+This notification is generated when the state
+of a stack port has changed.
+Variables:
+  1: ifIndex
+  2: cswStackPortOperStatus
+  3: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackNewMaster .1.3.6.1.4.1.9.9.500.0.0.2 "Status Events" Normal
+FORMAT This notification is generated when a new master has been $*
+SDESC
+This notification is generated when a new master has been
+elected.  The notification will contain the cswSwitchNumCurrent
+object to indicate the new master ID.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackMismatch .1.3.6.1.4.1.9.9.500.0.0.3 "Status Events" Normal
+FORMAT This notification is generated when a new member attempt $*
+SDESC
+This notification is generated when a new member attempt
+to join the stack but was denied due to a mismatch.  The
+cswSwitchState object will indicate the type of mismatch.
+Variables:
+  1: cswSwitchState
+  2: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackRingRedundant .1.3.6.1.4.1.9.9.500.0.0.4 "Status Events" Normal
+FORMAT This notification is generated when the redundancy of the $*
+SDESC
+This notification is generated when the redundancy of the
+ring has changed.
+Variables:
+  1: cswRingRedundant
+EDESC
+#
+#
+#
+EVENT cswStackNewMember .1.3.6.1.4.1.9.9.500.0.0.5 "Status Events" Normal
+FORMAT This notification is generated when a new member joins the $*
+SDESC
+This notification is generated when a new member joins the
+stack.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackMemberRemoved .1.3.6.1.4.1.9.9.500.0.0.6 "Status Events" Normal
+FORMAT This notification is generated when a member is removed $*
+SDESC
+This notification is generated when a member is removed
+from the stack.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerPortLinkStatusChanged .1.3.6.1.4.1.9.9.500.0.0.7 "Status Events" Normal
+FORMAT This notification is generated when the link status of a stack $*
+SDESC
+This notification is generated when the link status of a stack
+power port is changed from up to down or down to up. This
+notification is for informational purposes only and no action
+is required. cswStackPowerPortLinkStatus indicates link status
+of the stack power ports. cswSwitchNumCurrent indicates the
+switch number of the system. cswStackPowerPortName specifies a
+unique name of the stack power port as shown on the face plate
+of the system.
+Variables:
+  1: cswStackPowerPortLinkStatus
+  2: cswSwitchNumCurrent
+  3: cswStackPowerPortName
+EDESC
+#
+#
+#
+EVENT cswStackPowerPortOperStatusChanged .1.3.6.1.4.1.9.9.500.0.0.8 "Status Events" Normal
+FORMAT This notification is generated when the operational status of a $*
+SDESC
+This notification is generated when the operational status of a
+stack power port is changed from enabled to disabled or from
+disabled to enabled. This notification is for informational
+purposes only and no action is required. cswSwitchNumCurrent
+indicates the switch number of the system.
+cswStackPowerPortOperStatus indicates operational status
+of the stack power ports. cswStackPowerPortName specifies
+a unique name of the stack power port as shown on the face
+plate of the system.
+Variables:
+  1: cswSwitchNumCurrent
+  2: cswStackPowerPortOperStatus
+  3: cswStackPowerPortName
+EDESC
+#
+#
+#
+EVENT cswStackPowerVersionMismatch .1.3.6.1.4.1.9.9.500.0.0.9 "Status Events" Normal
+FORMAT This notification is generated when the major version of the $*
+SDESC
+This notification is generated when the major version of the
+stack power protocol is different from the other members of the
+power stack. Upon receiving this notification, the user should
+make sure that he/she is using the same software version on all
+the members of the same power stack. cswSwitchNumCurrent
+indicates the switch number of the system seeing the power
+stack version mismatch.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerInvalidTopology .1.3.6.1.4.1.9.9.500.0.0.10 "Status Events" Normal
+FORMAT This notification is generated when an invalid stack power $*
+SDESC
+This notification is generated when an invalid stack power
+topology is discovered by a switch. cswSwitchNumCurrent
+indicates the switch number of the system where the invalid
+topology is discovered.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cscwStackPowerBudgetWarrning .1.3.6.1.4.1.9.9.500.0.0.11 "Status Events" Normal
+FORMAT This notification is generated when the switch power budget is $*
+SDESC
+This notification is generated when the switch power budget is
+more than 1000W above its power supplies rated power output.
+cswSwitchNumCurrent indicates the switch number of the system
+where the invalid power budget has been detected.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerInvalidInputCurrent .1.3.6.1.4.1.9.9.500.0.0.12 "Status Events" Normal
+FORMAT This notification is generated when the input current in the $*
+SDESC
+This notification is generated when the input current in the
+stack power cable is over the limit of the threshold retrieved
+by the agent through cswStackPowerPortOverCurrentThreshold
+object. Upon receiving this notification, the user should add a
+power supply to the system whose switch number is generated
+with this notification. cswSwitchNumCurrent
+indicates the switch number of the system.
+cswStackPowerPortOverCurrentThreshold indicates the over current
+threshold of power stack cables. cswStackPowerPortName specifies
+a unique name of the stack power port as shown on the face
+plate of the system.
+Variables:
+  1: cswSwitchNumCurrent
+  2: cswStackPowerPortOverCurrentThreshold
+  3: cswStackPowerPortName
+EDESC
+#
+#
+#
+EVENT cswStackPowerInvalidOutputCurrent .1.3.6.1.4.1.9.9.500.0.0.13 "Status Events" Normal
+FORMAT This notification is generated when the output current in the $*
+SDESC
+This notification is generated when the output current in the
+stack power cable is over the limit of the threshold retrieved
+by the agent through cswStackPowerPortOverCurrentThreshold
+object. Upon receiving this notification, the user should
+remove a power supply from the system whose switch number is
+generated with this notification. cswSwitchNumCurrent
+indicates the switch number of the system.
+cswStackPowerPortOverCurrentThreshold indicates the over current
+threshold of power stack cables. cswStackPowerPortName specifies
+a unique name of the stack power port as shown on the face
+plate of the system.
+Variables:
+  1: cswSwitchNumCurrent
+  2: cswStackPowerPortOverCurrentThreshold
+  3: cswStackPowerPortName
+EDESC
+#
+#
+#
+EVENT cswStackPowerUnderBudget .1.3.6.1.4.1.9.9.500.0.0.14 "Status Events" Normal
+FORMAT This notification is generated when the switch's budget is less $*
+SDESC
+This notification is generated when the switch's budget is less
+than maximum possible switch power consumption.
+cswSwitchNumCurrent indicates the switch number of the system
+that is running with the power budget less than the power
+consumption.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerUnbalancedPowerSupplies .1.3.6.1.4.1.9.9.500.0.0.15 "Status Events" Normal
+FORMAT This notification is generated when the switch has no power $*
+SDESC
+This notification is generated when the switch has no power
+supply but another switch in the same stack has more than one
+power supplies. cswStackPowerName specifies a unique name of the
+power stack where the unbalanced power supplies are detected.
+Variables:
+  1: cswStackPowerName
+EDESC
+#
+#
+#
+EVENT cswStackPowerInsufficientPower .1.3.6.1.4.1.9.9.500.0.0.16 "Status Events" Normal
+FORMAT This notification is generated when the switch's power stack $*
+SDESC
+This notification is generated when the switch's power stack
+does not have enough power to bring up all the switches in the
+power stack. cswStackPowerName specifies a unique name of the
+power stack where insufficient power condition is detected.
+Variables:
+  1: cswStackPowerName
+EDESC
+#
+#
+#
+EVENT cswStackPowerPriorityConflict .1.3.6.1.4.1.9.9.500.0.0.17 "Status Events" Normal
+FORMAT This notification is generated when the switch's power $*
+SDESC
+This notification is generated when the switch's power
+priorities are conflicting with power priorities of another
+switch in the same power stack. cswStackPowerPortName specifies
+the unique name of the power stack where the conflicting power
+priorities are detected.
+Variables:
+  1: cswStackPowerName
+EDESC
+#
+#
+#
+EVENT cswStackPowerUnderVoltage .1.3.6.1.4.1.9.9.500.0.0.18 "Status Events" Normal
+FORMAT This notification is generated when the switch had an under $*
+SDESC
+This notification is generated when the switch had an under
+voltage condition on last boot up. cswSwitchNumCurrent
+indicates the switch number of the system that was forced
+down with the under voltage condition.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerGLS .1.3.6.1.4.1.9.9.500.0.0.19 "Status Events" Normal
+FORMAT This notification is generated when the switch had to shed $*
+SDESC
+This notification is generated when the switch had to shed
+loads based on a sustained over load (SOC) condition.
+cswSwitchNumCurrent indicates the switch number of the system
+that goes through graceful load shedding.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerILS .1.3.6.1.4.1.9.9.500.0.0.20 "Status Events" Normal
+FORMAT This notification is generated when the switch had to shed $*
+SDESC
+This notification is generated when the switch had to shed
+loads based on power supply fail condition. cswSwitchNumCurrent
+indicates the switch number of the system that goes through
+immediate load shedding.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerSRLS .1.3.6.1.4.1.9.9.500.0.0.21 "Status Events" Normal
+FORMAT This notification is generated when the switch had to shed $*
+SDESC
+This notification is generated when the switch had to shed
+loads based on loss of a system in ring topology.
+cswSwitchNumCurrent indicates the switch number of the system
+that detects the loss of system in ring topology.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC
+#
+#
+#
+EVENT cswStackPowerSSLS .1.3.6.1.4.1.9.9.500.0.0.22 "Status Events" Normal
+FORMAT This notification is generated when the switch had to shed $*
+SDESC
+This notification is generated when the switch had to shed
+loads based on loss of a system in star topology.
+cswSwitchNumCurrent indicates the switch number of the system
+that detects the loss of system in star topology.
+Variables:
+  1: cswSwitchNumCurrent
+EDESC

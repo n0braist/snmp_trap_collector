@@ -1,0 +1,78 @@
+#
+#
+#
+#
+MIB: CISCO-ALPS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ALPS-MIB.mib) converted on Tue Aug 21 15:25:37 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alpsPeerStatusChange .1.3.6.1.4.1.9.9.95.2.0.1 "Status Events" Normal
+FORMAT This Notification is generated when there is a change in state $*
+SDESC
+This Notification is generated when there is a change in state
+for the peer connection, provided alarms are enabled for
+that peer.
+Variables:
+  1: alpsRemPeerState
+EDESC
+#
+#
+#
+EVENT alpsCktStatusChange .1.3.6.1.4.1.9.9.95.2.0.2 "Status Events" Normal
+FORMAT This Notification has to be generated whenever there is a $*
+SDESC
+This Notification has to be generated whenever there is a
+state change for the ALPS circuit, provided alarms are 
+enabled for that circuit
+Variables:
+  1: alpsCktBaseState
+EDESC
+#
+#
+#
+EVENT alpsAscuStatusChange .1.3.6.1.4.1.9.9.95.2.0.3 "Status Events" Normal
+FORMAT This Notification has to be generated whenever there is a $*
+SDESC
+This Notification has to be generated whenever there is a
+change in ASCU status, provided alarms are enabled for
+that ASCU
+Variables:
+  1: alpsAscuState
+EDESC
+#
+#
+#
+EVENT alpsPeerConnStatusChange .1.3.6.1.4.1.9.9.95.2.0.4 "Status Events" Normal
+FORMAT This Notification is generated when there is a change in $*
+SDESC
+This Notification is generated when there is a change in
+state for an ALPS peer connection, provided alarms are 
+enabled for that peer connection.
+Variables:
+  1: alpsRemPeerConnState
+EDESC
+#
+#
+#
+EVENT alpsCktOpenFailure .1.3.6.1.4.1.9.9.95.2.0.5 "Status Events" Normal
+FORMAT This Notification is generated whenever there is an open $*
+SDESC
+This Notification is generated whenever there is an open
+failure for the ALPS circuit, provided alarms are enabled 
+for that circuit
+Variables:
+  1: alpsCktBaseDownReason
+EDESC
+#
+#
+#
+EVENT alpsCktPartialReject .1.3.6.1.4.1.9.9.95.2.0.6 "Status Events" Normal
+FORMAT This Notification is generated whenever there is an open $*
+SDESC
+This Notification is generated whenever there is an open
+confirmation that contains a list of rejected ASCUs for the
+ALPS circuit, provided alarms are enabled for that circuit
+Variables:
+  1: alpsCktAscuIfIndex
+  2: alpsCktAscuId
+EDESC

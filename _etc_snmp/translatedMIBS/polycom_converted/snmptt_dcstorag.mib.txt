@@ -1,0 +1,1023 @@
+#
+#
+#
+#
+MIB: StorageManagement-MIB (file:/tmp/polycom/dcstorag.mib) converted on Fri Mar 13 12:28:52 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alertStorageManagementInformation .1.3.6.1.4.1.674.10893.1.20.200.0.101 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Storage Management Information
+There is no global status change associated with this trap.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+EDESC
+#
+#
+#
+EVENT alertStorageManagementNormal .1.3.6.1.4.1.674.10893.1.20.200.0.102 "Status Events" Normal
+FORMAT $*
+SDESC
+
+There is no global status change associated with this trap.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+EDESC
+#
+#
+#
+EVENT alertStorageManagementWarning .1.3.6.1.4.1.674.10893.1.20.200.0.103 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Storage Management has detected a device independent warning condition.
+There is no global status change associated with this trap.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+EDESC
+#
+#
+#
+EVENT alertStorageManagementFailure .1.3.6.1.4.1.674.10893.1.20.200.0.104 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Storage Management has detected a device independent error condition.
+There is no global status change associated with this trap.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+EDESC
+#
+#
+#
+EVENT alertStorageManagementNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.105 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Storage Management has detected a device independent non-recoverable condition.
+There is no global status change associated with this trap.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+EDESC
+#
+#
+#
+EVENT alertControllerInformation .1.3.6.1.4.1.674.10893.1.20.200.0.751 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Controller information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertControllerNormal .1.3.6.1.4.1.674.10893.1.20.200.0.752 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Controller has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertControllerWarning .1.3.6.1.4.1.674.10893.1.20.200.0.753 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Controller warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertControllerFailure .1.3.6.1.4.1.674.10893.1.20.200.0.754 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Controller failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertControllerNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.755 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Controller is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertChannelInformation .1.3.6.1.4.1.674.10893.1.20.200.0.801 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Channel information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertChannelNormal .1.3.6.1.4.1.674.10893.1.20.200.0.802 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Channel has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertChannelWarning .1.3.6.1.4.1.674.10893.1.20.200.0.803 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Channel warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertChannelFailure .1.3.6.1.4.1.674.10893.1.20.200.0.804 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Channel failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertChannelNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.805 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Channel is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEnclosureInformation .1.3.6.1.4.1.674.10893.1.20.200.0.851 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Enclosure information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEnclosureNormal .1.3.6.1.4.1.674.10893.1.20.200.0.852 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Enclosure has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEnclosureWarning .1.3.6.1.4.1.674.10893.1.20.200.0.853 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Enclosure warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEnclosureFailure .1.3.6.1.4.1.674.10893.1.20.200.0.854 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Enclosure failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEnclosureNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.855 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Enclosure is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertArrayDiskInformation .1.3.6.1.4.1.674.10893.1.20.200.0.901 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Array disk information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertArrayDiskNormal .1.3.6.1.4.1.674.10893.1.20.200.0.902 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Array disk has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertArrayDiskWarning .1.3.6.1.4.1.674.10893.1.20.200.0.903 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Array disk warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertArrayDiskFailure .1.3.6.1.4.1.674.10893.1.20.200.0.904 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Array disk failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertArrayDiskNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.905 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Array disk is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEMMInformation .1.3.6.1.4.1.674.10893.1.20.200.0.951 "Status Events" Normal
+FORMAT $*
+SDESC
+
+EMM information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEMMNormal .1.3.6.1.4.1.674.10893.1.20.200.0.952 "Status Events" Normal
+FORMAT $*
+SDESC
+
+EMM has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEMMWarning .1.3.6.1.4.1.674.10893.1.20.200.0.953 "Status Events" Normal
+FORMAT $*
+SDESC
+
+EMM warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEMMFailure .1.3.6.1.4.1.674.10893.1.20.200.0.954 "Status Events" Normal
+FORMAT $*
+SDESC
+
+EMM failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertEMMNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.955 "Status Events" Normal
+FORMAT $*
+SDESC
+
+EMM is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyInformation .1.3.6.1.4.1.674.10893.1.20.200.0.1001 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Power supply information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyNormal .1.3.6.1.4.1.674.10893.1.20.200.0.1002 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Power supply has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyWarning .1.3.6.1.4.1.674.10893.1.20.200.0.1003 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Power supply warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyFailure .1.3.6.1.4.1.674.10893.1.20.200.0.1004 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Power supply failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.1005 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Power supply is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeInformation .1.3.6.1.4.1.674.10893.1.20.200.0.1051 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Temperature probe information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeNormal .1.3.6.1.4.1.674.10893.1.20.200.0.1052 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Temperature probe has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeWarning .1.3.6.1.4.1.674.10893.1.20.200.0.1053 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Temperature probe warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeFailure .1.3.6.1.4.1.674.10893.1.20.200.0.1054 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Temperature probe failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.1055 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Temperature probe is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertFanInformation .1.3.6.1.4.1.674.10893.1.20.200.0.1101 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Fan information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertFanNormal .1.3.6.1.4.1.674.10893.1.20.200.0.1102 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Fan has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertFanWarning .1.3.6.1.4.1.674.10893.1.20.200.0.1103 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Fan warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertFanFailure .1.3.6.1.4.1.674.10893.1.20.200.0.1104 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Fan failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertFanNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.1105 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Fan is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertBatteryInformation .1.3.6.1.4.1.674.10893.1.20.200.0.1151 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Battery information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertBatteryNormal .1.3.6.1.4.1.674.10893.1.20.200.0.1152 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Battery has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertBatteryWarning .1.3.6.1.4.1.674.10893.1.20.200.0.1153 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Battery warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertBatteryFailure .1.3.6.1.4.1.674.10893.1.20.200.0.1154 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Battery failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertBatteryNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.1155 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Battery is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertVirtualDiskInformation .1.3.6.1.4.1.674.10893.1.20.200.0.1201 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Virtual disk information.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertVirtualDiskNormal .1.3.6.1.4.1.674.10893.1.20.200.0.1202 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Virtual disk has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertVirtualDiskWarning .1.3.6.1.4.1.674.10893.1.20.200.0.1203 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Virtual disk warning.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertVirtualDiskFailure .1.3.6.1.4.1.674.10893.1.20.200.0.1204 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Virtual disk failure.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertVirtualDiskNonRecoverable .1.3.6.1.4.1.674.10893.1.20.200.0.1205 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Virtual disk is non-recoverable.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertRedundancyNormal .1.3.6.1.4.1.674.10893.1.20.200.0.1304 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Redundancy has returned to normal.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertRedundancyDegraded .1.3.6.1.4.1.674.10893.1.20.200.0.1305 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Redundancy has been degraded.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC
+#
+#
+#
+EVENT alertRedundancyLost .1.3.6.1.4.1.674.10893.1.20.200.0.1306 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Redundancy has been lost.
+Variables:
+  1: messageIDEvent
+  2: descriptionEvent
+  3: locationEvent
+  4: objectNameEvent
+  5: objectOIDEvent
+  6: objectNexusEvent
+  7: currentStatusEvent
+  8: previousStatusEvent
+EDESC

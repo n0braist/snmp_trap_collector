@@ -1,0 +1,25 @@
+#
+#
+#
+#
+MIB: CISCO-LWAPP-MESH-STATS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-LWAPP-MESH-STATS-MIB.mib) converted on Tue Aug 21 15:26:18 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoLwappMeshQueueOverflow .1.3.6.1.4.1.9.9.617.0.1 "Status Events" Normal
+FORMAT This notification is sent by the agent when a $*
+SDESC
+This notification is sent by the agent when a
+queue overflows and as a result packets get dropped.
+After each time interval, defined by object 
+'clMeshNodeStatsTimeInterval', mesh node sends its 
+queue statistics to the controller which also includes 
+cumulative number of packets dropped, defined by object 
+'clMeshNodePktQueuePktsDropped'. If the packets dropped 
+is higher than the previous time notification generated 
+then this notification is raised..
+Variables:
+  1: cLApName
+  2: clMeshNodePktQueuePeak
+  3: clMeshNodePktQueuePktsDropped
+EDESC

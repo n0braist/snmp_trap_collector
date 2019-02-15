@@ -1,0 +1,5773 @@
+#
+#
+#
+#
+MIB: POLYCOM-RMX-MIB (file:/tmp/polycom/POLYCOM-RMX-MIB.MIB) converted on Fri Mar 13 12:28:44 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT rmxNoLicensingAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5001 "Status Events" Normal
+FORMAT License not found $*
+SDESC
+License not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLicensingAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15001 "Status Events" Normal
+FORMAT License not found $*
+SDESC
+License not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoMeetingRoomAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5002 "Status Events" Normal
+FORMAT Resource process did not receive the Meeting Room list during startup. $*
+SDESC
+Resource process did not receive the Meeting Room list during startup.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoMeetingRoomAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15002 "Status Events" Normal
+FORMAT Resource process did not receive the Meeting Room list during startup. $*
+SDESC
+Resource process did not receive the Meeting Room list during startup.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIpServiceParamsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5003 "Status Events" Normal
+FORMAT No IP Network Services defined $*
+SDESC
+No IP Network Services defined
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIpServiceParamsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15003 "Status Events" Normal
+FORMAT No IP Network Services defined $*
+SDESC
+No IP Network Services defined
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTaskTerminatedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5004 "Status Events" Normal
+FORMAT Task terminated $*
+SDESC
+Task terminated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTaskTerminatedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15004 "Status Events" Normal
+FORMAT Task terminated $*
+SDESC
+Task terminated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCfgChangedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5005 "Status Events" Normal
+FORMAT System Configuration modified $*
+SDESC
+System Configuration modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCfgChangedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15005 "Status Events" Normal
+FORMAT System Configuration modified $*
+SDESC
+System Configuration modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCfgInvalidAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5006 "Status Events" Normal
+FORMAT Invalid System Configuration $*
+SDESC
+Invalid System Configuration
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCfgInvalidAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15006 "Status Events" Normal
+FORMAT Invalid System Configuration $*
+SDESC
+Invalid System Configuration
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDebugModeAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5007 "Status Events" Normal
+FORMAT DEBUG mode enabled $*
+SDESC
+DEBUG mode enabled
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDebugModeAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15007 "Status Events" Normal
+FORMAT DEBUG mode enabled $*
+SDESC
+DEBUG mode enabled
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLowProcessMemoryAlertAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5008 "Status Events" Normal
+FORMAT Low Processing Memory $*
+SDESC
+Low Processing Memory
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLowProcessMemoryAlertAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15008 "Status Events" Normal
+FORMAT Low Processing Memory $*
+SDESC
+Low Processing Memory
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLowSystemMemoryAlertAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5009 "Status Events" Normal
+FORMAT Low system Memory $*
+SDESC
+Low system Memory
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLowSystemMemoryAlertAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15009 "Status Events" Normal
+FORMAT Low system Memory $*
+SDESC
+Low system Memory
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemCpuUsageAlertAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5010 "Status Events" Normal
+FORMAT High system CPU usage $*
+SDESC
+High system CPU usage
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemCpuUsageAlertAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15010 "Status Events" Normal
+FORMAT High system CPU usage $*
+SDESC
+High system CPU usage
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTestErrorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5011 "Status Events" Normal
+FORMAT Used for testing the Active Alarms mechanism $*
+SDESC
+Used for testing the Active Alarms mechanism
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTestErrorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15011 "Status Events" Normal
+FORMAT Used for testing the Active Alarms mechanism $*
+SDESC
+Used for testing the Active Alarms mechanism
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSipSecuredCommunicationFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5012 "Status Events" Normal
+FORMAT Secured SIP communication failed $*
+SDESC
+Secured SIP communication failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSipSecuredCommunicationFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15012 "Status Events" Normal
+FORMAT Secured SIP communication failed $*
+SDESC
+Secured SIP communication failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadFileAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5013 "Status Events" Normal
+FORMAT File error $*
+SDESC
+File error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadFileAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15013 "Status Events" Normal
+FORMAT File error $*
+SDESC
+File error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHighCpuUsageProcessAlertAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5014 "Status Events" Normal
+FORMAT High CPU utilization $*
+SDESC
+High CPU utilization
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHighCpuUsageProcessAlertAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15014 "Status Events" Normal
+FORMAT High CPU utilization $*
+SDESC
+High CPU utilization
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIdleDeadlineReachedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5016 "Status Events" Normal
+FORMAT Process idle $*
+SDESC
+Process idle
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIdleDeadlineReachedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15016 "Status Events" Normal
+FORMAT Process idle $*
+SDESC
+Process idle
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxStartupConditionConfigurationAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5017 "Status Events" Normal
+FORMAT Internal System configuration during startup $*
+SDESC
+Internal System configuration during startup
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxStartupConditionConfigurationAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15017 "Status Events" Normal
+FORMAT Internal System configuration during startup $*
+SDESC
+Internal System configuration during startup
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRestoringDefaultFactoryAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5018 "Status Events" Normal
+FORMAT Restoring Factory Defaults. Default system settings will be restored once Reset is completed. $*
+SDESC
+Restoring Factory Defaults. Default system settings will be restored once Reset is completed.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRestoringDefaultFactoryAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15018 "Status Events" Normal
+FORMAT Restoring Factory Defaults. Default system settings will be restored once Reset is completed. $*
+SDESC
+Restoring Factory Defaults. Default system settings will be restored once Reset is completed.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpVersionChangedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5019 "Status Events" Normal
+FORMAT IP Version has been changed $*
+SDESC
+IP Version has been changed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpVersionChangedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15019 "Status Events" Normal
+FORMAT IP Version has been changed $*
+SDESC
+IP Version has been changed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoServiceFoundInDbAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5050 "Status Events" Normal
+FORMAT IP Network Service not found $*
+SDESC
+IP Network Service not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoServiceFoundInDbAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15050 "Status Events" Normal
+FORMAT IP Network Service not found $*
+SDESC
+IP Network Service not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoConnectionWithCsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5052 "Status Events" Normal
+FORMAT No response from Central Signaling $*
+SDESC
+No response from Central Signaling
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoConnectionWithCsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15052 "Status Events" Normal
+FORMAT No response from Central Signaling $*
+SDESC
+No response from Central Signaling
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsComponentFatalAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5053 "Status Events" Normal
+FORMAT Central signaling component failure $*
+SDESC
+Central signaling component failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsComponentFatalAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15053 "Status Events" Normal
+FORMAT Central signaling component failure $*
+SDESC
+Central signaling component failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsNotConfiguredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5054 "Status Events" Normal
+FORMAT Missing Central Signaling configuration $*
+SDESC
+Missing Central Signaling configuration
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsNotConfiguredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15054 "Status Events" Normal
+FORMAT Missing Central Signaling configuration $*
+SDESC
+Missing Central Signaling configuration
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsServiceStateFailAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5055 "Status Events" Normal
+FORMAT Central Signaling indicating Faulty status $*
+SDESC
+Central Signaling indicating Faulty status
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsServiceStateFailAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15055 "Status Events" Normal
+FORMAT Central Signaling indicating Faulty status $*
+SDESC
+Central Signaling indicating Faulty status
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsStartupFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5056 "Status Events" Normal
+FORMAT Central Signaling startup failure $*
+SDESC
+Central Signaling startup failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsStartupFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15056 "Status Events" Normal
+FORMAT Central Signaling startup failure $*
+SDESC
+Central Signaling startup failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDuplicateIpCsMngmntAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5058 "Status Events" Normal
+FORMAT IP addresses of Signaling Host and Control Unit are the same $*
+SDESC
+IP addresses of Signaling Host and Control Unit are the same
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDuplicateIpCsMngmntAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15058 "Status Events" Normal
+FORMAT IP addresses of Signaling Host and Control Unit are the same $*
+SDESC
+IP addresses of Signaling Host and Control Unit are the same
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpServiceDeletedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5059 "Status Events" Normal
+FORMAT IP Network Service deleted $*
+SDESC
+IP Network Service deleted
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpServiceDeletedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15059 "Status Events" Normal
+FORMAT IP Network Service deleted $*
+SDESC
+IP Network Service deleted
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpServiceChangedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5060 "Status Events" Normal
+FORMAT IP Network Service configuration modified $*
+SDESC
+IP Network Service configuration modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpServiceChangedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15060 "Status Events" Normal
+FORMAT IP Network Service configuration modified $*
+SDESC
+IP Network Service configuration modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsRecoveryStatusAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5061 "Status Events" Normal
+FORMAT Central Signaling indicating Recovery status $*
+SDESC
+Central Signaling indicating Recovery status
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsRecoveryStatusAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15061 "Status Events" Normal
+FORMAT Central Signaling indicating Recovery status $*
+SDESC
+Central Signaling indicating Recovery status
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalAlertCsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5062 "Status Events" Normal
+FORMAT Alarm generated by a Central Signaling component $*
+SDESC
+Alarm generated by a Central Signaling component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalAlertCsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15062 "Status Events" Normal
+FORMAT Alarm generated by a Central Signaling component $*
+SDESC
+Alarm generated by a Central Signaling component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpServiceAddedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5063 "Status Events" Normal
+FORMAT IP Network Service added $*
+SDESC
+IP Network Service added
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIpServiceAddedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15063 "Status Events" Normal
+FORMAT IP Network Service added $*
+SDESC
+IP Network Service added
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsIpNotConfiguredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5064 "Status Events" Normal
+FORMAT Missing Central Signaling IP configuration $*
+SDESC
+Missing Central Signaling IP configuration
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsIpNotConfiguredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15064 "Status Events" Normal
+FORMAT Missing Central Signaling IP configuration $*
+SDESC
+Missing Central Signaling IP configuration
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNetworkInterfaceIsNotConfiguredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5065 "Status Events" Normal
+FORMAT Network interface is not configured. New interface need to be chosen. $*
+SDESC
+Network interface is not configured. New interface need to be chosen.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNetworkInterfaceIsNotConfiguredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15065 "Status Events" Normal
+FORMAT Network interface is not configured. New interface need to be chosen. $*
+SDESC
+Network interface is not configured. New interface need to be chosen.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsIpIsZeroAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5066 "Status Events" Normal
+FORMAT Signaling IP address is invalid. $*
+SDESC
+Signaling IP address is invalid.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCsIpIsZeroAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15066 "Status Events" Normal
+FORMAT Signaling IP address is invalid. $*
+SDESC
+Signaling IP address is invalid.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProductActivationFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5100 "Status Events" Normal
+FORMAT Product activation failure $*
+SDESC
+Product activation failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProductActivationFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15100 "Status Events" Normal
+FORMAT Product activation failure $*
+SDESC
+Product activation failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoManagementIpInterfaceAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5101 "Status Events" Normal
+FORMAT Management Network not configured $*
+SDESC
+Management Network not configured
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoManagementIpInterfaceAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15101 "Status Events" Normal
+FORMAT Management Network not configured $*
+SDESC
+Management Network not configured
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoTimeConfigurationAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5102 "Status Events" Normal
+FORMAT Error reading MCU time $*
+SDESC
+Error reading MCU time
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoTimeConfigurationAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15102 "Status Events" Normal
+FORMAT Error reading MCU time $*
+SDESC
+Error reading MCU time
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMplStartupFailureAuthenticationNotReceivedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5103 "Status Events" Normal
+FORMAT MPL startup failure. Authentication not received. $*
+SDESC
+MPL startup failure. Authentication not received.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMplStartupFailureAuthenticationNotReceivedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15103 "Status Events" Normal
+FORMAT MPL startup failure. Authentication not received. $*
+SDESC
+MPL startup failure. Authentication not received.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMplStartupFailureMngmntIpCnfgNotReceivedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5104 "Status Events" Normal
+FORMAT MPL startup failure. Management Network configuration not received. $*
+SDESC
+MPL startup failure. Management Network configuration not received.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMplStartupFailureMngmntIpCnfgNotReceivedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15104 "Status Events" Normal
+FORMAT MPL startup failure. Management Network configuration not received. $*
+SDESC
+MPL startup failure. Management Network configuration not received.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoDnsConfigurationAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5105 "Status Events" Normal
+FORMAT DNS not configured in IP Network Service $*
+SDESC
+DNS not configured in IP Network Service
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoDnsConfigurationAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15105 "Status Events" Normal
+FORMAT DNS not configured in IP Network Service $*
+SDESC
+DNS not configured in IP Network Service
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDnsRegistraionFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5106 "Status Events" Normal
+FORMAT Failed to register with DNS server $*
+SDESC
+Failed to register with DNS server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDnsRegistraionFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15106 "Status Events" Normal
+FORMAT Failed to register with DNS server $*
+SDESC
+Failed to register with DNS server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToOpenApacheConfigurationFileAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5107 "Status Events" Normal
+FORMAT Failed to open Apache server configuration file $*
+SDESC
+Failed to open Apache server configuration file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToOpenApacheConfigurationFileAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15107 "Status Events" Normal
+FORMAT Failed to open Apache server configuration file $*
+SDESC
+Failed to open Apache server configuration file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToSaveApacheConfigurationFileAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5108 "Status Events" Normal
+FORMAT Failed to save Apache server configuration file $*
+SDESC
+Failed to save Apache server configuration file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToSaveApacheConfigurationFileAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15108 "Status Events" Normal
+FORMAT Failed to save Apache server configuration file $*
+SDESC
+Failed to save Apache server configuration file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPatchedVersionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5109 "Status Events" Normal
+FORMAT The software contains patch(es) $*
+SDESC
+The software contains patch(es)
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPatchedVersionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15109 "Status Events" Normal
+FORMAT The software contains patch(es) $*
+SDESC
+The software contains patch(es)
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPrivateVersionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5110 "Status Events" Normal
+FORMAT A private version is loaded $*
+SDESC
+A private version is loaded
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPrivateVersionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15110 "Status Events" Normal
+FORMAT A private version is loaded $*
+SDESC
+A private version is loaded
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNtpSyncFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5111 "Status Events" Normal
+FORMAT NTP synchronization failure $*
+SDESC
+NTP synchronization failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNtpSyncFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15111 "Status Events" Normal
+FORMAT NTP synchronization failure $*
+SDESC
+NTP synchronization failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIllegalTimeAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5112 "Status Events" Normal
+FORMAT Invalid date and time $*
+SDESC
+Invalid date and time
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIllegalTimeAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15112 "Status Events" Normal
+FORMAT Invalid date and time $*
+SDESC
+Invalid date and time
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalNtpServersFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5113 "Status Events" Normal
+FORMAT External NTP servers failure $*
+SDESC
+External NTP servers failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalNtpServersFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15113 "Status Events" Normal
+FORMAT External NTP servers failure $*
+SDESC
+External NTP servers failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRunningVersionMismatchesCurrentVersionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5114 "Status Events" Normal
+FORMAT Fallback version is being used $*
+SDESC
+Fallback version is being used
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRunningVersionMismatchesCurrentVersionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15114 "Status Events" Normal
+FORMAT Fallback version is being used $*
+SDESC
+Fallback version is being used
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIdeNotInDmaModeAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5115 "Status Events" Normal
+FORMAT DMA not supported by IDE device $*
+SDESC
+DMA not supported by IDE device
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIdeNotInDmaModeAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15115 "Status Events" Normal
+FORMAT DMA not supported by IDE device $*
+SDESC
+DMA not supported by IDE device
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadEthernetSettingsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5116 "Status Events" Normal
+FORMAT Incorrect Ethernet Settings $*
+SDESC
+Incorrect Ethernet Settings
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadEthernetSettingsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15116 "Status Events" Normal
+FORMAT Incorrect Ethernet Settings $*
+SDESC
+Incorrect Ethernet Settings
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSmartReportErrorsOnHdAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5117 "Status Events" Normal
+FORMAT Smart Report found errors on hard disk $*
+SDESC
+Smart Report found errors on hard disk
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSmartReportErrorsOnHdAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15117 "Status Events" Normal
+FORMAT Smart Report found errors on hard disk $*
+SDESC
+Smart Report found errors on hard disk
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIllegalMcuVersionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5118 "Status Events" Normal
+FORMAT Invalid MCU Version $*
+SDESC
+Invalid MCU Version
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIllegalMcuVersionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15118 "Status Events" Normal
+FORMAT Invalid MCU Version $*
+SDESC
+Invalid MCU Version
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDebugCfgExistAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5119 "Status Events" Normal
+FORMAT DEBUG mode flags in use $*
+SDESC
+DEBUG mode flags in use
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDebugCfgExistAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15119 "Status Events" Normal
+FORMAT DEBUG mode flags in use $*
+SDESC
+DEBUG mode flags in use
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInstallingNewVersionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5120 "Status Events" Normal
+FORMAT Version upgrade is in progress $*
+SDESC
+Version upgrade is in progress
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInstallingNewVersionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15120 "Status Events" Normal
+FORMAT Version upgrade is in progress $*
+SDESC
+Version upgrade is in progress
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSshEnabledAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5121 "Status Events" Normal
+FORMAT SSH is enabled $*
+SDESC
+SSH is enabled
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSshEnabledAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15121 "Status Events" Normal
+FORMAT SSH is enabled $*
+SDESC
+SSH is enabled
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProductTypeMismatchAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5127 "Status Events" Normal
+FORMAT Product Type mismatch. System is restarting. $*
+SDESC
+Product Type mismatch. System is restarting.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProductTypeMismatchAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15127 "Status Events" Normal
+FORMAT Product Type mismatch. System is restarting. $*
+SDESC
+Product Type mismatch. System is restarting.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUnknownCpuSlotIdAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5128 "Status Events" Normal
+FORMAT CPU slot ID not identified $*
+SDESC
+CPU slot ID not identified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUnknownCpuSlotIdAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15128 "Status Events" Normal
+FORMAT CPU slot ID not identified $*
+SDESC
+CPU slot ID not identified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoFipsTestResultFromEncryptionkeyserverAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5129 "Status Events" Normal
+FORMAT FIPS 140 test result not received $*
+SDESC
+FIPS 140 test result not received
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoFipsTestResultFromEncryptionkeyserverAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15129 "Status Events" Normal
+FORMAT FIPS 140 test result not received $*
+SDESC
+FIPS 140 test result not received
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFipsFailureWithinEncryptionkeyserverAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5130 "Status Events" Normal
+FORMAT FIPS 140 failure $*
+SDESC
+FIPS 140 failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFipsFailureWithinEncryptionkeyserverAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15130 "Status Events" Normal
+FORMAT FIPS 140 failure $*
+SDESC
+FIPS 140 failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHttpsDisabledInJitcAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5131 "Status Events" Normal
+FORMAT The system has been configured for ULTRA SECURE mode, but communication is not secured until a TLS certificate is installed and the MCU is set to Secured communication. $*
+SDESC
+The system has been configured for ULTRA SECURE mode, but communication is not secured until a TLS certificate is installed and the MCU is set to Secured communication.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHttpsDisabledInJitcAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15131 "Status Events" Normal
+FORMAT The system has been configured for ULTRA SECURE mode, but communication is not secured until a TLS certificate is installed and the MCU is set to Secured communication. $*
+SDESC
+The system has been configured for ULTRA SECURE mode, but communication is not secured until a TLS certificate is installed and the MCU is set to Secured communication.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxEventModeResourceDeficiencyDueToWrongLicenseAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5132 "Status Events" Normal
+FORMAT Event Mode Conferencing resources deficiency due to inappropriate license. Please install a new license. $*
+SDESC
+Event Mode Conferencing resources deficiency due to inappropriate license. Please install a new license.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxEventModeResourceDeficiencyDueToWrongLicenseAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15132 "Status Events" Normal
+FORMAT Event Mode Conferencing resources deficiency due to inappropriate license. Please install a new license. $*
+SDESC
+Event Mode Conferencing resources deficiency due to inappropriate license. Please install a new license.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLicenseExpiredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5133 "Status Events" Normal
+FORMAT Please install a newer version $*
+SDESC
+Please install a newer version
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLicenseExpiredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15133 "Status Events" Normal
+FORMAT Please install a newer version $*
+SDESC
+Please install a newer version
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFanMajorProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5134 "Status Events" Normal
+FORMAT Fan Problem Level Major $*
+SDESC
+Fan Problem Level Major
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFanMajorProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15134 "Status Events" Normal
+FORMAT Fan Problem Level Major $*
+SDESC
+Fan Problem Level Major
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFanCriticalProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5135 "Status Events" Normal
+FORMAT Fan Problem Level Critical $*
+SDESC
+Fan Problem Level Critical
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFanCriticalProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15135 "Status Events" Normal
+FORMAT Fan Problem Level Critical $*
+SDESC
+Fan Problem Level Critical
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPwrMajorProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5136 "Status Events" Normal
+FORMAT Power Problem Level Major $*
+SDESC
+Power Problem Level Major
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPwrMajorProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15136 "Status Events" Normal
+FORMAT Power Problem Level Major $*
+SDESC
+Power Problem Level Major
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPwrCriticalProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5137 "Status Events" Normal
+FORMAT Power Problem Level Critical $*
+SDESC
+Power Problem Level Critical
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPwrCriticalProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15137 "Status Events" Normal
+FORMAT Power Problem Level Critical $*
+SDESC
+Power Problem Level Critical
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTemperatureCriticalShutdownAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5138 "Status Events" Normal
+FORMAT A temperature sensor reached and passed the upper critical. Shut down the system. $*
+SDESC
+A temperature sensor reached and passed the upper critical. Shut down the system.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTemperatureCriticalShutdownAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15138 "Status Events" Normal
+FORMAT A temperature sensor reached and passed the upper critical. Shut down the system. $*
+SDESC
+A temperature sensor reached and passed the upper critical. Shut down the system.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoSystemIpYetAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5139 "Status Events" Normal
+FORMAT MCU invalid IP $*
+SDESC
+MCU invalid IP
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoSystemIpYetAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15139 "Status Events" Normal
+FORMAT MCU invalid IP $*
+SDESC
+MCU invalid IP
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBackupOfCdrFilesIsRequiredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5140 "Status Events" Normal
+FORMAT Backup of CDR files is required $*
+SDESC
+Backup of CDR files is required
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBackupOfCdrFilesIsRequiredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15140 "Status Events" Normal
+FORMAT Backup of CDR files is required $*
+SDESC
+Backup of CDR files is required
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCdrServerConnectionDownAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5141 "Status Events" Normal
+FORMAT CDR server connection down $*
+SDESC
+CDR server connection down
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCdrServerConnectionDownAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15141 "Status Events" Normal
+FORMAT CDR server connection down $*
+SDESC
+CDR server connection down
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCdrCheckConnectionToCdrServerAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5142 "Status Events" Normal
+FORMAT Check connection to CDR server. CDR events buffer will soon be full. $*
+SDESC
+Check connection to CDR server. CDR events buffer will soon be full.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCdrCheckConnectionToCdrServerAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15142 "Status Events" Normal
+FORMAT Check connection to CDR server. CDR events buffer will soon be full. $*
+SDESC
+Check connection to CDR server. CDR events buffer will soon be full.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCdrInformationToCdrServerLostAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5143 "Status Events" Normal
+FORMAT CDR information to remote CDR Service is being lost $*
+SDESC
+CDR information to remote CDR Service is being lost
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCdrInformationToCdrServerLostAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15143 "Status Events" Normal
+FORMAT CDR information to remote CDR Service is being lost $*
+SDESC
+CDR information to remote CDR Service is being lost
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailToRegisterToCdrServerAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5144 "Status Events" Normal
+FORMAT Fail to register to CDR Server $*
+SDESC
+Fail to register to CDR Server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailToRegisterToCdrServerAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15144 "Status Events" Normal
+FORMAT Fail to register to CDR Server $*
+SDESC
+Fail to register to CDR Server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoMusicSourceAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5150 "Status Events" Normal
+FORMAT Music file error $*
+SDESC
+Music file error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoMusicSourceAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15150 "Status Events" Normal
+FORMAT Music file error $*
+SDESC
+Music file error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSwitchNotLoadedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5151 "Status Events" Normal
+FORMAT SWITCH not responding $*
+SDESC
+SWITCH not responding
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSwitchNotLoadedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15151 "Status Events" Normal
+FORMAT SWITCH not responding $*
+SDESC
+SWITCH not responding
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIsdnServiceParamsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5152 "Status Events" Normal
+FORMAT No ISDN/PSTN Network Services defined $*
+SDESC
+No ISDN/PSTN Network Services defined
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIsdnServiceParamsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15152 "Status Events" Normal
+FORMAT No ISDN/PSTN Network Services defined $*
+SDESC
+No ISDN/PSTN Network Services defined
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxModuleDoesNotExistAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5153 "Status Events" Normal
+FORMAT Card not found $*
+SDESC
+Card not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxModuleDoesNotExistAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15153 "Status Events" Normal
+FORMAT Card not found $*
+SDESC
+Card not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoDefaultIsdnServiceAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5154 "Status Events" Normal
+FORMAT No default ISDN/PSTN Network Service defined in ISDN/PSTN Network Services list $*
+SDESC
+No default ISDN/PSTN Network Service defined in ISDN/PSTN Network Services list
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoDefaultIsdnServiceAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15154 "Status Events" Normal
+FORMAT No default ISDN/PSTN Network Service defined in ISDN/PSTN Network Services list $*
+SDESC
+No default ISDN/PSTN Network Service defined in ISDN/PSTN Network Services list
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalAlertEmbAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5155 "Status Events" Normal
+FORMAT Alarm generated by an internal component $*
+SDESC
+Alarm generated by an internal component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalAlertEmbAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15155 "Status Events" Normal
+FORMAT Alarm generated by an internal component $*
+SDESC
+Alarm generated by an internal component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVersionInstallProgressAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5156 "Status Events" Normal
+FORMAT Software upgrade in component $*
+SDESC
+Software upgrade in component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVersionInstallProgressAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15156 "Status Events" Normal
+FORMAT Software upgrade in component $*
+SDESC
+Software upgrade in component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVersionIpmcInstallProgressAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5157 "Status Events" Normal
+FORMAT IPMC software upgrade in component $*
+SDESC
+IPMC software upgrade in component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVersionIpmcInstallProgressAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15157 "Status Events" Normal
+FORMAT IPMC software upgrade in component $*
+SDESC
+IPMC software upgrade in component
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVoltageProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5200 "Status Events" Normal
+FORMAT Voltage problem $*
+SDESC
+Voltage problem
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVoltageProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15200 "Status Events" Normal
+FORMAT Voltage problem $*
+SDESC
+Voltage problem
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTemperatureMajorProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5201 "Status Events" Normal
+FORMAT Temperature Level Major $*
+SDESC
+Temperature Level Major
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTemperatureMajorProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15201 "Status Events" Normal
+FORMAT Temperature Level Major $*
+SDESC
+Temperature Level Major
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTemperatureCriticalProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5202 "Status Events" Normal
+FORMAT Temperature Level Critical $*
+SDESC
+Temperature Level Critical
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxTemperatureCriticalProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15202 "Status Events" Normal
+FORMAT Temperature Level Critical $*
+SDESC
+Temperature Level Critical
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailureProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5203 "Status Events" Normal
+FORMAT Card failure $*
+SDESC
+Card failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailureProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15203 "Status Events" Normal
+FORMAT Card failure $*
+SDESC
+Card failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPowerOffProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5204 "Status Events" Normal
+FORMAT Power off $*
+SDESC
+Power off
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPowerOffProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15204 "Status Events" Normal
+FORMAT Power off $*
+SDESC
+Power off
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxOtherProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5205 "Status Events" Normal
+FORMAT Unspecified problem $*
+SDESC
+Unspecified problem
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxOtherProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15205 "Status Events" Normal
+FORMAT Unspecified problem $*
+SDESC
+Unspecified problem
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoConnectionWithCardAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5206 "Status Events" Normal
+FORMAT Card not responding $*
+SDESC
+Card not responding
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoConnectionWithCardAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15206 "Status Events" Normal
+FORMAT Card not responding $*
+SDESC
+Card not responding
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUnitNotRespondingAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5207 "Status Events" Normal
+FORMAT Unit not responding $*
+SDESC
+Unit not responding
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUnitNotRespondingAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15207 "Status Events" Normal
+FORMAT Unit not responding $*
+SDESC
+Unit not responding
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMediaIpConfigurationFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5208 "Status Events" Normal
+FORMAT Failed to configure the Media card IP address $*
+SDESC
+Failed to configure the Media card IP address
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMediaIpConfigurationFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15208 "Status Events" Normal
+FORMAT Failed to configure the Media card IP address $*
+SDESC
+Failed to configure the Media card IP address
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardFolderMountingFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5209 "Status Events" Normal
+FORMAT Failed to mount Card folder $*
+SDESC
+Failed to mount Card folder
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardFolderMountingFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15209 "Status Events" Normal
+FORMAT Failed to mount Card folder $*
+SDESC
+Failed to mount Card folder
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardStartupFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5211 "Status Events" Normal
+FORMAT Could not complete MPM Card startup procedure $*
+SDESC
+Could not complete MPM Card startup procedure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardStartupFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15211 "Status Events" Normal
+FORMAT Could not complete MPM Card startup procedure $*
+SDESC
+Could not complete MPM Card startup procedure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRtmIsdnStartupFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5212 "Status Events" Normal
+FORMAT Could not complete RTM ISDN Card startup procedure $*
+SDESC
+Could not complete RTM ISDN Card startup procedure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRtmIsdnStartupFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15212 "Status Events" Normal
+FORMAT Could not complete RTM ISDN Card startup procedure $*
+SDESC
+Could not complete RTM ISDN Card startup procedure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRtmIsdnStartupProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5213 "Status Events" Normal
+FORMAT RTM ISDN card startup procedure error $*
+SDESC
+RTM ISDN card startup procedure error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRtmIsdnStartupProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15213 "Status Events" Normal
+FORMAT RTM ISDN card startup procedure error $*
+SDESC
+RTM ISDN card startup procedure error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoConnectionWithRtmIsdnAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5214 "Status Events" Normal
+FORMAT No response from RTM ISDN card $*
+SDESC
+No response from RTM ISDN card
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoConnectionWithRtmIsdnAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15214 "Status Events" Normal
+FORMAT No response from RTM ISDN card $*
+SDESC
+No response from RTM ISDN card
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRedAlarmAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5215 "Status Events" Normal
+FORMAT Red Alarm $*
+SDESC
+Red Alarm
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRedAlarmAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15215 "Status Events" Normal
+FORMAT Red Alarm $*
+SDESC
+Red Alarm
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxYellowAlarmAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5216 "Status Events" Normal
+FORMAT Yellow Alarm $*
+SDESC
+Yellow Alarm
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxYellowAlarmAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15216 "Status Events" Normal
+FORMAT Yellow Alarm $*
+SDESC
+Yellow Alarm
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDChannelNotEstablishedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5217 "Status Events" Normal
+FORMAT D channel cannot be established $*
+SDESC
+D channel cannot be established
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDChannelNotEstablishedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15217 "Status Events" Normal
+FORMAT D channel cannot be established $*
+SDESC
+D channel cannot be established
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardsConfigEventAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5218 "Status Events" Normal
+FORMAT Card configuration event $*
+SDESC
+Card configuration event
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardsConfigEventAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15218 "Status Events" Normal
+FORMAT Card configuration event $*
+SDESC
+Card configuration event
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardsWrongFileModeAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5219 "Status Events" Normal
+FORMAT Cards wrong file's mode $*
+SDESC
+Cards wrong file's mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardsWrongFileModeAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15219 "Status Events" Normal
+FORMAT Cards wrong file's mode $*
+SDESC
+Cards wrong file's mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardsFlashAccessProblemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5220 "Status Events" Normal
+FORMAT Card failed to switch to Enhanced Security Mode $*
+SDESC
+Card failed to switch to Enhanced Security Mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCardsFlashAccessProblemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15220 "Status Events" Normal
+FORMAT Card failed to switch to Enhanced Security Mode $*
+SDESC
+Card failed to switch to Enhanced Security Mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRtmLanOrIsdnMissingAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5221 "Status Events" Normal
+FORMAT No RTM-LAN or RTM-ISDN installed. One of these cards must be installed in your MCU $*
+SDESC
+No RTM-LAN or RTM-ISDN installed. One of these cards must be installed in your MCU
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRtmLanOrIsdnMissingAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15221 "Status Events" Normal
+FORMAT No RTM-LAN or RTM-ISDN installed. One of these cards must be installed in your MCU $*
+SDESC
+No RTM-LAN or RTM-ISDN installed. One of these cards must be installed in your MCU
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPortAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5222 "Status Events" Normal
+FORMAT No LAN connection port 1 $*
+SDESC
+No LAN connection port 1
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPortAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15222 "Status Events" Normal
+FORMAT No LAN connection port 1 $*
+SDESC
+No LAN connection port 1
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPort1AlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5223 "Status Events" Normal
+FORMAT No LAN connection port 2 $*
+SDESC
+No LAN connection port 2
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPort1AlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15223 "Status Events" Normal
+FORMAT No LAN connection port 2 $*
+SDESC
+No LAN connection port 2
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPort11AlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5224 "Status Events" Normal
+FORMAT No LAN connection port 3 $*
+SDESC
+No LAN connection port 3
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPort11AlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15224 "Status Events" Normal
+FORMAT No LAN connection port 3 $*
+SDESC
+No LAN connection port 3
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPort111AlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5225 "Status Events" Normal
+FORMAT No LAN connection port 4 $*
+SDESC
+No LAN connection port 4
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoLanConnectionPort111AlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15225 "Status Events" Normal
+FORMAT No LAN connection port 4 $*
+SDESC
+No LAN connection port 4
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCanNotEstablishConnectionWithSipRegistrarAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5300 "Status Events" Normal
+FORMAT Failed to connect to SIP registrar $*
+SDESC
+Failed to connect to SIP registrar
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCanNotEstablishConnectionWithSipRegistrarAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15300 "Status Events" Normal
+FORMAT Failed to connect to SIP registrar $*
+SDESC
+Failed to connect to SIP registrar
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSipRegistrationLimitReachedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5301 "Status Events" Normal
+FORMAT SIP registrations limit reached $*
+SDESC
+SIP registrations limit reached
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSipRegistrationLimitReachedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15301 "Status Events" Normal
+FORMAT SIP registrations limit reached $*
+SDESC
+SIP registrations limit reached
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToSubscribeWithTheOcsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5302 "Status Events" Normal
+FORMAT Failed to subscribe with the OCS, therefore the A/V Edge Server URI was not received $*
+SDESC
+Failed to subscribe with the OCS, therefore the A/V Edge Server URI was not received
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToSubscribeWithTheOcsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15302 "Status Events" Normal
+FORMAT Failed to subscribe with the OCS, therefore the A/V Edge Server URI was not received $*
+SDESC
+Failed to subscribe with the OCS, therefore the A/V Edge Server URI was not received
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxReceivedNotificationFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5303 "Status Events" Normal
+FORMAT Received Notification failed $*
+SDESC
+Received Notification failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxReceivedNotificationFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15303 "Status Events" Normal
+FORMAT Received Notification failed $*
+SDESC
+Received Notification failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxServiceReqFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5304 "Status Events" Normal
+FORMAT Service Request failed $*
+SDESC
+Service Request failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxServiceReqFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15304 "Status Events" Normal
+FORMAT Service Request failed $*
+SDESC
+Service Request failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInitializeIceStackFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5305 "Status Events" Normal
+FORMAT Initialization of ice stack failed $*
+SDESC
+Initialization of ice stack failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInitializeIceStackFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15305 "Status Events" Normal
+FORMAT Initialization of ice stack failed $*
+SDESC
+Initialization of ice stack failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRegisterIceUserFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5306 "Status Events" Normal
+FORMAT OCS Registration failed $*
+SDESC
+OCS Registration failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRegisterIceUserFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15306 "Status Events" Normal
+FORMAT OCS Registration failed $*
+SDESC
+OCS Registration failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResolveIceServerNameFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5307 "Status Events" Normal
+FORMAT failed to resolve ICE server Host-Name $*
+SDESC
+failed to resolve ICE server Host-Name
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResolveIceServerNameFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15307 "Status Events" Normal
+FORMAT failed to resolve ICE server Host-Name $*
+SDESC
+failed to resolve ICE server Host-Name
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRegisterFailedForSomeConfAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5308 "Status Events" Normal
+FORMAT Registration failed for some Conference $*
+SDESC
+Registration failed for some Conference
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRegisterFailedForSomeConfAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15308 "Status Events" Normal
+FORMAT Registration failed for some Conference $*
+SDESC
+Registration failed for some Conference
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToAccessDnsServerAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5350 "Status Events" Normal
+FORMAT Failed to access DNS server $*
+SDESC
+Failed to access DNS server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToAccessDnsServerAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15350 "Status Events" Normal
+FORMAT Failed to access DNS server $*
+SDESC
+Failed to access DNS server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIndDnsSuccessAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5351 "Status Events" Normal
+FORMAT DNS configuration error $*
+SDESC
+DNS configuration error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIndDnsSuccessAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15351 "Status Events" Normal
+FORMAT DNS configuration error $*
+SDESC
+DNS configuration error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToInitFileSystemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5400 "Status Events" Normal
+FORMAT Failed to initialize the file system $*
+SDESC
+Failed to initialize the file system
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToInitFileSystemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15400 "Status Events" Normal
+FORMAT Failed to initialize the file system $*
+SDESC
+Failed to initialize the file system
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadFileSystemAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5401 "Status Events" Normal
+FORMAT The Log file system is disabled $*
+SDESC
+The Log file system is disabled
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadFileSystemAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15401 "Status Events" Normal
+FORMAT The Log file system is disabled $*
+SDESC
+The Log file system is disabled
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadHardDiskAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5402 "Status Events" Normal
+FORMAT Hard disk error $*
+SDESC
+Hard disk error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBadHardDiskAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15402 "Status Events" Normal
+FORMAT Hard disk error $*
+SDESC
+Hard disk error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBackupOfLogFilesIsRequiredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5403 "Status Events" Normal
+FORMAT Backup of log files is required $*
+SDESC
+Backup of log files is required
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBackupOfLogFilesIsRequiredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15403 "Status Events" Normal
+FORMAT Backup of log files is required $*
+SDESC
+Backup of log files is required
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLogIsDisabledBySystemLoadAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5404 "Status Events" Normal
+FORMAT The Log file system is disabled because of high system CPU usage $*
+SDESC
+The Log file system is disabled because of high system CPU usage
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLogIsDisabledBySystemLoadAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15404 "Status Events" Normal
+FORMAT The Log file system is disabled because of high system CPU usage $*
+SDESC
+The Log file system is disabled because of high system CPU usage
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBackupOfAuditFilesIsRequiredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5430 "Status Events" Normal
+FORMAT Backup of audit files is required $*
+SDESC
+Backup of audit files is required
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxBackupOfAuditFilesIsRequiredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15430 "Status Events" Normal
+FORMAT Backup of audit files is required $*
+SDESC
+Backup of audit files is required
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToFillActionRedirectionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5450 "Status Events" Normal
+FORMAT Action redirection failure $*
+SDESC
+Action redirection failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToFillActionRedirectionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15450 "Status Events" Normal
+FORMAT Action redirection failure $*
+SDESC
+Action redirection failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHttpdFailedUseRevocationMethodAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5451 "Status Events" Normal
+FORMAT Management TLS (httpd):: failed to verify with revocation method $*
+SDESC
+Management TLS (httpd):: failed to verify with revocation method
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHttpdFailedUseRevocationMethodAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15451 "Status Events" Normal
+FORMAT Management TLS (httpd):: failed to verify with revocation method $*
+SDESC
+Management TLS (httpd):: failed to verify with revocation method
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedConfigUserListInLinuxAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5500 "Status Events" Normal
+FORMAT Failed to configure the Users list in Linux $*
+SDESC
+Failed to configure the Users list in Linux
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedConfigUserListInLinuxAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15500 "Status Events" Normal
+FORMAT Failed to configure the Users list in Linux $*
+SDESC
+Failed to configure the Users list in Linux
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemConfigurationChangedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5520 "Status Events" Normal
+FORMAT System configuration changed. Please reset the MCU. $*
+SDESC
+System configuration changed. Please reset the MCU.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemConfigurationChangedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15520 "Status Events" Normal
+FORMAT System configuration changed. Please reset the MCU. $*
+SDESC
+System configuration changed. Please reset the MCU.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInsufficientResourcesAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5550 "Status Events" Normal
+FORMAT Insufficient resources $*
+SDESC
+Insufficient resources
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInsufficientResourcesAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15550 "Status Events" Normal
+FORMAT Insufficient resources $*
+SDESC
+Insufficient resources
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPortConfigurationChangedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5551 "Status Events" Normal
+FORMAT Port configuration was modified $*
+SDESC
+Port configuration was modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPortConfigurationChangedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15551 "Status Events" Normal
+FORMAT Port configuration was modified $*
+SDESC
+Port configuration was modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoUtilizableUnitForAudioControllerAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5552 "Status Events" Normal
+FORMAT No usable unit for audio controller $*
+SDESC
+No usable unit for audio controller
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoUtilizableUnitForAudioControllerAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15552 "Status Events" Normal
+FORMAT No usable unit for audio controller $*
+SDESC
+No usable unit for audio controller
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAllocationModeChangedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5553 "Status Events" Normal
+FORMAT Allocation mode was modified $*
+SDESC
+Allocation mode was modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAllocationModeChangedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15553 "Status Events" Normal
+FORMAT Allocation mode was modified $*
+SDESC
+Allocation mode was modified
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPortGaugeThresholdReachedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5554 "Status Events" Normal
+FORMAT System resources usage has exceeded Port Gauge threshold $*
+SDESC
+System resources usage has exceeded Port Gauge threshold
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxPortGaugeThresholdReachedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15554 "Status Events" Normal
+FORMAT System resources usage has exceeded Port Gauge threshold $*
+SDESC
+System resources usage has exceeded Port Gauge threshold
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAudioPortGaugeThresholdReachedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5555 "Status Events" Normal
+FORMAT System resources of Audio ports usage has exceeded Port Gauge threshold $*
+SDESC
+System resources of Audio ports usage has exceeded Port Gauge threshold
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAudioPortGaugeThresholdReachedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15555 "Status Events" Normal
+FORMAT System resources of Audio ports usage has exceeded Port Gauge threshold $*
+SDESC
+System resources of Audio ports usage has exceeded Port Gauge threshold
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVideoPortGaugeThresholdReachedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5556 "Status Events" Normal
+FORMAT System resources of Video ports usage has exceeded Port Gauge threshold $*
+SDESC
+System resources of Video ports usage has exceeded Port Gauge threshold
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVideoPortGaugeThresholdReachedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15556 "Status Events" Normal
+FORMAT System resources of Video ports usage has exceeded Port Gauge threshold $*
+SDESC
+System resources of Video ports usage has exceeded Port Gauge threshold
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProcessTerminatedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5601 "Status Events" Normal
+FORMAT Process terminated $*
+SDESC
+Process terminated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProcessTerminatedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15601 "Status Events" Normal
+FORMAT Process terminated $*
+SDESC
+Process terminated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuByTerminalAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5602 "Status Events" Normal
+FORMAT Terminal initiated MCU reset $*
+SDESC
+Terminal initiated MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuByTerminalAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15602 "Status Events" Normal
+FORMAT Terminal initiated MCU reset $*
+SDESC
+Terminal initiated MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuByOperatorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5603 "Status Events" Normal
+FORMAT User initiated MCU reset $*
+SDESC
+User initiated MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuByOperatorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15603 "Status Events" Normal
+FORMAT User initiated MCU reset $*
+SDESC
+User initiated MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuInternalAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5604 "Status Events" Normal
+FORMAT Internal MCU reset $*
+SDESC
+Internal MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuInternalAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15604 "Status Events" Normal
+FORMAT Internal MCU reset $*
+SDESC
+Internal MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5605 "Status Events" Normal
+FORMAT MCU reset $*
+SDESC
+MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15605 "Status Events" Normal
+FORMAT MCU reset $*
+SDESC
+MCU reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuDiagnosticsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5606 "Status Events" Normal
+FORMAT MCU Reset to enable Diagnostics mode $*
+SDESC
+MCU Reset to enable Diagnostics mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxResetMcuDiagnosticsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15606 "Status Events" Normal
+FORMAT MCU Reset to enable Diagnostics mode $*
+SDESC
+MCU Reset to enable Diagnostics mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProcessStartupFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5607 "Status Events" Normal
+FORMAT Startup process failure $*
+SDESC
+Startup process failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxProcessStartupFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15607 "Status Events" Normal
+FORMAT Startup process failure $*
+SDESC
+Startup process failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemInSafeModeAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5608 "Status Events" Normal
+FORMAT Automatic reset is unavailable in Safe Mode $*
+SDESC
+Automatic reset is unavailable in Safe Mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemInSafeModeAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15608 "Status Events" Normal
+FORMAT Automatic reset is unavailable in Safe Mode $*
+SDESC
+Automatic reset is unavailable in Safe Mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxGuiSystemConfigIsIllegalAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5609 "Status Events" Normal
+FORMAT GUI System configuration file is invalid xml file $*
+SDESC
+GUI System configuration file is invalid xml file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxGuiSystemConfigIsIllegalAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15609 "Status Events" Normal
+FORMAT GUI System configuration file is invalid xml file $*
+SDESC
+GUI System configuration file is invalid xml file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFileSystemFailedToScanAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5650 "Status Events" Normal
+FORMAT File system scan failure $*
+SDESC
+File system scan failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFileSystemFailedToScanAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15650 "Status Events" Normal
+FORMAT File system scan failure $*
+SDESC
+File system scan failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFileSystemOverflowAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5651 "Status Events" Normal
+FORMAT File system space shortage $*
+SDESC
+File system space shortage
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFileSystemOverflowAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15651 "Status Events" Normal
+FORMAT File system space shortage $*
+SDESC
+File system space shortage
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHardDiskFailureAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5652 "Status Events" Normal
+FORMAT Hard disk error $*
+SDESC
+Hard disk error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHardDiskFailureAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15652 "Status Events" Normal
+FORMAT Hard disk error $*
+SDESC
+Hard disk error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHighSchedulerLatencyAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5654 "Status Events" Normal
+FORMAT OS Latency Threshold Exceeded $*
+SDESC
+OS Latency Threshold Exceeded
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHighSchedulerLatencyAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15654 "Status Events" Normal
+FORMAT OS Latency Threshold Exceeded $*
+SDESC
+OS Latency Threshold Exceeded
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCpuIpcmSoftwareIsNotUpdatedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5690 "Status Events" Normal
+FORMAT CPU IPMC software was not updated $*
+SDESC
+CPU IPMC software was not updated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCpuIpcmSoftwareIsNotUpdatedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15690 "Status Events" Normal
+FORMAT CPU IPMC software was not updated $*
+SDESC
+CPU IPMC software was not updated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNewVersionInstalledAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5700 "Status Events" Normal
+FORMAT A new version was installed. Reset the system. $*
+SDESC
+A new version was installed. Reset the system.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNewVersionInstalledAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15700 "Status Events" Normal
+FORMAT A new version was installed. Reset the system. $*
+SDESC
+A new version was installed. Reset the system.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNewActivationKeyLoadedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5701 "Status Events" Normal
+FORMAT A new activation key was loaded. Reset the system. $*
+SDESC
+A new activation key was loaded. Reset the system.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNewActivationKeyLoadedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15701 "Status Events" Normal
+FORMAT A new activation key was loaded. Reset the system. $*
+SDESC
+A new activation key was loaded. Reset the system.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSafeUpgradeOffAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5702 "Status Events" Normal
+FORMAT Warning: Upgrade started and SAFE Upgrade protection is turned OFF $*
+SDESC
+Warning: Upgrade started and SAFE Upgrade protection is turned OFF
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSafeUpgradeOffAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15702 "Status Events" Normal
+FORMAT Warning: Upgrade started and SAFE Upgrade protection is turned OFF $*
+SDESC
+Warning: Upgrade started and SAFE Upgrade protection is turned OFF
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxActivationKeyIsNeededAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5703 "Status Events" Normal
+FORMAT A matching activation key is required. To cancel the upgrade process, reset the MCU. $*
+SDESC
+A matching activation key is required. To cancel the upgrade process, reset the MCU.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxActivationKeyIsNeededAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15703 "Status Events" Normal
+FORMAT A matching activation key is required. To cancel the upgrade process, reset the MCU. $*
+SDESC
+A matching activation key is required. To cancel the upgrade process, reset the MCU.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUpgradeReceiveVersionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5704 "Status Events" Normal
+FORMAT MCU is uploading the version file. To cancel the upload and the upgrade, reset the MCU. $*
+SDESC
+MCU is uploading the version file. To cancel the upload and the upgrade, reset the MCU.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUpgradeReceiveVersionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15704 "Status Events" Normal
+FORMAT MCU is uploading the version file. To cancel the upload and the upgrade, reset the MCU. $*
+SDESC
+MCU is uploading the version file. To cancel the upload and the upgrade, reset the MCU.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxShaVersionAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5705 "Status Events" Normal
+FORMAT MCU user/password list will be reset $*
+SDESC
+MCU user/password list will be reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxShaVersionAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15705 "Status Events" Normal
+FORMAT MCU user/password list will be reset $*
+SDESC
+MCU user/password list will be reset
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFpgaCheckFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5706 "Status Events" Normal
+FORMAT FPGA failure. Please upload and upgrade the software. $*
+SDESC
+FPGA failure. Please upload and upgrade the software.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFpgaCheckFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15706 "Status Events" Normal
+FORMAT FPGA failure. Please upload and upgrade the software. $*
+SDESC
+FPGA failure. Please upload and upgrade the software.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFpgaStartupBurningAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5707 "Status Events" Normal
+FORMAT FPGA failure. Please wait for FPGA burning to complete. $*
+SDESC
+FPGA failure. Please wait for FPGA burning to complete.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFpgaStartupBurningAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15707 "Status Events" Normal
+FORMAT FPGA failure. Please wait for FPGA burning to complete. $*
+SDESC
+FPGA failure. Please wait for FPGA burning to complete.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNewVersionDowngradeFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5708 "Status Events" Normal
+FORMAT new version downgrade failed. $*
+SDESC
+new version downgrade failed.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNewVersionDowngradeFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15708 "Status Events" Normal
+FORMAT new version downgrade failed. $*
+SDESC
+new version downgrade failed.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInsufficientUdpPortsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5751 "Status Events" Normal
+FORMAT Insufficient UDP Ports $*
+SDESC
+Insufficient UDP Ports
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxInsufficientUdpPortsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15751 "Status Events" Normal
+FORMAT Insufficient UDP Ports $*
+SDESC
+Insufficient UDP Ports
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUsersListCorruptedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5800 "Status Events" Normal
+FORMAT Failed to open Users list file $*
+SDESC
+Failed to open Users list file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUsersListCorruptedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15800 "Status Events" Normal
+FORMAT Failed to open Users list file $*
+SDESC
+Failed to open Users list file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDefaultUserExistsAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5801 "Status Events" Normal
+FORMAT Polycom default User exists. For security reasons, it is recommended to delete this User and create your own User. $*
+SDESC
+Polycom default User exists. For security reasons, it is recommended to delete this User and create your own User.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxDefaultUserExistsAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15801 "Status Events" Normal
+FORMAT Polycom default User exists. For security reasons, it is recommended to delete this User and create your own User. $*
+SDESC
+Polycom default User exists. For security reasons, it is recommended to delete this User and create your own User.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSupportOperatorIllegalInFederalModeAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5802 "Status Events" Normal
+FORMAT User Name  SUPPORT cannot be used in Enhanced Security Mode $*
+SDESC
+User Name  SUPPORT cannot be used in Enhanced Security Mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSupportOperatorIllegalInFederalModeAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15802 "Status Events" Normal
+FORMAT User Name  SUPPORT cannot be used in Enhanced Security Mode $*
+SDESC
+User Name  SUPPORT cannot be used in Enhanced Security Mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMachineAccountExpirationAlertAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5803 "Status Events" Normal
+FORMAT Password expiration warning $*
+SDESC
+Password expiration warning
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMachineAccountExpirationAlertAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15803 "Status Events" Normal
+FORMAT Password expiration warning $*
+SDESC
+Password expiration warning
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIsdnServicesConfigurationChangedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5900 "Status Events" Normal
+FORMAT ISDN/PSTN Network Services configuration changed $*
+SDESC
+ISDN/PSTN Network Services configuration changed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIsdnServicesConfigurationChangedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15900 "Status Events" Normal
+FORMAT ISDN/PSTN Network Services configuration changed $*
+SDESC
+ISDN/PSTN Network Services configuration changed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIsdnPstnLicensingAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5901 "Status Events" Normal
+FORMAT No License for ISDN/PSTN. Please activate the RTM ISDN card through Polycom website. $*
+SDESC
+No License for ISDN/PSTN. Please activate the RTM ISDN card through Polycom website.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoIsdnPstnLicensingAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15901 "Status Events" Normal
+FORMAT No License for ISDN/PSTN. Please activate the RTM ISDN card through Polycom website. $*
+SDESC
+No License for ISDN/PSTN. Please activate the RTM ISDN card through Polycom website.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoRtmIsdnCardAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5902 "Status Events" Normal
+FORMAT RTM ISDN card not found $*
+SDESC
+RTM ISDN card not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoRtmIsdnCardAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15902 "Status Events" Normal
+FORMAT RTM ISDN card not found $*
+SDESC
+RTM ISDN card not found
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoClockSourceAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5903 "Status Events" Normal
+FORMAT No clock source $*
+SDESC
+No clock source
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoClockSourceAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15903 "Status Events" Normal
+FORMAT No clock source $*
+SDESC
+No clock source
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSingleClockSourceAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5904 "Status Events" Normal
+FORMAT Single clock source $*
+SDESC
+Single clock source
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSingleClockSourceAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15904 "Status Events" Normal
+FORMAT Single clock source $*
+SDESC
+Single clock source
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxGkmngrAvfWrongMcuConfigAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5950 "Status Events" Normal
+FORMAT MCU is not configured for AVF gatekeeper mode $*
+SDESC
+MCU is not configured for AVF gatekeeper mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxGkmngrAvfWrongMcuConfigAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15950 "Status Events" Normal
+FORMAT MCU is not configured for AVF gatekeeper mode $*
+SDESC
+MCU is not configured for AVF gatekeeper mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxGateKeeperErrorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.5951 "Status Events" Normal
+FORMAT Gatekeeper failure $*
+SDESC
+Gatekeeper failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxGateKeeperErrorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.15951 "Status Events" Normal
+FORMAT Gatekeeper failure $*
+SDESC
+Gatekeeper failure
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCanNotEstablishConnectionWithApplicationServerAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6000 "Status Events" Normal
+FORMAT Failed to connect to application server $*
+SDESC
+Failed to connect to application server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCanNotEstablishConnectionWithApplicationServerAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16000 "Status Events" Normal
+FORMAT Failed to connect to application server $*
+SDESC
+Failed to connect to application server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemConfigurationAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6001 "Status Events" Normal
+FORMAT Configuration of external database did not complete $*
+SDESC
+Configuration of external database did not complete
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemConfigurationAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16001 "Status Events" Normal
+FORMAT Configuration of external database did not complete $*
+SDESC
+Configuration of external database did not complete
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalDbCertificateErrorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6002 "Status Events" Normal
+FORMAT Error in external database certificate $*
+SDESC
+Error in external database certificate
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExternalDbCertificateErrorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16002 "Status Events" Normal
+FORMAT Error in external database certificate $*
+SDESC
+Error in external database certificate
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIvrServiceListMissingDefaultServiceAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6050 "Status Events" Normal
+FORMAT No default IVR Service in IVR Services list $*
+SDESC
+No default IVR Service in IVR Services list
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxIvrServiceListMissingDefaultServiceAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16050 "Status Events" Normal
+FORMAT No default IVR Service in IVR Services list $*
+SDESC
+No default IVR Service in IVR Services list
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCanNotCreateDefaultProfileAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6051 "Status Events" Normal
+FORMAT Failed to create Default Profile $*
+SDESC
+Failed to create Default Profile
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCanNotCreateDefaultProfileAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16051 "Status Events" Normal
+FORMAT Failed to create Default Profile $*
+SDESC
+Failed to create Default Profile
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoReadMrDbReqRecievedFromRsrcAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6052 "Status Events" Normal
+FORMAT Resource process failed to request the Meeting Room list during startup. $*
+SDESC
+Resource process failed to request the Meeting Room list during startup.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxNoReadMrDbReqRecievedFromRsrcAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16052 "Status Events" Normal
+FORMAT Resource process failed to request the Meeting Room list during startup. $*
+SDESC
+Resource process failed to request the Meeting Room list during startup.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToConnectRecordingLinkAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6053 "Status Events" Normal
+FORMAT Failed to connect to recording device $*
+SDESC
+Failed to connect to recording device
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToConnectRecordingLinkAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16053 "Status Events" Normal
+FORMAT Failed to connect to recording device $*
+SDESC
+Failed to connect to recording device
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRecordingLinkDisconnecedUnexpectedlyAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6054 "Status Events" Normal
+FORMAT Recording device has disconnected unexpectedly $*
+SDESC
+Recording device has disconnected unexpectedly
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRecordingLinkDisconnecedUnexpectedlyAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16054 "Status Events" Normal
+FORMAT Recording device has disconnected unexpectedly $*
+SDESC
+Recording device has disconnected unexpectedly
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemBasedModeNotIntializedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6055 "Status Events" Normal
+FORMAT Failed to initialize system base mode $*
+SDESC
+Failed to initialize system base mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSystemBasedModeNotIntializedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16055 "Status Events" Normal
+FORMAT Failed to initialize system base mode $*
+SDESC
+Failed to initialize system base mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxConfEncryptionErrorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6056 "Status Events" Normal
+FORMAT Conference Encryption Error $*
+SDESC
+Conference Encryption Error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxConfEncryptionErrorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16056 "Status Events" Normal
+FORMAT Conference Encryption Error $*
+SDESC
+Conference Encryption Error
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCopModeNotSupportedMpmPlusModeAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6057 "Status Events" Normal
+FORMAT System Cards MPM Plus mode are not supported in Event mode $*
+SDESC
+System Cards MPM Plus mode are not supported in Event mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCopModeNotSupportedMpmPlusModeAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16057 "Status Events" Normal
+FORMAT System Cards MPM Plus mode are not supported in Event mode $*
+SDESC
+System Cards MPM Plus mode are not supported in Event mode
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSnmpAgentInitFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6100 "Status Events" Normal
+FORMAT Failure in initialization of SNMP agent $*
+SDESC
+Failure in initialization of SNMP agent
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxSnmpAgentInitFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16100 "Status Events" Normal
+FORMAT Failure in initialization of SNMP agent $*
+SDESC
+Failure in initialization of SNMP agent
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRestoreSucceededAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6200 "Status Events" Normal
+FORMAT Restore Succeeded $*
+SDESC
+Restore Succeeded
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRestoreSucceededAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16200 "Status Events" Normal
+FORMAT Restore Succeeded $*
+SDESC
+Restore Succeeded
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRestoreFailedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.6201 "Status Events" Normal
+FORMAT Restore Failed $*
+SDESC
+Restore Failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxRestoreFailedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.16201 "Status Events" Normal
+FORMAT Restore Failed $*
+SDESC
+Restore Failed
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxEncryptionServerErrorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.7010 "Status Events" Normal
+FORMAT Encryption Server Error. Failed to generate the encryption key. $*
+SDESC
+Encryption Server Error. Failed to generate the encryption key.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxEncryptionServerErrorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.17010 "Status Events" Normal
+FORMAT Encryption Server Error. Failed to generate the encryption key. $*
+SDESC
+Encryption Server Error. Failed to generate the encryption key.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExchangeServerConnectionErrorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.7050 "Status Events" Normal
+FORMAT Unable to connect to Exchange Server $*
+SDESC
+Unable to connect to Exchange Server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxExchangeServerConnectionErrorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.17050 "Status Events" Normal
+FORMAT Unable to connect to Exchange Server $*
+SDESC
+Unable to connect to Exchange Server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHotBackupPairMcuIsUnreachableAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8200 "Status Events" Normal
+FORMAT Hot Backup: Paired MCU is unreachable $*
+SDESC
+Hot Backup: Paired MCU is unreachable
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHotBackupPairMcuIsUnreachableAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18200 "Status Events" Normal
+FORMAT Hot Backup: Paired MCU is unreachable $*
+SDESC
+Hot Backup: Paired MCU is unreachable
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHotBackupMasterSlaveConfigurationConflictAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8201 "Status Events" Normal
+FORMAT Hot Backup: Master-Slave configuration conflict $*
+SDESC
+Hot Backup: Master-Slave configuration conflict
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHotBackupMasterSlaveConfigurationConflictAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18201 "Status Events" Normal
+FORMAT Hot Backup: Master-Slave configuration conflict $*
+SDESC
+Hot Backup: Master-Slave configuration conflict
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHotBackupNetworkIssueAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8202 "Status Events" Normal
+FORMAT Hot backup: Network issue $*
+SDESC
+Hot backup: Network issue
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxHotBackupNetworkIssueAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18202 "Status Events" Normal
+FORMAT Hot backup: Network issue $*
+SDESC
+Hot backup: Network issue
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLdapFailedToConnectToActiveDirectoryServerAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8500 "Status Events" Normal
+FORMAT MCU fails to connect to Active Directory server $*
+SDESC
+MCU fails to connect to Active Directory server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLdapFailedToConnectToActiveDirectoryServerAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18500 "Status Events" Normal
+FORMAT MCU fails to connect to Active Directory server $*
+SDESC
+MCU fails to connect to Active Directory server
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLdapFailedToConnectToOcspServerAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8503 "Status Events" Normal
+FORMAT LDAP TLS: Failed to connect to OSCP responder $*
+SDESC
+LDAP TLS: Failed to connect to OSCP responder
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLdapFailedToConnectToOcspServerAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18503 "Status Events" Normal
+FORMAT LDAP TLS: Failed to connect to OSCP responder $*
+SDESC
+LDAP TLS: Failed to connect to OSCP responder
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAvInvalidDatfileAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8600 "Status Events" Normal
+FORMAT Invalid DAT (virus database) file $*
+SDESC
+Invalid DAT (virus database) file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAvInvalidDatfileAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18600 "Status Events" Normal
+FORMAT Invalid DAT (virus database) file $*
+SDESC
+Invalid DAT (virus database) file
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAvVirusFoundAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8601 "Status Events" Normal
+FORMAT A virus threat has been detected $*
+SDESC
+A virus threat has been detected
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAvVirusFoundAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18601 "Status Events" Normal
+FORMAT A virus threat has been detected $*
+SDESC
+A virus threat has been detected
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAvInitialDatFileAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8602 "Status Events" Normal
+FORMAT Antivirus initial DAT files are outdated and must be updated $*
+SDESC
+Antivirus initial DAT files are outdated and must be updated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxAvInitialDatFileAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18602 "Status Events" Normal
+FORMAT Antivirus initial DAT files are outdated and must be updated $*
+SDESC
+Antivirus initial DAT files are outdated and must be updated
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToValidateCertificateAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8650 "Status Events" Normal
+FORMAT Security mode failed. Error in certificate file. $*
+SDESC
+Security mode failed. Error in certificate file.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxFailedToValidateCertificateAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18650 "Status Events" Normal
+FORMAT Security mode failed. Error in certificate file. $*
+SDESC
+Security mode failed. Error in certificate file.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateExpiredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8651 "Status Events" Normal
+FORMAT Security mode failed. Certificate has expired. $*
+SDESC
+Security mode failed. Certificate has expired.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateExpiredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18651 "Status Events" Normal
+FORMAT Security mode failed. Certificate has expired. $*
+SDESC
+Security mode failed. Certificate has expired.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateCommonNameErrorAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8652 "Status Events" Normal
+FORMAT Security mode failed. Certificate host name does not match the MCU host name. $*
+SDESC
+Security mode failed. Certificate host name does not match the MCU host name.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateCommonNameErrorAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18652 "Status Events" Normal
+FORMAT Security mode failed. Certificate host name does not match the MCU host name. $*
+SDESC
+Security mode failed. Certificate host name does not match the MCU host name.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateNotValidYetAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8653 "Status Events" Normal
+FORMAT Security mode failed. Certificate not yet valid. $*
+SDESC
+Security mode failed. Certificate not yet valid.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateNotValidYetAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18653 "Status Events" Normal
+FORMAT Security mode failed. Certificate not yet valid. $*
+SDESC
+Security mode failed. Certificate not yet valid.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateGoingToBeExpiredAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8654 "Status Events" Normal
+FORMAT Security mode failed. Certificate is about to expire. $*
+SDESC
+Security mode failed. Certificate is about to expire.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateGoingToBeExpiredAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18654 "Status Events" Normal
+FORMAT Security mode failed. Certificate is about to expire. $*
+SDESC
+Security mode failed. Certificate is about to expire.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateRepositoryNotUpdatedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8655 "Status Events" Normal
+FORMAT Requested changes to the certification repository were not completed. Repository must be updated to implement these changes. $*
+SDESC
+Requested changes to the certification repository were not completed. Repository must be updated to implement these changes.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateRepositoryNotUpdatedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18655 "Status Events" Normal
+FORMAT Requested changes to the certification repository were not completed. Repository must be updated to implement these changes. $*
+SDESC
+Requested changes to the certification repository were not completed. Repository must be updated to implement these changes.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateForCsNeedResetToTakeEffectAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8656 "Status Events" Normal
+FORMAT New certificate for CS need MCU reset to take effect. $*
+SDESC
+New certificate for CS need MCU reset to take effect.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateForCsNeedResetToTakeEffectAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18656 "Status Events" Normal
+FORMAT New certificate for CS need MCU reset to take effect. $*
+SDESC
+New certificate for CS need MCU reset to take effect.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateSelfCertNotAllowedForMsServiceAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8657 "Status Events" Normal
+FORMAT TLS: Self Sign Certificate not allowed with microsoft sip service. $*
+SDESC
+TLS: Self Sign Certificate not allowed with microsoft sip service.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxCertificateSelfCertNotAllowedForMsServiceAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18657 "Status Events" Normal
+FORMAT TLS: Self Sign Certificate not allowed with microsoft sip service. $*
+SDESC
+TLS: Self Sign Certificate not allowed with microsoft sip service.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUtilityNetworkTrafficCaptureOnAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8700 "Status Events" Normal
+FORMAT Network traffic capture is on $*
+SDESC
+Network traffic capture is on
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxUtilityNetworkTrafficCaptureOnAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18700 "Status Events" Normal
+FORMAT Network traffic capture is on $*
+SDESC
+Network traffic capture is on
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMccfChannelIsNotConnectedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8750 "Status Events" Normal
+FORMAT The MCCF channel is not connected $*
+SDESC
+The MCCF channel is not connected
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxMccfChannelIsNotConnectedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18750 "Status Events" Normal
+FORMAT The MCCF channel is not connected $*
+SDESC
+The MCCF channel is not connected
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVideoRecoveryAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8751 "Status Events" Normal
+FORMAT Media is recoverying $*
+SDESC
+Media is recoverying
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxVideoRecoveryAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18751 "Status Events" Normal
+FORMAT Media is recoverying $*
+SDESC
+Media is recoverying
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLicenseAcquisitionFailAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8800 "Status Events" Normal
+FORMAT Valid license not found. $*
+SDESC
+Valid license not found.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLicenseAcquisitionFailAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18800 "Status Events" Normal
+FORMAT Valid license not found. $*
+SDESC
+Valid license not found.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLicenseWasModifiedAlarmFault .1.3.6.1.4.1.13885.9.1.1.2.2.0.8801 "Status Events" Normal
+FORMAT License has been modified. Modified license will take effect after system restart. $*
+SDESC
+License has been modified. Modified license will take effect after system restart.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC
+#
+#
+#
+EVENT rmxLicenseWasModifiedAlarmClear .1.3.6.1.4.1.13885.9.1.1.2.2.0.18801 "Status Events" Normal
+FORMAT License has been modified. Modified license will take effect after system restart. $*
+SDESC
+License has been modified. Modified license will take effect after system restart.
+Variables:
+  1: rmxAlarmDescription
+  2: rmxActiveAlarmDateAndTime
+  3: rmxActiveAlarmIndex
+  4: rmxActiveAlarmListName
+  5: rmxActiveAlarmRmxStatus
+EDESC

@@ -1,0 +1,106 @@
+#
+#
+#
+#
+MIB: CISCO-VOICE-DIAL-CONTROL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-VOICE-DIAL-CONTROL-MIB.mib) converted on Tue Aug 21 15:26:42 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cvdcPoorQoVNotification .1.3.6.1.4.1.9.9.63.2.0.1 "Status Events" Normal
+FORMAT Poor quality of voice notification. A $*
+SDESC
+Poor quality of voice notification. A
+cvdcPoorQoVNotification is sent at the call disconnection
+time if the value of cvVoIPCallHistoryIcpif exceeds the
+value of cvVoIPPeerCfgIcpif in the call associated peer.
+Variables:
+  1: cvVoIPCallHistoryConnectionId
+  2: cvVoIPCallHistoryIcpif
+  3: cvVoIPCallHistoryRemoteIPAddress
+  4: cCallHistoryCallOrigin
+  5: cvCommonDcCallHistoryCoderTypeRate
+EDESC
+#
+#
+#
+EVENT cvdcPoorQoVNotificationRev1 .1.3.6.1.4.1.9.9.63.2.0.2 "Status Events" Normal
+FORMAT Poor quality of voice notification. A $*
+SDESC
+Poor quality of voice notification. A
+cvdcPoorQoVNotificationRev1 is sent at the call
+disconnection time if the value of cvVoIPCallHistoryIcpif
+exceeds the value of cvVoIPPeerCfgIcpif in the call
+associated peer.
+Variables:
+  1: cvVoIPCallHistoryConnectionId
+  2: cvVoIPCallHistoryIcpif
+  3: cvVoIPCallHistoryRemMediaIPAddrT
+  4: cvVoIPCallHistoryRemMediaIPAddr
+  5: cCallHistoryCallOrigin
+  6: cvCommonDcCallHistoryCoderTypeRate
+EDESC
+#
+#
+#
+EVENT cvdcActiveDS0sHighNotification .1.3.6.1.4.1.9.9.63.2.0.3 "Status Events" Normal
+FORMAT The cvdcActiveDS0sHighNotification is sent when the $*
+SDESC
+The cvdcActiveDS0sHighNotification is sent when the
+percentage of active DS0s exceeds 
+cvCallActiveDS0sHighThreshold value.
+Variables:
+  1: cvCallActiveDS0s
+  2: cvCallActiveDS0sHighThreshold
+EDESC
+#
+#
+#
+EVENT cvdcActiveDS0sLowNotification .1.3.6.1.4.1.9.9.63.2.0.4 "Status Events" Normal
+FORMAT The cvdcActiveDS0sLowNotification is sent when the $*
+SDESC
+The cvdcActiveDS0sLowNotification is sent when the
+percentage of active DS0s is less than 
+cvCallActiveDS0sLowThreshold value.
+Variables:
+  1: cvCallActiveDS0s
+  2: cvCallActiveDS0sLowThreshold
+EDESC
+#
+#
+#
+EVENT cvdcFallbackNotification .1.3.6.1.4.1.9.9.63.2.0.5 "Status Events" Normal
+FORMAT This cvdcFallbackNotificaion is sent out, $*
+SDESC
+This cvdcFallbackNotificaion is sent out,
+when the destination
+IP address of call fallback probe fails. This probe
+generated for beginning of each call, 
+with exception of existing cached entry.
+Variables:
+  1: cvVoIPCallHistoryConnectionId
+  2: cvVoIPCallHistoryFallbackIcpif
+  3: cvVoIPCallHistoryFallbackLoss
+  4: cvVoIPCallHistoryFallbackDelay
+  5: cvVoIPCallHistoryRemSigIPAddrT
+  6: cvVoIPCallHistoryRemSigIPAddr
+  7: cvVoIPCallHistoryRemMediaIPAddrT
+  8: cvVoIPCallHistoryRemMediaIPAddr
+  9: cCallHistoryCallOrigin
+  10: cvCommonDcCallHistoryCoderTypeRate
+EDESC
+#
+#
+#
+EVENT cvdcPolicyViolationNotification .1.3.6.1.4.1.9.9.63.2.0.6 "Status Events" Normal
+FORMAT Policy violation voice notification. A $*
+SDESC
+Policy violation voice notification. A
+cvdcPolicyViolationNotification is sent when the call is active
+and has policy violation. It can be media policy violation or
+DSCP policy violation.
+Variables:
+  1: ccVoIPCallActivePolicyName
+  2: cvVoIPCallActiveReversedDirectionPeerAddress
+  3: callActivePeerId
+  4: callActivePeerAddress
+EDESC

@@ -1,0 +1,2393 @@
+#
+#
+#
+#
+MIB: DATA-DOMAIN-MIB (file:./DATA_DOMAIN.mib) converted on Tue Jun 12 13:43:39 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT powerSupplyFailedAlarm .1.3.6.1.4.1.19746.2.0.1 "Status Events" Normal
+FORMAT Meaning: Power Supply failed $*
+SDESC
+Meaning: Power Supply failed
+What to do: replace the power supply
+Variables:
+EDESC
+#
+#
+#
+EVENT systemOverheatWarningAlarm .1.3.6.1.4.1.19746.2.0.2 "Status Events" Normal
+FORMAT Meaning: the temperature reading of one of the thermometers in the Chassis  has exceeded  $*
+SDESC
+Meaning: the temperature reading of one of the thermometers in the Chassis  has exceeded 
+the 'warning' temperature level.  If it continues to rise, it may eventually trigger a 
+shutdown of the DDR.  The index value of the alarm indicates the thermometer index that
+may be looked up in the environmentals table 'temperatures' for more information about
+the actual thermometer reading the high value.
+What to do: check the Fan status, temperatures of the environment in which the DDR is,
+and other factors which may increase the temperature.
+Variables:
+  1: tempSensorDescription
+EDESC
+#
+#
+#
+EVENT systemOverheatAlertAlarm .1.3.6.1.4.1.19746.2.0.3 "Status Events" Normal
+FORMAT Meaning: the temperature reading of one of the thermometers in the Chassis is more than $*
+SDESC
+Meaning: the temperature reading of one of the thermometers in the Chassis is more than
+halfway between the 'warning' and 'shutdown' temperature levels.  If it continues to rise, 
+it may eventually trigger a shutdown of the DDR.  The index value of the alarm indicates 
+the thermometer index that may be looked up in the environmentals table 'temperatures' 
+for more information about the actual thermometer reading the high value.
+What to do: check the Fan status, temperatures of the environment in which the DDR is,
+and other factors which may increase the system temperature.
+Variables:
+  1: tempSensorDescription
+EDESC
+#
+#
+#
+EVENT systemOverheatShutdownAlarm .1.3.6.1.4.1.19746.2.0.4 "Status Events" Normal
+FORMAT Meaning: the temperature reading of one of the thermometers in the Chassis has reached $*
+SDESC
+Meaning: the temperature reading of one of the thermometers in the Chassis has reached
+or exceeded the 'shutdown' temperature level. The DDR will be shutdown to prevent damage
+to the system.  The index value of the alarm indicates the thermometer index that may be
+looked up in the environmentals table 'temperatures' for more information about the actual 
+thermometer reading the high value.
+What to do: Once the system has been brought back up, after checking for high environment
+temperatures or other factors which may increase the system temperature, check other 
+environmental values, such as Fan Status, Disk Temperatures, etc...
+Variables:
+  1: tempSensorDescription
+EDESC
+#
+#
+#
+EVENT fanModuleFailedAlarm .1.3.6.1.4.1.19746.2.0.5 "Status Events" Normal
+FORMAT Meaning: a Fan Module in the enclosure has failed.  The index of the fan is given $*
+SDESC
+Meaning: a Fan Module in the enclosure has failed.  The index of the fan is given
+as the index of the alarm.  This same index can be looked up in the environmentals
+table 'fanProperies' for more information about which fan has failed.
+What to do: replace the fan
+Variables:
+  1: fanDescription
+EDESC
+#
+#
+#
+EVENT nvramFailingAlarm .1.3.6.1.4.1.19746.2.0.6 "Status Events" Normal
+FORMAT Meaning: The system has detected that the NVRAM is potentially failing.  There has $*
+SDESC
+Meaning: The system has detected that the NVRAM is potentially failing.  There has
+been an excessive amount of PCI or Memory errors. The nvram tables 'nvramProperties'
+and 'nvramStats' may provide for information on why the NVRAM is failing.
+What to do: check the status of the NVRAM after reboot, and replace if the
+errors continue.
+Variables:
+EDESC
+#
+#
+#
+EVENT fileSystemFailedAlarm .1.3.6.1.4.1.19746.2.0.7 "Status Events" Normal
+FORMAT Meaning: The File System process on the DDR has had a serious problem and has had $*
+SDESC
+Meaning: The File System process on the DDR has had a serious problem and has had
+to restart.
+What to do: check the system logs for conditions that may be triggering the failure.
+Other alarms may also indicate why the File System is having problems.
+Variables:
+EDESC
+#
+#
+#
+EVENT fileSpaceMaintenanceAlarm .1.3.6.1.4.1.19746.2.0.8 "Status Events" Normal
+FORMAT Meaning: DDVAR File System Resource Space is running low for system maintenance activities.  The $*
+SDESC
+Meaning: DDVAR File System Resource Space is running low for system maintenance activities.  The
+system may not have enough space for the routine system activities to run without error.
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.
+Variables:
+  1: fileSystemResourceName
+EDESC
+#
+#
+#
+EVENT fileSpacePreWarningAlarm .1.3.6.1.4.1.19746.2.0.9 "Status Events" Normal
+FORMAT Meaning: A File System Resource space is 80-85% utilized.  While not critical, the space usage $*
+SDESC
+Meaning: A File System Resource space is 80-85% utilized.  While not critical, the space usage
+should be monitored.  The index value of the alarm indicates the file system index that may be 
+looked up in the fileSystem table 'fileSystemSpace' for more information about the actual FS 
+that is getting full. 
+What to do: no action is necessary, but the file system should be monitored more closely as it
+grows more full.  Further alarms will be sent when and if the file system space is approaching very full.
+Variables:
+  1: fileSystemResourceName
+EDESC
+#
+#
+#
+EVENT fileSpaceWarningAlarm .1.3.6.1.4.1.19746.2.0.10 "Status Events" Normal
+FORMAT Meaning: A File System Resource space is 90% utilized.  The index value of the alarm indicates  $*
+SDESC
+Meaning: A File System Resource space is 90% utilized.  The index value of the alarm indicates 
+the file system index that may be looked up in the fileSystem table 'fileSystemSpace' 
+for more information about the actual FS that is getting full. 
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.  Consider upgrading the hardware or adding
+shelves to high-end units.  Reducing the retention times for backup data can also help. When 
+files are deleted from outside of the /ddvar space, filesys clean will have to be done before 
+the space is recovered.
+Variables:
+  1: fileSystemResourceName
+EDESC
+#
+#
+#
+EVENT fileSpaceSevereAlarm .1.3.6.1.4.1.19746.2.0.11 "Status Events" Normal
+FORMAT Meaning: A File System Resource space is 95% utilized.  The index value of the alarm indicates  $*
+SDESC
+Meaning: A File System Resource space is 95% utilized.  The index value of the alarm indicates 
+the file system index that may be looked up in the fileSystem table 'fileSystemSpace' 
+for more information about the actual FS that is getting full. 
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.  Consider upgrading the hardware or adding
+shelves to high-end units.  Reducing the retention times for backup data can also help. When 
+files are deleted from outside of the /ddvar space, filesys clean will have to be done before 
+the space is recovered.
+Variables:
+  1: fileSystemResourceName
+EDESC
+#
+#
+#
+EVENT fileSpaceCriticalAlarm .1.3.6.1.4.1.19746.2.0.12 "Status Events" Normal
+FORMAT Meaning: A File System Resource space is 100% utilized.  The index value of the alarm indicates  $*
+SDESC
+Meaning: A File System Resource space is 100% utilized.  The index value of the alarm indicates 
+the file system index that may be looked up in the fileSystem table 'fileSystemSpace' 
+for more information about the actual FS that is full. 
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.  Consider upgrading the hardware or adding
+shelves to high-end units.  Reducing the retention times for backup data can also help. When 
+files are deleted from outside of the /ddvar space, filesys clean will have to be done before 
+the space is recovered.
+Variables:
+  1: fileSystemResourceName
+EDESC
+#
+#
+#
+EVENT diskFailedAlarm .1.3.6.1.4.1.19746.2.0.14 "Status Events" Normal
+FORMAT Meaning: some problem has been detected about the indicated disk.  The index value  $*
+SDESC
+Meaning: some problem has been detected about the indicated disk.  The index value 
+of the alarm indicates the disk index that may be looked up in the disk tables 
+'diskProperties', 'diskPerformance', and 'diskReliability' for more information 
+about the actual disk that has failed.
+What to do: replace the disk.
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT diskOverheatWarningAlarm .1.3.6.1.4.1.19746.2.0.15 "Status Events" Normal
+FORMAT Meaning: the temperature reading of the indicated disk has exceeded the 'warning'  $*
+SDESC
+Meaning: the temperature reading of the indicated disk has exceeded the 'warning' 
+temperature level.  If it continues to rise, it may eventually trigger a 
+shutdown of the DDR.  The index value of the alarm indicates the disk index that
+may be looked up in the disk tables 'diskProperties', 'diskPerformance', and 
+'diskReliability' for more information about the actual disk reading the high value.
+What to do: check the disk status, temperatures of the environment in which the DDR is,
+and other factors which may increase the temperature.
+Variables:
+  1: diskTemperature
+EDESC
+#
+#
+#
+EVENT diskOverheatAlertAlarm .1.3.6.1.4.1.19746.2.0.16 "Status Events" Normal
+FORMAT Meaning: the temperature reading of the indicated disk is more than halfway between $*
+SDESC
+Meaning: the temperature reading of the indicated disk is more than halfway between
+the 'warning' and 'shutdown' temperature levels. If it continues to rise, it will 
+trigger a shutdown of the DDR.  The index value of the alarm indicates the disk index that
+may be looked up in the disk tables 'diskProperties', 'diskPerformance', and 
+'diskReliability' for more information about the actual disk reading the high value.
+What to do: check the disk status, temperatures of the environment in which the DDR is,
+and other factors which may increase the temperature.  If the temperature continues stays
+at this level or rises, and no other disks are reading this trouble, consider 'failing'
+the disk, and get a replacement.
+Variables:
+  1: diskTemperature
+EDESC
+#
+#
+#
+EVENT diskOverheatShutdownAlarm .1.3.6.1.4.1.19746.2.0.17 "Status Events" Normal
+FORMAT Meaning: the temperature reading of the indicated disk has surpassed the 'shutdown'  $*
+SDESC
+Meaning: the temperature reading of the indicated disk has surpassed the 'shutdown' 
+temperature level. The DDR will be shutdown.  The index value of the alarm indicates 
+the disk index that may be looked up in the disk tables 'diskProperties', 'diskPerformance', 
+and 'diskReliability' for more information about the actual disk reading the high value.
+What to do: Boot the DDR and monitor the status and temperatures.  If the same disk has
+continued problems, consider 'failing' it and get a replacement disk.
+Variables:
+  1: diskTemperature
+EDESC
+#
+#
+#
+EVENT raidReconSevereAlarm .1.3.6.1.4.1.19746.2.0.18 "Status Events" Normal
+FORMAT Meaning: A raid group is MAX degraded with no reconstruction after less than 71 hours or  $*
+SDESC
+Meaning: A raid group is MAX degraded with no reconstruction after less than 71 hours or 
+A disk group is degraded with none max degraded with no reconstruction. This alarm is sent 
+every 1 hour until 71 hours after which raidReconCriticalAlarm or raidReconCriticalShutdown
+alarm is generated. This can happen due to a disk failing at run-time or boot-time.
+What to do: while it is still possible that the reconstruction could succeed, the disk
+should be replaced to ensure data safety.
+Variables:
+EDESC
+#
+#
+#
+EVENT raidReconCriticalAlarm .1.3.6.1.4.1.19746.2.0.19 "Status Events" Normal
+FORMAT Meaning: Raid group is MAX degraded with no reconstruction after 71 hours. This can $*
+SDESC
+Meaning: Raid group is MAX degraded with no reconstruction after 71 hours. This can
+happen due to a disk failing at run-time or boot-up.
+What to do: the disk should be replaced to ensure data safety.
+Variables:
+EDESC
+#
+#
+#
+EVENT raidReconCriticalShutdownAlarm .1.3.6.1.4.1.19746.2.0.20 "Status Events" Normal
+FORMAT Meaning: Raid group is MAX degraded with no reconstruction after 71 hours. This can $*
+SDESC
+Meaning: Raid group is MAX degraded with no reconstruction after 71 hours. This can
+happen due to a disk failing at run-time or boot-up.
+What to do: the disk must be replaced.
+Variables:
+EDESC
+#
+#
+#
+EVENT raidGroupMissingAlarm .1.3.6.1.4.1.19746.2.0.21 "Status Events" Normal
+FORMAT Meaning: one or more raid groups are missing. $*
+SDESC
+Meaning: one or more raid groups are missing.
+What to do: disk may need replacement, or raid administration may be necessary.
+Variables:
+EDESC
+#
+#
+#
+EVENT diskNoSpareAlarm .1.3.6.1.4.1.19746.2.0.22 "Status Events" Normal
+FORMAT Meaning: there is no spare available for the raid group. $*
+SDESC
+Meaning: there is no spare available for the raid group.
+What to do: disk may need replacement, or raid administration may be necessary.
+Variables:
+EDESC
+#
+#
+#
+EVENT diskPathAlarm .1.3.6.1.4.1.19746.2.0.23 "Status Events" Normal
+FORMAT Meaning: multipath configuration is experiencing a problem.  The number of paths set up is less than  $*
+SDESC
+Meaning: multipath configuration is experiencing a problem.  The number of paths set up is less than 
+the required number of paths.  Disk index is the first disk in the enclosure with multipath.
+What to do: multipath disk administration may be necessary.
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT diskSASAlarm .1.3.6.1.4.1.19746.2.0.24 "Status Events" Normal
+FORMAT Meaning: SAS configuration error.  Maximum enclosures has been reached, or there $*
+SDESC
+Meaning: SAS configuration error.  Maximum enclosures has been reached, or there
+is a topology problem.
+What to do: SAS configuration documentation should be consulted.  administration may be necessary.
+Variables:
+EDESC
+#
+#
+#
+EVENT diskSASHBAAlarm .1.3.6.1.4.1.19746.2.0.25 "Status Events" Normal
+FORMAT Meaning: Unsupported multi-path setting is enabled in the hba firmware. $*
+SDESC
+Meaning: Unsupported multi-path setting is enabled in the hba firmware.
+What to do: contact Data Domain support.
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT snapshotFullAlarm .1.3.6.1.4.1.19746.2.0.26 "Status Events" Normal
+FORMAT Meaning: maximum number of snapshots has been reached. $*
+SDESC
+Meaning: maximum number of snapshots has been reached.
+What to do: expire some old snapshots to make room.
+Variables:
+EDESC
+#
+#
+#
+EVENT snapshotHWMAlarm .1.3.6.1.4.1.19746.2.0.27 "Status Events" Normal
+FORMAT Meaning: the number of snapshots has exceeded a predefined percentage (current 90%) of the maximum. $*
+SDESC
+Meaning: the number of snapshots has exceeded a predefined percentage (current 90%) of the maximum.
+What to do: begin expiring snapshots so that the maximum is not reached.
+Variables:
+EDESC
+#
+#
+#
+EVENT clusterNodeAlarm .1.3.6.1.4.1.19746.2.0.28 "Status Events" Normal
+FORMAT Meaning: node is not reachable on any network interface. $*
+SDESC
+Meaning: node is not reachable on any network interface.
+What to do: check status of network and wiring.  if that fails, try 
+rebooting the node.
+Variables:
+EDESC
+#
+#
+#
+EVENT clusterInterfaceAlarm .1.3.6.1.4.1.19746.2.0.29 "Status Events" Normal
+FORMAT Meaning: one interface of the cluster node is down. $*
+SDESC
+Meaning: one interface of the cluster node is down.
+What to do: check status of network and wiring.  if that fails, try 
+rebooting the node.
+Variables:
+EDESC
+#
+#
+#
+EVENT replSyncAlarm .1.3.6.1.4.1.19746.2.0.30 "Status Events" Normal
+FORMAT Meaning: a replication context is disabled due to nvram loss. $*
+SDESC
+Meaning: a replication context is disabled due to nvram loss.
+What to do: break replication on source and destination, then reconfigure
+them and run replication sync.
+Variables:
+  1: replStatus
+EDESC
+#
+#
+#
+EVENT systemStartupAlarm .1.3.6.1.4.1.19746.2.0.31 "Status Events" Normal
+FORMAT Meaning: system has rebooted or started.  this does not indicate any abnormal activity. $*
+SDESC
+Meaning: system has rebooted or started.  this does not indicate any abnormal activity.
+What to do: nothing, unless reboot was triggered by other abnormal conditions, such as
+temperature, fan or power problems.
+Variables:
+EDESC
+#
+#
+#
+EVENT filesysRelaunchAlarm .1.3.6.1.4.1.19746.2.0.32 "Status Events" Normal
+FORMAT Meaning: file system has undergone too many relaunches.  it is probably unstable. $*
+SDESC
+Meaning: file system has undergone too many relaunches.  it is probably unstable.
+What to do: consult system logs.  software or hardware restart may fix the malfunction.
+Variables:
+EDESC
+#
+#
+#
+EVENT filesysDDGCFailedAlarm .1.3.6.1.4.1.19746.2.0.33 "Status Events" Normal
+FORMAT Meaning: DDGC cleaning process has failed. $*
+SDESC
+Meaning: DDGC cleaning process has failed.
+What to do: consult system logs.  software or hardware restart may fix the malfunction.
+Variables:
+EDESC
+#
+#
+#
+EVENT filesysGeneralProblemAlarm .1.3.6.1.4.1.19746.2.0.34 "Status Events" Normal
+FORMAT Meaning: a general problem has occurred with the file system. $*
+SDESC
+Meaning: a general problem has occurred with the file system.
+What to do: consult system logs.  software or hardware restart may fix the malfunction.
+Variables:
+EDESC
+#
+#
+#
+EVENT diskUnsupportedAlarm .1.3.6.1.4.1.19746.2.0.35 "Status Events" Normal
+FORMAT Meaning: the model of the disk is unsupported by current DD platform.  The index value  $*
+SDESC
+Meaning: the model of the disk is unsupported by current DD platform.  The index value 
+of the alarm indicates the disk index that may be looked up in the disk tables 
+'diskProperties', 'diskPerformance', and 'diskReliability' for more information 
+about the actual disk.
+What to do: replace the disk.
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT eventIPMIUnmanageAlarm .1.3.6.1.4.1.19746.2.0.36 "Status Events" Normal
+FORMAT Meaning: IPMI unmanaged alert detected. $*
+SDESC
+Meaning: IPMI unmanaged alert detected.
+What to do: check alert message
+Variables:
+EDESC
+#
+#
+#
+EVENT cpismissing .1.3.6.1.4.1.19746.2.0.5500 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+One archive cp is missing
+Action: 
+- check power connection of each shelf.
+- check sas connection of each shelf.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT unknownDomainAlert .1.3.6.1.4.1.19746.2.0.5000 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+During upgrade the system could not determine whether it is joined into NT4 domain or
+Windows 2000 or newer AD domain.
+Action: 
+If the system is joined into an NT4 domain it is recommended to move (join) the system
+into Windows 2000 or newer AD domain. NT4 domain support is deprecated 
+and in a future release NT4 domains will not be supported.
+If the system is already joined into Windows 2000 or newer domain, 
+please switch the authentication mode.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nT4DomainAlert .1.3.6.1.4.1.19746.2.0.5001 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+During upgrade the system determined that it is joined into an NT4 domain.
+Action: 
+It is recommended to move (join) the system into Windows 2000 or newer AD domain since
+NT4 domain support is deprecated. 
+In a future release NT4 domains will not be supported.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT controllerUnreachableAlert .1.3.6.1.4.1.19746.2.0.5002 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+This is a GDA event raised by the Master controller when it fails to reach a Worker
+controller for more than 5 minutes. An unreachable Worker controller implies none of the Worker
+controller interfaces are pingable from the Master controller.
+Action: 
+Check the status of network interfaces on both controllers.
+Check network connectivity between the Master and Worker controller.
+Make sure all cables are securely connected.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT controllerIfaceUnreachableAlert .1.3.6.1.4.1.19746.2.0.5003 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+This is a GDA event raised by the Master controller when it fails to reach a particular
+Worker controller interface for more than 5 minutes. An unreachable interface implies that
+it is not pingable from its Master controller equivalent interface.
+Action: 
+Check network interface status on both controllers.
+Check network connectivity between the Master and Worker controller.
+Make sure all cables are securely connected.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT containerMarkedInvalid .1.3.6.1.4.1.19746.2.0.5501 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The restorer has marked container %1 of set %3 invalid.  This usually
+indicates that the restorer cannot verify or scrub the container.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT correctableECCLimitReached .1.3.6.1.4.1.19746.2.0.5004 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Single bit correctable ECC limit reached.
+Action: 
+Replace the failed DIMM(s).
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT uncorrectableECCerror .1.3.6.1.4.1.19746.2.0.5005 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Multi bit uncorrectable ECC error.
+Action: 
+Replace the failed DIMM(s).
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT legacyChassisTempWarning .1.3.6.1.4.1.19746.2.0.5006 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current temperature sensor reading exceeds warning threshold.
+Action: 
+Monitor temperature readings. If alert persists, check ambient room temperature 
+and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: tempSensorDescription
+EDESC
+#
+#
+#
+EVENT legacyChassisTempCritical .1.3.6.1.4.1.19746.2.0.5007 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current temperature sensor reading exceeds critical threshold.
+Action: 
+Check ambient room temperature and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: tempSensorDescription
+EDESC
+#
+#
+#
+EVENT legacyPowerSupplyWarning .1.3.6.1.4.1.19746.2.0.5008 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A power supply has failed, is unplugged, or absent.
+Action: 
+Check power supply cables and LED. Replace with other working power supply.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: powerModuleDescription
+EDESC
+#
+#
+#
+EVENT legacyFanWarning .1.3.6.1.4.1.19746.2.0.5009 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A fan has failed.
+Action: 
+Check for any failed fan. If yes, replace with new fan.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: fanDescription
+EDESC
+#
+#
+#
+EVENT powerSupplyWarning .1.3.6.1.4.1.19746.2.0.5010 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A power supply has failed, is unplugged, or absent.
+Action: 
+Check power supply cables and LED. Replace with other working power supply.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: powerModuleDescription
+EDESC
+#
+#
+#
+EVENT fanWarning .1.3.6.1.4.1.19746.2.0.5011 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A fan has failed or is missing.
+Action: 
+Check for any failed or missing fan. Reseat the fan.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: fanDescription
+EDESC
+#
+#
+#
+EVENT voltageWarning .1.3.6.1.4.1.19746.2.0.5012 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Voltage sensor reading exceeds warning threshold.
+Action: 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT powerWarning .1.3.6.1.4.1.19746.2.0.5013 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current power consumption reading exceeds warning threshold.
+Action: 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT correctECCWarning .1.3.6.1.4.1.19746.2.0.5014 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Memory correctable ECC errors exceed warning threshold.
+Action: 
+These memory errors are automatically corrected by the system. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nonThreshWarning .1.3.6.1.4.1.19746.2.0.5015 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current non-threshold type sensor reading exceeds warning threshold.
+Action: 
+Check specific alert message for appropriate action.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT processorWarning .1.3.6.1.4.1.19746.2.0.5016 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Processor thermal sensor alert.
+Action: 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT powerUnitWarning .1.3.6.1.4.1.19746.2.0.5017 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Power unit status alert (power off, power cycle, AC lost, power unit failure detected, etc.).
+Action: 
+This alert is expected after power off, power cycle, or lost of AC (main power) event.
+If this alert is not expected, check power cords or AC (main).
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT unCorrectECCWarning .1.3.6.1.4.1.19746.2.0.5018 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Memory uncorrectable ECC error alert.
+Action: 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT chassisSensorWarning .1.3.6.1.4.1.19746.2.0.5019 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Other chassis sensor alert.
+Action: 
+Check specific alert message for information.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT chassisSensorCritical .1.3.6.1.4.1.19746.2.0.5020 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current sensor reading or state exceeds critical condition.
+Action: 
+Check the specific alert message for information.
+Monitor temperature readings. If alert persists, check ambient room temperature 
+and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT chassisTempWarning .1.3.6.1.4.1.19746.2.0.5021 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current temperature sensor reading exceeds warning threshold.
+Action: 
+Monitor temperature readings. If alert persists, check ambient room temperature 
+and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: tempSensorDescription
+EDESC
+#
+#
+#
+EVENT chassisTempCritical .1.3.6.1.4.1.19746.2.0.5022 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current temperature sensor reading exceeds critical threshold.
+Action: 
+Check ambient room temperature and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: tempSensorDescription
+EDESC
+#
+#
+#
+EVENT cPUFailureWarning .1.3.6.1.4.1.19746.2.0.5023 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A CPU fault was detected.
+Action: 
+This might due to CPU hardware failure. 
+Check the log if this CPU is really bad. If yes, might need to do a chassis swap. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT legacyBMCHangCritical .1.3.6.1.4.1.19746.2.0.5024 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+BMC hang.
+Action: 
+Gracefully shut down the system and pull out all power cables to reset BMC. 
+Wait until all LEDS are off, reinsert the power cables, and press the power button 
+to turn on the system. 
+
+Variables:
+EDESC
+#
+#
+#
+EVENT bMCHangCritical .1.3.6.1.4.1.19746.2.0.5025 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+BMC hang.
+Action: 
+If the alert has stayed for a while, check if environment CLIs also fails.
+If yes, gracefully shut down the system and pull out all power cables to reset BMC. 
+Wait until all LEDS are off. Reinsert the power cables, and press the power button 
+to turn on the system. 
+
+Variables:
+EDESC
+#
+#
+#
+EVENT abnormalShutdown .1.3.6.1.4.1.19746.2.0.5026 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The system has been shutdown by abnormal method, i.e. not by one of the following: 
+1) Via IPMI chassis control command 
+2) Via power button
+3) Via OS shutdown
+Action: 
+This alert is expected after lost of AC (main power) event.
+If this shutdown is not expected and persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT smiMrc .1.3.6.1.4.1.19746.2.0.5502 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+BIOS SMI MRC interrupt
+Action: 
+Check if system memory size has been decreased due to a DIMM has been disabled.
+If yes, replace the bad DIMM.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dimmTempWarning .1.3.6.1.4.1.19746.2.0.5532 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current DIMM temperature sensor reading exceeds warning threshold.
+Action: 
+Monitor temperature readings. If alert persists, check ambient room temperature 
+and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dimmTempCritical .1.3.6.1.4.1.19746.2.0.5533 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current temperature sensor reading exceeds critical threshold.
+Action: 
+Check ambient room temperature and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT tooManyRelaunches .1.3.6.1.4.1.19746.2.0.5027 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The filesystem process has failed to restart multiple times.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com.  The log files will indicate the true cause 
+for the failure and will provide guidance for a corrective action.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT filesystemProblem .1.3.6.1.4.1.19746.2.0.5028 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A problem is preventing the filesystem from running. This usually 
+involves the storage being unavailable.
+Action: 
+Check disk shelf cabling.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDGCFailedInShutdown .1.3.6.1.4.1.19746.2.0.5029 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+DDGC process failed during shutdown.
+Action: 
+No action required.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDFSFailedInShutdown .1.3.6.1.4.1.19746.2.0.5030 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The filesystem failed to shutdown cleanly. This can leave dirty data in 
+NVRAM when it would normally be flushed to disk. An unclean shutdown state 
+can prevent certain actions from being performed (i.e. upgrade).
+Action: 
+Re-enable the filesystem and try shutting it down again. The condition is 
+cleared if the second shutdown completes cleanly.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDFSNotCleanlyShutdown .1.3.6.1.4.1.19746.2.0.5031 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+DDFS didn't shutdown cleanly because of DDGC.
+Action: 
+No action required.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDGCFailed1 .1.3.6.1.4.1.19746.2.0.5032 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+DDGC process failed; restarting DDFS
+Action: 
+No action required.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDGCFailed2 .1.3.6.1.4.1.19746.2.0.5033 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+DDGC process failed; system disabled
+Action: 
+No action required.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDFSNoHeartbeat .1.3.6.1.4.1.19746.2.0.5034 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Filesystem hung and failed to respond to heartbeats. 
+The filesystem has been restarted.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com for diagnosis of the cause of failure. 
+No other action required if filesystem successfully restarts.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDGCFailed3 .1.3.6.1.4.1.19746.2.0.5035 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+DDGC process failed during shutdown; starting DDFS.
+Action: 
+No action required.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDFSDiedAfterReboot .1.3.6.1.4.1.19746.2.0.5036 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The filesystem failed to startup immediately after system reboot.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com for diagnosis of the cause of failure. No other 
+action required if filesystem successfully restarts.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDFSDied .1.3.6.1.4.1.19746.2.0.5037 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The filesystem process failed and is restarting.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com for diagnosis of the cause of failure. No other 
+action required if filesystem successfully restarts.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDFSRebooted .1.3.6.1.4.1.19746.2.0.5038 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+This is just a notification alert that the system has been rebooted.
+Action: 
+No action required.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dDFSRebootedDisabled .1.3.6.1.4.1.19746.2.0.5039 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+This is a notification alert sent out during system startup following a 
+reboot. The system is rebooted with the filesystem in disabled state.
+Action: 
+No action is required unless the intent is to have the filesystem enabled. 
+In that case, invoke the 'filesys enable' command.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT indexRebuildComplete .1.3.6.1.4.1.19746.2.0.5040 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Index rebuild completed.
+Action: 
+Informational.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT historicalDatabaseRecoverError .1.3.6.1.4.1.19746.2.0.5041 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Historical database recovery failed. All existing historical data has been lost.
+Data in the historical database is used for some system reports, but it is not
+required for proper system functioning.  This failure may occur during head
+swap processing if recovery to create the new head primary historical database
+from the shelf database files fails.
+The system successfully created a new historical database.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com
+to debug this problem and possibly attempt recovery of the lost historical data.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT historicalDatabaseBackupError .1.3.6.1.4.1.19746.2.0.5042 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Historical database backup failed. If the primary historical database fails
+without a recent backup present, some or all of the historical data can be
+lost when the primary historical database is restored from its backup and log
+files.
+Data in the historical database is used for some system reports, but it is
+not required for proper system functioning.
+Action: 
+If this alert is issued 2 days in a row, contact your contracted support provider or visit us online at https://my.datadomain.com to help debug the problem.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT historicalDatabaseUpgradeError .1.3.6.1.4.1.19746.2.0.5043 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Historical database upgrade failed during software upgrade.  New historical
+data fields will not be saved.  Some UI reports might be unavailable, or
+be missing data. Otherwise, this should not affect the system.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com to help debug the problem and upgrade the
+historical database.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT historicalDatabasePruneError .1.3.6.1.4.1.19746.2.0.5044 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Historical database pruning failed.  Pruning ensures the historical database
+does not consume more than its allocated disk space.
+Action: 
+If this alert is issued 2 days in a row, contact your contracted support provider or visit us online at https://my.datadomain.com
+to help debug the problem. 
+
+Variables:
+EDESC
+#
+#
+#
+EVENT noHistoricalDatabaseError .1.3.6.1.4.1.19746.2.0.5045 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Historical database recovery failed. All existing historical data has been lost.
+Data in the historical database is used for some system reports, but it is not
+required for proper system functioning.  This failure may occur during head
+swap processing if recovery to create the new head primary historical database
+from the shelf database files fails.
+The system is running without historical database after failing to create a new one.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com
+to debug this problem and possibly attempt recovery of the lost historical data.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT hDTFileTransferFailed .1.3.6.1.4.1.19746.2.0.5046 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Unable to send historical data update file to DDMS.
+Action: 
+Check network connection and permissions between the DDMS and this DDR.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT hDTSystemError .1.3.6.1.4.1.19746.2.0.5047 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+System Error occurred while sending historical data to DDMS.
+Action: 
+Check configuration and system status, messages logs for indicative problems.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT dIMMFailureAlert .1.3.6.1.4.1.19746.2.0.5048 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+DIMM failure detected. DDFS can't be enabled.
+Action: 
+Replace the bad DIMMS.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT memoryAlert .1.3.6.1.4.1.19746.2.0.5049 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current memory is less than configured. DDFS can't be enabled.
+Action: 
+Check the DIMMS in DDR. Add new DIMMS and/or replace the bad DIMMS.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT portPathDisabled .1.3.6.1.4.1.19746.2.0.5050 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The user has forgotten to enable the path.
+There might be issues with failover if that path is not enabled.
+Action: 
+Enabling the path will resolve the issue.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT diskPathRedundancy .1.3.6.1.4.1.19746.2.0.5051 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Only one path is seen on a multipath configuration and only one HBA is connected.
+Action: 
+Verify all storage cabling is connected correctly.
+Verify that HBA controllers are functional.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT missingPortConnection .1.3.6.1.4.1.19746.2.0.5052 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A port and the attached storage has disappeared.
+Action: 
+Verify the connection and any external storage connected to the missing port.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT missingLunPath .1.3.6.1.4.1.19746.2.0.5053 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The number of active paths to a LUN has changed.
+Action: 
+If this is due to reconfiguration, verify the topology and disable then re-enable
+multipath monitoring to reset the monitoring. If not, verify the storage cabling and that
+all paths are connected.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT missingDiskPath .1.3.6.1.4.1.19746.2.0.5054 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The number of active paths to a disk has changed.
+Action: 
+If this is due to reconfiguration, verify the topology and disable then re-enable
+multipath monitoring to reset the monitoring. If not, verify the storage cabling and that
+all paths are connected.
+
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT missingEnclosurePath .1.3.6.1.4.1.19746.2.0.5055 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The number of active paths to an enclosure has changed.
+Action: 
+If this is due to reconfiguration, verify the topology and disable then re-enable
+multipath monitoring to reset the monitoring. If not, verify the storage cabling and that
+all paths are connected.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT linkLoss .1.3.6.1.4.1.19746.2.0.5056 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Link loss detected. 
+Action: 
+Check network connectivity.
+
+Variables:
+  1: ifIndex
+EDESC
+#
+#
+#
+EVENT linkOscillations .1.3.6.1.4.1.19746.2.0.5057 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Link oscillations detected.
+Action: 
+Check network connectivity.
+
+Variables:
+  1: ifIndex
+EDESC
+#
+#
+#
+EVENT linkConfiguration .1.3.6.1.4.1.19746.2.0.5058 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Link configuration problem detected.
+Action: 
+Check network configuration.
+
+Variables:
+  1: ifIndex
+EDESC
+#
+#
+#
+EVENT nvramWarning .1.3.6.1.4.1.19746.2.0.5059 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM's battery or card status is not OK. DDFS cannot be enabled.
+If the battery status is low charge, it might take up to 3 hrs for the battery 
+to be fully charged. When battery is full, this NVRAM alert will be cleared.            
+Action: 
+Use CLI command to check battery status.
+If the battery status is low charge, wait for NVRAM alert being cleared.
+For other reasons or if the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryAlert .1.3.6.1.4.1.19746.2.0.5060 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A battery on the NVRAM card is in discharged state and is not charging.
+Action: 
+The NVRAM card needs to be replaced.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: nvramBatteryStatus
+EDESC
+#
+#
+#
+EVENT nvramErrorAlert .1.3.6.1.4.1.19746.2.0.5061 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM card has too many PCI or memory ECC errors.
+Action: 
+The NVRAM card needs to be replaced.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBoardTempAlert .1.3.6.1.4.1.19746.2.0.5503 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current NVRAM board temperature sensor reading exceeds warning threshold.
+Action: 
+Check if there is system fan alerts. If yes, replace with new fan. 
+Check ambient room temperature and for blocked air flow. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBoardVoltageAlert .1.3.6.1.4.1.19746.2.0.5504 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current NVRAM board voltage sensor reading exceeds warning threshold.
+Action: 
+Check if system motherboard 12V voltage also exceeds warning threshold.
+If yes, correct motherboard power supply issue.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryTempAlert .1.3.6.1.4.1.19746.2.0.5505 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current NVRAM battery temperature sensor reading exceeds warning threshold.
+Action: 
+Check if there is system fan alerts. If yes, replace with new fan. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryVoltageAlert .1.3.6.1.4.1.19746.2.0.5506 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current NVRAM battery voltage sensor reading exceeds warning threshold.
+Action: 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryChargeAlert .1.3.6.1.4.1.19746.2.0.5507 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM battery is not being charged.
+Action: 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryLowChargeAlert .1.3.6.1.4.1.19746.2.0.5508 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM battery charge is lower than 80%.
+Action: 
+This alert will be cleared when battery charge is greater than or equal 80%.
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryGaugeAlert .1.3.6.1.4.1.19746.2.0.5509 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Cannot get NVRAM battery status.
+Action: 
+Check if NVRAM cables and battery cables are connected.
+If the problem persists, replace battery pack.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryDetectAlert .1.3.6.1.4.1.19746.2.0.5510 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM battery is not detected.
+Action: 
+Check if NVRAM cables and battery cables are connected.
+If the problem persists, replace battery pack.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryChargeDisableAlert .1.3.6.1.4.1.19746.2.0.5511 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM battery charging is disabled.
+Action: 
+If the problem persists, replace battery pack.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramCorrectMemAlert .1.3.6.1.4.1.19746.2.0.5512 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM correctable memory errors exceed threshold.
+Action: 
+If the problem persists, replace NVRAM DIMM.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramUncorrectMemAlert .1.3.6.1.4.1.19746.2.0.5513 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM uncorrectable memory error alert.
+Action: 
+If the problem persists, replace NVRAM DIMM.
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramPCIeAlert .1.3.6.1.4.1.19746.2.0.5514 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+System PCIe correctable error alert.
+Action: 
+System hardware normally corrects these PCIe errors.   
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramCPUAlert .1.3.6.1.4.1.19746.2.0.5515 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM Octeon CPU correctable error alert.
+Action: 
+NVRAM hardware normally corrects these correctable errors.   
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramBatteryPowerDisableAlert .1.3.6.1.4.1.19746.2.0.5516 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM battery power is disabled.
+Action: 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramReadOnlyAlert .1.3.6.1.4.1.19746.2.0.5517 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM device is set to read only due to hardware faults (e.g. board init failure).
+Action:  
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramCardDetectAlert .1.3.6.1.4.1.19746.2.0.5518 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+No NVRAM card is detected.
+Action: 
+Check if there is NVRAM card in the system. 
+If yes, check if the NVRAM card is seated correctly or is the correct type. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramWrongModelAlert .1.3.6.1.4.1.19746.2.0.5519 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM card type and DDR model are mismatched.
+Action: 
+Check if NVRAM card type is correct for this model. 
+If no, replace with the correct nvram card. 
+If yes, reinstall the DDOS to have the correct model. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramMemSizeAlert .1.3.6.1.4.1.19746.2.0.5520 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM card has wrong memory size for this model.
+Action: 
+Check if NVRAM card memory size is correct for this model. 
+If no, replace with the correct size NVRAM memory DIMM. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramLinkSpeedAlert .1.3.6.1.4.1.19746.2.0.5521 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM card has wrong link speed for this model.
+Action: 
+Check if NVRAM card link speed is correct for this model. 
+If no, replace with the correct NVRAM card type. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramLinkWidthAlert .1.3.6.1.4.1.19746.2.0.5522 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM card has wrong link width for this model.
+Action: 
+Check if NVRAM card is plugged into the correct slot or is the correct type. 
+If it is wrong slot, plug into the correct slot. 
+If it is the wrong type, replace with the correct NVRAM card type. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramGetInfoAlert .1.3.6.1.4.1.19746.2.0.5523 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Failed to get NVRAM card and battery info.
+Action: 
+Check if the NVRAM battery unit is connected to power cable and to the NVRAM card. 
+If not, connect the cable. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramTargetLinkSpeedAlert .1.3.6.1.4.1.19746.2.0.5524 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM card has wrong target link speed for this model.
+Action: 
+Check if NVRAM card target link speed is correct for this model. 
+If no, replace with the correct NVRAM card type. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramWrongCountAlert .1.3.6.1.4.1.19746.2.0.5525 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM card count and DDR model are mismatched.
+Action: 
+Check if NVRAM card count and type are correct for this model. 
+If no, remove or insert the nvram card to have the correct number of nvram card. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT nvramMixAlert .1.3.6.1.4.1.19746.2.0.5526 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Mixed NVRAM card type is not supported.
+Action: 
+Check if NVRAM card count and type are correct for this model. 
+If no, replace the correct nvram card type. 
+If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT ext3NvlogDisabled .1.3.6.1.4.1.19746.2.0.5527 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+NVRAM battery status is not OK to enable ext3 nvlog in this disk group.
+When battery status is OK, ext3 nvlog will be enabled and this alert will be cleared.
+Action: 
+Wait for NVRAM alert being cleared. If the problem persists, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT phyalert .1.3.6.1.4.1.19746.2.0.5062 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Enclosure slot has been disabled.
+Action: 
+Replace the drive and enable the slot using CLI.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT replProgressThreshholdReached .1.3.6.1.4.1.19746.2.0.5063 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Replication has not made progress recently
+Action: 
+- check the network
+- check the replica filesystem
+- check the 'replication status' or the GUI for errors
+- check the messages file for more specific messages
+
+Variables:
+  1: replStatus
+EDESC
+#
+#
+#
+EVENT replNeedResync .1.3.6.1.4.1.19746.2.0.5064 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Replication needs resync. This context is disabled due to nvram loss.
+Action: 
+Please break replication on both source and destination, then
+reconfigure them and run replication resync.
+
+Variables:
+  1: replStatus
+EDESC
+#
+#
+#
+EVENT replLogFull .1.3.6.1.4.1.19746.2.0.5065 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Number of free replication log entries is below threshold! Disabling write access.
+Action: 
+Allow configured contexts to make progress.  If a context
+is disabled, it should be re-enabled and allowed to progress.
+Any disabled contexts that are no longer needed should be broken
+using the replication break command.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT replIncompatibleWorm .1.3.6.1.4.1.19746.2.0.5066 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Incompatible retention-locked files detected in resync
+Action: 
+Resync cannot be done with conflicting retention-locked files on the destination.
+Check replication destination for retention locked files that are in a state that
+is different than the source.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT replDestNotConfigured .1.3.6.1.4.1.19746.2.0.5067 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Destination is not configured, can't initialize
+Action: 
+Configure the context on the destination.
+
+Variables:
+  1: replConfigDest
+EDESC
+#
+#
+#
+EVENT replLagThreshholdReached .1.3.6.1.4.1.19746.2.0.5068 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Replication lag threshold reached
+Action: 
+Check replication history to make sure replication is properly working.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT replPathTooLong .1.3.6.1.4.1.19746.2.0.5531 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Path is too long
+Action: 
+Shorten the path.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT sASEnclosureCheck .1.3.6.1.4.1.19746.2.0.5069 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Detected that a port has exceeded the maximum limit on the number of supported SAS enclosures.
+Hence, there might be issues with this unsupported configuration.
+Action: 
+Read documentation. Inspect the port and reduce the number of externally connected SAS enclosures.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT sASTopologyCheck .1.3.6.1.4.1.19746.2.0.5070 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Detected a SAS topology error.
+Action: 
+Read documentation.  Verify the connectivity of the SAS enclosures.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT sASPortDisabled .1.3.6.1.4.1.19746.2.0.5071 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Detected that an HBA port is disabled.
+Either shelf controller failures or faulty cables.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com to diagnose a connectivity problem.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT enclosureMixType .1.3.6.1.4.1.19746.2.0.5528 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Mix of enclosure type is encountered.
+Action: 
+Fix the mix enclosure chain.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT enclosureFwUpgradeAlert .1.3.6.1.4.1.19746.2.0.5534 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Enclsoure firmware upgrade failed.
+Action: 
+No action required.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT sSLCertificateCorrupted .1.3.6.1.4.1.19746.2.0.5072 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The SSL certificate used to establish mutual trust between Data Domain systems is broken.        
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com
+
+Variables:
+EDESC
+#
+#
+#
+EVENT missingSysadminRegistryEntry .1.3.6.1.4.1.19746.2.0.5073 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The required registry entry for determining the role of the 'sysadmin' user
+was missing from the registry. This entry is required for the 'sysadmin' user
+to function. Without this, the 'sysadmin' user does not have the proper
+privileges hence cannot perform certain critical/important operations. This
+may cause the system unusable.
+Due to the possible in-correctable consequences this condition may cause,
+DDSH has auto-corrected the issue by adding the missing entry back in the
+registry so the 'sysadmin' user can still function. However, there might
+be issues still if there are other registry entries that are missing.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com
+to debug why the registry entry for the 'sysadmin' user was missing and
+see if any other registry entries got missing and to fix it.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT smsRestartFullQ .1.3.6.1.4.1.19746.2.0.5074 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+System management service, SMS is restarted as all service tasks are stuck and not making any progress.
+Action: 
+If the problem persist, contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT snapshotOver90Percent .1.3.6.1.4.1.19746.2.0.5075 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Current number of snapshots for an Mtree is at 90% or more of the maximum number of snapshots allowed.
+Action: 
+Consider expiring existing snapshots of that Mtree or adjusting scheduled snapshot retention periods.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT snapshotLimitReached .1.3.6.1.4.1.19746.2.0.5076 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Data Domain system has a limit on the number of existing snapshots held at once for a single Mtree.
+Once this limit is reached no more snapshots can be created of that Mtree.
+Action: 
+Consider expiring existing snapshots of that Mtree to make room for newer ones.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT sNTZMultipleIterations .1.3.6.1.4.1.19746.2.0.5077 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Indicates that sanitization will be run in multiple iterations.
+In the worst case this can take 15-20 days for 280 TBs. It means 
+that the system will not run at full speed for that period of 
+time and that GC will not be run to reclaim space. However, 
+sanitization will also reclaim space back but it might not be 
+as efficient as GC is.
+Action: 
+Make sure that you have enough space to not run out of space and
+that you can wait that many days in the worst case. You should have
+at least 20% of physical space available. Other option is
+to abort sanitization, delete a bunch of files and try again. You can
+do this process iteratively until you do not get this alert anymore. 
+
+Variables:
+EDESC
+#
+#
+#
+EVENT coredumpWarning .1.3.6.1.4.1.19746.2.0.5078 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+/ddvar might soon run out of space to save system core dumps.
+Action: 
+Remove unwanted files from /ddvar to free up some space.
+Lack of space can result in missing core dumps that will hamper debugging operations.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT coredumpDisabled .1.3.6.1.4.1.19746.2.0.5079 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Space in /ddvar is not sufficient enough for saving system core dumps.
+Action: 
+Remove unwanted files from /ddvar to free up some space.
+Lack of space can result in missing core dumps that will hamper debugging operations.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT spaceOver80Percent .1.3.6.1.4.1.19746.2.0.5080 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Space usage has exceeded 80% of the total capacity.
+Action: 
+If it is in root or /ddvar, remove unwanted files to free up some space.
+Lack of space can result in missing important logs. 
+If it is in active tier, remove unwanted files to free up some space.
+If it is in archive tier, add more archive units to the filesystem.
+
+Variables:
+  1: fileSystemSpaceUsed
+EDESC
+#
+#
+#
+EVENT spaceOver90Percent .1.3.6.1.4.1.19746.2.0.5081 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Space usage has exceeded 90% of the total capacity.
+Action: 
+If it is in root or /ddvar, remove unwanted files to free up some space.
+Lack of space can result in missing important logs. 
+If it is in active tier, remove unwanted files to free up some space.
+If it is in archive tier, add more archive units to the filesystem.
+
+Variables:
+  1: fileSystemSpaceUsed
+EDESC
+#
+#
+#
+EVENT diskAccessError .1.3.6.1.4.1.19746.2.0.5082 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Data Domain system cannot identify the state of the disk.
+Action: 
+Contact your contracted support provider or visit us online at https://my.datadomain.com.
+
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT diskFailure .1.3.6.1.4.1.19746.2.0.5083 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The disk is in one of the following states: absent, failed, foreign.
+Action: 
+Make sure that the disk is securely connected.
+If the disk has gone bad then it needs a replacement.
+
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT diskTemperatureWarning .1.3.6.1.4.1.19746.2.0.5084 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The disk temperature sensor reading has exceeded the warning threshold.
+Action: 
+If the temperature is high due to high activity for a short period, it should return
+to normal later. If not, check if there is any fan failure or if the surrounding
+environment temperature is too high or too low or if the sensor is reporting
+inaccurate value.
+
+Variables:
+  1: diskTemperature
+EDESC
+#
+#
+#
+EVENT diskTemperatureShutdown .1.3.6.1.4.1.19746.2.0.5085 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The disk temperature sensor reading has exceeded the critical threshold.
+Action: 
+The system will shut down for this high temperature critical alert.
+Check if there is any fan failure or if the surrounding environment temperature is too
+high or too low or if the sensor is reporting inaccurate value.
+
+Variables:
+  1: diskTemperature
+EDESC
+#
+#
+#
+EVENT unsupportedHardwareSpareSize .1.3.6.1.4.1.19746.2.0.5086 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+The disk capacity is too small for it to be of any use in the system.
+Action: 
+Replace with a larger capacity disk.
+
+Variables:
+  1: diskSerialNumber
+EDESC
+#
+#
+#
+EVENT missingDiskGroup .1.3.6.1.4.1.19746.2.0.5087 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+One or more critical disks/LUNs are unavailable.
+Action: 
+Make sure all storage is securely connected.
+Look at alert history for any path failures.
+Check for any core files, a critical layer may be unavailable.
+Verify that all storage is working and recognized correctly.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT diskGroupReconstructionNoProgress .1.3.6.1.4.1.19746.2.0.5088 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+One or more disks are failed and the RAID reconstruction is not running.
+Action: 
+Make sure there is/are spare disk(s) in the system.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT diskGroupReconstruction .1.3.6.1.4.1.19746.2.0.5089 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Two or more disks are failed and the RAID protection is in critical state.
+If an additional disk fails, there might be permanent loss of data.
+The system will shut down if the problem is not fixed.
+Action: 
+Make sure there is/are spare disk(s) in the system.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT diskGroupReconstructionShutdown .1.3.6.1.4.1.19746.2.0.5090 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Two or more disks are failed and the RAID protection is in critical state for over a
+considerable period of time. If an additional disk fails, there might be permanent loss of
+data. The system will shut down.
+Action: 
+Restart the system and make sure there is/are spare disk(s) in the system.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT diskGroupReconstructionCritical .1.3.6.1.4.1.19746.2.0.5091 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Two or more disks are failed and the RAID protection is in critical state for over a
+considerable period of time. If an additional disk fails, there might be permanent loss of
+data.
+Action: 
+Make sure there is/are spare disk(s) in the system.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT diskUnknown .1.3.6.1.4.1.19746.2.0.5092 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Disk is unknown.
+Action: 
+Add disk to the system.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT enclUnknown .1.3.6.1.4.1.19746.2.0.5093 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+All disks in enclosure are unknown.
+Action: 
+Add enclosure to the system.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT lowSpares .1.3.6.1.4.1.19746.2.0.5094 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Tier is low on spares.
+Action: 
+Replace any failed or absent disks.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT unsupportedConfigurationROL .1.3.6.1.4.1.19746.2.0.5095 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+Raid on LUN from 4.8 is no longer supported.  Please follow instruction on how to increase 
+usable space in your filesystem. 
+Action: 
+1) migrate data away 
+2) do a filesystem destroy
+3) add your LUN
+4) migrate data back  
+
+Variables:
+EDESC
+#
+#
+#
+EVENT syslogAlert .1.3.6.1.4.1.19746.2.0.5096 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+A message of high severity has been logged.
+Action: 
+Look at the logs and check if there is a problem that needs attention.
+
+Variables:
+EDESC
+#
+#
+#
+EVENT vTLFCLinkOffline .1.3.6.1.4.1.19746.2.0.5529 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+VTL FC Link is offline: Port %s 
+Action: 
+If this port is not in use, please disable it. If port is being
+used, please check FC Port connectivity. Alert will be cleared
+when port is disabled or online.
+
+Variables:
+  1: vtlPortTrapIndex
+EDESC
+#
+#
+#
+EVENT vTLFCLinkOscillations .1.3.6.1.4.1.19746.2.0.5530 "Status Events" Normal
+FORMAT Description:  $*
+SDESC
+Description: 
+VTL-FCMON: Number of link oscillations for VTL FC Port %s = %d,
+in a time interval of %d minutes. Current threshold is %d.
+Action: 
+Check FC Port connectivity. Please disable the port if it is not in use.
+
+Variables:
+EDESC

@@ -1,0 +1,20 @@
+#
+#
+#
+#
+MIB: CISCO-SNA-LLC-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SNA-LLC-MIB.mib) converted on Tue Aug 21 15:26:33 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT llcCcStatusChange .1.3.6.1.4.1.9.10.8.2.0.1 "Status Events" Normal
+FORMAT This trap indicates that the state of an LLC $*
+SDESC
+This trap indicates that the state of an LLC
+connection component has transitioned to
+normal(3) or aDM(1).
+Variables:
+  1: llcCcOperState
+  2: llcCcOperLastFailTime
+  3: llcCcOperLastFailCause
+  4: llcCcOperLastFailFRMRInfo
+EDESC

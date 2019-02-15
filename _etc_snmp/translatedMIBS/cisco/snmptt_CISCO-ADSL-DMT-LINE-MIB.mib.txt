@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-ADSL-DMT-LINE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ADSL-DMT-LINE-MIB.mib) converted on Tue Aug 21 15:25:37 2012 using snmpttconvertmib v1.3

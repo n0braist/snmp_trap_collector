@@ -1,0 +1,26 @@
+#
+#
+#
+#
+MIB: CISCO-MODEM-MGMT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-MODEM-MGMT-MIB.mib) converted on Tue Aug 21 15:26:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cmStateNotification .1.3.6.1.4.1.9.9.47.2.0.1 "Status Events" Normal
+FORMAT A modem port state change notification is generated whenever $*
+SDESC
+A modem port state change notification is generated whenever
+the port transitions to a state where it is offline due to
+a failure or administrative action.
+The values of cmState which will trigger this notification are:
+busiedOut(5)               - Administratively out of service
+disabled(6)                - Administratively out of service
+bad(7)                     - Internally detected failure or
+administrative action
+loopback(8)                - Testing
+downloadFirmware(9)        - Administrative action
+downloadFirmwareFailed(10) - Internally detected failure
+
+Variables:
+  1: cmState
+EDESC

@@ -1,0 +1,106 @@
+
+POLYCOM-RMX-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS  
+TRAP-TYPE          FROM RFC-1215
+DateAndTime        FROM SNMPv2-TC
+  MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+    enterprises   , Unsigned32
+    FROM SNMPv2-SMI ; 
+
+polycom MODULE-IDENTITY
+  LAST-UPDATED  "200703140000Z"
+  ORGANIZATION  "Polycom Ltd."
+  CONTACT-INFO  "Sagi Amiel"
+
+  DESCRIPTION
+"This is RMX MCU MIB"
+  ::= { enterprises 13885 }  
+    
+nsdProducts	         OBJECT IDENTIFIER ::= { polycom    9}
+rmx                      OBJECT IDENTIFIER ::= { nsdProducts 1}
+
+rmxMib1	                 OBJECT IDENTIFIER ::= { rmx 1}
+rmxMib1General	 	 OBJECT IDENTIFIER ::= { rmxMib1 1}
+rmxMib1Events	 	 OBJECT IDENTIFIER ::= { rmxMib1 2}
+rmxMib1EventsParams	 OBJECT IDENTIFIER ::= { rmxMib1Events 1}
+rmxNotify	  	 OBJECT IDENTIFIER ::= { rmxMib1Events 2}
+rmxTraps	         OBJECT IDENTIFIER ::= { rmxNotify 0 }
+
+
+rmxProducts	         OBJECT IDENTIFIER ::= { rmx 10 }
+rmx2000	                 OBJECT IDENTIFIER ::= { rmxProducts 1 }
+rmx4000					 OBJECT IDENTIFIER ::= { rmxProducts 2 }
+-- PUT HERE MORE PRODUCTS...  
+-- sample : rmx8000	                 OBJECT IDENTIFIER ::= { rmxProducts 8 }
+
+
+rmxStatus ::= TEXTUAL-CONVENTION
+    STATUS          current
+    DESCRIPTION
+            "A possible status of RMX"
+	SYNTAX  	INTEGER {
+					normal  (0),
+					startup (1),
+					minor   (2),
+					major   (3)
+    }
+
+
+
+rmxCurrentStatus OBJECT-TYPE
+	SYNTAX  	rmxStatus
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"MCU current status"
+::= { rmxMib1General 1 }
+
+
+ 
+----------------------------------------------------------
+--   Trap Group
+--   All RMX traps have severity major (3).
+-------------------------------------------------------
+
+rmxAlarmDescription OBJECT-TYPE
+	SYNTAX  OCTET STRING (SIZE (0..255))
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"Active alarm description"
+::= {rmxMib1EventsParams 1 }  
+
+rmxActiveAlarmDateAndTime OBJECT-TYPE
+	SYNTAX  DateAndTime
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"Active alarm date and time"
+::= {rmxMib1EventsParams 2 } 
+
+rmxActiveAlarmIndex OBJECT-TYPE
+	SYNTAX  Unsigned32
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"Active alarm table unique index number"
+::= {rmxMib1EventsParams 3 } 
+
+rmxActiveAlarmListName OBJECT-TYPE
+	SYNTAX  OCTET STRING (SIZE (0..255))
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"The alarmListName value of this entery."
+::= {rmxMib1EventsParams 4 } 
+
+rmxActiveAlarmRmxStatus OBJECT-TYPE
+	SYNTAX  rmxStatus
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"The current status of the RMX"
+::= {rmxMib1EventsParams 5 } 
+
+
+------------------------------------------------------------------------------
+--  TRAP V2
+------------------------------------------------------------------------------
+
+
+END

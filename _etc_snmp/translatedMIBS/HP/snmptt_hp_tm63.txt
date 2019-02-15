@@ -1,0 +1,73 @@
+#
+#
+#
+#
+MIB: TM63-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/TM63-MIB.mib) converted on Mon Aug 20 10:45:18 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT trapOptiLine16ALPActive .1.3.6.1.4.1.5746.1.2.7.0.1 "Status Events" CRITICAL
+FORMAT Urgent alarm is active: Urgent alarm is active
+SDESC
+urgent alarm is active
+Variables:
+EDESC
+#
+#
+#
+EVENT trapOptiLine16ALNActive .1.3.6.1.4.1.5746.1.2.7.0.2 "Status Events" MINOR
+FORMAT Not urgent alarm is active: Not urgent alarm is active
+SDESC
+Not urgent alarm is active
+Variables:
+EDESC
+#
+#
+#
+EVENT trapOptiLine16LogIdn .1.3.6.1.4.1.5746.1.2.7.0.3 "Status Events" NORMAL
+FORMAT Memory: Occurence of event in the device: Event id $1: $2
+SDESC
+Occurence of event in the device:
+1.record of the event to local log
+2.passing event identifier in the trap message
+Variables:
+  1: obEventIdn
+  2: obEventDescription
+EDESC
+#
+#
+#
+EVENT trapOptiLine16Es .1.3.6.1.4.1.5746.1.2.7.0.4 "Status Events" Normal
+FORMAT The change in the es/ses registers $*
+SDESC
+The change in the es/ses registers
+Variables:
+EDESC
+#
+#
+#
+EVENT trapOptiLine16confn .1.3.6.1.4.1.5746.1.2.7.0.5 "Status Events" Normal
+FORMAT Configuration change (record of the Configuration member variable) $*
+SDESC
+Configuration change (record of the Configuration member variable)
+n - element identifier, which has been modified
+Variables:
+EDESC
+#
+#
+#
+EVENT trapOptiLine16ALPInactive .1.3.6.1.4.1.5746.1.2.7.0.6 "Status Events" NORMAL
+FORMAT Urgent alarm inactive: urgent alarm inactive
+SDESC
+urgent alarm inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT trapOptiLine16ALNInactive .1.3.6.1.4.1.5746.1.2.7.0.7 "Status Events" NORMAL
+FORMAT Not urgent alarm inactive: Not urgent alarm inactive
+SDESC
+Not urgent alarm inactive
+Variables:
+EDESC

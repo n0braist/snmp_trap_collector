@@ -1,0 +1,114 @@
+#
+#
+#
+#
+MIB: CISCO-DIGITAL-MEDIA-SYSTEMS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DIGITAL-MEDIA-SYSTEMS-MIB.mib) converted on Tue Aug 21 15:25:51 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoDmsMediaPlayerRegistered .1.3.6.1.4.1.9.9.655.0.1 "Status Events" Normal
+FORMAT This notification is generated when a media player $*
+SDESC
+This notification is generated when a media player
+is registered into this installation of DMS.
+Variables:
+  1: cdmsNumMediaPlayerDevices
+  2: cdmsInventoryElementMacAddress
+  3: cdmsInventoryElementAddrType
+  4: cdmsInventoryElementAddress
+EDESC
+#
+#
+#
+EVENT ciscoDmsMediaPlayerUp .1.3.6.1.4.1.9.9.655.0.2 "Status Events" Normal
+FORMAT This notification is generated when a media player $*
+SDESC
+This notification is generated when a media player
+which is registered with DMS becomes operational.
+Variables:
+  1: cdmsNumMediaPlayerDevices
+  2: cdmsInventoryElementMacAddress
+  3: cdmsInventoryElementAddrType
+  4: cdmsInventoryElementAddress
+EDESC
+#
+#
+#
+EVENT ciscoDmsMediaPlayerDown .1.3.6.1.4.1.9.9.655.0.3 "Status Events" Normal
+FORMAT This notification is generated when a media player $*
+SDESC
+This notification is generated when a media player
+which is registered with DMS and which was operational
+is shutdown.
+Variables:
+  1: cdmsNumMediaPlayerDevices
+  2: cdmsInventoryElementAddrType
+  3: cdmsInventoryElementAddress
+EDESC
+#
+#
+#
+EVENT ciscoDmsMediaPlayerAddrTaken .1.3.6.1.4.1.9.9.655.0.4 "Status Events" Normal
+FORMAT This notification is generated when it is detected $*
+SDESC
+This notification is generated when it is detected
+that the network address of a media player is
+taken by a different media player.
+Variables:
+  1: cdmsInventoryElementAddrType
+  2: cdmsInventoryElementAddress
+EDESC
+#
+#
+#
+EVENT ciscoDmsHaClusterNodeUp .1.3.6.1.4.1.9.9.655.0.5 "Status Events" Normal
+FORMAT This notification is generated when it is detected $*
+SDESC
+This notification is generated when it is detected
+that a node in a managed DMS cluster has transitioned
+to active state, that is, the value of the object
+'cdmsHaDmmClusterMemberOperState' or
+'cdmsHaVpClusterMemberOperState' has transitioned to 'active'.
+This object specifies the administrative state of
+sending the 'ciscoDmsHaClusterNodeDown' notification to
+signal the fact that a component in a DMS cluster has 
+transitioned to inactive state.
+Variables:
+  1: cdmsHaClusterHistClusterName
+  2: cdmsHaClusterHistNodeType
+  3: cdmsHaClusterHistNodeAddrType
+  4: cdmsHaClusterHistNodeAddr
+EDESC
+#
+#
+#
+EVENT ciscoDmsHaClusterNodeDown .1.3.6.1.4.1.9.9.655.0.6 "Status Events" Normal
+FORMAT This notification is generated when it is detected $*
+SDESC
+This notification is generated when it is detected
+that a node in a managed DMS cluster has transitioned
+to inactive state, that is, the value of the object
+'cdmsHaDmmClusterMemberOperState' or
+'cdmsHaVpClusterMemberOperState' has transitioned to
+'shutdown'.
+Variables:
+  1: cdmsHaClusterHistClusterName
+  2: cdmsHaClusterHistNodeType
+  3: cdmsHaClusterHistNodeAddrType
+  4: cdmsHaClusterHistNodeAddr
+EDESC
+#
+#
+#
+EVENT cdmsDmsHaClusterConfigChange .1.3.6.1.4.1.9.9.655.0.7 "Status Events" Normal
+FORMAT This notification is generated when it is detected $*
+SDESC
+This notification is generated when it is detected
+that the configuration of a managed DMS cluster has 
+been altered. Configuration changes that trigger this
+notification include modifications to the virtual IP address
+and
+the virtual IP address type.
+Variables:
+  1: cdmsHaClusterHistClusterName
+EDESC

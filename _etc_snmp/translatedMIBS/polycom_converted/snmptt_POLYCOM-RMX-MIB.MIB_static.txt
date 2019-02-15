@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: POLYCOM-RMX-MIB (file:/tmp/polycom/POLYCOM-RMX-MIB.MIB_static) converted on Fri Mar 13 12:28:51 2015 using snmpttconvertmib v1.3

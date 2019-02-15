@@ -1,0 +1,87 @@
+#
+#
+#
+#
+MIB: CISCO-FLASH-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-FLASH-MIB.my.txt) converted on Tue Sep  6 13:51:21 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoFlashCopyCompletionTrap .1.3.6.1.4.1.9.9.10.1.3.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A ciscoFlashCopyCompletionTrap is sent at the  
+completion of a flash copy operation if such a trap  
+was requested when the operation was initiated. 
+ 
+Variables:
+  1: ciscoFlashCopyStatus
+EDESC
+#
+#
+#
+EVENT ciscoFlashPartitioningCompletionTrap .1.3.6.1.4.1.9.9.10.1.3.0.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A ciscoFlashPartitioningCompletionTrap is sent at the  
+completion of a partitioning operation if such a trap  
+was requested when the operation was initiated. 
+ 
+Variables:
+  1: ciscoFlashPartitioningStatus
+EDESC
+#
+#
+#
+EVENT ciscoFlashMiscOpCompletionTrap .1.3.6.1.4.1.9.9.10.1.3.0.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A ciscoFlashMiscOpCompletionTrap is sent at the  
+completion of a miscellaneous flash operation  
+(enumerated in ciscoFlashMiscOpCommand) if such a trap  
+was requested when the operation was initiated. 
+ 
+Variables:
+  1: ciscoFlashMiscOpStatus
+EDESC
+#
+#
+#
+EVENT ciscoFlashDeviceChangeTrap .1.3.6.1.4.1.9.9.10.1.3.0.4 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A ciscoFlashDeviceChangeTrap is sent whenever a 
+removable Flash device is inserted or removed. 
+ 
+Variables:
+  1: ciscoFlashDeviceMinPartitionSize
+  2: ciscoFlashDeviceName
+EDESC
+#
+#
+#
+EVENT ciscoFlashDeviceInsertedNotif .1.3.6.1.4.1.9.9.10.1.3.0.5 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A ciscoFlashDeviceInsertedNotif notification is sent  
+whenever a removable Flash device is inserted. 
+Variables:
+  1: ciscoFlashDeviceMinPartitionSize
+  2: ciscoFlashDeviceName
+EDESC
+#
+#
+#
+EVENT ciscoFlashDeviceRemovedNotif .1.3.6.1.4.1.9.9.10.1.3.0.6 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A ciscoFlashDeviceRemovedNotif notification is sent  
+whenever a removable Flash device is removed. 
+Variables:
+  1: ciscoFlashDeviceName
+EDESC

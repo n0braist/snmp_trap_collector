@@ -1,0 +1,276 @@
+#
+#
+#
+#
+MIB: CISCO-OSPF-TRAP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-OSPF-TRAP-MIB.mib) converted on Tue Aug 21 15:26:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cospfIfConfigError .1.3.6.1.4.1.9.10.101.0.1 "Status Events" Normal
+FORMAT A cospfIfConfigError  trap  signifies  that  a $*
+SDESC
+A cospfIfConfigError  trap  signifies  that  a
+packet  with mismatched parameter MTU has been 
+received on a non-virtual interface  from  a  
+router.
+Variables:
+  1: ospfRouterId
+  2: ospfIfIpAddress
+  3: ospfAddressLessIf
+  4: cospfPacketSrc
+  5: cospfConfigErrorType
+  6: cospfPacketType
+EDESC
+#
+#
+#
+EVENT cospfVirtIfConfigError .1.3.6.1.4.1.9.10.101.0.2 "Status Events" Normal
+FORMAT A cospfVirtIfConfigError  trap  signifies  that  a $*
+SDESC
+A cospfVirtIfConfigError  trap  signifies  that  a
+packet  with mismatched parameter MTU has been received
+on a virtual interface  from  a router.
+Variables:
+  1: ospfRouterId
+  2: ospfVirtIfAreaId
+  3: ospfVirtIfNeighbor
+  4: cospfConfigErrorType
+  5: cospfPacketType
+EDESC
+#
+#
+#
+EVENT cospfTxRetransmit .1.3.6.1.4.1.9.10.101.0.3 "Status Events" Normal
+FORMAT A cospfTxRetransmit  trap  signifies  than  an $*
+SDESC
+A cospfTxRetransmit  trap  signifies  than  an
+OSPF  packet, which has been associated with 
+an Opaque LSA LSDB Entry, has  been retransmitted 
+on a non-virtual interface.
+Variables:
+  1: ospfRouterId
+  2: ospfIfIpAddress
+  3: ospfAddressLessIf
+  4: ospfNbrRtrId
+  5: cospfPacketType
+  6: cospfLsdbType
+  7: ospfLsdbLsid
+  8: ospfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT cospfVirtIfTxRetransmit .1.3.6.1.4.1.9.10.101.0.4 "Status Events" Normal
+FORMAT A cospfVirtTxRetransmit  trap  signifies  than  an $*
+SDESC
+A cospfVirtTxRetransmit  trap  signifies  than  an
+OSPF  packet, which has been associated with 
+an Opaque LSA LSDB Entry, has  been retransmitted 
+on a non-virtual interface.
+Variables:
+  1: ospfRouterId
+  2: ospfVirtIfAreaId
+  3: ospfVirtIfNeighbor
+  4: cospfPacketType
+  5: cospfLsdbType
+  6: ospfLsdbLsid
+  7: ospfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT cospfOriginateLsa .1.3.6.1.4.1.9.10.101.0.5 "Status Events" Normal
+FORMAT A cospfOriginateLsa trap signifies that a  new $*
+SDESC
+A cospfOriginateLsa trap signifies that a  new
+Opaque LSA  has  been originated by this router.
+This trap should not be invoked for simple refreshes
+of  LSAs  (which happesn every 30 minutes), but
+instead will only be invoked  when  an  LSA  is
+(re)originated due to a topology change.  Additionally, 
+this trap does not include LSAs  that
+are  being  flushed  because  they have reached
+MaxAge.
+Variables:
+  1: ospfRouterId
+  2: ospfLsdbAreaId
+  3: cospfLsdbType
+  4: ospfLsdbLsid
+  5: ospfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT cospfMaxAgeLsa .1.3.6.1.4.1.9.10.101.0.6 "Status Events" Normal
+FORMAT A cospfMaxAgeLsa trap signifies  that  one  of $*
+SDESC
+A cospfMaxAgeLsa trap signifies  that  one  of
+the Opaque LSAs in the router's link-state database 
+has aged to MaxAge.
+Variables:
+  1: ospfRouterId
+  2: ospfLsdbAreaId
+  3: cospfLsdbType
+  4: ospfLsdbLsid
+  5: cospfLsdbType
+  6: ospfLsdbRouterId
+EDESC
+#
+#
+#
+EVENT cospfNssaTranslatorStatusChange .1.3.6.1.4.1.9.10.101.0.7 "Status Events" Normal
+FORMAT A cospfNssaTranslatorStatusChange trap indicates that there $*
+SDESC
+A cospfNssaTranslatorStatusChange trap indicates that there
+has been a change in the router's ability to translate OSPF
+type-7 LSAs into OSPF type-5 LSAs. This trap should be
+generated when the Translator Status transitions from or to
+any defined status on a per area basis.
+Variables:
+  1: ospfRouterId
+  2: ospfAreaId
+  3: cospfAreaNssaTranslatorState
+EDESC
+#
+#
+#
+EVENT cospfShamLinkStateChange .1.3.6.1.4.1.9.10.101.0.8 "Status Events" Normal
+FORMAT A ospfShamLinkStateChange trap signifies that  $*
+SDESC
+A ospfShamLinkStateChange trap signifies that 
+there has been a change in the state of a Sham
+Link OSPF interface. This trap should  be  generated
+when  the interface state regresses from  Point-to-Point
+to Down or progresses to Down to Point-to-Point. This
+trap has been deprecated by cospfShamLinksStateChange.
+Variables:
+  1: ospfRouterId
+  2: cospfShamLinkAreaId
+  3: cospfShamLinkLocalIpAddress
+  4: cospfShamLinkNeighborId
+  5: cospfShamLinkState
+EDESC
+#
+#
+#
+EVENT cospfShamLinksStateChange .1.3.6.1.4.1.9.10.101.0.14 "Status Events" Normal
+FORMAT A ospfShamLinkStateChange trap signifies that  $*
+SDESC
+A ospfShamLinkStateChange trap signifies that 
+there has been a change in the state of a Sham
+Link OSPF interface. This trap should  be  generated
+when  the interface state regresses from  Point-to-Point
+to Down or progresses  to  Down to Point-to-Point.
+Variables:
+  1: ospfRouterId
+  2: cospfShamLinksAreaId
+  3: cospfShamLinksLocalIpAddrType
+  4: cospfShamLinksLocalIpAddr
+  5: cospfShamLinksRemoteIpAddrType
+  6: cospfShamLinksRemoteIpAddr
+  7: cospfShamLinksState
+EDESC
+#
+#
+#
+EVENT cospfShamLinkNbrStateChange .1.3.6.1.4.1.9.10.101.0.9 "Status Events" Normal
+FORMAT A cospfShamLinkNbrStateChange trap signifies that $*
+SDESC
+A cospfShamLinkNbrStateChange trap signifies that
+there has been a change in the state of a sham link
+OSPF neighbor. This trap should be generated when 
+the neighbor state regresses (e.g., goes from 
+Attempt or Full to 1-Way or Down) or progresses to
+a terminal state (e.g., Full).
+Variables:
+  1: ospfRouterId
+  2: cospfShamLinkNbrArea
+  3: cospfShamLinksLocalIpAddrType
+  4: cospfShamLinksLocalIpAddr
+  5: cospfShamLinkNbrIpAddrType
+  6: cospfShamLinkNbrIpAddr
+  7: cospfShamLinkNbrRtrId
+  8: cospfShamLinkNbrState
+EDESC
+#
+#
+#
+EVENT cospfShamLinkConfigError .1.3.6.1.4.1.9.10.101.0.10 "Status Events" Normal
+FORMAT A cospfShamLinkConfigError signifies that a packet  $*
+SDESC
+A cospfShamLinkConfigError signifies that a packet 
+has been received on a sham link from a router whose
+configuration parameters conflict with this router's
+configuration parameters.
+Variables:
+  1: ospfRouterId
+  2: cospfShamLinksAreaId
+  3: cospfShamLinksLocalIpAddrType
+  4: cospfShamLinksLocalIpAddr
+  5: cospfShamLinksRemoteIpAddrType
+  6: cospfShamLinksRemoteIpAddr
+  7: cospfConfigErrorType
+  8: cospfPacketType
+EDESC
+#
+#
+#
+EVENT cospfShamLinkAuthFailure .1.3.6.1.4.1.9.10.101.0.11 "Status Events" Normal
+FORMAT A cospfShamLinkAuthFailure trap signifies that a  $*
+SDESC
+A cospfShamLinkAuthFailure trap signifies that a 
+packet has been received on a sham link from a router
+whose authentication key or authentication type conflicts
+with this router's authentication key and authentication 
+type.
+Variables:
+  1: ospfRouterId
+  2: cospfShamLinksAreaId
+  3: cospfShamLinksLocalIpAddrType
+  4: cospfShamLinksLocalIpAddr
+  5: cospfShamLinksRemoteIpAddrType
+  6: cospfShamLinksRemoteIpAddr
+  7: cospfConfigErrorType
+  8: cospfPacketType
+EDESC
+#
+#
+#
+EVENT cospfShamLinkRxBadPacket .1.3.6.1.4.1.9.10.101.0.12 "Status Events" Normal
+FORMAT A cospfShamLinkRxBadPacket trap signifies that an OSPF $*
+SDESC
+A cospfShamLinkRxBadPacket trap signifies that an OSPF
+packet has been received on a sham link that cannot be 
+parsed.
+Variables:
+  1: ospfRouterId
+  2: cospfShamLinksAreaId
+  3: cospfShamLinksLocalIpAddrType
+  4: cospfShamLinksLocalIpAddr
+  5: cospfShamLinksRemoteIpAddrType
+  6: cospfShamLinksRemoteIpAddr
+  7: cospfPacketType
+EDESC
+#
+#
+#
+EVENT cospfShamLinkTxRetransmit .1.3.6.1.4.1.9.10.101.0.13 "Status Events" Normal
+FORMAT A cospfShamLinkTxRetransmit trap signifies that an  $*
+SDESC
+A cospfShamLinkTxRetransmit trap signifies that an 
+OSPF packet has been retransmitted on a sham link. All 
+packets that may be retransmitted are associated with an 
+LSDB entry. The LS type, LS ID, and Router ID are used 
+identify the LSDB entry.
+Variables:
+  1: ospfRouterId
+  2: cospfShamLinksAreaId
+  3: cospfShamLinksLocalIpAddrType
+  4: cospfShamLinksLocalIpAddr
+  5: cospfShamLinksRemoteIpAddrType
+  6: cospfShamLinksRemoteIpAddr
+  7: cospfPacketType
+  8: cospfLsdbType
+  9: ospfLsdbLsid
+  10: ospfLsdbRouterId
+EDESC

@@ -1,0 +1,475 @@
+#
+#
+#
+#
+MIB: HPIPF02TRAP-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HPIPF02TRAP-MIB.mib) converted on Mon Aug 20 14:17:41 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpTempHighWarning752 .1.3.6.1.4.1.11.2.23.45.0.752 "Status Events" WARNING
+FORMAT Temperature sensor crossed lower non-critical threshold
+SDESC
+One of the temperature sensors crossed its lower non-critical threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpTempHighCritical753 .1.3.6.1.4.1.11.2.23.45.0.753 "Status Events" CRITICAL
+FORMAT A temperature inside the server went far outside the factory specified range
+SDESC
+One of the temperature sensors crossed its upper critical threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpTempHighNonRecoverable754 .1.3.6.1.4.1.11.2.23.45.0.754 "Status Events" CRITICAL
+FORMAT Temperature sensor crossed upper non-recoverable threshold.
+SDESC
+One of the temperature sensors crossed its upper non-recoverable threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpTemperature4 .1.3.6.1.4.1.11.2.23.45.0.4 "Status Events" WARNING
+FORMAT A temperature inside the server has gone outside the factory specified range.
+SDESC
+One of the temperature sensors crossed its upper non-critical threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpTemperature5 .1.3.6.1.4.1.11.2.23.45.0.5 "Status Events" CRITICAL
+FORMAT A temperature inside the server has gone far outside the factory specified range.
+SDESC
+One of the temperature sensors crossed its upper critical threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpTemperature6 .1.3.6.1.4.1.11.2.23.45.0.6 "Status Events" CRITICAL
+FORMAT Temperature sensor crossed upper non-recoverable threshold
+SDESC
+One of the temperature sensors crossed its upper non-recoverable threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpTemperature755 .1.3.6.1.4.1.11.2.23.45.0.755 "Status Events" WARNING
+FORMAT One of the temperature sensors crossed its upper non-critical threshold.
+SDESC
+A temperature inside the server has gone outside the factory specified range.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpTemperature756 .1.3.6.1.4.1.11.2.23.45.0.756 "Status Events" CRITICAL
+FORMAT A temperature inside the server went far outside the factory specified range.
+SDESC
+One of the temperature sensors crossed its upper critical threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment8 .1.3.6.1.4.1.11.2.23.45.0.8 "Status Events" CRITICAL
+FORMAT A measured voltage in the server has gone far outside the factory specified lower voltage range.
+SDESC
+One of the voltage sensors crossed its lower critical threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment9 .1.3.6.1.4.1.11.2.23.45.0.9 "Status Events" CRITICAL
+FORMAT Voltage sensor crossed lower non-recoverable threshold
+SDESC
+One of the voltage sensors crossed its lower non-recoverable threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment10 .1.3.6.1.4.1.11.2.23.45.0.10 "Status Events" WARNING
+FORMAT A measured voltage in the server has gone outside the factory specified upper voltage range.
+SDESC
+One of the voltage sensors crossed its upper non-critical threshold.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment12 .1.3.6.1.4.1.11.2.23.45.0.12 "Status Events" CRITICAL
+FORMAT Voltage sensor crossed upper non-recoverable threshold
+SDESC
+One of the voltage sensors crossed its upper non-recoverable threshold - Check all boards with this voltage
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment704 .1.3.6.1.4.1.11.2.23.45.0.704 "Status Events" WARNING
+FORMAT Voltage insufficient
+SDESC
+Voltage fault - Check all boards with this voltage
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment728 .1.3.6.1.4.1.11.2.23.45.0.728 "Status Events" CRITICAL
+FORMAT Voltage reached critical level
+SDESC
+Voltage degraded to critical level from less severe - Check all boards with this voltage
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment705 .1.3.6.1.4.1.11.2.23.45.0.705 "Status Events" CRITICAL
+FORMAT Voltage reached critical level
+SDESC
+Voltage degraded to non-recoverable level from less severe - Check all boards with this voltage
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment706 .1.3.6.1.4.1.11.2.23.45.0.706 "Status Events" CRITICAL
+FORMAT Power Pod Voltage Fault
+SDESC
+Voltage becomes non-recoverable from either critical level or less severe level - Check all boards with this voltage
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpEnvironment707 .1.3.6.1.4.1.11.2.23.45.0.707 "Status Events" WARNING
+FORMAT Voltage absent
+SDESC
+Voltage absent
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpFan710 .1.3.6.1.4.1.11.2.23.45.0.710 "Status Events" WARNING
+FORMAT Fan speed lags
+SDESC
+Fan speed lags
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpChassis26 .1.3.6.1.4.1.11.2.23.45.0.26 "Status Events" WARNING
+FORMAT The server's built-in sensors have detected an open chassis door.
+SDESC
+The chassis has been opened.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpBmcFirmware730 .1.3.6.1.4.1.11.2.23.45.0.730 "Status Events" CRITICAL
+FORMAT The BMC firmware did not detect the system firmware boot
+SDESC
+The BMC firmware did not detect the system firmware boot.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpRedundantPower720 .1.3.6.1.4.1.11.2.23.45.0.720 "Status Events" WARNING
+FORMAT Power supply failure
+SDESC
+Power supply failed or disconnected
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpRedundantPower732 .1.3.6.1.4.1.11.2.23.45.0.732 "Status Events" WARNING
+FORMAT The power supply sensors detect a possible problem
+SDESC
+The Power supply's sensors detect possible problems
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpRedundantPower722 .1.3.6.1.4.1.11.2.23.45.0.722 "Status Events" WARNING
+FORMAT Power supply AC lost
+SDESC
+Power supply AC lost
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpRedundantPower757 .1.3.6.1.4.1.11.2.23.45.0.757 "Status Events" WARNING
+FORMAT The AC voltage to the power supply was lost or is out of range.
+SDESC
+The Power Supply AC voltage was lost or is out of range.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpRedundantPower758 .1.3.6.1.4.1.11.2.23.45.0.758 "Status Events" WARNING
+FORMAT The power supply AC voltage is out of range.
+SDESC
+The AC voltage connected to the power supply is out of range.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpPowerSupply731 .1.3.6.1.4.1.11.2.23.45.0.731 "Status Events" CRITICAL
+FORMAT A/C Power failed, disconnected, or out of range
+SDESC
+A/C Failed, disconnected, or out of range
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpPowerSupply726 .1.3.6.1.4.1.11.2.23.45.0.726 "Status Events" CRITICAL
+FORMAT Power failure in power supply
+SDESC
+A/C Failed, disconnected, or out of range
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW733 .1.3.6.1.4.1.11.2.23.45.0.733 "Status Events" WARNING
+FORMAT Cooling unit warning
+SDESC
+Cooling unit warning
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW734 .1.3.6.1.4.1.11.2.23.45.0.734 "Status Events" CRITICAL
+FORMAT Cooling unit failure
+SDESC
+Cooling unit failure
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpECCMemory518 .1.3.6.1.4.1.11.2.23.45.0.518 "Status Events" CRITICAL
+FORMAT Uncorrectable multi-bit ECC error has occurred
+SDESC
+Uncorrectable multi-bit ECC error has occurred in memory module
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemFW700 .1.3.6.1.4.1.11.2.23.45.0.700 "Status Events" CRITICAL
+FORMAT Generic trap for Critical or Fatal type E0 event from system firmware
+SDESC
+System firmware error
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW744 .1.3.6.1.4.1.11.2.23.45.0.744 "Status Events" WARNING
+FORMAT System event log almost full
+SDESC
+System event log almost full
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW735 .1.3.6.1.4.1.11.2.23.45.0.735 "Status Events" WARNING
+FORMAT BMC entering special mode
+SDESC
+BMC entering special mode
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW729 .1.3.6.1.4.1.11.2.23.45.0.729 "Status Events" CRITICAL
+FORMAT System shut-down or reset caused by sensor reading
+SDESC
+System shut-down or reset caused by sensor reading. 
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW745 .1.3.6.1.4.1.11.2.23.45.0.745 "Status Events" CRITICAL
+FORMAT TOC interrupt (crash dump)
+SDESC
+TOC interrupt (crash dump)
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW746 .1.3.6.1.4.1.11.2.23.45.0.746 "Status Events" CRITICAL
+FORMAT INIT Initiated
+SDESC
+INIT Initiated
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW751 .1.3.6.1.4.1.11.2.23.45.0.751 "Status Events" WARNING
+FORMAT PCI parity error detected
+SDESC
+PCI parity error detected
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW747 .1.3.6.1.4.1.11.2.23.45.0.747 "Status Events" WARNING
+FORMAT PCI system error detected
+SDESC
+PCI system error detected
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemFW699 .1.3.6.1.4.1.11.2.23.45.0.699 "Status Events" CRITICAL
+FORMAT Machine Check Initiated
+SDESC
+Machine Check Initiated
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW113 .1.3.6.1.4.1.11.2.23.45.0.113 "Status Events" WARNING
+FORMAT Hot Swap Cage: SCSI cable removed
+SDESC
+A SCSI cable has been removed from the hot swap cage.
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW748 .1.3.6.1.4.1.11.2.23.45.0.748 "Status Events" CRITICAL
+FORMAT OS run-time critical shutdown
+SDESC
+OS run-time critical shutdown
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW749 .1.3.6.1.4.1.11.2.23.45.0.749 "Status Events" WARNING
+FORMAT ACPI state S5 (soft-off, entered by override)
+SDESC
+ACPI state S5 (soft-off, entered by override)
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW736 .1.3.6.1.4.1.11.2.23.45.0.736 "Status Events" CRITICAL
+FORMAT Watchdog timer expired - hard reset
+SDESC
+Watchdog timer expired - hard reset
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW737 .1.3.6.1.4.1.11.2.23.45.0.737 "Status Events" CRITICAL
+FORMAT Watchdog timer expired - power-off
+SDESC
+Watchdog timer expired - power-off
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW738 .1.3.6.1.4.1.11.2.23.45.0.738 "Status Events" CRITICAL
+FORMAT Watchdog timer expired - power-cycle
+SDESC
+Watchdog timer expired - power-cycle
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW739 .1.3.6.1.4.1.11.2.23.45.0.739 "Status Events" CRITICAL
+FORMAT Missing FRU device
+SDESC
+Missing FRU device
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC
+#
+#
+#
+EVENT hpSystemHW740 .1.3.6.1.4.1.11.2.23.45.0.740 "Status Events" CRITICAL
+FORMAT Missing Entity
+SDESC
+Missing Entity
+Variables:
+  1: hpIpfEvtDetailStr
+EDESC

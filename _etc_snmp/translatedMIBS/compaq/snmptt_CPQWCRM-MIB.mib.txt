@@ -1,0 +1,94 @@
+#
+#
+#
+#
+MIB: CPQWCRM-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQWCRM-MIB.mib) converted on Wed Aug 22 14:19:24 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alarmSensorInternal .1.3.6.1.4.1.232.167.0.1 "Status Events" MAJOR
+FORMAT Internal sensor alarm: Location: $3, Alarm[$4]: $5, Status: $6, Actual Value: $7, from: $2, contact $1, URL $8
+SDESC
+Internal Sensor Alarm
+--
+--                      
+Variables:
+  1: sysContact
+  2: sysName
+  3: sysLocation
+  4: internalMsgIndex
+  5: internalMsgText
+  6: internalMsgStatus
+  7: internalSensorValue
+  8: cpqWcrmURL
+EDESC
+#
+#
+#
+EVENT alarmSensorWaterCoolUnit .1.3.6.1.4.1.232.167.0.2 "Status Events" MAJOR
+FORMAT Water cool unit sensor alarm: Location: $3, Alarm[$4]: $5, Status: $6, Actual Value: $7, from: $2, contact $1, URL $8
+SDESC
+
+Water Cool Unit Sensor Alarm
+--
+--
+Variables:
+  1: sysContact
+  2: sysName
+  3: sysLocation
+  4: waterCoolUnitMsgIndex
+  5: waterCoolUnitMsgText
+  6: waterCoolUnitMsgStatus
+  7: waterCoolUnitSensorValue
+  8: cpqWcrmURL
+EDESC
+#
+#
+#
+EVENT alarmInternal .1.3.6.1.4.1.232.167.0.5 "Status Events" MAJOR
+FORMAT Internal unit alarm: Location: $3, Status: $4, from: $2, contact $1, URL $6
+SDESC
+Internal Unit Alarm
+--
+--                      
+Variables:
+  1: sysContact
+  2: sysName
+  3: sysLocation
+  4: cpqWcrmInternalText
+  5: cpqWcrmInternalStatus
+  6: cpqWcrmURL
+EDESC
+#
+#
+#
+EVENT alarmWaterCoolUnit .1.3.6.1.4.1.232.167.0.6 "Status Events" MAJOR
+FORMAT Water cool unit alarm: Location: $3, Status: $4, from: $2, contact $1, URL $6
+SDESC
+
+Water Cool Unit System Alarm
+--
+--                      
+Variables:
+  1: sysContact
+  2: sysName
+  3: sysLocation
+  4: cpqWcrmWaterCoolUnitText
+  5: cpqWcrmWaterCoolUnitStatus
+  6: cpqWcrmURL
+EDESC
+#
+#
+#
+EVENT testTrap .1.3.6.1.4.1.232.167.0.10 "Status Events" INFORMATIONAL
+FORMAT Test Trap: Location: $3, Test Trap from unit $2 was sent, contact $1, URL $4
+SDESC
+Test trap sent to a trap receiver to check proper reception of traps
+--
+--
+Variables:
+  1: sysContact
+  2: sysName
+  3: sysLocation
+  4: cpqWcrmURL
+EDESC

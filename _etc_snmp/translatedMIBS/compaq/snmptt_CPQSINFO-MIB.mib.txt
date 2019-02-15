@@ -1,0 +1,238 @@
+#
+#
+#
+#
+MIB: CPQSINFO-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQSINFO-MIB.mib) converted on Wed Aug 22 14:19:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqSiHoodRemoved .1.3.6.1.4.1.232.0.2001 "Status Events" MAJOR
+FORMAT System hood is removed (2001): Hood is removed from unit.
+SDESC
+System hood is removed.
+The hood status has been set to removed.  The
+system's hood is not in a properly installed state. This
+situation may result in improper cooling of the system due
+to air flow changes caused by the missing hood.
+User Action: Replace the cover (hood), ensure the system's cover
+is properly installed. Verify the system is in working order.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSiMonitorConditionOK .1.3.6.1.4.1.232.0.2002 "Status Events" INFORMATIONAL
+FORMAT Monitor Condition OK (2002): The monitor's condition has been set to OK.
+SDESC
+Fault reporting features have returned to within their normal
+operating range for the monitor indicated by cpqSiMonitorIndex.
+The monitor's condition has been set to OK.
+User Action:  None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiMonitorIndex
+EDESC
+#
+#
+#
+EVENT cpqSiMonitorConditionDegraded .1.3.6.1.4.1.232.0.2003 "Status Events" MINOR
+FORMAT Monitor Condition Degraded (2003) : The monitor's condition has been set to degraded.
+SDESC
+A fault reporting feature has exceeded normal limits for
+the monitor indicated by the cpqSiMonitorIndex. The monitor's
+condition is degraded due to the internal temperature exceeding
+normal operating limits.  The monitor is still useable, but
+action should be taken to return the condition to OK.
+User Action: Physically check for obstructions to air flow around
+the monitor.  Check the thermostat in the room that the system
+occupies.  Allow the monitor to cool by turning off the monitor
+for 5 minutes then turn the monitor back on.  After the monitor
+cools, another alarm indicating an improving condition, such as
+Monitor OK, will be issued.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiMonitorIndex
+EDESC
+#
+#
+#
+EVENT cpqSiMonitorConditionFailed .1.3.6.1.4.1.232.0.2004 "Status Events" CRITICAL
+FORMAT Monitor Condition Failed (2004): The monitor's condition has been set to failed.
+SDESC
+A fault reporting feature has exceeded normal limits in the
+monitor indicated by the cpqSiMonitorIndex. The monitor's
+condition has been set to failed due to an operational feature
+exceeding normal operating limits.  The monitor will not be
+useable and should be replaced.
+User Action: Make a note of the monitor model number and serial
+number.  Replace the monitor.
+Refer to the appropriate Maintenance and Service Guide for
+detailed information on a component replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiMonitorIndex
+EDESC
+#
+#
+#
+EVENT cpqSiCorrMemErrStatusDegraded .1.3.6.1.4.1.232.0.2005 "Status Events" MINOR
+FORMAT Excessive Correctable Memory Errors (2005): The Memory Module $4 ECC status has been set to degraded.
+SDESC
+Correctable memory error count has exceeded the threshold for the
+memory module indicated by the 'cpqSiMemErrorIndex' variable.
+The appropriate cpqSiMemModuleECCStatus has been set to degraded.
+User Action: For Desktops, the System Administrator should run
+the F10 Diagnostics on this system and select RAM LONG TEST. If
+it is determined that a module needs replacing, schedule
+maintenance for the system and replace the failed memory module.
+Refer to the appropriate Maintenance and Service Guide for detailed
+information on a component replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiMemErrorIndex
+EDESC
+#
+#
+#
+EVENT cpqSiCorrMemErrStatusOk .1.3.6.1.4.1.232.0.2006 "Status Events" INFORMATIONAL
+FORMAT Correctable Memory Errors Count OK (2006): The Memory Module $4 ECC status has been set to OK.
+SDESC
+Correctable memory error count is now below the threshold for the
+memory module indicated by the 'cpqSiMemErrorIndex' variable. The
+appropriate cpqSiMemModuleECCStatus has been set to ok.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiMemErrorIndex
+EDESC
+#
+#
+#
+EVENT cpqSiMemConfigChange .1.3.6.1.4.1.232.0.2007 "Status Events" INFORMATIONAL
+FORMAT Memory modules have changed (2007): The system's memory configuration has changed.
+SDESC
+A memory configuration change has occurred. CpqSiMemConfigChangeData
+will indicate which memory modules slots have changed.
+User Action: You may want to verify a valid reason for a memory
+configuration to have occurred. If system issuing the alert is
+a Desktop running NT, the memory configuration change information
+is also logged in the NT System Log.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiMemConfigChangeData
+EDESC
+#
+#
+#
+EVENT cpqSiHotPlugSlotBoardRemoved .1.3.6.1.4.1.232.0.2008 "Status Events" INFORMATIONAL
+FORMAT Hot Plug Slot Board Removed (2008): Hot Plug Slot Board Removed from Chassis $3, Slot $4.
+SDESC
+Hot Plug Slot Board Removed.
+A Hot Plug Slot Board has been removed from the specified
+chassis and slot.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiHotPlugSlotChassis
+  4: cpqSiHotPlugSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqSiHotPlugSlotBoardInserted .1.3.6.1.4.1.232.0.2009 "Status Events" INFORMATIONAL
+FORMAT Hot Plug Slot Board Inserted (2009): Hot Plug Slot Board Inserted into Chassis $3, Slot $4.
+SDESC
+Hot Plug Slot Board Inserted.
+A Hot Plug Slot Board has been inserted into the specified
+chassis and slot.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiHotPlugSlotChassis
+  4: cpqSiHotPlugSlotIndex
+EDESC
+#
+#
+#
+EVENT cpqSiHotPlugSlotPowerUpFailed .1.3.6.1.4.1.232.0.2010 "Status Events" CRITICAL
+FORMAT Hot Plug Slot Board Failed (2010): Hot Plug Slot Board Failed in Chassis $3, Slot $4, Error $5.
+SDESC
+Hot Plug Slot Board Failed Power-Up.
+A Hot Plug Slot Board has failed to power-up in the specified
+chassis and slot.
+User Action: Insure the board and all cables are installed
+correctly and the board type and revision are the same as
+the replaced board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiHotPlugSlotChassis
+  4: cpqSiHotPlugSlotIndex
+  5: cpqSiHotPlugSlotErrorStatus
+EDESC
+#
+#
+#
+EVENT cpqSiSysBatteryFailure .1.3.6.1.4.1.232.0.2011 "Status Events" MAJOR
+FORMAT Battery Failure (2011): Battery $3 has failed.
+SDESC
+The battery indicated by cpqSiSysBatteryIndex has failed
+and must be replaced.
+User Action:  Contact your System Administrator or
+Authorized Reseller to order a replacement battery.
+Recycle your old battery. For proper disposal information,
+refer to the documentation that came with your computer.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiSysBatteryIndex
+  4: cpqSiSysBatterySerialNum
+EDESC
+#
+#
+#
+EVENT cpqSiSysBatteryChargingDegraded .1.3.6.1.4.1.232.0.2012 "Status Events" MAJOR
+FORMAT Battery Charging Degradation (2012): Battery $3 has degraded charging capacity.
+SDESC
+Significant battery degradation has occurred with battery
+indicated by cpqSiSysBatteryIndex.  The battery can
+no longer be fully recharged.
+User Action: If using multiple batteries, run
+the Power Conservation Utility to identify the
+battery location.  Contact your System Administrator
+or Authorized Reseller to order a replacement
+battery.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiSysBatteryIndex
+  4: cpqSiSysBatterySerialNum
+EDESC
+#
+#
+#
+EVENT cpqSiSysBatteryCalibrationError .1.3.6.1.4.1.232.0.2013 "Status Events" MAJOR
+FORMAT Battery Calibration Error (2013): Battery $3 has calibration error.
+SDESC
+Calibration is needed with battery
+indicated by cpqSiSysBatteryIndex.  The battery can
+not correctly indicate capacity.
+User Action: Run the Power Conservation Utility.  Contact
+your System Administrator or Authorized Reseller to
+order a replacement battery.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiSysBatteryIndex
+  4: cpqSiSysBatterySerialNum
+EDESC

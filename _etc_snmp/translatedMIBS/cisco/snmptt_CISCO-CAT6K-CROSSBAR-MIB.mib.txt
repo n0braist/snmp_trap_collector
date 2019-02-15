@@ -1,0 +1,150 @@
+#
+#
+#
+#
+MIB: CISCO-CAT6K-CROSSBAR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CAT6K-CROSSBAR-MIB.mib) converted on Tue Aug 21 15:25:43 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cc6kxbarSwBusStatusChangeNotif .1.3.6.1.4.1.9.9.217.0.1 "Status Events" Normal
+FORMAT A cc6kxbarSwBusStatusChangeNotif notification $*
+SDESC
+A cc6kxbarSwBusStatusChangeNotif notification
+is sent by the the device when there is change
+in switching status of the switching bus as 
+monitored by cc6kxbarSwBusSwitchingStatus.
+Variables:
+  1: cc6kxbarSwBusSwitchingStatus
+  2: cc6kxbarSwBusFailureDuration
+EDESC
+#
+#
+#
+EVENT cc6kxbarIntBusCRCErrExcdNotif .1.3.6.1.4.1.9.9.217.0.2 "Status Events" Normal
+FORMAT A cc6kxbarIntBusCRCThreshExcdNotif notification $*
+SDESC
+A cc6kxbarIntBusCRCThreshExcdNotif notification
+is sent by the system when the system has
+detected that the internal bus CRC error on
+a physical entity (such as a module) as specified
+by entPhysicalName has exceeded the fatal threshold.
+Variables:
+  1: entPhysicalName
+  2: entPhysicalVendorType
+EDESC
+#
+#
+#
+EVENT cc6kxbarIntBusCRCErrRcvrdNotif .1.3.6.1.4.1.9.9.217.0.3 "Status Events" Normal
+FORMAT A cc6kxbarIntBusCRCErrRcvrdNotif notification $*
+SDESC
+A cc6kxbarIntBusCRCErrRcvrdNotif notification
+is sent by the system when the system has
+recovered as the internal bus CRC error on
+a physical entity (such as a module) as
+specified by entPhysicalName has fallen below
+the normal threshold.
+Variables:
+  1: entPhysicalName
+  2: entPhysicalVendorType
+EDESC
+#
+#
+#
+EVENT cc6kxbarFlowCtrlBusThrExcdNotif .1.3.6.1.4.1.9.9.217.0.4 "Status Events" Normal
+FORMAT A cc6kxbarFlowCtrlBusThrExcdNotif notification $*
+SDESC
+A cc6kxbarFlowCtrlBusThrExcdNotif notification
+is sent by the system when the system detects the
+first occurrence of the system bus flow control FIFO
+threshold exceeding on a physical entity
+(such as a module) over the system allowed limit
+when the object value of
+cc6kxbarFlowCtrlBusFIFOThrMode is 'auto'.
+Variables:
+  1: entPhysicalName
+  2: entPhysicalVendorType
+EDESC
+#
+#
+#
+EVENT cc6kxbarTMSwBusUtilAboveNotif .1.3.6.1.4.1.9.9.217.0.5 "Status Events" Normal
+FORMAT This notification is sent when the switching bus  $*
+SDESC
+This notification is sent when the switching bus 
+traffic utilization has risen above the configured 
+threshold (as specified by 
+cc6kxbarTMSwBusUtilThreshold), or has kept staying
+above the configured threshold at a logging interval 
+(as specified by cc6kxbarTMSwBusUtilLogInterval).
+The varbind entPhysicalDescr specifies the physical 
+entity (such as chassis) for which the 
+cc6kxbarTMSwBusUtilAboveNotif is sent.
+Variables:
+  1: cc6kxbarTMSwBusUtilUtilization
+  2: cc6kxbarTMSwBusUtilThreshold
+  3: cc6kxbarTMSwBusUtilInterval
+  4: entPhysicalDescr
+EDESC
+#
+#
+#
+EVENT cc6kxbarTMSwBusUtilBelowNotif .1.3.6.1.4.1.9.9.217.0.6 "Status Events" Normal
+FORMAT This notification is sent when the switching bus  $*
+SDESC
+This notification is sent when the switching bus 
+traffic utilization has fallen below the configured 
+threshold (as specified by 
+cc6kxbarTMSwBusUtilThreshold). The varbind 
+entPhysicalDescr specifies the physical entity 
+(such as chassis) for which the 
+cc6kxbarTMSwBusUtilBelowNotif is sent. 
+Variables:
+  1: cc6kxbarTMSwBusUtilUtilization
+  2: cc6kxbarTMSwBusUtilThreshold
+  3: cc6kxbarTMSwBusUtilInterval
+  4: entPhysicalDescr
+EDESC
+#
+#
+#
+EVENT cc6kxbarTMChUtilAboveNotif .1.3.6.1.4.1.9.9.217.0.7 "Status Events" Normal
+FORMAT This notification is sent when the traffic  $*
+SDESC
+This notification is sent when the traffic 
+utilization on a fabric channel for a given 
+traffic direction has risen above its 
+corresponding configured threshold (as 
+specified by cc6kxbarTMChUtilThreshold), or has 
+kept staying above the configured threshold at a 
+logging interval (as specified by 
+cc6kxbarTMChUtilLogInterval). The varbind 
+entPhysicalDescr specifies the physical entity 
+(such as chassis) for which the 
+cc6kxbarTMChUtilAboveNotif is sent.
+Variables:
+  1: cc6kxbarTMChUtilUtilization
+  2: cc6kxbarTMChUtilThreshold
+  3: cc6kxbarTMChUtilInterval
+  4: entPhysicalDescr
+EDESC
+#
+#
+#
+EVENT cc6kxbarTMChUtilBelowNotif .1.3.6.1.4.1.9.9.217.0.8 "Status Events" Normal
+FORMAT This notification is sent when the traffic  $*
+SDESC
+This notification is sent when the traffic 
+utilization on a fabric channel for a given 
+traffic direction has fallen below its 
+corresponding configured threshold (as 
+specified by cc6kxbarTMChUtilThreshold). The 
+varbind entPhysicalDescr specifies the 
+physical entity (such as chassis) for which
+the cc6kxbarTMChUtilBelowNotif is sent.
+Variables:
+  1: cc6kxbarTMChUtilUtilization
+  2: cc6kxbarTMChUtilThreshold
+  3: cc6kxbarTMChUtilInterval
+  4: entPhysicalDescr
+EDESC

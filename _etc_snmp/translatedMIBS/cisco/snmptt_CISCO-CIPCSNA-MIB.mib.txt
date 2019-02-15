@@ -1,0 +1,35 @@
+#
+#
+#
+#
+MIB: CISCO-CIPCSNA-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CIPCSNA-MIB.mib) converted on Tue Aug 21 15:25:46 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cipCsnaOpenDuplicateSapFailure .1.3.6.1.4.1.9.9.33.2.0.1 "Status Events" Normal
+FORMAT This trap indicates that VTAM attempted $*
+SDESC
+This trap indicates that VTAM attempted
+to open a SAP that was already open via 
+another Path/Device on this CMCC card.
+Variables:
+  1: cipCardCsnaSlot
+  2: cipCardCsnaPort
+  3: cipCardCsnaConnPath
+  4: cipCardCsnaConnDevice
+EDESC
+#
+#
+#
+EVENT cipCsnaLlc2ConnectionLimitExceeded .1.3.6.1.4.1.9.9.33.2.0.2 "Status Events" Normal
+FORMAT This trap indicates that a connection $*
+SDESC
+This trap indicates that a connection
+attempt was rejected due to a connection
+resource limitation
+Variables:
+  1: cipCardAdminMaxLlc2Sessions
+  2: cipCardOperMaxLlc2Sessions
+  3: cipCardStatsHiWaterLlc2Sessions
+  4: cipCardStatsLlc2SessionAllocationErrs
+EDESC

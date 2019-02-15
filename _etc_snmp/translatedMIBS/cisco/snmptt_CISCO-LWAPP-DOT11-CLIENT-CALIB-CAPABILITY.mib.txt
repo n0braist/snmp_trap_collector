@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-LWAPP-DOT11-CLIENT-CALIB-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-LWAPP-DOT11-CLIENT-CALIB-CAPABILITY.mib) converted on Tue Aug 21 15:26:18 2012 using snmpttconvertmib v1.3

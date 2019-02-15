@@ -1,0 +1,141 @@
+#
+#
+#
+#
+MIB: CISCO-SLB-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SLB-MIB.mib) converted on Tue Aug 21 15:26:33 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoSlbVirtualStateChange .1.3.6.1.4.1.9.9.161.2.0.1 "Status Events" Normal
+FORMAT The notification generated when a virtual $*
+SDESC
+The notification generated when a virtual
+server changes to a new state.  The value of
+slbVirtualServerState indicates the new state.
+Variables:
+  1: slbVirtualServerState
+EDESC
+#
+#
+#
+EVENT ciscoSlbRealStateChange .1.3.6.1.4.1.9.9.161.2.0.2 "Status Events" Normal
+FORMAT The notification generated when a real server $*
+SDESC
+The notification generated when a real server
+changes to a new state.  The value of
+slbRealServerState indicates the new state.
+Variables:
+  1: slbRealState
+EDESC
+#
+#
+#
+EVENT ciscoSlbSaspStateChange .1.3.6.1.4.1.9.9.161.2.0.3 "Status Events" Normal
+FORMAT The notification generated when the SASP functionality $*
+SDESC
+The notification generated when the SASP functionality
+has been enabled or disabled on the Load Balancer.
+Variables:
+  1: slbSaspEnabled
+EDESC
+#
+#
+#
+EVENT ciscoSlbSaspAgentStateChange .1.3.6.1.4.1.9.9.161.2.0.4 "Status Events" Normal
+FORMAT The notification generated when a SASP Agent changes $*
+SDESC
+The notification generated when a SASP Agent changes
+to a new state.
+Variables:
+  1: slbSaspAgentState
+EDESC
+#
+#
+#
+EVENT ciscoSlbVServerStateChange .1.3.6.1.4.1.9.9.161.2.0.5 "Status Events" Normal
+FORMAT The notification generated when a virtual $*
+SDESC
+The notification generated when a virtual
+server state is changed.
+Variables:
+  1: slbVServerState
+  2: slbVServerStateChangeDescr
+  3: slbVServerClassMap
+  4: slbVServerPolicyMap
+EDESC
+#
+#
+#
+EVENT ciscoSlbVServerVIPStateChange .1.3.6.1.4.1.9.9.161.2.0.6 "Status Events" Normal
+FORMAT The notification generated when configuration $*
+SDESC
+The notification generated when configuration
+or association of virtual server IP address(VIP)
+changes.
+Variables:
+  1: slbVServerState
+  2: slbVServerStateChangeDescr
+  3: slbVServerClassMap
+  4: slbVServerPolicyMap
+  5: slbVServerIpAddressType
+  6: slbVServerIpAddress
+  7: slbVServerProtocol
+EDESC
+#
+#
+#
+EVENT ciscoSlbVirtualServerStateChange .1.3.6.1.4.1.9.9.161.2.0.7 "Status Events" Normal
+FORMAT This notification is generated when a virtual $*
+SDESC
+This notification is generated when a virtual
+server changes to a new state.
+- entPhysicalParentRelPos contains the slot
+number of the module.
+- slbVirtualServerState contains the new state of the 
+virtual server identified by slbVirtualServerName.
+- slbVirtualIpAddress contains the ip address of the 
+virtual server identified by slbVirtualServerName.
+- slbVirtualProtocol contains the protocol of the 
+virtual server identified by slbVirtualServerName.
+- slbVirtualPort contains the port number of the 
+virtual server identified by slbVirtualServerName.
+- slbName contains the name of the virtual server
+identified by slbVirtualServerName.
+Variables:
+  1: entPhysicalParentRelPos
+  2: slbVirtualServerState
+  3: slbVirtualIpAddress
+  4: slbVirtualProtocol
+  5: slbVirtualPort
+  6: slbName
+EDESC
+#
+#
+#
+EVENT ciscoSlbRealServerStateChange .1.3.6.1.4.1.9.9.161.2.0.8 "Status Events" Normal
+FORMAT This notification is generated when a real $*
+SDESC
+This notification is generated when a real
+server changes to a new state.
+- entPhysicalParentRelPos contains the slot
+number of the module.
+- slbRealState contains the new state of real
+server identified by slbRealIpAddress.
+- slbInetAddressType contains the type of IP 
+address configured in slbInetAddress.
+- slbInetAddress contains the ip address of the
+real server identified by the INDEX object 
+slbRealIpAddress.
+- slbPort contains the TCP/UDP port of the real 
+server identified by the INDEX object slbRealPort.
+- slbName contains the serverfarm name atached to
+to the real server identified by the INDEX object
+slbRealServerFarmName.
+Variables:
+  1: entPhysicalParentRelPos
+  2: slbRealState
+  3: slbInetAddressType
+  4: slbInetAddress
+  5: slbPort
+  6: slbName
+EDESC

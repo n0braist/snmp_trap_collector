@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-FLEX-LINKS-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-FLEX-LINKS-CAPABILITY.mib) converted on Tue Aug 21 15:26:01 2012 using snmpttconvertmib v1.3

@@ -1,0 +1,631 @@
+#
+#
+#
+#
+MIB: POLYCOM-RESOURCE-SCHEDULE-MANAGEMENT-MIB (file:/tmp/polycom/POLYCOM-RESOURCE-SCHEDULE-MANAGEMENT.MIB) converted on Fri Mar 13 12:28:43 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT failedToLaunch .1.3.6.1.4.1.13885.102.0.1 "Status Events" Normal
+FORMAT Notification from a scheduler that a conference failed to launch. $*
+SDESC
+Notification from a scheduler that a conference failed to launch.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableConferenceID
+EDESC
+#
+#
+#
+EVENT failedToProvision .1.3.6.1.4.1.13885.102.0.5 "Status Events" Normal
+FORMAT Notification from a provisioning service that it failed to provision a conference. $*
+SDESC
+Notification from a provisioning service that it failed to provision a conference.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableConferenceID
+EDESC
+#
+#
+#
+EVENT failedToUpdateSoftware .1.3.6.1.4.1.13885.102.0.7 "Status Events" Normal
+FORMAT Notification from a software update service that it failed to update a node. $*
+SDESC
+Notification from a software update service that it failed to update a node.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT failedToCreateUser .1.3.6.1.4.1.13885.102.0.9 "Status Events" Normal
+FORMAT Notification from a user management service that it failed to create a user. $*
+SDESC
+Notification from a user management service that it failed to create a user.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT failedToReadUser .1.3.6.1.4.1.13885.102.0.11 "Status Events" Normal
+FORMAT Notification from a user management service that it failed to read a user. $*
+SDESC
+Notification from a user management service that it failed to read a user.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT failedToUpdateUser .1.3.6.1.4.1.13885.102.0.13 "Status Events" Normal
+FORMAT Notification from a user management service that it failed to update a user. $*
+SDESC
+Notification from a user management service that it failed to update a user.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT securityFailedAuthAttempt .1.3.6.1.4.1.13885.102.0.17 "Status Events" Normal
+FORMAT Notification that an authentication attempt has failed. $*
+SDESC
+Notification that an authentication attempt has failed.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableConferenceID
+  9: notificationVariableServerName
+EDESC
+#
+#
+#
+EVENT securityAccountLocked .1.3.6.1.4.1.13885.102.0.23 "Status Events" Normal
+FORMAT Notification that an account has been locked for security reasons. $*
+SDESC
+Notification that an account has been locked for security reasons.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT securityIntrusionDetected .1.3.6.1.4.1.13885.102.0.27 "Status Events" Normal
+FORMAT Notification that an authorized access has been detected. $*
+SDESC
+Notification that an authorized access has been detected.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT bridgeDown .1.3.6.1.4.1.13885.102.0.29 "Status Events" Normal
+FORMAT Notification that a bridge has gone down. $*
+SDESC
+Notification that a bridge has gone down.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableConferenceID
+EDESC
+#
+#
+#
+EVENT bandwidthUsedSite .1.3.6.1.4.1.13885.102.0.31 "Status Events" Normal
+FORMAT Notification that a site's bandwidth is entirely consumed. $*
+SDESC
+Notification that a site's bandwidth is entirely consumed.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT bandwidthUsedSubnet .1.3.6.1.4.1.13885.102.0.33 "Status Events" Normal
+FORMAT Notification that a subnet's bandwidth is entirely consumed. $*
+SDESC
+Notification that a subnet's bandwidth is entirely consumed.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT bandwidthUsedSiteLink .1.3.6.1.4.1.13885.102.0.35 "Status Events" Normal
+FORMAT Notification that a site link's bandwidth is entirely consumed. $*
+SDESC
+Notification that a site link's bandwidth is entirely consumed.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT dmaDown .1.3.6.1.4.1.13885.102.0.37 "Status Events" Normal
+FORMAT Notification that a DMA has gone down. $*
+SDESC
+Notification that a DMA has gone down.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableConferenceID
+EDESC
+#
+#
+#
+EVENT ldapConnectionDown .1.3.6.1.4.1.13885.102.0.39 "Status Events" Normal
+FORMAT Notification that an LDAP connection has gone down. $*
+SDESC
+Notification that an LDAP connection has gone down.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableConferenceID
+EDESC
+#
+#
+#
+EVENT databaseConnectionDown .1.3.6.1.4.1.13885.102.0.41 "Status Events" Normal
+FORMAT Notification that a database connection has gone down. $*
+SDESC
+Notification that a database connection has gone down.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT failedOverSE200 .1.3.6.1.4.1.13885.102.0.43 "Status Events" Normal
+FORMAT Notification that an SE200 has failed over. $*
+SDESC
+Notification that an SE200 has failed over.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT licensesCloseToMax .1.3.6.1.4.1.13885.102.0.45 "Status Events" Normal
+FORMAT Notification that the licenses have reached or exceeded the product-defined threshold.  $*
+SDESC
+Notification that the licenses have reached or exceeded the product-defined threshold. 
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT licenseExpired .1.3.6.1.4.1.13885.102.0.47 "Status Events" Normal
+FORMAT Notification that a license has expired $*
+SDESC
+Notification that a license has expired
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT redundantServerNotRunning .1.3.6.1.4.1.13885.102.0.49 "Status Events" Normal
+FORMAT Notification that a redundant server has gone down. $*
+SDESC
+Notification that a redundant server has gone down.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT ldapSysAcctPasswdFail .1.3.6.1.4.1.13885.102.0.51 "Status Events" Normal
+FORMAT Notification that an attempt to acccess the LDAP system account was made with the wrong password. $*
+SDESC
+Notification that an attempt to acccess the LDAP system account was made with the wrong password.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT certificateAboutToExpire .1.3.6.1.4.1.13885.102.0.57 "Status Events" Normal
+FORMAT Notification that a certificate is about to expire. $*
+SDESC
+Notification that a certificate is about to expire.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT certificateExpired .1.3.6.1.4.1.13885.102.0.59 "Status Events" Normal
+FORMAT Notification that a certificate has expired. $*
+SDESC
+Notification that a certificate has expired.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT cpuUsageExceeded .1.3.6.1.4.1.13885.102.0.61 "Status Events" Normal
+FORMAT Notification that the threshold for maximum CPU usage has been exceeded. $*
+SDESC
+Notification that the threshold for maximum CPU usage has been exceeded.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableValueOID
+  8: notificationVariableThreshold
+  9: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT memoryUsageExceeded .1.3.6.1.4.1.13885.102.0.63 "Status Events" Normal
+FORMAT Notification that the threshold for maximum memory usage has been exceeded. $*
+SDESC
+Notification that the threshold for maximum memory usage has been exceeded.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableValueOID
+  8: notificationVariableThreshold
+  9: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT diskSpaceUsageExceeded .1.3.6.1.4.1.13885.102.0.65 "Status Events" Normal
+FORMAT Notification that the threshold for maximum disk space usage has been exceeded. $*
+SDESC
+Notification that the threshold for maximum disk space usage has been exceeded.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableValueOID
+  8: notificationVariableThreshold
+  9: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT cdrServerDown .1.3.6.1.4.1.13885.102.0.89 "Status Events" Normal
+FORMAT Notification that an attempt to connect to the CDR server failed. $*
+SDESC
+Notification that an attempt to connect to the CDR server failed.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableValueOID
+EDESC
+#
+#
+#
+EVENT syslogServerDown .1.3.6.1.4.1.13885.102.0.91 "Status Events" Normal
+FORMAT Notification that an attempt to connect to the syslog server failed. $*
+SDESC
+Notification that an attempt to connect to the syslog server failed.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableValueOID
+EDESC
+#
+#
+#
+EVENT cdrServiceRegistrationFailure .1.3.6.1.4.1.13885.102.0.103 "Status Events" Normal
+FORMAT Notification that the attempt to register with the configured CDR server has failed. $*
+SDESC
+Notification that the attempt to register with the configured CDR server has failed.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT bufferedDataUsageExcessive .1.3.6.1.4.1.13885.102.0.105 "Status Events" Normal
+FORMAT Notification that the local buffer of CDR events is filled above a configurable threshold because the CDR server is not reachable. $*
+SDESC
+Notification that the local buffer of CDR events is filled above a configurable threshold because the CDR server is not reachable.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT bufferedDataInformationLost .1.3.6.1.4.1.13885.102.0.107 "Status Events" Normal
+FORMAT Notification that the local buffer of CDR events is full and information is lost because it cannot be sent to the server and there's no more room to buffer data. $*
+SDESC
+Notification that the local buffer of CDR events is full and information is lost because it cannot be sent to the server and there's no more room to buffer data.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT licenseServerDown .1.3.6.1.4.1.13885.102.0.110 "Status Events" Normal
+FORMAT Notification that a license server is unreachable. $*
+SDESC
+Notification that a license server is unreachable.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT licenseServerOK .1.3.6.1.4.1.13885.102.0.111 "Status Events" Normal
+FORMAT Notification that a previous license server unreachable has been resolved. $*
+SDESC
+Notification that a previous license server unreachable has been resolved.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT licenseAcquisitionFailed .1.3.6.1.4.1.13885.102.0.112 "Status Events" Normal
+FORMAT Notification that a license could not be acquired despite the server being reachable. $*
+SDESC
+Notification that a license could not be acquired despite the server being reachable.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT licenseAcquisitionOK .1.3.6.1.4.1.13885.102.0.113 "Status Events" Normal
+FORMAT Notification that a license was successfully acquired. $*
+SDESC
+Notification that a license was successfully acquired.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+EDESC
+#
+#
+#
+EVENT autoSystemBackupFailed .1.3.6.1.4.1.13885.102.0.134 "Status Events" Normal
+FORMAT Notification that auto system backup operation failed due to ftp error. $*
+SDESC
+Notification that auto system backup operation failed due to ftp error.
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableValueOID
+EDESC
+#
+#
+#
+EVENT provisioningCapacityExceeded .1.3.6.1.4.1.13885.102.0.135 "Status Events" Normal
+FORMAT Notification that system capacity settings for managed endpoints and services number exceeded $*
+SDESC
+Notification that system capacity settings for managed endpoints and services number exceeded
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableValueOID
+EDESC
+#
+#
+#
+EVENT pbxConnectionFailed .1.3.6.1.4.1.13885.102.0.136 "Status Events" Normal
+FORMAT Notification that one of the pbx servers became unreachable $*
+SDESC
+Notification that one of the pbx servers became unreachable
+Variables:
+  1: notificationVariableNodeName
+  2: notificationVariableReportingNodeName
+  3: notificationVariableType
+  4: notificationVariableClass
+  5: notificationVariableKey
+  6: notificationVariableSummary
+  7: notificationVariableSeverity
+  8: notificationVariableValueOID
+EDESC

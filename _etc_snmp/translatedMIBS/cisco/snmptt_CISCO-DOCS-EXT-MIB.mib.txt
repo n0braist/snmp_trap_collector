@@ -1,0 +1,61 @@
+#
+#
+#
+#
+MIB: CISCO-DOCS-EXT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DOCS-EXT-MIB.mib) converted on Tue Aug 21 15:25:52 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cdxCmtsCmOnOffNotification .1.3.6.1.4.1.9.9.116.2.0.1 "Status Events" Normal
+FORMAT This notification indicates that the cable modem coming $*
+SDESC
+This notification indicates that the cable modem coming
+online and going offline. A notification will be sent from
+CMTS for a cable modem status changing to online or offline
+within the interval specified in
+cdxCmtsCmOnOffTrapInterval.
+Variables:
+  1: docsIfCmtsCmStatusMacAddress
+  2: docsIfCmtsCmStatusIpAddress
+  3: docsIfCmtsCmStatusDownChannelIfIndex
+  4: docsIfCmtsCmStatusUpChannelIfIndex
+  5: cdxCmCpeCmtsServiceId
+  6: cdxCmtsCmStatusValue
+EDESC
+#
+#
+#
+EVENT cdxCmtsCmChOverNotification .1.3.6.1.4.1.9.9.116.2.0.2 "Status Events" Normal
+FORMAT This notification is sent at the completion of a CMTS $*
+SDESC
+This notification is sent at the completion of a CMTS
+channel override operation if 
+cdxCmtsCmChOverTrapOnCompletion is true in the
+original entry.
+Once a channel override operation has been activated, it 
+cannot be stopped.  That is, it will run until either the 
+CMTS has generated downstream frequency and/or upstream 
+channel override fields in the RNG-RSP message sent to a 
+cable modem or 
+cdxCmtsCmChOverTimeExpiration time expired.
+In either case, the operation is completed. State in the 
+cdxCmtsCmChOverState object will tell in which 
+condition the operation is completed.
+Variables:
+  1: cdxCmtsCmChOverMacAddress
+  2: cdxCmtsCmChOverDownFrequency
+  3: cdxCmtsCmChOverUpChannelId
+  4: cdxCmtsCmChOverOpInitiatedTime
+  5: cdxCmtsCmChOverState
+EDESC
+#
+#
+#
+EVENT cdxCmtsCmDMICLockNotification .1.3.6.1.4.1.9.9.116.2.0.3 "Status Events" Normal
+FORMAT This notification is sent whenever a modem is locked because $*
+SDESC
+This notification is sent whenever a modem is locked because
+it failed the Dynamic Message Integrity Check.
+Variables:
+  1: docsIfCmtsCmStatusMacAddress
+EDESC

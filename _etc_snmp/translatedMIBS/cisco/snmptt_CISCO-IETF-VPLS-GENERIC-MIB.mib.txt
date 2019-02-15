@@ -1,0 +1,49 @@
+#
+#
+#
+#
+MIB: CISCO-IETF-VPLS-GENERIC-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IETF-VPLS-GENERIC-MIB.mib) converted on Tue Aug 21 15:26:08 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cvplsStatusChanged .1.3.6.1.4.1.9.10.138.0.1 "Status Events" Normal
+FORMAT The cvplsStatusChanged notification is generated $*
+SDESC
+The cvplsStatusChanged notification is generated
+when there is a change in the administrative or
+operating status of a VPLS service.
+Variables:
+  1: cvplsConfigVpnId
+  2: cvplsConfigAdminStatus
+  3: cvplsStatusOperStatus
+EDESC
+#
+#
+#
+EVENT cvplsFwdFullAlarmRaised .1.3.6.1.4.1.9.10.138.0.2 "Status Events" Normal
+FORMAT The cvplsFwdFullAlarmRaised notification is $*
+SDESC
+The cvplsFwdFullAlarmRaised notification is
+generated when the utilization of the Forwarding
+database is above the value specified by
+cvplsConfigFwdFullHighWatermark.
+Variables:
+  1: cvplsConfigVpnId
+  2: cvplsConfigFwdFullHighWatermark
+  3: cvplsConfigFwdFullLowWatermark
+EDESC
+#
+#
+#
+EVENT cvplsFwdFullAlarmCleared .1.3.6.1.4.1.9.10.138.0.3 "Status Events" Normal
+FORMAT The cvplsFwdFullAlarmCleared notification is $*
+SDESC
+The cvplsFwdFullAlarmCleared notification is
+generated when the utilization of the Forwarding
+database is below the value specified by
+cvplsConfigFwdFullLowWatermark.
+Variables:
+  1: cvplsConfigVpnId
+  2: cvplsConfigFwdFullHighWatermark
+  3: cvplsConfigFwdFullLowWatermark
+EDESC

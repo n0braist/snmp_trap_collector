@@ -1,0 +1,52 @@
+#
+#
+#
+#
+MIB: CISCO-UNIFIED-FIREWALL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-UNIFIED-FIREWALL-MIB.mib) converted on Tue Aug 21 15:26:40 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoUFwUrlfServerStateChange .1.3.6.1.4.1.9.9.491.0.1 "Status Events" Normal
+FORMAT This notification is generated when the firewall $*
+SDESC
+This notification is generated when the firewall
+elects a new primary URL filtering server from
+the existing set of configured servers. 
+Such a change could occur either as a result of 
+the current primary server becoming unavailable or
+as a result of explicit management action in 
+nominating a filtering server the primary server.
+The notification is issued just before the change
+occurs. Consequently, the varbinds identify the 
+attributes corresponding to the old primary server.
+This notification is issued if and only if the
+object 'cufwCntlUrlfServerStatusChange' has been
+set to 'true'.
+
+Variables:
+  1: cufwUrlfServerStatus
+EDESC
+#
+#
+#
+EVENT ciscoUFwL2StaticMacAddressMoved .1.3.6.1.4.1.9.9.491.0.2 "Status Events" Normal
+FORMAT This notification is generated when the firewall $*
+SDESC
+This notification is generated when the firewall
+detects the move of a static MAC address to a new
+port.
+Such a change could occur either as a result of 
+physical move of the device with the MAC Address 
+to the new port, due to management action of 
+relocating the MAC address at the new location or
+due to MAC address spoofing.
+The varbinds identify the new location (port) of 
+the MAC Address and its status at the new location.
+This notification is issued if and only if the
+object 'cufwCntlL2StaticMacAddressMoved' has been
+set to 'true'.
+
+Variables:
+  1: dot1dTpFdbPort
+  2: dot1dTpFdbStatus
+EDESC

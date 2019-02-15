@@ -1,0 +1,92 @@
+#
+#
+#
+#
+MIB: IBM-NetFinity-Text-Alert-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-NetFinity-Text-Alert-MIB.mib) converted on Wed Mar 13 15:58:07 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT trapText1 .1.3.6.1.4.1.2.6.71.0.1 "Status Events" INFORMATIONAL
+FORMAT NetFinity Alert Trap Information: $1 System $2 $3 $4 Severity $5 Type of Alert $6 Application ID $7 Application Alert Type $8Received From $9
+SDESC
+Converted Netfinity Alert
+Variables:
+  1: trapDesc1
+  2: trapSystemName
+  3: trapTime
+  4: trapDate
+  5: trapSeverity
+  6: trapType
+  7: trapApplicationID
+  8: trapAppType
+  9: trapRecFrom
+EDESC
+#
+#
+#
+#
+MIB: IBM-NetFinity-Text-Alert-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-NetFinity-Text-Alert-MIB.mib) converted on Wed Mar 13 16:00:00 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT trapText1 .1.3.6.1.4.1.2.6.71.0.1 "Status Events" INFORMATIONAL
+FORMAT NetFinity Alert Trap Information: $1 System $2 $3 $4 Severity $5 Type of Alert $6 Application ID $7 Application Alert Type $8Received From $9
+SDESC
+Converted Netfinity Alert
+Variables:
+  1: trapDesc1
+  2: trapSystemName
+  3: trapTime
+  4: trapDate
+  5: trapSeverity
+  6: trapType
+  7: trapApplicationID
+  8: trapAppType
+  9: trapRecFrom
+EDESC
+#
+#
+#
+#
+MIB: IBM-NetFinity-Text-Alert-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-NetFinity-Text-Alert-MIB.mib) converted on Fri Mar 15 09:47:03 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT trapText1 .1.3.6.1.4.1.2.6.71.0.1 "Status Events" INFORMATIONAL
+FORMAT NetFinity Alert Trap Information: $1 System $2 $3 $4 Severity $5 Type of Alert $6 Application ID $7 Application Alert Type $8Received From $9
+SDESC
+Converted Netfinity Alert
+Variables:
+  1: trapDesc1
+  2: trapSystemName
+  3: trapTime
+  4: trapDate
+  5: trapSeverity
+  6: trapType
+  7: trapApplicationID
+  8: trapAppType
+  9: trapRecFrom
+EDESC
+#
+#
+#
+#
+MIB: IBM-NetFinity-Text-Alert-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-NetFinity-Text-Alert-MIB.mib) converted on Fri Mar 15 11:27:19 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT trapText1 .1.3.6.1.4.1.2.6.71.0.1 "Status Events" INFORMATIONAL
+FORMAT NetFinity Alert Trap Information: $1 System $2 $3 $4 Severity $5 Type of Alert $6 Application ID $7 Application Alert Type $8Received From $9
+SDESC
+Converted Netfinity Alert
+Variables:
+  1: trapDesc1
+  2: trapSystemName
+  3: trapTime
+  4: trapDate
+  5: trapSeverity
+  6: trapType
+  7: trapApplicationID
+  8: trapAppType
+  9: trapRecFrom
+EDESC

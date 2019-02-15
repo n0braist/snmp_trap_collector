@@ -1,0 +1,117 @@
+#
+#
+#
+#
+MIB: CPQOS-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQOS-MIB.mib) converted on Wed Aug 22 14:19:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqOsCpuTimeDegraded .1.3.6.1.4.1.232.0.19001 "Status Events" CRITICAL
+FORMAT Processor Time Degraded: The Processor performance Instance, $4 is degraded with Processor Time of $5 percent.
+SDESC
+The Processor Time performance property is set to degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsCpuIndex
+  4: cpqOsCpuInstance
+  5: cpqOsCpuTimePercent
+EDESC
+#
+#
+#
+EVENT cpqOsCpuTimeFailed .1.3.6.1.4.1.232.0.19002 "Status Events" CRITICAL
+FORMAT Processor Time Failed: The Processor performance Instance, $4 is critical with Processor Time of $5 percent.
+SDESC
+The Processor Time performance property is set to critical.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsCpuIndex
+  4: cpqOsCpuInstance
+  5: cpqOsCpuTimePercent
+EDESC
+#
+#
+#
+EVENT cpqOsCacheCopyReadHitsDegraded .1.3.6.1.4.1.232.0.19003 "Status Events" CRITICAL
+FORMAT Cache CopyReadHits Degraded: The Cache performance property is degraded with CopyReadHits of $5 percent.
+SDESC
+The Cache CopyReadHits performance property is set to degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsCacheIndex
+  4: cpqOsCacheInstance
+  5: cpqOsCacheCopyReadHitsPercent
+EDESC
+#
+#
+#
+EVENT cpqOsCacheCopyReadHitsFailed .1.3.6.1.4.1.232.0.19004 "Status Events" CRITICAL
+FORMAT Cache CopyReadHits Failed: The Cache performance property is critical with CopyReadHits of $5 percent.
+SDESC
+The Cache CopyReadHits performance property is set to critical.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsCacheIndex
+  4: cpqOsCacheInstance
+  5: cpqOsCacheCopyReadHitsPercent
+EDESC
+#
+#
+#
+EVENT cpqOsPageFileUsageDegraded .1.3.6.1.4.1.232.0.19005 "Status Events" CRITICAL
+FORMAT PagingFile Usage Degraded: The PagingFile performance instance, $4 is degraded with PagingFile Usage of $5 percent.
+SDESC
+The PagingFile Usage performance property is set to degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsPagingFileIndex
+  4: cpqOsPagingFileInstance
+  5: cpqOsPageFileUsagePercent
+EDESC
+#
+#
+#
+EVENT cpqOsPageFileUsageFailed .1.3.6.1.4.1.232.0.19006 "Status Events" CRITICAL
+FORMAT PagingFile Usage Failed: The PagingFile performance instance, $4 is critical with PagingFile Usage of $5 percent.
+SDESC
+The PagingFile Usage performance property is set to critical.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsPagingFileIndex
+  4: cpqOsPagingFileInstance
+  5: cpqOsPageFileUsagePercent
+EDESC
+#
+#
+#
+EVENT cpqOsLogicalDiskBusyTimeDegraded .1.3.6.1.4.1.232.0.19007 "Status Events" CRITICAL
+FORMAT LogicalDisk BusyTime Degraded: The LogicalDisk performance instance, $4 is degraded with DiskBusyTime of $5 percent.
+SDESC
+The LogicalDisk BusyTime performance property is set to degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsLogicalDiskIndex
+  4: cpqOsLogicalDiskInstance
+  5: cpqOsLogicalDiskBusyTimePercent
+EDESC
+#
+#
+#
+EVENT cpqOsLogicalDiskBusyTimeFailed .1.3.6.1.4.1.232.0.19008 "Status Events" CRITICAL
+FORMAT LogicalDisk BusyTime Failed: The LogicalDisk performance instance, $4 is critical with DiskBusyTime of $5 percent.
+SDESC
+The LogicalDisk BusyTime performance property is set to critical.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqOsLogicalDiskIndex
+  4: cpqOsLogicalDiskInstance
+  5: cpqOsLogicalDiskBusyTimePercent
+EDESC

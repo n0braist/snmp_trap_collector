@@ -1,0 +1,34 @@
+#
+#
+#
+#
+MIB: HP-ICF-VG-RPTR (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-VG-RPTR.mib) converted on Mon Aug 20 14:11:46 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpVgRedundantUplinkTrap .1.3.6.1.4.1.11.2.14.12.3.0.1 "Status Events" Normal
+FORMAT An hpVgRedundantUplinkTrap is sent anytime one of $*
+SDESC
+An hpVgRedundantUplinkTrap is sent anytime one of
+the tranceivers being used in a redundant uplink
+transitions from one of the 'unknown', 'inUse' or
+'standby' states to either the 'silent' or
+'linkFailure' state.
+The hpVgXcvrState is the new value of the tranceiver
+state for the tranceiver that made the transition.
+Variables:
+  1: hpVgXcvrState
+EDESC
+#
+#
+#
+EVENT hpVgLossOfActiveTrap .1.3.6.1.4.1.11.2.14.12.3.0.2 "Status Events" Normal
+FORMAT An hpVgLossOfActiveTrap is sent whenever an enabled $*
+SDESC
+An hpVgLossOfActiveTrap is sent whenever an enabled
+port transitions from the active state to either the
+inactive or training state.  The new value of the
+port's status is returned in the trap.
+Variables:
+  1: icfVgPortStatus
+EDESC

@@ -1,0 +1,39 @@
+#
+#
+#
+#
+MIB: RMON-MIB (file:/tmp/polycom/RMON-MIB.MIB) converted on Fri Mar 13 12:28:51 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT risingAlarm .1.3.6.1.2.1.16.0.1 "Status Events" Normal
+FORMAT The SNMP trap that is generated when an alarm $*
+SDESC
+The SNMP trap that is generated when an alarm
+entry crosses its rising threshold and generates
+an event that is configured for sending SNMP
+traps.
+Variables:
+  1: alarmIndex
+  2: alarmVariable
+  3: alarmSampleType
+  4: alarmValue
+  5: alarmRisingThreshold
+EDESC
+#
+#
+#
+EVENT fallingAlarm .1.3.6.1.2.1.16.0.2 "Status Events" Normal
+FORMAT The SNMP trap that is generated when an alarm $*
+SDESC
+The SNMP trap that is generated when an alarm
+entry crosses its falling threshold and generates
+an event that is configured for sending SNMP
+traps.
+Variables:
+  1: alarmIndex
+  2: alarmVariable
+  3: alarmSampleType
+  4: alarmValue
+  5: alarmFallingThreshold
+EDESC

@@ -1,0 +1,38 @@
+#
+#
+#
+#
+MIB: CISCO-DOT11-RADAR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DOT11-RADAR-MIB.mib) converted on Tue Aug 21 15:25:53 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoDot11RadarChannelSwitch .1.3.6.1.4.1.9.9.627.0.1 "Status Events" Normal
+FORMAT This notification will be sent when a radar $*
+SDESC
+This notification will be sent when a radar
+is detected either by AP itself or by a report
+from a client indicating that it has detected radar. 
+The cdrDot11NewFrequency specify the channel that
+AP has switched to. This notification can be
+enabled or disabled via the 
+cdrChannelSwitchNotifEnabled object.
+Variables:
+  1: cdrDot11NewFrequency
+  2: cdrChannelSwitchLastTime
+EDESC
+#
+#
+#
+EVENT ciscoDot11RadarChannelReturn .1.3.6.1.4.1.9.9.627.0.2 "Status Events" Normal
+FORMAT This notification will be sent when a AP $*
+SDESC
+This notification will be sent when a AP
+has returned to the prefer channel. The
+cdrDot11PreferFrequency specify the channel that
+AP returns to. This notification can be enabled
+disabled via the cdrChannelReturnNotifEnabled
+object.
+Variables:
+  1: cdrDot11PreferFrequency
+  2: cdrChannelReturnLastTime
+EDESC

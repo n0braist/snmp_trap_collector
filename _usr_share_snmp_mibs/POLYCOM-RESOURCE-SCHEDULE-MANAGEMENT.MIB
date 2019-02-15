@@ -1,0 +1,1745 @@
+POLYCOM-RESOURCE-SCHEDULE-MANAGEMENT-MIB DEFINITIONS ::= BEGIN		
+		
+	IMPORTS 
+			OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE, Gauge32, Integer32, Unsigned32
+			FROM SNMPv2-SMI
+		DisplayString, TruthValue, DateAndTime, TimeInterval, TimeStamp
+			FROM SNMPv2-TC
+		InetPortNumber, InetAddressIPv4, InetAddressIPv6, InetAddress, InetAddressType
+			FROM INET-ADDRESS-MIB
+		NOTIFICATION-GROUP, OBJECT-GROUP
+			FROM SNMPv2-CONF
+		polycom
+			FROM POLYCOM-BASE-MIB;
+
+	polycom-resource-schedule-management-MIB MODULE-IDENTITY
+        LAST-UPDATED        "201408141908Z"
+        ORGANIZATION        "Polycom, Inc."
+        CONTACT-INFO        "DL-SNMPWorkingGroup@Polycom.com"
+        DESCRIPTION			"This module is used for monitoring a unified communications network." 
+		
+		REVISION	"201408141908Z"
+		DESCRIPTION	"163927-162043"
+
+	::= { polycom 102 }
+
+
+	--Notification group                           
+		polycom-resource-schedule-managementNotifications OBJECT IDENTIFIER 
+		::= {  polycom-resource-schedule-management-MIB 0 }
+			
+		failedToLaunch NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification from a scheduler that a conference failed to launch."
+        ::= { polycom-resource-schedule-managementNotifications 1}
+        
+failedToProvision NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification from a provisioning service that it failed to provision a conference."
+        ::= { polycom-resource-schedule-managementNotifications 5}
+        
+failedToUpdateSoftware NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification from a software update service that it failed to update a node."
+        ::= { polycom-resource-schedule-managementNotifications 7}
+        
+failedToCreateUser NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification from a user management service that it failed to create a user."
+        ::= { polycom-resource-schedule-managementNotifications 9}
+        
+failedToReadUser NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification from a user management service that it failed to read a user."
+        ::= { polycom-resource-schedule-managementNotifications 11}
+        
+failedToUpdateUser NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification from a user management service that it failed to update a user."
+        ::= { polycom-resource-schedule-managementNotifications 13}
+        
+securityFailedAuthAttempt NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID, 
+				notificationVariableServerName
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an authentication attempt has failed."
+        ::= { polycom-resource-schedule-managementNotifications 17}
+        
+securityAccountLocked NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an account has been locked for security reasons."
+        ::= { polycom-resource-schedule-managementNotifications 23}
+        
+securityIntrusionDetected NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an authorized access has been detected."
+        ::= { polycom-resource-schedule-managementNotifications 27}
+        
+bridgeDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a bridge has gone down."
+        ::= { polycom-resource-schedule-managementNotifications 29}
+        
+bandwidthUsedSite NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a site's bandwidth is entirely consumed."
+        ::= { polycom-resource-schedule-managementNotifications 31}
+        
+bandwidthUsedSubnet NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a subnet's bandwidth is entirely consumed."
+        ::= { polycom-resource-schedule-managementNotifications 33}
+        
+bandwidthUsedSiteLink NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a site link's bandwidth is entirely consumed."
+        ::= { polycom-resource-schedule-managementNotifications 35}
+        
+dmaDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a DMA has gone down."
+        ::= { polycom-resource-schedule-managementNotifications 37}
+        
+ldapConnectionDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableConferenceID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an LDAP connection has gone down."
+        ::= { polycom-resource-schedule-managementNotifications 39}
+        
+databaseConnectionDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a database connection has gone down."
+        ::= { polycom-resource-schedule-managementNotifications 41}
+        
+failedOverSE200 NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an SE200 has failed over."
+        ::= { polycom-resource-schedule-managementNotifications 43}
+        
+licensesCloseToMax NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the licenses have reached or exceeded the product-defined threshold. "
+        ::= { polycom-resource-schedule-managementNotifications 45}
+        
+licenseExpired NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a license has expired"
+        ::= { polycom-resource-schedule-managementNotifications 47}
+        
+redundantServerNotRunning NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a redundant server has gone down."
+        ::= { polycom-resource-schedule-managementNotifications 49}
+        
+ldapSysAcctPasswdFail NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an attempt to acccess the LDAP system account was made with the wrong password."
+        ::= { polycom-resource-schedule-managementNotifications 51}
+        
+certificateAboutToExpire NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a certificate is about to expire."
+        ::= { polycom-resource-schedule-managementNotifications 57}
+        
+certificateExpired NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a certificate has expired."
+        ::= { polycom-resource-schedule-managementNotifications 59}
+        
+cpuUsageExceeded NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableValueOID, 
+				notificationVariableThreshold, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the threshold for maximum CPU usage has been exceeded."
+        ::= { polycom-resource-schedule-managementNotifications 61}
+        
+memoryUsageExceeded NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableValueOID, 
+				notificationVariableThreshold, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the threshold for maximum memory usage has been exceeded."
+        ::= { polycom-resource-schedule-managementNotifications 63}
+        
+diskSpaceUsageExceeded NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableValueOID, 
+				notificationVariableThreshold, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the threshold for maximum disk space usage has been exceeded."
+        ::= { polycom-resource-schedule-managementNotifications 65}
+        
+cdrServerDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an attempt to connect to the CDR server failed."
+        ::= { polycom-resource-schedule-managementNotifications 89}
+        
+syslogServerDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that an attempt to connect to the syslog server failed."
+        ::= { polycom-resource-schedule-managementNotifications 91}
+        
+cdrServiceRegistrationFailure NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the attempt to register with the configured CDR server has failed."
+        ::= { polycom-resource-schedule-managementNotifications 103}
+        
+bufferedDataUsageExcessive NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the local buffer of CDR events is filled above a configurable threshold because the CDR server is not reachable."
+        ::= { polycom-resource-schedule-managementNotifications 105}
+        
+bufferedDataInformationLost NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that the local buffer of CDR events is full and information is lost because it cannot be sent to the server and there's no more room to buffer data."
+        ::= { polycom-resource-schedule-managementNotifications 107}
+        
+licenseServerDown NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a license server is unreachable."
+        ::= { polycom-resource-schedule-managementNotifications 110}
+        
+licenseServerOK NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a previous license server unreachable has been resolved."
+        ::= { polycom-resource-schedule-managementNotifications 111}
+        
+licenseAcquisitionFailed NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a license could not be acquired despite the server being reachable."
+        ::= { polycom-resource-schedule-managementNotifications 112}
+        
+licenseAcquisitionOK NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that a license was successfully acquired."
+        ::= { polycom-resource-schedule-managementNotifications 113}
+        
+autoSystemBackupFailed NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that auto system backup operation failed due to ftp error."
+        ::= { polycom-resource-schedule-managementNotifications 134}
+        
+provisioningCapacityExceeded NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that system capacity settings for managed endpoints and services number exceeded"
+        ::= { polycom-resource-schedule-managementNotifications 135}
+        
+pbxConnectionFailed NOTIFICATION-TYPE
+			OBJECTS {    
+				notificationVariableNodeName, 
+				notificationVariableReportingNodeName, 
+				notificationVariableType, 
+				notificationVariableClass, 
+				notificationVariableKey, 
+				notificationVariableSummary, 
+				notificationVariableSeverity, 
+				notificationVariableValueOID
+            }
+			STATUS              current
+			DESCRIPTION      "Notification that one of the pbx servers became unreachable"
+        ::= { polycom-resource-schedule-managementNotifications 136}
+        
+
+	--Object group                           
+		polycom-resource-schedule-managementObjects	OBJECT IDENTIFIER
+		::= {  polycom-resource-schedule-management-MIB 1 }
+			
+		
+	--Section   
+		identity OBJECT IDENTIFIER
+		::= {  polycom-resource-schedule-managementObjects 1 }
+			
+	-- Scalar
+		identitySoftwareInfo OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Information about software currently installed on the device."
+    	::= { identity 1 }
+		
+	-- Scalar
+		identityBuildDate OBJECT-TYPE
+			SYNTAX				DateAndTime
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The date this product was built."
+    	::= { identity 2 }
+		
+	-- Scalar
+		identityDeviceType OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"This device's type."
+    	::= { identity 3 }
+		
+	-- Scalar
+		identityDeviceModel OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The device's model."
+    	::= { identity 4 }
+		
+	-- Scalar
+		identityDeviceSerialNumber OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The device's serial number."
+    	::= { identity 5 }
+		
+	-- Scalar
+		identityStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The overall status of the device."
+    	::= { identity 6 }
+		
+	-- Scalar
+		identityDebugMode OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Is this device in debug mode?"
+    	::= { identity 7 }
+		
+	-- Scalar
+		identityConsoleAccess OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Is access to the console enabled?"
+    	::= { identity 8 }
+		
+	-- Scalar
+		identityMIBVersionSupported OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The version of this MIB that this agent is using."
+    	::= { identity 9 }
+		
+	-- Scalar
+		identityLastDataUpdateTime OBJECT-TYPE
+			SYNTAX				DateAndTime
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The date and time any data in this MIB was updated."
+    	::= { identity 10 }
+		
+	--Section   
+		service OBJECT IDENTIFIER
+		::= {  polycom-resource-schedule-managementObjects 2 }
+			
+	--Group                           
+		serviceProvisioning OBJECT IDENTIFIER
+		::= {	service 2 }
+			
+		
+	-- Scalar
+		serviceProvisioningStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				clear(0),
+				in-progress(2),
+				success(3),
+				failed(4)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The status of the provisioning service."
+    	::= { serviceProvisioning 1 }
+		
+	-- Scalar
+		serviceProvisioningFailuresLast60Mins OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of provisioning attempts that failed in the last 60 min."
+    	::= { serviceProvisioning 2 }
+		
+	-- Scalar
+		serviceProvisioningSuccessLast60Mins OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of provisioning attempts that succeeded in the last 60 min."
+    	::= { serviceProvisioning 3 }
+		
+	--Group                           
+		serviceSoftwareUpdate OBJECT IDENTIFIER
+		::= {	service 3 }
+			
+		
+	-- Scalar
+		serviceSoftwareUpdateStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The status of the software update service."
+    	::= { serviceSoftwareUpdate 1 }
+		
+	-- Scalar
+		serviceSoftwareUpdateFailuresLast60Mins OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of software update attempts that failed in the last 60 min."
+    	::= { serviceSoftwareUpdate 2 }
+		
+	-- Scalar
+		serviceSoftwareUpdateSuccessLast60Mins OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of software update attempts that succeeded in the last 60 min."
+    	::= { serviceSoftwareUpdate 3 }
+		
+	--Group                           
+		serviceUserManagement OBJECT IDENTIFIER
+		::= {	service 5 }
+			
+		
+	-- Scalar
+		serviceUserManagementStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The status of the user management service."
+    	::= { serviceUserManagement 1 }
+		
+	--Group                           
+		serviceSecurity OBJECT IDENTIFIER
+		::= {	service 10 }
+			
+		
+	-- Scalar
+		serviceSecurityProfile OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The name of the security profile in use."
+    	::= { serviceSecurity 1 }
+		
+	--Group                           
+		serviceSecurityCountUsersConnected OBJECT IDENTIFIER
+		::= {	serviceSecurity 2 }
+			
+		
+	-- Scalar
+		serviceSecurityCountUsersConnectedTotal OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of users connected."
+    	::= { serviceSecurityCountUsersConnected 1 }
+		
+	-- Scalar
+		serviceSecurityCountUsersConnectedAdmins OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of admin users connected."
+    	::= { serviceSecurityCountUsersConnected 2 }
+		
+	-- Scalar
+		serviceSecurityCountUsersConnectedOperators OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of operator users connected."
+    	::= { serviceSecurityCountUsersConnected 3 }
+		
+	-- Scalar
+		serviceSecurityCountUsersConnectedSchedulers OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of scheduler users connected."
+    	::= { serviceSecurityCountUsersConnected 4 }
+		
+	-- Scalar
+		serviceSecurityCountUsersConnectedAuditors OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of auditor users connected."
+    	::= { serviceSecurityCountUsersConnected 5 }
+		
+	--Group                           
+		serviceCdr OBJECT IDENTIFIER
+		::= {	service 13 }
+			
+		
+	-- Scalar
+		serviceCdrStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"CDR service status."
+    	::= { serviceCdr 1 }
+		
+	--Group                           
+		serviceTopology OBJECT IDENTIFIER
+		::= {	service 14 }
+			
+		
+	-- Scalar
+		serviceTopologySiteCount OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of sites."
+    	::= { serviceTopology 3 }
+		
+	-- Table  
+		serviceTopologySiteTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceTopologySiteEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Site Table"
+        ::= { serviceTopology 4 }
+
+	-- Entry        
+		serviceTopologySiteEntry OBJECT-TYPE
+			SYNTAX              ServiceTopologySiteEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Site Table"
+			INDEX {
+					serviceTopologySiteIndex
+			}
+        ::= { serviceTopologySiteTable 1 }
+ 
+	-- Sequence       
+		ServiceTopologySiteEntry ::= SEQUENCE {
+			serviceTopologySiteIndex  Unsigned32,
+			serviceTopologySiteName  OCTET STRING,
+			serviceTopologySiteTerritoryId  OCTET STRING,
+			serviceTopologySiteCallCount  Unsigned32,
+			serviceTopologySiteBandwidthUsed  Unsigned32,
+			serviceTopologySiteBandwidthTotal  Gauge32,
+			serviceTopologySiteAverageCallBitRate  Gauge32,
+			serviceTopologySitePacketLoss  Gauge32,
+			serviceTopologySiteAverageJitter  Gauge32,
+			serviceTopologySiteAverageDelay  TimeInterval
+		}
+			
+	--Index                                                                          
+		serviceTopologySiteIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceTopologySiteEntry 1 }
+
+
+	-- Column                                                                          
+		serviceTopologySiteName OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the site."
+        ::= { serviceTopologySiteEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteTerritoryId OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The id of this site's territory."
+        ::= { serviceTopologySiteEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteCallCount OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of active calls in the site."
+        ::= { serviceTopologySiteEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteBandwidthUsed OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Percentage of bandwidth used in the site."
+        ::= { serviceTopologySiteEntry 5 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteBandwidthTotal OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Total bandwidth used in the site."
+        ::= { serviceTopologySiteEntry 6 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteAverageCallBitRate OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Average call bit rate in the site."
+        ::= { serviceTopologySiteEntry 7 }
+		
+
+	-- Column                                                                          
+		serviceTopologySitePacketLoss OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Percentage of packet loss in the site."
+        ::= { serviceTopologySiteEntry 8 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteAverageJitter OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Average jitter in the site."
+        ::= { serviceTopologySiteEntry 9 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteAverageDelay OBJECT-TYPE
+			SYNTAX				TimeInterval
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Average delay in the site."
+        ::= { serviceTopologySiteEntry 10 }
+		
+	-- Scalar
+		serviceTopologySiteLinkCount OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Number of site links"
+    	::= { serviceTopology 5 }
+		
+	-- Table  
+		serviceTopologySiteLinkTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceTopologySiteLinkEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "site link table"
+        ::= { serviceTopology 6 }
+
+	-- Entry        
+		serviceTopologySiteLinkEntry OBJECT-TYPE
+			SYNTAX              ServiceTopologySiteLinkEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "site link table"
+			INDEX {
+					serviceTopologySiteLinkIndex
+			}
+        ::= { serviceTopologySiteLinkTable 1 }
+ 
+	-- Sequence       
+		ServiceTopologySiteLinkEntry ::= SEQUENCE {
+			serviceTopologySiteLinkIndex  Unsigned32,
+			serviceTopologySiteLinkId  DisplayString,
+			serviceTopologySiteLinkName  DisplayString,
+			serviceTopologySiteLinkStatus  INTEGER,
+			serviceTopologySiteLinkSiteId1  DisplayString,
+			serviceTopologySiteLinkSiteId2  DisplayString,
+			serviceTopologySiteLinkCallCount  Unsigned32,
+			serviceTopologySiteLinkBandwidthUsed  Gauge32,
+			serviceTopologySiteLinkBandwidthTotal  Gauge32,
+			serviceTopologySiteLinkAverageCallBitRate  Gauge32,
+			serviceTopologySiteLinkPacketLoss  Gauge32,
+			serviceTopologySiteLinkAverageJitter  Gauge32,
+			serviceTopologySiteLinkAverageDelay  TimeInterval
+		}
+			
+	--Index                                                                          
+		serviceTopologySiteLinkIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table"
+        ::= { serviceTopologySiteLinkEntry 1 }
+
+
+	-- Column                                                                          
+		serviceTopologySiteLinkId OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The site's ID"
+        ::= { serviceTopologySiteLinkEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The site's name"
+        ::= { serviceTopologySiteLinkEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The site's operational status"
+        ::= { serviceTopologySiteLinkEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkSiteId1 OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The ID of the site at one end of the link"
+        ::= { serviceTopologySiteLinkEntry 5 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkSiteId2 OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The ID of the site at the other end of the link"
+        ::= { serviceTopologySiteLinkEntry 6 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkCallCount OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The number of active calls in the link."
+        ::= { serviceTopologySiteLinkEntry 7 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkBandwidthUsed OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The percentage of bandwidth used in the link."
+        ::= { serviceTopologySiteLinkEntry 8 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkBandwidthTotal OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The percentage of bandwidth used in the link."
+        ::= { serviceTopologySiteLinkEntry 9 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkAverageCallBitRate OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The percentage of bandwidth used in the link."
+        ::= { serviceTopologySiteLinkEntry 10 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkPacketLoss OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The percentage of packet loss in the link."
+        ::= { serviceTopologySiteLinkEntry 11 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkAverageJitter OBJECT-TYPE
+			SYNTAX				Gauge32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The average jitter in the site."
+        ::= { serviceTopologySiteLinkEntry 12 }
+		
+
+	-- Column                                                                          
+		serviceTopologySiteLinkAverageDelay OBJECT-TYPE
+			SYNTAX				TimeInterval
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The average delay in the site.The average delay in the site."
+        ::= { serviceTopologySiteLinkEntry 13 }
+		
+	-- Scalar
+		serviceTopologyTerritoryCount OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The number of territories."
+    	::= { serviceTopology 7 }
+		
+	-- Table  
+		serviceTopologyTerritoryTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ServiceTopologyTerritoryEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Territory table."
+        ::= { serviceTopology 8 }
+
+	-- Entry        
+		serviceTopologyTerritoryEntry OBJECT-TYPE
+			SYNTAX              ServiceTopologyTerritoryEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     "Territory table."
+			INDEX {
+					serviceTopologyTerritoryIndex
+			}
+        ::= { serviceTopologyTerritoryTable 1 }
+ 
+	-- Sequence       
+		ServiceTopologyTerritoryEntry ::= SEQUENCE {
+			serviceTopologyTerritoryIndex  Unsigned32,
+			serviceTopologyTerritoryId  OCTET STRING,
+			serviceTopologyTerritoryPrimaryCluster  OCTET STRING,
+			serviceTopologyTerritoryBackupCluster  OCTET STRING,
+			serviceTopologyTerritoryVMRCapable  TruthValue
+		}
+			
+	--Index                                                                          
+		serviceTopologyTerritoryIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { serviceTopologyTerritoryEntry 1 }
+
+
+	-- Column                                                                          
+		serviceTopologyTerritoryId OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The territory's ID."
+        ::= { serviceTopologyTerritoryEntry 2 }
+		
+
+	-- Column                                                                          
+		serviceTopologyTerritoryPrimaryCluster OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name if the primary cluster for this territory."
+        ::= { serviceTopologyTerritoryEntry 3 }
+		
+
+	-- Column                                                                          
+		serviceTopologyTerritoryBackupCluster OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name if the backup cluster for this territory."
+        ::= { serviceTopologyTerritoryEntry 4 }
+		
+
+	-- Column                                                                          
+		serviceTopologyTerritoryVMRCapable OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Indicates whether this territory is capable of MVR calls or not."
+        ::= { serviceTopologyTerritoryEntry 5 }
+		
+	--Group                           
+		serviceHA OBJECT IDENTIFIER
+		::= {	service 16 }
+			
+		
+	-- Scalar
+		serviceHASuperClstrStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				inService(1),
+				busyOut(2),
+				outOfService(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The service status of the super cluster."
+    	::= { serviceHA 1 }
+		
+	-- Scalar
+		serviceHAStatusChgReason OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"The cause of the last cluster status change."
+    	::= { serviceHA 2 }
+		
+	--Section   
+		externalIntegration OBJECT IDENTIFIER
+		::= {  polycom-resource-schedule-managementObjects 6 }
+			
+	-- Scalar
+		externalIntegrationStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Overal status of the external services integration."
+    	::= { externalIntegration 1 }
+		
+	--Group                           
+		externalIntegrationPoolOrder OBJECT IDENTIFIER
+		::= {	externalIntegration 5 }
+			
+		
+	-- Scalar
+		externalIntegrationPoolOrderStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Status of the integration with the Pool Order service."
+    	::= { externalIntegrationPoolOrder 1 }
+		
+	--Group                           
+		externalIntegrationVMR OBJECT IDENTIFIER
+		::= {	externalIntegration 6 }
+			
+		
+	-- Scalar
+		externalIntegrationVMRStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Status of the integration with the VMR service."
+    	::= { externalIntegrationVMR 1 }
+		
+	--Group                           
+		externalIntegrationPresence OBJECT IDENTIFIER
+		::= {	externalIntegration 7 }
+			
+		
+	-- Scalar
+		externalIntegrationPresenceStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Status of the integration with the Presence service."
+    	::= { externalIntegrationPresence 1 }
+		
+	--Group                           
+		externalIntegrationCDR OBJECT IDENTIFIER
+		::= {	externalIntegration 8 }
+			
+		
+	-- Scalar
+		externalIntegrationCDRStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Status of the integration with the CDR service."
+    	::= { externalIntegrationCDR 1 }
+		
+	--Group                           
+		externalIntegrationSyslog OBJECT IDENTIFIER
+		::= {	externalIntegration 9 }
+			
+		
+	-- Scalar
+		externalIntegrationSyslogStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Status of the integration with the Syslog service."
+    	::= { externalIntegrationSyslog 1 }
+		
+	--Group                           
+		externalIntegrationDirectorySvcs OBJECT IDENTIFIER
+		::= {	externalIntegration 13 }
+			
+		
+	-- Scalar
+		externalIntegrationDirectorySvcsStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS		read-only
+			STATUS				current
+			DESCRIPTION		"Operational status."
+    	::= { externalIntegrationDirectorySvcs 1 }
+		
+	-- Table  
+		externalIntegrationDirectorySvcsServerTable OBJECT-TYPE
+			SYNTAX              SEQUENCE OF ExternalIntegrationDirectorySvcsServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+        ::= { externalIntegrationDirectorySvcs 3 }
+
+	-- Entry        
+		externalIntegrationDirectorySvcsServerEntry OBJECT-TYPE
+			SYNTAX              ExternalIntegrationDirectorySvcsServerEntry
+			MAX-ACCESS      not-accessible
+			STATUS              current
+			DESCRIPTION     ""
+			INDEX {
+					externalIntegrationDirectorySvcsServerIndex
+			}
+        ::= { externalIntegrationDirectorySvcsServerTable 1 }
+ 
+	-- Sequence       
+		ExternalIntegrationDirectorySvcsServerEntry ::= SEQUENCE {
+			externalIntegrationDirectorySvcsServerIndex  Unsigned32,
+			externalIntegrationDirectorySvcsServerStatus  INTEGER,
+			externalIntegrationDirectorySvcsServerId  DisplayString,
+			externalIntegrationDirectorySvcsServerCacheStatus  INTEGER,
+			externalIntegrationDirectorySvcsServerConnectionSecure  TruthValue,
+			externalIntegrationDirectorySvcsServerCacheRefreshDate  DateAndTime,
+			externalIntegrationDirectorySvcsServerEnterpriseConferenceRooms  Unsigned32,
+			externalIntegrationDirectorySvcsServerIntegrator  DisplayString
+		}
+			
+	--Index                                                                          
+		externalIntegrationDirectorySvcsServerIndex OBJECT-TYPE
+			SYNTAX              Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Primary index for this table."
+        ::= { externalIntegrationDirectorySvcsServerEntry 1 }
+
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				ok(2),
+				failed(3)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Directory service operational status."
+        ::= { externalIntegrationDirectorySvcsServerEntry 2 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerId OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The user ID of the service account used to integrate with enterprise directory."
+        ::= { externalIntegrationDirectorySvcsServerEntry 3 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerCacheStatus OBJECT-TYPE
+			SYNTAX				INTEGER {
+				disabled(1),
+				connecting(2),
+				integratedWithEncryption(3),
+				integratedWithoutEncryption(4),
+				failed(5),
+				outdated(6),
+				failedNoSuchEnterpriseUser(7),
+				failedEnterpriseAuthentication(8),
+				failedInvalidEnterpriseCredentials(9),
+				failedEnterpriseAuthenticationWithCode(10),
+				failedConnection(11)
+			}
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The status of the enterprise directory caching."
+        ::= { externalIntegrationDirectorySvcsServerEntry 4 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerConnectionSecure OBJECT-TYPE
+			SYNTAX				TruthValue
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Indicates whether the connection is secure or not."
+        ::= { externalIntegrationDirectorySvcsServerEntry 5 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerCacheRefreshDate OBJECT-TYPE
+			SYNTAX				DateAndTime
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The time of last cache refresh."
+        ::= { externalIntegrationDirectorySvcsServerEntry 6 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerEnterpriseConferenceRooms OBJECT-TYPE
+			SYNTAX				Unsigned32
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "Number of enterprise conference rooms generated by enterprise directory integration."
+        ::= { externalIntegrationDirectorySvcsServerEntry 7 }
+		
+
+	-- Column                                                                          
+		externalIntegrationDirectorySvcsServerIntegrator OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS     read-only
+			STATUS              current
+			DESCRIPTION     "The name of the cluster integrating with the enterprise directory service."
+        ::= { externalIntegrationDirectorySvcsServerEntry 8 }
+		
+	--Section   
+		notificationVariable OBJECT IDENTIFIER
+		::= {  polycom-resource-schedule-managementObjects 99 }
+			
+	-- Scalar
+		notificationVariableNodeName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 1 }
+		
+	-- Scalar
+		notificationVariableReportingNodeName OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 2 }
+		
+	-- Scalar
+		notificationVariableType OBJECT-TYPE
+			SYNTAX				INTEGER {
+				problem(1),
+				resolution(2),
+				info(3)
+			}
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 3 }
+		
+	-- Scalar
+		notificationVariableClass OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 4 }
+		
+	-- Scalar
+		notificationVariableKey OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 5 }
+		
+	-- Scalar
+		notificationVariableSummary OBJECT-TYPE
+			SYNTAX				DisplayString
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		""
+    	::= { notificationVariable 6 }
+		
+	-- Scalar
+		notificationVariableSeverity OBJECT-TYPE
+			SYNTAX				INTEGER {
+				emergency(0),
+				alert(1),
+				critical(2),
+				error(3),
+				warning(4),
+				notice(5),
+				informational(6),
+				debug(7)
+			}
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"The notification's severity level."
+    	::= { notificationVariable 7 }
+		
+	-- Scalar
+		notificationVariableValueOID OBJECT-TYPE
+			SYNTAX				OBJECT IDENTIFIER
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"For threshold notifications this object points to the OID where the current value can be retrieved."
+    	::= { notificationVariable 8 }
+		
+	-- Scalar
+		notificationVariableThreshold OBJECT-TYPE
+			SYNTAX				INTEGER
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"For threshold notifications this object contains the value of the threshold that was breached."
+    	::= { notificationVariable 9 }
+		
+	-- Scalar
+		notificationVariableConferenceID OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"This object contains the conference ID with which the notification is associated."
+    	::= { notificationVariable 10 }
+		
+	-- Scalar
+		notificationVariableServerName OBJECT-TYPE
+			SYNTAX				OCTET STRING
+			MAX-ACCESS		accessible-for-notify
+			STATUS				current
+			DESCRIPTION		"This object contains the name of the server the notification reports about."
+    	::= { notificationVariable 11 }
+		
+		polycom-resource-schedule-managementMIBConformance OBJECT IDENTIFIER ::= { polycom-resource-schedule-management-MIB 2 }
+		
+		polycom-resource-schedule-managementMIBGroups OBJECT IDENTIFIER ::= { polycom-resource-schedule-managementMIBConformance 2 }	
+			
+		identityObjects OBJECT-GROUP
+        OBJECTS { 
+        	identitySoftwareInfo, 
+			identityBuildDate, 
+			identityDeviceType, 
+			identityDeviceModel, 
+			identityDeviceSerialNumber, 
+			identityStatus, 
+			identityDebugMode, 
+			identityConsoleAccess, 
+			identityMIBVersionSupported, 
+			identityLastDataUpdateTime
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the identity section"
+        ::= { polycom-resource-schedule-managementMIBGroups 1 }
+       
+		serviceObjects OBJECT-GROUP
+        OBJECTS { 
+        	serviceProvisioningStatus, 
+			serviceProvisioningFailuresLast60Mins, 
+			serviceProvisioningSuccessLast60Mins, 
+			serviceSoftwareUpdateStatus, 
+			serviceSoftwareUpdateFailuresLast60Mins, 
+			serviceSoftwareUpdateSuccessLast60Mins, 
+			serviceUserManagementStatus, 
+			serviceSecurityProfile, 
+			serviceSecurityCountUsersConnectedTotal, 
+			serviceSecurityCountUsersConnectedAdmins, 
+			serviceSecurityCountUsersConnectedOperators, 
+			serviceSecurityCountUsersConnectedSchedulers, 
+			serviceSecurityCountUsersConnectedAuditors, 
+			serviceCdrStatus, 
+			serviceTopologySiteCount, 
+			serviceTopologySiteIndex, 
+			serviceTopologySiteName, 
+			serviceTopologySiteTerritoryId, 
+			serviceTopologySiteCallCount, 
+			serviceTopologySiteBandwidthUsed, 
+			serviceTopologySiteBandwidthTotal, 
+			serviceTopologySiteAverageCallBitRate, 
+			serviceTopologySitePacketLoss, 
+			serviceTopologySiteAverageJitter, 
+			serviceTopologySiteAverageDelay, 
+			serviceTopologySiteLinkCount, 
+			serviceTopologySiteLinkIndex, 
+			serviceTopologySiteLinkId, 
+			serviceTopologySiteLinkName, 
+			serviceTopologySiteLinkStatus, 
+			serviceTopologySiteLinkSiteId1, 
+			serviceTopologySiteLinkSiteId2, 
+			serviceTopologySiteLinkCallCount, 
+			serviceTopologySiteLinkBandwidthUsed, 
+			serviceTopologySiteLinkBandwidthTotal, 
+			serviceTopologySiteLinkAverageCallBitRate, 
+			serviceTopologySiteLinkPacketLoss, 
+			serviceTopologySiteLinkAverageJitter, 
+			serviceTopologySiteLinkAverageDelay, 
+			serviceTopologyTerritoryCount, 
+			serviceTopologyTerritoryIndex, 
+			serviceTopologyTerritoryId, 
+			serviceTopologyTerritoryPrimaryCluster, 
+			serviceTopologyTerritoryBackupCluster, 
+			serviceTopologyTerritoryVMRCapable, 
+			serviceHASuperClstrStatus, 
+			serviceHAStatusChgReason
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the service section"
+        ::= { polycom-resource-schedule-managementMIBGroups 2 }
+       
+		externalIntegrationObjects OBJECT-GROUP
+        OBJECTS { 
+        	externalIntegrationStatus, 
+			externalIntegrationPoolOrderStatus, 
+			externalIntegrationVMRStatus, 
+			externalIntegrationPresenceStatus, 
+			externalIntegrationCDRStatus, 
+			externalIntegrationSyslogStatus, 
+			externalIntegrationDirectorySvcsStatus, 
+			externalIntegrationDirectorySvcsServerIndex, 
+			externalIntegrationDirectorySvcsServerStatus, 
+			externalIntegrationDirectorySvcsServerId, 
+			externalIntegrationDirectorySvcsServerCacheStatus, 
+			externalIntegrationDirectorySvcsServerConnectionSecure, 
+			externalIntegrationDirectorySvcsServerCacheRefreshDate, 
+			externalIntegrationDirectorySvcsServerEnterpriseConferenceRooms, 
+			externalIntegrationDirectorySvcsServerIntegrator
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the externalIntegration section"
+        ::= { polycom-resource-schedule-managementMIBGroups 6 }
+       
+		notificationVariableObjects OBJECT-GROUP
+        OBJECTS { 
+        	notificationVariableNodeName, 
+			notificationVariableReportingNodeName, 
+			notificationVariableType, 
+			notificationVariableClass, 
+			notificationVariableKey, 
+			notificationVariableSummary, 
+			notificationVariableSeverity, 
+			notificationVariableValueOID, 
+			notificationVariableThreshold, 
+			notificationVariableConferenceID, 
+			notificationVariableServerName
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the notificationVariable section"
+        ::= { polycom-resource-schedule-managementMIBGroups 7 }
+       
+		
+		notificationObjects NOTIFICATION-GROUP
+        NOTIFICATIONS {
+      		failedToLaunch, 
+			failedToProvision, 
+			failedToUpdateSoftware, 
+			failedToCreateUser, 
+			failedToReadUser, 
+			failedToUpdateUser, 
+			securityFailedAuthAttempt, 
+			securityAccountLocked, 
+			securityIntrusionDetected, 
+			bridgeDown, 
+			bandwidthUsedSite, 
+			bandwidthUsedSubnet, 
+			bandwidthUsedSiteLink, 
+			dmaDown, 
+			ldapConnectionDown, 
+			databaseConnectionDown, 
+			failedOverSE200, 
+			licensesCloseToMax, 
+			licenseExpired, 
+			redundantServerNotRunning, 
+			ldapSysAcctPasswdFail, 
+			certificateAboutToExpire, 
+			certificateExpired, 
+			cpuUsageExceeded, 
+			memoryUsageExceeded, 
+			diskSpaceUsageExceeded, 
+			cdrServerDown, 
+			syslogServerDown, 
+			cdrServiceRegistrationFailure, 
+			bufferedDataUsageExcessive, 
+			bufferedDataInformationLost, 
+			licenseServerDown, 
+			licenseServerOK, 
+			licenseAcquisitionFailed, 
+			licenseAcquisitionOK, 
+			autoSystemBackupFailed, 
+			provisioningCapacityExceeded, 
+			pbxConnectionFailed
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all of the notification objects"
+        ::= { polycom-resource-schedule-managementMIBGroups 99 }
+       
+		
+		END

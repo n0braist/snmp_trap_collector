@@ -1,0 +1,35 @@
+#
+#
+#
+#
+MIB: HP-ENTITY-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ENTITY-MIB.mib) converted on Mon Aug 20 11:11:33 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: HP-ENTITY-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ENTITY-MIB.mib) converted on Mon Aug 20 11:26:47 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: HP-ENTITY-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ENTITY-MIB.mib) converted on Mon Aug 20 14:04:38 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpEntConfigChange .1.3.6.1.4.1.11.2.14.9.2.0.1 "Status Events" Normal
+FORMAT An hpEntConfigChange trap is sent when the value of $*
+SDESC
+An hpEntConfigChange trap is sent when the value of
+hpEntLastChangeTime changes. It can be utilized by an NMS to
+trigger logical/physical entity table maintenance polls.
+An agent must not generate more than one hpEntConfigChange
+'trap-event' in a five second period, where a 'trap-event'
+is the transmission of a single trap PDU to a list of trap
+destinations.  If additional configuration changes occur
+within the five second 'throttling' period, then these
+trap-events should be suppressed by the agent. An NMS should
+periodically check the value of hpEntLastChangeTime to detect
+any missed hpEntConfigChange trap-events, e.g. due to
+throttling or transmission loss.
+Variables:
+EDESC

@@ -1,0 +1,405 @@
+#
+#
+#
+#
+MIB: CISCO-NETWORK-REGISTRAR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-NETWORK-REGISTRAR-MIB.mib) converted on Tue Aug 21 15:26:22 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoNetRegFreeAddressLow .1.3.6.1.4.1.9.9.120.2.0.1 "Status Events" Normal
+FORMAT This notification signifies that the number $*
+SDESC
+This notification signifies that the number
+of available IP addresses for a particular scope
+has fallen below the value of
+cnrDHCPScopeFreeAddrLowThreshold for that scope.
+This notification has been replaced by the 
+ciscoNetRegFreeAddrLowThreshold notification.
+
+Variables:
+  1: cnrDHCPScopeFreeAddrLowThreshold
+  2: cnrDHCPScopeFreeAddrValue
+  3: cnrDHCPScopeFreeAddrUnits
+EDESC
+#
+#
+#
+EVENT ciscoNetRegFreeAddressHigh .1.3.6.1.4.1.9.9.120.2.0.2 "Status Events" Normal
+FORMAT This notification signifies that the number $*
+SDESC
+This notification signifies that the number
+of available IP addresses for a particular scope
+has risen above the value of
+cnrDHCPScopeFreeAddrHighThreshold for that scope.
+This notification has been replaced by the 
+ciscoNetRegFreeAddrHighThreshold notification.
+Variables:
+  1: cnrDHCPScopeFreeAddrHighThreshold
+  2: cnrDHCPScopeFreeAddrValue
+  3: cnrDHCPScopeFreeAddrUnits
+EDESC
+#
+#
+#
+EVENT ciscoNetRegServerStart .1.3.6.1.4.1.9.9.120.2.0.3 "Status Events" Normal
+FORMAT This notification signifies that the server $*
+SDESC
+This notification signifies that the server
+of the specified type has started on the
+host from which this notification has been sent.
+Variables:
+  1: cnrNotifServerType
+EDESC
+#
+#
+#
+EVENT ciscoNetRegServerStop .1.3.6.1.4.1.9.9.120.2.0.4 "Status Events" Normal
+FORMAT This notification signifies that the server $*
+SDESC
+This notification signifies that the server
+of the specified type has stopped normally on the
+host from which this notification has been sent.
+Variables:
+  1: cnrNotifServerType
+EDESC
+#
+#
+#
+EVENT ciscoNetRegDNSQueueTooBig .1.3.6.1.4.1.9.9.120.2.0.5 "Status Events" Normal
+FORMAT This notification indicates that the number of pending $*
+SDESC
+This notification indicates that the number of pending
+DNS updates has reached its limit.  Successive updates
+may be dropped, and DHCP may stop responding to client
+requests until this problem has cleared.
+Variables:
+EDESC
+#
+#
+#
+EVENT ciscoNetRegOtherServerNotResponding .1.3.6.1.4.1.9.9.120.2.0.6 "Status Events" Normal
+FORMAT This notification signifies that a server is not $*
+SDESC
+This notification signifies that a server is not
+responding to updates from the DHCP server.  The 
+identity of the server is given by the cnrNotifServer
+object.  The type of the server is given by the
+cnrNotifServerType object.
+This notification has been replaced by the 
+ciscoNetRegOtherServerNotResp notification. 
+Variables:
+  1: cnrNotifServer
+  2: cnrNotifServerType
+EDESC
+#
+#
+#
+EVENT ciscoNetRegDuplicateAddress .1.3.6.1.4.1.9.9.120.2.0.7 "Status Events" Normal
+FORMAT This notification signifies that a duplicate IP address $*
+SDESC
+This notification signifies that a duplicate IP address
+has been detected.  The DHCP server can detect this
+condition through the ping-before-offer mechanism.
+Alternatively, the client may have sent a DHCPDECLINE 
+back to the server; this is assumed to be the result of
+the client detecting that the address was in use.  In
+either case, the DHCP server marks the IP address as
+unavailable for leasing to clients.  The
+cnrNotifDupIpAddressDetectedBy object indicates whether
+the client or server detected this condition.
+Variables:
+  1: cnrNotifDupIpAddress
+  2: cnrNotifMACAddress
+  3: cnrNotifDupIpAddressDetectedBy
+EDESC
+#
+#
+#
+EVENT ciscoNetRegAddressConflict .1.3.6.1.4.1.9.9.120.2.0.8 "Status Events" Normal
+FORMAT This notification indicates that the DHCP server on this $*
+SDESC
+This notification indicates that the DHCP server on this
+host, and a DHCP server on another host, have claimed
+ownership for the same IP address.  The
+cnrNotifContestedIpAddress object indicates which address
+is under contention.  The cnrNotifServer object indicates
+with which other server a conflict was detected.
+Variables:
+  1: cnrNotifContestedIpAddress
+  2: cnrNotifServer
+EDESC
+#
+#
+#
+EVENT ciscoNetRegOtherServerResponding .1.3.6.1.4.1.9.9.120.2.0.9 "Status Events" Normal
+FORMAT This notification signifies that a server which had formerly $*
+SDESC
+This notification signifies that a server which had formerly
+been in a 'not responding' state is now responding to
+updates from the CNR protocol server.  The identity of the
+server is given by the cnrNotifServer object.  The type of
+the server is given by the cnrNotifServerType object.
+NOTE: One should not rely on recieving this notification
+as an indication that all is well with the network.
+Several conditions, including restart of the CNR
+protocol server, could result in either multiple
+ciscoNetRegOtherServerNotResponding notifications being sent,
+or in a ciscoNetRegOtherServerResponding notification NOT
+being sent.
+This notification has been replaced by the 
+ciscoNetRegOtherServerResp notification.
+
+Variables:
+  1: cnrNotifServer
+  2: cnrNotifServerType
+EDESC
+#
+#
+#
+EVENT ciscoNetRegFailoverConfigMismatch .1.3.6.1.4.1.9.9.120.2.0.10 "Status Events" Normal
+FORMAT This notification signifies that a server has detected $*
+SDESC
+This notification signifies that a server has detected
+via the failover protocol that its configuration does
+not match that of its failover peer, and that reliable 
+DHCP operation in the event of a server failure may not
+be possible.  The identity of the peer server is given
+by the cnrNotifServer object.        
+Variables:
+  1: cnrNotifServer
+EDESC
+#
+#
+#
+EVENT ciscoNetRegFreeAddrLowThreshold .1.3.6.1.4.1.9.9.120.2.0.11 "Status Events" Normal
+FORMAT This notification signifies that the number $*
+SDESC
+This notification signifies that the number
+of available IP addresses for a particular scope
+has fallen below the value of
+cnrNotifDHCPScopeFreeAddrLow for that scope. 
+This notification signals a shortage of addresses.
+The shortage will continue until the number of free 
+addresses has reached or exceeded the number 
+specified by the cnrNotifDHCPScopeFreeAddrHigh object. 
+This notification will only be generated when the 
+shortages of IP addresses in first encountered.   
+If the threshold type is scope or subnet, then the value is 
+the primary or secondary subnet number, and if the type is  
+selection-tag, then the value is the selection tag list.
+Variables:
+  1: cnrNotifDHCPScopeFreeAddrLow
+  2: cnrNotifDHCPScopeFreeAddrValue
+  3: cnrNotifDHCPScopeName
+  4: cnrNotifPrimarySubnetNumber
+  5: cnrNotifDHCPThresholdType
+  6: cnrNotifDHCPThresholdValue
+EDESC
+#
+#
+#
+EVENT ciscoNetRegFreeAddrHighThreshold .1.3.6.1.4.1.9.9.120.2.0.12 "Status Events" Normal
+FORMAT This notification signifies that the shortage of $*
+SDESC
+This notification signifies that the shortage of
+available IP addresses for a particular scope is over and
+generated when the number of free addresses for that scope
+reaches or exceed value specified  by the 
+cnrNotifDHCPScopeFreeAddrHigh.
+This notification will only be generated when crossing the
+threshold specified by the cnrNotifDHCPScopeFreeAddrHigh 
+object indicates the end of IP address shortage.
+If the threshold type is scope or subnet, then the value is 
+the primary or secondary subnet number, and if the type is  
+selection-tag, then the value is the selection tag list.
+Variables:
+  1: cnrNotifDHCPScopeFreeAddrHigh
+  2: cnrNotifDHCPScopeFreeAddrValue
+  3: cnrNotifDHCPScopeName
+  4: cnrNotifPrimarySubnetNumber
+  5: cnrNotifDHCPThresholdType
+  6: cnrNotifDHCPThresholdValue
+EDESC
+#
+#
+#
+EVENT ciscoNetRegOtherServerNotResp .1.3.6.1.4.1.9.9.120.2.0.13 "Status Events" Normal
+FORMAT This notification signifies that a server is not $*
+SDESC
+This notification signifies that a server is not
+responding to updates from the DHCP server.  This 
+notification will be generated when this error 
+is first encountered and suppressed until the 
+the normal reponse from server has been established
+as indicated by the ciscoNetRegOtherServerResp.
+notification.
+The identity of the server is given by the cnrNotifServer
+object. The type of the server is indicated by the 
+cnrNotifRelatedServerType object.
+Variables:
+  1: cnrNotifServer
+  2: cnrNotifRelatedServerType
+EDESC
+#
+#
+#
+EVENT ciscoNetRegOtherServerResp .1.3.6.1.4.1.9.9.120.2.0.14 "Status Events" Normal
+FORMAT This notification signifies that a server is now  $*
+SDESC
+This notification signifies that a server is now 
+responding to updates from the DHCP server.  This 
+notification will be generated when normal operation
+is resumed after generation of the 
+ciscoNetRegOtherServerNotResp notification.
+The identity of the server is given by the cnrNotifServer
+object. The type of the server is indicated by the 
+cnrNotifRelatedServerType object.
+NOTE: One should not rely on recieving this notification
+as an indication that all is well with the network.
+Several conditions, including restart of the CNR
+protocol server, could result in either multiple
+ciscoNetRegOtherServerNotResp notifications being sent,
+or in a ciscoNetRegOtherServerResp notification NOT
+being sent.
+Variables:
+  1: cnrNotifServer
+  2: cnrNotifRelatedServerType
+EDESC
+#
+#
+#
+EVENT ciscoNetRegHaDnsPartnerDown .1.3.6.1.4.1.9.9.120.2.0.15 "Status Events" Normal
+FORMAT This notification signifies that communication with a  $*
+SDESC
+This notification signifies that communication with a 
+HA-DNS (High Availability DNS) server's partner has been 
+interrupted. The identity of the HA-DNS partner server is 
+given by the cnrNotifServer object.        
+Variables:
+  1: cnrNotifServer
+EDESC
+#
+#
+#
+EVENT ciscoNetRegHaDnsPartnerUp .1.3.6.1.4.1.9.9.120.2.0.16 "Status Events" Normal
+FORMAT This notification signifies that communication with a  $*
+SDESC
+This notification signifies that communication with a 
+HA-DNS server's partner has been restored. The identity 
+of the HA-DNS partner server is given by the cnrNotifServer 
+object.        
+Variables:
+  1: cnrNotifServer
+EDESC
+#
+#
+#
+EVENT ciscoNetRegMastersNotResp .1.3.6.1.4.1.9.9.120.2.0.17 "Status Events" Normal
+FORMAT This notification indicates that a DNS secondary server  $*
+SDESC
+This notification indicates that a DNS secondary server 
+cannot reach any of its configured masters to obtain 
+a zone transfer. Once this situation is encountered 
+generation of this notification will be suppressed until
+a complete zone transfer has completed as indicated by 
+the ciscoNetRegMastersResp notification.
+The identity of the secondary server is given by 
+cnrNotifDnsServerIpAddress; the identity of the master
+servers is given by the cnrNotifDnsRemoteServersList; and 
+the zone is given by cnrNotifZoneName.
+Variables:
+  1: cnrNotifDnsServerIpAddress
+  2: cnrNotifZoneName
+  3: cnrNotifDnsRemoteServersList
+EDESC
+#
+#
+#
+EVENT ciscoNetRegMastersResp .1.3.6.1.4.1.9.9.120.2.0.18 "Status Events" Normal
+FORMAT This notification indicates that a DNS secondary server  $*
+SDESC
+This notification indicates that a DNS secondary server 
+reached at least one of its configured masters and obtained
+a zone transfer. This notification is generated the first 
+time sucessful zone transfer completed after a prior request 
+for zone transfer failed because master server could not
+reached.
+The identity of the secondary server is given by 
+cnrNotifDnsServerIpAddress; the identity of the master 
+servers is given by the cnrNotifDnsRemoteServersList; and 
+the zone is given by cnrNotifZoneName object.
+Variables:
+  1: cnrNotifDnsServerIpAddress
+  2: cnrNotifZoneName
+  3: cnrNotifDnsRemoteServersList
+EDESC
+#
+#
+#
+EVENT ciscoNetRegSecondaryZonesExpired .1.3.6.1.4.1.9.9.120.2.0.19 "Status Events" Normal
+FORMAT This notification indicates that a DNS secondary server was $*
+SDESC
+This notification indicates that a DNS secondary server was
+unable to reach any primaries, and that a zone has expired
+because the TTL has passed. 
+The identity of the DNS secondary server is given by 
+cnrNotifDnsServerIpAddress; the identity of the master
+servers is given by the cnrNotifDnsRemoteServersList; and  
+the zone is given by cnrNotifZoneName object.
+Variables:
+  1: cnrNotifDnsServerIpAddress
+  2: cnrNotifZoneName
+  3: cnrNotifDnsRemoteServersList
+EDESC
+#
+#
+#
+EVENT ciscoNetRegDnsForwardersNotResp .1.3.6.1.4.1.9.9.120.2.0.20 "Status Events" Normal
+FORMAT This notification indicates that a DNS recursive resolver was $*
+SDESC
+This notification indicates that a DNS recursive resolver was
+not able to reach any of its configured forwarders. Once this
+situation is encountered generation of this notification will 
+be suppressed until normal operation is resumed as indicated by 
+the ciscoNetRegDnsForwardersResp notification.
+The identity of the affected DNS resolving server is given by 
+cnrNotifDnsServerIpAddress and the identity of the 
+forwarders is given by the cnrRemoteServersList object.
+Variables:
+  1: cnrNotifDnsServerIpAddress
+  2: cnrNotifDnsRemoteServersList
+EDESC
+#
+#
+#
+EVENT ciscoNetRegDnsForwardersResp .1.3.6.1.4.1.9.9.120.2.0.21 "Status Events" Normal
+FORMAT This notification indicates that a DNS recursive resolver was  $*
+SDESC
+This notification indicates that a DNS recursive resolver was 
+able to reach at least one of its configured forwarders and 
+indicates start of normal operation. This notification is 
+generated the  first time normal operation is established after 
+a DNS recursive resolver was not able to reach any of its 
+configured forwarders.
+The identity of the affected DNS resolving server is given by 
+cnrNotifDnsServerIpAddress and the identity of the 
+forwarders is given by the cnrRemoteServersList object.
+Variables:
+  1: cnrNotifDnsServerIpAddress
+  2: cnrNotifDnsRemoteServersList
+EDESC
+#
+#
+#
+EVENT ciscoNetRegHaDnsConfigErr .1.3.6.1.4.1.9.9.120.2.0.22 "Status Events" Normal
+FORMAT This notification indicates a configuration mismatch between $*
+SDESC
+This notification indicates a configuration mismatch between
+two HA-DNS partners. The first zone that has a mismatch will
+be reported and is denoted by cnrNotifZoneName and the 
+server with the configuration error is denoted by 
+cnrNotifServer object.
+Variables:
+  1: cnrNotifServer
+  2: cnrNotifZoneName
+EDESC

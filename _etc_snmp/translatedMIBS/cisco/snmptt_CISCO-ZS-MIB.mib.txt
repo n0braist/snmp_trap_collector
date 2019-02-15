@@ -1,0 +1,120 @@
+#
+#
+#
+#
+MIB: CISCO-ZS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ZS-MIB.mib) converted on Tue Aug 21 15:26:47 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT zoneServiceReqRejNotify .1.3.6.1.4.1.9.9.294.1.4.0.1 "Status Events" Normal
+FORMAT This notification is generated whenever the local  $*
+SDESC
+This notification is generated whenever the local 
+Zone Server rejects a registration request.
+The Zone Server should update the 
+zoneServiceRejReasonCode and zoneServiceRejReason-
+CodeExp objects with the corresponding reason 
+code and reason code explanation before sending the 
+notification.
+The zoneMemberType and zoneMemberID identify the 
+source of the request.
+Variables:
+  1: zoneMemberFormat
+  2: zoneMemberID
+  3: zoneServiceRejReasonCode
+  4: zoneServiceRejReasonCodeExp
+EDESC
+#
+#
+#
+EVENT zoneMergeFailureNotify .1.3.6.1.4.1.9.9.294.1.4.0.2 "Status Events" Normal
+FORMAT This notification is generated whenever there is  $*
+SDESC
+This notification is generated whenever there is 
+a zone merge failure.
+If all VSANs on a link have a zone-merge failure
+at the same time, then just one notification is
+generated in which zoneMergeFailureVSANNum object
+has a zero value.
+The zoneMergeFailureObject and 
+zoneMergeFailureReason assist in providing
+information regarding the point of merge failure.
+Variables:
+  1: ifIndex
+  2: zoneMergeFailureVSANNum
+  3: zoneMergeFailureObject
+  4: zoneMergeFailureReason
+EDESC
+#
+#
+#
+EVENT zoneMergeSuccessNotify .1.3.6.1.4.1.9.9.294.1.4.0.3 "Status Events" Normal
+FORMAT This notification is generated whenever a zone $*
+SDESC
+This notification is generated whenever a zone
+merge happens successfully.
+If all VSANs on a link have a zone-merge success
+at the same time, then just one notification is
+generated in which zoneMergeSuccessVSANNum object
+has a zero value.
+Variables:
+  1: ifIndex
+  2: zoneMergeSuccessVSANNum
+EDESC
+#
+#
+#
+EVENT zoneDefZoneBehaviourChngNotify .1.3.6.1.4.1.9.9.294.1.4.0.4 "Status Events" Normal
+FORMAT This notification is generated whenever the $*
+SDESC
+This notification is generated whenever the
+value of zoneDefaultZoneBehaviour changes.
+Variables:
+  1: zoneDefaultZoneBehaviour
+EDESC
+#
+#
+#
+EVENT zoneUnsuppMemInIntOpModeNotify .1.3.6.1.4.1.9.9.294.1.4.0.5 "Status Events" Normal
+FORMAT This notification is generated whenever one or $*
+SDESC
+This notification is generated whenever one or
+more zone members are not supported in the
+mode in which the local switch is currently
+configured to function. The switch can be
+configured to operate in certain 'interoperable'
+modes on a VSAN basis to enable it to work with 
+switches from other vendors. The zoneVsanId object 
+identifies the VSAN on which the mismatch has
+been identified.
+Variables:
+  1: zoneVsanId
+EDESC
+#
+#
+#
+EVENT zoneActivateNotify .1.3.6.1.4.1.9.9.294.1.4.0.6 "Status Events" Normal
+FORMAT This notification is generated whenever a $*
+SDESC
+This notification is generated whenever a
+zone set is activated/deactivated on a VSAN.
+The zoneSetActivateResult object denotes
+the outcome of the activation/deactivation.
+The zoneSwitchWwn object represents the
+WWN of the local device.
+Variables:
+  1: zoneSetActivateResult
+  2: zoneSwitchWwn
+EDESC
+#
+#
+#
+EVENT zoneCompactNotify .1.3.6.1.4.1.9.9.294.1.4.0.7 "Status Events" Normal
+FORMAT This notification is generated whenever a $*
+SDESC
+This notification is generated whenever a
+zone compaction on the VSAN specified by
+zoneCompactVsan happens successfully.
+Variables:
+  1: zoneCompactVsan
+EDESC

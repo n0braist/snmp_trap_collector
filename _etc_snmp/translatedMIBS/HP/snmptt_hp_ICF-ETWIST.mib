@@ -1,0 +1,1731 @@
+#
+#
+#
+#
+MIB: ICF-ETWIST (file:/tmp/SL_MIBS_2012-08-20/HP/ICF-ETWIST.mib) converted on Mon Aug 20 11:37:27 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: ICF-ETWIST (file:/tmp/SL_MIBS_2012-08-20/HP/ICF-ETWIST.mib) converted on Mon Aug 20 13:45:18 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT thresholdTrap1010 .1.3.6.1.4.1.11.2.3.7.1.1.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapRem .1.3.6.1.4.1.11.2.3.7.1.2.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapAS12 .1.3.6.1.4.1.11.2.3.7.5.7.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapAS24 .1.3.6.1.4.1.11.2.3.7.5.8.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapAS48 .1.3.6.1.4.1.11.2.3.7.5.9.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapASU8 .1.3.6.1.4.1.11.2.3.7.5.11.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapASU16 .1.3.6.1.4.1.11.2.3.7.5.12.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT linkBeatTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT segmentationTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT backupLinkTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Backup links are not supported on the HP28688A
+hub.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of rptrPortAdminStatus for a
+backup port on the hub.  The new value of
+rptrPortAdminStatus is returned in the PDU.
+Variables:
+  1: rptrPortAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of rptrPortAdminStatus for a
+backup port on the hub.  The new value of
+rptrPortAdminStatus is returned in the PDU.
+Variables:
+  1: rptrPortAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of rptrPortAdminStatus for a
+backup port on the hub.  The new value of
+rptrPortAdminStatus is returned in the PDU.
+Variables:
+  1: rptrPortAdminStatus
+EDESC
+#
+#
+#
+EVENT intrusionTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.6 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An intrusionTrap(6) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+port security violation has been detected on a
+port which has the hubSecPtAlarmEnable flag set
+to 'enabled'.  The MAC address of the intruder
+and the port on which the intrusion occurred are
+returned in the PDU.
+Variables:
+  1: hubIntruderAddress
+  2: hubIntruderPort
+EDESC
+#
+#
+#
+EVENT intrusionTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.6 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An intrusionTrap(6) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+port security violation has been detected on a
+port which has the hubSecPtAlarmEnable flag set
+to 'enabled'.  The MAC address of the intruder
+and the port on which the intrusion occurred are
+returned in the PDU.
+Variables:
+  1: hubIntruderAddress
+  2: hubIntruderPort
+EDESC
+#
+#
+#
+EVENT intrusionTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.6 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An intrusionTrap(6) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+port security violation has been detected on a
+port which has the hubSecPtAlarmEnable flag set
+to 'enabled'.  The MAC address of the intruder
+and the port on which the intrusion occurred are
+returned in the PDU.
+Variables:
+  1: hubIntruderAddress
+  2: hubIntruderPort
+EDESC
+#
+#
+#
+EVENT addressMovedTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.7 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An addressMovedTrap(7) is device type specific
+to EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+source MAC address which had been operating at
+one port has moved to a new port.  The MAC
+address that moved, the group and port that the
+address moved from, and the group and port that
+the address moved to are returned in the PDU.
+Variables:
+  1: hubAddrMoveAddress
+  2: hubAddrMoveOldGroup
+  3: hubAddrMoveOldPort
+  4: hubAddrMoveNewGroup
+  5: hubAddrMoveNewPort
+EDESC
+#
+#
+#
+EVENT addressMovedTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.7 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An addressMovedTrap(7) is device type specific
+to EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+source MAC address which had been operating at
+one port has moved to a new port.  The MAC
+address that moved, the group and port that the
+address moved from, and the group and port that
+the address moved to are returned in the PDU.
+Variables:
+  1: hubAddrMoveAddress
+  2: hubAddrMoveOldGroup
+  3: hubAddrMoveOldPort
+  4: hubAddrMoveNewGroup
+  5: hubAddrMoveNewPort
+EDESC
+#
+#
+#
+EVENT addressMovedTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.7 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An addressMovedTrap(7) is device type specific
+to EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+source MAC address which had been operating at
+one port has moved to a new port.  The MAC
+address that moved, the group and port that the
+address moved from, and the group and port that
+the address moved to are returned in the PDU.
+Variables:
+  1: hubAddrMoveAddress
+  2: hubAddrMoveOldGroup
+  3: hubAddrMoveOldPort
+  4: hubAddrMoveNewGroup
+  5: hubAddrMoveNewPort
+EDESC
+#
+#
+#
+EVENT newAddressTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.8 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A newAddressTrap(8) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+new MAC address has been detected on one of the
+hub's ports.  The instance of
+rptrAddrTrackLastSourceAddress for the port with
+the new address is returned in the PDU.
+Variables:
+  1: rptrAddrTrackLastSourceAddress
+EDESC
+#
+#
+#
+EVENT newAddressTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.8 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A newAddressTrap(8) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+new MAC address has been detected on one of the
+hub's ports.  The instance of
+rptrAddrTrackLastSourceAddress for the port with
+the new address is returned in the PDU.
+Variables:
+  1: rptrAddrTrackLastSourceAddress
+EDESC
+#
+#
+#
+EVENT newAddressTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.8 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A newAddressTrap(8) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+new MAC address has been detected on one of the
+hub's ports.  The instance of
+rptrAddrTrackLastSourceAddress for the port with
+the new address is returned in the PDU.
+Variables:
+  1: rptrAddrTrackLastSourceAddress
+EDESC
+#
+#
+#
+EVENT stpTrap1010 .1.3.6.1.4.1.11.2.3.7.1.1.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A stpTrap(3) is device type specific to ICF
+bridges. It signifies that the Spanning Tree
+entity in the bridge has detected a change of
+state to either Blocking or Forwarding.
+Variables:
+  1: stpPortState
+EDESC
+#
+#
+#
+EVENT stpTrapRem .1.3.6.1.4.1.11.2.3.7.1.2.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A stpTrap(3) is device type specific to ICF
+bridges. It signifies that the Spanning Tree
+entity in the bridge has detected a change of
+state to either Blocking or Forwarding.
+Variables:
+  1: stpPortState
+EDESC
+#
+#
+#
+EVENT temperatureTrap1010 .1.3.6.1.4.1.11.2.3.7.1.1.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A temperatureTrap(4) is device type specific to
+ICF bridges. It signifies that the bridge hardware
+has detected an overheated condition.
+Variables:
+EDESC
+#
+#
+#
+EVENT temperatureTrapRem .1.3.6.1.4.1.11.2.3.7.1.2.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A temperatureTrap(4) is device type specific to
+ICF bridges. It signifies that the bridge hardware
+has detected an overheated condition.
+Variables:
+EDESC
+#
+#
+#
+#
+MIB: ICF-ETWIST (file:/tmp/SL_MIBS_2012-08-20/HP/ICF-ETWIST.mib) converted on Mon Aug 20 14:21:40 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT thresholdTrap1010 .1.3.6.1.4.1.11.2.3.7.1.1.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapRem .1.3.6.1.4.1.11.2.3.7.1.2.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapAS12 .1.3.6.1.4.1.11.2.3.7.5.7.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapAS24 .1.3.6.1.4.1.11.2.3.7.5.8.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapAS48 .1.3.6.1.4.1.11.2.3.7.5.9.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapASU8 .1.3.6.1.4.1.11.2.3.7.5.11.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapASU16 .1.3.6.1.4.1.11.2.3.7.5.12.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT thresholdTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.0 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A thresholdTrap(0) is specific to ICF devices. It
+signifies that the threshold entity in the device
+has detected that the object identified by
+evthObject has exceeded the threshold identified
+by evthThreshold during the time interval
+evthTimeInterval. After this condition occurs, it
+will not reoccur until the the object identified
+by evthObject falls below evthHysteresis for the
+duration of evthTimeInterval.
+Variables:
+  1: evthObject
+  2: evthThreshold
+  3: evthHysteresis
+  4: evthTimeInterval
+EDESC
+#
+#
+#
+EVENT linkBeatTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT linkBeatTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A linkBeatTrap(3) is device type specific to ICF
+hubs. It signifies that the hub hardware has
+detected a change of state in a port's link beat
+status. The current value of the port's link beat
+status is returned in the PDU.
+Variables:
+  1: hubPortLinkBeatStatus
+EDESC
+#
+#
+#
+EVENT segmentationTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT segmentationTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A segmentationTrap(4) is device type specific to
+ICF hubs. It signifies that the hub hardware has
+detected a change of state in a port's
+segmentation status.  The current value of the
+port's segmentation status is returned in the
+PDU.
+Variables:
+  1: hubPortSegmentation
+EDESC
+#
+#
+#
+EVENT backupLinkTrapET12 .1.3.6.1.4.1.11.2.3.7.5.1.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Backup links are not supported on the HP28688A
+hub.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapET48 .1.3.6.1.4.1.11.2.3.7.5.4.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapTLAN .1.3.6.1.4.1.11.2.3.7.5.5.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapFiber .1.3.6.1.4.1.11.2.3.7.5.3.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of ifAdminStatus for a backup
+port on the hub.  The new value of ifAdminStatus
+is returned in the PDU.
+Variables:
+  1: ifAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of rptrPortAdminStatus for a
+backup port on the hub.  The new value of
+rptrPortAdminStatus is returned in the PDU.
+Variables:
+  1: rptrPortAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of rptrPortAdminStatus for a
+backup port on the hub.  The new value of
+rptrPortAdminStatus is returned in the PDU.
+Variables:
+  1: rptrPortAdminStatus
+EDESC
+#
+#
+#
+EVENT backupLinkTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.5 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A backupLinkTrap(5) is device type specific to
+most ICF hubs. It signifies that there has been a
+change in state of rptrPortAdminStatus for a
+backup port on the hub.  The new value of
+rptrPortAdminStatus is returned in the PDU.
+Variables:
+  1: rptrPortAdminStatus
+EDESC
+#
+#
+#
+EVENT intrusionTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.6 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An intrusionTrap(6) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+port security violation has been detected on a
+port which has the hubSecPtAlarmEnable flag set
+to 'enabled'.  The MAC address of the intruder
+and the port on which the intrusion occurred are
+returned in the PDU.
+Variables:
+  1: hubIntruderAddress
+  2: hubIntruderPort
+EDESC
+#
+#
+#
+EVENT intrusionTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.6 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An intrusionTrap(6) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+port security violation has been detected on a
+port which has the hubSecPtAlarmEnable flag set
+to 'enabled'.  The MAC address of the intruder
+and the port on which the intrusion occurred are
+returned in the PDU.
+Variables:
+  1: hubIntruderAddress
+  2: hubIntruderPort
+EDESC
+#
+#
+#
+EVENT intrusionTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.6 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An intrusionTrap(6) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+port security violation has been detected on a
+port which has the hubSecPtAlarmEnable flag set
+to 'enabled'.  The MAC address of the intruder
+and the port on which the intrusion occurred are
+returned in the PDU.
+Variables:
+  1: hubIntruderAddress
+  2: hubIntruderPort
+EDESC
+#
+#
+#
+EVENT addressMovedTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.7 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An addressMovedTrap(7) is device type specific
+to EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+source MAC address which had been operating at
+one port has moved to a new port.  The MAC
+address that moved, the group and port that the
+address moved from, and the group and port that
+the address moved to are returned in the PDU.
+Variables:
+  1: hubAddrMoveAddress
+  2: hubAddrMoveOldGroup
+  3: hubAddrMoveOldPort
+  4: hubAddrMoveNewGroup
+  5: hubAddrMoveNewPort
+EDESC
+#
+#
+#
+EVENT addressMovedTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.7 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An addressMovedTrap(7) is device type specific
+to EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+source MAC address which had been operating at
+one port has moved to a new port.  The MAC
+address that moved, the group and port that the
+address moved from, and the group and port that
+the address moved to are returned in the PDU.
+Variables:
+  1: hubAddrMoveAddress
+  2: hubAddrMoveOldGroup
+  3: hubAddrMoveOldPort
+  4: hubAddrMoveNewGroup
+  5: hubAddrMoveNewPort
+EDESC
+#
+#
+#
+EVENT addressMovedTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.7 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+An addressMovedTrap(7) is device type specific
+to EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+source MAC address which had been operating at
+one port has moved to a new port.  The MAC
+address that moved, the group and port that the
+address moved from, and the group and port that
+the address moved to are returned in the PDU.
+Variables:
+  1: hubAddrMoveAddress
+  2: hubAddrMoveOldGroup
+  3: hubAddrMoveOldPort
+  4: hubAddrMoveNewGroup
+  5: hubAddrMoveNewPort
+EDESC
+#
+#
+#
+EVENT newAddressTrapET24S .1.3.6.1.4.1.11.2.3.7.5.6.0.8 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A newAddressTrap(8) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+new MAC address has been detected on one of the
+hub's ports.  The instance of
+rptrAddrTrackLastSourceAddress for the port with
+the new address is returned in the PDU.
+Variables:
+  1: rptrAddrTrackLastSourceAddress
+EDESC
+#
+#
+#
+EVENT newAddressTrapASEN .1.3.6.1.4.1.11.2.3.7.8.1.0.8 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A newAddressTrap(8) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+new MAC address has been detected on one of the
+hub's ports.  The instance of
+rptrAddrTrackLastSourceAddress for the port with
+the new address is returned in the PDU.
+Variables:
+  1: rptrAddrTrackLastSourceAddress
+EDESC
+#
+#
+#
+EVENT newAddressTrapSMM .1.3.6.1.4.1.11.2.3.7.8.2.4.0.8 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A newAddressTrap(8) is device type specific to
+EtherTwist hubs with revision 'E' firmware or
+later and AdvanceStack hubs.  It signifies that a
+new MAC address has been detected on one of the
+hub's ports.  The instance of
+rptrAddrTrackLastSourceAddress for the port with
+the new address is returned in the PDU.
+Variables:
+  1: rptrAddrTrackLastSourceAddress
+EDESC
+#
+#
+#
+EVENT stpTrap1010 .1.3.6.1.4.1.11.2.3.7.1.1.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A stpTrap(3) is device type specific to ICF
+bridges. It signifies that the Spanning Tree
+entity in the bridge has detected a change of
+state to either Blocking or Forwarding.
+Variables:
+  1: stpPortState
+EDESC
+#
+#
+#
+EVENT stpTrapRem .1.3.6.1.4.1.11.2.3.7.1.2.0.3 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A stpTrap(3) is device type specific to ICF
+bridges. It signifies that the Spanning Tree
+entity in the bridge has detected a change of
+state to either Blocking or Forwarding.
+Variables:
+  1: stpPortState
+EDESC
+#
+#
+#
+EVENT temperatureTrap1010 .1.3.6.1.4.1.11.2.3.7.1.1.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A temperatureTrap(4) is device type specific to
+ICF bridges. It signifies that the bridge hardware
+has detected an overheated condition.
+Variables:
+EDESC
+#
+#
+#
+EVENT temperatureTrapRem .1.3.6.1.4.1.11.2.3.7.1.2.0.4 "Status Events" Normal
+FORMAT ********* THIS NOTIFICATION IS OBSOLETE ********* $*
+SDESC
+********* THIS NOTIFICATION IS OBSOLETE *********
+A temperatureTrap(4) is device type specific to
+ICF bridges. It signifies that the bridge hardware
+has detected an overheated condition.
+Variables:
+EDESC

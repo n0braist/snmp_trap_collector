@@ -1,0 +1,25 @@
+#
+#
+#
+#
+MIB: CISCO-UNITY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-UNITY-MIB.mib) converted on Tue Aug 21 15:26:40 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoUnityMonitoredEvent .1.3.6.1.4.1.9.9.385.0.1 "Status Events" Normal
+FORMAT This Notification contains information from the Windows Event  $*
+SDESC
+This Notification contains information from the Windows Event 
+Log concerning an event that the Event Monitoring Service is
+configured to monitor.
+Variables:
+  1: ciscoUnityEventType
+  2: ciscoUnityEventSource
+  3: ciscoUnityEventCategory
+  4: ciscoUnityEventId
+  5: ciscoUnityEventDate
+  6: ciscoUnityEventUser
+  7: ciscoUnityEventComputer
+  8: ciscoUnityEventDescription
+  9: ciscoUnityEventEMSNotes
+EDESC

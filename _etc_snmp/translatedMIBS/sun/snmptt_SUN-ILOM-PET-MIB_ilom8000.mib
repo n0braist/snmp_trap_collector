@@ -1,0 +1,1472 @@
+#
+#
+#
+#
+MIB: SUN-ILOM-PET-MIB (file:./SUN-ILOM-PET-MIB.mib) converted on Wed Jun 20 12:03:42 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT petTrapPhysicalSecurityGeneralChassisIntrusionAsserted .1.3.6.1.4.1.3183.1.1.0.356096 "Status Events" WARNING
+FORMAT Physical Security: General Chassis Intrusion - Asserted: Physical Security: General Chassis Intrusion - Asserted
+SDESC
+
+Indicates the chassis intrusion switch has been activated
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityGeneralChassisIntrusionDeasserted .1.3.6.1.4.1.3183.1.1.0.356224 "Status Events" INFORMATIONAL
+FORMAT Physical Security: General Chassis Intrusion - Deasserted: Physical Security: General Chassis Intrusion - Deasserted
+SDESC
+
+Indicates the chassis intrusion switch is inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityDriveBayIntrusionAsserted .1.3.6.1.4.1.3183.1.1.0.356097 "Status Events" WARNING
+FORMAT Physical Security: Drive Bay Intrusion - Asserted: Physical Security: Drive Bay Intrusion - Asserted
+SDESC
+
+Indicates the chassis intrusion switch has been activated
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityDriveBayIntrusionDeasserted .1.3.6.1.4.1.3183.1.1.0.356225 "Status Events" INFORMATIONAL
+FORMAT Physical Security: Drive Bay Intrusion - Deasserted: Physical Security: Drive Bay Intrusion - Deasserted
+SDESC
+
+Indicates the chassis intrusion switch is inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityIOCardAreaIntrusionAsserted .1.3.6.1.4.1.3183.1.1.0.356098 "Status Events" WARNING
+FORMAT Physical Security: I/O Card Area Intrusion - Asserted: Physical Security: I/O Card Area Intrusion - Asserted
+SDESC
+
+Indicates the chassis intrusion switch has been activated
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityIOCardAreaIntrusionDeasserted .1.3.6.1.4.1.3183.1.1.0.356226 "Status Events" INFORMATIONAL
+FORMAT Physical Security: I/O Card Area Intrusion - Deasserted: Physical Security: I/O Card Area Intrusion - Deasserted
+SDESC
+
+Indicates the chassis intrusion switch is inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityProcessorAreaIntrusionAsserted .1.3.6.1.4.1.3183.1.1.0.356099 "Status Events" WARNING
+FORMAT Physical Security: Processor Area Intrusion - Asserted: Physical Security: Processor Area Intrusion - Asserted
+SDESC
+
+Indicates the chassis intrusion switch has been activated
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityProcessorAreaIntrusionDeasserted .1.3.6.1.4.1.3183.1.1.0.356227 "Status Events" INFORMATIONAL
+FORMAT Physical Security: Processor Area Intrusion - Deasserted: Physical Security: Processor Area Intrusion - Deasserted
+SDESC
+
+Indicates the chassis intrusion switch is inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityLANLeashLostAsserted .1.3.6.1.4.1.3183.1.1.0.356100 "Status Events" WARNING
+FORMAT Physical Security: Lan Leash Lost (System unplugged from LAN) - Asserted: Physical Security: Lan Leash Lost (System unplugged from LAN) - Asserted
+SDESC
+
+Indicates the chassis intrusion switch has been activated
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityLANLeashLostDeasserted .1.3.6.1.4.1.3183.1.1.0.356228 "Status Events" INFORMATIONAL
+FORMAT Physical Security: Lan Leash Lost (System unplugged from LAN) - Deasserted: Physical Security: Lan Leash Lost (System unplugged from LAN) - Deasserted
+SDESC
+
+Indicates the chassis intrusion switch is inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityUnauthorizedDockUndockAsserted .1.3.6.1.4.1.3183.1.1.0.356101 "Status Events" WARNING
+FORMAT Physical Security: Unauthorized Dock/Undock - Asserted: Physical Security: Unauthorized Dock/Undock - Asserted
+SDESC
+
+Indicates the chassis intrusion switch has been activated
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityUnauthorizedDockUndockDeasserted .1.3.6.1.4.1.3183.1.1.0.356229 "Status Events" INFORMATIONAL
+FORMAT Physical Security: Unauthorized Dock/Undock - Deasserted: Physical Security: Unauthorized Dock/Undock - Deasserted
+SDESC
+
+Indicates the chassis intrusion switch is inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityFanAreaIntrusionAsserted .1.3.6.1.4.1.3183.1.1.0.356102 "Status Events" WARNING
+FORMAT Physical Security: Fan Area Intrusion - Asserted: Physical Security: Fan Area Intrusion - Asserted
+SDESC
+
+Indicates the chassis intrusion switch has been activated
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPhysicalSecurityFanAreaIntrusionDeasserted .1.3.6.1.4.1.3183.1.1.0.356230 "Status Events" INFORMATIONAL
+FORMAT Physical Security: Fan Area Intrusion - Deasserted: Physical Security: Fan Area Intrusion - Deasserted
+SDESC
+
+Indicates the chassis intrusion switch is inactive
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerSupplyPredictiveFailureAsserted .1.3.6.1.4.1.3183.1.1.0.525313 "Status Events" CRITICAL
+FORMAT Front Panel Rear/PS LED is ON.: Front Panel Rear/PS LED is ON.
+SDESC
+
+Front panel Rear/PS LED is ON which indicates
+a power supply or voltage event has occurred and the
+system may be headed for failure if not fixed. With the
+X4200 chassis this state also indicates that the
+rear I/O blower has failed
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerSupplyPredictiveFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.525312 "Status Events" INFORMATIONAL
+FORMAT Front Panel Rear/PS LED is OFF.: Front Panel Rear/PS LED is OFF.
+SDESC
+
+Indicates that the front panel Rear/PS LED is OFF
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPSFailureAsserted .1.3.6.1.4.1.3183.1.1.0.552705 "Status Events" INFORMATIONAL
+FORMAT Power Supply Failure detected.: Power Supply Failure detected.
+SDESC
+Power Supply Failure detected.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPSFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.552833 "Status Events" INFORMATIONAL
+FORMAT Power Supply Failure state cleared.: Power Supply Failure state cleared.
+SDESC
+Power Supply Failure state cleared.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPSInputPresentOutOfRangeAsserted .1.3.6.1.4.1.3183.1.1.0.552709 "Status Events" INFORMATIONAL
+FORMAT Power Supply input out-of-range, but present.: Power Supply input out-of-range, but present.
+SDESC
+Power Supply input out-of-range, but present.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPSInputPresentOutOfRangeDeasserted .1.3.6.1.4.1.3183.1.1.0.552837 "Status Events" INFORMATIONAL
+FORMAT Power Supply input present and within normal range.: Power Supply input present and within normal range.
+SDESC
+Power Supply input present and within normal range.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperaturePredictiveFailureAsserted .1.3.6.1.4.1.3183.1.1.0.66561 "Status Events" CRITICAL
+FORMAT Front panel Over Temperature LED is ON.: Front panel Over Temperature LED is ON.
+SDESC
+
+Front panel Over Temperature LED is ON. When active
+this means a temperature sensor is reading over critical
+threshold and the system may be headed for failure if the
+temperature continues to rise.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperaturePredictiveFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.66560 "Status Events" INFORMATIONAL
+FORMAT Front panel Over Temperature LED is OFF.: Front panel Over Temperature LED is OFF.
+SDESC
+
+This state indicates that the front panel Over Temperature LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotPredictiveFailureAsserted .1.3.6.1.4.1.3183.1.1.0.852993 "Status Events" MAJOR
+FORMAT Hard Disk Drive Fault LED is ON.: Hard Disk Drive Fault LED is ON.
+SDESC
+
+A HDD Fault LED is ON. It is turned on in response
+to a fault signal from the LSI SAS controller. In
+addition the System Alert LED should be SLOW blinking
+while this is illuminated.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotPredictiveFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.852992 "Status Events" INFORMATIONAL
+FORMAT Hard Disk Drive Fault LED is OFF.: Hard Disk Drive Fault LED is OFF.
+SDESC
+
+This state indicates that a HDD Fault LED which
+was ON before is OFF now.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapHardDiskPredictiveFailureAsserted .1.3.6.1.4.1.3183.1.1.0.12583937 "Status Events" MAJOR
+FORMAT HDD Fault has been detected. HDD Fault LED is ON.: HDD Fault has been detected. HDD Fault LED is ON.
+SDESC
+A HDD Fault LED is ON. It is turned on in response
+to a fault signal from the LSI SAS controller. In
+addition the System Alert LED should be SLOW blinking
+while this is illuminated.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapHardDiskPredictiveFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.12583936 "Status Events" INFORMATIONAL
+FORMAT HDD Fault has been cleared. HDD Fault LED is OFF.: HDD Fault has been cleared. HDD Fault LED is OFF.
+SDESC
+HDD Fault has been cleared. HDD Fault LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotDriveInsertedOrPresent .1.3.6.1.4.1.3183.1.1.0.880384 "Status Events" INFORMATIONAL
+FORMAT Hard Disk Drive is present or has been inserted.: Hard Disk Drive is present or has been inserted.
+SDESC
+Hard Disk Drive is present or has been inserted.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotDriveRemovedOrAbsent .1.3.6.1.4.1.3183.1.1.0.880512 "Status Events" INFORMATIONAL
+FORMAT Hard Disk Drive is absent or has been removed.: Hard Disk Drive is absent or has been removed.
+SDESC
+Hard Disk Drive is absent or has been removed.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotDriveFaultAssert .1.3.6.1.4.1.3183.1.1.0.880385 "Status Events" INFORMATIONAL
+FORMAT HDD Fault has been detected. HDD Fault LED is ON.: HDD Fault has been detected. HDD Fault LED is ON.
+SDESC
+HDD Fault has been detected. A corresponding HDD Fault LED
+is ON. With the X4500 chassis the Top Failure LED is also ON
+to indicate a HDD fault. Front and Rear Panel Alert LED
+should blink SLOW.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotDriveFaultDeassert .1.3.6.1.4.1.3183.1.1.0.880513 "Status Events" INFORMATIONAL
+FORMAT HDD Fault has been cleared. HDD Fault LED is OFF.: HDD Fault has been cleared. HDD Fault LED is OFF.
+SDESC
+HDD Fault has been cleared. A HDD Fault LED which
+was ON before is OFF now.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotReadyToRemoveAssert .1.3.6.1.4.1.3183.1.1.0.880387 "Status Events" INFORMATIONAL
+FORMAT A drive has been unmounted and is ready to be removed.: A drive has been unmounted and is ready to be removed.
+SDESC
+A drive has been unmounted and is ready to be physically removed.
+A corresponding OK To Remove LED is ON.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotReadyToRemoveDeassert .1.3.6.1.4.1.3183.1.1.0.880515 "Status Events" INFORMATIONAL
+FORMAT A drive is no longer ready to be removed.: A drive is no longer ready to be removed.
+SDESC
+A drive is no longer ready to be physically removed. It has either
+been removed or mounted again. A corresponding OK To Remove LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotOKToRemoveAssert .1.3.6.1.4.1.3183.1.1.0.852737 "Status Events" INFORMATIONAL
+FORMAT A drive has been unmounted and is ready to be removed.: A drive has been unmounted and is ready to be removed.
+SDESC
+A drive has been unmounted and is ready to be physically removed.
+A corresponding OK To Remove LED is ON.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotOKToRemoveDeassert .1.3.6.1.4.1.3183.1.1.0.852736 "Status Events" INFORMATIONAL
+FORMAT A drive is no longer ready to be removed.: A drive is no longer ready to be removed.
+SDESC
+A drive is no longer ready to be physically removed. It has either
+been removed or mounted again. A corresponding OK To Remove LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotRebuildInProgressAssert .1.3.6.1.4.1.3183.1.1.0.880391 "Status Events" INFORMATIONAL
+FORMAT RAID rebuild is in progress.: RAID rebuild is in progress.
+SDESC
+RAID rebuild is in progress.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDriveSlotRebuildInProgressDeassert .1.3.6.1.4.1.3183.1.1.0.880519 "Status Events" INFORMATIONAL
+FORMAT RAID rebuild has been finished.: RAID rebuild has been finished.
+SDESC
+RAID rebuild has been finished.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerSupplyStateDeasserted .1.3.6.1.4.1.3183.1.1.0.525056 "Status Events" CRITICAL
+FORMAT Power Supply is disconnected from AC Power.: Power Supply is disconnected from AC Power.
+SDESC
+
+Power Supply is disconnected from AC Power.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerSupplyStateAsserted .1.3.6.1.4.1.3183.1.1.0.525057 "Status Events" INFORMATIONAL
+FORMAT Power Supply is connected to AC Power.: Power Supply is connected to AC Power.
+SDESC
+
+Power Supply is connected to AC Power.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerUnitStateDeasserted .1.3.6.1.4.1.3183.1.1.0.590592 "Status Events" CRITICAL
+FORMAT Run-time power fault has occurred.: Run-time power fault has occurred.
+SDESC
+Run-time power fault has occurred. This state indicates
+that one or more DC-DC converter have failed or are not operating
+within nominal specifications.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerUnitStateAsserted .1.3.6.1.4.1.3183.1.1.0.590593 "Status Events" INFORMATIONAL
+FORMAT Host power-on sequence has been completed successfully.: Host power-on sequence has been completed successfully.
+SDESC
+Host power-on sequence has been completed successfully
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapEntityPresenceDeviceRemovedOrAbsent .1.3.6.1.4.1.3183.1.1.0.2426880 "Status Events" CRITICAL
+FORMAT A device is absent or has been removed.: A device is absent or has been removed.
+SDESC
+
+A device is absent or has been removed.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapEntityPresenceDeviceInsertedOrPresent .1.3.6.1.4.1.3183.1.1.0.2426881 "Status Events" INFORMATIONAL
+FORMAT A device is present or has been inserted.: A device is present or has been inserted.
+SDESC
+
+A device is present or has been inserted.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorPresenceDetectedDeassert .1.3.6.1.4.1.3183.1.1.0.487303 "Status Events" CRITICAL
+FORMAT A processor is absent or has been removed.: A processor is absent or has been removed.
+SDESC
+A processor is absent or has been removed.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorPresenceDetectedAssert .1.3.6.1.4.1.3183.1.1.0.487175 "Status Events" INFORMATIONAL
+FORMAT A processor is present or has been inserted.: A processor is present or has been inserted.
+SDESC
+A processor is present or has been inserted.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPlatformAlertAsserted .1.3.6.1.4.1.3183.1.1.0.2360065 "Status Events" WARNING
+FORMAT Platform (front/back panel) Alert LED is ON.: Platform (front/back panel) Alert LED is ON.
+SDESC
+
+A front/back panel Alert LED is ON. Since the alert
+LED is either OFF or SLOW blinking this sensor will
+alternate between asserted and deasserted when any
+fault alert is active.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPlatformAlertDeasserted .1.3.6.1.4.1.3183.1.1.0.2360064 "Status Events" INFORMATIONAL
+FORMAT Platform (front/back panel) Alert LED is OFF.: Platform (front/back panel) Alert LED is OFF.
+SDESC
+
+This state indicates that the front/back panel Alert LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapLocateButtonAsserted .1.3.6.1.4.1.3183.1.1.0.1311489 "Status Events" WARNING
+FORMAT Front/back Locate LED is ON.: Front/back Locate LED is ON.
+SDESC
+
+This state indicates that the front/back panel Locate LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapLocateButtonDeasserted .1.3.6.1.4.1.3183.1.1.0.1311488 "Status Events" INFORMATIONAL
+FORMAT Front/back Locate LED is OFF.: Front/back Locate LED is OFF.
+SDESC
+
+Front/back panel Locate Button is pushed or front/back LED is ON.
+Since locate LED is either OFF or FAST blinking
+this sensor will alternate rapidly between asserted
+and deasserted when locate button is pushed or
+chassis identify command is run.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapSlotConnectorAsserted .1.3.6.1.4.1.3183.1.1.0.2163713 "Status Events" MAJOR
+FORMAT Front panel USB ports are over-current. Predictive failure asserted.: Front panel USB ports are over-current. Predictive failure asserted.
+SDESC
+
+This state indicates that the front panel USB ports are over-current.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapSlotConnectorDeasserted .1.3.6.1.4.1.3183.1.1.0.2163712 "Status Events" INFORMATIONAL
+FORMAT Front panel USB ports returned to normal state.: Front panel USB ports returned to normal state.
+SDESC
+
+This state indicates that the front panel USB current is normal.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureLowerNonRecoverableGoingLow .1.3.6.1.4.1.3183.1.1.0.65796 "Status Events" CRITICAL
+FORMAT Temperature has decreased below lower non-recoverable threshold.: Temperature has decreased below lower non-recoverable threshold.
+SDESC
+
+Temperature has decreased below lower non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureLowerCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.65794 "Status Events" MAJOR
+FORMAT Temperature has decreased below lower critical threshold.: Temperature has decreased below lower critical threshold.
+SDESC
+
+Temperature has decreased below lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureLowerNonCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.65792 "Status Events" WARNING
+FORMAT Temperature has decreased below lower non-critical threshold.: Temperature has decreased below lower non-critical threshold.
+SDESC
+
+Temperature has decreased below lower non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureLowerNonRecoverableGoingHigh .1.3.6.1.4.1.3183.1.1.0.65925 "Status Events" MAJOR
+FORMAT Temperature has increased above lower non-recoverable threshold.: Temperature has increased above lower non-recoverable threshold.
+SDESC
+
+Temperature has increased above lower non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureLowerCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.65923 "Status Events" WARNING
+FORMAT Temperature has increased above lower critical threshold.: Temperature has increased above lower critical threshold.
+SDESC
+
+Temperature has increased above lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureLowerNonCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.65921 "Status Events" INFORMATIONAL
+FORMAT Temperature has increased above lower non-critical threshold.: Temperature has increased above lower non-critical threshold.
+SDESC
+
+Temperature has increased above lower non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureUpperNonRecoverableGoingHigh .1.3.6.1.4.1.3183.1.1.0.65803 "Status Events" CRITICAL
+FORMAT Temperature has increased above upper non-recoverable threshold.: Temperature has increased above upper non-recoverable threshold.
+SDESC
+
+Temperature has increased above upper non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureUpperCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.65801 "Status Events" MAJOR
+FORMAT Temperature has increased above upper critical threshold.: Temperature has increased above upper critical threshold.
+SDESC
+
+Temperature has increased above upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureUpperNonCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.65799 "Status Events" WARNING
+FORMAT Temperature has increased above upper non-critical threshold.: Temperature has increased above upper non-critical threshold.
+SDESC
+
+Temperature has increased above upper non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureUpperNonRecoverableGoingLow .1.3.6.1.4.1.3183.1.1.0.65930 "Status Events" MAJOR
+FORMAT Temperature has decreased below upper non-recoverable threshold.: Temperature has decreased below upper non-recoverable threshold.
+SDESC
+
+Temperature has decreased below upper non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureUpperCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.65928 "Status Events" WARNING
+FORMAT Temperature has decreased below upper critical threshold.: Temperature has decreased below upper critical threshold.
+SDESC
+
+Temperature has decreased below upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTemperatureUpperNonCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.65926 "Status Events" INFORMATIONAL
+FORMAT Temperature has decreased below upper non-critical threshold.: Temperature has decreased below upper non-critical threshold.
+SDESC
+
+Temperature has decreased below upper non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapCPUTooHotAssert .1.3.6.1.4.1.3183.1.1.0.66305 "Status Events" CRITICAL
+FORMAT A processor is too hot.: A processor is too hot.
+SDESC
+A processor is too hot.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapCPUTooHotDeassert .1.3.6.1.4.1.3183.1.1.0.66304 "Status Events" INFORMATIONAL
+FORMAT Processor temperature has decreased below the critical range.: Processor temperature has decreased below the critical range.
+SDESC
+Processor temperature has decreased below the critical range.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorThermalTripAssert .1.3.6.1.4.1.3183.1.1.0.487169 "Status Events" CRITICAL
+FORMAT Processor thermal trip occurred. Processor has been shut down to avoid damage.: Processor thermal trip occurred. Processor has been shut down to avoid damage.
+SDESC
+Processor thermal trip occurred. Processor temperature reached
+the maximum threshold and the processor has been shut down
+to avoid damage.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageLowerNonRecoverableGoingLow .1.3.6.1.4.1.3183.1.1.0.131332 "Status Events" CRITICAL
+FORMAT Voltage (CPU or Mainboard) has decreased below lower non-recoverable threshold.: Voltage (CPU or Mainboard) has decreased below lower non-recoverable threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has decreased below lower non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageLowerCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.131330 "Status Events" MAJOR
+FORMAT Voltage (CPU or Mainboard) has decreased below lower critical threshold.: Voltage (CPU or Mainboard) has decreased below lower critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has decreased below lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageLowerNonCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.131328 "Status Events" WARNING
+FORMAT Voltage (CPU or Mainboard) has decreased below lower non-critical threshold.: Voltage (CPU or Mainboard) has decreased below lower non-critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has decreased below lower non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageLowerNonRecoverableGoingHigh .1.3.6.1.4.1.3183.1.1.0.131461 "Status Events" MAJOR
+FORMAT Voltage (CPU or Mainboard) has increased above lower non-recoverable threshold.: Voltage (CPU or Mainboard) has increased above lower non-recoverable threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has increased above lower non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageLowerCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.131459 "Status Events" WARNING
+FORMAT Voltage (CPU or Mainboard) has increased above lower critical threshold.: Voltage (CPU or Mainboard) has increased above lower critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has increased above lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageLowerNonCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.131457 "Status Events" INFORMATIONAL
+FORMAT Voltage (CPU or Mainboard) has increased above lower non-critical threshold.: Voltage (CPU or Mainboard) has increased above lower non-critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has increased above lower non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageUpperNonRecoverableGoingHigh .1.3.6.1.4.1.3183.1.1.0.131339 "Status Events" CRITICAL
+FORMAT Voltage (CPU or Mainboard) has increased above upper non-recoverable threshold.: Voltage (CPU or Mainboard) has increased above upper non-recoverable threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has increased above upper non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageUpperCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.131337 "Status Events" MAJOR
+FORMAT Voltage (CPU or Mainboard) has increased above upper critical threshold.: Voltage (CPU or Mainboard) has increased above upper critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has increased above upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageUpperNonCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.131335 "Status Events" WARNING
+FORMAT Voltage (CPU or Mainboard) has increased above upper non-critical threshold.: Voltage (CPU or Mainboard) has increased above upper non-critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has increased above upper non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageUpperNonRecoverableGoingLow .1.3.6.1.4.1.3183.1.1.0.131466 "Status Events" MAJOR
+FORMAT Voltage (CPU or Mainboard) has decreased below upper non-recoverable threshold.: Voltage (CPU or Mainboard) has decreased below upper non-recoverable threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has decreased below upper non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageUpperCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.131464 "Status Events" WARNING
+FORMAT Voltage (CPU or Mainboard) has decreased below upper critical threshold.: Voltage (CPU or Mainboard) has decreased below upper critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has decreased below upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapVoltageUpperNonCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.131462 "Status Events" INFORMATIONAL
+FORMAT Voltage (CPU or Mainboard) has decreased below upper non-critical threshold.: Voltage (CPU or Mainboard) has decreased below upper non-critical threshold.
+SDESC
+
+Voltage (CPU or Mainboard) has decreased below upper non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapUndervoltageAssertedAssert .1.3.6.1.4.1.3183.1.1.0.131841 "Status Events" MAJOR
+FORMAT Input voltage is below the minimum required value.: Input voltage is below the minimum required value.
+SDESC
+Input voltage is below the minimum required value.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapUndervoltageDeassertedDeassert .1.3.6.1.4.1.3183.1.1.0.131968 "Status Events" MAJOR
+FORMAT Input voltage is below the minimum required value.: Input voltage is below the minimum required value.
+SDESC
+Input voltage is below the minimum required value.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapUndervoltageDeassertedAssert .1.3.6.1.4.1.3183.1.1.0.131840 "Status Events" INFORMATIONAL
+FORMAT Input voltage is within normal range.: Input voltage is within normal range.
+SDESC
+Input voltage is within normal range.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapUndervoltageAssertedDeassert .1.3.6.1.4.1.3183.1.1.0.131969 "Status Events" INFORMATIONAL
+FORMAT Input voltage is within normal range.: Input voltage is within normal range.
+SDESC
+Input voltage is within normal range.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapCurrentLowerCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.196866 "Status Events" CRITICAL
+FORMAT Current on the chassis 48V rail has decreased below lower critical threshold.: Current on the chassis 48V rail has decreased below lower critical threshold.
+SDESC
+Current on the chassis 48V rail has decreased below lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapCurrentUpperCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.196873 "Status Events" CRITICAL
+FORMAT Current on the chassis 48V rail has increased above upper critical threshold.: Current on the chassis 48V rail has increased above upper critical threshold.
+SDESC
+Current on the chassis 48V rail has increased above upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapCurrentLowerCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.196995 "Status Events" INFORMATIONAL
+FORMAT Current on the chassis 48V rail has increased above lower critical threshold.: Current on the chassis 48V rail has increased above lower critical threshold.
+SDESC
+Current on the chassis 48V rail has increased above lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapCurrentUpperCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.197000 "Status Events" INFORMATIONAL
+FORMAT Current on the chassis 48V rail has decreased below upper critical threshold.: Current on the chassis 48V rail has decreased below upper critical threshold.
+SDESC
+Current on the chassis 48V rail has decreased below upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapOvercurrentAssertedAssert .1.3.6.1.4.1.3183.1.1.0.197377 "Status Events" MAJOR
+FORMAT Input current has exceeded the maximum allowed value.: Input current has exceeded the maximum allowed value.
+SDESC
+Input current has exceeded the maximum allowed value.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapOvercurrentDeassertedDeassert .1.3.6.1.4.1.3183.1.1.0.197504 "Status Events" MAJOR
+FORMAT Input current has exceeded the maximum allowed value.: Input current has exceeded the maximum allowed value.
+SDESC
+Input current has exceeded the maximum allowed value.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapOvercurrentDeassertedAssert .1.3.6.1.4.1.3183.1.1.0.197376 "Status Events" INFORMATIONAL
+FORMAT Input current is within normal range.: Input current is within normal range.
+SDESC
+Input current is within normal range.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapOvercurrentAssertedDeassert .1.3.6.1.4.1.3183.1.1.0.197505 "Status Events" INFORMATIONAL
+FORMAT Input current is within normal range.: Input current is within normal range.
+SDESC
+Input current is within normal range.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorPredictiveFailureAsserted .1.3.6.1.4.1.3183.1.1.0.459777 "Status Events" CRITICAL
+FORMAT Processor Predictive Failure has been asserted.: Processor Predictive Failure has been asserted.
+SDESC
+
+A CPU Fault LED is ON in response to a Voltage or CPU
+temperature event. When active the System Alert LED should
+be SLOW blinking and either the PS Fail/Rear or Over
+Temperature LED should be ON to indicate the type of event occurred.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorPredictiveFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.459776 "Status Events" INFORMATIONAL
+FORMAT Processor Predictive Failure state has been cleared.: Processor Predictive Failure state has been cleared.
+SDESC
+
+Processor Predictive Failure state has been cleared.
+A CPU Fault LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorCardOKAsserted .1.3.6.1.4.1.3183.1.1.0.459521 "Status Events" CRITICAL
+FORMAT A CPU card is not functional.: A CPU card is not functional.
+SDESC
+
+A CPU card is not functional.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorCardOKDeasserted .1.3.6.1.4.1.3183.1.1.0.459520 "Status Events" INFORMATIONAL
+FORMAT A CPU card is functional.: A CPU card is functional.
+SDESC
+
+A CPU card is functional.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapProcessorIERRAssert .1.3.6.1.4.1.3183.1.1.0.487168 "Status Events" CRITICAL
+FORMAT Processor internal error detected.: Processor internal error detected.
+SDESC
+Processor internal error detected.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemoryPredictiveFailureAsserted .1.3.6.1.4.1.3183.1.1.0.787457 "Status Events" CRITICAL
+FORMAT Memory Predictive Failure has been asserted.: Memory Predictive Failure has been asserted.
+SDESC
+
+A CPU DIMM Fault LED is ON. It is illuminated
+in response to a single Uncorrectable ECC error or
+more than 24 correctable ECC errors in 24 hours.
+When active the System Alert LED should also blink SLOW.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemoryPredictiveFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.787456 "Status Events" INFORMATIONAL
+FORMAT Memory Predictive Failure state has been cleared.: Memory Predictive Failure state has been cleared.
+SDESC
+
+Memory Predictive Failure state has been cleared.
+A CPU DIMM Fault LED is OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanPredictiveFailureAsserted .1.3.6.1.4.1.3183.1.1.0.263169 "Status Events" CRITICAL
+FORMAT Fan Predictive Failure has been asserted.: Fan Predictive Failure has been asserted.
+SDESC
+
+A fan module fault LED is ON. When active this means a
+fan has failed and requires replacement. The yellow 
+Service Required indicator is illuminated.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanPredictiveFailureDeasserted .1.3.6.1.4.1.3183.1.1.0.263168 "Status Events" INFORMATIONAL
+FORMAT Fan Predictive Failure state has been cleared.: Fan Predictive Failure state has been cleared.
+SDESC
+
+Fan Predictive Failure state has been cleared.
+A fan module fault LED which was ON before is now OFF.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanLowerNonRecoverableGoingLow .1.3.6.1.4.1.3183.1.1.0.262404 "Status Events" CRITICAL
+FORMAT Fan speed has decreased below lower non-recoverable threshold. Fan failed or removed.: Fan speed has decreased below lower non-recoverable threshold. Fan failed or removed.
+SDESC
+
+Fan speed has decreased below lower non-recoverable threshold.
+This indicates that the fan has failed or has been removed.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanLowerCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.262402 "Status Events" MAJOR
+FORMAT Fan speed has decreased below lower critical threshold.: Fan speed has decreased below lower critical threshold.
+SDESC
+
+Fan speed has decreased below lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanLowerNonCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.262400 "Status Events" WARNING
+FORMAT Fan speed has decreased below lower non-critical threshold.: Fan speed has decreased below lower non-critical threshold.
+SDESC
+
+Fan speed has decreased below lower non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanLowerNonRecoverableGoingHigh .1.3.6.1.4.1.3183.1.1.0.262533 "Status Events" INFORMATIONAL
+FORMAT Fan speed has increased above lower non-recoverable threshold or fan replaced.: Fan speed has increased above lower non-recoverable threshold or fan replaced.
+SDESC
+
+Fan speed has increased above lower non-recoverable threshold. 
+This indicates that the fan has returned to normal or has been replaced.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanLowerCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.262531 "Status Events" INFORMATIONAL
+FORMAT Fan speed has increased above lower critical threshold.: Fan speed has increased above lower critical threshold.
+SDESC
+
+Fan speed has increased above lower critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanLowerNonCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.262529 "Status Events" INFORMATIONAL
+FORMAT Fan speed has increased above lower non-critical threshold.: Fan speed has increased above lower non-critical threshold.
+SDESC
+
+Fan speed has increased above lower non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanUpperNonRecoverableGoingHigh .1.3.6.1.4.1.3183.1.1.0.262411 "Status Events" CRITICAL
+FORMAT Fan speed has increased above upper non-recoverable threshold.: Fan speed has increased above upper non-recoverable threshold.
+SDESC
+
+Fan speed has increased above upper non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanUpperCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.262409 "Status Events" MAJOR
+FORMAT Fan speed has increased above upper critical threshold.: Fan speed has increased above upper critical threshold.
+SDESC
+
+Fan speed has increased above upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanUpperNonCriticalGoingHigh .1.3.6.1.4.1.3183.1.1.0.262407 "Status Events" WARNING
+FORMAT Fan speed has increased above upper non-critical threshold.: Fan speed has increased above upper non-critical threshold.
+SDESC
+
+Fan speed has increased above upper non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanUpperNonRecoverableGoingLow .1.3.6.1.4.1.3183.1.1.0.262538 "Status Events" INFORMATIONAL
+FORMAT Fan speed has decreased below upper non-recoverable threshold.: Fan speed has decreased below upper non-recoverable threshold.
+SDESC
+
+Fan speed has decreased below upper non-recoverable threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanUpperCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.262536 "Status Events" INFORMATIONAL
+FORMAT Fan speed has decreased below upper critical threshold.: Fan speed has decreased below upper critical threshold.
+SDESC
+
+Fan speed has decreased below upper critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFanUpperNonCriticalGoingLow .1.3.6.1.4.1.3183.1.1.0.262534 "Status Events" INFORMATIONAL
+FORMAT Fan speed has decreased below upper non-critical threshold.: Fan speed has decreased below upper non-critical threshold.
+SDESC
+
+Fan speed has decreased below upper non-critical threshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapTestAlertReceived .1.3.6.1.4.1.3183.1.1.0.262401 "Status Events" INFORMATIONAL
+FORMAT Test Trap Received: Test Trap Received
+SDESC
+Test Trap received
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDryContactRelayStateAsserted .1.3.6.1.4.1.3183.1.1.0.12583681 "Status Events" INFORMATIONAL
+FORMAT Dry contact relay has been activated.: Dry contact relay has been activated.
+SDESC
+Dry contact relay has been activated.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDryContactRelayStateDeasserted .1.3.6.1.4.1.3183.1.1.0.12583680 "Status Events" INFORMATIONAL
+FORMAT Dry contact relay has been deactivated.: Dry contact relay has been deactivated.
+SDESC
+Dry contact relay has been deactivated.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapSystemFirmwareError .1.3.6.1.4.1.3183.1.1.0.1011456 "Status Events" INFORMATIONAL
+FORMAT System Firmware Error reported.: System Firmware Error reported.
+SDESC
+System Firmware Error reported. Possible reasons:
+no system memory installed, unrecoverable device failure,
+BIOS ROM corruption, CPU voltage or speed mismatch,
+no video device detected or removable boot media not found.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapSystemFirmwareHang .1.3.6.1.4.1.3183.1.1.0.1011457 "Status Events" INFORMATIONAL
+FORMAT System Firmware Hang: System Firmware Hang
+SDESC
+System Firmware Hang
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapSystemFirmwareProgress .1.3.6.1.4.1.3183.1.1.0.1011458 "Status Events" INFORMATIONAL
+FORMAT System Firmware Progress reported.: System Firmware Progress reported.
+SDESC
+System Firmware Progress reported. Possible reasons:
+device initialization, hardware resource configuration,
+device test.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapAllEventLoggingDisabled .1.3.6.1.4.1.3183.1.1.0.1076995 "Status Events" INFORMATIONAL
+FORMAT All Event Logging Disabled.: All Event Logging Disabled.
+SDESC
+All Event Logging Disabled.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapSelFull .1.3.6.1.4.1.3183.1.1.0.1076996 "Status Events" INFORMATIONAL
+FORMAT SEL Full.: SEL Full.
+SDESC
+SEL Full.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapAllEventLoggingEnabled .1.3.6.1.4.1.3183.1.1.0.1077123 "Status Events" INFORMATIONAL
+FORMAT All Event Logging Enabled.: All Event Logging Enabled.
+SDESC
+All Event Logging Enabled.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPefAction .1.3.6.1.4.1.3183.1.1.0.1208068 "Status Events" INFORMATIONAL
+FORMAT PEF Action is about to be taken. Event filters have been matched.: PEF Action is about to be taken. Event filters have been matched.
+SDESC
+PEF Action is about to be taken. Event filters
+have been matched.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapDiagnosticNMI .1.3.6.1.4.1.3183.1.1.0.1273600 "Status Events" INFORMATIONAL
+FORMAT Diagnostic NMI (Non-Maskable Interrupt).: Diagnostic NMI (Non-Maskable Interrupt).
+SDESC
+Diagnostic NMI (Non-Maskable Interrupt).
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapSoftwareNMI .1.3.6.1.4.1.3183.1.1.0.1273603 "Status Events" INFORMATIONAL
+FORMAT Software NMI (Non-Maskable Interrupt).: Software NMI (Non-Maskable Interrupt).
+SDESC
+Software NMI (Non-Maskable Interrupt).
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPciParityError .1.3.6.1.4.1.3183.1.1.0.1273604 "Status Events" WARNING
+FORMAT PCI Device Parity Error.: PCI Device Parity Error.
+SDESC
+PCI Device Parity Error.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPciSystemError .1.3.6.1.4.1.3183.1.1.0.1273605 "Status Events" WARNING
+FORMAT PCI Device System Error.: PCI Device System Error.
+SDESC
+PCI Device System Error.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapBusCorrectableError .1.3.6.1.4.1.3183.1.1.0.1273607 "Status Events" WARNING
+FORMAT Bus Correctable Error.: Bus Correctable Error.
+SDESC
+Bus Correctable Error.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapBusUncorrectableError .1.3.6.1.4.1.3183.1.1.0.1273608 "Status Events" MAJOR
+FORMAT Bus Uncorrectable Error.: Bus Uncorrectable Error.
+SDESC
+Bus Uncorrectable Error.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapBusFatalError .1.3.6.1.4.1.3183.1.1.0.1273610 "Status Events" CRITICAL
+FORMAT Bus Fatal Error.: Bus Fatal Error.
+SDESC
+Bus Fatal Error.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerButtonPressed .1.3.6.1.4.1.3183.1.1.0.1339136 "Status Events" INFORMATIONAL
+FORMAT Power Button pressed.: Power Button pressed.
+SDESC
+Power Button pressed.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapResetButtonPressed .1.3.6.1.4.1.3183.1.1.0.1339138 "Status Events" INFORMATIONAL
+FORMAT Reset Button pressed.: Reset Button pressed.
+SDESC
+Reset Button pressed.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerButtonReleased .1.3.6.1.4.1.3183.1.1.0.1339264 "Status Events" INFORMATIONAL
+FORMAT Power Button released.: Power Button released.
+SDESC
+Power Button released.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapResetButtonReleased .1.3.6.1.4.1.3183.1.1.0.1339266 "Status Events" INFORMATIONAL
+FORMAT Reset Button released.: Reset Button released.
+SDESC
+Reset Button released.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapNoBootableMedia .1.3.6.1.4.1.3183.1.1.0.1994496 "Status Events" INFORMATIONAL
+FORMAT No bootable media found.: No bootable media found.
+SDESC
+No bootable media found.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapWatchdogTimerExpired .1.3.6.1.4.1.3183.1.1.0.2322176 "Status Events" INFORMATIONAL
+FORMAT Watchdog timer expired.: Watchdog timer expired.
+SDESC
+Watchdog timer expired.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapWatchdogHardReset .1.3.6.1.4.1.3183.1.1.0.2322177 "Status Events" INFORMATIONAL
+FORMAT System reset after watchdog timer time-out.: System reset after watchdog timer time-out.
+SDESC
+System reset after watchdog timer time-out.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapWatchdogPowerDown .1.3.6.1.4.1.3183.1.1.0.2322178 "Status Events" INFORMATIONAL
+FORMAT System power down after watchdog timer time-out.: System power down after watchdog timer time-out.
+SDESC
+System power down after watchdog timer time-out.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapWatchdogPowerCycle .1.3.6.1.4.1.3183.1.1.0.2322179 "Status Events" INFORMATIONAL
+FORMAT System power cycle after watchdog timer time-out.: System power cycle after watchdog timer time-out.
+SDESC
+System power cycle after watchdog timer time-out.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapFrontPanelViolation .1.3.6.1.4.1.3183.1.1.0.421632 "Status Events" MAJOR
+FORMAT Front Panel Violation attempt.: Front Panel Violation attempt.
+SDESC
+Front Panel Violation attempt.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapOutOfBandAccessPasswordViolation .1.3.6.1.4.1.3183.1.1.0.421637 "Status Events" MAJOR
+FORMAT Out-of-band Access Password Violation attempt.: Out-of-band Access Password Violation attempt.
+SDESC
+Out-of-band Access Password Violation attempt.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerUnitPowerOff .1.3.6.1.4.1.3183.1.1.0.618240 "Status Events" INFORMATIONAL
+FORMAT Power unit is off.: Power unit is off.
+SDESC
+Power unit is off.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerUnitPowerCycle .1.3.6.1.4.1.3183.1.1.0.618241 "Status Events" INFORMATIONAL
+FORMAT Power Unit has been power cycled.: Power Unit has been power cycled.
+SDESC
+Power Unit has been power cycled.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerUnitAcLost .1.3.6.1.4.1.3183.1.1.0.618244 "Status Events" INFORMATIONAL
+FORMAT AC power lost.: AC power lost.
+SDESC
+AC power lost.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerUnitPowerOn .1.3.6.1.4.1.3183.1.1.0.618368 "Status Events" INFORMATIONAL
+FORMAT Power Unit is on.: Power Unit is on.
+SDESC
+Power Unit is on.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapPowerUnitAcRestored .1.3.6.1.4.1.3183.1.1.0.618372 "Status Events" INFORMATIONAL
+FORMAT AC power restored.: AC power restored.
+SDESC
+AC power restored.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemoryCorrectableEccError .1.3.6.1.4.1.3183.1.1.0.814848 "Status Events" WARNING
+FORMAT Correctable ECC or other correctable memory error detected.: Correctable ECC or other correctable memory error detected.
+SDESC
+Correctable ECC or other correctable memory error detected.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemoryUncorrectableEccError .1.3.6.1.4.1.3183.1.1.0.814849 "Status Events" MAJOR
+FORMAT Uncorrectable ECC or other uncorrectable memory error detected.: Uncorrectable ECC or other uncorrectable memory error detected.
+SDESC
+Uncorrectable ECC or other uncorrectable memory error detected.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemoryDeviceDisabled .1.3.6.1.4.1.3183.1.1.0.814852 "Status Events" INFORMATIONAL
+FORMAT Memory Device Disabled.: Memory Device Disabled.
+SDESC
+Memory Device Disabled.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemoryPresenceDetectedAssert .1.3.6.1.4.1.3183.1.1.0.814854 "Status Events" INFORMATIONAL
+FORMAT Memory Presence detected.: Memory Presence detected.
+SDESC
+Memory Presence detected.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemorySpareAssert .1.3.6.1.4.1.3183.1.1.0.814856 "Status Events" INFORMATIONAL
+FORMAT Memory Device in spare state.: Memory Device in spare state.
+SDESC
+Memory Device in spare state.
+Variables:
+EDESC
+#
+#
+#
+EVENT petTrapMemoryPresenceDetectedDeassert .1.3.6.1.4.1.3183.1.1.0.814982 "Status Events" INFORMATIONAL
+FORMAT Memory Presence not detected. Device absent.: Memory Presence not detected. Device absent.
+SDESC
+Memory Presence not detected. Device absent.
+Variables:
+EDESC

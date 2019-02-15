@@ -1,0 +1,2204 @@
+#
+#
+#
+#
+MIB: CPQRPM-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQRPM-MIB.mib) converted on Wed Aug 22 14:19:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqRPMTrapDeviceConnected .1.3.6.1.4.1.232.154.2.0.1 "Status Events" INFORMATIONAL
+FORMAT Device Connected: 
+SDESC
+A UPS device is reporting a Connection Lost due to one of the following.
+1. The serial cable connected to the UPS has been unplugged.
+2. The Network cable connected to the UPS has been unplugged.
+Recommendations:
+1. Insure all cables are seated properly.
+2. check you network to insure it is functioning properly.
+3. If the UPS is serially connected insure that the Serial
+Relay Agent is installed and running.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapConnectionLost .1.3.6.1.4.1.232.154.2.0.2 "Status Events" CRITICAL
+FORMAT Connection Lost: 
+SDESC
+A UPS device is reporting a Connection Lost due to one of the following.
+1. The serial cable connected to the UPS has been unplugged.
+2. The Network cable connected to the UPS has been unplugged.
+Recommendations:
+1. Insure all cables are seated properly.
+2. check you network to insure it is functioning properly.
+3. If the UPS is serially connected insure that the Serial
+Relay Agent is installed and running.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapLookupFailed .1.3.6.1.4.1.232.154.2.0.3 "Status Events" CRITICAL
+FORMAT DNS Lookup Failed: 
+SDESC
+CRPM failed to find an IP address for the device hostname.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapConnectionFailed .1.3.6.1.4.1.232.154.2.0.4 "Status Events" CRITICAL
+FORMAT Connection Failed: 
+SDESC
+CRPM failed to connect to a device.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapDeviceSettingsChanged .1.3.6.1.4.1.232.154.2.0.5 "Status Events" MINOR
+FORMAT Device Settings Changed: 
+SDESC
+Device settings have been changed by a user.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp1BelowMin .1.3.6.1.4.1.232.154.2.0.10001 "Status Events" MAJOR
+FORMAT CMC Temperature 1 Below Minimum: 
+SDESC
+A CMC device is reporting temperature 1 below minimum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp1AboveWarn .1.3.6.1.4.1.232.154.2.0.10002 "Status Events" MINOR
+FORMAT CMC Temperature 1 Above Warning: 
+SDESC
+A CMC device is reporting temperature 1 above warning threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp1AboveMax .1.3.6.1.4.1.232.154.2.0.10003 "Status Events" MAJOR
+FORMAT CMC Temperature 1 Above Maximum: 
+SDESC
+A CMC device is reporting temperature 1 above maximum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp1Normal .1.3.6.1.4.1.232.154.2.0.10004 "Status Events" INFORMATIONAL
+FORMAT CMC Temperature 1 Normal: 
+SDESC
+A CMC device is reporting temperature 1 has returned to a normal
+temperature.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp2BelowMin .1.3.6.1.4.1.232.154.2.0.10005 "Status Events" MAJOR
+FORMAT CMC Temperature 2 Below Minimum: 
+SDESC
+A CMC device is reporting temperature 2 below minimum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp2AboveWarn .1.3.6.1.4.1.232.154.2.0.10006 "Status Events" MINOR
+FORMAT CMC Temperature 2 Above Warning: 
+SDESC
+A CMC device is reporting temperature 2 above warning threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp2AboveMax .1.3.6.1.4.1.232.154.2.0.10007 "Status Events" MAJOR
+FORMAT CMC Temperature 2 Above Maximum: 
+SDESC
+A CMC device is reporting temperature 2 above maximum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCTemp2Normal .1.3.6.1.4.1.232.154.2.0.10008 "Status Events" INFORMATIONAL
+FORMAT CMC Temperature 2 Normal: 
+SDESC
+A CMC device is reporting temperature 2 has returned to a normal
+temperature.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCVoltUnder .1.3.6.1.4.1.232.154.2.0.10011 "Status Events" MAJOR
+FORMAT CMC Voltage Below Minimum: 
+SDESC
+A CMC device is reporting voltage below minimum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCVoltOver .1.3.6.1.4.1.232.154.2.0.10012 "Status Events" MAJOR
+FORMAT CMC Voltage Above Maximum: 
+SDESC
+A CMC device is reporting voltage above maximum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCVoltNormal .1.3.6.1.4.1.232.154.2.0.10013 "Status Events" INFORMATIONAL
+FORMAT CMC Voltage Normal: 
+SDESC
+A CMC device is reporting voltage has returned to normal.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCHmdtUnder .1.3.6.1.4.1.232.154.2.0.10021 "Status Events" MAJOR
+FORMAT CMC Humidity Below Minimum: 
+SDESC
+A CMC device is reporting humidity below minimum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCHmdtOver .1.3.6.1.4.1.232.154.2.0.10022 "Status Events" MAJOR
+FORMAT CMC Humidity Above Maximum: 
+SDESC
+A CMC device is reporting humidity above maximum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCHmdtNormal .1.3.6.1.4.1.232.154.2.0.10023 "Status Events" INFORMATIONAL
+FORMAT CMC Humidity Normal: 
+SDESC
+A CMC device is reporting humidity has returned to normal.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCSmokeDetected .1.3.6.1.4.1.232.154.2.0.10031 "Status Events" MAJOR
+FORMAT CMC Smoke Detected: 
+SDESC
+A CMC device is reporting smoke detected.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCSmokeCleared .1.3.6.1.4.1.232.154.2.0.10032 "Status Events" INFORMATIONAL
+FORMAT CMC Smoke Cleared: 
+SDESC
+A CMC device is reporting smoke cleared.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCShockDetected .1.3.6.1.4.1.232.154.2.0.10041 "Status Events" MAJOR
+FORMAT CMC Shock Detected: 
+SDESC
+A CMC device is reporting shock detected.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCShockCleared .1.3.6.1.4.1.232.154.2.0.10042 "Status Events" INFORMATIONAL
+FORMAT CMC Shock Cleared: 
+SDESC
+A CMC device is reporting shock cleared.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCAux1Alarm .1.3.6.1.4.1.232.154.2.0.10051 "Status Events" MINOR
+FORMAT CMC Aux 1 Alarm: 
+SDESC
+A CMC device has entered an alarm condition for auxiliary input 1.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCAux1Cleared .1.3.6.1.4.1.232.154.2.0.10052 "Status Events" INFORMATIONAL
+FORMAT CMC Aux 1 Alarm Cleared: 
+SDESC
+A CMC device is reporting auxiliary input 1 alarm cleared.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCAux2Alarm .1.3.6.1.4.1.232.154.2.0.10053 "Status Events" MINOR
+FORMAT CMC Aux 2 Alarm: 
+SDESC
+A CMC device has entered an alarm condition for auxiliary input 2.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCAux2Cleared .1.3.6.1.4.1.232.154.2.0.10054 "Status Events" INFORMATIONAL
+FORMAT CMC Aux 2 Alarm Cleared: 
+SDESC
+A CMC device is reporting auxiliary input 2 alarm cleared.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput1Opened .1.3.6.1.4.1.232.154.2.0.10101 "Status Events" MINOR
+FORMAT CMC Input 1 Opened: 
+SDESC
+A CMC device is reporting input 1 has been opened.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput1Closed .1.3.6.1.4.1.232.154.2.0.10102 "Status Events" INFORMATIONAL
+FORMAT CMC Input 1 Closed: 
+SDESC
+A CMC device is reporting input 1 has been closed.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput2Opened .1.3.6.1.4.1.232.154.2.0.10103 "Status Events" MINOR
+FORMAT CMC Input 2 Opened: 
+SDESC
+A CMC device is reporting input 2 has been opened.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput2Closed .1.3.6.1.4.1.232.154.2.0.10104 "Status Events" INFORMATIONAL
+FORMAT CMC Input 2 Closed: 
+SDESC
+A CMC device is reporting input 2 has been closed.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput3Opened .1.3.6.1.4.1.232.154.2.0.10105 "Status Events" MINOR
+FORMAT CMC Input 3 Opened: 
+SDESC
+A CMC device is reporting input 3 has been opened.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput3Closed .1.3.6.1.4.1.232.154.2.0.10106 "Status Events" INFORMATIONAL
+FORMAT CMC Input 3 Closed: 
+SDESC
+A CMC device is reporting input 3 has been closed.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput4Opened .1.3.6.1.4.1.232.154.2.0.10107 "Status Events" MINOR
+FORMAT CMC Input 4 Opened: 
+SDESC
+A CMC device is reporting input 4 has been opened.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCInput4Closed .1.3.6.1.4.1.232.154.2.0.10108 "Status Events" INFORMATIONAL
+FORMAT CMC Input 4 Closed: 
+SDESC
+A CMC device is reporting input 4 has been closed.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset1Unlocked .1.3.6.1.4.1.232.154.2.0.10111 "Status Events" INFORMATIONAL
+FORMAT CMC Lockset 1 Unlocked: 
+SDESC
+A CMC device is reporting lockset 1 has been unlocked.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset1FailedToLock .1.3.6.1.4.1.232.154.2.0.10112 "Status Events" MAJOR
+FORMAT Lockset 1 Failed To Lock: 
+SDESC
+A CMC device is reporting lockset 1 has failed to lock.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset1Error .1.3.6.1.4.1.232.154.2.0.10113 "Status Events" MAJOR
+FORMAT CMC Lockset 1 Error: 
+SDESC
+A CMC device is reporting an error with lockset 1.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset1Locked .1.3.6.1.4.1.232.154.2.0.10114 "Status Events" INFORMATIONAL
+FORMAT CMC Lockset 1 Locked: 
+SDESC
+A CMC device is reporting lockset 1 has been locked.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset2Unlocked .1.3.6.1.4.1.232.154.2.0.10116 "Status Events" INFORMATIONAL
+FORMAT CMC Lockset 2 Unlocked: 
+SDESC
+A CMC device is reporting lockset 2 has been unlocked.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset2FailedToLock .1.3.6.1.4.1.232.154.2.0.10117 "Status Events" MAJOR
+FORMAT CMC Lockset 2 Failed To Lock: 
+SDESC
+A CMC device is reporting lockset 2 has failed to lock.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset2Error .1.3.6.1.4.1.232.154.2.0.10118 "Status Events" MAJOR
+FORMAT CMC Lockset 2 Error: 
+SDESC
+A CMC device is reporting an error with lockset 2.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset2Locked .1.3.6.1.4.1.232.154.2.0.10119 "Status Events" INFORMATIONAL
+FORMAT CMC Lockset 2 Locked: 
+SDESC
+A CMC device is reporting lockset 2 has been locked.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset1Normal .1.3.6.1.4.1.232.154.2.0.10134 "Status Events" INFORMATIONAL
+FORMAT CMC Lockset 2 Normal: 
+SDESC
+A CMC device is reporting lockset 2 is normal.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapCMCLockset2Normal .1.3.6.1.4.1.232.154.2.0.10135 "Status Events" INFORMATIONAL
+FORMAT CMC Lockset 2 Normal: 
+SDESC
+A CMC device is reporting lockset 2 is normal.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSInputVoltageBelowMin .1.3.6.1.4.1.232.154.2.0.20001 "Status Events" MAJOR
+FORMAT UPS Input Voltage Below Minimum: 
+SDESC
+A UPS device is reporting input voltage below minimum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSInputVoltageAboveMax .1.3.6.1.4.1.232.154.2.0.20002 "Status Events" MAJOR
+FORMAT UPS Input Voltage Above Maximum: 
+SDESC
+A UPS device is reporting input voltage above maximum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSInputVoltageNormal .1.3.6.1.4.1.232.154.2.0.20003 "Status Events" INFORMATIONAL
+FORMAT UPS Input Voltage Normal: 
+SDESC
+A UPS device is reporting input voltage is out of range.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+2. If the UPS remains on battery for an extended period of time it will not be able to sustain the load.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOutputVoltageBelowMin .1.3.6.1.4.1.232.154.2.0.20011 "Status Events" MINOR
+FORMAT UPS Output Voltage Below Minimum: 
+SDESC
+A UPS device is reporting output voltage below minimum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOutputVoltageAboveMax .1.3.6.1.4.1.232.154.2.0.20012 "Status Events" MINOR
+FORMAT UPS Output Voltage Above Maximum: 
+SDESC
+A UPS device is reporting output voltage above maximum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOutputVoltageNormal .1.3.6.1.4.1.232.154.2.0.21020 "Status Events" INFORMATIONAL
+FORMAT UPS Output Voltage Normal: 
+SDESC
+A UPS device is reporting output voltage is out of Range.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOutputOverload .1.3.6.1.4.1.232.154.2.0.20014 "Status Events" MAJOR
+FORMAT UPS Output Overload: 
+SDESC
+A UPS device is reporting an overload condition.
+Recommendations:
+1. Reduce the load on the UPS by moving some of the load to another UPS.
+2. Consider moving to a larger UPS to support the current load.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOutputOverloadCleared .1.3.6.1.4.1.232.154.2.0.20015 "Status Events" INFORMATIONAL
+FORMAT UPS Output Overload Cleared: 
+SDESC
+A UPS device is reporting an overload condition.
+Recommendations:
+1. Reduce the load on the UPS by moving some of the load to another UPS.
+2. Consider moving to a larger UPS to support the current load.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryLow .1.3.6.1.4.1.232.154.2.0.21055 "Status Events" CRITICAL
+FORMAT UPS Battery Low: 
+SDESC
+A UPS device is reporting low battery.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+2. When utility power is restored, charge the battery to it's full capacity.
+If the battery level continues to decrease, the UPS will not be able to sustain the output load!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryLowCleared .1.3.6.1.4.1.232.154.2.0.21056 "Status Events" INFORMATIONAL
+FORMAT UPS Battery Low Cleared: 
+SDESC
+A UPS device is reporting low battery.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+2. When utility power is restored, charge the battery to it's full capacity.
+If the battery level continues to decrease, the UPS will not be able to sustain the output load!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryDepleted .1.3.6.1.4.1.232.154.2.0.20022 "Status Events" MAJOR
+FORMAT UPS Depleted Battery: 
+SDESC
+A UPS device is a depleted battery.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryLevelNormal .1.3.6.1.4.1.232.154.2.0.20023 "Status Events" INFORMATIONAL
+FORMAT UPS Battery Level Normal: 
+SDESC
+A UPS device is reporting low battery.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+2. When utility power is restored, charge the battery to it's full capacity.
+If the battery level continues to decrease, the UPS will not be able to sustain the output load!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOnBattery .1.3.6.1.4.1.232.154.2.0.21063 "Status Events" MAJOR
+FORMAT UPS On Battery: 
+SDESC
+A UPS device is reporting on battery condition.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+If the UPS remains on battery for an extended time it will not be able to sustain the output load!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOnBypass .1.3.6.1.4.1.232.154.2.0.20032 "Status Events" MINOR
+FORMAT UPS On Bypass: 
+SDESC
+A UPS device is being bypassed.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOnBuck .1.3.6.1.4.1.232.154.2.0.21029 "Status Events" MINOR
+FORMAT UPS On Buck: 
+SDESC
+A UPS device is reporting an On Buck condition due to the following.
+1. Utility power has increased above recommended utility input levels.
+Recommendation:
+1. Contact an electrician.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOnBoost .1.3.6.1.4.1.232.154.2.0.21031 "Status Events" MINOR
+FORMAT UPS On Boost: 
+SDESC
+A UPS device is reporting an On Boost condition due to the following.
+1. Utility power has dropped below recommended utility input levels.
+Recommendation:
+1. Contact an electrician.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSOnUtilityPower .1.3.6.1.4.1.232.154.2.0.21064 "Status Events" INFORMATIONAL
+FORMAT UPS On Utility Power: 
+SDESC
+A UPS device is reporting on battery condition.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+If the UPS remains on battery for an extended time it will not be able to sustain the output load!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSTemperatureLow .1.3.6.1.4.1.232.154.2.0.20101 "Status Events" MAJOR
+FORMAT UPS Temperature Low: 
+SDESC
+A UPS device is reporting temperature blow minimum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSTemperatureHigh .1.3.6.1.4.1.232.154.2.0.20102 "Status Events" MAJOR
+FORMAT UPS Temperature High: 
+SDESC
+A UPS device is reporting temperature above maximum threshold.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSTemperatureNormal .1.3.6.1.4.1.232.154.2.0.20103 "Status Events" INFORMATIONAL
+FORMAT UPS Temperature Normal: 
+SDESC
+A UPS device is reporting temperature is out of range.
+Recommendations:
+1. Check to make sure the UPS is in a well ventilated area.
+2. Lower the ambient temperature in the area where the UPS is located.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSInternalFailure .1.3.6.1.4.1.232.154.2.0.20111 "Status Events" CRITICAL
+FORMAT UPS Internal Failure: 
+SDESC
+A UPS device is reporting  a general UPS failure.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSInternalFailureCleared .1.3.6.1.4.1.232.154.2.0.20112 "Status Events" INFORMATIONAL
+FORMAT UPS Internal Failure Cleared: 
+SDESC
+A UPS device is reporting  a general UPS failure.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryFailure .1.3.6.1.4.1.232.154.2.0.20121 "Status Events" CRITICAL
+FORMAT UPS Battery Failure: 
+SDESC
+A UPS device is reporting a battery failure.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+3. Your battery may need to be replaced.
+The UPS may not be capable of supporting it's load if utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryFailureCleared .1.3.6.1.4.1.232.154.2.0.20122 "Status Events" INFORMATIONAL
+FORMAT UPS Battery Failure Cleared: 
+SDESC
+A UPS device is reporting a battery failure.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+3. Your battery may need to be replaced.
+The UPS may not be capable of supporting it's load if utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSDiagnosticTestFailed .1.3.6.1.4.1.232.154.2.0.20131 "Status Events" MAJOR
+FORMAT UPS Diagnostic Test Failed: 
+SDESC
+A UPS device is reporting a diagnostic test failed.
+Recommendations:
+1. Your battery may need to be replaced.
+2. If this error persists contact technical support.
+3. The UPS may not be capable of supporting it's load if utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSDiagnosticTestSucceeded .1.3.6.1.4.1.232.154.2.0.20132 "Status Events" INFORMATIONAL
+FORMAT UPS Diagnostic Test Succeeded: 
+SDESC
+A UPS device is reporting a diagnostic test failed.
+Recommendations:
+1. Your battery may need to be replaced.
+2. If this error persists contact technical support.
+3. The UPS may not be capable of supporting it's load if utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSInputUnderOverFreq .1.3.6.1.4.1.232.154.2.0.20141 "Status Events" INFORMATIONAL
+FORMAT Input Under Or Over Frequency: 
+SDESC
+Input (Utility) fault: measured input frequency is outside of either the upper or lower frequency limit specification for normal operation.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSInputUnderOverFreqCleared .1.3.6.1.4.1.232.154.2.0.20142 "Status Events" INFORMATIONAL
+FORMAT Input Frequency Normal: 
+SDESC
+Measured input frequency is normal
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSDCStartOccurred .1.3.6.1.4.1.232.154.2.0.29998 "Status Events" INFORMATIONAL
+FORMAT DC Start Occurred: 
+SDESC
+The UPS has been started on battery when AC input power is not present.  This alarm is used to record the date and time of this event.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSDCStartOccurredCleared .1.3.6.1.4.1.232.154.2.0.29999 "Status Events" INFORMATIONAL
+FORMAT DC Start Occurred Cleared: 
+SDESC
+The UPS has been started on utility while AC input power is present.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBypassNotAvailable .1.3.6.1.4.1.232.154.2.0.20161 "Status Events" MINOR
+FORMAT Bypass Not Available: 
+SDESC
+A UPS device is reporting bypass not avaliable.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBypassNotAvailableCleared .1.3.6.1.4.1.232.154.2.0.20162 "Status Events" INFORMATIONAL
+FORMAT Bypass Not Available Cleared: 
+SDESC
+A UPS device is reporting bypass not avaliable.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSUtilityFail .1.3.6.1.4.1.232.154.2.0.20171 "Status Events" MAJOR
+FORMAT Utility Fail: 
+SDESC
+Indicates that the utility input power is not within predetermined limits.
+This could be, but is not limited to, over voltage, under voltage, over frequency,
+under frequency or over current.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSUtilityFailCleared .1.3.6.1.4.1.232.154.2.0.20172 "Status Events" INFORMATIONAL
+FORMAT Utility Fail Cleared: 
+SDESC
+Indicates that the utility input power is within predetermined limits.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSUtilityNotPresent .1.3.6.1.4.1.232.154.2.0.20181 "Status Events" INFORMATIONAL
+FORMAT Utility Not Present: 
+SDESC
+Indicates that the utility input is not present.  This differs from
+alarm #57 in that the detected voltage is zero in this case.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSUtilityNotPresentCleared .1.3.6.1.4.1.232.154.2.0.20182 "Status Events" INFORMATIONAL
+FORMAT Utility Not Present Cleared: 
+SDESC
+Indicates that the utility input is present.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBypassManualTurnedOn .1.3.6.1.4.1.232.154.2.0.20191 "Status Events" MINOR
+FORMAT Bypass Manual Turned On: 
+SDESC
+The bypass has been given a manual turn on command.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBypassManualTurnedOff .1.3.6.1.4.1.232.154.2.0.20192 "Status Events" INFORMATIONAL
+FORMAT Bypass Manual Turned Off: 
+SDESC
+The bypass has been given a manual turn off command.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSSiteWiringFault .1.3.6.1.4.1.232.154.2.0.20201 "Status Events" MAJOR
+FORMAT Site Wiring Fault: 
+SDESC
+A UPS device is reporting  a fault in the input wiring, other than
+Phase Rotation: e.g., Ground/Neutral reversed.
+Recommendations:
+1. Contact an electrician.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSSiteWiringNormal .1.3.6.1.4.1.232.154.2.0.20202 "Status Events" INFORMATIONAL
+FORMAT Site Wiring Fault Cleared: 
+SDESC
+A UPS device is reporting  a fault in the input wiring, other than
+Phase Rotation: e.g., Ground/Neutral reversed.
+Recommendations:
+1. Contact an electrician.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSBypassOffManual .1.3.6.1.4.1.232.154.2.0.21060 "Status Events" INFORMATIONAL
+FORMAT The UPS is no longer on manual bypass: 
+SDESC
+A UPS device is operating in manual bypass mode.
+Recommendations:
+1. In bypass mode, the UPS cannot support devices if there is a power failure.
+2. Once maintenance has been performed return the UPS to normal mode.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSBypassONManual .1.3.6.1.4.1.232.154.2.0.21059 "Status Events" MAJOR
+FORMAT The UPS is on manual bypass: 
+SDESC
+A UPS device is operating in manual bypass mode.
+Recommendations:
+1. In bypass mode, the UPS cannot support devices if there is a power failure.
+2. Once maintenance has been performed return the UPS to normal mode.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cppqRPMtrapUPSStartedOnBatteryCleared .1.3.6.1.4.1.232.154.2.0.20152 "Status Events" INFORMATIONAL
+FORMAT Utility power has been restored: 
+SDESC
+A UPS device has been started  while on battery power. AC input power is not present.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+If the UPS remains on battery for an extended time it will not be able to sustain the output load!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cppqRPMtrapUPSStartedOnBattery .1.3.6.1.4.1.232.154.2.0.20151 "Status Events" INFORMATIONAL
+FORMAT The UPS was started without utility power: 
+SDESC
+A UPS device has been started  while on battery power. AC input power is not present.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+If the UPS remains on battery for an extended time it will not be able to sustain the output load.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSInputOutofRangeCleared .1.3.6.1.4.1.232.154.2.0.21022 "Status Events" INFORMATIONAL
+FORMAT Input voltage is normal: 
+SDESC
+A UPS device is reporting input voltage is out of range.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+2. If the UPS remains on battery for an extended period of time it will not be able to sustain the load.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSInputOutofRange .1.3.6.1.4.1.232.154.2.0.21021 "Status Events" MAJOR
+FORMAT Input voltage is out of range: 
+SDESC
+A UPS device is reporting input voltage is out of range.
+Recommendations:
+1. Check to make sure the UPS is plugged into an outlet supplied with utility power.
+2. If the UPS remains on battery for an extended period of time it will not be able to sustain the load.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSTemperatureOutOfRange .1.3.6.1.4.1.232.154.2.0.21007 "Status Events" CRITICAL
+FORMAT UPS temperature out of range: 
+SDESC
+A UPS device is reporting  temperature is out of range.
+Recommendations:
+1. Check to make sure the UPS is in a well ventilated area.
+2. Lower the ambient temperature in the area where the UPS is located.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSTemperatureOutOfRangeCleared .1.3.6.1.4.1.232.154.2.0.21008 "Status Events" INFORMATIONAL
+FORMAT UPS temperature has returned to normal: 
+SDESC
+A UPS device is reporting temperature is out of range.
+Recommendations:
+1. Check to make sure the UPS is in a well ventilated area.
+2. Lower the ambient temperature in the area where the UPS is located.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSBypassOnAuto .1.3.6.1.4.1.232.154.2.0.21047 "Status Events" MAJOR
+FORMAT The UPS is on automatic bypass: 
+SDESC
+A UPS device is operating in auto bypass mode.
+Recommendations:
+1. In bypass mode, the UPS cannot support devices if there is a power failure.
+2. Once maintenance has been performed return the UPS to normal mode.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSBypassOnAutoCleared .1.3.6.1.4.1.232.154.2.0.21048 "Status Events" INFORMATIONAL
+FORMAT The UPS is no longer on auto bypass: 
+SDESC
+A UPS device is operating in auto bypass mode.
+Recommendations:
+1. In bypass mode, the UPS cannot support devices if there is a power failure.
+2. Once maintenance has been performed return the UPS to normal mode.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMtrapUPSOutputoutofRange .1.3.6.1.4.1.232.154.2.0.21019 "Status Events" CRITICAL
+FORMAT Output voltage is out of range: 
+SDESC
+A UPS device is reporting output voltage is out of Range.
+Recommendations:
+1. Initiate a UPS self test.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteriesDisconnected .1.3.6.1.4.1.232.154.2.0.21053 "Status Events" MAJOR
+FORMAT One or more UPS batteries have been disconnected.: 
+SDESC
+A UPS device is reporting  batteries are not connected to the UPS.
+Recomendations:
+1. Connect the UPS Batteries.
+The UPS will not be capable of supporting it's load if the utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteriesDisconnectedCleared .1.3.6.1.4.1.232.154.2.0.21054 "Status Events" INFORMATIONAL
+FORMAT All UPS batteries have been reconnected.: 
+SDESC
+A UPS device is reporting  batteries are not connected to the UPS.
+Recomendations:
+1. Connect the UPS Batteries.
+The UPS will not be capable of supporting it's load if the utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryDischarged .1.3.6.1.4.1.232.154.2.0.21057 "Status Events" MAJOR
+FORMAT The UPS batteries are in a discharged condition.: 
+SDESC
+A UPS device is reporting batteries are completely discharged.
+Recommendations:
+1. Connect the UPS to utility power to charge the batteries.
+The UPS will not be able to support it's load if the utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSBatteryDischargedCleared .1.3.6.1.4.1.232.154.2.0.21058 "Status Events" INFORMATIONAL
+FORMAT The UPS batteries are in a discharged condition.: 
+SDESC
+A UPS device is reporting batteries are completely discharged.
+Recommendations:
+1. Connect the UPS to utility power to charge the batteries.
+The UPS will not be able to support it's load if the utility power fails!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSCheckBreaker .1.3.6.1.4.1.232.154.2.0.21041 "Status Events" MAJOR
+FORMAT A UPS circuit breaker needs attention.: 
+SDESC
+A UPS device is reporting an output Breaker or Relay has failed or may be
+stuck open or closed with this alarm.
+Recommendations:
+1. Check all breakers on the UPS.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSCheckBreakerCleared .1.3.6.1.4.1.232.154.2.0.21042 "Status Events" INFORMATIONAL
+FORMAT All breakers are functioning normally.: 
+SDESC
+A UPS device is reporting an output Breaker or Relay has failed or may be
+stuck open or closed with this alarm.
+Recommendations:
+1. Check all breakers on the UPS.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSEPOInitiated .1.3.6.1.4.1.232.154.2.0.21037 "Status Events" CRITICAL
+FORMAT Emergency Power Off activated: 
+SDESC
+A UPS device is reporting an Emergency Power Off (EPO) command has been
+received to shutdown the UPS immediately with out delay. This command
+may come from a local control panel or from a remote source.
+Recommendations:
+1. Turn the UPS on to reapply power to attached equipment.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSManualLoadDumped .1.3.6.1.4.1.232.154.2.0.21033 "Status Events" MAJOR
+FORMAT UPS output has been manually turned off. : 
+SDESC
+The UPS has been powered off with user interaction.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSManualLoadDumpedCleared .1.3.6.1.4.1.232.154.2.0.21034 "Status Events" INFORMATIONAL
+FORMAT UPS output has been restored: 
+SDESC
+The UPS has been powered off with user interaction.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSCabinetDoorOpen .1.3.6.1.4.1.232.154.2.0.21045 "Status Events" CRITICAL
+FORMAT A cover panel has been removed.: 
+SDESC
+A UPS device is reporting a cover panel has been removed while utility power is present.
+Recommendations:
+1. Reinstall all panels.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSCabinetDoorOpenCleared .1.3.6.1.4.1.232.154.2.0.21046 "Status Events" INFORMATIONAL
+FORMAT A cover panel has been replaced.: 
+SDESC
+A UPS device is reporting a cover panel has been removed while utility power is present.
+Recommendations:
+1. Reinstall all panels.
+2. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSFanFailure .1.3.6.1.4.1.232.154.2.0.21035 "Status Events" CRITICAL
+FORMAT The UPS has encountered an fan failure.: 
+SDESC
+A UPS device is reporting a fan failure has occurred.
+Recommendations:
+1. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSFanFailureCleared .1.3.6.1.4.1.232.154.2.0.21036 "Status Events" INFORMATIONAL
+FORMAT The UPS fan failure has cleared.: 
+SDESC
+A UPS device is reporting a fan failure has occurred.
+Recommendations:
+1. If this error persists contact technical support.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSLossOfRedundancy .1.3.6.1.4.1.232.154.2.0.21023 "Status Events" MAJOR
+FORMAT The UPS N+1 load has been exceeded: 
+SDESC
+A UPS device is reporting a loss of redundancy due to one of the following.
+1. One or more of the Electronics Modules has failed
+2. One or more of the electronics modules has been manually removed.
+3. The amount of load on the UPS has increased to the point that the UPS
+is no longer able to support an N+1 configuration.
+Recommendations:
+1. Check the UPS to see if one of the modules has failed.
+2. Make sure that all modules are securely plugged in.
+3. Reduce the load to return the N+1 configuration.
+4. If the amount of load is now going to exceed and N+1 configuration
+permanently, change the configuration on the front panel of the UPS
+to Capacity instead of Parallel N+1.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSLossOfRedundancyCleared .1.3.6.1.4.1.232.154.2.0.21024 "Status Events" INFORMATIONAL
+FORMAT Loss of redundancy cleared or configuration has changed from N+1 to Capacity: 
+SDESC
+A UPS device is reporting a loss of redundancy due to one of the following.
+1. One or more of the Electronics Modules has failed
+2. One or more of the electronics modules has been manually removed.
+3. The amount of load on the UPS has increased to the point that the UPS is no longer
+able to support an N+1 configuration.
+Recommendations:
+1. Check the UPS to see if one of the modules has failed.
+2. Make sure that all modules are securely plugged in.
+3. Reduce the load to return the N+1 configuration.
+4. If the amount of load is now going to exceed and N+1 configuration permanently,
+change the configuration on the front panel of the UPS to Capacity instead of Parallel N+1.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSShutdownImminent .1.3.6.1.4.1.232.154.2.0.21013 "Status Events" CRITICAL
+FORMAT A UPS shutdown is imminent.: 
+SDESC
+A UPS device is reporting a shutdown imminent condition.
+Recommendations:
+1. Immediately restore power to the UPS.
+The UPS will not continue to supply power to devices following the shutdown!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSShutdownImminentCleared .1.3.6.1.4.1.232.154.2.0.21014 "Status Events" INFORMATIONAL
+FORMAT The UPS is no longer in an imminent shutdown state.: 
+SDESC
+A UPS device is reporting a shutdown imminent condition.
+Recommendations:
+1. Immediately restore power to the UPS.
+The UPS will not continue to supply power to devices following the shutdown!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSShutdownPending .1.3.6.1.4.1.232.154.2.0.21011 "Status Events" MAJOR
+FORMAT A UPS shutdown is pending.: 
+SDESC
+A UPS device is reporting shutdown pending condition.
+Recommendations:
+1. Immediately restore power to the UPS.
+The UPS will not continue to supply power to devices following the shutdown!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTrapUPSShutdownPendingCleared .1.3.6.1.4.1.232.154.2.0.21012 "Status Events" INFORMATIONAL
+FORMAT The UPS is no longer pending shutdown.: 
+SDESC
+A UPS device is reporting shutdown pending condition.
+Recommendations:
+1. Immediately restore power to the UPS.
+The UPS will not continue to supply power to devices following the shutdown!
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+  8: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqRPMTestTrap .1.3.6.1.4.1.232.154.2.0.50001 "Status Events" INFORMATIONAL
+FORMAT Test Trap: 
+SDESC
+This trap is sent to test SNMP setup.
+Variables:
+  1: sysName
+  2: cpqRPMTrapDescription
+  3: cpqRPMTrapDeviceId
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapDeviceAddress
+  6: cpqRPMTrapType
+  7: cpqRPMTrapSeverity
+EDESC
+#
+#
+#
+EVENT cpqPMTrapCritical .1.3.6.1.4.1.232.154.3.0.1 "Status Events" CRITICAL
+FORMAT Critical Alarm: 
+SDESC
+A critical alarm has occurred. Action: Check the Trap Details for more information.
+Variables:
+  1: sysName
+  2: cpqRPMTrapCode
+  3: cpqRPMTrapDescription
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqPMTrapWarning .1.3.6.1.4.1.232.154.3.0.2 "Status Events" MINOR
+FORMAT Warning Alarm: 
+SDESC
+A warning alarm has occurred. Action: Check the Trap Details for more information.
+Variables:
+  1: sysName
+  2: cpqRPMTrapCode
+  3: cpqRPMTrapDescription
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqPMTrapInformation .1.3.6.1.4.1.232.154.3.0.3 "Status Events" INFORMATIONAL
+FORMAT Information Alarm: 
+SDESC
+An information alarm has occurred. Action: Check the Trap Details for more information.
+Variables:
+  1: sysName
+  2: cpqRPMTrapCode
+  3: cpqRPMTrapDescription
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapURL
+EDESC
+#
+#
+#
+EVENT cpqPMTrapCleared .1.3.6.1.4.1.232.154.3.0.4 "Status Events" INFORMATIONAL
+FORMAT Cleared Alarm: 
+SDESC
+An alarm has cleared. Action: Check the Trap Details for more information.
+Variables:
+  1: sysName
+  2: cpqRPMTrapCode
+  3: cpqRPMTrapDescription
+  4: cpqRPMTrapDeviceName
+  5: cpqRPMTrapURL
+EDESC

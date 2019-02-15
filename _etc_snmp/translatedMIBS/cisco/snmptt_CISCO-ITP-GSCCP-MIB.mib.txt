@@ -1,0 +1,147 @@
+#
+#
+#
+#
+MIB: CISCO-ITP-GSCCP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ITP-GSCCP-MIB.mib) converted on Tue Aug 21 15:26:13 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoGsccpGttMapStateChange .1.3.6.1.4.1.9.9.335.0.1 "Status Events" Normal
+FORMAT The notification generated when a mated $*
+SDESC
+The notification generated when a mated
+application subsystem changes to a new state.
+The value of cgsccpGttMapSsStatus indicates
+the new state for the subsystem.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgsccpGttMapDisplayPC
+  4: cgsccpGttMapDisplaySS
+  5: cgsccpGttMapSsStatus
+EDESC
+#
+#
+#
+EVENT ciscoGsccpGttLoadTable .1.3.6.1.4.1.9.9.335.0.2 "Status Events" Normal
+FORMAT This notification is generated whenever a load $*
+SDESC
+This notification is generated whenever a load
+operation is started or completes.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgsccpInstGttConfigStatus
+  4: cgsccpInstLastURL
+EDESC
+#
+#
+#
+EVENT ciscoGsccpGttErrors .1.3.6.1.4.1.9.9.335.0.3 "Status Events" Normal
+FORMAT This notification is generated whenever any global $*
+SDESC
+This notification is generated whenever any global
+title error is encountered in last interval specified
+by the cgsccpGttErrorPeriod and the
+cgsccpInstErrorIndicator will be set to true. The
+notification will also be generated when errors have
+abated. The notification is generated after the number
+of recovery intervals as specified by the
+cgsccpGttErrorRecoveryCount object has passed without
+any global title errors.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgsccpInstErrorIndicator
+  4: cgsccpGttErrorsSelectorNotFound
+  5: cgsccpGttErrorsIncorrectFormat
+  6: cgsccpGttErrorsGtaNotFound
+  7: cgsccpGttErrorsHopViolation
+  8: cgsccpGttErrorsMapNotFound
+  9: cgsccpGttErrorsUnequipedSS
+  10: cgsccpGttErrorsSccpUnavailable
+  11: cgsccpGttErrorsDpcUnavailable
+  12: cgsccpGttErrorsSsUnavailable
+  13: cgsccpGttErrorsDpcCongested
+  14: cgsccpGttErrorsSsCongested
+  15: cgsccpGttErrorsRouteFailure
+  16: cgsccpGttErrorsSccpUnqualified
+EDESC
+#
+#
+#
+EVENT ciscoGsccpSegReassUnsup .1.3.6.1.4.1.9.9.335.0.4 "Status Events" Normal
+FORMAT This notification is generated initially when a SCCP message $*
+SDESC
+This notification is generated initially when a SCCP message
+is dropped due to a segmentation or reassembly unsupported
+or failure errors in last interval specified by the
+cgsccpGttErrorPeriod and the cgsccpInstErrorIndicator will be
+set to true.  The notification will also be generated after
+the number of recovery intervals as specified by the
+cgsccpGttErrorRecoveryCount object has passed without any
+segmentation or reassembly unsupported errors.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgsccpInstErrorIndicator
+  4: cgsccpGttErrorsReassUnsupported
+  5: cgsccpGttErrorsReassFailure
+  6: cgsccpGttErrorsSegUnsupported
+  7: cgsccpGttErrorsSegFailure
+EDESC
+#
+#
+#
+EVENT ciscoGsccpSOGReceived .1.3.6.1.4.1.9.9.335.0.5 "Status Events" Normal
+FORMAT This notification is generated initially when a Subsystem $*
+SDESC
+This notification is generated initially when a Subsystem
+Out-of-Service Grant is sent in response to a Subsystem
+Out-of-Service Request message. The affected PC and affected
+SSN are provided with this notification.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgsccpGttMapDisplayPC
+  4: cgsccpGttMapDisplaySS
+EDESC
+#
+#
+#
+EVENT ciscoGsccpRmtCongestion .1.3.6.1.4.1.9.9.335.0.6 "Status Events" Normal
+FORMAT This notification is generated initially when congestion is $*
+SDESC
+This notification is generated initially when congestion is
+experienced in the remote SCCP component for the first time in
+last interval specified by the cgsccpGttErrorPeriod.  The
+notification is generated after the number of recovery intervals
+as specified by the cgsccpGttErrorRecoveryCount object has
+passed without any congestion errors and total number of local
+congestion observed for different congestion levels at the end
+of the interval along with the latest known congestion status
+for that remote signalling point will be provided.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgsccpGttMapDisplayPC
+  4: cgsccpGttMapCongStatus
+  5: cgsccpGttMapCongLvl1
+  6: cgsccpGttMapCongLvl2
+  7: cgsccpGttMapCongLvl3
+EDESC
+#
+#
+#
+EVENT ciscoGsccpLocalSsStateChange .1.3.6.1.4.1.9.9.335.0.7 "Status Events" Normal
+FORMAT The notification generated when a local application subsystem $*
+SDESC
+The notification generated when a local application subsystem
+changes to a new state.  The subsystem number and the latest
+subsystem state will be provided in this notification.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgsccpLocalDisplaySS
+  4: cgsccpLocalSsStatus
+EDESC

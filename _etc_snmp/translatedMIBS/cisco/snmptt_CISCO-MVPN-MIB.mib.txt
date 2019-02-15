@@ -1,0 +1,34 @@
+#
+#
+#
+#
+MIB: CISCO-MVPN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-MVPN-MIB.mib) converted on Tue Aug 21 15:26:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoMvpnMvrfChange .1.3.6.1.4.1.9.10.113.0.2 "Status Events" Normal
+FORMAT A ciscoMvpnMvrfChange notification signifies a change about $*
+SDESC
+A ciscoMvpnMvrfChange notification signifies a change about
+a MVRF in the device. The change event can be creation of 
+the MVRF, deletion of the MVRF or an update on the default 
+or data MDT configuration of the MVRF. The change event 
+is indicated by ciscoMvpnGenOperStatusChange embedded in 
+the notification. The user can then query 
+ciscoMvpnGenericTable, ciscoMvpnMdtDefaultTable and/or 
+ciscoMvpnMdtDataTable to get the details of the change as 
+necessary.
+Note: Since the creation of a MVRF is often followed by 
+configuration of default and data MDT groups for the MVRF, 
+more than one (three at most) notifications for a MVRF may 
+be generated serially, and it is really not necessary to 
+generate all three of them. An agent may choose to generate a 
+notification for the last event only, that is for data MDT 
+configuration.
+Similarly, deletion of default or data MDT configuration on a 
+MVRF happens before a MVRF is deleted, it is recommended 
+that the agent send the notification for MVRF deletion 
+event only.
+Variables:
+  1: ciscoMvpnGenOperStatusChange
+EDESC

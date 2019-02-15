@@ -1,0 +1,37 @@
+#
+#
+#
+#
+MIB: CISCO-VSAN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-VSAN-MIB.mib) converted on Tue Aug 21 15:26:43 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT vsanStatusChange .1.3.6.1.4.1.9.9.282.1.3.0.1 "Status Events" Normal
+FORMAT A state change notification is generated whenever $*
+SDESC
+A state change notification is generated whenever
+vsanOperState is changed. The index and both states of 
+the VSAN after the change, are included as variables 
+in the notification.
+Variables:
+  1: notifyVsanIndex
+  2: vsanAdminState
+  3: vsanOperState
+EDESC
+#
+#
+#
+EVENT vsanPortMembershipChange .1.3.6.1.4.1.9.9.282.1.3.0.2 "Status Events" Normal
+FORMAT A membership change notification is generated whenever $*
+SDESC
+A membership change notification is generated whenever
+port-vsan membership of a port is changed. The switch 
+wwn, interface index and new port-vsan after the change,
+are included as variables in the notification. Change in
+vsanIfEntry object of vsanIfTable triggers this 
+notification.
+Variables:
+  1: vsanFcFeElementName
+  2: ifIndex
+  3: notifyVsanIndex
+EDESC

@@ -1,0 +1,1339 @@
+#
+#
+#
+#
+MIB: POLYCOM-DMA-MIB (file:/tmp/polycom/POLYCOM-DMA-MIB.mib) converted on Fri Mar 13 12:28:41 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ntfAlertClusterBusyOut .1.3.6.1.4.1.13885.13.2.5.2.0.1001 "Status Events" Normal
+FORMAT A cluster is in the busied-out state. $*
+SDESC
+A cluster is in the busied-out state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertClusterOutOfService .1.3.6.1.4.1.13885.13.2.5.2.0.1002 "Status Events" Normal
+FORMAT A cluster is in the out-of-service state. $*
+SDESC
+A cluster is in the out-of-service state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertClusterOrphan .1.3.6.1.4.1.13885.13.2.5.2.0.1003 "Status Events" Normal
+FORMAT A cluster's replication link is no longer valid. $*
+SDESC
+A cluster's replication link is no longer valid.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertClusterUnreachable .1.3.6.1.4.1.13885.13.2.5.2.0.1004 "Status Events" Normal
+FORMAT A cluster is not communicating with the supercluster. $*
+SDESC
+A cluster is not communicating with the supercluster.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertClusterPendingReplication .1.3.6.1.4.1.13885.13.2.5.2.0.1005 "Status Events" Normal
+FORMAT A cluster has inconsistencies between its server's (or servers') data and the $*
+SDESC
+A cluster has inconsistencies between its server's (or servers') data and the
+supercluster's data.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryNotActiveBothClustersNotInService .1.3.6.1.4.1.13885.13.2.5.2.0.1101 "Status Events" Normal
+FORMAT A territory with both a primary and backup cluster configured is inactive because $*
+SDESC
+A territory with both a primary and backup cluster configured is inactive because
+neither cluster is in a viable state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryNotActiveClusterNotInService .1.3.6.1.4.1.13885.13.2.5.2.0.1102 "Status Events" Normal
+FORMAT A territory with only a primary cluster configured is inactive because that cluster $*
+SDESC
+A territory with only a primary cluster configured is inactive because that cluster
+is not in a viable state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryNoClustersAssigned .1.3.6.1.4.1.13885.13.2.5.2.0.1103 "Status Events" Normal
+FORMAT A territory is inactive because it no cluster(s) assigned to service it. $*
+SDESC
+A territory is inactive because it no cluster(s) assigned to service it.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryPrimaryClusterNotInService .1.3.6.1.4.1.13885.13.2.5.2.0.1104 "Status Events" Normal
+FORMAT A territory with a primary and backup cluster configured is currently running on $*
+SDESC
+A territory with a primary and backup cluster configured is currently running on
+its backup cluster.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryBothClustersNotResponding .1.3.6.1.4.1.13885.13.2.5.2.0.1105 "Status Events" Normal
+FORMAT Both clusters in a territory with a primary and backup are not responding. $*
+SDESC
+Both clusters in a territory with a primary and backup are not responding.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryClusterNotResponding .1.3.6.1.4.1.13885.13.2.5.2.0.1106 "Status Events" Normal
+FORMAT The primary cluster in a single cluster territory is not responding. $*
+SDESC
+The primary cluster in a single cluster territory is not responding.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryPrimaryClusterNotResponding .1.3.6.1.4.1.13885.13.2.5.2.0.1107 "Status Events" Normal
+FORMAT The primary cluster in a territory is not responding. This territory may fail $*
+SDESC
+The primary cluster in a territory is not responding. This territory may fail
+over to its backup cluster.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertTerritoryFailedOver .1.3.6.1.4.1.13885.13.2.5.2.0.1108 "Status Events" Normal
+FORMAT A Territory has failed over to its backup cluster. $*
+SDESC
+A Territory has failed over to its backup cluster.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCMAUser .1.3.6.1.4.1.13885.13.2.5.2.0.2001 "Status Events" Normal
+FORMAT An error occurred while attempting to synchronize data to the resource management system. $*
+SDESC
+An error occurred while attempting to synchronize data to the resource management system.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCMAUnreachable .1.3.6.1.4.1.13885.13.2.5.2.0.2002 "Status Events" Normal
+FORMAT The responsible DMA cluster is unable to communicate with the resource management system. $*
+SDESC
+The responsible DMA cluster is unable to communicate with the resource management system.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCMAInconsistentTerritories .1.3.6.1.4.1.13885.13.2.5.2.0.2004 "Status Events" Normal
+FORMAT A resource management system has inconsistent territory definitions in its site topology. $*
+SDESC
+A resource management system has inconsistent territory definitions in its site topology.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirIntegrationFailed .1.3.6.1.4.1.13885.13.2.5.2.0.2101 "Status Events" Normal
+FORMAT The DMA system's cache of user and group data could not be updated from the $*
+SDESC
+The DMA system's cache of user and group data could not be updated from the
+Active Directory server.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirNoConfRooms .1.3.6.1.4.1.13885.13.2.5.2.0.2102 "Status Events" Normal
+FORMAT After successfully updating user and group data from the Active Directory server, $*
+SDESC
+After successfully updating user and group data from the Active Directory server,
+no conference rooms were generated.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirPrimaryClusterNotInService .1.3.6.1.4.1.13885.13.2.5.2.0.2103 "Status Events" Normal
+FORMAT The primary cluster for the territory configured for Active Directory integration $*
+SDESC
+The primary cluster for the territory configured for Active Directory integration
+is not in a viable state; the backup cluster is active but does not assume
+responsibility for updating the user and group data cache.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirNotAvailable .1.3.6.1.4.1.13885.13.2.5.2.0.2104 "Status Events" Normal
+FORMAT The user and group data cache cannot be updated from the Active Directory server $*
+SDESC
+The user and group data cache cannot be updated from the Active Directory server
+because both the primary and backup clusters for the responsible territory are not
+in a viable state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirNotAvailableNoBackup .1.3.6.1.4.1.13885.13.2.5.2.0.2105 "Status Events" Normal
+FORMAT The user and group data cache cannot be updated from the Active Directory server $*
+SDESC
+The user and group data cache cannot be updated from the Active Directory server
+because the primary cluster for the responsible territory is not in a viable state
+and no backup cluster is configured.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirUserAuthConnectionFailed .1.3.6.1.4.1.13885.13.2.5.2.0.2106 "Status Events" Normal
+FORMAT A cluster was unable to connect to the Active Directory for the purpose of $*
+SDESC
+A cluster was unable to connect to the Active Directory for the purpose of
+authenticating a user's credentials.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirCachingConnectionFailed .1.3.6.1.4.1.13885.13.2.5.2.0.2107 "Status Events" Normal
+FORMAT The cluster responsible for updating the user and groups data cache was unable to $*
+SDESC
+The cluster responsible for updating the user and groups data cache was unable to
+communicate with the Active Directory server.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEntDirPrimaryClusterNotResponding .1.3.6.1.4.1.13885.13.2.5.2.0.2108 "Status Events" Normal
+FORMAT The primary cluster for the territory configured for Active Directory integration $*
+SDESC
+The primary cluster for the territory configured for Active Directory integration
+is not in a viable state; the backup cluster is active but does not assume
+responsibility for updating the user and group data cache.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertExchangePrimaryClusterNotInServiceBackupAvailable .1.3.6.1.4.1.13885.13.2.5.2.0.2201 "Status Events" Normal
+FORMAT The primary cluster servicing the territory responsible for Exchange integration is $*
+SDESC
+The primary cluster servicing the territory responsible for Exchange integration is
+not in a viable state; the backup cluster is currently assuming this duty.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertExchangeBothClustersNotInService .1.3.6.1.4.1.13885.13.2.5.2.0.2202 "Status Events" Normal
+FORMAT Both the primary and backup cluster configured for the territory responsible for $*
+SDESC
+Both the primary and backup cluster configured for the territory responsible for
+Exchange integration are not in a viable state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertExchangePrimaryClusterNotInService .1.3.6.1.4.1.13885.13.2.5.2.0.2203 "Status Events" Normal
+FORMAT The primary cluster servicing the territory responsible for Exchange integration is $*
+SDESC
+The primary cluster servicing the territory responsible for Exchange integration is
+not in a viable state; no backup cluster is configured.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDmaHistoryDataStoreOutOfService .1.3.6.1.4.1.13885.13.2.5.2.0.2401 "Status Events" Normal
+FORMAT DMA can no longer get a connection to the History data source. $*
+SDESC
+DMA can no longer get a connection to the History data source.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDmaConfigurationDataStoreOutOfService .1.3.6.1.4.1.13885.13.2.5.2.0.2402 "Status Events" Normal
+FORMAT DMA can no longer get a connection to the Configuration data source. $*
+SDESC
+DMA can no longer get a connection to the Configuration data source.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCdrServiceConnectionUnresponsive .1.3.6.1.4.1.13885.13.2.5.2.0.2501 "Status Events" Normal
+FORMAT DMA can no longer get a connection to the CDR service. $*
+SDESC
+DMA can no longer get a connection to the CDR service.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCdrBufferingOverflow .1.3.6.1.4.1.13885.13.2.5.2.0.2502 "Status Events" Normal
+FORMAT DMA has no available space to buffer CDR events, and is discarding some events. $*
+SDESC
+DMA has no available space to buffer CDR events, and is discarding some events.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCdrClientError .1.3.6.1.4.1.13885.13.2.5.2.0.2503 "Status Events" Normal
+FORMAT CDR service is not accepting events. Events are being buffered. $*
+SDESC
+CDR service is not accepting events. Events are being buffered.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCdrCredentialsInvalid .1.3.6.1.4.1.13885.13.2.5.2.0.2504 "Status Events" Normal
+FORMAT DMA cannot authenticate with CDR service due to invalid credentials. $*
+SDESC
+DMA cannot authenticate with CDR service due to invalid credentials.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLyncServerConnectionUnresponsive .1.3.6.1.4.1.13885.13.2.5.2.0.2601 "Status Events" Normal
+FORMAT DMA can no longer get a connection to the Lync server for presence. $*
+SDESC
+DMA can no longer get a connection to the Lync server for presence.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLyncServerCredentialsInvalid .1.3.6.1.4.1.13885.13.2.5.2.0.2602 "Status Events" Normal
+FORMAT DMA cannot authenticate with Lync server for presence. $*
+SDESC
+DMA cannot authenticate with Lync server for presence.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLyncServerAccountUriInvalid .1.3.6.1.4.1.13885.13.2.5.2.0.2603 "Status Events" Normal
+FORMAT Lync server account URI is invalid. $*
+SDESC
+Lync server account URI is invalid.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLyncServerConnectionUnresponsiveScheduling .1.3.6.1.4.1.13885.13.2.5.2.0.2604 "Status Events" Normal
+FORMAT DMA can no longer get a connection to the Lync server for scheduling. $*
+SDESC
+DMA can no longer get a connection to the Lync server for scheduling.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLyncServerCredentialsInvalidScheduling .1.3.6.1.4.1.13885.13.2.5.2.0.2605 "Status Events" Normal
+FORMAT DMA cannot authenticate with Lync server due to invalid credentials for scheduling. $*
+SDESC
+DMA cannot authenticate with Lync server due to invalid credentials for scheduling.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertSignalingNotEnabled .1.3.6.1.4.1.13885.13.2.5.2.0.3001 "Status Events" Normal
+FORMAT No signaling interface is enabled for the cluster; calls to the cluster cannot be $*
+SDESC
+No signaling interface is enabled for the cluster; calls to the cluster cannot be
+processed.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCertExpired .1.3.6.1.4.1.13885.13.2.5.2.0.3101 "Status Events" Normal
+FORMAT The cluster's server certificate has expired. $*
+SDESC
+The cluster's server certificate has expired.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCertExpireNow .1.3.6.1.4.1.13885.13.2.5.2.0.3102 "Status Events" Normal
+FORMAT The cluster's server certificate will expire within 1 day. $*
+SDESC
+The cluster's server certificate will expire within 1 day.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCertExpireSoon .1.3.6.1.4.1.13885.13.2.5.2.0.3103 "Status Events" Normal
+FORMAT The cluster's server certificate will expire soon (30 days or less). $*
+SDESC
+The cluster's server certificate will expire soon (30 days or less).
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCertSecExpired .1.3.6.1.4.1.13885.13.2.5.2.0.3104 "Status Events" Normal
+FORMAT One or more CA certificates on the cluster has expired. $*
+SDESC
+One or more CA certificates on the cluster has expired.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCertSecExpireSoon .1.3.6.1.4.1.13885.13.2.5.2.0.3105 "Status Events" Normal
+FORMAT One or more CA certificates on the cluster will expire soon (30 days or less). $*
+SDESC
+One or more CA certificates on the cluster will expire soon (30 days or less).
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLicenseNoKeys .1.3.6.1.4.1.13885.13.2.5.2.0.3201 "Status Events" Normal
+FORMAT No license key is installed on the cluster. $*
+SDESC
+No license key is installed on the cluster.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLicenseInvalidKeys .1.3.6.1.4.1.13885.13.2.5.2.0.3202 "Status Events" Normal
+FORMAT An invalid license key is installed on the cluster. $*
+SDESC
+An invalid license key is installed on the cluster.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertLicenseNoEulaAcceptance .1.3.6.1.4.1.13885.13.2.5.2.0.3203 "Status Events" Normal
+FORMAT The EULA for the cluster has not been accepted. $*
+SDESC
+The EULA for the cluster has not been accepted.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertNetworkSingleNodeDetected .1.3.6.1.4.1.13885.13.2.5.2.0.3301 "Status Events" Normal
+FORMAT A cluster is configured to have two servers, but communication between the two $*
+SDESC
+A cluster is configured to have two servers, but communication between the two
+servers is not working.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertNetworkPrivateActive .1.3.6.1.4.1.13885.13.2.5.2.0.3302 "Status Events" Normal
+FORMAT A cluster is configured to have one server, but the private network interface is $*
+SDESC
+A cluster is configured to have one server, but the private network interface is
+enabled and active.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertNetworkPrivateError .1.3.6.1.4.1.13885.13.2.5.2.0.3303 "Status Events" Normal
+FORMAT The private network interface has a problem. $*
+SDESC
+The private network interface has a problem.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertNetworkPublicError .1.3.6.1.4.1.13885.13.2.5.2.0.3304 "Status Events" Normal
+FORMAT The public management (or combined) network interface has a problem. $*
+SDESC
+The public management (or combined) network interface has a problem.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertNetworkSignalingError .1.3.6.1.4.1.13885.13.2.5.2.0.3305 "Status Events" Normal
+FORMAT The signaling network interface has a problem. $*
+SDESC
+The signaling network interface has a problem.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertResourceDiskSpace .1.3.6.1.4.1.13885.13.2.5.2.0.3401 "Status Events" Normal
+FORMAT The disk space used by DMA is at 85% or more of capacity. $*
+SDESC
+The disk space used by DMA is at 85% or more of capacity.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertResourceLogsPurge .1.3.6.1.4.1.13885.13.2.5.2.0.3402 "Status Events" Normal
+FORMAT The age of older log archives on the server is approaching the configured retention $*
+SDESC
+The age of older log archives on the server is approaching the configured retention
+period and will be subject to purging.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertResourceLogsExceedLimit .1.3.6.1.4.1.13885.13.2.5.2.0.3403 "Status Events" Normal
+FORMAT The size of the log archives on the server is greater than the allocated 1 GB $*
+SDESC
+The size of the log archives on the server is greater than the allocated 1 GB
+capacity; older logs will be deleted to return to a disk space usage within
+capacity.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertResourceLogsNearLimit .1.3.6.1.4.1.13885.13.2.5.2.0.3404 "Status Events" Normal
+FORMAT The size of the log archives on the server is greater than the configured warning $*
+SDESC
+The size of the log archives on the server is greater than the configured warning
+threshold of allocated capacity.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertResourceCPUOver50Percent .1.3.6.1.4.1.13885.13.2.5.2.0.3405 "Status Events" Normal
+FORMAT The server's CPU usage is unusually high. $*
+SDESC
+The server's CPU usage is unusually high.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertResourceCPUOver75Percent .1.3.6.1.4.1.13885.13.2.5.2.0.3406 "Status Events" Normal
+FORMAT The server's CPU usage is exceptionally high. $*
+SDESC
+The server's CPU usage is exceptionally high.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertAVVirusDetected .1.3.6.1.4.1.13885.13.2.5.2.0.3501 "Status Events" Normal
+FORMAT The most recent system scan of the server detected malware. $*
+SDESC
+The most recent system scan of the server detected malware.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertAVUnsuccessful .1.3.6.1.4.1.13885.13.2.5.2.0.3502 "Status Events" Normal
+FORMAT The most recent system scan of the server did not complete successfully. $*
+SDESC
+The most recent system scan of the server did not complete successfully.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertAVNeverSucceeded .1.3.6.1.4.1.13885.13.2.5.2.0.3503 "Status Events" Normal
+FORMAT The server has never completed a full system scan. $*
+SDESC
+The server has never completed a full system scan.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDataSyncVersion .1.3.6.1.4.1.13885.13.2.5.2.0.3601 "Status Events" Normal
+FORMAT The cluster contains servers running different versions of the DMA software. $*
+SDESC
+The cluster contains servers running different versions of the DMA software.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDataSyncSystemTime .1.3.6.1.4.1.13885.13.2.5.2.0.3602 "Status Events" Normal
+FORMAT There is a discrepancy of more than 10 seconds between the system times on the $*
+SDESC
+There is a discrepancy of more than 10 seconds between the system times on the
+cluster's servers.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDataSyncADIntegration .1.3.6.1.4.1.13885.13.2.5.2.0.3603 "Status Events" Normal
+FORMAT The cluster's servers observe different statuses for Active Directory integration. $*
+SDESC
+The cluster's servers observe different statuses for Active Directory integration.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDataSyncADConfRooms .1.3.6.1.4.1.13885.13.2.5.2.0.3604 "Status Events" Normal
+FORMAT The cluster's servers have different counts of enterprise conference rooms. $*
+SDESC
+The cluster's servers have different counts of enterprise conference rooms.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDataSyncCustomConfRooms .1.3.6.1.4.1.13885.13.2.5.2.0.3605 "Status Events" Normal
+FORMAT The cluster's servers have different counts of custom conference rooms. $*
+SDESC
+The cluster's servers have different counts of custom conference rooms.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertDataSyncLocalUsers .1.3.6.1.4.1.13885.13.2.5.2.0.3606 "Status Events" Normal
+FORMAT The cluster's servers have non-identical sets of local users. $*
+SDESC
+The cluster's servers have non-identical sets of local users.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertServerFailover .1.3.6.1.4.1.13885.13.2.5.2.0.3801 "Status Events" Normal
+FORMAT The active server in the cluster has failed over to the secondary server $*
+SDESC
+The active server in the cluster has failed over to the secondary server
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertServerRestart .1.3.6.1.4.1.13885.13.2.5.2.0.3802 "Status Events" Normal
+FORMAT Server has been restarted by the HA subsystem $*
+SDESC
+Server has been restarted by the HA subsystem
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertServerImpaired .1.3.6.1.4.1.13885.13.2.5.2.0.3803 "Status Events" Normal
+FORMAT The server is operating in an impaired state $*
+SDESC
+The server is operating in an impaired state
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUBusyOut .1.3.6.1.4.1.13885.13.2.5.2.0.4001 "Status Events" Normal
+FORMAT An MCU is in the busied-out state. $*
+SDESC
+An MCU is in the busied-out state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUOutOfService .1.3.6.1.4.1.13885.13.2.5.2.0.4002 "Status Events" Normal
+FORMAT An MCU is in the out-of-service state. $*
+SDESC
+An MCU is in the out-of-service state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUMultipleWarnings .1.3.6.1.4.1.13885.13.2.5.2.0.4003 "Status Events" Normal
+FORMAT An MCU has one or more warnings present. $*
+SDESC
+An MCU has one or more warnings present.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUInsufficientUserConnections .1.3.6.1.4.1.13885.13.2.5.2.0.4004 "Status Events" Normal
+FORMAT An MCU is configured with an insufficient number of user connections. $*
+SDESC
+An MCU is configured with an insufficient number of user connections.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUDisconnected .1.3.6.1.4.1.13885.13.2.5.2.0.4005 "Status Events" Normal
+FORMAT An MCU is not connected to the system. $*
+SDESC
+An MCU is not connected to the system.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUDisconnectsInPast24HoursWarning .1.3.6.1.4.1.13885.13.2.5.2.0.4009 "Status Events" Normal
+FORMAT The connection with an MCU over the past 24 hours has been lost up to 3 times. $*
+SDESC
+The connection with an MCU over the past 24 hours has been lost up to 3 times.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUDisconnectsInPast24HoursCritical .1.3.6.1.4.1.13885.13.2.5.2.0.4010 "Status Events" Normal
+FORMAT The connection with an MCU over the past 24 hours has been lost 4 or more times. $*
+SDESC
+The connection with an MCU over the past 24 hours has been lost 4 or more times.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUCallFailureRateWarning .1.3.6.1.4.1.13885.13.2.5.2.0.4011 "Status Events" Normal
+FORMAT The call failure rate on an MCU has exceeded 40%. $*
+SDESC
+The call failure rate on an MCU has exceeded 40%.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUCallFailureRateCritical .1.3.6.1.4.1.13885.13.2.5.2.0.4012 "Status Events" Normal
+FORMAT The call failure rate on an MCU has exceeded 80%. $*
+SDESC
+The call failure rate on an MCU has exceeded 80%.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUNoCapacity .1.3.6.1.4.1.13885.13.2.5.2.0.4013 "Status Events" Normal
+FORMAT An MCU has no audio or video capacity. $*
+SDESC
+An MCU has no audio or video capacity.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUVideoCapacityChange .1.3.6.1.4.1.13885.13.2.5.2.0.4014 "Status Events" Normal
+FORMAT The video capacity of an MCU has changed. $*
+SDESC
+The video capacity of an MCU has changed.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUAudioCapacityChange .1.3.6.1.4.1.13885.13.2.5.2.0.4015 "Status Events" Normal
+FORMAT The audio capacity of an MCU has changed. $*
+SDESC
+The audio capacity of an MCU has changed.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUAutoBusyOut .1.3.6.1.4.1.13885.13.2.5.2.0.4016 "Status Events" Normal
+FORMAT An MCU is in the auto busied-out state. $*
+SDESC
+An MCU is in the auto busied-out state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertMCUAutoOutOfService .1.3.6.1.4.1.13885.13.2.5.2.0.4017 "Status Events" Normal
+FORMAT An MCU is in the auto out-of-service state. $*
+SDESC
+An MCU is in the auto out-of-service state.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertITPSystemConfigurationError .1.3.6.1.4.1.13885.13.2.5.2.0.5001 "Status Events" Normal
+FORMAT A device identifying itself as an ITP system has registered to the call server with $*
+SDESC
+A device identifying itself as an ITP system has registered to the call server with
+invalid or incomplete configuration data.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEndpointSignalingAlert .1.3.6.1.4.1.13885.13.2.5.2.0.5002 "Status Events" Normal
+FORMAT One or more endpoints are sending excessive signaling traffic and have been temporarily blacklisted $*
+SDESC
+One or more endpoints are sending excessive signaling traffic and have been temporarily blacklisted
+and may have been quarantined.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertEndpointUnregistered .1.3.6.1.4.1.13885.13.2.5.2.0.5003 "Status Events" Normal
+FORMAT An endpoint is no longer registered to the call server. $*
+SDESC
+An endpoint is no longer registered to the call server.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCallLoopDetected .1.3.6.1.4.1.13885.13.2.5.2.0.5004 "Status Events" Normal
+FORMAT A call was dropped due to routing loop. $*
+SDESC
+A call was dropped due to routing loop.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertConfMgrNoTerritories .1.3.6.1.4.1.13885.13.2.5.2.0.6001 "Status Events" Normal
+FORMAT No territories are configured to host conference rooms; the DMA conference manager $*
+SDESC
+No territories are configured to host conference rooms; the DMA conference manager
+cannot process conferences.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertConfMgrLyncServerExpirationIntervalTooSmall .1.3.6.1.4.1.13885.13.2.5.2.0.6201 "Status Events" Normal
+FORMAT Notification that the expiration interval defined on the presence server is too small. $*
+SDESC
+Notification that the expiration interval defined on the presence server is too small.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertConfMgrLyncServerMaxConferenceCountExceeded .1.3.6.1.4.1.13885.13.2.5.2.0.6202 "Status Events" Normal
+FORMAT Notification that the Polycom conference contact publishing limit defined for the presence server is too small. $*
+SDESC
+Notification that the Polycom conference contact publishing limit defined for the presence server is too small.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertConfMgrLyncServerPresencePublishingIncomplete .1.3.6.1.4.1.13885.13.2.5.2.0.6203 "Status Events" Normal
+FORMAT Notification that presence publication could not be accomplished for all Polycom conference contacts within the expiration interval. $*
+SDESC
+Notification that presence publication could not be accomplished for all Polycom conference contacts within the expiration interval.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC
+#
+#
+#
+EVENT ntfAlertCallServerRegistrationDataIncomplete .1.3.6.1.4.1.13885.13.2.5.2.0.7001 "Status Events" Normal
+FORMAT History retention settings for registration data limits the period for which failed $*
+SDESC
+History retention settings for registration data limits the period for which failed
+registrations can be counted to less than 24 hours.
+Variables:
+  1: ntfObjAlertID
+  2: ntfObjAlertTimestamp
+  3: ntfObjAlertCode
+  4: ntfObjAlertSeverity
+  5: ntfObjAlertDescription
+EDESC

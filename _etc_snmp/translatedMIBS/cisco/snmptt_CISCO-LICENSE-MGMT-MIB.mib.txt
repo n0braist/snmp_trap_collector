@@ -1,0 +1,215 @@
+#
+#
+#
+#
+MIB: CISCO-LICENSE-MGMT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-LICENSE-MGMT-MIB.mib) converted on Tue Aug 21 15:26:17 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT clmgmtLicenseExpired .1.3.6.1.4.1.9.9.543.0.1 "Status Events" Normal
+FORMAT This notification is sent, when a feature license $*
+SDESC
+This notification is sent, when a feature license
+expires. This notification will be sent continuously
+every week even after the expiry to alert the management
+application.
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseExpiryWarning .1.3.6.1.4.1.9.9.543.0.2 "Status Events" Normal
+FORMAT This notification is sent when a license is about to $*
+SDESC
+This notification is sent when a license is about to
+expire. This notification will go out multiple times.
+First notification goes out when expiry day is 4 weeks
+ahead, second notification when expiry day is 3 weeks
+ahead, third notification when expiry day is 2 weeks
+ahead. This notification will go out daily in the
+last week of license expiry.
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+  3: clmgmtFeatureValidityPeriodRemaining
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseUsageCountExceeded .1.3.6.1.4.1.9.9.543.0.3 "Status Events" Normal
+FORMAT This notification is sent when clmgmtLicenseUsageCountRemaining $*
+SDESC
+This notification is sent when clmgmtLicenseUsageCountRemaining
+has reached clmgmtLicenseMaxUsageCount for a counting license.
+Variables:
+  1: clmgmtLicenseFeatureName
+  2: clmgmtLicenseFeatureVersion
+  3: clmgmtLicenseMaxUsageCount
+  4: clmgmtFeatureWhatIsCounted
+  5: clmgmtLicenseComments
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseUsageCountAboutToExceed .1.3.6.1.4.1.9.9.543.0.4 "Status Events" Normal
+FORMAT This notification is sent when clmgmtLicenseUsageCountRemaining $*
+SDESC
+This notification is sent when clmgmtLicenseUsageCountRemaining
+has reached 80% of clmgmtLicenseMaxUsageCount for a counting
+license. This is a warning notification to the management
+application that very soon the maximum count will be reached
+and after that the device will not allow new entities to
+make use of this license.
+Variables:
+  1: clmgmtLicenseFeatureName
+  2: clmgmtLicenseFeatureVersion
+  3: clmgmtLicenseMaxUsageCount
+  4: clmgmtLicenseUsageCountRemaining
+  5: clmgmtFeatureWhatIsCounted
+  6: clmgmtLicenseComments
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseInstalled .1.3.6.1.4.1.9.9.543.0.5 "Status Events" Normal
+FORMAT This notification is sent when a license is installed $*
+SDESC
+This notification is sent when a license is installed
+successfully.
+Variables:
+  1: clmgmtLicenseFeatureName
+  2: clmgmtLicenseFeatureVersion
+  3: clmgmtLicenseType
+  4: clmgmtLicenseComments
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseCleared .1.3.6.1.4.1.9.9.543.0.6 "Status Events" Normal
+FORMAT This notification is sent when a license is cleared $*
+SDESC
+This notification is sent when a license is cleared
+successfully.
+Variables:
+  1: clmgmtLicenseFeatureName
+  2: clmgmtLicenseFeatureVersion
+  3: clmgmtLicenseType
+  4: clmgmtLicenseComments
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseRevoked .1.3.6.1.4.1.9.9.543.0.7 "Status Events" Normal
+FORMAT This notification is sent when a license is revoked $*
+SDESC
+This notification is sent when a license is revoked
+successfully.
+Variables:
+  1: clmgmtLicenseFeatureName
+  2: clmgmtLicenseFeatureVersion
+  3: clmgmtLicenseType
+  4: clmgmtLicenseComments
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseEULAAccepted .1.3.6.1.4.1.9.9.543.0.8 "Status Events" Normal
+FORMAT This notification is sent when a user accepts End User $*
+SDESC
+This notification is sent when a user accepts End User
+License Agreement (EULA) for a license.
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseNotEnforced .1.3.6.1.4.1.9.9.543.0.9 "Status Events" Normal
+FORMAT This notification is sent when a license does not $*
+SDESC
+This notification is sent when a license does not
+exist for a feature, but the feature is a mandatory
+feature and it should run. This notification will be
+sent out periodically to indicate that there is no
+license installed for this feature and it needs to
+be done as soon as possible.
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseSubscriptionExpiryWarning .1.3.6.1.4.1.9.9.543.0.10 "Status Events" Normal
+FORMAT This notification is sent when a subscription license of a $*
+SDESC
+This notification is sent when a subscription license of a
+feature is about to expire. This notification will be sent as
+per the following schedule:
+Once a week for the last eight weeks
+Once a day for the last week
+Once a hour for the last day
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+  3: clmgmtFeatureEndDate
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseSubscriptionExtExpiryWarning .1.3.6.1.4.1.9.9.543.0.11 "Status Events" Normal
+FORMAT This notification is sent when the subscription license end $*
+SDESC
+This notification is sent when the subscription license end
+date of a feature is reached but extension period is left. This
+notification will be sent once a day after the license end date
+is reached.
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+  3: clmgmtFeatureEndDate
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseSubscriptionExpired .1.3.6.1.4.1.9.9.543.0.12 "Status Events" Normal
+FORMAT This notification will be sent after a subscription license $*
+SDESC
+This notification will be sent after a subscription license
+of a feature completely expires. It will be sent once a day
+after the license has completely expired
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+  3: clmgmtFeatureEndDate
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseEvalRTUTransitionWarning .1.3.6.1.4.1.9.9.543.0.13 "Status Events" Normal
+FORMAT This notification is sent when Evaluation to Right to use (RTU) $*
+SDESC
+This notification is sent when Evaluation to Right to use (RTU)
+license transition is about to happen. The first notification
+will be sent 10 days before the transition and second
+notification will be sent 5 days before the transition.
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+  3: clmgmtFeatureValidityPeriodRemaining
+EDESC
+#
+#
+#
+EVENT clmgmtLicenseEvalRTUTransition .1.3.6.1.4.1.9.9.543.0.14 "Status Events" Normal
+FORMAT This notification is sent, when a feature license transitions $*
+SDESC
+This notification is sent, when a feature license transitions
+from a evaluation to a Right to use (RTU) license.
+Variables:
+  1: clmgmtFeatureName
+  2: clmgmtFeatureVersion
+EDESC

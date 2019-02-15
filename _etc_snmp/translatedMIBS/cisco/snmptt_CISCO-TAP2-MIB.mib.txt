@@ -1,0 +1,96 @@
+#
+#
+#
+#
+MIB: CISCO-TAP2-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-TAP2-MIB.mib) converted on Tue Aug 21 15:26:38 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoTap2MIBActive .1.3.6.1.4.1.9.9.399.0.1 "Status Events" Normal
+FORMAT This Notification is sent when an intercepting router or $*
+SDESC
+This Notification is sent when an intercepting router or
+switch is first capable of intercepting a packet corresponding
+to a configured data stream. The value of the corresponding 
+cTap2StreamType which identifies the actual intercept stream
+type is included in this notification.
+This notification may be generated in conjunction with the
+intercept application, which is designed to expect the
+notification to be sent as reliably as possible, e.g., through
+the use of a finite number of retransmissions until
+acknowledged, as and when such mechanisms are available; for
+example, with SNMPv3, this would be an InformRequest.  Filter
+installation can take a long period of time, during which call
+progress may be delayed.
+Variables:
+EDESC
+#
+#
+#
+EVENT ciscoTap2MediationTimedOut .1.3.6.1.4.1.9.9.399.0.2 "Status Events" Normal
+FORMAT When an intercept is autonomously removed by an intercepting $*
+SDESC
+When an intercept is autonomously removed by an intercepting
+device, such as due to the time specified in
+cTap2MediationTimeout arriving, the device notifies the manager
+of the action.
+Variables:
+  1: cTap2MediationStatus
+EDESC
+#
+#
+#
+EVENT ciscoTap2MediationDebug .1.3.6.1.4.1.9.9.399.0.3 "Status Events" Normal
+FORMAT When there is intervention needed due to some events related $*
+SDESC
+When there is intervention needed due to some events related
+to entries configured in cTap2MediationTable, the device
+notifies the manager of the event.
+This notification may be generated in conjunction with the
+intercept application, which is designed to expect the
+notification to be sent as reliably as possible, e.g., through
+the use of a finite number of retransmissions until
+acknowledged, as and when such mechanisms are available; for
+example, with SNMPv3, this would be an InformRequest.
+Variables:
+  1: cTap2DebugMediationId
+  2: cTap2DebugMessage
+EDESC
+#
+#
+#
+EVENT ciscoTap2StreamDebug .1.3.6.1.4.1.9.9.399.0.4 "Status Events" Normal
+FORMAT When there is intervention needed due to some events related $*
+SDESC
+When there is intervention needed due to some events related
+to entries configured in cTap2StreamTable, the device
+notifies the manager of the event.
+This notification may be generated in conjunction with the
+intercept application, which is designed to expect the
+notification to be sent as reliably as possible, e.g., through
+the use of a finite number of retransmissions until
+acknowledged, as and when such mechanisms are available; for
+example, with SNMPv3, this would be an InformRequest.
+Variables:
+  1: cTap2DebugMediationId
+  2: cTap2DebugStreamId
+  3: cTap2DebugMessage
+EDESC
+#
+#
+#
+EVENT ciscoTap2Switchover .1.3.6.1.4.1.9.9.399.0.5 "Status Events" Normal
+FORMAT This notification is sent when there is a redundant (standby) $*
+SDESC
+This notification is sent when there is a redundant (standby)
+route processor available on the intercepting device and the
+current active processor is going down causing standby to
+takeover. Note that this notification may be sent by the
+intercepting device only when it had a chance to know before it
+goes down.
+Mediation device when received this notification should assume 
+that configured intercepts on the intercepting device no longer
+exist, when the standby processor takes control. This means that
+the Mediation device should again configure the intercepts.
+Variables:
+EDESC

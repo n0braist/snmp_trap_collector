@@ -1,0 +1,598 @@
+#
+#
+#
+#
+MIB: CPQSTSYS-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQSTSYS-MIB.mib) converted on Wed Aug 22 14:19:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqSsFanStatusChange .1.3.6.1.4.1.232.8.0.1 "Status Events" CRITICAL
+FORMAT Fan Status Change (1): Storage System fan status changed to $1.
+SDESC
+Storage System fan status change.
+The agent has detected a change in the Fan Status of a storage
+system.  The variable cpqSsBoxFanStatus indicates the current
+fan status.
+Variables:
+  1: cpqSsBoxFanStatus
+EDESC
+#
+#
+#
+EVENT cpqSs2FanStatusChange .1.3.6.1.4.1.232.0.8001 "Status Events" CRITICAL
+FORMAT Fan Status Change (8001): Storage System fan status changed to $1.
+SDESC
+Storage System fan status change.
+The agent has detected a change in the Fan Status of a storage
+system.  The variable cpqSsBoxFanStatus indicates the current
+fan status.
+Variables:
+  1: cpqSsBoxFanStatus
+EDESC
+#
+#
+#
+EVENT cpqSsTempFailed .1.3.6.1.4.1.232.0.8002 "Status Events" CRITICAL
+FORMAT Storage System Temperature Failure (8002): Storage System will be shutdown.
+SDESC
+Storage System temperature failure.
+The agent has detected that a temperature status has been set
+to failed.  The storage system will be shutdown.
+Variables:
+  1: cpqSsBoxTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSsTempDegraded .1.3.6.1.4.1.232.0.8003 "Status Events" MAJOR
+FORMAT Storage System Temp Degraded (8003): Temp is outside of normal range.
+SDESC
+Storage System temperature degraded.
+The agent has detected a temperature status that has been set to
+degraded.  The storage system's temperature is outside of the
+normal operating range.
+Variables:
+  1: cpqSsBoxTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSsTempOk .1.3.6.1.4.1.232.0.8004 "Status Events" INFORMATIONAL
+FORMAT Storage System Temp OK (8004): Storage System temperature ok.
+SDESC
+Storage System temperature ok.
+The temperature status has been set to OK.  The storage
+system's temperature has returned to normal operating range.
+It may be reactivated by the administrator.
+Variables:
+  1: cpqSsBoxTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSsSidePanelInPlace .1.3.6.1.4.1.232.0.8005 "Status Events" INFORMATIONAL
+FORMAT Storage System side panel is in place (8005): Side panel is re-installed on unit.
+SDESC
+Storage System side panel is in place.
+The side panel status has been set to in place.  The storage
+system's side panel has returned to a properly installed state.
+Variables:
+  1: cpqSsBoxSidePanelStatus
+EDESC
+#
+#
+#
+EVENT cpqSsSidePanelRemoved .1.3.6.1.4.1.232.0.8006 "Status Events" MAJOR
+FORMAT Storage System side panel is removed (8006): Side panel is removed from unit.
+SDESC
+Storage System side panel is removed.
+The side panel status has been set to removed.  The storage
+system's side panel is not in a properly installed state. This
+situation may result in improper cooling of the drives in the
+storage system due to air flow changes caused by the missing
+side panel.
+Variables:
+  1: cpqSsBoxSidePanelStatus
+EDESC
+#
+#
+#
+EVENT cpqSsPwrSupplyDegraded .1.3.6.1.4.1.232.0.8007 "Status Events" CRITICAL
+FORMAT Power Supply Degraded (8007): A storage system power supply unit has become degraded
+SDESC
+A storage system power supply status has been set to degraded.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqSs3FanStatusChange .1.3.6.1.4.1.232.0.8008 "Status Events" CRITICAL
+FORMAT Fan Status Change (8008): Storage System fan status changed to $3.
+SDESC
+Storage System fan status change.
+The agent has detected a change in the Fan Status of a storage
+system.  The variable cpqSsBoxFanStatus indicates the current
+fan status.
+User Action: If the fan status is degraded or failed, replace
+any failed fans.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxFanStatus
+EDESC
+#
+#
+#
+EVENT cpqSs3TempFailed .1.3.6.1.4.1.232.0.8009 "Status Events" CRITICAL
+FORMAT Storage System Temperature Failure (8009): Storage System will be shutdown.
+SDESC
+Storage System temperature failure.
+The agent has detected that a temperature status has been set to
+failed.  The storage system will be shutdown.
+User Action: Shutdown the storage system as soon as possible.
+Insure that the storage system environment is being cooled
+properly and that no components are overheated.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSs3TempDegraded .1.3.6.1.4.1.232.0.8010 "Status Events" MAJOR
+FORMAT Storage System Temp Degraded (8010): Temp is outside of normal range.
+SDESC
+Storage System temperature degraded.
+The agent has detected a temperature status that has been set to
+degraded.  The storage system's temperature is outside of the
+normal operating range.
+User Action: Shutdown the storage system as soon as possible.
+Insure that the storage system environment is being cooled
+properly and that no components are overheated.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSs3TempOk .1.3.6.1.4.1.232.0.8011 "Status Events" INFORMATIONAL
+FORMAT Storage System Temp OK (8011): Storage System temperature ok.
+SDESC
+Storage System temperature ok.
+The temperature status has been set to OK.  The storage
+system's temperature has returned to normal operating range.
+It may be reactivated by the administrator.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSs3SidePanelInPlace .1.3.6.1.4.1.232.0.8012 "Status Events" INFORMATIONAL
+FORMAT Storage System side panel is in place (8012): Side panel is re-installed on unit.
+SDESC
+Storage System side panel is in place.
+The side panel status has been set to in place.  The storage
+system's side panel has returned to a properly installed state.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxSidePanelStatus
+EDESC
+#
+#
+#
+EVENT cpqSs3SidePanelRemoved .1.3.6.1.4.1.232.0.8013 "Status Events" MAJOR
+FORMAT Storage System side panel is removed (8013): Side panel is removed from unit.
+SDESC
+Storage System side panel is removed.
+The side panel status has been set to removed.  The storage
+system's side panel is not in a properly installed state. This
+situation may result in improper cooling of the drives in the
+storage system due to air flow changes caused by the missing
+side panel.
+User Action: Replace the storage system side panel.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxSidePanelStatus
+EDESC
+#
+#
+#
+EVENT cpqSs3PwrSupplyDegraded .1.3.6.1.4.1.232.0.8014 "Status Events" CRITICAL
+FORMAT Power Supply Degraded (8014): A storage system power supply unit has become degraded
+SDESC
+A storage system power supply status has been set to degraded.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSs4PwrSupplyDegraded .1.3.6.1.4.1.232.0.8015 "Status Events" CRITICAL
+FORMAT Power Supply Degraded (8015): A storage system power supply unit has become degraded
+SDESC
+A storage system power supply status has been set to degraded.
+User Action: Take action to restore power or replace any failed
+storage system power supply.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxFltTolPwrSupplyStatus
+EDESC
+#
+#
+#
+EVENT cpqSsExFanStatusChange .1.3.6.1.4.1.232.0.8016 "Status Events" CRITICAL
+FORMAT Fan Status Change (8016): Storage system fan status changed to $6.
+SDESC
+Storage system fan status change.
+The agent has detected a change in the Fan Module Status of a
+storage system.  The variable cpqSsFanModuleStatus indicates the
+current fan status.
+User Action: If the fan status is degraded or failed, replace
+any failed fans.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsFanModuleLocation
+  6: cpqSsFanModuleStatus
+EDESC
+#
+#
+#
+EVENT cpqSsExPowerSupplyStatusChange .1.3.6.1.4.1.232.0.8017 "Status Events" CRITICAL
+FORMAT Power Supply Status Change (8017): Storage system power supply status changed to $6.
+SDESC
+Storage system power supply status change.
+The agent has detected a change in the power supply status of a
+storage system.  The variable cpqSsPowerSupplyStatus indicates
+the current status.
+User Action: If the power supply status is failed, take action to
+restore power or replace the failed power supply.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsPowerSupplyBay
+  6: cpqSsPowerSupplyStatus
+EDESC
+#
+#
+#
+EVENT cpqSsExPowerSupplyUpsStatusChange .1.3.6.1.4.1.232.0.8018 "Status Events" CRITICAL
+FORMAT Power Supply UPS Status Change (8018): Storage system power supply UPS status changed to $6.
+SDESC
+Storage system power supply UPS status change.
+The agent has detected a change status of a UPS attached to a
+storage system power supply.  The variable
+cpqSsPowerSupplyUpsStatus indicates the current status.
+User Action: If the UPS status is powerFailed(4) or batteryLow(5),
+take action to restore power to the UPS.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsPowerSupplyBay
+  6: cpqSsPowerSupplyUpsStatus
+EDESC
+#
+#
+#
+EVENT cpqSsExTempSensorStatusChange .1.3.6.1.4.1.232.0.8019 "Status Events" CRITICAL
+FORMAT Temperature Sensor Status Change (8019): Storage system temperature sensor status changed to $6.
+SDESC
+Storage system temperature sensor status change.
+The agent has detected a change in the status of a storage
+system temperature sensor.  The variable cpqSsTempSensorStatus
+indicates the current status.
+User Action: If the temperature status is degraded or failed,
+shutdown the storage system as soon as possible.  Insure that
+the storage system environment is being cooled properly and that
+no components are overheated.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsTempSensorLocation
+  6: cpqSsTempSensorStatus
+  7: cpqSsTempSensorCurrentValue
+EDESC
+#
+#
+#
+EVENT cpqSsEx2FanStatusChange .1.3.6.1.4.1.232.0.8020 "Status Events" CRITICAL
+FORMAT Fan Status Change (8020): Storage system fan status changed to $6.
+SDESC
+Storage system fan status change.
+The agent has detected a change in the fan module status of a
+storage system.  The variable cpqSsFanModuleStatus indicates the
+current fan status.
+User Action: If the fan status is degraded or failed, replace
+any failed fans.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsFanModuleLocation
+  6: cpqSsFanModuleStatus
+  7: cpqSsFanModuleSerialNumber
+  8: cpqSsFanModuleBoardRevision
+EDESC
+#
+#
+#
+EVENT cpqSsEx2PowerSupplyStatusChange .1.3.6.1.4.1.232.0.8021 "Status Events" CRITICAL
+FORMAT Power Supply Status Change (8021): Storage system power supply status changed to $6.
+SDESC
+Storage system power supply status change.
+The agent has detected a change in the power supply status of a
+storage system.  The variable cpqSsPowerSupplyStatus indicates
+the current status.
+User Action: If the power supply status is failed, take action to
+restore power or replace the failed power supply.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsPowerSupplyBay
+  6: cpqSsPowerSupplyStatus
+  7: cpqSsPowerSupplySerialNumber
+  8: cpqSsPowerSupplyBoardRevision
+  9: cpqSsPowerSupplyFirmwareRevision
+EDESC
+#
+#
+#
+EVENT cpqSsExBackplaneFanStatusChange .1.3.6.1.4.1.232.0.8022 "Status Events" CRITICAL
+FORMAT Storage System Fan Status Change (8022): Storage system fan status changed to $9.
+SDESC
+Storage system fan status change.
+The agent has detected a change in the fan status of a storage
+system.  The variable cpqSsBackplaneFanStatus indicates the
+current fan status.
+User Action: If the fan status is degraded or failed, replace
+any failed fans.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsBackplaneIndex
+  6: cpqSsBackplaneVendor
+  7: cpqSsBackplaneModel
+  8: cpqSsBackplaneSerialNumber
+  9: cpqSsBackplaneFanStatus
+EDESC
+#
+#
+#
+EVENT cpqSsExBackplaneTempStatusChange .1.3.6.1.4.1.232.0.8023 "Status Events" CRITICAL
+FORMAT Storage System Temperature Status Change (8023): Storage system temperature status changed to $9.
+SDESC
+Storage system temperature status change.
+The agent has detected a change in the status of the temperature
+in a storage system.  The variable cpqSsBackplaneTempStatus
+indicates the current status.
+User Action: If the temperature status is degraded or failed,
+shutdown the storage system as soon as possible.  Insure that
+the storage system environment is being cooled properly and that
+no components are overheated.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsBackplaneIndex
+  6: cpqSsBackplaneVendor
+  7: cpqSsBackplaneModel
+  8: cpqSsBackplaneSerialNumber
+  9: cpqSsBackplaneTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSsExBackplanePowerSupplyStatusChange .1.3.6.1.4.1.232.0.8024 "Status Events" CRITICAL
+FORMAT Power Supply Status Change (8024): Storage system power supply status changed to $9.
+SDESC
+Storage system power supply status change.
+The agent has detected a change in the power supply status of a
+storage system.  The variable cpqSsBackplaneFtpsStatus indicates
+the current status.
+User Action: If the power supply status is degraded, take action to
+restore power or replace the failed power supply.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsBackplaneIndex
+  6: cpqSsBackplaneVendor
+  7: cpqSsBackplaneModel
+  8: cpqSsBackplaneSerialNumber
+  9: cpqSsBackplaneFtpsStatus
+EDESC
+#
+#
+#
+EVENT cpqSsExRecoveryServerStatusChange .1.3.6.1.4.1.232.0.8025 "Status Events" MAJOR
+FORMAT Recovery Server Option Status Change (8025): Storage system recovery server option status changed to $5.
+SDESC
+Storage system recovery server option status change.
+The agent has detected a change in the recovery server option
+status of a storage system.  The variable cpqSsChassisRsoStatus
+indicates the current status.
+User Action: If the RSO status is noSecondary(6) or linkDown(7),
+insure the secondary server is operational and all cables are
+connected properly.  If the RSO status is secondaryRunningAuto(8)
+or secondaryRunningUser(9), examine the the primary server for
+failed components.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqSsChassisRsoStatus
+  6: cpqSsChassisIndex
+EDESC
+#
+#
+#
+EVENT cpqSs5FanStatusChange .1.3.6.1.4.1.232.0.8026 "Status Events" CRITICAL
+FORMAT Fan Status Change (8026): Storage System fan status changed to $9.
+SDESC
+Storage System fan status change.
+The agent has detected a change in the Fan Status of a storage
+system.  The variable cpqSsBoxFanStatus indicates the current
+fan status.
+User Action: If the fan status is degraded or failed, replace
+any failed fans.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxCntlrHwLocation
+  4: cpqSsBoxCntlrIndex
+  5: cpqSsBoxBusIndex
+  6: cpqSsBoxVendor
+  7: cpqSsBoxModel
+  8: cpqSsBoxSerialNumber
+  9: cpqSsBoxFanStatus
+EDESC
+#
+#
+#
+EVENT cpqSs5TempStatusChange .1.3.6.1.4.1.232.0.8027 "Status Events" CRITICAL
+FORMAT Temperature Status Change (8027): Storage System temperature status changed to $9.
+SDESC
+Storage System temperature status change.
+The agent has detected a change in the temperature status of a
+storage system.  The variable cpqSsBoxTempStatus indicates the
+current temperature status.
+User Action: If the temperature status is degraded or failed,
+shutdown the storage system as soon as possible.  Insure that
+the storage system environment is being cooled properly and that
+no components are overheated.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxCntlrHwLocation
+  4: cpqSsBoxCntlrIndex
+  5: cpqSsBoxBusIndex
+  6: cpqSsBoxVendor
+  7: cpqSsBoxModel
+  8: cpqSsBoxSerialNumber
+  9: cpqSsBoxTempStatus
+EDESC
+#
+#
+#
+EVENT cpqSs5PwrSupplyStatusChange .1.3.6.1.4.1.232.0.8028 "Status Events" CRITICAL
+FORMAT Power Supply Status Change (8028): Storage system power supply status changed to $9.
+SDESC
+Storage system power supply status change.
+The agent has detected a change in the power supply status of a
+storage system.  The variable cpqSsBoxFltTolPwrSupplyStatus
+indicates the current power supply status.
+User Action: If the power supply status is degraded, take action
+to restore power or replace the failed power supply.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxCntlrHwLocation
+  4: cpqSsBoxCntlrIndex
+  5: cpqSsBoxBusIndex
+  6: cpqSsBoxVendor
+  7: cpqSsBoxModel
+  8: cpqSsBoxSerialNumber
+  9: cpqSsBoxFltTolPwrSupplyStatus
+EDESC
+#
+#
+#
+EVENT cpqSs6FanStatusChange .1.3.6.1.4.1.232.0.8029 "Status Events" CRITICAL
+FORMAT Fan Status Change (8029): Storage System fan status changed to $9.
+SDESC
+Storage System fan status change.
+The agent has detected a change in the Fan Status of a storage
+system.  The variable cpqSsBoxFanStatus indicates the current
+fan status.
+User Action: If the fan status is degraded or failed, replace
+any failed fans.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxCntlrHwLocation
+  4: cpqSsBoxCntlrIndex
+  5: cpqSsBoxBusIndex
+  6: cpqSsBoxVendor
+  7: cpqSsBoxModel
+  8: cpqSsBoxSerialNumber
+  9: cpqSsBoxFanStatus
+  10: cpqSsBoxLocationString
+EDESC
+#
+#
+#
+EVENT cpqSs6TempStatusChange .1.3.6.1.4.1.232.0.8030 "Status Events" CRITICAL
+FORMAT Temperature Status Change (8030): Storage System temperature status changed to $9.
+SDESC
+Storage System temperature status change.
+The agent has detected a change in the temperature status of a
+storage system.  The variable cpqSsBoxTempStatus indicates the
+current temperature status.
+User Action: If the temperature status is degraded or failed,
+shutdown the storage system as soon as possible.  Insure that
+the storage system environment is being cooled properly and that
+no components are overheated.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxCntlrHwLocation
+  4: cpqSsBoxCntlrIndex
+  5: cpqSsBoxBusIndex
+  6: cpqSsBoxVendor
+  7: cpqSsBoxModel
+  8: cpqSsBoxSerialNumber
+  9: cpqSsBoxTempStatus
+  10: cpqSsBoxLocationString
+EDESC
+#
+#
+#
+EVENT cpqSs6PwrSupplyStatusChange .1.3.6.1.4.1.232.0.8031 "Status Events" CRITICAL
+FORMAT Power Supply Status Change (8031): Storage system power supply status changed to $9.
+SDESC
+Storage system power supply status change.
+The agent has detected a change in the power supply status of a
+storage system.  The variable cpqSsBoxFltTolPwrSupplyStatus
+indicates the current power supply status.
+User Action: If the power supply status is degraded, take action
+to restore power or replace the failed power supply.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsBoxCntlrHwLocation
+  4: cpqSsBoxCntlrIndex
+  5: cpqSsBoxBusIndex
+  6: cpqSsBoxVendor
+  7: cpqSsBoxModel
+  8: cpqSsBoxSerialNumber
+  9: cpqSsBoxFltTolPwrSupplyStatus
+  10: cpqSsBoxLocationString
+EDESC

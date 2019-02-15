@@ -1,0 +1,19 @@
+#
+#
+#
+#
+MIB: CISCO-CASA-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CASA-MIB.mib) converted on Tue Aug 21 15:25:43 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoCasaStateChange .1.3.6.1.4.1.9.9.122.2.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification indicates that the cCasaState
+object has changed value.  Issued when CASA is
+configured or removed on the CASA Entity. This is
+gated on cCasaStateNotificationEnabled.
+Variables:
+  1: cCasaState
+EDESC

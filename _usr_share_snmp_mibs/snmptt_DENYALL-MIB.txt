@@ -1,0 +1,28 @@
+#
+#
+#
+#
+MIB: DENYALL-MIB (file:/tmp/MIB/rweb_MIBS/DENYALL-MIB.txt) converted on Tue Nov 15 10:05:57 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT rWebTrap .1.3.6.1.4.1.18433.0.1 "Status Events" Normal
+FORMAT rWeb trap message. $*
+SDESC
+rWeb trap message.
+Variables:
+EDESC
+#
+#
+#
+EVENT authenticationFailure .1.3.6.1.4.1.18433.0.2 "Status Events" Normal
+FORMAT An authenticationFailure trap signifies that rWeb $*
+SDESC
+An authenticationFailure trap signifies that rWeb
+entity has received a protocol message that is not
+properly authenticated.  While all implementations
+of SNMP entities MAY be capable of generating this
+trap, the snmpEnableAuthenTraps object indicates
+whether this trap will be generated.    
+Variables:
+EDESC

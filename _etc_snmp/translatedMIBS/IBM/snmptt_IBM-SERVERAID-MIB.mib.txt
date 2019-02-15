@@ -1,0 +1,2908 @@
+#
+#
+#
+#
+MIB: IBM-SERVERAID-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-SERVERAID-MIB.mib) converted on Wed Mar 13 15:58:07 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ibmServeRaidNoControllers .1.3.6.1.4.1.2.6.167.2.0.201 "Status Events" Normal
+FORMAT Informational: No controllers were found in this system. $*
+SDESC
+Informational: No controllers were found in this system.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFail .1.3.6.1.4.1.2.6.167.2.0.202 "Status Events" Normal
+FORMAT Error: Commands not responding on Controller $1.
+SDESC
+Error: Commands not responding on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBattery .1.3.6.1.4.1.2.6.167.2.0.203 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 needs a new battery.
+SDESC
+Error: The battery-backup cache device on Controller %d needs a new battery.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBatteryCache .1.3.6.1.4.1.2.6.167.2.0.204 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 is defective $2
+SDESC
+Error: The battery-backup cache device on Controller %d is defective %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPollingFail .1.3.6.1.4.1.2.6.167.2.0.205 "Status Events" Normal
+FORMAT Error: Background polling commands not responding on Controller $1 $2
+SDESC
+Error: Background polling commands not responding on Controller %d %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidConfigFail .1.3.6.1.4.1.2.6.167.2.0.206 "Status Events" Normal
+FORMAT Error: Cannot read controller configuration. $*
+SDESC
+Error: Cannot read controller configuration.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerAdded .1.3.6.1.4.1.2.6.167.2.0.207 "Status Events" Normal
+FORMAT Informational: Controller $1 has been added to the system.
+SDESC
+Informational: Controller %d has been added to the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerReplaced .1.3.6.1.4.1.2.6.167.2.0.208 "Status Events" Normal
+FORMAT Informational: Controller $1 has been replaced in the system.
+SDESC
+Informational: Controller %d has been replaced in the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFailover .1.3.6.1.4.1.2.6.167.2.0.209 "Status Events" Normal
+FORMAT Informational: Controller $1 failover detected. Passive controller is now active.
+SDESC
+Informational: Controller %d failover detected. Passive controller is now active.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveCritical .1.3.6.1.4.1.2.6.167.2.0.301 "Status Events" Normal
+FORMAT Warning: Logical Drive $1 is Critical on Controller $2.
+SDESC
+Warning: Logical Drive %d is Critical on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveBlocked .1.3.6.1.4.1.2.6.167.2.0.302 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Blocked on Controller $2.
+SDESC
+Error: Logical Drive %d is Blocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveOffLine .1.3.6.1.4.1.2.6.167.2.0.303 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Offline on Controller $2.
+SDESC
+Error: Logical Drive %d is Offline on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.304 "Status Events" Normal
+FORMAT Informational: Rebuilding Logical Drive $1 on Controller $2.
+SDESC
+Informational: Rebuilding Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.305 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildFail .1.3.6.1.4.1.2.6.167.2.0.306 "Status Events" Normal
+FORMAT Error: Rebuild failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncDetected .1.3.6.1.4.1.2.6.167.2.0.307 "Status Events" Normal
+FORMAT Informational: Synchronizing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Synchronizing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncComplete .1.3.6.1.4.1.2.6.167.2.0.308 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncFail .1.3.6.1.4.1.2.6.167.2.0.309 "Status Events" Normal
+FORMAT Error: Synchronization failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationDetected .1.3.6.1.4.1.2.6.167.2.0.310 "Status Events" Normal
+FORMAT Informational: Migrating Logical Drive $1 on Controller $2.
+SDESC
+Informational: Migrating Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationComplete .1.3.6.1.4.1.2.6.167.2.0.311 "Status Events" Normal
+FORMAT Informational: Migration complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Migration complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationFail .1.3.6.1.4.1.2.6.167.2.0.312 "Status Events" Normal
+FORMAT Error: Migration failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Migration failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionDetected .1.3.6.1.4.1.2.6.167.2.0.313 "Status Events" Normal
+FORMAT Informational: Compressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Compressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionComplete .1.3.6.1.4.1.2.6.167.2.0.314 "Status Events" Normal
+FORMAT Informational: Compression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Compression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidcompressionFail .1.3.6.1.4.1.2.6.167.2.0.315 "Status Events" Normal
+FORMAT Error: Compression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Compression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionDetected .1.3.6.1.4.1.2.6.167.2.0.316 "Status Events" Normal
+FORMAT Informational: Decompressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Decompressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionComplete .1.3.6.1.4.1.2.6.167.2.0.317 "Status Events" Normal
+FORMAT Informational: Decompression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Decompression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionFail .1.3.6.1.4.1.2.6.167.2.0.318 "Status Events" Normal
+FORMAT Error: Decompression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Decompression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.319 "Status Events" Normal
+FORMAT Informational: FlashCopying Logical Drive $1 on Controller $2.
+SDESC
+Informational: FlashCopying Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.320 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.321 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.322 "Status Events" Normal
+FORMAT Informational: Rebuilding Array $1 on Controller $2.
+SDESC
+Informational: Rebuilding Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.323 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Array $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildFail .1.3.6.1.4.1.2.6.167.2.0.324 "Status Events" Normal
+FORMAT Error: Rebuild failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncDetected .1.3.6.1.4.1.2.6.167.2.0.325 "Status Events" Normal
+FORMAT Informational: Synchronizing Array $1 on Controller $2.
+SDESC
+Informational: Synchronizing Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncComplete .1.3.6.1.4.1.2.6.167.2.0.326 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Array $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncFail .1.3.6.1.4.1.2.6.167.2.0.327 "Status Events" Normal
+FORMAT Error: Synchronization failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.328 "Status Events" Normal
+FORMAT Informational: FlashCopying Array $1 on Controller $2.
+SDESC
+Informational: FlashCopying Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.329 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Array $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.330 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Array $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveUnblocked .1.3.6.1.4.1.2.6.167.2.0.331 "Status Events" Normal
+FORMAT Informational: Logical Drive $1 is unblocked on Controller $2.
+SDESC
+Informational: Logical Drive %d is unblocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDrive .1.3.6.1.4.1.2.6.167.2.0.401 "Status Events" Normal
+FORMAT Error: Defunct drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Error: Defunct drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDrive .1.3.6.1.4.1.2.6.167.2.0.402 "Status Events" Normal
+FORMAT Warning: PFA drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: PFA drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctReplaced .1.3.6.1.4.1.2.6.167.2.0.403 "Status Events" Normal
+FORMAT Informational: A drive is set to Hot-Spare on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Informational: A drive is set to Hot-Spare on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDriveFru .1.3.6.1.4.1.2.6.167.2.0.404 "Status Events" Normal
+FORMAT Error: Defunct drive (FRU Part # $1} on controller $2, channel $3, SCSI ID $4.
+SDESC
+Error: Defunct drive (FRU Part # %d} on controller %d, channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDriveFru .1.3.6.1.4.1.2.6.167.2.0.405 "Status Events" Normal
+FORMAT Warning: PFA drive (FRU Part # $1) on Controller $2, Channel $3, SCSI ID $4.
+SDESC
+Warning: PFA drive (FRU Part # %d) on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidUnsupportedDrive .1.3.6.1.4.1.2.6.167.2.0.406 "Status Events" Normal
+FORMAT Warning: Unsupported physical drive found on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: Unsupported physical drive found on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureOK .1.3.6.1.4.1.2.6.167.2.0.501 "Status Events" Normal
+FORMAT Informational: Enclosure device responding on Controller $1, Channel $2.
+SDESC
+Informational: Enclosure device responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureFail .1.3.6.1.4.1.2.6.167.2.0.502 "Status Events" Normal
+FORMAT Error: Enclosure device not responding on Controller $1, Channel $2.
+SDESC
+Error: Enclosure device not responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanOk .1.3.6.1.4.1.2.6.167.2.0.503 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanFail .1.3.6.1.4.1.2.6.167.2.0.504 "Status Events" Normal
+FORMAT Error: Enclosure fan $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure fan %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanInstalled .1.3.6.1.4.1.2.6.167.2.0.505 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanRemoved .1.3.6.1.4.1.2.6.167.2.0.506 "Status Events" Normal
+FORMAT Warning: Enclosure fan $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure fan %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempOk .1.3.6.1.4.1.2.6.167.2.0.507 "Status Events" Normal
+FORMAT Error: Enclosure temperature is in normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is in normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempFail .1.3.6.1.4.1.2.6.167.2.0.508 "Status Events" Normal
+FORMAT Error: Enclosure temperature is out of normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is out of normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyOk .1.3.6.1.4.1.2.6.167.2.0.509 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyFail .1.3.6.1.4.1.2.6.167.2.0.510 "Status Events" Normal
+FORMAT Error: Enclosure power supply $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure power supply %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyInstalled .1.3.6.1.4.1.2.6.167.2.0.511 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyRemoved .1.3.6.1.4.1.2.6.167.2.0.512 "Status Events" Normal
+FORMAT Warning: Enclosure power supply $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure power supply %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTestTrap .1.3.6.1.4.1.2.6.167.2.0.601 "Status Events" Normal
+FORMAT Informational: This is a test trap. $*
+SDESC
+Informational: This is a test trap.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+#
+MIB: IBM-SERVERAID-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-SERVERAID-MIB.mib) converted on Wed Mar 13 16:00:00 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ibmServeRaidNoControllers .1.3.6.1.4.1.2.6.167.2.0.201 "Status Events" Normal
+FORMAT Informational: No controllers were found in this system. $*
+SDESC
+Informational: No controllers were found in this system.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFail .1.3.6.1.4.1.2.6.167.2.0.202 "Status Events" Normal
+FORMAT Error: Commands not responding on Controller $1.
+SDESC
+Error: Commands not responding on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBattery .1.3.6.1.4.1.2.6.167.2.0.203 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 needs a new battery.
+SDESC
+Error: The battery-backup cache device on Controller %d needs a new battery.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBatteryCache .1.3.6.1.4.1.2.6.167.2.0.204 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 is defective $2
+SDESC
+Error: The battery-backup cache device on Controller %d is defective %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPollingFail .1.3.6.1.4.1.2.6.167.2.0.205 "Status Events" Normal
+FORMAT Error: Background polling commands not responding on Controller $1 $2
+SDESC
+Error: Background polling commands not responding on Controller %d %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidConfigFail .1.3.6.1.4.1.2.6.167.2.0.206 "Status Events" Normal
+FORMAT Error: Cannot read controller configuration. $*
+SDESC
+Error: Cannot read controller configuration.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerAdded .1.3.6.1.4.1.2.6.167.2.0.207 "Status Events" Normal
+FORMAT Informational: Controller $1 has been added to the system.
+SDESC
+Informational: Controller %d has been added to the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerReplaced .1.3.6.1.4.1.2.6.167.2.0.208 "Status Events" Normal
+FORMAT Informational: Controller $1 has been replaced in the system.
+SDESC
+Informational: Controller %d has been replaced in the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFailover .1.3.6.1.4.1.2.6.167.2.0.209 "Status Events" Normal
+FORMAT Informational: Controller $1 failover detected. Passive controller is now active.
+SDESC
+Informational: Controller %d failover detected. Passive controller is now active.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveCritical .1.3.6.1.4.1.2.6.167.2.0.301 "Status Events" Normal
+FORMAT Warning: Logical Drive $1 is Critical on Controller $2.
+SDESC
+Warning: Logical Drive %d is Critical on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveBlocked .1.3.6.1.4.1.2.6.167.2.0.302 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Blocked on Controller $2.
+SDESC
+Error: Logical Drive %d is Blocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveOffLine .1.3.6.1.4.1.2.6.167.2.0.303 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Offline on Controller $2.
+SDESC
+Error: Logical Drive %d is Offline on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.304 "Status Events" Normal
+FORMAT Informational: Rebuilding Logical Drive $1 on Controller $2.
+SDESC
+Informational: Rebuilding Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.305 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildFail .1.3.6.1.4.1.2.6.167.2.0.306 "Status Events" Normal
+FORMAT Error: Rebuild failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncDetected .1.3.6.1.4.1.2.6.167.2.0.307 "Status Events" Normal
+FORMAT Informational: Synchronizing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Synchronizing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncComplete .1.3.6.1.4.1.2.6.167.2.0.308 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncFail .1.3.6.1.4.1.2.6.167.2.0.309 "Status Events" Normal
+FORMAT Error: Synchronization failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationDetected .1.3.6.1.4.1.2.6.167.2.0.310 "Status Events" Normal
+FORMAT Informational: Migrating Logical Drive $1 on Controller $2.
+SDESC
+Informational: Migrating Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationComplete .1.3.6.1.4.1.2.6.167.2.0.311 "Status Events" Normal
+FORMAT Informational: Migration complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Migration complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationFail .1.3.6.1.4.1.2.6.167.2.0.312 "Status Events" Normal
+FORMAT Error: Migration failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Migration failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionDetected .1.3.6.1.4.1.2.6.167.2.0.313 "Status Events" Normal
+FORMAT Informational: Compressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Compressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionComplete .1.3.6.1.4.1.2.6.167.2.0.314 "Status Events" Normal
+FORMAT Informational: Compression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Compression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidcompressionFail .1.3.6.1.4.1.2.6.167.2.0.315 "Status Events" Normal
+FORMAT Error: Compression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Compression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionDetected .1.3.6.1.4.1.2.6.167.2.0.316 "Status Events" Normal
+FORMAT Informational: Decompressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Decompressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionComplete .1.3.6.1.4.1.2.6.167.2.0.317 "Status Events" Normal
+FORMAT Informational: Decompression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Decompression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionFail .1.3.6.1.4.1.2.6.167.2.0.318 "Status Events" Normal
+FORMAT Error: Decompression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Decompression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.319 "Status Events" Normal
+FORMAT Informational: FlashCopying Logical Drive $1 on Controller $2.
+SDESC
+Informational: FlashCopying Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.320 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.321 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.322 "Status Events" Normal
+FORMAT Informational: Rebuilding Array $1 on Controller $2.
+SDESC
+Informational: Rebuilding Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.323 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Array $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildFail .1.3.6.1.4.1.2.6.167.2.0.324 "Status Events" Normal
+FORMAT Error: Rebuild failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncDetected .1.3.6.1.4.1.2.6.167.2.0.325 "Status Events" Normal
+FORMAT Informational: Synchronizing Array $1 on Controller $2.
+SDESC
+Informational: Synchronizing Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncComplete .1.3.6.1.4.1.2.6.167.2.0.326 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Array $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncFail .1.3.6.1.4.1.2.6.167.2.0.327 "Status Events" Normal
+FORMAT Error: Synchronization failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.328 "Status Events" Normal
+FORMAT Informational: FlashCopying Array $1 on Controller $2.
+SDESC
+Informational: FlashCopying Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.329 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Array $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.330 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Array $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveUnblocked .1.3.6.1.4.1.2.6.167.2.0.331 "Status Events" Normal
+FORMAT Informational: Logical Drive $1 is unblocked on Controller $2.
+SDESC
+Informational: Logical Drive %d is unblocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDrive .1.3.6.1.4.1.2.6.167.2.0.401 "Status Events" Normal
+FORMAT Error: Defunct drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Error: Defunct drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDrive .1.3.6.1.4.1.2.6.167.2.0.402 "Status Events" Normal
+FORMAT Warning: PFA drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: PFA drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctReplaced .1.3.6.1.4.1.2.6.167.2.0.403 "Status Events" Normal
+FORMAT Informational: A drive is set to Hot-Spare on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Informational: A drive is set to Hot-Spare on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDriveFru .1.3.6.1.4.1.2.6.167.2.0.404 "Status Events" Normal
+FORMAT Error: Defunct drive (FRU Part # $1} on controller $2, channel $3, SCSI ID $4.
+SDESC
+Error: Defunct drive (FRU Part # %d} on controller %d, channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDriveFru .1.3.6.1.4.1.2.6.167.2.0.405 "Status Events" Normal
+FORMAT Warning: PFA drive (FRU Part # $1) on Controller $2, Channel $3, SCSI ID $4.
+SDESC
+Warning: PFA drive (FRU Part # %d) on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidUnsupportedDrive .1.3.6.1.4.1.2.6.167.2.0.406 "Status Events" Normal
+FORMAT Warning: Unsupported physical drive found on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: Unsupported physical drive found on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureOK .1.3.6.1.4.1.2.6.167.2.0.501 "Status Events" Normal
+FORMAT Informational: Enclosure device responding on Controller $1, Channel $2.
+SDESC
+Informational: Enclosure device responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureFail .1.3.6.1.4.1.2.6.167.2.0.502 "Status Events" Normal
+FORMAT Error: Enclosure device not responding on Controller $1, Channel $2.
+SDESC
+Error: Enclosure device not responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanOk .1.3.6.1.4.1.2.6.167.2.0.503 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanFail .1.3.6.1.4.1.2.6.167.2.0.504 "Status Events" Normal
+FORMAT Error: Enclosure fan $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure fan %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanInstalled .1.3.6.1.4.1.2.6.167.2.0.505 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanRemoved .1.3.6.1.4.1.2.6.167.2.0.506 "Status Events" Normal
+FORMAT Warning: Enclosure fan $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure fan %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempOk .1.3.6.1.4.1.2.6.167.2.0.507 "Status Events" Normal
+FORMAT Error: Enclosure temperature is in normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is in normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempFail .1.3.6.1.4.1.2.6.167.2.0.508 "Status Events" Normal
+FORMAT Error: Enclosure temperature is out of normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is out of normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyOk .1.3.6.1.4.1.2.6.167.2.0.509 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyFail .1.3.6.1.4.1.2.6.167.2.0.510 "Status Events" Normal
+FORMAT Error: Enclosure power supply $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure power supply %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyInstalled .1.3.6.1.4.1.2.6.167.2.0.511 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyRemoved .1.3.6.1.4.1.2.6.167.2.0.512 "Status Events" Normal
+FORMAT Warning: Enclosure power supply $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure power supply %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTestTrap .1.3.6.1.4.1.2.6.167.2.0.601 "Status Events" Normal
+FORMAT Informational: This is a test trap. $*
+SDESC
+Informational: This is a test trap.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+#
+MIB: IBM-SERVERAID-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-SERVERAID-MIB.mib) converted on Fri Mar 15 09:47:03 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ibmServeRaidNoControllers .1.3.6.1.4.1.2.6.167.2.0.201 "Status Events" Normal
+FORMAT Informational: No controllers were found in this system. $*
+SDESC
+Informational: No controllers were found in this system.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFail .1.3.6.1.4.1.2.6.167.2.0.202 "Status Events" Normal
+FORMAT Error: Commands not responding on Controller $1.
+SDESC
+Error: Commands not responding on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBattery .1.3.6.1.4.1.2.6.167.2.0.203 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 needs a new battery.
+SDESC
+Error: The battery-backup cache device on Controller %d needs a new battery.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBatteryCache .1.3.6.1.4.1.2.6.167.2.0.204 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 is defective $2
+SDESC
+Error: The battery-backup cache device on Controller %d is defective %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPollingFail .1.3.6.1.4.1.2.6.167.2.0.205 "Status Events" Normal
+FORMAT Error: Background polling commands not responding on Controller $1 $2
+SDESC
+Error: Background polling commands not responding on Controller %d %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidConfigFail .1.3.6.1.4.1.2.6.167.2.0.206 "Status Events" Normal
+FORMAT Error: Cannot read controller configuration. $*
+SDESC
+Error: Cannot read controller configuration.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerAdded .1.3.6.1.4.1.2.6.167.2.0.207 "Status Events" Normal
+FORMAT Informational: Controller $1 has been added to the system.
+SDESC
+Informational: Controller %d has been added to the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerReplaced .1.3.6.1.4.1.2.6.167.2.0.208 "Status Events" Normal
+FORMAT Informational: Controller $1 has been replaced in the system.
+SDESC
+Informational: Controller %d has been replaced in the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFailover .1.3.6.1.4.1.2.6.167.2.0.209 "Status Events" Normal
+FORMAT Informational: Controller $1 failover detected. Passive controller is now active.
+SDESC
+Informational: Controller %d failover detected. Passive controller is now active.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveCritical .1.3.6.1.4.1.2.6.167.2.0.301 "Status Events" Normal
+FORMAT Warning: Logical Drive $1 is Critical on Controller $2.
+SDESC
+Warning: Logical Drive %d is Critical on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveBlocked .1.3.6.1.4.1.2.6.167.2.0.302 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Blocked on Controller $2.
+SDESC
+Error: Logical Drive %d is Blocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveOffLine .1.3.6.1.4.1.2.6.167.2.0.303 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Offline on Controller $2.
+SDESC
+Error: Logical Drive %d is Offline on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.304 "Status Events" Normal
+FORMAT Informational: Rebuilding Logical Drive $1 on Controller $2.
+SDESC
+Informational: Rebuilding Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.305 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildFail .1.3.6.1.4.1.2.6.167.2.0.306 "Status Events" Normal
+FORMAT Error: Rebuild failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncDetected .1.3.6.1.4.1.2.6.167.2.0.307 "Status Events" Normal
+FORMAT Informational: Synchronizing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Synchronizing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncComplete .1.3.6.1.4.1.2.6.167.2.0.308 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncFail .1.3.6.1.4.1.2.6.167.2.0.309 "Status Events" Normal
+FORMAT Error: Synchronization failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationDetected .1.3.6.1.4.1.2.6.167.2.0.310 "Status Events" Normal
+FORMAT Informational: Migrating Logical Drive $1 on Controller $2.
+SDESC
+Informational: Migrating Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationComplete .1.3.6.1.4.1.2.6.167.2.0.311 "Status Events" Normal
+FORMAT Informational: Migration complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Migration complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationFail .1.3.6.1.4.1.2.6.167.2.0.312 "Status Events" Normal
+FORMAT Error: Migration failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Migration failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionDetected .1.3.6.1.4.1.2.6.167.2.0.313 "Status Events" Normal
+FORMAT Informational: Compressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Compressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionComplete .1.3.6.1.4.1.2.6.167.2.0.314 "Status Events" Normal
+FORMAT Informational: Compression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Compression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidcompressionFail .1.3.6.1.4.1.2.6.167.2.0.315 "Status Events" Normal
+FORMAT Error: Compression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Compression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionDetected .1.3.6.1.4.1.2.6.167.2.0.316 "Status Events" Normal
+FORMAT Informational: Decompressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Decompressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionComplete .1.3.6.1.4.1.2.6.167.2.0.317 "Status Events" Normal
+FORMAT Informational: Decompression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Decompression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionFail .1.3.6.1.4.1.2.6.167.2.0.318 "Status Events" Normal
+FORMAT Error: Decompression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Decompression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.319 "Status Events" Normal
+FORMAT Informational: FlashCopying Logical Drive $1 on Controller $2.
+SDESC
+Informational: FlashCopying Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.320 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.321 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.322 "Status Events" Normal
+FORMAT Informational: Rebuilding Array $1 on Controller $2.
+SDESC
+Informational: Rebuilding Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.323 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Array $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildFail .1.3.6.1.4.1.2.6.167.2.0.324 "Status Events" Normal
+FORMAT Error: Rebuild failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncDetected .1.3.6.1.4.1.2.6.167.2.0.325 "Status Events" Normal
+FORMAT Informational: Synchronizing Array $1 on Controller $2.
+SDESC
+Informational: Synchronizing Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncComplete .1.3.6.1.4.1.2.6.167.2.0.326 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Array $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncFail .1.3.6.1.4.1.2.6.167.2.0.327 "Status Events" Normal
+FORMAT Error: Synchronization failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.328 "Status Events" Normal
+FORMAT Informational: FlashCopying Array $1 on Controller $2.
+SDESC
+Informational: FlashCopying Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.329 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Array $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.330 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Array $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveUnblocked .1.3.6.1.4.1.2.6.167.2.0.331 "Status Events" Normal
+FORMAT Informational: Logical Drive $1 is unblocked on Controller $2.
+SDESC
+Informational: Logical Drive %d is unblocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDrive .1.3.6.1.4.1.2.6.167.2.0.401 "Status Events" Normal
+FORMAT Error: Defunct drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Error: Defunct drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDrive .1.3.6.1.4.1.2.6.167.2.0.402 "Status Events" Normal
+FORMAT Warning: PFA drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: PFA drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctReplaced .1.3.6.1.4.1.2.6.167.2.0.403 "Status Events" Normal
+FORMAT Informational: A drive is set to Hot-Spare on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Informational: A drive is set to Hot-Spare on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDriveFru .1.3.6.1.4.1.2.6.167.2.0.404 "Status Events" Normal
+FORMAT Error: Defunct drive (FRU Part # $1} on controller $2, channel $3, SCSI ID $4.
+SDESC
+Error: Defunct drive (FRU Part # %d} on controller %d, channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDriveFru .1.3.6.1.4.1.2.6.167.2.0.405 "Status Events" Normal
+FORMAT Warning: PFA drive (FRU Part # $1) on Controller $2, Channel $3, SCSI ID $4.
+SDESC
+Warning: PFA drive (FRU Part # %d) on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidUnsupportedDrive .1.3.6.1.4.1.2.6.167.2.0.406 "Status Events" Normal
+FORMAT Warning: Unsupported physical drive found on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: Unsupported physical drive found on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureOK .1.3.6.1.4.1.2.6.167.2.0.501 "Status Events" Normal
+FORMAT Informational: Enclosure device responding on Controller $1, Channel $2.
+SDESC
+Informational: Enclosure device responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureFail .1.3.6.1.4.1.2.6.167.2.0.502 "Status Events" Normal
+FORMAT Error: Enclosure device not responding on Controller $1, Channel $2.
+SDESC
+Error: Enclosure device not responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanOk .1.3.6.1.4.1.2.6.167.2.0.503 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanFail .1.3.6.1.4.1.2.6.167.2.0.504 "Status Events" Normal
+FORMAT Error: Enclosure fan $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure fan %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanInstalled .1.3.6.1.4.1.2.6.167.2.0.505 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanRemoved .1.3.6.1.4.1.2.6.167.2.0.506 "Status Events" Normal
+FORMAT Warning: Enclosure fan $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure fan %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempOk .1.3.6.1.4.1.2.6.167.2.0.507 "Status Events" Normal
+FORMAT Error: Enclosure temperature is in normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is in normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempFail .1.3.6.1.4.1.2.6.167.2.0.508 "Status Events" Normal
+FORMAT Error: Enclosure temperature is out of normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is out of normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyOk .1.3.6.1.4.1.2.6.167.2.0.509 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyFail .1.3.6.1.4.1.2.6.167.2.0.510 "Status Events" Normal
+FORMAT Error: Enclosure power supply $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure power supply %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyInstalled .1.3.6.1.4.1.2.6.167.2.0.511 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyRemoved .1.3.6.1.4.1.2.6.167.2.0.512 "Status Events" Normal
+FORMAT Warning: Enclosure power supply $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure power supply %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTestTrap .1.3.6.1.4.1.2.6.167.2.0.601 "Status Events" Normal
+FORMAT Informational: This is a test trap. $*
+SDESC
+Informational: This is a test trap.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+#
+MIB: IBM-SERVERAID-MIB (file:/tmp/IBM_asn1-2-mibs/IBM-SERVERAID-MIB.mib) converted on Fri Mar 15 11:27:19 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ibmServeRaidNoControllers .1.3.6.1.4.1.2.6.167.2.0.201 "Status Events" Normal
+FORMAT Informational: No controllers were found in this system. $*
+SDESC
+Informational: No controllers were found in this system.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFail .1.3.6.1.4.1.2.6.167.2.0.202 "Status Events" Normal
+FORMAT Error: Commands not responding on Controller $1.
+SDESC
+Error: Commands not responding on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBattery .1.3.6.1.4.1.2.6.167.2.0.203 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 needs a new battery.
+SDESC
+Error: The battery-backup cache device on Controller %d needs a new battery.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDeadBatteryCache .1.3.6.1.4.1.2.6.167.2.0.204 "Status Events" Normal
+FORMAT Error: The battery-backup cache device on Controller $1 is defective $2
+SDESC
+Error: The battery-backup cache device on Controller %d is defective %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPollingFail .1.3.6.1.4.1.2.6.167.2.0.205 "Status Events" Normal
+FORMAT Error: Background polling commands not responding on Controller $1 $2
+SDESC
+Error: Background polling commands not responding on Controller %d %d
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidConfigFail .1.3.6.1.4.1.2.6.167.2.0.206 "Status Events" Normal
+FORMAT Error: Cannot read controller configuration. $*
+SDESC
+Error: Cannot read controller configuration.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerAdded .1.3.6.1.4.1.2.6.167.2.0.207 "Status Events" Normal
+FORMAT Informational: Controller $1 has been added to the system.
+SDESC
+Informational: Controller %d has been added to the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerReplaced .1.3.6.1.4.1.2.6.167.2.0.208 "Status Events" Normal
+FORMAT Informational: Controller $1 has been replaced in the system.
+SDESC
+Informational: Controller %d has been replaced in the system.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidControllerFailover .1.3.6.1.4.1.2.6.167.2.0.209 "Status Events" Normal
+FORMAT Informational: Controller $1 failover detected. Passive controller is now active.
+SDESC
+Informational: Controller %d failover detected. Passive controller is now active.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveCritical .1.3.6.1.4.1.2.6.167.2.0.301 "Status Events" Normal
+FORMAT Warning: Logical Drive $1 is Critical on Controller $2.
+SDESC
+Warning: Logical Drive %d is Critical on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveBlocked .1.3.6.1.4.1.2.6.167.2.0.302 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Blocked on Controller $2.
+SDESC
+Error: Logical Drive %d is Blocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveOffLine .1.3.6.1.4.1.2.6.167.2.0.303 "Status Events" Normal
+FORMAT Error: Logical Drive $1 is Offline on Controller $2.
+SDESC
+Error: Logical Drive %d is Offline on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.304 "Status Events" Normal
+FORMAT Informational: Rebuilding Logical Drive $1 on Controller $2.
+SDESC
+Informational: Rebuilding Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.305 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidRebuildFail .1.3.6.1.4.1.2.6.167.2.0.306 "Status Events" Normal
+FORMAT Error: Rebuild failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncDetected .1.3.6.1.4.1.2.6.167.2.0.307 "Status Events" Normal
+FORMAT Informational: Synchronizing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Synchronizing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncComplete .1.3.6.1.4.1.2.6.167.2.0.308 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidSyncFail .1.3.6.1.4.1.2.6.167.2.0.309 "Status Events" Normal
+FORMAT Error: Synchronization failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationDetected .1.3.6.1.4.1.2.6.167.2.0.310 "Status Events" Normal
+FORMAT Informational: Migrating Logical Drive $1 on Controller $2.
+SDESC
+Informational: Migrating Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationComplete .1.3.6.1.4.1.2.6.167.2.0.311 "Status Events" Normal
+FORMAT Informational: Migration complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Migration complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidMigrationFail .1.3.6.1.4.1.2.6.167.2.0.312 "Status Events" Normal
+FORMAT Error: Migration failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Migration failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionDetected .1.3.6.1.4.1.2.6.167.2.0.313 "Status Events" Normal
+FORMAT Informational: Compressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Compressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidCompressionComplete .1.3.6.1.4.1.2.6.167.2.0.314 "Status Events" Normal
+FORMAT Informational: Compression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Compression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidcompressionFail .1.3.6.1.4.1.2.6.167.2.0.315 "Status Events" Normal
+FORMAT Error: Compression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Compression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionDetected .1.3.6.1.4.1.2.6.167.2.0.316 "Status Events" Normal
+FORMAT Informational: Decompressing Logical Drive $1 on Controller $2.
+SDESC
+Informational: Decompressing Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionComplete .1.3.6.1.4.1.2.6.167.2.0.317 "Status Events" Normal
+FORMAT Informational: Decompression complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: Decompression complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDecompressionFail .1.3.6.1.4.1.2.6.167.2.0.318 "Status Events" Normal
+FORMAT Error: Decompression failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: Decompression failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.319 "Status Events" Normal
+FORMAT Informational: FlashCopying Logical Drive $1 on Controller $2.
+SDESC
+Informational: FlashCopying Logical Drive %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.320 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Logical Drive $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Logical Drive %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.321 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Logical Drive $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Logical Drive %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildDetected .1.3.6.1.4.1.2.6.167.2.0.322 "Status Events" Normal
+FORMAT Informational: Rebuilding Array $1 on Controller $2.
+SDESC
+Informational: Rebuilding Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildComplete .1.3.6.1.4.1.2.6.167.2.0.323 "Status Events" Normal
+FORMAT Informational: Rebuild complete on Array $1 of Controller $2.
+SDESC
+Informational: Rebuild complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayRebuildFail .1.3.6.1.4.1.2.6.167.2.0.324 "Status Events" Normal
+FORMAT Error: Rebuild failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Rebuild failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncDetected .1.3.6.1.4.1.2.6.167.2.0.325 "Status Events" Normal
+FORMAT Informational: Synchronizing Array $1 on Controller $2.
+SDESC
+Informational: Synchronizing Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncComplete .1.3.6.1.4.1.2.6.167.2.0.326 "Status Events" Normal
+FORMAT Informational: Synchronization complete on Array $1 of Controller $2.
+SDESC
+Informational: Synchronization complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArraySyncFail .1.3.6.1.4.1.2.6.167.2.0.327 "Status Events" Normal
+FORMAT Error: Synchronization failed on Array $1 of Controller $2 $3.
+SDESC
+Error: Synchronization failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyDetected .1.3.6.1.4.1.2.6.167.2.0.328 "Status Events" Normal
+FORMAT Informational: FlashCopying Array $1 on Controller $2.
+SDESC
+Informational: FlashCopying Array %d on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyComplete .1.3.6.1.4.1.2.6.167.2.0.329 "Status Events" Normal
+FORMAT Informational: FlashCopy complete on Array $1 of Controller $2.
+SDESC
+Informational: FlashCopy complete on Array %d of Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidArrayFlashCopyFail .1.3.6.1.4.1.2.6.167.2.0.330 "Status Events" Normal
+FORMAT Error: FlashCopy failed on Array $1 of Controller $2 $3.
+SDESC
+Error: FlashCopy failed on Array %d of Controller %d %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapArray
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapErrorCode
+EDESC
+#
+#
+#
+EVENT ibmServeRaidLogicalDriveUnblocked .1.3.6.1.4.1.2.6.167.2.0.331 "Status Events" Normal
+FORMAT Informational: Logical Drive $1 is unblocked on Controller $2.
+SDESC
+Informational: Logical Drive %d is unblocked on Controller %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapLogicalDrive
+  3: ibmServeRaidTrapController
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDrive .1.3.6.1.4.1.2.6.167.2.0.401 "Status Events" Normal
+FORMAT Error: Defunct drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Error: Defunct drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDrive .1.3.6.1.4.1.2.6.167.2.0.402 "Status Events" Normal
+FORMAT Warning: PFA drive on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: PFA drive on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctReplaced .1.3.6.1.4.1.2.6.167.2.0.403 "Status Events" Normal
+FORMAT Informational: A drive is set to Hot-Spare on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Informational: A drive is set to Hot-Spare on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidDefunctDriveFru .1.3.6.1.4.1.2.6.167.2.0.404 "Status Events" Normal
+FORMAT Error: Defunct drive (FRU Part # $1} on controller $2, channel $3, SCSI ID $4.
+SDESC
+Error: Defunct drive (FRU Part # %d} on controller %d, channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPfaDriveFru .1.3.6.1.4.1.2.6.167.2.0.405 "Status Events" Normal
+FORMAT Warning: PFA drive (FRU Part # $1) on Controller $2, Channel $3, SCSI ID $4.
+SDESC
+Warning: PFA drive (FRU Part # %d) on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFru
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+  5: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidUnsupportedDrive .1.3.6.1.4.1.2.6.167.2.0.406 "Status Events" Normal
+FORMAT Warning: Unsupported physical drive found on Controller $1, Channel $2, SCSI ID $3.
+SDESC
+Warning: Unsupported physical drive found on Controller %d, Channel %d, SCSI ID %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+  4: ibmServeRaidTrapScsiId
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureOK .1.3.6.1.4.1.2.6.167.2.0.501 "Status Events" Normal
+FORMAT Informational: Enclosure device responding on Controller $1, Channel $2.
+SDESC
+Informational: Enclosure device responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidEnclosureFail .1.3.6.1.4.1.2.6.167.2.0.502 "Status Events" Normal
+FORMAT Error: Enclosure device not responding on Controller $1, Channel $2.
+SDESC
+Error: Enclosure device not responding on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanOk .1.3.6.1.4.1.2.6.167.2.0.503 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanFail .1.3.6.1.4.1.2.6.167.2.0.504 "Status Events" Normal
+FORMAT Error: Enclosure fan $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure fan %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanInstalled .1.3.6.1.4.1.2.6.167.2.0.505 "Status Events" Normal
+FORMAT Informational: Enclosure fan $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure fan %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidFanRemoved .1.3.6.1.4.1.2.6.167.2.0.506 "Status Events" Normal
+FORMAT Warning: Enclosure fan $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure fan %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapFan
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempOk .1.3.6.1.4.1.2.6.167.2.0.507 "Status Events" Normal
+FORMAT Error: Enclosure temperature is in normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is in normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTempFail .1.3.6.1.4.1.2.6.167.2.0.508 "Status Events" Normal
+FORMAT Error: Enclosure temperature is out of normal range on Controller $1, Channel $2.
+SDESC
+Error: Enclosure temperature is out of normal range on Controller %d, Channel %d.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapController
+  3: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyOk .1.3.6.1.4.1.2.6.167.2.0.509 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 is now operational.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d is now operational.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyFail .1.3.6.1.4.1.2.6.167.2.0.510 "Status Events" Normal
+FORMAT Error: Enclosure power supply $1 on Controller $2, Channel $3 is malfunctioning.
+SDESC
+Error: Enclosure power supply %d on Controller %d, Channel %d is malfunctioning.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyInstalled .1.3.6.1.4.1.2.6.167.2.0.511 "Status Events" Normal
+FORMAT Informational: Enclosure power supply $1 on Controller $2, Channel $3 has been installed.
+SDESC
+Informational: Enclosure power supply %d on Controller %d, Channel %d has been installed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidPowerSupplyRemoved .1.3.6.1.4.1.2.6.167.2.0.512 "Status Events" Normal
+FORMAT Warning: Enclosure power supply $1 on Controller $2, Channel $3 has been removed.
+SDESC
+Warning: Enclosure power supply %d on Controller %d, Channel %d has been removed.
+Variables:
+  1: ibmServeRaidTrapServerName
+  2: ibmServeRaidTrapPowerSupply
+  3: ibmServeRaidTrapController
+  4: ibmServeRaidTrapChannel
+EDESC
+#
+#
+#
+EVENT ibmServeRaidTestTrap .1.3.6.1.4.1.2.6.167.2.0.601 "Status Events" Normal
+FORMAT Informational: This is a test trap. $*
+SDESC
+Informational: This is a test trap.
+Variables:
+  1: ibmServeRaidTrapServerName
+EDESC

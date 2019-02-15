@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: VMWARE-PRODUCTS-MIB (file:/tmp/ESX/asn1-6876-mibs/VMWARE-PRODUCTS-MIB.mib) converted on Tue Oct 21 10:49:45 2014 using snmpttconvertmib v1.3

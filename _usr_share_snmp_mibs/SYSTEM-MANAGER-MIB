@@ -1,0 +1,231 @@
+-- Avaya Aura System Manager MIB
+-- Copyright (c) 2008-2009 by Avaya Inc. All rights reserved. 
+-- MIB version 1.0.0
+
+AV-AURA-SYSTEM-MANAGER-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+ MODULE-IDENTITY, OBJECT-TYPE, enterprises
+ FROM SNMPv2-SMI 
+ InetAddressIPv6 
+ FROM INET-ADDRESS-MIB 
+ MODULE-COMPLIANCE, OBJECT-GROUP
+ FROM SNMPv2-CONF
+	SnmpAdminString 
+		FROM SNMP-FRAMEWORK-MIB 
+	DateAndTime
+	 FROM SNMPv2-TC;
+ 
+--
+-- The following are defined in AV-AURA-SYSTEM-MANAGER-MIB
+--
+avaya OBJECT IDENTIFIER ::= { enterprises 6889 }
+products OBJECT IDENTIFIER ::= { avaya 1 }
+mibs OBJECT IDENTIFIER ::= { avaya 2 }
+
+avAuraSysMgrProd OBJECT IDENTIFIER ::= { products 35 }
+avAuraSysMgrMibs MODULE-IDENTITY
+ LAST-UPDATED "200808070000Z"	-- 07 Aug 2008
+ ORGANIZATION "Avaya, Inc."
+ CONTACT-INFO "Avaya Customer Services
+
+ Postal: Avaya, Inc.
+ 211 Mount Airy Rd
+ Basking Ridge. NJ 07920
+ USA
+ Tel: +1 908 953 6000
+ WWW: http://www.avaya.com"
+
+ DESCRIPTION "Initial version of the Avaya Aura System Manager MIB."
+ REVISION "200808070000Z" -- YYMMDDHHMMSS
+ DESCRIPTION "Revision 1.0.0 - Birendra Sinha"
+
+ ::= { mibs 35 }
+--
+-- Top level components of AV-Aura-SYSTEM-MANAGER-MIB
+--
+avAuraSysMgrMibObjects OBJECT IDENTIFIER ::= { avAuraSysMgrMibs 1 } -- Objects
+avAuraSysMgrMibNotifications OBJECT IDENTIFIER ::= { avAuraSysMgrMibs 2 } -- Notification group
+avAuraSysMgrMibConformance OBJECT IDENTIFIER ::= { avAuraSysMgrMibs 3 } -- Conformance
+
+--
+-- Common Object groups for MIB
+--
+avAuraSysMgrProductInfoObj OBJECT IDENTIFIER ::= { avAuraSysMgrMibObjects 1 }
+avAuraSysMgrHostInfoObj OBJECT IDENTIFIER ::= { avAuraSysMgrMibObjects 2 }
+--
+-- 
+avAuraSysMgrProductName OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "The name of the Avaya Aura System Manager product."
+ ::= { avAuraSysMgrProductInfoObj 1 } 
+
+avAuraSysMgrProductVersionObj OBJECT IDENTIFIER ::= { avAuraSysMgrProductInfoObj 2 }
+ 
+avAuraSysMgrActiveVersion OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION 
+ "The Avaya Aura System Manager product can be installed/upgraded over the time. E.g. The initial version was 1.0.0.0, 
+ but later on new version were applied on the same. This mib object reflects the version of Avaya Aura System Manager 
+ product that is currently active."
+ ::= { avAuraSysMgrProductVersionObj 1 } 
+ 
+avAuraSysMgrActivePatchVersion OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "The Avaya Aura System Manager product can be updated over the time. E.g. The initial version was 1.0.0.0, 
+ but later on updates were applied on the same by installing patches. This mib object reflects the version 
+ of patch that is currently active."
+ ::= { avAuraSysMgrProductVersionObj 2 }
+ 
+
+avAuraSysMgrVersionTable OBJECT-TYPE
+ SYNTAX SEQUENCE OF AvAuraSysMgrVersionEntry 
+ MAX-ACCESS not-accessible
+ STATUS current
+ DESCRIPTION
+ "The table is used to reflect the sequence of product version installed/updated over time."
+ ::= { avAuraSysMgrProductVersionObj 3 }
+
+avAuraSysMgrVersionEntry OBJECT-TYPE
+ SYNTAX AvAuraSysMgrVersionEntry
+ MAX-ACCESS not-accessible
+ STATUS current
+
+
+ DESCRIPTION
+ "Each entry corresponds to each Avaya Aura System Manager installed/upgrade version applied over time."
+ INDEX { IMPLIED avAuraSysMgrVersionIndex }
+ ::= { avAuraSysMgrVersionTable 1 }
+
+AvAuraSysMgrVersionEntry ::= SEQUENCE {
+ avAuraSysMgrVersionIndex SnmpAdminString,
+ avAuraSysMgrVersion SnmpAdminString,
+ avAuraSysMgrInstallDate DateAndTime
+}
+
+avAuraSysMgrVersionIndex OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS not-accessible
+ STATUS current
+ DESCRIPTION
+ "The unique index value of a row in this table."
+ ::= { avAuraSysMgrVersionEntry 1 }
+
+avAuraSysMgrVersion OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "Avaya Aura System Manager install/upgrade version applied over time."
+ ::= { avAuraSysMgrVersionEntry 2 }
+
+avAuraSysMgrInstallDate OBJECT-TYPE
+ SYNTAX DateAndTime
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "This object reflects the date when the Avaya Aura System Manager install/upgrade version was applied."
+ ::= { avAuraSysMgrVersionEntry 3 }
+
+avAuraSysMgrPatchVersionTable OBJECT-TYPE
+ SYNTAX SEQUENCE OF AvAuraSysMgrPatchVersionEntry 
+ MAX-ACCESS not-accessible
+ STATUS current
+ DESCRIPTION
+ "The table is used to reflect the sequence of product patch version installed/updated over time."
+ ::= { avAuraSysMgrProductVersionObj 4 }
+
+avAuraSysMgrPatchVersionEntry OBJECT-TYPE
+ SYNTAX AvAuraSysMgrPatchVersionEntry
+ MAX-ACCESS not-accessible
+ STATUS current
+
+
+ DESCRIPTION
+ "Each entry in the table corresponds to Avaya Aura System Manager update patch version applied over time."
+ INDEX { IMPLIED avAuraSysMgrPatchVersionIndex }
+ ::= { avAuraSysMgrPatchVersionTable 1 }
+
+AvAuraSysMgrPatchVersionEntry ::= SEQUENCE {
+ avAuraSysMgrPatchVersionIndex SnmpAdminString,
+ avAuraSysMgrPatchVersion SnmpAdminString,
+ avAuraSysMgrPatchInstallDate DateAndTime
+}
+
+avAuraSysMgrPatchVersionIndex OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS not-accessible
+ STATUS current
+ DESCRIPTION
+ "The unique index value of a row in this table."
+ ::= { avAuraSysMgrPatchVersionEntry 1 }
+
+avAuraSysMgrPatchVersion OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "Avaya Aura System Manager update patch version applied over time."
+ ::= { avAuraSysMgrPatchVersionEntry 2 }
+ 
+avAuraSysMgrPatchInstallDate OBJECT-TYPE
+ SYNTAX DateAndTime
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "This object reflects the date when the Avaya Aura System Manager update patch version was applied."
+ ::= { avAuraSysMgrPatchVersionEntry 3 }
+ 
+avAuraSysMgrHostName OBJECT-TYPE
+ SYNTAX SnmpAdminString (SIZE(1..32))
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "An administratively-assigned name for the node on which Avaya Aura System Manager is installed.
+ By convention, this is the node's fully-qualified domain name."
+ ::= { avAuraSysMgrHostInfoObj 1 } 
+ 
+avAuraSysMgrHostIpAddress OBJECT-TYPE
+ SYNTAX InetAddressIPv6
+ MAX-ACCESS read-only
+ STATUS current
+ DESCRIPTION
+ "IP Address of the node on which Avaya Aura System Manager is installed."
+ ::= { avAuraSysMgrHostInfoObj 2 } 
+ 
+-- Avaya Aura System Manager Notifications (avAuraSysMgrMibNotifications) will be added here
+-----------------------------------------------------------------------
+-- According to RFC 2578 section 8.5, the next to last sub-identifier
+-- in the name of any newly defined notification must have the value
+-- zero. This is to ahiceve compatibility with SNMPv1 traps.
+--
+
+-- Conformance information
+------------------------------------------------------------------------
+avAuraSysMgrMibCompliances OBJECT IDENTIFIER ::= { avAuraSysMgrMibConformance 1 }
+avAuraSysMgrMibGroups OBJECT IDENTIFIER ::= { avAuraSysMgrMibConformance 2 }
+
+avAuraSysMgrMibCompliance MODULE-COMPLIANCE
+ STATUS current
+ DESCRIPTION
+ "The compliance statement for Avaya Aura System Manager MIB entities"
+ MODULE	
+ MANDATORY-GROUPS { avAuraSysMgrObjGroup }
+ ::= { avAuraSysMgrMibCompliances 1 }
+
+avAuraSysMgrObjGroup OBJECT-GROUP
+ OBJECTS { avAuraSysMgrProductName, avAuraSysMgrActiveVersion, avAuraSysMgrActivePatchVersion, avAuraSysMgrVersion, avAuraSysMgrInstallDate, avAuraSysMgrPatchVersion, avAuraSysMgrPatchInstallDate, avAuraSysMgrHostName, avAuraSysMgrHostIpAddress }
+ STATUS current
+ DESCRIPTION
+ "Avaya Aura System Manager MIB objects"
+ ::= { avAuraSysMgrMibGroups 1 }
+ 
+END

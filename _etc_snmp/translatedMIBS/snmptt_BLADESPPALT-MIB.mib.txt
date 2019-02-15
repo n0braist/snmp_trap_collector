@@ -1,0 +1,643 @@
+#
+#
+#
+#
+MIB: BLADESPPALT-MIB (file:/tmp/SUN_IBM_MIB/BLADESPPALT-MIB.mib) converted on Tue Nov 11 10:50:51 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT mmTrapTempC .1.3.6.1.4.1.2.6.158.3.0.0 "Status Events" Normal
+FORMAT Critical Alert: Temperature threshold exceeded. $*
+SDESC
+Critical Alert: Temperature threshold exceeded.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapVoltC .1.3.6.1.4.1.2.6.158.3.0.1 "Status Events" Normal
+FORMAT Critical Alert: Voltage threshold exceeded. $*
+SDESC
+Critical Alert: Voltage threshold exceeded.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapTampC .1.3.6.1.4.1.2.6.158.3.0.2 "Status Events" Normal
+FORMAT Critical Alert: Physical intrusion of system has occurred. $*
+SDESC
+Critical Alert: Physical intrusion of system has occurred.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapMffC .1.3.6.1.4.1.2.6.158.3.0.3 "Status Events" Normal
+FORMAT Critical Alert: Multiple fan failure. $*
+SDESC
+Critical Alert: Multiple fan failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapPsC .1.3.6.1.4.1.2.6.158.3.0.4 "Status Events" Normal
+FORMAT Critical Alert: Power supply failure. $*
+SDESC
+Critical Alert: Power supply failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mTrapHdC .1.3.6.1.4.1.2.6.158.3.0.5 "Status Events" Normal
+FORMAT Critical Alert: Hard disk drive failure. $*
+SDESC
+Critical Alert: Hard disk drive failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapVrmC .1.3.6.1.4.1.2.6.158.3.0.6 "Status Events" Normal
+FORMAT Critical Alert: Voltage Regulator Module(VRM) failure. $*
+SDESC
+Critical Alert: Voltage Regulator Module(VRM) failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapSffC .1.3.6.1.4.1.2.6.158.3.0.11 "Status Events" Normal
+FORMAT Critical Alert: Single Fan failure. $*
+SDESC
+Critical Alert: Single Fan failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapMsC .1.3.6.1.4.1.2.6.158.3.0.31 "Status Events" Normal
+FORMAT Critical Alert: Multiple switch module failure. $*
+SDESC
+Critical Alert: Multiple switch module failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapIhcC .1.3.6.1.4.1.2.6.158.3.0.36 "Status Events" Normal
+FORMAT Critical Alert: Incompatible hardware configuration. $*
+SDESC
+Critical Alert: Incompatible hardware configuration.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapRdpsN .1.3.6.1.4.1.2.6.158.3.0.10 "Status Events" Normal
+FORMAT Non-Critical Alert: Redundant Power Supply failure. $*
+SDESC
+Non-Critical Alert: Redundant Power Supply failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapTempN .1.3.6.1.4.1.2.6.158.3.0.12 "Status Events" Normal
+FORMAT Non-Critical Alert: Temperature threshold exceeded. $*
+SDESC
+Non-Critical Alert: Temperature threshold exceeded.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapVoltN .1.3.6.1.4.1.2.6.158.3.0.13 "Status Events" Normal
+FORMAT Non-Critical Alert: Voltage threshold exceeded. $*
+SDESC
+Non-Critical Alert: Voltage threshold exceeded.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapRmN .1.3.6.1.4.1.2.6.158.3.0.32 "Status Events" Normal
+FORMAT Non-Critical Alert: Redundant module. $*
+SDESC
+Non-Critical Alert: Redundant module.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapSecDvS .1.3.6.1.4.1.2.6.158.3.0.15 "Status Events" Normal
+FORMAT System Alert: Secondary Device warning. $*
+SDESC
+System Alert: Secondary Device warning.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapPostToS .1.3.6.1.4.1.2.6.158.3.0.20 "Status Events" Normal
+FORMAT System Alert: Post Timeout value exceeded. $*
+SDESC
+System Alert: Post Timeout value exceeded.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapOsToS .1.3.6.1.4.1.2.6.158.3.0.21 "Status Events" Normal
+FORMAT System Alert: OS Timeout value exceeded. $*
+SDESC
+System Alert: OS Timeout value exceeded.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapAppS .1.3.6.1.4.1.2.6.158.3.0.22 "Status Events" Normal
+FORMAT System Alert: Application Alert. $*
+SDESC
+System Alert: Application Alert.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapPoffS .1.3.6.1.4.1.2.6.158.3.0.23 "Status Events" Normal
+FORMAT System Alert: Power Off. $*
+SDESC
+System Alert: Power Off.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapPonS .1.3.6.1.4.1.2.6.158.3.0.24 "Status Events" Normal
+FORMAT System Alert: Power On. $*
+SDESC
+System Alert: Power On.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapBootS .1.3.6.1.4.1.2.6.158.3.0.25 "Status Events" Normal
+FORMAT System Alert: System Boot Failure. $*
+SDESC
+System Alert: System Boot Failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapLdrToS .1.3.6.1.4.1.2.6.158.3.0.26 "Status Events" Normal
+FORMAT System Alert: OS Loader Timeout. $*
+SDESC
+System Alert: OS Loader Timeout.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapPFAS .1.3.6.1.4.1.2.6.158.3.0.27 "Status Events" Normal
+FORMAT System Alert: Predictive Failure Analysis(PFA) information. $*
+SDESC
+System Alert: Predictive Failure Analysis(PFA) information.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapKVMSwitchS .1.3.6.1.4.1.2.6.158.3.0.33 "Status Events" Normal
+FORMAT System Alert: Keyboard/Video/Mouse(KVM) or Medial Tray(MT) switching failure. $*
+SDESC
+System Alert: Keyboard/Video/Mouse(KVM) or Medial Tray(MT) switching failure.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapSysInvS .1.3.6.1.4.1.2.6.158.3.0.34 "Status Events" Normal
+FORMAT System Alert: Inventory. $*
+SDESC
+System Alert: Inventory.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapSysLogS .1.3.6.1.4.1.2.6.158.3.0.35 "Status Events" Normal
+FORMAT System Alert: System Log 75% full. $*
+SDESC
+System Alert: System Log 75% full.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapNwChangeS .1.3.6.1.4.1.2.6.158.3.0.37 "Status Events" Normal
+FORMAT System Alert: Network change notification. $*
+SDESC
+System Alert: Network change notification.
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapBlThrS .1.3.6.1.4.1.2.6.158.3.0.39 "Status Events" Normal
+FORMAT System Alert: Blade Throttle $*
+SDESC
+System Alert: Blade Throttle
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC
+#
+#
+#
+EVENT mmTrapPwrMgntS .1.3.6.1.4.1.2.6.158.3.0.40 "Status Events" Normal
+FORMAT System Alert: Power Management $*
+SDESC
+System Alert: Power Management
+Variables:
+  1: spTrapDateTime
+  2: spTrapAppId
+  3: spTrapSpTxtId
+  4: spTrapSysUuid
+  5: spTrapSysSern
+  6: spTrapAppType
+  7: spTrapPriority
+  8: spTrapMsgText
+  9: spTrapHostContact
+  10: spTrapHostLocation
+  11: spTrapBladeName
+  12: spTrapBladeSern
+  13: spTrapBladeUuid
+EDESC

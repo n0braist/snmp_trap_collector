@@ -1,0 +1,38 @@
+#
+#
+#
+#
+MIB: INADS-MIB (file:/tmp/avaya/avaya_snmp_mib) converted on Fri Jan 18 14:22:14 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT inadssnmpAlarm .1.3.6.1.4.1.6889.2.70.1.2.1 "Status Events" Normal
+FORMAT The alarm forwarded to the SRA from a product via SNMP with a trap used for the acknowledgment. $*
+SDESC
+The alarm forwarded to the SRA from a product via SNMP with a trap used for the acknowledgment.
+Variables:
+  1: inadssnmpAlarmMessage
+  2: inadssnmpAlarmTime
+EDESC
+#
+#
+#
+EVENT inadssnmpAck .1.3.6.1.4.1.6889.2.70.1.2.2 "Status Events" Normal
+FORMAT The acknowledgment forwarded from the TSC to the product via SNMP. $*
+SDESC
+The acknowledgment forwarded from the TSC to the product via SNMP.
+Variables:
+  1: inadssnmpAlarmAck
+  2: inadssnmpAlarmTime
+EDESC
+#
+#
+#
+EVENT inadssnmpAlarmSet .1.3.6.1.4.1.6889.2.70.1.2.3 "Status Events" Normal
+FORMAT The alarm forwarded to the SRA from a product via SNMP with a set used for the acknowledgment. $*
+SDESC
+The alarm forwarded to the SRA from a product via SNMP with a set used for the acknowledgment.
+Variables:
+  1: inadssnmpAlarmMessage
+  2: inadssnmpAlarmTime
+EDESC

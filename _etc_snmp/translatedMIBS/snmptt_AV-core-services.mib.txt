@@ -1,0 +1,530 @@
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:09:10 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:10:05 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:15:56 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:17:07 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:17:30 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:19:15 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:31:01 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:33:03 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:35:48 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-CORE-SERVICES-MIB (file:./AV-core-services.mib) converted on Tue Jan  2 11:38:43 2018 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT csUnknownNotification .1.3.6.1.4.1.6889.2.18.1.1.999 "Status Events" Normal
+FORMAT Unknown notification $*
+SDESC
+Unknown notification
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csBackupTerminated .1.3.6.1.4.1.6889.2.18.1.1.6.0.1 "Status Events" Normal
+FORMAT Scheduled backup has been terminated (MINOR) $*
+SDESC
+Scheduled backup has been terminated (MINOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskStatusTimedOut .1.3.6.1.4.1.6889.2.18.1.1.1.0.1 "Status Events" Normal
+FORMAT sda status timed out (MAJOR) $*
+SDESC
+sda status timed out (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskNotReady .1.3.6.1.4.1.6889.2.18.1.1.1.0.2 "Status Events" Normal
+FORMAT Harddrive not ready (MAJOR) $*
+SDESC
+Harddrive not ready (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskResetTimedOut .1.3.6.1.4.1.6889.2.18.1.1.1.0.3 "Status Events" Normal
+FORMAT Harddrive reset timed out (MAJOR) $*
+SDESC
+Harddrive reset timed out (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskResetMasterError .1.3.6.1.4.1.6889.2.18.1.1.1.0.4 "Status Events" Normal
+FORMAT Error reseting master (MAJOR) $*
+SDESC
+Error reseting master (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskLostInterrupt .1.3.6.1.4.1.6889.2.18.1.1.1.0.5 "Status Events" Normal
+FORMAT Lost interrupt (MAJOR) $*
+SDESC
+Lost interrupt (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskFailed .1.3.6.1.4.1.6889.2.18.1.1.1.0.6 "Status Events" Normal
+FORMAT Disk failed (CRITICAL) $*
+SDESC
+Disk failed (CRITICAL)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskStatusError .1.3.6.1.4.1.6889.2.18.1.1.1.0.7 "Status Events" Normal
+FORMAT Status error (MAJOR) $*
+SDESC
+Status error (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskUsageThreshold .1.3.6.1.4.1.6889.2.18.1.1.1.0.8 "Status Events" Normal
+FORMAT Disk usage has exceeded 80% (MAJOR) $*
+SDESC
+Disk usage has exceeded 80% (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskFull .1.3.6.1.4.1.6889.2.18.1.1.1.0.9 "Status Events" Normal
+FORMAT Disk is full (MAJOR) $*
+SDESC
+Disk is full (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csDiskMBEDetected .1.3.6.1.4.1.6889.2.18.1.1.1.0.10 "Status Events" Normal
+FORMAT MBE detected (MAJOR) $*
+SDESC
+MBE detected (MAJOR)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csSecurityLoginLockout .1.3.6.1.4.1.6889.2.18.1.1.3.0.1 "Status Events" Normal
+FORMAT Login lockout interval begins (MAJOR). This happens on the third $*
+SDESC
+Login lockout interval begins (MAJOR). This happens on the third
+consecutive unsuccessful login attempt. The lockput will be
+for 30 minutes.
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csSecurityLoginCorrupt .1.3.6.1.4.1.6889.2.18.1.1.3.0.2 "Status Events" Normal
+FORMAT Corrupt or expired authentication data (MAJOR). $*
+SDESC
+Corrupt or expired authentication data (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csSecurityLoginFailed .1.3.6.1.4.1.6889.2.18.1.1.3.0.3 "Status Events" Normal
+FORMAT Linux login failure - access through illegal port (MAJOR). $*
+SDESC
+Linux login failure - access through illegal port (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csSecurityFileModified .1.3.6.1.4.1.6889.2.18.1.1.3.0.4 "Status Events" Normal
+FORMAT File modified. There are 3 different severities. $*
+SDESC
+File modified. There are 3 different severities.
+MINOR: non-critical files of minimal security impact.
+MAJOR: non-critical files of significant security impact.
+CRIT : critical files of significant security impact.
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csSecurityFileRemoved .1.3.6.1.4.1.6889.2.18.1.1.3.0.5 "Status Events" Normal
+FORMAT File removed. There are 3 different severities. $*
+SDESC
+File removed. There are 3 different severities.
+MINOR: non-critical files of minimal security impact.
+MAJOR: non-critical files of significant security impact.
+CRIT : critical files of significant security impact.
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csSecurityFileAdded .1.3.6.1.4.1.6889.2.18.1.1.3.0.6 "Status Events" Normal
+FORMAT File added. There are 3 different severities. $*
+SDESC
+File added. There are 3 different severities.
+MINOR: non-critical files of minimal security impact.
+MAJOR: non-critical files of significant security impact.
+CRIT : critical files of significant security impact.
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csSecurityInitFailed .1.3.6.1.4.1.6889.2.18.1.1.3.0.7 "Status Events" Normal
+FORMAT Failed initialization of Tripwire database (CRITICAL) $*
+SDESC
+Failed initialization of Tripwire database (CRITICAL)
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csUpgradeNoCommit .1.3.6.1.4.1.6889.2.18.1.1.7.0.1 "Status Events" Normal
+FORMAT An upgrade has not been committed (MAJOR). This alarm is raised $*
+SDESC
+An upgrade has not been committed (MAJOR). This alarm is raised
+if after 30 minutes, an upgrade has not been committed.
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csUpgradeCommit .1.3.6.1.4.1.6889.2.18.1.1.7.0.2 "Status Events" Normal
+FORMAT An upgrade has been committed (MAJOR). $*
+SDESC
+An upgrade has been committed (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csModemChatError .1.3.6.1.4.1.6889.2.18.1.1.5.0.1 "Status Events" Normal
+FORMAT Chat failed/interrupted (MAJOR). $*
+SDESC
+Chat failed/interrupted (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogAppStartFailed .1.3.6.1.4.1.6889.2.18.1.1.4.0.5 "Status Events" Normal
+FORMAT Watchdog detects a rolling reboot (MAJOR). $*
+SDESC
+Watchdog detects a rolling reboot (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogUnintentionalDown .1.3.6.1.4.1.6889.2.18.1.1.4.0.6 "Status Events" Normal
+FORMAT Application failed unintentionally. Watchdog is bringing $*
+SDESC
+Application failed unintentionally. Watchdog is bringing
+the system down because an application failed to start correctly
+(MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogHiMonReboot .1.3.6.1.4.1.6889.2.18.1.1.4.0.7 "Status Events" Normal
+FORMAT Watchdog hi-monitor thread is rebooting the system because $*
+SDESC
+Watchdog hi-monitor thread is rebooting the system because
+low-monitor thread is missing heartbeats.  (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogStopHWTickle .1.3.6.1.4.1.6889.2.18.1.1.4.0.8 "Status Events" Normal
+FORMAT Watchdog hi-monitor thread is stopping tickling of HW (MAJOR). $*
+SDESC
+Watchdog hi-monitor thread is stopping tickling of HW (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogProcessSick .1.3.6.1.4.1.6889.2.18.1.1.4.0.9 "Status Events" Normal
+FORMAT Process is in a sick state (MAJOR). $*
+SDESC
+Process is in a sick state (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogProcessUp .1.3.6.1.4.1.6889.2.18.1.1.4.0.10 "Status Events" Normal
+FORMAT Process is up (MINOR). $*
+SDESC
+Process is up (MINOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogProcessDown .1.3.6.1.4.1.6889.2.18.1.1.4.0.11 "Status Events" Normal
+FORMAT Process is down (MINOR). $*
+SDESC
+Process is down (MINOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csWatchdogProcessDead .1.3.6.1.4.1.6889.2.18.1.1.4.0.12 "Status Events" Normal
+FORMAT Process is dead (MAJOR). $*
+SDESC
+Process is dead (MAJOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC
+#
+#
+#
+EVENT csCPUUtilization .1.3.6.1.4.1.6889.2.18.1.1.2.0.1 "Status Events" Normal
+FORMAT CPU utilization is at least 90% (MINOR). $*
+SDESC
+CPU utilization is at least 90% (MINOR).
+Variables:
+  1: sysName
+  2: ipAdEntAddr
+  3: entPhysicalAssetID
+  4: csAlarmSeverity
+  5: applSrvName
+  6: ituAlarmAdditionalText
+EDESC

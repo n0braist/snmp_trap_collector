@@ -1,0 +1,20 @@
+#
+#
+#
+#
+MIB: CISCO-ENHANCED-MEMPOOL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ENHANCED-MEMPOOL-MIB.mib) converted on Tue Aug 21 15:25:55 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cempMemBufferNotify .1.3.6.1.4.1.9.9.221.0.1 "Status Events" Normal
+FORMAT Whenever cempMemBufferPeak object is updated in the $*
+SDESC
+Whenever cempMemBufferPeak object is updated in the
+buffer pool, a cempMemBufferNotify notification
+is sent. The sending of these notifications can be 
+enabled/disabled via the cempMemBufferNotifyEnabled object.
+Variables:
+  1: cempMemBufferName
+  2: cempMemBufferPeak
+  3: cempMemBufferPeakTime
+EDESC

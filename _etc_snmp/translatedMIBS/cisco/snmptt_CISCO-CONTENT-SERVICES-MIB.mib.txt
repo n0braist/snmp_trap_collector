@@ -1,0 +1,336 @@
+#
+#
+#
+#
+MIB: CISCO-CONTENT-SERVICES-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CONTENT-SERVICES-MIB.mib) converted on Tue Aug 21 15:25:48 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoContentServicesBMAStateChange .1.3.6.1.4.1.9.9.597.0.1 "Status Events" Normal
+FORMAT This notification is issued when ccsBMAStateChangeNotifEnabled $*
+SDESC
+This notification is issued when ccsBMAStateChangeNotifEnabled
+is set to 'true', and the billing mediation agent changes
+state. There is one exception: No notification is issued
+for state changes involving 'echowait' because this would
+cause an excessive number of notifications.
+Variables:
+  1: ccsBMAState
+  2: ccsBMALostRecords
+  3: ccsBMATotalSent
+  4: ccsBMAFailAck
+  5: ccsBMAOutstanding
+  6: ccsBMAHighWater
+  7: ccsBMABadRecord
+  8: ccsBMARetransmit
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesQuotaMgrStateChange .1.3.6.1.4.1.9.9.597.0.2 "Status Events" Normal
+FORMAT This notification is issued when ccsQuotaMgrStateChangeNotifEnabled $*
+SDESC
+This notification is issued when ccsQuotaMgrStateChangeNotifEnabled
+is set to 'true', and the quota manager changes state. 
+There is one exception: No notification is issued for 
+state changes involving 'echowait' because this would 
+cause an excessive number of notifications.
+Variables:
+  1: ccsQuotaMgrState
+  2: ccsQuotaMgrLostRecords
+  3: ccsQuotaMgrTotalSent
+  4: ccsQuotaMgrFailAck
+  5: ccsQuotaMgrOutstanding
+  6: ccsQuotaMgrHighWater
+  7: ccsQuotaMgrBadRecord
+  8: ccsQuotaMgrRetransmit
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesUserDbStateChange .1.3.6.1.4.1.9.9.597.0.3 "Status Events" Normal
+FORMAT This notification is issued when ccsUserDbStateChangeNotifEnabled $*
+SDESC
+This notification is issued when ccsUserDbStateChangeNotifEnabled
+is set to 'true', and the user database changes state.
+Variables:
+  1: ccsUserDbState
+  2: ccsUserDbRequests
+  3: ccsUserDbUidsReturned
+  4: ccsUserDbReqResent
+  5: ccsUserDbReqTimeouts
+  6: ccsUserDbReqErrors
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesBMALostRecordEvent .1.3.6.1.4.1.9.9.597.0.4 "Status Events" Normal
+FORMAT This notification is issued when ccsBMAStateChangeNotifEnabled $*
+SDESC
+This notification is issued when ccsBMAStateChangeNotifEnabled
+is set to 'true', and accounting records,
+should be sent to the billing mediation agent, must be
+discarded.
+Initially, ccsBMALostRecords is set to 0.
+When a record is discarded, ccsBMALostRecords 
+is incremented, a period timer is started, and this 
+notification is issued. The NMS and the agent save 
+this value. The agent continues to increment 
+ccsBMALostRecords each time a record is lost.  
+When the period timer expires, the agent compares
+the current value of ccsBMALostRecords with
+the previous (saved) value. If the values are equal
+this notification is issued again, signalling to the
+NMS that the condition has been cleared. Otherwise,
+the timer is restarted to monitor the next period.
+When a record is lost and no period timer is active, 
+this notification is issued and the above procedure 
+is repeated.
+Variables:
+  1: ccsBMAState
+  2: ccsBMALostRecords
+  3: ccsBMATotalSent
+  4: ccsBMAFailAck
+  5: ccsBMAOutstanding
+  6: ccsBMAHighWater
+  7: ccsBMABadRecord
+  8: ccsBMARetransmit
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesQuotaMgrLostRecordEvent .1.3.6.1.4.1.9.9.597.0.5 "Status Events" Normal
+FORMAT This notification is issued when ccsQuotaMgrStateChangeNotifEnabled $*
+SDESC
+This notification is issued when ccsQuotaMgrStateChangeNotifEnabled
+is set to 'true', and request records to be sent to the 
+quota manager must be discarded. The processing 
+is the same as described in the description for 
+ccsBMALostRecordEvent.
+Variables:
+  1: ccsQuotaMgrState
+  2: ccsQuotaMgrLostRecords
+  3: ccsQuotaMgrTotalSent
+  4: ccsQuotaMgrFailAck
+  5: ccsQuotaMgrOutstanding
+  6: ccsQuotaMgrHighWater
+  7: ccsQuotaMgrBadRecord
+  8: ccsQuotaMgrRetransmit
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesUserThresholdExceeded .1.3.6.1.4.1.9.9.597.0.6 "Status Events" Normal
+FORMAT This notification is issued when $*
+SDESC
+This notification is issued when
+ccsUserThresholdExceededNotifEnabled
+is set to 'true', and when actual users limit
+exceeds threshold which is set by ccsgsUserThreshold.
+Variables:
+  1: ccsgsUserCurrent
+  2: ccsgsUserHighWater
+  3: ccsgsUserThreshold
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesNetServerResponseFailExceeded .1.3.6.1.4.1.9.9.597.0.7 "Status Events" Normal
+FORMAT A notification of this type is generated for the service $*
+SDESC
+A notification of this type is generated for the service
+specified by ccsServiceNameNotifInfo when the number of
+failed responses received on the Traffic Processor specified
+by ccsTPIndexNotifInfo from the network server exceeds the 
+alarm threshold ccsNetServerResponseFailAlarmThreshold
+within the interval ccsAdControlAlarmUpdateTimer. The alarm
+is not generated repeatly on the same alarm state.
+The ccsAdControlNotifEnabled has to set to 'true' to generate
+the notification.
+The timer will be restarted after the notification is 
+generated.
+Variables:
+  1: ccsTPIndexNotifInfo
+  2: ccsServiceNameNotifInfo
+  3: ccsContentNameNotifInfo
+  4: ccsPolicyNameNotifInfo
+  5: ccsNetServerIpAddrTypeNotifInfo
+  6: ccsNetServerIpAddrNotifInfo
+  7: ccsNetServerPortNotifInfo
+  8: ccsSubscriberIpAddrTypeNotifInfo
+  9: ccsSubscriberIpAddrNotifInfo
+  10: ccsSubscriberPortNotifInfo
+  11: ccsNetServerResponseFailCountNotifInfo
+  12: ccsNetServerResponseFailAlarmThreshold
+  13: ccsNetServerResponseFailClearThreshold
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesNetServerResponseTimeExceeded .1.3.6.1.4.1.9.9.597.0.8 "Status Events" Normal
+FORMAT A notification of this type is generated for the service $*
+SDESC
+A notification of this type is generated for the service
+specified by ccsServiceNameNotifInfo when the
+number of the responses that are received on the Traffic 
+Processor from the network server and exceed the response
+time (ccsNetServerFirstPayloadResponseTime) for the 
+first payload packet exceeds the alarm theshold
+ccsNetServerResponseTimeFailAlarmThreshold,
+within the interval ccsAdControlAlarmUpdateTimer. The alarm
+is not generated repeatly on the same alarm state.
+The ccsAdControlNotifEnabled has to set to 'true' to generate
+the notification.
+The timer will be restarted after the notification is generated.
+Variables:
+  1: ccsTPIndexNotifInfo
+  2: ccsServiceNameNotifInfo
+  3: ccsContentNameNotifInfo
+  4: ccsPolicyNameNotifInfo
+  5: ccsNetServerIpAddrTypeNotifInfo
+  6: ccsNetServerIpAddrNotifInfo
+  7: ccsNetServerPortNotifInfo
+  8: ccsSubscriberIpAddrTypeNotifInfo
+  9: ccsSubscriberIpAddrNotifInfo
+  10: ccsSubscriberPortNotifInfo
+  11: ccsNetServerResponseTimeFailCountNotifInfo
+  12: ccsNetServerResponseTimeFailAlarmThreshold
+  13: ccsNetServerResponseTimeFailClearThreshold
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesProtocolParseFailExceeded .1.3.6.1.4.1.9.9.597.0.9 "Status Events" Normal
+FORMAT A notification of this type is generated for the service $*
+SDESC
+A notification of this type is generated for the service
+specified by ccsServiceNameNotifInfo when the
+number of errors that are received on the Traffic Processor 
+and fail the protocol parsing exceeds the alarm threshold
+ccsProcolParseFailedAlarmThreshold
+within the interval ccsAdControlAlarmUpdateTimer. The alarm
+is not generated repeatly on the same alarm state.
+The ccsAdControlNotifEnabled has to set to 'true' to generate
+the notification.
+The timer will be restarted after the notification is generated.
+Variables:
+  1: ccsTPIndexNotifInfo
+  2: ccsServiceNameNotifInfo
+  3: ccsContentNameNotifInfo
+  4: ccsPolicyNameNotifInfo
+  5: ccsNetServerIpAddrTypeNotifInfo
+  6: ccsNetServerIpAddrNotifInfo
+  7: ccsNetServerPortNotifInfo
+  8: ccsSubscriberIpAddrTypeNotifInfo
+  9: ccsSubscriberIpAddrNotifInfo
+  10: ccsSubscriberPortNotifInfo
+  11: ccsProtocolParseFailCountNotifInfo
+  12: ccsProtocolParseFailAlarmThreshold
+  13: ccsProtocolParseFailClearThreshold
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesNetServerResponseFailAlarmCleared .1.3.6.1.4.1.9.9.597.0.10 "Status Events" Normal
+FORMAT A notification of this type is generated for the service $*
+SDESC
+A notification of this type is generated for the service
+specified by ccsServiceNameNotifInfo if the number of 
+failed responses received on the Traffic Processor 
+from the network server is equal to or lower than 
+ccsNetServerResponseFailClearThreshold when 
+the timer ccsAdControlAlarmUpdateTimer expires.
+The notification is also generated when the update timer,
+the alarm threshold, or the clear threshold is changed.
+The notification is generated only when the alarm
+(ciscoContentServicesNetServerResponseFailExceeded)
+exists. The ccsAdControlNotifEnabled has to set to 'true'
+to generate the notification.
+The timer will be restarted after the notification is generated.
+Variables:
+  1: ccsTPIndexNotifInfo
+  2: ccsServiceNameNotifInfo
+  3: ccsContentNameNotifInfo
+  4: ccsPolicyNameNotifInfo
+  5: ccsNetServerIpAddrTypeNotifInfo
+  6: ccsNetServerIpAddrNotifInfo
+  7: ccsNetServerPortNotifInfo
+  8: ccsSubscriberIpAddrTypeNotifInfo
+  9: ccsSubscriberIpAddrNotifInfo
+  10: ccsSubscriberPortNotifInfo
+  11: ccsNetServerResponseFailCountNotifInfo
+  12: ccsNetServerResponseFailAlarmThreshold
+  13: ccsNetServerResponseFailClearThreshold
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesNetServerResponseTimeAlarmCleared .1.3.6.1.4.1.9.9.597.0.11 "Status Events" Normal
+FORMAT A notification of this type is generated for the service $*
+SDESC
+A notification of this type is generated for the service
+specified by ccsServiceNameNotifInfo if the number of the 
+responses that are received on the Traffic Processor from 
+the network server and exceed the response time
+(ccsNetServerFirstPayloadResponseTime) for the
+first payload packet is equal to or lower than
+ccsNetServerResponseTimeFailClearThreshold
+when the timer ccsAdControlAlarmUpdateTimer expires.
+The notification is also generated when the update timer,
+the response time, the alarm threshold, or the clear threshold
+is changed. The notification is generated only when the alarm
+(ciscoContentServicesNetServerResponseTimeExceeded) exists,
+The ccsAdControlNotifEnabled has to set to 'true'
+to generate the notification.
+The update timer will be restarted after the notification
+is generated.
+Variables:
+  1: ccsTPIndexNotifInfo
+  2: ccsServiceNameNotifInfo
+  3: ccsContentNameNotifInfo
+  4: ccsPolicyNameNotifInfo
+  5: ccsNetServerIpAddrTypeNotifInfo
+  6: ccsNetServerIpAddrNotifInfo
+  7: ccsNetServerPortNotifInfo
+  8: ccsSubscriberIpAddrTypeNotifInfo
+  9: ccsSubscriberIpAddrNotifInfo
+  10: ccsSubscriberPortNotifInfo
+  11: ccsNetServerResponseTimeFailCountNotifInfo
+  12: ccsNetServerResponseTimeFailAlarmThreshold
+  13: ccsNetServerResponseTimeFailClearThreshold
+EDESC
+#
+#
+#
+EVENT ciscoContentServicesProtocolParseFailAlarmCleared .1.3.6.1.4.1.9.9.597.0.12 "Status Events" Normal
+FORMAT A notification of this type is generated for the service $*
+SDESC
+A notification of this type is generated for the service
+specified by ccsServiceNameNotifInfo if the number of errors
+that are received on the Traffic Processor and fail the 
+protocol parsing is equal to or lower than 
+ccsProcolParseFailedAlarmThreshold
+when the timer ccsAdControlAlarmUpdateTimer expires.
+The notification is also generated when the update timer,
+the alarm threshold, or the clear threshold is changed.
+The notification is generated only when the alarm
+(ciscoContentServicesProtocolParseFailExceeded) exists.
+The ccsAdControlNotifEnabled has to set to 'true'
+to generate the notification.
+The update timer will be restarted after the notification
+is generated.
+Variables:
+  1: ccsTPIndexNotifInfo
+  2: ccsServiceNameNotifInfo
+  3: ccsContentNameNotifInfo
+  4: ccsPolicyNameNotifInfo
+  5: ccsNetServerIpAddrTypeNotifInfo
+  6: ccsNetServerIpAddrNotifInfo
+  7: ccsNetServerPortNotifInfo
+  8: ccsSubscriberIpAddrTypeNotifInfo
+  9: ccsSubscriberIpAddrNotifInfo
+  10: ccsSubscriberPortNotifInfo
+  11: ccsProtocolParseFailCountNotifInfo
+  12: ccsProtocolParseFailAlarmThreshold
+  13: ccsProtocolParseFailClearThreshold
+EDESC

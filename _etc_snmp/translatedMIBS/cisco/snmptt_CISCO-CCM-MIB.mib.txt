@@ -1,0 +1,168 @@
+#
+#
+#
+#
+MIB: CISCO-CCM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CCM-MIB.mib) converted on Tue Aug 21 15:25:43 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ccmCallManagerFailed .1.3.6.1.4.1.9.9.156.2.0.1 "Status Events" Normal
+FORMAT This Notification signifies that the CallManager process $*
+SDESC
+This Notification signifies that the CallManager process
+detects a failure in one of its critical subsystems. It can
+also be detected from a heartbeat/event monitoring process.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmFailCauseCode
+EDESC
+#
+#
+#
+EVENT ccmPhoneFailed .1.3.6.1.4.1.9.9.156.2.0.2 "Status Events" Normal
+FORMAT This Notification will be generated in the intervals $*
+SDESC
+This Notification will be generated in the intervals
+specified in ccmPhoneFailedAlarmInterval if there is 
+at least one entry in the ccmPhoneFailedTable.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmPhoneFailures
+EDESC
+#
+#
+#
+EVENT ccmPhoneStatusUpdate .1.3.6.1.4.1.9.9.156.2.0.3 "Status Events" Normal
+FORMAT This Notification will be generated in the intervals $*
+SDESC
+This Notification will be generated in the intervals
+specified in ccmPhoneStatusUpdateInterv if there is 
+at least one entry in the ccmPhoneStatusUpdateTable.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmPhoneUpdates
+EDESC
+#
+#
+#
+EVENT ccmGatewayFailed .1.3.6.1.4.1.9.9.156.2.0.4 "Status Events" Normal
+FORMAT This Notification indicates that at least one gateway has $*
+SDESC
+This Notification indicates that at least one gateway has
+attempted to register or communicate with the CallManager
+and failed.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmGatewayName
+  3: ccmGatewayInetAddressType
+  4: ccmGatewayInetAddress
+  5: ccmGatewayFailCauseCode
+EDESC
+#
+#
+#
+EVENT ccmMediaResourceListExhausted .1.3.6.1.4.1.9.9.156.2.0.5 "Status Events" Normal
+FORMAT This Notification indicates that the CallManager has run out $*
+SDESC
+This Notification indicates that the CallManager has run out
+a certain specified type of resource.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmMediaResourceType
+  3: ccmMediaResourceListName
+EDESC
+#
+#
+#
+EVENT ccmRouteListExhausted .1.3.6.1.4.1.9.9.156.2.0.6 "Status Events" Normal
+FORMAT This Notification indicates that the CallManager could not $*
+SDESC
+This Notification indicates that the CallManager could not
+find an available route in the indicated route list.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmRouteListName
+EDESC
+#
+#
+#
+EVENT ccmGatewayLayer2Change .1.3.6.1.4.1.9.9.156.2.0.7 "Status Events" Normal
+FORMAT This Notification is sent when the D-Channel/Layer 2 of an $*
+SDESC
+This Notification is sent when the D-Channel/Layer 2 of an
+interface in a skinny gateway that has registered with the
+CallManager changes state.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmGatewayName
+  3: ccmGatewayInetAddressType
+  4: ccmGatewayInetAddress
+  5: ccmGatewayPhysIfIndex
+  6: ccmGatewayPhysIfL2Status
+EDESC
+#
+#
+#
+EVENT ccmMaliciousCall .1.3.6.1.4.1.9.9.156.2.0.8 "Status Events" Normal
+FORMAT This Notification is sent when a user registers a $*
+SDESC
+This Notification is sent when a user registers a
+call as malicious with the local call manager.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmMaliCallCalledPartyName
+  3: ccmMaliCallCalledPartyNumber
+  4: ccmMaliCallCalledDeviceName
+  5: ccmMaliCallCallingPartyName
+  6: ccmMaliCallCallingPartyNumber
+  7: ccmMaliCallCallingDeviceName
+  8: ccmMaliCallTime
+EDESC
+#
+#
+#
+EVENT ccmQualityReport .1.3.6.1.4.1.9.9.156.2.0.9 "Status Events" Normal
+FORMAT This Notification is sent when a user reports a $*
+SDESC
+This Notification is sent when a user reports a
+quality problem using the Quality Report Tool.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmQualityRprtSourceDevName
+  3: ccmQualityRprtClusterId
+  4: ccmQualityRprtCategory
+  5: ccmQualityRprtReasonCode
+  6: ccmQualityRprtTime
+EDESC
+#
+#
+#
+EVENT ccmTLSConnectionFailure .1.3.6.1.4.1.9.9.156.2.0.10 "Status Events" Normal
+FORMAT This Notification is sent when CallManager fails to $*
+SDESC
+This Notification is sent when CallManager fails to
+open TLS connection for the indicated device.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmTLSDevName
+  3: ccmTLSDevInetAddressType
+  4: ccmTLSDevInetAddress
+  5: ccmTLSConnectionFailReasonCode
+  6: ccmTLSConnFailTime
+EDESC
+#
+#
+#
+EVENT ccmGatewayFailedReason .1.3.6.1.4.1.9.9.156.2.0.11 "Status Events" Normal
+FORMAT This Notification indicates that at least one gateway has $*
+SDESC
+This Notification indicates that at least one gateway has
+attempted to register or communicate with the CallManager
+and failed.
+Variables:
+  1: ccmAlarmSeverity
+  2: ccmGatewayName
+  3: ccmGatewayInetAddressType
+  4: ccmGatewayInetAddress
+  5: ccmGatewayRegFailCauseCode
+EDESC

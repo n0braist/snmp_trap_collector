@@ -1,0 +1,92 @@
+#
+#
+#
+#
+MIB: CISCO-VOICE-APPS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-VOICE-APPS-MIB.mib) converted on Tue Aug 21 15:26:42 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cvaModuleStart .1.3.6.1.4.1.9.9.190.2.0.1 "Status Events" Normal
+FORMAT A cvaModuleStart notification signifies that an  $*
+SDESC
+A cvaModuleStart notification signifies that an 
+application module or subsystem has successfully
+started and transitioned into in-service state.  
+This notification is working in conjunction with
+the cvaModuleStop notification to notify the start
+and stop status of a particular application module.
+Variables:
+  1: cvaAlarmSeverity
+  2: cvaModuleName
+EDESC
+#
+#
+#
+EVENT cvaModuleStop .1.3.6.1.4.1.9.9.190.2.0.2 "Status Events" Normal
+FORMAT A cvaModuleStop notification signifies that an $*
+SDESC
+A cvaModuleStop notification signifies that an
+application module or subsystem has stopped.  This 
+notification is working in conjunction with the 
+cvaModuleStart notification to notify the start 
+and stop status of a particular application module. 
+If failure cause is known then it will be specified 
+in the cvaModuleFailureCause variable.  Additional 
+failure information associated with cvaModuleFailureCause
+can be specified in the cvaModuleFailureCauseMessage.
+Variables:
+  1: cvaAlarmSeverity
+  2: cvaModuleName
+  3: cvaModuleFailureCause
+  4: cvaModuleFailureName
+  5: cvaModuleFailureMessage
+EDESC
+#
+#
+#
+EVENT cvaModuleRunTimeFailure .1.3.6.1.4.1.9.9.190.2.0.3 "Status Events" Normal
+FORMAT A cvaModuleRunTimeFailure notification signifies that a run $*
+SDESC
+A cvaModuleRunTimeFailure notification signifies that a run
+time failure has occurred.  If failure cause is known then it 
+will be specified in the cvaModuleRunTimeFailureCause 
+variable. Additional failure information associated with 
+cvaModuleRunTimeFailureCause can be specified in the 
+cvaModuleFailureCauseMessage.
+Variables:
+  1: cvaAlarmSeverity
+  2: cvaModuleName
+  3: cvaModuleRunTimeFailureCause
+  4: cvaModuleFailureName
+  5: cvaModuleFailureMessage
+EDESC
+#
+#
+#
+EVENT cvaProcessStart .1.3.6.1.4.1.9.9.190.2.0.4 "Status Events" Normal
+FORMAT A cvaProcessStart notification signifies that a process has  $*
+SDESC
+A cvaProcessStart notification signifies that a process has 
+just started.  This notification is intended to work in 
+conjunction with the caProcessStop notification to notify 
+the start and stop status of a particular process.
+Variables:
+  1: cvaAlarmSeverity
+  2: cvaModuleName
+  3: cvaProcessId
+EDESC
+#
+#
+#
+EVENT cvaProcessStop .1.3.6.1.4.1.9.9.190.2.0.5 "Status Events" Normal
+FORMAT A cvaProcessStop notification signifies that a process has  $*
+SDESC
+A cvaProcessStop notification signifies that a process has 
+just stopped.  This notification is intended to work in 
+conjunction with the cvaProcessStart notification to notify 
+the start and stop status of a particular process.
+Variables:
+  1: cvaAlarmSeverity
+  2: cvaModuleName
+  3: cvaProcessId
+EDESC

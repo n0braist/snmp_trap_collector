@@ -1,0 +1,81 @@
+#
+#
+#
+#
+MIB: CISCO-IKE-CONFIGURATION-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IKE-CONFIGURATION-MIB.mib) converted on Tue Aug 21 15:26:09 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoIkeConfigOperStateChanged .1.3.6.1.4.1.9.9.423.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+The notification is generated when the operational
+state of IKE entity on the managed device has
+been changed.
+
+Variables:
+  1: cicIkeEnabled
+EDESC
+#
+#
+#
+EVENT ciscoIkeConfigPskAdded .1.3.6.1.4.1.9.9.423.0.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is generated when a new preshared
+key is configured on the managed device.
+
+Variables:
+  1: cicIkeCfgPskRemIdentType
+  2: cicIkeCfgPskRemIdentity
+EDESC
+#
+#
+#
+EVENT ciscoIkeConfigPskDeleted .1.3.6.1.4.1.9.9.423.0.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is generated when an existing
+preshared key is configured on the managed device is
+about to be deleted.
+
+Variables:
+  1: cicIkeCfgPskRemIdentType
+  2: cicIkeCfgPskRemIdentity
+EDESC
+#
+#
+#
+EVENT ciscoIkeConfigPolicyAdded .1.3.6.1.4.1.9.9.423.0.4 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is generated when a new ISAKMP
+policy is configured on the managed device.
+
+Variables:
+  1: cicIkeCfgPolicyEncr
+  2: cicIkeCfgPolicyHash
+  3: cicIkeCfgPolicyAuth
+  4: cicIkeCfgPolicyDHGroup
+EDESC
+#
+#
+#
+EVENT ciscoIkeConfigPolicyDeleted .1.3.6.1.4.1.9.9.423.0.5 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is issued when an existing ISAKMP
+policy configured on the managed device is about
+to be deleted.
+
+Variables:
+  1: cicIkeCfgPolicyEncr
+  2: cicIkeCfgPolicyHash
+  3: cicIkeCfgPolicyAuth
+  4: cicIkeCfgPolicyDHGroup
+EDESC

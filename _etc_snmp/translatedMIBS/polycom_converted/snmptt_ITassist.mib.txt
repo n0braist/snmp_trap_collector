@@ -1,0 +1,224 @@
+#
+#
+#
+#
+MIB: MIB-Dell-10900 (file:/tmp/polycom/ITassist.mib) converted on Fri Mar 13 12:28:37 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT itaAlertSystemUp .1.3.6.1.4.1.674.10900.1.0.1000 "Status Events" CRITICAL
+FORMAT Server Battery Failure: $3
+SDESC
+System up message from IT Assistant. Sent when IT Assistant detects a node has come online.
+--Novell NMS trap annotation
+Variables:
+  1: itaAlertMessage
+  2: itaAlertNode
+EDESC
+#
+#
+#
+EVENT itaAlertSystemDown .1.3.6.1.4.1.674.10900.1.0.1001 "Status Events" CRITICAL 
+FORMAT System Down Message from IT Assistant : $1: $2 
+SDESC
+
+System down message from IT Assistant. Sent when IT Assistant detects a node has gone offline. 
+---Novell NMS trap annotation 
+Variables:
+  1: itaAlertMessage
+  2: itaAlertNode
+EDESC
+#
+#
+#
+EVENT itaAlertForwardedAlert .1.3.6.1.4.1.674.10900.1.0.2000 "Status Events" INFORMATIONAL 
+FORMAT Forwarded Alert from IT Assistant : Forwarded Alert from IT Assistant. Sending node: $2, Severity: $3, Message: $1. 
+SDESC
+
+Forwarded alert from IT Assistant. The event may have originated from an SNMP trap, DMI indication, or CIM indication. 
+---Novell NMS trap annotation 
+Variables:
+  1: itaAlertMessage
+  2: itaAlertNode
+  3: itaAlertSeverity
+EDESC
+#
+#
+#
+EVENT itaAlertSystemMonitoringCriticalAlert .1.3.6.1.4.1.674.10900.1.0.3001 "Status Events" CRITICAL 
+FORMAT System monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+System monitoring alert from IT Assistant. Sent when a node's system monitoring counters has exceeded user defined critical threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertSystemMonitoringWarningAlert .1.3.6.1.4.1.674.10900.1.0.3002 "Status Events" WARNING 
+FORMAT System monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+System monitoring alert from IT Assistant. Sent when a node's system monitoring counters has exceeded user defined warning threshold.
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertCPUMonitoringCriticalAlert .1.3.6.1.4.1.674.10900.1.0.3003 "Status Events" CRITICAL 
+FORMAT CPU monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+CPU monitoring alert from IT Assistant. Sent when a node's CPU utilization has exceeded user defined critical threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertCPUMonitoringWarningAlert .1.3.6.1.4.1.674.10900.1.0.3004 "Status Events" WARNING 
+FORMAT CPU monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+CPU monitoring alert from IT Assistant. Sent when a node's CPU utilization has exceeded user defined warning threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertMemoryMonitoringCriticalAlert .1.3.6.1.4.1.674.10900.1.0.3005 "Status Events" CRITICAL 
+FORMAT Memory monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Memory monitoring alert from IT Assistant. Sent when a node's memory utilization has exceeded user defined critical threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertMemoryMonitoringWarningAlert .1.3.6.1.4.1.674.10900.1.0.3006 "Status Events" WARNING 
+FORMAT Memory monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Memory monitoring alert from IT Assistant. Sent when a node's memory utilization has exceeded user defined warning threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertNetworkMonitoringCriticalAlert .1.3.6.1.4.1.674.10900.1.0.3007 "Status Events" CRITICAL 
+FORMAT Network monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Network monitoring alert from IT Assistant. Sent when a node's NIC utilization has exceeded user defined critical threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertNetworkMonitoringWarningAlert .1.3.6.1.4.1.674.10900.1.0.3008 "Status Events" WARNING 
+FORMAT Network monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Network monitoring alert from IT Assistant. Sent when a node's NIC utilization has exceeded user defined warning threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertPhysicalDiskMonitoringCriticalAlert .1.3.6.1.4.1.674.10900.1.0.3009 "Status Events" CRITICAL 
+FORMAT Physical disk monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Physical disk monitoring alert from IT Assistant. Sent when a node's physical disk utilization has exceeded user defined critical threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertPhysicalDiskMonitoringWarningAlert .1.3.6.1.4.1.674.10900.1.0.3010 "Status Events" WARNING 
+FORMAT Physical disk monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Physical disk monitoring alert from IT Assistant. Sent when a node's Physical disk utilization has exceeded user defined warning threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertLogicalDiskMonitoringCriticalAlert .1.3.6.1.4.1.674.10900.1.0.3011 "Status Events" CRITICAL 
+FORMAT Logical disk monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Logical disk monitoring alert from IT Assistant. Sent when a node's logical disk utilization has exceeded user defined critical threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC
+#
+#
+#
+EVENT itaAlertLogicalDiskMonitoringWarningAlert .1.3.6.1.4.1.674.10900.1.0.3012 "Status Events" WARNING 
+FORMAT Logical disk monitoring alert from IT Assistant : $1 was $2 $3 for $4 consecutive samples. 
+SDESC
+
+Logical disk monitoring alert from IT Assistant. Sent when a node's Logical disk utilization has exceeded user defined warning threshold. 
+--Novell NMS trap annotation 
+Variables:
+  1: itaAlertCounterName
+  2: itaAlertThresholdOperator
+  3: itaAlertThresholdValue
+  4: itaAlertThresholdCount
+EDESC

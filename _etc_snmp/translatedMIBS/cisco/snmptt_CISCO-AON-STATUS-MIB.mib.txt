@@ -1,0 +1,97 @@
+#
+#
+#
+#
+MIB: CISCO-AON-STATUS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-AON-STATUS-MIB.mib) converted on Tue Aug 21 15:25:37 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT caonUp .1.3.6.1.4.1.9.9.646.0.1 "Status Events" Normal
+FORMAT caonUp notification is sent when AON data plane is $*
+SDESC
+caonUp notification is sent when AON data plane is
+bootstrapped successfully and AON is ready to process messages.
+Variables:
+EDESC
+#
+#
+#
+EVENT caonDown .1.3.6.1.4.1.9.9.646.0.2 "Status Events" Normal
+FORMAT caonDown notification is sent when AON data plane goes down. $*
+SDESC
+caonDown notification is sent when AON data plane goes down.
+AON data plane might be down as a result of an administrative
+command i.e. stopping AON  via CLI command or deactivating the
+node from AMC or due to abnormal termination of AON data plane.
+If there is a hardware failure on the AON box then the
+notification might not be triggered.
+Variables:
+EDESC
+#
+#
+#
+EVENT caonNewPepDeployed .1.3.6.1.4.1.9.9.646.0.3 "Status Events" Normal
+FORMAT This notification is sent if a new PEP is deployed after AON $*
+SDESC
+This notification is sent if a new PEP is deployed after AON
+has bootstrapped successfully.
+caonPepName identifies the name of the new PEP.
+Variables:
+  1: caonPepName
+EDESC
+#
+#
+#
+EVENT caonMessageDeliveryFailed .1.3.6.1.4.1.9.9.646.0.4 "Status Events" Normal
+FORMAT This notification is sent if a message cannot be delivered to $*
+SDESC
+This notification is sent if a message cannot be delivered to
+the end point.
+caonMessageEndPointURL identifies the end point to which the
+message was being delivered to.
+The message source is either identified by caonMessageSrcUri  
+or (caonMessageSrcIpAddr and caonMessageSrcPort).
+Variables:
+  1: caonPepEndPointUrl
+  2: caonMessageSrcUri
+  3: caonMessageSrcIpAddressType
+  4: caonMessageSrcIpAddress
+  5: caonMessageSrcPort
+EDESC
+#
+#
+#
+EVENT caonSendResponseThresholdExceeded .1.3.6.1.4.1.9.9.646.0.5 "Status Events" Normal
+FORMAT This notification is sent if the destination end point $*
+SDESC
+This notification is sent if the destination end point
+response time exceeds the threshold value specified in the 
+Send Bladelet.
+caonPepEndPointUrl identifies the URI of the end point the
+message was being delivered to.
+caonSendResponseThreshold identifies the end point response time
+threshold value configured in the Send bladelet.
+Variables:
+  1: caonPepEndPointUrl
+  2: caonSendResponseThreshold
+EDESC
+#
+#
+#
+EVENT caonCustomNotification .1.3.6.1.4.1.9.9.646.0.6 "Status Events" Normal
+FORMAT This notification could be triggered during PEP execution. $*
+SDESC
+This notification could be triggered during PEP execution.
+Currently this is triggered from the Notify Bladelet if
+the customer specified condition evaluates to true and the
+notification type selected is SNMP.  This provides a way to
+extend the  AON platform to generate customer defined
+notifications based on customer specified conditions. 
+caonNotificationName identifies the name of the customer
+defined notification type.
+caonNotificationText identifies the notification text for the
+custom notification.
+Variables:
+  1: caonNotificationName
+  2: caonNotificationText
+EDESC

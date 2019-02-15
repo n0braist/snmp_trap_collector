@@ -1,0 +1,119 @@
+#
+#
+#
+#
+MIB: CISCO-CSG-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CSG-MIB.mib) converted on Tue Aug 21 15:25:49 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoCsgAgentStateChange .1.3.6.1.4.1.9.9.331.0.1 "Status Events" Normal
+FORMAT This notification is issued when csgAgentNotifsEnabled $*
+SDESC
+This notification is issued when csgAgentNotifsEnabled
+is set to 'true', and the billing mediation agent changes
+state. There is one exception: No notification is issued
+for state changes involving 'echowait' because this would
+cause an excessive number of notifications.
+Variables:
+  1: csgAgentState
+  2: csgAgentLostRecords
+  3: csgAgentTotalSent
+  4: csgAgentFailAck
+  5: csgAgentOutstanding
+  6: csgAgentHighWater
+  7: csgAgentBadRecord
+  8: csgAgentRetransmit
+EDESC
+#
+#
+#
+EVENT ciscoCsgQuotaMgrStateChange .1.3.6.1.4.1.9.9.331.0.2 "Status Events" Normal
+FORMAT This notification is issued when csgQuotaNotifsEnabled $*
+SDESC
+This notification is issued when csgQuotaNotifsEnabled
+is set to 'true', and the quota manager changes state. 
+There is one exception: No notification is issued for 
+state changes involving 'echowait' because this would 
+cause an excessive number of notifications.
+Variables:
+  1: csgQuotaMgrState
+  2: csgQuotaMgrLostRecords
+  3: csgQuotaMgrTotalSent
+  4: csgQuotaMgrFailAck
+  5: csgQuotaMgrOutstanding
+  6: csgQuotaMgrHighWater
+  7: csgQuotaMgrBadRecord
+  8: csgQuotaMgrRetransmit
+EDESC
+#
+#
+#
+EVENT ciscoCsgUserDbStateChange .1.3.6.1.4.1.9.9.331.0.3 "Status Events" Normal
+FORMAT This notification is issued when csgDatabaseNotifsEnabled $*
+SDESC
+This notification is issued when csgDatabaseNotifsEnabled
+is set to 'true', and the user database changes state.
+Variables:
+  1: csgUserDbState
+  2: csgUserDbRequests
+  3: csgUserDbUidsReturned
+  4: csgUserDbReqResent
+  5: csgUserDbReqTimeouts
+  6: csgUserDbReqErrors
+EDESC
+#
+#
+#
+EVENT ciscoCsgAgentLostRecordEvent .1.3.6.1.4.1.9.9.331.0.4 "Status Events" Normal
+FORMAT This notification is issued when csgAgentNotifsEnabled $*
+SDESC
+This notification is issued when csgAgentNotifsEnabled
+is set to 'true', and the CSG must discard accounting 
+records that should be sent to the billing mediation
+agent.
+Initially, csgAgentLostRecords is set to 0.
+When a record is discarded, csgAgentLostRecords 
+is incremented, a period timer is started, and this 
+notification is issued. The NMS and the agent save 
+this value. The agent continues to increment 
+csgAgentLostRecords each time a record is lost.  
+When the period timer expires, the agent compares
+the current value of csgAgentLostRecords with
+the previous (saved) value. If the values are equal
+this notification is issued again, signalling to the
+NMS that the condition has been cleared. Otherwise,
+the timer is restarted to monitor the next period.
+When a record is lost and no period timer is active, 
+this notification is issued and the above procedure 
+is repeated.
+Variables:
+  1: csgAgentState
+  2: csgAgentLostRecords
+  3: csgAgentTotalSent
+  4: csgAgentFailAck
+  5: csgAgentOutstanding
+  6: csgAgentHighWater
+  7: csgAgentBadRecord
+  8: csgAgentRetransmit
+EDESC
+#
+#
+#
+EVENT ciscoCsgQuotaMgrLostRecordEvent .1.3.6.1.4.1.9.9.331.0.5 "Status Events" Normal
+FORMAT This notification is issued when csgQuotaNotifsEnabled $*
+SDESC
+This notification is issued when csgQuotaNotifsEnabled
+is set to 'true', and the CSG must discard request
+records to be sent to the quota manager. The processing 
+is the same as described in the description for 
+ciscoCsgAgentLostRecordEvent.
+Variables:
+  1: csgQuotaMgrState
+  2: csgQuotaMgrLostRecords
+  3: csgQuotaMgrTotalSent
+  4: csgQuotaMgrFailAck
+  5: csgQuotaMgrOutstanding
+  6: csgQuotaMgrHighWater
+  7: csgQuotaMgrBadRecord
+  8: csgQuotaMgrRetransmit
+EDESC

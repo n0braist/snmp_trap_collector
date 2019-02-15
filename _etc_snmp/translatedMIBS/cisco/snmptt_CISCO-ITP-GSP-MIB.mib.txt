@@ -1,0 +1,173 @@
+#
+#
+#
+#
+MIB: CISCO-ITP-GSP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ITP-GSP-MIB.mib) converted on Tue Aug 21 15:26:13 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoGspLinksetStateChange .1.3.6.1.4.1.9.9.336.0.1 "Status Events" Normal
+FORMAT The notification generated when a linkset $*
+SDESC
+The notification generated when a linkset
+changes to a new state.  The value of
+cgspLinksetState  indicates the new state.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspLinksetDisplayName
+  4: cgspLinksetSourceDisplayPC
+  5: cgspLinksetAdjacentDisplayPC
+  6: cgspLinksetState
+EDESC
+#
+#
+#
+EVENT ciscoGspLinkStateChange .1.3.6.1.4.1.9.9.336.0.2 "Status Events" Normal
+FORMAT The notification generated when a link $*
+SDESC
+The notification generated when a link
+changes to a new state.  The value of
+cgspLinkState  indicates the new state.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspLinksetSourceDisplayPC
+  4: cgspLinksetAdjacentDisplayPC
+  5: cgspLinkDisplayName
+  6: cgspLinkState
+  7: cgspLinkReason
+  8: cgspLinkTestResult
+EDESC
+#
+#
+#
+EVENT ciscoGspCongestionChange .1.3.6.1.4.1.9.9.336.0.3 "Status Events" Normal
+FORMAT The notification generated when a link $*
+SDESC
+The notification generated when a link
+changes to a new congestion level as specified
+by cgspLinkCongestionState object for Transmission Side         
+congestion.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspLinksetSourceDisplayPC
+  4: cgspLinksetAdjacentDisplayPC
+  5: cgspLinkDisplayName
+  6: cgspLinkCongestionState
+EDESC
+#
+#
+#
+EVENT ciscoGspLinkRcvdUtilChange .1.3.6.1.4.1.9.9.336.0.4 "Status Events" Normal
+FORMAT The notification provide is generated when $*
+SDESC
+The notification provide is generated when
+the cgspLinkUtilStateRcvd changes states.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspLinksetSourceDisplayPC
+  4: cgspLinksetAdjacentDisplayPC
+  5: cgspLinkDisplayName
+  6: cgspLinkUtilStateRcvd
+  7: cgspLinkUtilizationRcvd
+EDESC
+#
+#
+#
+EVENT ciscoGspLinkSentUtilChange .1.3.6.1.4.1.9.9.336.0.5 "Status Events" Normal
+FORMAT The notification provide is generated when $*
+SDESC
+The notification provide is generated when
+the cgspLinkUtilStateSent changes states.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspLinksetSourceDisplayPC
+  4: cgspLinksetAdjacentDisplayPC
+  5: cgspLinkDisplayName
+  6: cgspLinkUtilStateSent
+  7: cgspLinkUtilizationSent
+EDESC
+#
+#
+#
+EVENT ciscoGspIsolation .1.3.6.1.4.1.9.9.336.0.6 "Status Events" Normal
+FORMAT This notification indicates the instance specified $*
+SDESC
+This notification indicates the instance specified
+by cgspInstDisplayName and cgspInstDescription has 
+become isolated. All linkset used to connect MTP3 node
+(instance) are unavailable.  Isolation is ended when 
+any linkset supported by this instance reaches the
+active state.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstDisplayName
+  4: cgspInstDescription
+EDESC
+#
+#
+#
+EVENT ciscoGspUPUReceived .1.3.6.1.4.1.9.9.336.0.8 "Status Events" Normal
+FORMAT The notification is generated when an UPU MSU is received $*
+SDESC
+The notification is generated when an UPU MSU is received
+from a remote signalling point, for a specific instance
+and user part for the first time in the configured
+cgspUPUNotifWindowTime. For cases when there is a non-zero
+number of UPU MSUs received, this notification will be sent
+at the end of the cgspUPUNotifWindowTime interval, with
+cgspIntervalUPUs indicating the total count of UPU
+MSUs received for that specific instance and user part
+during the entire cgspUPUNotifWindowTime interval Q752/5.6.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstUserPartDisplay
+  4: cgspUPUIntervalDuration
+  5: cgspIntervalUPUs
+EDESC
+#
+#
+#
+EVENT ciscoGspUPUTransmitted .1.3.6.1.4.1.9.9.336.0.9 "Status Events" Normal
+FORMAT The notification is generated when an UPU MSU is transmitted $*
+SDESC
+The notification is generated when an UPU MSU is transmitted
+to a remote signalling point, for a specific instance and
+user part for the first time in the configured
+cgspUPUNotifWindowTime. For cases when there is a non-zero
+number of UPU MSUs received, this notification will be sent
+at the end of the cgspUPUNotifWindowTime interval, with
+cgspIntervalUPUs indicating the total count of UPU MSUs
+transmitted for that specific instance and user part
+during the entire cgspUPUNotifWindowTime interval Q752/5.7.
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspInstUserPartDisplay
+  4: cgspUPUIntervalDuration
+  5: cgspIntervalUPUs
+EDESC
+#
+#
+#
+EVENT ciscoGspRxCongestionChange .1.3.6.1.4.1.9.9.336.0.10 "Status Events" Normal
+FORMAT The notification generated when a link $*
+SDESC
+The notification generated when a link
+changes to a new congestion level as specified
+by cgspLinkRxCongestionstate object for Received side
+congestion
+Variables:
+  1: cgspEventSequenceNumber
+  2: cgspCLLICode
+  3: cgspLinksetSourceDisplayPC
+  4: cgspLinksetAdjacentDisplayPC
+  5: cgspLinkDisplayName
+  6: cgspLinkRxCongestionState
+EDESC

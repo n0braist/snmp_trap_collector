@@ -1,0 +1,128 @@
+#
+#
+#
+#
+MIB: CISCO-WIRELESS-P2MP-PHY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WIRELESS-P2MP-PHY-MIB.mib) converted on Tue Aug 21 15:26:46 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT p2mpRadioPhyFailNotification .1.3.6.1.4.1.9.9.170.2.0.1 "Status Events" Normal
+FORMAT A p2mpRadioPhyFailNotification is sent if the value of $*
+SDESC
+A p2mpRadioPhyFailNotification is sent if the value of
+p2mpLastPhyFailureType changes due to the new failure 
+being detected in the Radio interface.
+Variables:
+  1: p2mpLastPhyFailureType
+  2: p2mpLastPhyFailureReason
+EDESC
+#
+#
+#
+EVENT p2mpTrapRfSupplyVoltage .1.3.6.1.4.1.9.9.170.2.0.2 "Status Events" Normal
+FORMAT The supply voltage to the RF resource has changed.  $*
+SDESC
+The supply voltage to the RF resource has changed. 
+The p2mpRfSupplyVoltageState specifies whether the supply 
+voltage is in spec or not.
+Variables:
+  1: p2mpRfSupplyVoltageState
+EDESC
+#
+#
+#
+EVENT p2mpTrapRfRxOsc .1.3.6.1.4.1.9.9.170.2.0.3 "Status Events" Normal
+FORMAT The RF receive frequency oscillator has changed state. $*
+SDESC
+The RF receive frequency oscillator has changed state.
+The p2mpRfRxOscState specifies the current state of 
+the oscillator.
+Variables:
+  1: p2mpRfRxOscState
+EDESC
+#
+#
+#
+EVENT p2mpTrapRfTxOsc .1.3.6.1.4.1.9.9.170.2.0.4 "Status Events" Normal
+FORMAT The RF transmit frequency oscillator has changed state. $*
+SDESC
+The RF transmit frequency oscillator has changed state.
+The p2mpRfRxOscState specifies the state of the 
+oscillator.
+Variables:
+  1: p2mpRfTxOscState
+EDESC
+#
+#
+#
+EVENT p2mpTrapRfTemp .1.3.6.1.4.1.9.9.170.2.0.5 "Status Events" Normal
+FORMAT The temperature of the RF module identified by p2mpRfIndex $*
+SDESC
+The temperature of the RF module identified by p2mpRfIndex
+has exceeded a defined reference.
+Variables:
+  1: p2mpRfTemperature
+EDESC
+#
+#
+#
+EVENT p2mpTrapRfCommLinkError .1.3.6.1.4.1.9.9.170.2.0.6 "Status Events" Normal
+FORMAT This trap indicates that the host and the IF module cannot  $*
+SDESC
+This trap indicates that the host and the IF module cannot 
+communicate with the RF resource identified by p2mpRfType.
+Variables:
+  1: p2mpRfType
+EDESC
+#
+#
+#
+EVENT p2mpTrapTxPower .1.3.6.1.4.1.9.9.170.2.0.7 "Status Events" Normal
+FORMAT This trap indicates that the transmit power for the RF resource  $*
+SDESC
+This trap indicates that the transmit power for the RF resource 
+identified by p2mpRfType exceeded a predefined threshold.
+Variables:
+  1: p2mpRfType
+EDESC
+#
+#
+#
+EVENT p2mpTrapRfStatusChange .1.3.6.1.4.1.9.9.170.2.0.8 "Status Events" Normal
+FORMAT This trap indicates that the RF resource either came online(1) $*
+SDESC
+This trap indicates that the RF resource either came online(1)
+or went offline(2). 
+Variables:
+  1: p2mpRfStatus
+EDESC
+#
+#
+#
+EVENT p2mpTrapHeIfRxOsc .1.3.6.1.4.1.9.9.170.2.0.9 "Status Events" Normal
+FORMAT The IF receive frequency oscillator has changed state. $*
+SDESC
+The IF receive frequency oscillator has changed state.
+Variables:
+  1: p2mpHeIfRxOscState
+EDESC
+#
+#
+#
+EVENT p2mpTrapHeIfTxOsc .1.3.6.1.4.1.9.9.170.2.0.10 "Status Events" Normal
+FORMAT The IF transmit frequency oscillator has changed state. $*
+SDESC
+The IF transmit frequency oscillator has changed state.
+Variables:
+  1: p2mpHeIfTxOscState
+EDESC
+#
+#
+#
+EVENT p2mpTrapHeIfExtRefOsc .1.3.6.1.4.1.9.9.170.2.0.11 "Status Events" Normal
+FORMAT The IF Reference Frequency oscillator has changed state. $*
+SDESC
+The IF Reference Frequency oscillator has changed state.
+Variables:
+  1: p2mpHeIfRefOscState
+EDESC

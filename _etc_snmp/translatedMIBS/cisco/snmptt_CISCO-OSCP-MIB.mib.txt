@@ -1,0 +1,19 @@
+#
+#
+#
+#
+MIB: CISCO-OSCP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-OSCP-MIB.mib) converted on Tue Aug 21 15:26:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT coscpNotifyTransDown .1.3.6.1.4.1.9.9.202.2.0.1 "Status Events" Normal
+FORMAT A coscpNotifyTransDown notification is sent when the $*
+SDESC
+A coscpNotifyTransDown notification is sent when the
+value of an instance of coscpTransDown increments.
+This indicates that a link exited the 'twoWay' state and
+cannot be used to carry control and management traffic
+for an optical supervisory channel.
+Variables:
+  1: coscpLinkTransDown
+EDESC

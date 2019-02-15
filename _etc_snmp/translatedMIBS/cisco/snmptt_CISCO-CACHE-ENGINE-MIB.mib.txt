@@ -1,0 +1,73 @@
+#
+#
+#
+#
+MIB: CISCO-CACHE-ENGINE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CACHE-ENGINE-MIB.mib) converted on Tue Aug 21 15:25:41 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cacheTrapReadDiskError .1.3.6.1.4.1.9.10.39.2.0.1 "Status Events" Normal
+FORMAT First read error occurred on the disk that is being accessed. $*
+SDESC
+First read error occurred on the disk that is being accessed.
+Variables:
+EDESC
+#
+#
+#
+EVENT cacheTrapWriteDiskError .1.3.6.1.4.1.9.10.39.2.0.2 "Status Events" Normal
+FORMAT First write error occurred on the disk that is being accessed. $*
+SDESC
+First write error occurred on the disk that is being accessed.
+Variables:
+EDESC
+#
+#
+#
+EVENT cacheTrapWriteTransFailed .1.3.6.1.4.1.9.10.39.2.0.3 "Status Events" Normal
+FORMAT Failed writing to working transaction log.  Possible causes $*
+SDESC
+Failed writing to working transaction log.  Possible causes
+are system errors or the log having been removed.
+Variables:
+EDESC
+#
+#
+#
+EVENT cacheTrapTooManyThreadsDead .1.3.6.1.4.1.9.10.39.2.0.4 "Status Events" Normal
+FORMAT Too many threads are dead.  This causes a reboot to happen. $*
+SDESC
+Too many threads are dead.  This causes a reboot to happen.
+Variables:
+EDESC
+#
+#
+#
+EVENT cacheTrapWccpDisabled .1.3.6.1.4.1.9.10.39.2.0.5 "Status Events" Normal
+FORMAT WCCP (Web Cache Control Protocol) is enabled and then disabled $*
+SDESC
+WCCP (Web Cache Control Protocol) is enabled and then disabled
+due to blocked cache.
+Variables:
+EDESC
+#
+#
+#
+EVENT cacheTrapDiskVolUnmounted .1.3.6.1.4.1.9.10.39.2.0.6 "Status Events" Normal
+FORMAT A CFS disk volume has been unmounted due to an error condition. $*
+SDESC
+A CFS disk volume has been unmounted due to an error condition.
+Any DOSFS volume on this disk has also been unmounted.
+Variables:
+  1: cceUsageDiskVolumeName
+EDESC
+#
+#
+#
+EVENT cacheTrapDosfsVolFull .1.3.6.1.4.1.9.10.39.2.0.7 "Status Events" Normal
+FORMAT DOSFS Volume is full. $*
+SDESC
+DOSFS Volume is full.
+Variables:
+  1: cceUsageDosfsVolumeName
+EDESC

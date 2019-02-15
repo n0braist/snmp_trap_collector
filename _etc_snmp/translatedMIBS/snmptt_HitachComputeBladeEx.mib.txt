@@ -1,0 +1,356 @@
+#
+#
+#
+#
+MIB: HitachiComputeBladeEx-MIB (file:/tmp/HitachComputeBladeEx.mib) converted on Wed Feb 12 15:22:04 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT bsmAlertTrapSvpNon-Recoverable .1.3.6.1.4.1.116.5.52.10.1.1.1.1 "Status Events" Normal
+FORMAT This shows the management module encountered an event of the fault level. $*
+SDESC
+This shows the management module encountered an event of the fault level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapSvpSerious .1.3.6.1.4.1.116.5.52.10.1.1.1.2 "Status Events" Normal
+FORMAT This shows the management module encountered an event of the warning level. $*
+SDESC
+This shows the management module encountered an event of the warning level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapSvpInformation .1.3.6.1.4.1.116.5.52.10.1.1.1.3 "Status Events" Normal
+FORMAT This shows the management module encountered an event of the information level. $*
+SDESC
+This shows the management module encountered an event of the information level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapSvpEvent .1.3.6.1.4.1.116.5.52.10.1.1.1.4 "Status Events" Normal
+FORMAT This shows the management module encountered an event. $*
+SDESC
+This shows the management module encountered an event.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapBladeNon-Recoverable .1.3.6.1.4.1.116.5.52.10.1.1.2.1 "Status Events" Normal
+FORMAT This shows the server blade encountered an event of the fault level. $*
+SDESC
+This shows the server blade encountered an event of the fault level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapBladeSerious .1.3.6.1.4.1.116.5.52.10.1.1.2.2 "Status Events" Normal
+FORMAT This shows the server blade encountered an event of the warning level. $*
+SDESC
+This shows the server blade encountered an event of the warning level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapBladeInformation .1.3.6.1.4.1.116.5.52.10.1.1.2.3 "Status Events" Normal
+FORMAT This shows the server blade encountered an event of the information level. $*
+SDESC
+This shows the server blade encountered an event of the information level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapBladeEvent .1.3.6.1.4.1.116.5.52.10.1.1.2.4 "Status Events" Normal
+FORMAT This shows the server blade encountered an event. $*
+SDESC
+This shows the server blade encountered an event.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapOtherNon-Recoverable .1.3.6.1.4.1.116.5.52.10.1.1.20.1 "Status Events" Normal
+FORMAT This shows a location except management modules or server blades encountered an event of the fault level. $*
+SDESC
+This shows a location except management modules or server blades encountered an event of the fault level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapOtherSerious .1.3.6.1.4.1.116.5.52.10.1.1.20.2 "Status Events" Normal
+FORMAT This shows a location except management modules or server blades encountered an event of the warning level. $*
+SDESC
+This shows a location except management modules or server blades encountered an event of the warning level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapOtherInformation .1.3.6.1.4.1.116.5.52.10.1.1.20.3 "Status Events" Normal
+FORMAT This shows a location except management modules or server blades encountered an event of the information level. $*
+SDESC
+This shows a location except management modules or server blades encountered an event of the information level.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT bsmAlertTrapOtherEvent .1.3.6.1.4.1.116.5.52.10.1.1.20.4 "Status Events" Normal
+FORMAT This shows a location except management modules or server blades encountered an event. $*
+SDESC
+This shows a location except management modules or server blades encountered an event.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertOutbreakPart
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapMonitoringError .1.3.6.1.4.1.116.5.52.10.2.1.1.1 "Status Events" Normal
+FORMAT This shows the event of the fault level was encountered as monitoring alert. $*
+SDESC
+This shows the event of the fault level was encountered as monitoring alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapMonitoringWarning .1.3.6.1.4.1.116.5.52.10.2.1.1.2 "Status Events" Normal
+FORMAT This shows the event of the warning level was encountered as monitoring alert. $*
+SDESC
+This shows the event of the warning level was encountered as monitoring alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapMonitoringInformation .1.3.6.1.4.1.116.5.52.10.2.1.1.3 "Status Events" Normal
+FORMAT This shows the event of the information level was encountered as monitoring alert. $*
+SDESC
+This shows the event of the information level was encountered as monitoring alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapEventError .1.3.6.1.4.1.116.5.52.10.2.1.2.1 "Status Events" Normal
+FORMAT This shows the event of the fault level was encountered as event alert. $*
+SDESC
+This shows the event of the fault level was encountered as event alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapEventWarning .1.3.6.1.4.1.116.5.52.10.2.1.2.2 "Status Events" Normal
+FORMAT This shows the event of the warning level was encountered as event alert. $*
+SDESC
+This shows the event of the warning level was encountered as event alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapEventInformation .1.3.6.1.4.1.116.5.52.10.2.1.2.3 "Status Events" Normal
+FORMAT This shows the event of the information level was encountered as event alert. $*
+SDESC
+This shows the event of the information level was encountered as event alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapStatusChangeError .1.3.6.1.4.1.116.5.52.10.2.1.3.1 "Status Events" Normal
+FORMAT This shows the event of the fault level was encountered as state change alert. $*
+SDESC
+This shows the event of the fault level was encountered as state change alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapStatusChangeWarning .1.3.6.1.4.1.116.5.52.10.2.1.3.2 "Status Events" Normal
+FORMAT This shows the event of the warning level was encountered as state change alert. $*
+SDESC
+This shows the event of the warning level was encountered as state change alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC
+#
+#
+#
+EVENT hcsmAlertTrapStatusChangeInformation .1.3.6.1.4.1.116.5.52.10.2.1.3.3 "Status Events" Normal
+FORMAT This shows the event of the information level was encountered as state change alert. $*
+SDESC
+This shows the event of the information level was encountered as state change alert.
+Variables:
+  1: alertTrapInfLocalTime
+  2: alertTrapInfChassisID
+  3: alertTrapInfAlertLevel
+  4: alertTrapInfAlertID
+  5: alertTrapInfAlertMessage
+  6: alertTrapInfAlertModuleType
+  7: alertTrapInfAlertModuleLocation
+  8: alertTrapInfAlertModuleModelName
+  9: alertTrapInfAlertModuleSerialNum
+  10: alertTrapInfAlertEventCode
+EDESC

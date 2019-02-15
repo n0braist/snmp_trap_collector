@@ -1,0 +1,171 @@
+#
+#
+#
+#
+MIB: CPQUPS-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQUPS-MIB.mib) converted on Wed Aug 22 14:19:24 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqUpsLineFailed .1.3.6.1.4.1.232.0.12001 "Status Events" CRITICAL
+FORMAT AC Line Failure: UPS has about $1 minutes of power left.
+SDESC
+AC Line power failure.
+The UPS reports that the AC line power has failed.
+Variables:
+  1: cpqUpsEstimatedBatteryLife
+EDESC
+#
+#
+#
+EVENT cpqUpsLineOk .1.3.6.1.4.1.232.0.12002 "Status Events" INFORMATIONAL
+FORMAT AC Line Power OK: UPS reports AC line power has returned.
+SDESC
+AC line power ok.
+The UPS reports that the AC line power has returned.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqUpsShutdown .1.3.6.1.4.1.232.0.12003 "Status Events" CRITICAL
+FORMAT UPS Shutdown: The UPS has initiated server shutdown.
+SDESC
+UPS initiating graceful server shutdown.
+The UPS software is initiating a graceful server shutdown.
+Every attempt to preserve the state of the file system
+will be made.  The server shutdown will be initiated due to
+a power anomaly.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqUpsConfirmation .1.3.6.1.4.1.232.0.12004 "Status Events" INFORMATIONAL
+FORMAT UPS Confirmation: Server now operational after UPS shutdown.
+SDESC
+Server now operational after power down.
+This server has previously been shutdown due to a power
+anomaly and has just become operational again.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqUpsBatteryLow .1.3.6.1.4.1.232.0.12005 "Status Events" CRITICAL
+FORMAT UPS Battery Low: Server will soon lose power.
+SDESC
+UPS Battery Low.  The server will soon lose power.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqUps2LineFailed .1.3.6.1.4.1.232.0.12006 "Status Events" CRITICAL
+FORMAT AC Line Failure: UPS has about $3 minutes of power left.
+SDESC
+AC Line power failure.
+The UPS reports that the AC line power has failed.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqUpsEstimatedBatteryLife
+EDESC
+#
+#
+#
+EVENT cpqUps2LineOk .1.3.6.1.4.1.232.0.12007 "Status Events" INFORMATIONAL
+FORMAT AC Line Power OK: UPS reports AC line power has returned.
+SDESC
+AC line power ok.
+The UPS reports that the AC line power has returned.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqUps2Shutdown .1.3.6.1.4.1.232.0.12008 "Status Events" CRITICAL
+FORMAT UPS Shutdown: The UPS has initiated server shutdown.
+SDESC
+UPS initiating graceful server shutdown.
+The UPS software is initiating a graceful server shutdown.
+Every attempt to preserve the state of the file system
+will be made.  The server shutdown will be initiated due to
+a power anomaly.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqUps2Confirmation .1.3.6.1.4.1.232.0.12009 "Status Events" INFORMATIONAL
+FORMAT UPS Confirmation: Server now operational after UPS shutdown.
+SDESC
+Server now operational after power down.
+This server has previously been shutdown due to a power
+anomaly and has just become operational again.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqUps2BatteryLow .1.3.6.1.4.1.232.0.12010 "Status Events" CRITICAL
+FORMAT UPS Battery Low: Server will soon lose power.
+SDESC
+UPS Battery Low.  The server will soon lose power.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqUpsOverload .1.3.6.1.4.1.232.0.12011 "Status Events" CRITICAL
+FORMAT UPS Overload: The UPS has been overloaded.
+SDESC
+The UPS has entered an overload condition.  A failure
+may occur unless the overload is corrected.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqUpsPendingBatteryFailure .1.3.6.1.4.1.232.0.12012 "Status Events" CRITICAL
+FORMAT UPS Pending Battery Failure: The UPS battery is about to fail.
+SDESC
+The UPS battery is about to fail.  Replace as soon
+as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqUpsGenericCritical .1.3.6.1.4.1.232.0.12013 "Status Events" CRITICAL
+FORMAT UPS Critical Alarm: $3
+SDESC
+Generic UPS critical alarm.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqUpsAlarm
+EDESC
+#
+#
+#
+EVENT cpqUpsGenericInfo .1.3.6.1.4.1.232.0.12014 "Status Events" INFORMATIONAL
+FORMAT UPS Info Alarm: $3
+SDESC
+Generic UPS informational alarm.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqUpsAlarm
+EDESC

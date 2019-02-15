@@ -1,0 +1,18 @@
+#
+#
+#
+#
+MIB: CISCO-LWAPP-DOT11-CLIENT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-LWAPP-DOT11-CLIENT-MIB.mib) converted on Tue Aug 21 15:26:18 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoLwappDot11ClientKeyDecryptError .1.3.6.1.4.1.9.9.599.0.1 "Status Events" Normal
+FORMAT Issued when a decrypt error occurs. The WEP WPA or WPA2 Key $*
+SDESC
+Issued when a decrypt error occurs. The WEP WPA or WPA2 Key
+configured at the station may be wrong.
+Variables:
+  1: cldcAssociationMode
+  2: cldcApMacAddress
+  3: cldcIfType
+EDESC

@@ -1,0 +1,790 @@
+#
+#
+#
+#
+MIB: MIB-Dell-10892 (file:/tmp/polycom/MIB-Dell-10892.mib) converted on Fri Mar 13 12:28:38 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alertSystemUp .1.3.6.1.4.1.674.10892.1.0.1001 "Status Events" INFORMATIONAL
+FORMAT Server Administrator Startup Complete: $3
+SDESC
+Server Administrator has completed its initialization.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertThermalShutdown .1.3.6.1.4.1.674.10892.1.0.1004 "Status Events" CRITICAL
+FORMAT Server Thermal Shutdown: $3
+SDESC
+Thermal shutdown protection has been initiated.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertAutomaticSystemRecovery .1.3.6.1.4.1.674.10892.1.0.1006 "Status Events" CRITICAL
+FORMAT Server Automatic System Recovery: $3
+SDESC
+Automatic system recovery (ASR) was performed.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertUserHostSystemReset .1.3.6.1.4.1.674.10892.1.0.1007 "Status Events" INFORMATIONAL
+FORMAT Server User Host System Reset: $3
+SDESC
+User has initiated host system reset.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeNormal .1.3.6.1.4.1.674.10892.1.0.1052 "Status Events" INFORMATIONAL
+FORMAT Server Temperature Normal: $3
+SDESC
+Temperature probe has returned to a normal value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeWarning .1.3.6.1.4.1.674.10892.1.0.1053 "Status Events" MINOR
+FORMAT Server Temperature Warning: $3
+SDESC
+Temperature probe has detected a warning value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeFailure .1.3.6.1.4.1.674.10892.1.0.1054 "Status Events" CRITICAL
+FORMAT Server Temperature Failure: $3
+SDESC
+Temperature probe has detected a failure value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertTemperatureProbeNonRecoverable .1.3.6.1.4.1.674.10892.1.0.1055 "Status Events" CRITICAL
+FORMAT Server Temperature Nonrecoverable: $3
+SDESC
+Temperature probe has detected a non-recoverable value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertCoolingDeviceNormal .1.3.6.1.4.1.674.10892.1.0.1102 "Status Events" INFORMATIONAL
+FORMAT Server Cooling Device Normal: $3
+SDESC
+Cooling device sensor has returned to a normal value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertCoolingDeviceWarning .1.3.6.1.4.1.674.10892.1.0.1103 "Status Events" MINOR
+FORMAT Server Cooling Device Warning: $3
+SDESC
+Cooling device sensor has detected a warning value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertCoolingDeviceFailure .1.3.6.1.4.1.674.10892.1.0.1104 "Status Events" CRITICAL
+FORMAT Server Cooling Device Failure: $3
+SDESC
+Cooling device sensor has detected a failure value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertCoolingDeviceNonRecoverable .1.3.6.1.4.1.674.10892.1.0.1105 "Status Events" CRITICAL
+FORMAT Server Cooling Device Nonrecoverable: $3
+SDESC
+Cooling device sensor has detected a non-recoverable value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertVoltageProbeNormal .1.3.6.1.4.1.674.10892.1.0.1152 "Status Events" INFORMATIONAL
+FORMAT Server Voltage Normal: $3
+SDESC
+Voltage probe has returned to a normal value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertVoltageProbeWarning .1.3.6.1.4.1.674.10892.1.0.1153 "Status Events" MINOR
+FORMAT Server Voltage Warning: $3
+SDESC
+Voltage probe has detected a warning value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertVoltageProbeFailure .1.3.6.1.4.1.674.10892.1.0.1154 "Status Events" CRITICAL
+FORMAT Server Voltage Failure: $3
+SDESC
+Voltage probe has detected a failure value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertVoltageProbeNonRecoverable .1.3.6.1.4.1.674.10892.1.0.1155 "Status Events" CRITICAL
+FORMAT Server Voltage Nonrecoverable: $3
+SDESC
+Voltage probe has detected a non-recoverable value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertAmperageProbeNormal .1.3.6.1.4.1.674.10892.1.0.1202 "Status Events" INFORMATIONAL
+FORMAT Server Amperage Normal: $3
+SDESC
+Amperage probe has returned to a normal value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertAmperageProbeWarning .1.3.6.1.4.1.674.10892.1.0.1203 "Status Events" MINOR
+FORMAT Server Amperage Warning: $3
+SDESC
+Amperage probe has detected a warning value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertAmperageProbeFailure .1.3.6.1.4.1.674.10892.1.0.1204 "Status Events" CRITICAL
+FORMAT Server Amperage Failure: $3
+SDESC
+Amperage probe has detected a failure value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertAmperageProbeNonRecoverable .1.3.6.1.4.1.674.10892.1.0.1205 "Status Events" CRITICAL
+FORMAT Server Amperage Nonrecoverable: $3
+SDESC
+Amperage probe has detected a non-recoverable value.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertChassisIntrusionNormal .1.3.6.1.4.1.674.10892.1.0.1252 "Status Events" INFORMATIONAL
+FORMAT Server Chassis Intrusion Normal: $3
+SDESC
+Chassis intrusion has returned to normal.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertChassisIntrusionDetected .1.3.6.1.4.1.674.10892.1.0.1254 "Status Events" CRITICAL
+FORMAT Server Chassis Intrusion Detected: $3
+SDESC
+Chassis intrusion has been detected.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertRedundancyNormal .1.3.6.1.4.1.674.10892.1.0.1304 "Status Events" INFORMATIONAL
+FORMAT Server Redundancy Normal: $3
+SDESC
+Redundancy has returned to normal.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertRedundancyDegraded .1.3.6.1.4.1.674.10892.1.0.1305 "Status Events" MINOR
+FORMAT Server Redundancy Degraded: $3
+SDESC
+Redundancy has been degraded.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertRedundancyLost .1.3.6.1.4.1.674.10892.1.0.1306 "Status Events" MAJOR
+FORMAT Server Redundancy Lost: $3
+SDESC
+Redundancy has been lost.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyNormal .1.3.6.1.4.1.674.10892.1.0.1352 "Status Events" INFORMATIONAL
+FORMAT Server Power Supply Normal: $3
+SDESC
+Power supply has returned to normal.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyWarning .1.3.6.1.4.1.674.10892.1.0.1353 "Status Events" MINOR
+FORMAT Server Power Supply Warning: $3
+SDESC
+Power supply has detected a warning.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertPowerSupplyFailure .1.3.6.1.4.1.674.10892.1.0.1354 "Status Events" CRITICAL
+FORMAT Server Power Supply Failure: $3
+SDESC
+Power supply has detected a failure.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertMemoryDeviceWarning .1.3.6.1.4.1.674.10892.1.0.1403 "Status Events" MINOR
+FORMAT Server Memory Device Noncritical: $3
+SDESC
+Memory device status is noncritical.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertMemoryDeviceFailure .1.3.6.1.4.1.674.10892.1.0.1404 "Status Events" CRITICAL
+FORMAT Server Memory Device Critical: $3
+SDESC
+Memory device status is critical.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertMemoryDeviceNonRecoverable .1.3.6.1.4.1.674.10892.1.0.1405 "Status Events" CRITICAL
+FORMAT Server Memory Device Nonrecoverable: $3
+SDESC
+Memory device status is non-recoverable.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertFanEnclosureInsertion .1.3.6.1.4.1.674.10892.1.0.1452 "Status Events" INFORMATIONAL
+FORMAT Server Fan Enclosure Insertion: $3
+SDESC
+Fan enclosure has been inserted into system.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertFanEnclosureRemoval .1.3.6.1.4.1.674.10892.1.0.1453 "Status Events" MINOR
+FORMAT Server Fan Enclosure Removal: $3
+SDESC
+Fan enclosure has been removed from system.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertFanEnclosureExtendedRemoval .1.3.6.1.4.1.674.10892.1.0.1454 "Status Events" CRITICAL
+FORMAT Server Fan Enclosure Extended Removal: $3
+SDESC
+Fan enclosure has been removed from system for an extended amount of time.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertACPowerCordNoPowerNonRedundant .1.3.6.1.4.1.674.10892.1.0.1501 "Status Events" INFORMATIONAL
+FORMAT Server AC Cord No Power Non-redundant: $3
+SDESC
+AC power cord does not have power, and the reduncancy mode
+for its AC power switch has been set to non-redundant.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertACPowerCordNormal .1.3.6.1.4.1.674.10892.1.0.1502 "Status Events" INFORMATIONAL
+FORMAT Server AC Cord Normal: $3
+SDESC
+AC power cord has regained power.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertACPowerCordFailure .1.3.6.1.4.1.674.10892.1.0.1504 "Status Events" CRITICAL
+FORMAT Server AC Cord Failure: $3
+SDESC
+AC power cord has lost power.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertLogNormal .1.3.6.1.4.1.674.10892.1.0.1552 "Status Events" INFORMATIONAL
+FORMAT Server Hardware Log Normal: $3
+SDESC
+Log size is no longer near or at capacity.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertLogWarning .1.3.6.1.4.1.674.10892.1.0.1553 "Status Events" MINOR
+FORMAT Server Hardware Log Warning: $3
+SDESC
+Log size is near capacity.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertLogFull .1.3.6.1.4.1.674.10892.1.0.1554 "Status Events" CRITICAL
+FORMAT Server Hardware Log Full: $3
+SDESC
+Log size is at capacity.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertProcessorDeviceStatusNormal .1.3.6.1.4.1.674.10892.1.0.1602 "Status Events" INFORMATIONAL
+FORMAT Server Processor Device Status Normal: $3
+SDESC
+Processor device status has returned to normal.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertProcessorDeviceStatusWarning .1.3.6.1.4.1.674.10892.1.0.1603 "Status Events" MINOR
+FORMAT Server Processor Device Status Warning: $3
+SDESC
+Processor device status has detected a warning.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertProcessorDeviceStatusFailure .1.3.6.1.4.1.674.10892.1.0.1604 "Status Events" CRITICAL
+FORMAT Server Processor Device Status Failure: $3
+SDESC
+Processor device status has detected a failure.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertDeviceAdd .1.3.6.1.4.1.674.10892.1.0.1651 "Status Events" INFORMATIONAL
+FORMAT Server Device Add: $3
+SDESC
+Device added to system.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertDeviceRemove .1.3.6.1.4.1.674.10892.1.0.1652 "Status Events" INFORMATIONAL
+FORMAT Server Device Remove: $3
+SDESC
+Device removed from system.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertDeviceConfigError .1.3.6.1.4.1.674.10892.1.0.1653 "Status Events" CRITICAL
+FORMAT Server Device Config Error: $3
+SDESC
+Device configuration error detected.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertBatteryNormal .1.3.6.1.4.1.674.10892.1.0.1702 "Status Events" INFORMATIONAL
+FORMAT Server Battery Normal: $3
+SDESC
+Battery has returned to normal.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertBatteryWarning .1.3.6.1.4.1.674.10892.1.0.1703 "Status Events" MINOR
+FORMAT Server Battery Warning: $3
+SDESC
+Battery has detected a warning.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC
+#
+#
+#
+EVENT alertBatteryFailure .1.3.6.1.4.1.674.10892.1.0.1704 "Status Events" CRITICAL
+FORMAT Server Battery Failure: $3
+SDESC
+Battery has detected a failure.
+--Novell NMS trap annotation
+Variables:
+  1: alertSystem
+  2: alertTableIndexOID
+  3: alertMessage
+  4: alertCurrentStatus
+  5: alertPreviousStatus
+  6: alertData
+EDESC

@@ -1,0 +1,98 @@
+#
+#
+#
+#
+MIB: CPQIDE-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQIDE-MIB.mib) converted on Wed Aug 22 14:19:19 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqIdeDriveDegraded .1.3.6.1.4.1.232.0.14001 "Status Events" CRITICAL
+FORMAT IDE Drive Degraded (14001): IDE drive $3 has become degraded.
+SDESC
+An IDE drive status has been set to degraded.
+User Action: The drive should be scheduled for replacement.
+Refer to the appropriate Maintenance and Service Guide for
+detailed information on a component replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIdeIdentIndex
+EDESC
+#
+#
+#
+EVENT cpqIdeDriveOk .1.3.6.1.4.1.232.0.14002 "Status Events" INFORMATIONAL
+FORMAT IDE Drive OK (14002): IDE drive $3 has returned to normal operating condition.
+SDESC
+An IDE drive status has been set to ok.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIdeIdentIndex
+EDESC
+#
+#
+#
+EVENT cpqIdeDriveUltraAtaDegraded .1.3.6.1.4.1.232.0.14003 "Status Events" INFORMATIONAL
+FORMAT IDE Drive Ultra ATA Degraded (14003): IDE drive $3 has detected Ultra ATA errors.
+SDESC
+An IDE drive detects an excessive number of Ultra ATA
+data transmission errors between the hard drive and the
+processor.
+User Action: For best performance move Ultra ATA devices to the
+primary controller and non Ultra ATA devices to the secondary
+controller.  If errors still persist, consider replacing the
+standard 40-conductor IDE cable with an 80-conductor Ultra ATA
+cable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIdeIdentIndex
+EDESC
+#
+#
+#
+EVENT cpqIdeAtaDiskStatusChange .1.3.6.1.4.1.232.0.14004 "Status Events" CRITICAL
+FORMAT ATA Disk Drive Status Change (14004): Status is now $8 for the ATA disk.
+SDESC
+ATA Disk Status Change.
+This trap signifies that the agent has detected a change in the
+status of an ATA disk drive.  The variable cpqIdeAtaDiskStatus
+indicates the current disk drive status.
+User Action: If the physical drive status is smartError(3) or
+failed(4), replace the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIdeAtaDiskControllerIndex
+  4: cpqIdeAtaDiskIndex
+  5: cpqIdeAtaDiskModel
+  6: cpqIdeAtaDiskFwRev
+  7: cpqIdeAtaDiskSerialNumber
+  8: cpqIdeAtaDiskStatus
+  9: cpqIdeAtaDiskChannel
+  10: cpqIdeAtaDiskNumber
+EDESC
+#
+#
+#
+EVENT cpqIdeLogicalDriveStatusChange .1.3.6.1.4.1.232.0.14005 "Status Events" CRITICAL
+FORMAT IDE Logical Drive Status Change (14005): Status is now $7 for the IDE logical drive.
+SDESC
+IDE Logical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of an IDE logical drive.  The variable
+cpqIdeLogicalDriveStatus indicates the current logical drive
+status.
+User Action: If the logical drive status is failed(5), examine
+the array for failed drives that need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqIdeControllerModel
+  4: cpqIdeControllerSlot
+  5: cpqIdeLogicalDriveControllerIndex
+  6: cpqIdeLogicalDriveIndex
+  7: cpqIdeLogicalDriveStatus
+EDESC

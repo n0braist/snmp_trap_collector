@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-ENTITY-VENDORTYPE-OID-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-ENTITY-VENDORTYPE-OID-MIB.my.txt) converted on Tue Sep  6 13:51:21 2016 using snmpttconvertmib v1.3

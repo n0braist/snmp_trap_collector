@@ -1,0 +1,168 @@
+#
+#
+#
+#
+MIB: CISCO-VSIMASTER-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-VSIMASTER-MIB.mib) converted on Tue Aug 21 15:26:43 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT vsiControllerAdded .1.3.6.1.4.1.9.9.162.2.1 "Status Events" Normal
+FORMAT This notification is generated when a vsiMasterControllerEntry  $*
+SDESC
+This notification is generated when a vsiMasterControllerEntry 
+is added to the vsiMasterControllerTable.
+The vsiControllerType object identifies the type and instance
+of the entry that was added.
+The agent will not generate this notification if the
+vsiControllerTrapEnable object is equal to 'false'.
+Variables:
+  1: vsiControllerType
+EDESC
+#
+#
+#
+EVENT vsiControllerDeleted .1.3.6.1.4.1.9.9.162.2.2 "Status Events" Normal
+FORMAT This notification is generated when a vsiMasterControllerEntry  $*
+SDESC
+This notification is generated when a vsiMasterControllerEntry 
+is deleted from the vsiMasterControllerTable.
+The vsiControllerType object identifies the type and instance
+of the entry that was deleted.
+The agent will not generate this notification if the
+vsiControllerTrapEnable object is equal to 'false'.
+Variables:
+  1: vsiControllerType
+EDESC
+#
+#
+#
+EVENT vsiSessionUp .1.3.6.1.4.1.9.9.162.2.3 "Status Events" Normal
+FORMAT This notification is generated when the vsiSessionState $*
+SDESC
+This notification is generated when the vsiSessionState
+object transitions to the established(8) state.
+The vsiSessionState object identifies the state and instance
+of the session, after the session has made the transition that 
+caused the notification to be generated.
+The agent will not generate this notification if the
+vsiSessionTrapEnable object is equal to 'false'.
+Variables:
+  1: vsiSessionState
+EDESC
+#
+#
+#
+EVENT vsiSessionDown .1.3.6.1.4.1.9.9.162.2.4 "Status Events" Normal
+FORMAT This notification is generated when the vsiSessionState $*
+SDESC
+This notification is generated when the vsiSessionState
+object transitions from any of unknown(1), configuring(2), or
+established(8) state to shutdownStarting(9) states.  
+This notification is also generated when the vsiSessionState 
+transitions from configuring(2) or established(8) state to 
+the unknown(1) state.
+The vsiSessionState object identifies the state and instance
+of the session, after the session has made the transition that 
+caused the notification to be generated.
+The agent will not generate this notification if the
+vsiSessionTrapEnable object is equal to 'false'.
+Variables:
+  1: vsiSessionState
+EDESC
+#
+#
+#
+EVENT vsiLogicalIfUp .1.3.6.1.4.1.9.9.162.2.5 "Status Events" Normal
+FORMAT This notification is generated when the vsiLogicalIfOperState $*
+SDESC
+This notification is generated when the vsiLogicalIfOperState
+object transitions to the active(2) state.
+The vsiLogicalIfOperState object identifies the state and
+instance of the logical interface, after the logical interface
+has made the transition that caused the notification to be 
+generated.
+The agent will not generate this notification if the
+vsiLogicalIfTrapEnable object is equal to 'false'.
+Variables:
+  1: vsiLogicalIfOperState
+EDESC
+#
+#
+#
+EVENT vsiLogicalIfDown .1.3.6.1.4.1.9.9.162.2.6 "Status Events" Normal
+FORMAT This notification is generated when the vsiLogicalIfOperState $*
+SDESC
+This notification is generated when the vsiLogicalIfOperState
+object transitions from the active(2) state to either the
+failedExternal(3) or failedInternal(4) state.
+The vsiLogicalIfOperState object identifies the state and
+instance of the logical interface, after the logical interface
+has made the transition that caused the notification to be 
+generated.
+The agent will not generate this notification if the
+vsiLogicalIfTrapEnable object is equal to 'false'.
+Variables:
+  1: vsiLogicalIfOperState
+EDESC
+#
+#
+#
+EVENT vsiXCFailed .1.3.6.1.4.1.9.9.162.2.7 "Status Events" Normal
+FORMAT This notification is generated when an attempt to create a $*
+SDESC
+This notification is generated when an attempt to create a
+cross-connect fails.  Failure means the slave has answered
+a connect command with a nak, reject, or error response.
+The vsiXCControllerIndex object identifies the 
+VsiControllerIndex of the VSI controller through which the 
+cross-connect was attempted.
+The vsiXCLogicalIfLow object provides the lower valued
+VsiLogicalIfIndex of the logical interface on which the 
+cross-connect was attempted.
+The vsiXCLogicalIfHi object provides the higher valued
+VsiLogicalIfIndex of the logical interface on which the 
+cross-connect was attempted.
+The agent will not generate this notification if the
+vsiXCTrapEnable object is equal to 'false'.
+Variables:
+  1: vsiXCControllerIndex
+  2: vsiXCLogicalIfLow
+  3: vsiXCLogicalIfHi
+EDESC
+#
+#
+#
+EVENT vsiLcnExhaustionNotice .1.3.6.1.4.1.9.9.162.2.8 "Status Events" Normal
+FORMAT As cross-connects on logical interfaces are instantiated or $*
+SDESC
+As cross-connects on logical interfaces are instantiated or
+released, and available channel counts are respectively
+diminished or augmented, there is a potential for the
+available channel counts to cross a threshold.  The threshold
+value may be crossed in the positive direction as the
+available channel count is rising, or in a negative direction
+as the available channel count is falling.  The threshold
+values are described as the vsiAvailableChnlWarnThreshold and  
+the vsiAvailableChnlAlarmThreshold objects.  
+The vsiControllerIndex identifies the controller domain in
+which the threshold event took place.
+The vsiAvailableChnlThresholdStatus indicates the particular 
+kind of threshold crossing that occurred.
+When comparison with vsiAvailableChnlWarnThreshold indicates a 
+negative crossing, this notification, with 
+vsiAvailableChnlThresholdStatus:warning(1) is emitted.
+When comparison with vsiAvailableChnlAlarmThreshold indicates
+a negative threshold violation, this notification, with
+vsiAvailableChnlThresholdStatus:alarm(2) is emitted.  
+When comparison with vsiAvailableChnlWarnThreshold indicates a
+positive threshold crossing, and if the preceeding
+vsiLcnExhaustionNotice had been sent with the
+vsiAvailableChnlThresholdStatus:alarm(2) parameter, this
+notification, with vsiAvailableChnlThresholdStatus:recovery(3)
+is emitted.
+The agent will not generate this notification if the 
+vsiXCTrapEnable is equal to 'false'.
+Variables:
+  1: vsiControllerIndex
+  2: vsiAvailableChnlThresholdStatus
+EDESC

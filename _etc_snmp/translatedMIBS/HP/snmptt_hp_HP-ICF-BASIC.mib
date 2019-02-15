@@ -1,0 +1,78 @@
+#
+#
+#
+#
+MIB: HP-ICF-BASIC (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-BASIC.mib) converted on Mon Aug 20 14:05:38 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpicfSelfTestTrap .1.3.6.1.4.1.11.2.14.12.1.0.4 "Status Events" Normal
+FORMAT An hpicfSelfTestTrap indicates that the agent has $*
+SDESC
+An hpicfSelfTestTrap indicates that the agent has
+detected a non-critical failure.  The value of the
+hpicfSelfTestResultText object describing the failure
+is sent in the trap.  Note that this trap is sent
+whenever a new failure is detected.
+An agent should throttle the generation of
+consecutive hpicfSelfTestTraps so that there is at
+least a five-second gap between traps of this type.
+When traps are throttled, the are dropped, not
+queued for sending at a future time.  (Note that
+'generating' a trap means sending to all configured
+recipients.).
+Variables:
+  1: hpicfSelfTestResultText
+EDESC
+#
+#
+#
+#
+MIB: HP-ICF-BASIC (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-BASIC.mib) converted on Mon Aug 20 14:06:50 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpicfSelfTestTrap .1.3.6.1.4.1.11.2.14.12.1.0.4 "Status Events" Normal
+FORMAT An hpicfSelfTestTrap indicates that the agent has $*
+SDESC
+An hpicfSelfTestTrap indicates that the agent has
+detected a non-critical failure.  The value of the
+hpicfSelfTestResultText object describing the failure
+is sent in the trap.  Note that this trap is sent
+whenever a new failure is detected.
+An agent should throttle the generation of
+consecutive hpicfSelfTestTraps so that there is at
+least a five-second gap between traps of this type.
+When traps are throttled, the are dropped, not
+queued for sending at a future time.  (Note that
+'generating' a trap means sending to all configured
+recipients.).
+Variables:
+  1: hpicfSelfTestResultText
+EDESC
+#
+#
+#
+#
+MIB: HP-ICF-BASIC (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-BASIC.mib) converted on Mon Aug 20 14:08:24 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpicfSelfTestTrap .1.3.6.1.4.1.11.2.14.12.1.0.4 "Status Events" Normal
+FORMAT An hpicfSelfTestTrap indicates that the agent has $*
+SDESC
+An hpicfSelfTestTrap indicates that the agent has
+detected a non-critical failure.  The value of the
+hpicfSelfTestResultText object describing the failure
+is sent in the trap.  Note that this trap is sent
+whenever a new failure is detected.
+An agent should throttle the generation of
+consecutive hpicfSelfTestTraps so that there is at
+least a five-second gap between traps of this type.
+When traps are throttled, the are dropped, not
+queued for sending at a future time.  (Note that
+'generating' a trap means sending to all configured
+recipients.).
+Variables:
+  1: hpicfSelfTestResultText
+EDESC

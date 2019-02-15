@@ -1,0 +1,207 @@
+#
+#
+#
+#
+MIB: CISCO-GDOI-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-GDOI-MIB.mib) converted on Tue Aug 21 15:26:01 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cgmGdoiKeyServerNewRegistration .1.3.6.1.4.1.9.9.759.0.1 "Status Events" Normal
+FORMAT A notification from a Key Server sent when a new Group $*
+SDESC
+A notification from a Key Server sent when a new Group
+Member registers to a GDOI Group.  This is equivalent to a
+Key Server receiving the first message of a GROUPKEY-PULL
+exchange from a Group Member.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+3.   GROUPKEY-PULL Exchange
+3.4. Receiver Operations
+Variables:
+EDESC
+#
+#
+#
+EVENT cgmGdoiKeyServerRegistrationComplete .1.3.6.1.4.1.9.9.759.0.2 "Status Events" Normal
+FORMAT A notification from a Key Server sent when a Group Member $*
+SDESC
+A notification from a Key Server sent when a Group Member
+has successfully registered to itself.  This is equivalent
+to a Key Server sending the last message of a GROUPKEY-PULL
+exchange to the Group Member currently registering
+containing KEKs, TEKs, and their associated policies.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+3.   GROUPKEY-PULL Exchange
+3.4. Receiver Operations
+Variables:
+EDESC
+#
+#
+#
+EVENT cgmGdoiKeyServerRekeyPushed .1.3.6.1.4.1.9.9.759.0.3 "Status Events" Normal
+FORMAT A notification from a Key Srver sent when a GROUPKEY-PUSH $*
+SDESC
+A notification from a Key Srver sent when a GROUPKEY-PUSH
+message is sent to refresh KEK(s) and or TEK(s).  A rekey
+is sent  periodically by a Key Server based on a configured
+time to the Group Members registered to its GDOI Group.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+4.   GROUPKEY-PUSH Message
+4.7. GCKS Operations
+Variables:
+  1: cgmGdoiKeyServerRekeysPushed
+EDESC
+#
+#
+#
+EVENT cgmGdoiKeyServerNoRsaKeys .1.3.6.1.4.1.9.9.759.0.4 "Status Events" Normal
+FORMAT An error notification from a Key Server sent when an RSA key $*
+SDESC
+An error notification from a Key Server sent when an RSA key
+is not setup.  Each Key Server and Group Member needs to have
+an RSA key established. The Key Server signs the TEK rekeys
+using this RSA key, also called a Key Encryption Key (KEK).
+The Group Member verifies the authenticity of the TEK rekey
+using this RSA key.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+4.7. GCKS Operations
+Variables:
+EDESC
+#
+#
+#
+EVENT cgmGdoiGmRegister .1.3.6.1.4.1.9.9.759.0.5 "Status Events" Normal
+FORMAT A notification from a Group Member when it is starting to $*
+SDESC
+A notification from a Group Member when it is starting to
+register with its GDOI Group's Key Server.  Registration
+includes downloading keying & security assosiation material.
+This is equivalent to a Group Member or Initiator sending the
+first message of a GROUPKEY-PULL exchange to its Group's Key
+Server.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+3.   GROUPKEY-PULL Exchange
+3.3. Initiator Operations
+Variables:
+  1: cgmGdoiGmRegKeyServerIdType
+  2: cgmGdoiGmRegKeyServerIdValue
+EDESC
+#
+#
+#
+EVENT cgmGdoiGmRegistrationComplete .1.3.6.1.4.1.9.9.759.0.6 "Status Events" Normal
+FORMAT A notification from a Group Member when it has successfully $*
+SDESC
+A notification from a Group Member when it has successfully
+registered with a Key Server in its GDOI Group.  This is
+equivalent to a Group Member receiving the last message of
+a GROUPKEY-PULL exchange from the Key Server containing
+KEKs, TEKs, and their associated policies.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+3.   GROUPKEY-PULL Exchange
+3.3. Initiator Operations
+Variables:
+  1: cgmGdoiGmRegKeyServerIdType
+  2: cgmGdoiGmRegKeyServerIdValue
+EDESC
+#
+#
+#
+EVENT cgmGdoiGmReRegister .1.3.6.1.4.1.9.9.759.0.7 "Status Events" Normal
+FORMAT A notification from a Group Member when it is starting to $*
+SDESC
+A notification from a Group Member when it is starting to
+re-register with a Key Server in its GDOI Group.  A Group
+Member needs to re-register to the key server if its keying & 
+security association material has expired and it has not
+received a rekey from the key server to refresh the material.
+This is equivalent to a Group Member sending the first
+message of a GROUPKEY-PULL exchange to the Key Server of a
+Group it is already registered with.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+3.   GROUPKEY-PULL Exchange
+3.3. Initiator Operations
+Variables:
+  1: cgmGdoiGmRegKeyServerIdType
+  2: cgmGdoiGmRegKeyServerIdValue
+EDESC
+#
+#
+#
+EVENT cgmGdoiGmRekeyReceived .1.3.6.1.4.1.9.9.759.0.8 "Status Events" Normal
+FORMAT A notification from a Group Member when it has successfully $*
+SDESC
+A notification from a Group Member when it has successfully
+received and processed a rekey from a Key Server in its GDOI
+Group.  Periodically the key server sends a rekey to refresh
+the keying & security association material.  This is
+equivalent to a Group Member receiving a GROUPKEY-PUSH
+message from the Key Server of the Group it is already
+registered with.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+4.   GROUPKEY-PUSH Message
+4.8. Group Member Operations
+Variables:
+  1: cgmGdoiGmRegKeyServerIdType
+  2: cgmGdoiGmRegKeyServerIdValue
+  3: cgmGdoiGmRekeysReceived
+EDESC
+#
+#
+#
+EVENT cgmGdoiGmIncompleteCfg .1.3.6.1.4.1.9.9.759.0.9 "Status Events" Normal
+FORMAT An error notification from a Group Member when there is $*
+SDESC
+An error notification from a Group Member when there is
+necessary information missing from the policy/configuration
+of a Group Member on an interface when it tries to register
+with a Key Server in its GDOI Group.  If the GDOI Group
+configuration is not complete on a Group Member, it will not
+be able to  register to the Key Server.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+3.   GROUPKEY-PULL Exchange
+3.3. Initiator Operations
+Variables:
+EDESC
+#
+#
+#
+EVENT cgmGdoiGmNoIpSecFlows .1.3.6.1.4.1.9.9.759.0.10 "Status Events" Normal
+FORMAT An error notification from a Group Member when no more $*
+SDESC
+An error notification from a Group Member when no more
+security associations can be installed after receiving its
+keying & security association material.  When the Group
+Member receives the security association materials, it has
+to install the cryptographic keys and policies.  If there
+is not enough memory to install these materials, there will
+be an error thrown.
+Variables:
+EDESC
+#
+#
+#
+EVENT cgmGdoiGmRekeyFailure .1.3.6.1.4.1.9.9.759.0.11 "Status Events" Normal
+FORMAT An error notification from a Group Member when it is unable $*
+SDESC
+An error notification from a Group Member when it is unable
+to successfully process and install a rekey (GROUPKEY-PUSH
+message) sent by the Key Server in its Group that it is
+registered with.
+REFERENCE
+RFC 3547 - Sections: 1.   Introduction
+4.   GROUPKEY-PUSH Message
+4.8. Group Member Operations
+Variables:
+  1: cgmGdoiGmRegKeyServerIdType
+  2: cgmGdoiGmRegKeyServerIdValue
+  3: cgmGdoiGmRekeysReceived
+EDESC

@@ -1,0 +1,21 @@
+#
+#
+#
+#
+MIB: CISCO-WIRELESS-P2MP-RF-METRICS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WIRELESS-P2MP-RF-METRICS-MIB.mib) converted on Tue Aug 21 15:26:46 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT p2mpTrapThresh .1.3.6.1.4.1.9.9.180.3.2.0.1 "Status Events" Normal
+FORMAT The radio subsystem generates this trap when a threshold crosses $*
+SDESC
+The radio subsystem generates this trap when a threshold crosses
+its specified limit. The parameters identify the following:
+p2mpThreshValue          - The value that was crossed.
+p2mpThreshHysteresisTime - The specified hysteresis time 
+p2mpThreshLimitTime      - The specified limit time 
+Variables:
+  1: p2mpThreshValue
+  2: p2mpThreshHysteresisTime
+  3: p2mpThreshLimitTime
+EDESC

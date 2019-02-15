@@ -1,0 +1,38 @@
+#
+#
+#
+#
+MIB: CPQNTFTP-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQNTFTP-MIB.mib) converted on Wed Aug 22 14:19:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqnTftpTransferInitiated .1.3.6.1.4.1.232.121.0.1 "Status Events" Normal
+FORMAT This trap is sent whenever a SNMP-requested TFTP transaction is $*
+SDESC
+This trap is sent whenever a SNMP-requested TFTP transaction is
+initiated, depending on the value of cpqnTftpTrapEnableStatus.  For
+those cases where multiple files are downloaded, multiple traps
+are sent.
+Variables:
+  1: cpqnTftpFileType
+  2: cpqnTftpPathname
+  3: cpqnTftpTransferState
+EDESC
+#
+#
+#
+EVENT cpqnTftpTransferCompleted .1.3.6.1.4.1.232.121.0.2 "Status Events" Normal
+FORMAT This trap is sent whenever a SNMP-requested TFTP transaction is $*
+SDESC
+This trap is sent whenever a SNMP-requested TFTP transaction is
+completed, depending on the value of cpqnTftpTrapEnableStatus.  For
+those cases where multiple files are downloaded, multiple traps
+are sent.
+NOTE:  It may not be possible for an agent to send this trap.
+Support of this trap is optional.
+Variables:
+  1: cpqnTftpFileType
+  2: cpqnTftpPathname
+  3: cpqnTftpTransferState
+  4: cpqnTftpTransferLastErr
+EDESC

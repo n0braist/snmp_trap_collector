@@ -1,0 +1,42 @@
+#
+#
+#
+#
+MIB: CISCO-DIST-DIRECTOR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DIST-DIRECTOR-MIB.mib) converted on Tue Aug 21 15:25:51 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoDistDirEventServerUp .1.3.6.1.4.1.9.9.197.2.0.1 "Status Events" Normal
+FORMAT This notification is sent if the state transition of $*
+SDESC
+This notification is sent if the state transition of
+cddServerPortStatus object is from 'down' or
+'undetermined' to 'up' state.
+Variables:
+  1: cddServerPortStatus
+EDESC
+#
+#
+#
+EVENT ciscoDistDirEventServerDown .1.3.6.1.4.1.9.9.197.2.0.2 "Status Events" Normal
+FORMAT This notification is sent if the state transition of $*
+SDESC
+This notification is sent if the state transition of
+cddServerPortStatus object is from 'up' or
+'undetermined' to 'down' state.
+Variables:
+  1: cddServerPortStatus
+EDESC
+#
+#
+#
+EVENT ciscoDistDirEventHitRateHigh .1.3.6.1.4.1.9.9.197.2.0.3 "Status Events" Normal
+FORMAT High DNS/HTTP queries/requests notification. $*
+SDESC
+High DNS/HTTP queries/requests notification.
+mteEventTable and mteTriggerThresholdTable in
+DISMAN-EVENT-MIB can be used to control the trigger of
+this notification.
+Variables:
+  1: cddGeneralQueryRate
+EDESC

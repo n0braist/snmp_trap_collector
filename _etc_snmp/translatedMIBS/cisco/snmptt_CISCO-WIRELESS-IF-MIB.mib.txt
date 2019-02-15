@@ -1,0 +1,212 @@
+#
+#
+#
+#
+MIB: CISCO-WIRELESS-IF-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WIRELESS-IF-MIB.mib) converted on Tue Aug 21 15:26:45 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cwrTrapConfigMismatch .1.3.6.1.4.1.9.9.136.2.2.1 "Status Events" Normal
+FORMAT The radio subsystem has detected that the combination of the $*
+SDESC
+The radio subsystem has detected that the combination of the
+configuration parameters that has been requested is inconsistent
+and cannot be supported.
+The cwrTrapReason is the textual description of what parameter 
+causes the mismatch.
+Variables:
+  1: ifIndex
+  2: cwrTrapReason
+EDESC
+#
+#
+#
+EVENT cwrTrapInitFailure .1.3.6.1.4.1.9.9.136.2.2.2 "Status Events" Normal
+FORMAT The radio subsystem has failed to initialize the hardware  $*
+SDESC
+The radio subsystem has failed to initialize the hardware 
+successfully.
+This implies that there is a critical error condition in the 
+associated hardware. The cwrTrapReason specifies the reason 
+the init failed.
+Variables:
+  1: ifIndex
+  2: cwrTrapReason
+EDESC
+#
+#
+#
+EVENT cwrTrapLinkQuality .1.3.6.1.4.1.9.9.136.2.2.3 "Status Events" Normal
+FORMAT The radio subsystem has detected a significant change in $*
+SDESC
+The radio subsystem has detected a significant change in
+the radio link quality. The cwrTrapReason will describe
+the quality.
+Variables:
+  1: ifIndex
+  2: cwrTrapReason
+EDESC
+#
+#
+#
+EVENT cwrTrapLinkSyncLost .1.3.6.1.4.1.9.9.136.2.2.4 "Status Events" Normal
+FORMAT The radio link has lost synchronization with the remote end. $*
+SDESC
+The radio link has lost synchronization with the remote end.
+Variables:
+  1: ifIndex
+EDESC
+#
+#
+#
+EVENT cwrTrapLinkSyncAcquired .1.3.6.1.4.1.9.9.136.2.2.5 "Status Events" Normal
+FORMAT The radio link has acquired synchronization with the remote end. $*
+SDESC
+The radio link has acquired synchronization with the remote end.
+Variables:
+  1: ifIndex
+EDESC
+#
+#
+#
+EVENT cwrTrapIfRxOsc .1.3.6.1.4.1.9.9.136.2.2.6 "Status Events" Normal
+FORMAT The IF receive frequency oscillator has changed state. $*
+SDESC
+The IF receive frequency oscillator has changed state.
+Variables:
+  1: ifIndex
+  2: cwrIfRxOscState
+EDESC
+#
+#
+#
+EVENT cwrTrapIfTxOsc .1.3.6.1.4.1.9.9.136.2.2.7 "Status Events" Normal
+FORMAT The IF transmit frequency oscillator has changed state. $*
+SDESC
+The IF transmit frequency oscillator has changed state.
+Variables:
+  1: ifIndex
+  2: cwrIfTxOscState
+EDESC
+#
+#
+#
+EVENT cwrTrapIfRefOsc .1.3.6.1.4.1.9.9.136.2.2.8 "Status Events" Normal
+FORMAT The IF Reference Frequency oscillator has changed state. $*
+SDESC
+The IF Reference Frequency oscillator has changed state.
+Variables:
+  1: ifIndex
+  2: cwrIfRefOscState
+EDESC
+#
+#
+#
+EVENT cwrTrapRfSupplyVoltage .1.3.6.1.4.1.9.9.136.2.2.9 "Status Events" Normal
+FORMAT The supply voltage to the RF resource has changed. $*
+SDESC
+The supply voltage to the RF resource has changed.
+The cwrRfSupplyVoltageState specifies whether the supply voltage is
+in spec or not.
+Variables:
+  1: ifIndex
+  2: cwrRfSupplyVoltageState
+EDESC
+#
+#
+#
+EVENT cwrTrapRfRxOsc .1.3.6.1.4.1.9.9.136.2.2.10 "Status Events" Normal
+FORMAT The RF receive frequency oscillator has changed state. $*
+SDESC
+The RF receive frequency oscillator has changed state.
+The cwrRfIndex identifies the RF resource that is the cause
+of this trap. The cwrRfRxOscState specifies the
+state of the oscilator.
+Variables:
+  1: ifIndex
+  2: cwrRfRxOscState
+EDESC
+#
+#
+#
+EVENT cwrTrapRfTxOsc .1.3.6.1.4.1.9.9.136.2.2.11 "Status Events" Normal
+FORMAT The RF transmit frequency oscillator has changed state. $*
+SDESC
+The RF transmit frequency oscillator has changed state.
+The cwrRfIndex identifies the RF resource    that is the cause
+of this trap. The cwrRfRxOscState specifies the
+state of the oscilator.
+Variables:
+  1: ifIndex
+  2: cwrRfTxOscState
+EDESC
+#
+#
+#
+EVENT cwrTrapRfTemp .1.3.6.1.4.1.9.9.136.2.2.12 "Status Events" Normal
+FORMAT The temperature of the RF module identified by cwrRfIndex $*
+SDESC
+The temperature of the RF module identified by cwrRfIndex
+has exceeded a defined reference.
+Variables:
+  1: ifIndex
+  2: cwrRfTemperature
+EDESC
+#
+#
+#
+EVENT cwrTrapRfStatusChange .1.3.6.1.4.1.9.9.136.2.2.13 "Status Events" Normal
+FORMAT This trap indicates that the RF resource either $*
+SDESC
+This trap indicates that the RF resource either
+came online(1) or went offline(2). 
+The cwrRfIndex will identify which resource changed state
+and cwrRfStatus will identify what state it is in.
+Variables:
+  1: ifIndex
+  2: cwrRfStatus
+EDESC
+#
+#
+#
+EVENT cwrTrapLink1HrThresh .1.3.6.1.4.1.9.9.136.2.2.14 "Status Events" Normal
+FORMAT One of cwrLink1HrESAlarmThresh, cwrLink1HrSESAlarmThresh, $*
+SDESC
+One of cwrLink1HrESAlarmThresh, cwrLink1HrSESAlarmThresh,
+cwrLink1HrCSESAlarmThresh, cwrLink1HrDCMAlarmThresh was
+was exceeded. The cwrTrapReason will identify which
+threshold was exceeded.
+Variables:
+  1: ifIndex
+  2: cwrTrapReason
+EDESC
+#
+#
+#
+EVENT cwrTrapLink24HrThresh .1.3.6.1.4.1.9.9.136.2.2.15 "Status Events" Normal
+FORMAT One of cwrLink24HrESAlarmThresh, cwrLink24HrSESAlarmThresh, $*
+SDESC
+One of cwrLink24HrESAlarmThresh, cwrLink24HrSESAlarmThresh,
+cwrLink24HrCSESAlarmThresh, cwrLink24HrDCMAlarmThresh was
+was exceeded. The cwrTrapReason will identify which
+threshold was exceeded.
+Variables:
+  1: ifIndex
+  2: cwrTrapReason
+EDESC
+#
+#
+#
+EVENT cwrTrapThresh .1.3.6.1.4.1.9.9.136.2.3.1 "Status Events" Normal
+FORMAT The radio subsystem generates this trap when a threshold crosses $*
+SDESC
+The radio subsystem generates this trap when a threshold crosses
+its specified limit. The parameters identify the following
+cwrThreshValue          - The value that was crossed.
+cwrThreshHysteresisTime - The Hysteresis time that was specified.
+cwrThreshLimitTime      - The Limit time that was specified.
+Variables:
+  1: cwrThreshValue
+  2: cwrThreshHysteresisTime
+  3: cwrThreshLimitTime
+EDESC

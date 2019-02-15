@@ -1,0 +1,27 @@
+#
+#
+#
+#
+MIB: CISCO-CUICAPPS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CUICAPPS-MIB.mib) converted on Tue Aug 21 15:25:49 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoCuicappsMIBEvent .1.3.6.1.4.1.9.9.718.0.1 "Status Events" Normal
+FORMAT This notification indicates an unusual condition occur that $*
+SDESC
+This notification indicates an unusual condition occur that
+potentially, can affect the functioning of a service in CUIC.
+Notification describes the operation state information of a
+service when such service impacting conditions occur.
+Notification is sent by a functional service of the CUIC
+application.
+Variables:
+  1: cuicEventId
+  2: cuicEventHostName
+  3: cuicEventAppName
+  4: cuicEventName
+  5: cuicEventState
+  6: cuicEventSeverity
+  7: cuicEventTimestamp
+  8: cuicEventText
+EDESC

@@ -1,0 +1,2644 @@
+------------------------------------------------------------------------------
+--
+-- Title: iDRAC MIB
+--
+-- Version: 1.1
+--
+-- 
+-- Description: This MIB defines MIB objects that make iDRAC data available
+-- to SNMP management applications.
+--
+-- Copyright (c) 2012 Dell Inc.
+-- All Rights Reserved.
+--
+-- Note: The information and functionality described by this MIB file,
+-- like many MIB files, is subject to change without notice.
+-- Please examine the version number of this MIB and compare it
+-- to the version number you are expecting.
+--
+-- OID Format Legend:
+--   <a> = attribute ID
+--   <i> = index ID
+--   <n> = trap ID
+--
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+-- Begin MIB
+------------------------------------------------------------------------------
+
+IDRAC-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    enterprises, Counter
+        FROM RFC1155-SMI
+    OBJECT-TYPE
+        FROM RFC-1212
+    TRAP-TYPE
+        FROM RFC-1215
+    DisplayString
+        FROM RFC1213-MIB;
+
+
+------------------------------------------------------------------------------
+-- Object Identifiers
+------------------------------------------------------------------------------
+
+-- Enterprise ID
+dell                            OBJECT IDENTIFIER ::= { enterprises    674   }
+
+-- Server3 Branch
+server3                         OBJECT IDENTIFIER ::= { dell           10892 }
+
+-- Server3 Groups
+outOfBandGroup                  OBJECT IDENTIFIER ::= { server3        5     }
+
+-- Server3 Out-of-Band Groups
+--
+-- The informationGroup provides information to discover the system (RAC,
+-- chassis, and server) and its associated properties.
+--
+informationGroup                OBJECT IDENTIFIER ::= { outOfBandGroup 1     }
+racInfoGroup                    OBJECT IDENTIFIER ::= { informationGroup 1   }
+chassisInfoGroup                OBJECT IDENTIFIER ::= { informationGroup 2   }
+systemInfoGroup                 OBJECT IDENTIFIER ::= { informationGroup 3   }
+statusGroup                     OBJECT IDENTIFIER ::= { outOfBandGroup 2     }
+alertGroup                      OBJECT IDENTIFIER ::= { outOfBandGroup 3     }
+alertVariablesGroup             OBJECT IDENTIFIER ::= { alertGroup     1     }
+alertTrapGroup                  OBJECT IDENTIFIER ::= { alertGroup     2     }
+systemAlertTrapGroup            OBJECT IDENTIFIER ::= { alertTrapGroup 1     }
+storageAlertTrapGroup           OBJECT IDENTIFIER ::= { alertTrapGroup 2     }
+updatesAlertTrapGroup           OBJECT IDENTIFIER ::= { alertTrapGroup 3     }
+auditAlertTrapGroup             OBJECT IDENTIFIER ::= { alertTrapGroup 4     }
+configurationAlertTrapGroup     OBJECT IDENTIFIER ::= { alertTrapGroup 5     }
+
+
+------------------------------------------------------------------------------
+-- Textual Conventions
+------------------------------------------------------------------------------
+
+StringType              ::= DisplayString (SIZE (0..1023))
+
+ObjectStatusEnum        ::= INTEGER {
+    other(1),           -- the status of the object is not one of the
+                        --  following:
+    unknown(2),         -- the status of the object is unknown
+                        --  (not known or monitored)
+    ok(3),              -- the status of the object is ok
+    nonCritical(4),     -- the status of the object is warning, non-critical
+    critical(5),        -- the status of the object is critical (failure)
+    nonRecoverable(6)   -- the status of the object is non-recoverable (dead)
+}
+
+RacTypeEnum                 ::= INTEGER {
+    other(1),               -- the RAC type is not one of the following
+    unknown(2),             -- the RAC type is unknown
+    idrac7monolithic(16),   -- iDRAC7 Monolithic
+    idrac7modular(17)       -- iDRAC7 Modular
+}
+
+SystemFormFactorEnum   ::= INTEGER {
+    other(1),                       -- the form factor is not one of the following:
+    unknown(2),                     -- the form factor is unknown
+    u1(3),                          -- 1U Monolithic
+    u2(4),                          -- 2U Monolithic
+    u4(5),                          -- 4U Monolithic
+    u7(6),                          -- 7U Monolithic
+    singleWidthSingleHeight(7),     -- Single width, single height Modular
+    dualWidthSingleHeight(8),       -- Dual width, single height Modular
+    singleWidthDualHeight(9),       -- Single width, dual height Modular
+    dualWidthDualHeight(10),        -- Dual width, dual height Modular
+    singleWidthQuarterHeight(11)    -- Single width, quarter height Modular
+}
+
+
+------------------------------------------------------------------------------
+--
+-- MIB Groups
+--
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+-- RAC Information Group
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.1.1.<a>.0
+------------------------------------------------------------------------------
+
+racName OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the product name of a remote access card."
+    ::= { racInfoGroup 1 }
+
+racShortName OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the short product name of a remote access
+        card."
+   ::= { racInfoGroup 2 }
+
+racDescription OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the product description of a remote access
+        card."
+    ::= { racInfoGroup 3 }
+
+racManufacturer OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the product manufacturer of a remote access
+        card."
+    ::= { racInfoGroup 4 }
+
+racVersion OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the product version of a remote access card."
+    ::= { racInfoGroup 5 }
+
+racURL OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the out-of-band UI URL of a remote access
+        card."
+    ::= { racInfoGroup 6 }
+
+racType OBJECT-TYPE
+    SYNTAX          RacTypeEnum 
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the type of a remote access card."
+    ::= { racInfoGroup 7 }
+
+racFirmwareVersion OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the firmware version of a remote access card."
+    ::= { racInfoGroup 8 }
+
+------------------------------------------------------------------------------
+-- Chassis Information Group
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.1.2.<a>.0
+------------------------------------------------------------------------------
+
+chassisServiceTag OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the service tag of the enclosing chassis."
+    ::= { chassisInfoGroup 1 }
+
+------------------------------------------------------------------------------
+-- System Information Group
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.1.3.<a>.0
+------------------------------------------------------------------------------
+
+systemFQDN OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the fully qualified domain name of the system.
+         For example, hostname.domainname."
+    ::= { systemInfoGroup 1 }
+
+systemServiceTag OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the service tag of the system."
+    ::= { systemInfoGroup 2 }
+
+systemExpressServiceCode OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the express service code of the system."
+    ::= { systemInfoGroup 3 }
+
+systemAssetTag OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the asset tag of the system."
+    ::= { systemInfoGroup 4 }
+
+systemBladeSlotNumber OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the slot number of the blade in the chassis."
+    ::= { systemInfoGroup 5 }
+
+systemOSName OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the name of the operating system that the host
+         is running."
+    ::= { systemInfoGroup 6 }
+
+systemFormFactor OBJECT-TYPE
+    SYNTAX          SystemFormFactorEnum 
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the form factor of the system."
+    ::= { systemInfoGroup 7 }
+
+systemDataCenterName OBJECT-TYPE
+    SYNTAX          StringType 
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the Data Center locator of the system."
+    ::= { systemInfoGroup 8 }
+
+systemAisleName OBJECT-TYPE
+    SYNTAX          StringType 
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the Aisle locator of the system."
+    ::= { systemInfoGroup 9 }
+
+systemRackName OBJECT-TYPE
+    SYNTAX          StringType 
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the Rack locator of the system."
+    ::= { systemInfoGroup 10 }
+
+systemRackSlot OBJECT-TYPE
+    SYNTAX          StringType 
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the Rack Slot locator of the system."
+    ::= { systemInfoGroup 11 }
+
+systemModelName OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the model name of the system."
+    ::= { systemInfoGroup 12 }
+
+
+------------------------------------------------------------------------------
+-- Status Group
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.2.<a>.0
+------------------------------------------------------------------------------
+
+globalSystemStatus OBJECT-TYPE
+    SYNTAX          ObjectStatusEnum
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the overall rollup status of all
+        components in the system being monitored by the remote
+        access card. Includes system, storage, IO devices, iDRAC,
+        CPU, memory, etc."
+    ::= { statusGroup 1 }
+
+systemLCDStatus OBJECT-TYPE
+    SYNTAX          ObjectStatusEnum
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the system status as it is reflected by
+        the LCD front panel. Not all system components may be included."
+    ::= { statusGroup 2 }
+
+globalStorageStatus OBJECT-TYPE
+    SYNTAX          ObjectStatusEnum
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "This attribute defines the overall storage status being
+        monitored by the remote access card."
+    ::= { statusGroup 3 }
+
+
+------------------------------------------------------------------------------
+-- Alert Group
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+-- Alert Variables Group
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3.1.<a>.0
+------------------------------------------------------------------------------
+
+alertMessageID OBJECT-TYPE
+    SYNTAX          DisplayString (SIZE (0..8))
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "Message ID of the event."
+    ::= { alertVariablesGroup 1 }
+
+alertMessage OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "Message describing the alert."
+    ::= { alertVariablesGroup 2 }
+
+alertCurrentStatus OBJECT-TYPE
+    SYNTAX          ObjectStatusEnum
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "Current status of object causing the alert, if applicable."
+    ::= { alertVariablesGroup 3 }
+
+alertSystemServiceTag OBJECT-TYPE
+    SYNTAX          DisplayString (SIZE (0..16))
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "Service tag of the system."
+    ::= { alertVariablesGroup 4 }
+
+alertSystemFQDN OBJECT-TYPE
+    SYNTAX          StringType
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "Fully qualified domain name of the system."
+    ::= { alertVariablesGroup 5 }
+
+alertFQDD OBJECT-TYPE
+    SYNTAX          DisplayString (SIZE (0..512))
+    ACCESS          read-only
+    STATUS          mandatory
+    DESCRIPTION
+        "Fully qualified device descriptor of the device."
+    ::= { alertVariablesGroup 6 }
+
+
+------------------------------------------------------------------------------
+-- Alert Trap Group
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3.2
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+-- System Alert Trap Group
+-- System Traps (a.k.a, System Health Traps)
+-- Category: System/1
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3.2.1
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+-- Amperage Probe Traps
+--
+-- Category: System/1
+-- Subcategory: AMP/16
+------------------------------------------------------------------------------
+
+alertAmperageProbeNormal TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Current sensor reading is within range."
+    --#TYPE       "System: Amperage Normal"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2179
+
+alertAmperageProbeWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Current sensor has detected a warning value."
+    --#TYPE       "System: Amperage Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2178
+
+alertAmperageProbeFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Current sensor has detected a failure value."
+    --#TYPE       "System: Amperage Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2177
+
+------------------------------------------------------------------------------
+-- Automatic System Recovery Trap
+--
+-- Category: System/1
+-- Subcategory: ASR/23
+------------------------------------------------------------------------------
+
+alertAutomaticSystemRecovery TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Automatic system recovery (ASR) was performed."
+    --#TYPE       "System: Automatic System Recovery"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2233
+    
+------------------------------------------------------------------------------
+-- Battery Traps
+--
+-- Category: System/1
+-- Subcategory: BAT/22
+------------------------------------------------------------------------------
+
+alertBatteryNormal TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Battery state has returned to normal;
+         or battery presence had been detected."
+    --#TYPE       "System: Battery Normal"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2227
+
+alertBatteryWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Battery is low."
+    --#TYPE       "System: Battery Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2226
+
+alertBatteryFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Battery has failed or battery is absent."
+    --#TYPE       "System: Battery Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2225
+
+------------------------------------------------------------------------------
+-- Processor Device Status Traps
+--
+-- Category: System/1
+-- Subcategory: CPU/24
+------------------------------------------------------------------------------
+
+alertProcessorDeviceStatusNormal TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Processor device status has returned to normal."
+    --#TYPE       "System: Processor Device Status Normal"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2243
+
+alertProcessorDeviceStatusWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Processor device status has detected a warning."
+    --#TYPE       "System: Processor Device Status Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2242
+
+alertProcessorDeviceStatusFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Processor device status has detected a failure."
+    --#TYPE       "System: Processor Device Status Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2241
+
+------------------------------------------------------------------------------
+-- Processor Device Absent Trap
+--
+-- Category: System/1
+-- Subcategory: CPUA/51
+------------------------------------------------------------------------------
+
+alertProcessorDeviceAbsent TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Processor device is absent."
+    --#TYPE       "System: Processor Device Absent"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2457
+
+------------------------------------------------------------------------------
+-- Fan Traps
+--
+-- Category: System/1
+-- Subcategory: FAN/13
+------------------------------------------------------------------------------
+
+alertFanInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Fan information."
+    --#TYPE       "System: Fan Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2155
+
+alertFanWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Fan warning."
+    --#TYPE       "System: Fan Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2154
+
+alertFanFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Fan failure."
+    --#TYPE       "System: Fan Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2153
+
+------------------------------------------------------------------------------
+-- Hardware Configuration Traps
+--
+-- Category: System/1
+-- Subcategory: HWC/35
+------------------------------------------------------------------------------
+
+alertHardwareConfigurationInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Hardware configuration information."
+    --#TYPE       "System: Hardware Configuration Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2331
+
+alertHardwareConfigurationWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Hardware configuration warning."
+    --#TYPE       "System: Hardware Configuration Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2330
+
+alertHardwareConfigurationFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Hardware configuration failure or critical event."
+    --#TYPE       "System: Hardware Configuration Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2329
+
+------------------------------------------------------------------------------
+-- Memory Device Traps
+--
+-- Category: System/1
+-- Subcategory: MEM/27
+------------------------------------------------------------------------------
+
+alertMemoryDeviceInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Memory device informational event."
+    --#TYPE       "System: Memory Device Infomation"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2267
+
+alertMemoryDeviceWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Memory device status is noncritical."
+    --#TYPE       "System: Memory Device Noncritical"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2266
+
+alertMemoryDeviceFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Memory device status is critical."
+    --#TYPE       "System: Memory Device Critical"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2265
+
+------------------------------------------------------------------------------
+-- NIC Traps
+--
+-- Category: System/1
+-- Subcategory: NIC/5
+------------------------------------------------------------------------------
+
+alertNetworkInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Network information."
+    --#TYPE       "System: Network Information "
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2091
+
+alertNetworkWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Network warning."
+    --#TYPE       "System: Network Warning "
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2090
+
+alertNetworkFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Network failure or critical event."
+    --#TYPE       "System: Network Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2089
+
+------------------------------------------------------------------------------
+-- Operation System ("OS") Event Traps
+--
+-- Category: System/1
+-- Subcategory: OSE/45
+------------------------------------------------------------------------------
+
+alertOSInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "An OS graceful stop occurred;
+         or an OS graceful shut-down occurred."
+    --#TYPE       "System: Operating System Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2411
+
+alertOSFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "A critical stop occurred during OS load;
+         or a runtime critical stop occurred."
+    --#TYPE       "System: Operating System Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2409
+
+------------------------------------------------------------------------------
+-- PCI Device Traps
+--
+-- Category: System/1
+-- Subcategory: PCI/46
+------------------------------------------------------------------------------
+
+alertPCIDeviceInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "An informational event was detected for a PCI device."
+    --#TYPE       "System: PCI Device Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2419
+
+alertPCIDeviceWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "A warning event was detected for a PCI device."
+    --#TYPE       "System: PCI Device Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2418
+
+alertPCIDeviceFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "An error was detected for a PCI device."
+    --#TYPE       "System: PCI Device Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2417
+
+------------------------------------------------------------------------------
+-- Physical Disk Traps
+--
+-- Category: System/1
+-- Subcategory: PDR/31
+------------------------------------------------------------------------------
+
+alertPhysicalDiskInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Physical disk information."
+    --#TYPE       "System: Physical Disk Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2299
+
+alertPhysicalDiskWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Physical disk warning."
+    --#TYPE       "System: Physical Disk Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2298
+
+alertPhysicalDiskFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Physical disk failure."
+    --#TYPE       "System: Physical Disk Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 2297
+
+------------------------------------------------------------------------------
+-- BIOS POST Trap
+--
+-- Category: System/1
+-- Subcategory: PST/47
+------------------------------------------------------------------------------
+
+alertBiosPostFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "System BIOS detected a failure."
+    --#TYPE       "System: BIOS POST Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 2425
+
+------------------------------------------------------------------------------
+-- Power Supply Traps
+--
+-- Category: System/1
+-- Subcategory: PSU/17
+------------------------------------------------------------------------------
+
+alertPowerSupplyNormal TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Power supply has returned to normal."
+    --#TYPE       "System: Power Supply Normal"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2187
+
+alertPowerSupplyWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Power supply has detected a warning."
+    --#TYPE       "System: Power Supply Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2186
+
+alertPowerSupplyFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Power supply has detected a failure."
+    --#TYPE       "System: Power Supply Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2185
+
+------------------------------------------------------------------------------
+-- Power Supply Absent Trap
+--
+-- Category: System/1
+-- Subcategory: PSUA/52
+------------------------------------------------------------------------------
+
+alertPowerSupplyAbsent TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Power supply is absent."
+    --#TYPE       "System: Power Supply Absent"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2465
+
+------------------------------------------------------------------------------
+-- Power Usage Traps
+--
+-- Category: System/1
+-- Subcategory: PWR/28
+------------------------------------------------------------------------------
+
+alertPowerUsageInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "System performance restored."
+    --#TYPE       "System: Power Usage Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2275
+
+alertPowerUsageWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "System performance degraded."
+    --#TYPE       "System: Power Usage Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2274
+
+alertPowerUsageFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "The system halted because system power exceeds capacity;
+         or the system performance degraded because power draw exceeds the
+         power threshold."
+    --#TYPE       "System: Power Usage Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2273
+
+------------------------------------------------------------------------------
+-- Redundancy Traps
+--
+-- Category: System/1
+-- Subcategory: RDU/53
+------------------------------------------------------------------------------
+
+alertRedundancyInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Redundancy information."
+    --#TYPE       "System: Redundancy Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2475
+
+alertRedundancyDegraded TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Redundancy is degraded."
+    --#TYPE       "System: Redundancy Degraded"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2474
+
+alertRedundancyLost TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Redundancy is lost."
+    --#TYPE       "System: Redundancy Lost"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2473
+
+------------------------------------------------------------------------------
+-- Integrated Dual SD Module Traps
+--
+-- Category: System/1
+-- Subcategory: RFL/20
+------------------------------------------------------------------------------
+
+alertIntegratedDualSDModuleInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Integrated Dual SD Module information."
+    --#TYPE       "System: Integrated Dual SD Module Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2211
+
+alertIntegratedDualSDModuleWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Integrated Dual SD Module warning."
+    --#TYPE       "System: Integrated Dual SD Module Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2210
+
+alertIntegratedDualSDModuleFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Integrated Dual SD Module failure."
+    --#TYPE       "System: Integrated Dual SD Module Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2209
+
+------------------------------------------------------------------------------
+-- Integrated Dual SD Module Absent Trap
+--
+-- Category: System/1
+-- Subcategory: RFLA/54
+------------------------------------------------------------------------------
+
+alertIntegratedDualSDModuleAbsent TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Integrated Dual SD Module is absent."
+    --#TYPE       "System: Integrated Dual SD Module absent."
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2481
+
+------------------------------------------------------------------------------
+-- Integrated Dual SD Module Redundancy Traps
+--
+-- Category: System/1
+-- Subcategory: RRDU/55
+------------------------------------------------------------------------------
+
+alertIntegratedDualSDModuleRedundancyInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Integrated Dual SD Module redundancy information."
+    --#TYPE       "System: Integrated Dual SD Module Redundancy Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2491
+
+alertIntegratedDualSDModuleRedundancyDegraded TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Integrated Dual SD Module redundancy is degraded."
+    --#TYPE       "System: Integrated Dual SD Module Redundancy Degraded"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2490
+
+alertIntegratedDualSDModuleRedundancyLost TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Integrated Dual SD Module redundancy is lost."
+    --#TYPE       "System: Integrated Dual SD Module Redundancy Lost"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2489
+
+------------------------------------------------------------------------------
+-- Security Event Traps
+--
+-- Category: System/1
+-- Subcategory: SEC/42
+------------------------------------------------------------------------------
+
+alertSecurityInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Security information."
+    --#TYPE       "System: Security Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2387
+
+alertSecurityFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Security failure or critical event."
+    --#TYPE       "System: Security Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2385
+
+------------------------------------------------------------------------------
+-- System Event Log Traps
+--
+-- Category: System/1
+-- Subcategory: SEL/41
+------------------------------------------------------------------------------
+
+alertSystemEventLogInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "System Event Log information."
+    --#TYPE       "System: System Event Log Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2379
+
+alertSystemEventLogWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "System Event Log warning."
+    --#TYPE       "System: System Event Log Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2378
+
+alertSystemEventLogFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "System Event Log failure or critical event."
+    --#TYPE       "System: System Event Log Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2377
+
+------------------------------------------------------------------------------
+-- Temperature Probe Traps
+--
+-- Category: System/1
+-- Subcategory: TMP/14
+------------------------------------------------------------------------------
+
+alertTemperatureProbeNormal TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Temperature sensor value is within range."
+    --#TYPE       "System: Temperature Normal"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2163
+
+alertTemperatureProbeWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Temperature sensor has detected a warning value."
+    --#TYPE       "System: Temperature Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2162
+
+alertTemperatureProbeFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Temperature sensor has detected a failure value."
+    --#TYPE       "System: Temperature Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2161
+
+------------------------------------------------------------------------------
+-- vFlash Media Device Traps
+--
+-- Category: System/1
+-- Subcategory: VFL/57
+------------------------------------------------------------------------------
+
+alertvFlashMediaDeviceInformation TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "vFlash Media device information."
+    --#TYPE       "System: vFlash Media Device Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2507
+
+alertvFlashMediaDeviceWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "vFlash Media device warning."
+    --#TYPE       "System: vFlash Media Device Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2506
+
+alertvFlashMediaDeviceFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "vFlash Media device failure."
+    --#TYPE       "System: vFlash Media Device Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2505
+
+------------------------------------------------------------------------------
+-- vFlash Media Device Absent Trap
+--
+-- Category: System/1
+-- Subcategory: VFLA/58
+------------------------------------------------------------------------------
+
+alertvFlashMediaDeviceAbsent TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "vFlash Media device is absent."
+    --#TYPE       "System: vFlash Media Device Absent"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2515
+
+------------------------------------------------------------------------------
+-- Voltage Probe Traps
+--
+-- Category: System/1
+-- Subcategory: VLT/15
+------------------------------------------------------------------------------
+
+alertVoltageProbeNormal TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Voltage sensor reading is within range."
+    --#TYPE       "System: Voltage Normal"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 2171
+
+alertVoltageProbeWarning TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Voltage sensor has detected a warning value."
+    --#TYPE       "System: Voltage Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2170
+
+alertVoltageProbeFailure TRAP-TYPE
+    ENTERPRISE  systemAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Voltage sensor has detected a failure value."
+    --#TYPE       "System: Voltage Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 2169
+
+
+------------------------------------------------------------------------------
+-- Storage Alert Trap Group
+-- Storage Traps
+-- Category: Storage/2
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3.2.2
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+-- Battery Traps
+--
+-- Category: Storage/2
+-- Subcategory: BAT/22
+------------------------------------------------------------------------------
+
+alertStorageBatteryInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Battery information."
+    --#TYPE       "Storage: Battery Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4275
+
+alertStorageBatteryWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Battery warning."
+    --#TYPE       "Storage: Battery Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4274
+
+alertStorageBatteryFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Battery failure."
+    --#TYPE       "Storage: Battery Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4273
+
+------------------------------------------------------------------------------
+-- Controller Traps
+--
+-- Category: Storage/2
+-- Subcategory: CTL/29
+------------------------------------------------------------------------------
+
+alertStorageControllerInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Controller information."
+    --#TYPE       "Storage: Controller Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4331
+
+alertStorageControllerWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Controller warning."
+    --#TYPE       "Storage: Controller Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4330
+
+alertStorageControllerFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Controller failure."
+    --#TYPE       "Storage: Controller Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4329
+
+------------------------------------------------------------------------------
+-- Enclosure Traps
+--
+-- Category: Storage/2
+-- Subcategory: ENC/30
+------------------------------------------------------------------------------
+
+alertStorageEnclosureInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Enclosure information."
+    --#TYPE       "Storage: Enclosure Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4339
+
+alertStorageEnclosureWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Enclosure warning."
+    --#TYPE       "Storage: Enclosure Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4338
+
+alertStorageEnclosureFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Enclosure failure."
+    --#TYPE       "Storage: Enclosure Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4337
+
+------------------------------------------------------------------------------
+-- Fan Traps
+--
+-- Category: Storage/2
+-- Subcategory: FAN/13
+------------------------------------------------------------------------------
+
+alertStorageFanInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Fan information."
+    --#TYPE       "Storage: Fan Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4203
+
+alertStorageFanWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Fan warning."
+    --#TYPE       "Storage: Fan Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4202
+
+alertStorageFanFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Fan failure."
+    --#TYPE       "Storage: Fan Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4201
+
+------------------------------------------------------------------------------
+-- Physical Disk Traps
+--
+-- Category: Storage/2
+-- Subcategory: PDR/31
+------------------------------------------------------------------------------
+
+alertStoragePhysicalDiskInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Physical disk information."
+    --#TYPE       "Storage: Physical Disk Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4347
+
+alertStoragePhysicalDiskWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Physical disk warning."
+    --#TYPE       "Storage: Physical Disk Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4346
+
+alertStoragePhysicalDiskFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Physical disk failure."
+    --#TYPE       "Storage: Physical Disk Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4345
+
+------------------------------------------------------------------------------
+-- Power Supply Traps
+--
+-- Category: Storage/2
+-- Subcategory: PSU/17
+------------------------------------------------------------------------------
+
+alertStoragePowerSupplyInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Power supply information."
+    --#TYPE       "Storage: Power Supply Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4235
+
+alertStoragePowerSupplyWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Power supply warning."
+    --#TYPE       "Storage: Power Supply Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4234
+
+alertStoragePowerSupplyFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Power supply failure."
+    --#TYPE       "Storage: Power Supply Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4233
+
+------------------------------------------------------------------------------
+-- Storage Management Status Traps
+--
+-- Category: Storage/2
+-- Subcategory: STOR/10
+------------------------------------------------------------------------------
+
+alertStorageManagementInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Storage Management Information.
+        There is no global status change associated with this trap."
+    --#TYPE       "Storage: Storage Management Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4179
+
+alertStorageManagementWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Storage Management has detected a device independent warning
+        condition. There is no global status change associated with this
+        trap."
+    --#TYPE       "Storage: Storage Management Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4178
+
+alertStorageManagementFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Storage Management has detected a device independent error condition.
+        There is no global status change associated with this trap."
+    --#TYPE       "Storage: Storage Management Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4177
+
+------------------------------------------------------------------------------
+-- Temperature Probe Traps
+--
+-- Category: Storage/2
+-- Subcategory: TMP/14
+------------------------------------------------------------------------------
+
+alertStorageTemperatureProbeInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Temperature probe information."
+    --#TYPE       "Storage: Temperature Probe Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4211
+
+alertStorageTemperatureProbeWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Temperature probe warning."
+    --#TYPE       "Storage: Temperature Probe Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4210
+
+alertStorageTemperatureProbeFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Temperature probe failure."
+    --#TYPE       "Storage: Temperature Probe Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4209
+
+------------------------------------------------------------------------------
+-- Virtual Disk Traps
+--
+-- Category: Storage/2
+-- Subcategory: VDR/32
+------------------------------------------------------------------------------
+
+alertStorageVirtualDiskInformation TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Virtual disk information."
+    --#TYPE       "Storage: Virtual Disk Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 4355
+
+alertStorageVirtualDiskWarning TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Virtual disk warning."
+    --#TYPE       "Storage: Virtual Disk Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 4354
+
+alertStorageVirtualDiskFailure TRAP-TYPE
+    ENTERPRISE  storageAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Virtual disk failure."
+    --#TYPE       "Storage: Virtual Disk Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      FAILED
+    --#STATUS     MANDATORY
+    ::= 4353
+
+
+------------------------------------------------------------------------------
+-- Updates Alert Trap Group
+-- Updates Traps
+-- Category: Updates/3
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3.2.3
+------------------------------------------------------------------------------
+
+-- Note: Currently there are no Updates traps.
+
+
+------------------------------------------------------------------------------
+-- Audit Alert Trap Group
+-- Audit Traps
+-- Category: Audit/4
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3.2.4
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+-- Debug Traps
+--
+-- Category: Audit/4
+-- Subcategory: FSD/50
+------------------------------------------------------------------------------
+
+alertDebugInformation TRAP-TYPE
+    ENTERPRISE  auditAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Debug authorized."
+    --#TYPE       "Audit: Debug Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 8595
+
+alertDebugWarning TRAP-TYPE
+    ENTERPRISE  auditAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Debug authorization failed."
+    --#TYPE       "Audit: Debug Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 8594
+
+------------------------------------------------------------------------------
+-- iDRAC IP Address Change Trap
+--
+-- Category: Audit/4
+-- Subcategory: IPA/38
+------------------------------------------------------------------------------
+
+alertiDRACIPAddressChange TRAP-TYPE
+    ENTERPRISE  auditAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "iDRAC IP address has changed."
+    --#TYPE       "iDRAC IP address has changed"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+
+    ::= 8499
+
+------------------------------------------------------------------------------
+-- License Traps
+--
+-- Category: Audit/4
+-- Subcategory: LIC/40
+------------------------------------------------------------------------------
+
+alertLicenseInformation TRAP-TYPE
+    ENTERPRISE  auditAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "License information."
+    --#TYPE       "Audit: License Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 8515
+
+alertLicenseWarning TRAP-TYPE
+    ENTERPRISE  auditAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "License warning."
+    --#TYPE       "Audit: License Warning"
+    --#SEVERITY   MINOR
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 8514
+
+alertLicenseFailure TRAP-TYPE
+    ENTERPRISE  auditAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "License failure."
+    --#TYPE       "Audit: License Failure"
+    --#SEVERITY   CRITICAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Error Events"
+    --#STATE      DEGRADED
+    --#STATUS     MANDATORY
+    ::= 8513
+
+------------------------------------------------------------------------------
+-- System Power State Change Trap
+--
+-- Category: Audit/4
+-- Subcategory: SYS/48
+------------------------------------------------------------------------------
+
+alertSystemPowerStateChangeInformation TRAP-TYPE
+    ENTERPRISE  auditAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "Host is going through a power state change
+         (powering on or powering off)."
+    --#TYPE       "Audit: System Power State Change Information"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 8579
+
+
+------------------------------------------------------------------------------
+-- Configuration Alert Trap Group
+-- Configuration Traps
+-- Category: Configuration/5
+--
+-- OID Format: 1.3.6.1.4.1.674.10892.5.3.2.5
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+-- Test Trap
+--
+-- Category: Configuration/5
+-- Subcategory: TST/19
+------------------------------------------------------------------------------
+
+alertTestTrapEvent TRAP-TYPE
+    ENTERPRISE  configurationAlertTrapGroup
+    VARIABLES { alertMessageID,
+                alertMessage,
+                alertCurrentStatus,
+                alertSystemServiceTag,
+                alertSystemFQDN,
+                alertFQDD }
+    DESCRIPTION
+        "The iDRAC generated a test trap event in response to a user request."
+    --#TYPE       "Configuration: iDRAC Test Trap Event"
+    --#SEVERITY   INFORMATIONAL
+    --#SUMMARY    "%s"
+    --#ARGUMENTS  {1}
+    --#CATEGORY   "Status Events"
+    --#STATE      OPERATIONAL
+    --#STATUS     MANDATORY
+    ::= 10395
+
+
+END
+
+------------------------------------------------------------------------------
+-- End MIB
+------------------------------------------------------------------------------

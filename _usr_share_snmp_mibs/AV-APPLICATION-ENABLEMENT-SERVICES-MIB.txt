@@ -1,0 +1,3336 @@
+AV-APPLICATION-ENABLEMENT-SERVICES-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY,
+    OBJECT-TYPE,
+    Integer32, 
+    enterprises 
+                    FROM SNMPv2-SMI
+
+    DisplayString,
+    TEXTUAL-CONVENTION,
+    TruthValue
+                    FROM SNMPv2-TC 
+
+    InetAddress,     
+    InetAddressType, 
+    InetPortNumber
+                    FROM INET-ADDRESS-MIB
+
+    MODULE-COMPLIANCE, 
+    OBJECT-GROUP
+                    FROM SNMPv2-CONF;
+
+avAesMIB MODULE-IDENTITY       
+    LAST-UPDATED "201303050000Z" -- March 05, 2013
+    ORGANIZATION "Avaya Inc."
+    CONTACT-INFO
+        "        Avaya Customer Services
+
+         Postal: Avaya Inc.
+                 211 Mt Airy Rd.
+                 Basking Ridge, NJ 07920
+                 U.S.A.
+         Phone:  +1 908 953 6000
+         WWW:    http://www.avaya.com"
+
+    DESCRIPTION
+        "This is the MIB Module for the Application Enablement Service Server
+         Metrics. The MIB objects and traps are defined
+         to support the requirements of system performance.
+
+         Copyright (c) 2009-2013 by Avaya Inc.  All rights reserved.
+         Redistribution and use in source and binary forms of the software
+         (Software), without modification, are permitted provided that
+         the following conditions are met:
+         (a) Redistributions of source code must retain the above copyright
+         notice and the entire license.
+         (b) Redistributions in binary form must reproduce the above copyright
+         notice and this entire license in the documentation and/or other
+         materials provided with the distribution.
+         (c) Redistribution of the Software is solely for the purpose of
+         managing and servicing Avaya products and solutions.
+         (d) BY USING AND REDISTRIBUTING THE SOFTWARE, YOU, ON BEHALF OF
+         YOURSELF AND THE ENTITY FOR WHOM YOU USE THE SOFTWARE AGREE TO ALL THE TERMS
+         AND CONDITIONS OF THIS LICENSE AND CREATE A BINDING CONTRACT BETWEEN
+         YOU AND AVAYA INC. THIS SOFTWARE IS PROVIDED BY AVAYA INC. 'AS IS'
+         AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+         THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+         PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL AVAYA INC.
+         BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+         OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+         OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+         BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+         WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+         OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+         EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        "
+
+    REVISION     "201303050000Z"  -- March 05, 2013
+    DESCRIPTION
+        "Revision 2.0.3
+        Update the Copyright"
+
+
+    REVISION "201005280000Z" -- May 28, 2010
+    DESCRIPTION
+        "Update avAesAepLinkTable and avAesAepSessionTable to support Link Core Survivability feature
+         Revision 2.0.2"
+
+    REVISION "201005050000Z"  -- May 5, 2010
+    DESCRIPTION
+       "Update avAesDlgCtiLinkTable to use Client IP Address and Client Number as table key
+        Revision 2.0.1" 
+    
+    REVISION "200905200000Z"  -- May 20, 2009
+    DESCRIPTION
+       "Provide SNMP metrics for DLG, DMCC, License and the AE Server
+        Revision 2.0.0" 
+
+    REVISION "200904200000Z"  -- April 20, 2009
+    DESCRIPTION
+       "Provide SNMP metrics for CVLAN, TSAPI, and Transport
+        Revision 1.0.0 - Original Version."       
+
+
+    ::= { avAESMibs 2 } -- value of 1 is used in AV-AES-SERVER-TRAP.mib file
+
+--
+--  The following are defined in SNMPv2-SMI
+--  iso             OBJECT IDENTIFIER ::= { 1 }
+--  org             OBJECT IDENTIFIER ::= { iso 3 }
+--  dod             OBJECT IDENTIFIER ::= { org 6 }
+--  internet        OBJECT IDENTIFIER ::= { dod 1 }
+--  private         OBJECT IDENTIFIER ::= { internet 4 }
+--  enterprises     OBJECT IDENTIFIER ::= { private 1 }
+--
+
+avaya           OBJECT IDENTIFIER ::= { enterprises 6889 }
+products        OBJECT IDENTIFIER ::= { avaya 1 }
+mibs            OBJECT IDENTIFIER ::= { avaya 2 }
+avAESProducts   OBJECT IDENTIFIER ::= { products 27 }
+avAESMibs       OBJECT IDENTIFIER ::= { mibs 27 }
+
+--
+-- Server ID
+--
+avServer                        OBJECT IDENTIFIER ::= { avAESProducts 1 }
+avApplicationEnablementServices OBJECT IDENTIFIER ::= { avServer 1 }
+
+
+--
+-- Top-level Components of this MIB
+--
+avAesObjects       OBJECT IDENTIFIER ::= { avAesMIB 1 } -- Objects
+avAesNotifications OBJECT IDENTIFIER ::= { avAesMIB 2 } -- Notification group
+avAesConformance   OBJECT IDENTIFIER ::= { avAesMIB 3 } -- Conformance
+
+avAesTransport OBJECT IDENTIFIER ::= { avAesObjects 1 }
+avAesCvlan     OBJECT IDENTIFIER ::= { avAesObjects 2 }
+avAesTsapi     OBJECT IDENTIFIER ::= { avAesObjects 3 }
+avAesDlg       OBJECT IDENTIFIER ::= { avAesObjects 4 }
+avAesDmcc      OBJECT IDENTIFIER ::= { avAesObjects 5 }
+avAesServer    OBJECT IDENTIFIER ::= { avAesObjects 6 }
+
+
+--
+-- Textual Conventions
+--
+AvAesServiceState ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION
+        "A value that represents the possible states of an AE service"
+    SYNTAX      INTEGER {
+                            ready(1),
+                            running(2),
+                            stopped(3),
+                            paused(4),
+                            stopping(5),
+                            starting(6),
+                            unknown(7),
+                            resourceUnavailable(8)
+                        }
+
+
+AvAesServiceStatus ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION
+        "A value that represents the possible status of an AE Service"
+    SYNTAX      INTEGER {
+                            resuming(1),
+                            initializing(2),
+                            online(3),
+                            offline(4),
+                            pausing(5),
+                            stopping(6),
+                            down(7),
+                            unknown(8),
+                            resourceUnavailable(9)
+                        }
+AvAesLinkState ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION
+        "A value that represents the possible states of a link between the
+         AE server and the Switch or an AE service client server"
+    SYNTAX      INTEGER {
+                            offline(1),
+                            online(2),
+                            resourceUnavailable(3)
+                        }
+AvAesLinkStatus ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION 
+        "A value that represents the possible status of a link between the
+         AE server and the Switch or an AE service client server"
+    SYNTAX      INTEGER {
+                            null(0),
+                            tooSlow(1),
+                            outOfService(2),
+                            invalidType(3),
+                            invalidCause(4),
+                            noReplyHb(5),
+                            dataLen(6),
+                            invalidClient(7),
+                            newConnection(8),
+                            context(9),
+                            linkUp(10),
+                            linkDown(11),
+                            invalidPassword(12),
+                            badVersion(13),
+                            tooManyConnections(14),
+                            switchDown(101), -- CM Down
+                            noLink(102), -- logical link not administered
+                            switchReset(103), -- logical link reset by CM
+                            busyLink(104), -- logical link busied out
+                            linkInUse(105),
+                            unadministered(200),
+                            talking(202),
+                            noResponse(203),
+                            restart(206),
+                            tcpDown(207),
+                            offline(208),
+                            linker(214),
+                            noLicense(215),
+                            preserved(216),
+                            standby(217),
+                            serverError(255),
+                            resourceUnavailable(256),
+                            idle(300)
+                        }
+     
+AvAesLicenseErrorCode ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION 
+        "A value that represents the possible status of a the license
+         used by an AE Service"
+    SYNTAX      INTEGER {
+                            normal(0),
+                            productNotFound(1),
+                            featureNotFound(2),
+                            serverConnection(3),
+                            invalidResponse(4),
+                            invalidRequest(5),
+                            internalError(6),
+                            invalidParameters(7),
+                            licenseExpired(8),
+                            noLicenseFound(9),
+                            unknownHost(10),
+                            tryAgain(11),
+                            noRecovery(12),
+                            noData(13),
+                            connectionRefused(14),
+                            noRouteToHost(15),
+                            authenticationError(16),
+                            incompatibleVersion(17),
+                            timeout(18),
+                            notLicenseServer(19),
+                            multiSiteInvalid(20),
+                            serverRestarting(21),
+                            sslConnection(22),
+                            invalidUrl(23),
+                            invalidProtocol(24),
+                            unknownError(99),
+                            gracePeriodExpired(100),
+                            invalidLicense(101),
+                            tooManyLicenses(102),
+                            dateTimeError(103)
+                    }
+     
+AvAesLicenseMode ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION 
+        "A value that represents the possible modes of the license
+         used by an AE Service"
+    SYNTAX      INTEGER {
+                            normal(0),
+                            error(1),
+                            restricted(2)
+                        }
+
+
+--
+-- Transport Service Section START
+--
+
+-- Transport Service Status
+
+avAesTransportName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the AE Service"
+    ::= { avAesTransport 1 }
+
+avAesTransportState OBJECT-TYPE
+    SYNTAX      AvAesServiceState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of the transport service"
+    ::= { avAesTransport 2 }
+
+avAesTransportStatus OBJECT-TYPE
+    SYNTAX      AvAesServiceStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the transport service"
+    ::= { avAesTransport 3 }
+
+avAesTransportStartTime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32)) 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Start time of the Transport Service"
+    ::= { avAesTransport 4 }
+
+avAesTransportStatusSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date/time of the last status change"
+    ::= { avAesTransport 5 }
+
+--
+-- Transport - AEP Link Connection
+--
+
+avAesAepLinkTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesAepLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each AEP link that the
+         Transport layer manages.
+         "
+    ::= { avAesTransport 6 }
+
+avAesAepLinkEntry OBJECT-TYPE
+    SYNTAX      AvAesAepLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific AEP link entry"
+    INDEX   { avAesAepLinkSwInetAddrType, avAesAepLinkSwInetAddr }
+    ::= {avAesAepLinkTable 1 }
+
+AvAesAepLinkEntry ::= 
+    SEQUENCE {
+        avAesAepLinkSwInetAddrType  InetAddressType,
+        avAesAepLinkSwInetAddr      InetAddress,   
+        avAesAepLinkSessSwName      DisplayString,          
+        avAesAepLinkStatus          AvAesLinkStatus,
+        avAesAepLinkState           AvAesLinkState,
+        avAesAepLinkSince           DisplayString,
+        avAesAepLinkMsgSent         Integer32,
+        avAesAepLinkMsgRcvd         Integer32,
+        avAesAepLinkMsgPeriod       Integer32,
+        avAesAepLinkSwRole          INTEGER,
+        avAesAepLinkSwStatus        INTEGER,
+        avAesAepLinkSwClusterID     Integer32
+}
+
+avAesAepLinkSwInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the InetAddress associated with the CLAN 
+         for the switch end of an AEP connection"
+    ::= { avAesAepLinkEntry 1 }
+
+avAesAepLinkSwInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress (SIZE(1..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name or IP address of the CLAN for the switch end
+         of an AEP connection"
+    ::= { avAesAepLinkEntry 2 }
+
+avAesAepLinkSessSwName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the switch as administered using the AES web
+         interface for the Switch Conn screen"
+    ::= { avAesAepLinkEntry 3 }
+
+avAesAepLinkStatus OBJECT-TYPE
+    SYNTAX      AvAesLinkStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "AEP Link status"
+    ::= { avAesAepLinkEntry 4 }
+
+avAesAepLinkState OBJECT-TYPE
+    SYNTAX      AvAesLinkState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The state of the link. "
+    ::= { avAesAepLinkEntry 5 }
+                       
+avAesAepLinkSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date and Time the session connection to CM entered
+         the current state"
+    ::= { avAesAepLinkEntry 6 }
+
+avAesAepLinkMsgSent OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages sent in the last window"
+    ::= { avAesAepLinkEntry 7 }
+
+avAesAepLinkMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages received in the last window"
+    ::= { avAesAepLinkEntry 8 }
+
+avAesAepLinkMsgPeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of minutes in the window"
+    ::= { avAesAepLinkEntry 9 }
+
+avAesAepLinkSwRole OBJECT-TYPE
+    SYNTAX      INTEGER {
+                        main(1),
+                        ess(2),
+                        lsp(3),
+                        unknown(4)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The role of the Switch associated with the 
+         AEP Connection (Main, ESS, or LSP)
+        "
+    ::= { avAesAepLinkEntry 10 }
+
+avAesAepLinkSwStatus OBJECT-TYPE
+    SYNTAX      INTEGER {
+                        idle(1),
+                        inUse(2),
+                        unknown(3)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The status of the Switch associated with the 
+         AEP Connection (Idle or In Use)
+        "
+
+    ::= { avAesAepLinkEntry 11 }
+
+avAesAepLinkSwClusterID   OBJECT-TYPE
+    SYNTAX      Integer32 (1..999)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Id of the Switch associated with the 
+         AEP Connection (Range: 1 - 999)
+        "
+    ::= { avAesAepLinkEntry 12 }
+
+--
+-- Transport - AEP Session - aggregate of all CLANs for each switch
+--
+
+avAesAepSessionTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesAepSessionEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each AEP Session that 
+         the Transport layer reports.
+        "
+    ::= { avAesTransport 7 }
+
+avAesAepSessionEntry OBJECT-TYPE
+    SYNTAX      AvAesAepSessionEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific CM/AEP session entry"
+    INDEX   { avAesAepSessionSwName }
+    ::= {avAesAepSessionTable 1 }
+
+AvAesAepSessionEntry ::= 
+    SEQUENCE {
+        avAesAepSessionSwName           DisplayString,           
+        avAesAepSessionStatus           AvAesLinkStatus,
+        avAesAepSessionSince            DisplayString,
+        avAesAepSessionState            AvAesLinkState,
+        avAesAepSessionActiveAepConn    Integer32,
+        avAesAepSessionTotalAepConn     Integer32,
+        avAesAepSessionAdminTciConn     Integer32,
+        avAesAepSessionSSL              INTEGER,
+        avAesAepSessionMsgSent          Integer32,
+        avAesAepSessionMsgRcvd          Integer32,
+        avAesAepSessionMsgPeriod        Integer32,
+        avAesAepSessionProcEth          INTEGER,
+        avAesAepSessionStandbyAepConn   Integer32
+}
+
+avAesAepSessionSwName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the switch as administered using the AES web
+         interface for the Switch Conn screen "
+    ::= { avAesAepSessionEntry 1 }
+
+avAesAepSessionStatus OBJECT-TYPE
+    SYNTAX      AvAesLinkStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Connection State of the Session"
+    ::= { avAesAepSessionEntry 2 }
+
+avAesAepSessionSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date and Time the session connection to CM entered the
+         current state"
+    ::= { avAesAepSessionEntry 3 }
+
+avAesAepSessionState OBJECT-TYPE
+    SYNTAX      AvAesLinkState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The state of the connection to CM (online or offline)"
+    ::= { avAesAepSessionEntry 4 }
+
+avAesAepSessionActiveAepConn OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The number of active AEP connections"
+    ::= { avAesAepSessionEntry 5 }
+
+avAesAepSessionTotalAepConn OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The total number of administered AEP connections"
+    ::= { avAesAepSessionEntry 6 }
+
+avAesAepSessionAdminTciConn OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The number of administered TCI connections"
+    ::= { avAesAepSessionEntry 7 }
+
+avAesAepSessionSSL OBJECT-TYPE
+    SYNTAX      INTEGER {
+                        enabled(1),
+                        disabled(2)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Whether the link has SSL enabled"
+    ::= { avAesAepSessionEntry 8 }
+
+avAesAepSessionMsgSent OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages sent in the last window"
+    ::= { avAesAepSessionEntry 9 }
+
+avAesAepSessionMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages received in the last window"
+    ::= { avAesAepSessionEntry 10 }
+
+avAesAepSessionMsgPeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of minutes in the window"
+    ::= { avAesAepSessionEntry 11 }
+
+avAesAepSessionProcEth OBJECT-TYPE
+    SYNTAX      INTEGER {
+                        enabled(1),
+                        disabled(2),
+                        resourceUnavailable(3)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Specifies if the link is using Processor Ethernet"
+    ::= { avAesAepSessionEntry 12 }
+
+avAesAepSessionStandbyAepConn OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The number of standby AEP connections"
+    ::= { avAesAepSessionEntry 13}
+
+-- Transport - TCI connection
+
+avAesTciConnTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesTciConnEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each TCI connection as
+         reported by the Transport layer.
+         "
+    ::= { avAesTransport 8 }
+
+avAesTciConnEntry OBJECT-TYPE
+    SYNTAX      AvAesTciConnEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific TCI connection"
+    INDEX   { avAesTciConnCtiLink,avAesTciConnSessSwName }
+    ::= {avAesTciConnTable 1 }
+
+AvAesTciConnEntry ::= 
+    SEQUENCE {
+        avAesTciConnCtiLink         Integer32,
+        avAesTciConnSessSwName      DisplayString,                 
+        avAesTciConnType            INTEGER,
+        avAesTciConnStatus          AvAesLinkStatus,
+        avAesTciConnSince           DisplayString,
+        avAesTciConnMsgSent         Integer32,
+        avAesTciConnMsgRcvd         Integer32,
+        avAesTciConnMsgPeriod       Integer32
+}
+
+avAesTciConnCtiLink OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "CTI link number or Zero for the Call Info Link (aka DAPI Link)"
+    ::= { avAesTciConnEntry 1 }
+
+avAesTciConnSessSwName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the switch as administered using the AES web interface
+         for the Switch Conn screen "
+    ::= { avAesTciConnEntry 2 }
+
+avAesTciConnType OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            cvlan(1),
+                            dlg(2),
+                            tsapi(3),
+                            callInfo(4) -- Also known as  the DAPI Link
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The AE Service using the link (CVLAN, DLG, TSAPI, or Call Info)"
+     ::= { avAesTciConnEntry 3 }
+
+avAesTciConnStatus OBJECT-TYPE
+    SYNTAX      AvAesLinkStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The connection state of the link"
+    ::= { avAesTciConnEntry 4 }
+
+avAesTciConnSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date and Time the link entered the current state"
+    ::= { avAesTciConnEntry 5 }
+
+avAesTciConnMsgSent OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages sent in the last window"
+    ::= { avAesTciConnEntry 6 }
+
+avAesTciConnMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages received in the last window"
+    ::= { avAesTciConnEntry 7 }
+
+avAesTciConnMsgPeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of minutes in the window"
+    ::= { avAesTciConnEntry 8 }
+
+--
+-- Transport Service END 
+--
+
+--
+-- CVLAN Service Start
+--
+
+avAesCvlanName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the AE Service"
+    ::= { avAesCvlan 1 }
+
+avAesCvlanState OBJECT-TYPE
+    SYNTAX      AvAesServiceState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of the service"
+    ::= { avAesCvlan 2 }
+
+avAesCvlanStatus OBJECT-TYPE
+    SYNTAX      AvAesServiceStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the service"
+    ::= { avAesCvlan 3 }
+
+avAesCvlanStartTime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Start time of the service"
+    ::= { avAesCvlan 4 }
+
+avAesCvlanStatusSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date/time of the last status change"
+    ::= { avAesCvlan 5 }
+
+avAesCvlanCtiLinkTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesCvlanCtiLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each CVLAN CTI link as
+         reported by CVLAN.
+         "
+    ::= { avAesCvlan 6 }
+
+avAesCvlanCtiLinkEntry OBJECT-TYPE
+    SYNTAX      AvAesCvlanCtiLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific CVLAN CTI Link"
+    INDEX   { avAesCvlanCtiLinkId }
+    ::= {avAesCvlanCtiLinkTable 1 }
+
+AvAesCvlanCtiLinkEntry ::= 
+    SEQUENCE {
+        avAesCvlanCtiLinkId             Integer32,
+        avAesCvlanCtiLinkSwName         DisplayString,       
+        avAesCvlanCtiLinkSwCtiId        Integer32,
+        avAesCvlanCtiLinkStatus         AvAesLinkStatus,
+        avAesCvlanCtiLinkSince          DisplayString,
+        avAesCvlanCtiLinkState          AvAesLinkState,
+        avAesCvlanCtiLinkAsaiVersion    Integer32,
+        avAesCvlanCtiLinkAssociations   Integer32,
+        avAesCvlanCtiLinkMsgSent        Integer32,
+        avAesCvlanCtiLinkMsgRcvd        Integer32,
+        avAesCvlanCtiLinkMsgPeriod      Integer32,
+        avAesCvlanCtiLinkClients        Integer32
+}
+
+avAesCvlanCtiLinkId OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The signal id of the CTI link"
+    ::= { avAesCvlanCtiLinkEntry 1 }
+
+avAesCvlanCtiLinkSwName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The switch name administered on the AE Server"
+    ::= { avAesCvlanCtiLinkEntry 2 }
+
+avAesCvlanCtiLinkSwCtiId OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The CTI link number administered on the switch"
+    ::= { avAesCvlanCtiLinkEntry 3 }
+
+avAesCvlanCtiLinkStatus OBJECT-TYPE
+    SYNTAX      AvAesLinkStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the CTI link"
+    ::= { avAesCvlanCtiLinkEntry 4 }
+
+avAesCvlanCtiLinkSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date/time the CTI link entered current state"
+    ::= { avAesCvlanCtiLinkEntry 5 }
+
+avAesCvlanCtiLinkState OBJECT-TYPE
+    SYNTAX      AvAesLinkState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The state of the CTI link connection to the switch"
+    ::= { avAesCvlanCtiLinkEntry 6 }
+
+avAesCvlanCtiLinkAsaiVersion OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The ASAI negotiated link version"
+    ::= { avAesCvlanCtiLinkEntry 7 }
+
+avAesCvlanCtiLinkAssociations OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of active associations"
+    ::= { avAesCvlanCtiLinkEntry 8 }
+
+avAesCvlanCtiLinkMsgSent OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of messages sent to the switch during
+         the message period"
+    ::= { avAesCvlanCtiLinkEntry 9 }
+
+avAesCvlanCtiLinkMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of messages received from the switch
+         during the message period"
+    ::= { avAesCvlanCtiLinkEntry 10 }
+
+avAesCvlanCtiLinkMsgPeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Message period in minutes per CTI link connection to the switch"
+    ::= { avAesCvlanCtiLinkEntry 11 }
+
+avAesCvlanCtiLinkClients OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Toatl number of clients per link"
+    ::= { avAesCvlanCtiLinkEntry 12 }
+
+
+
+
+--
+-- CVLAN CLIENT CONNECTION
+-- 
+
+avAesCvlanClientTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesCvlanClientEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each individual CVLAN Client
+         connection as reported by CVLAN.
+         "
+    ::= { avAesCvlan 7 }
+
+avAesCvlanClientEntry OBJECT-TYPE
+    SYNTAX      AvAesCvlanClientEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific CVLAN client connection"
+    INDEX   { avAesCvlanClientId }
+    ::= { avAesCvlanClientTable 1 }
+
+AvAesCvlanClientEntry ::= 
+    SEQUENCE {
+        avAesCvlanClientId                  Integer32,
+        avAesCvlanClientLinkId              Integer32,
+        avAesCvlanClientInetAddrType        InetAddressType,
+        avAesCvlanClientInetAddr            InetAddress,
+        avAesCvlanClientInetPort            InetPortNumber,
+        avAesCvlanClientAeSvrInetAddrType   InetAddressType,
+        avAesCvlanClientAeSvrInetAddr       InetAddress,
+        avAesCvlanClientAeSvrInetPort       InetPortNumber,
+        avAesCvlanClientMsgSent             Integer32,
+        avAesCvlanClientMsgRcvd             Integer32,
+        avAesCvlanClientMsgPeriod           Integer32
+}
+
+avAesCvlanClientId OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Field identifying a client connection uniquely"
+    ::= { avAesCvlanClientEntry 1 }
+
+avAesCvlanClientLinkId OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Signal Number in Use by the Client"
+    ::= { avAesCvlanClientEntry 2 }
+
+
+avAesCvlanClientInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the inet address used by the CVLAN client"
+    ::= { avAesCvlanClientEntry 3 }
+
+avAesCvlanClientInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Hostname or Ip adrress used by the client"
+    ::= { avAesCvlanClientEntry 4 }
+
+avAesCvlanClientInetPort OBJECT-TYPE
+    SYNTAX      InetPortNumber
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Port used by the client"
+    ::= { avAesCvlanClientEntry 5 }
+
+
+avAesCvlanClientAeSvrInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Ip adrress type of AES server where client connects"
+    ::= { avAesCvlanClientEntry 6 }
+
+avAesCvlanClientAeSvrInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Ip adrress of AES server where client connects"
+    ::= { avAesCvlanClientEntry 7 }
+
+avAesCvlanClientAeSvrInetPort OBJECT-TYPE
+    SYNTAX      InetPortNumber
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Port number on AES server where client connects"
+    ::= { avAesCvlanClientEntry 8 }
+
+avAesCvlanClientMsgSent OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages sent to the client"
+    ::= { avAesCvlanClientEntry 9 }
+
+avAesCvlanClientMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of message received from the client"
+    ::= { avAesCvlanClientEntry 10 }
+
+avAesCvlanClientMsgPeriod OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Size of the message window measured in minutes"
+    ::= { avAesCvlanClientEntry 11 }
+
+
+---
+--- CVLAN CLIENTS CONNECTION
+---
+avAesCvlanClientsTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesCvlanClientsEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains an aggragate detail view of the CVLAN Client
+         connections as reported by CVLAN per each CVLAN Server IP address.
+         "
+    ::= { avAesCvlan 8 }
+
+avAesCvlanClientsEntry OBJECT-TYPE
+    SYNTAX      AvAesCvlanClientsEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific CVLAN clients connection"
+    INDEX   { avAesCvlanClientsLinkId, avAesCvlanClientsInetAddr }
+    ::= { avAesCvlanClientsTable 1 }
+
+AvAesCvlanClientsEntry ::= 
+    SEQUENCE {
+        avAesCvlanClientsLinkId         Integer32,
+        avAesCvlanClientsInetAddrType   InetAddressType,
+        avAesCvlanClientsInetAddr       InetAddress,
+        avAesCvlanClientsStatus         INTEGER,
+        avAesCvlanClientsSecurity       INTEGER
+
+}
+
+avAesCvlanClientsLinkId OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Signal Number in Use by the Client"
+    ::= { avAesCvlanClientsEntry 1 }
+
+avAesCvlanClientsInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the inet address used by the CVLAN client"
+    ::= { avAesCvlanClientsEntry 2 }
+
+avAesCvlanClientsInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress (SIZE(1..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Hostname or Ip adrress used by the client"
+    ::= { avAesCvlanClientsEntry 3 }
+
+
+avAesCvlanClientsStatus OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            idle(1),
+                            active(2),
+                            resourceUnavailable(3)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the link between AES and the client."
+    ::= { avAesCvlanClientsEntry 4 }
+
+avAesCvlanClientsSecurity OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            none(0),
+                            encrypted(1),
+                            unencrypted(2),
+                            both(3),
+                            resourceUnavailable(4)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates the security level of the link."
+    ::= { avAesCvlanClientsEntry 5 }
+
+---
+--- Cvlan Licensing Information
+---
+
+avAesCvlanLicenseVersion OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Version of the license installed"
+    ::= { avAesCvlan 9 }
+
+avAesCvlanIsLicensed OBJECT-TYPE
+    SYNTAX      TruthValue 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates a valid license is installed"
+    ::= { avAesCvlan 10 }
+
+avAesCvlanLicenseMode OBJECT-TYPE
+    SYNTAX      AvAesLicenseMode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error mode associated with the license"
+    ::= { avAesCvlan 11 }
+
+avAesCvlanLicenseError OBJECT-TYPE
+    SYNTAX      AvAesLicenseErrorCode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error code associated with the license"
+    ::= { avAesCvlan 12 }
+
+avAesCvlanLicenseExpirationDate OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date when the license file will expire"
+    ::= { avAesCvlan 13 }
+
+avAesCvlanLicenseGracePeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of days remaining in the trial period"
+    ::= { avAesCvlan 14 }
+
+--
+-- Cvlan License Table
+--
+avAesCvlanLicenseTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesCvlanLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contain license info 
+         used by the Cvlan Service.
+         "
+    ::= { avAesCvlan 15 }
+
+avAesCvlanLicenseEntry OBJECT-TYPE
+    SYNTAX      AvAesCvlanLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific Cvlan license"
+    INDEX   { avAesCvlanLicenseIndex }
+    ::= { avAesCvlanLicenseTable 1 }
+
+AvAesCvlanLicenseEntry ::= 
+    SEQUENCE {
+        avAesCvlanLicenseIndex         Integer32,
+        avAesCvlanLicenseName          DisplayString,
+        avAesCvlanLicenseAcquired      Integer32,
+        avAesCvlanLicenseTotal         Integer32
+}
+
+avAesCvlanLicenseIndex OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Index of an AE Service license"
+    ::= { avAesCvlanLicenseEntry 1 }
+
+avAesCvlanLicenseName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of an AE Service license"
+    ::= { avAesCvlanLicenseEntry 2 }
+
+avAesCvlanLicenseAcquired OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of specific licenses acquired"
+    ::= { avAesCvlanLicenseEntry 3 }
+
+avAesCvlanLicenseTotal OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of a specific license"
+    ::= { avAesCvlanLicenseEntry 4 }
+
+--
+-- CVLAN Service End
+--
+
+
+--
+-- TSAPI Service Start
+--
+
+avAesTsapiName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the AE Service"
+    ::= { avAesTsapi 1 }
+
+avAesTsapiState OBJECT-TYPE
+    SYNTAX      AvAesServiceState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of the service"
+    ::= { avAesTsapi 2 }
+
+avAesTsapiStatus OBJECT-TYPE
+    SYNTAX      AvAesServiceStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the service"
+    ::= { avAesTsapi 3 }
+
+avAesTsapiStartTime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Start time of the service"
+    ::= { avAesTsapi 4 }
+
+avAesTsapiStatusSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date/time of the last status change"
+    ::= { avAesTsapi 5 }
+
+avAesTsapiCtiLinkTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesTsapiCtiLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each TSAPI CTI link as
+         reported by the ASAI Link Manager."
+    ::= { avAesTsapi 6 }
+
+avAesTsapiCtiLinkEntry OBJECT-TYPE
+    SYNTAX      AvAesTsapiCtiLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific TSAPI CTI link"
+    INDEX   { avAesTsapiCtiLinkId }
+    ::= {avAesTsapiCtiLinkTable 1 }
+
+AvAesTsapiCtiLinkEntry ::= SEQUENCE {
+        avAesTsapiCtiLinkId             Integer32,
+        avAesTsapiCtiLinkSwName         DisplayString, 
+        avAesTsapiCtiLinkSwCtiId        Integer32,
+        avAesTsapiCtiLinkStatus         AvAesLinkStatus,
+        avAesTsapiCtiLinkSince          DisplayString,
+        avAesTsapiCtiLinkState          AvAesLinkState,
+        avAesTsapiCtiLinkSwVersion      Integer32,
+        avAesTsapiCtiLinkAssociations   Integer32,
+        avAesTsapiCtiLinkMsgSent        Integer32,
+        avAesTsapiCtiLinkMsgRcvd        Integer32,
+        avAesTsapiCtiLinkMsgPeriod      Integer32
+}
+
+avAesTsapiCtiLinkId OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The id of the CTI link on the AE Server "
+    ::= { avAesTsapiCtiLinkEntry 1 }
+
+avAesTsapiCtiLinkSwName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The switch name administered on the AE Server"
+    ::= { avAesTsapiCtiLinkEntry 2 }
+
+avAesTsapiCtiLinkSwCtiId OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The CTI link id administered on the switch"
+    ::= { avAesTsapiCtiLinkEntry 3 }
+
+avAesTsapiCtiLinkStatus OBJECT-TYPE
+    SYNTAX      AvAesLinkStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the CTI link"
+    ::= { avAesTsapiCtiLinkEntry 4 }
+
+avAesTsapiCtiLinkSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date/time the CTI link entered its current state"
+    ::= { avAesTsapiCtiLinkEntry 5 }
+
+avAesTsapiCtiLinkState OBJECT-TYPE
+    SYNTAX      AvAesLinkState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The state of the CTI link connection to the switch"
+    ::= { avAesTsapiCtiLinkEntry 6 }
+
+avAesTsapiCtiLinkSwVersion OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The switch version"
+    ::= { avAesTsapiCtiLinkEntry 7 }
+
+avAesTsapiCtiLinkAssociations OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The number of active associations"
+    ::= { avAesTsapiCtiLinkEntry 8 }
+
+avAesTsapiCtiLinkMsgSent OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of messages sent to the switch
+         during the message period"
+    ::= { avAesTsapiCtiLinkEntry 9 }
+
+avAesTsapiCtiLinkMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of messages received from the switch
+         during the message period"
+    ::= { avAesTsapiCtiLinkEntry 10 }
+
+avAesTsapiCtiLinkMsgPeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        " Message period in minutes."
+    ::= { avAesTsapiCtiLinkEntry 11 }
+    
+avAesTsapiTLinksRegistered OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of Tlinks available"
+    ::= { avAesTsapi 7 }
+    
+
+avAesTsapiClientsConnected OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of TSAPI clients currently connected"
+    ::= { avAesTsapi 8 }
+
+
+avAesTsapiMaxClientsConnected OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Maximum number of clients that have connected"
+    ::= { avAesTsapi 9 }
+
+avAesTsapiMemoryInUse OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Amount of memory currently in use"
+    ::= { avAesTsapi 10 }
+
+avAesTsapiMaxMemoryUsed OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Peak amount of memory used since TSAPI started
+         (or since this value was reset )."
+    ::= { avAesTsapi 11 }
+
+avAesTsapiOpenUserStreams OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of open TSAPI user streams "
+    ::= { avAesTsapi 12 }
+
+avAesTsapiClosedUserStreams OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of closed TSAPI user streams since the service started."
+    ::= { avAesTsapi 13 }
+
+  
+--
+-- TSAPI Client Connection
+--
+
+
+avAesTsapiClientTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesTsapiClientEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each TSAPI client connection."
+    ::= { avAesTsapi 14 }
+
+avAesTsapiClientEntry OBJECT-TYPE
+    SYNTAX      AvAesTsapiClientEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific TSAPI client connection"
+    INDEX   { avAesTsapiClientSessionId, avAesTsapiClientIsSessionActive }
+    ::= { avAesTsapiClientTable 1 }
+
+AvAesTsapiClientEntry ::= SEQUENCE {
+        avAesTsapiClientSessionId           Integer32,
+        avAesTsapiClientIsSessionActive     TruthValue,
+        avAesTsapiClientInetAddrType        InetAddressType,
+        avAesTsapiClientInetAddr            InetAddress,
+        avAesTsapiClientTlinkName           DisplayString, 
+        avAesTsapiClientMsgSent             Integer32,
+        avAesTsapiClientMsgRcvd             Integer32,
+        avAesTsapiClientDeviceMonitors      Integer32,
+        avAesTsapiClientCallMonitors        Integer32,
+        avAesTsapiClientVdnMonitors         Integer32,
+        avAesTsapiClientRegisteredRoutes    Integer32,
+        avAesTsapiClientUserId              DisplayString,
+        avAesTsapiClientAppName             DisplayString,
+        avAesTsapiClientLibraryVersion      DisplayString, 
+        avAesTsapiClientTimeOpened          DisplayString,
+        avAesTsapiClientTimeClosed          DisplayString
+
+}
+
+avAesTsapiClientSessionId OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "An identifier assigned to the TSAPI session 
+         when the TSAPI stream was opened"
+    ::= { avAesTsapiClientEntry 1 }
+
+avAesTsapiClientIsSessionActive OBJECT-TYPE
+    SYNTAX      TruthValue
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "TRUE, if the session is currently active"
+    ::= { avAesTsapiClientEntry 2 }
+
+avAesTsapiClientInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The IP address type of the connecting client"
+    ::= { avAesTsapiClientEntry 3 }
+
+
+avAesTsapiClientInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The IP address of the connecting client"
+    ::= { avAesTsapiClientEntry 4 }
+
+avAesTsapiClientTlinkName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..50))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "A string identifying the particular switch connection"
+    ::= { avAesTsapiClientEntry 5 }
+
+
+avAesTsapiClientMsgSent OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages sent to the client from AES"
+    ::= { avAesTsapiClientEntry 6 }
+
+avAesTsapiClientMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of messages received from the client by AES"
+    ::= { avAesTsapiClientEntry 7 }
+
+avAesTsapiClientDeviceMonitors OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of device monitors currently active."
+    ::= { avAesTsapiClientEntry 8 }
+
+avAesTsapiClientCallMonitors OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of call monitors currently active."
+    ::= { avAesTsapiClientEntry 9 }
+
+avAesTsapiClientVdnMonitors OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of VDN and ACD Group monitors currently active"
+    ::= { avAesTsapiClientEntry 10 }
+
+avAesTsapiClientRegisteredRoutes OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of route registrations currently active"
+    ::= { avAesTsapiClientEntry 11 }
+    
+avAesTsapiClientUserId OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..50))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Login ID of the user"
+    ::= { avAesTsapiClientEntry 12 }
+
+avAesTsapiClientAppName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..50))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Application name sent by the TSAPI application"
+    ::= { avAesTsapiClientEntry 13 }
+
+avAesTsapiClientLibraryVersion OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..50))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Version of the client library"
+    ::= { avAesTsapiClientEntry 14 }
+    
+
+avAesTsapiClientTimeOpened OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Time stream was connected"
+    ::= { avAesTsapiClientEntry 15 }
+
+avAesTsapiClientTimeClosed OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Time stream was closed"
+    ::= { avAesTsapiClientEntry 16 }
+
+--
+--TSAPI TLINK Status
+--
+avAesTsapiTlinkTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesTsapiTlinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each TSAPI TLINK."
+    ::= { avAesTsapi 16 }
+
+avAesTsapiTlinkEntry OBJECT-TYPE
+    SYNTAX      AvAesTsapiTlinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific TSAPI TLINK"
+    INDEX   { avAesTsapiTlinkName }
+    ::= {avAesTsapiTlinkTable 1 }
+
+AvAesTsapiTlinkEntry ::= SEQUENCE {
+        avAesTsapiTlinkName                     DisplayString,
+        avAesTsapiTlinkIsRegistered             TruthValue,
+        avAesTsapiTlinkOpenStreams              Integer32,
+        avAesTsapiTlinkVersion                  DisplayString,
+        avAesTsapiTlinkProtocolType             DisplayString,
+        avAesTsapiTlinkSecurity                 DisplayString,
+        avAesTsapiTlinkTsdiBufMaxFlowAllowed    Integer32,
+        avAesTsapiTlinkTsdiBufMaxFlowReached    Integer32,
+        avAesTsapiTlinkInvokeIdsInUse           Integer32,
+        avAesTsapiTlinkMaxInvokeIdsUsed         Integer32,
+        avAesTsapiTlinkConnections              Integer32,
+        avAesTsapiTlinkMaxConnections           Integer32
+}
+
+avAesTsapiTlinkName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the TLink"
+    ::= { avAesTsapiTlinkEntry 1 }
+
+avAesTsapiTlinkIsRegistered OBJECT-TYPE
+    SYNTAX      TruthValue
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "True, if Tlink is registered else False"
+    ::= { avAesTsapiTlinkEntry 2 }
+    
+
+avAesTsapiTlinkOpenStreams OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of open streams for this Tlink"
+    ::= { avAesTsapiTlinkEntry 3 }
+
+avAesTsapiTlinkVersion OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..50))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Version of the Tlink"
+    ::= { avAesTsapiTlinkEntry 4 }
+
+avAesTsapiTlinkProtocolType OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..50))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates the current CSTA protocol type "
+    ::= { avAesTsapiTlinkEntry 5 }
+
+avAesTsapiTlinkSecurity OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..50))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The security level that the TSAPI Service requested when the
+         Tlink was registered with TSAPI."
+    ::= { avAesTsapiTlinkEntry 6 }
+
+
+avAesTsapiTlinkTsdiBufMaxFlowAllowed OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The number of messages that may be queued for the Tlink before
+         flow control is invoked."
+    ::= { avAesTsapiTlinkEntry 7 }
+
+
+avAesTsapiTlinkTsdiBufMaxFlowReached OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The maximum number of messages that have been queued to the
+         Tlink since the Tlink registered (or since this value was reset)."
+    ::= { avAesTsapiTlinkEntry 8 }
+    
+avAesTsapiTlinkInvokeIdsInUse OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The number of Invoke IDs currently allocated for the Tlink"
+    ::= { avAesTsapiTlinkEntry 9 }
+
+avAesTsapiTlinkMaxInvokeIdsUsed OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The maximum number of Invoke IDs that have been allocated for
+         the Tlink since the Tlink registered (or since this value 
+         was reset)."
+    ::= { avAesTsapiTlinkEntry 10 }
+
+ avAesTsapiTlinkConnections OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Indicates the current number of connections for the Tlink"
+     ::= { avAesTsapiTlinkEntry 11 }
+
+
+ avAesTsapiTlinkMaxConnections OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Indicates the max number of connections that have been used at
+          any one time since the Tlink registered (or since this value
+          was reset)."
+     ::= { avAesTsapiTlinkEntry 12 }
+
+avAesTsapiTsdiTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesTsapiTsdiEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contain details for each TSDI associated with a
+         TSAPI TLINK."
+    ::= { avAesTsapi 17 }
+
+avAesTsapiTsdiEntry OBJECT-TYPE
+    SYNTAX      AvAesTsapiTsdiEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing the TSDI status for a specific TSAPI Tlink"
+    INDEX   { avAesTsapiTsdiTlinkName }
+    ::= {avAesTsapiTsdiTable 1 }
+
+AvAesTsapiTsdiEntry ::= SEQUENCE {
+        avAesTsapiTsdiTlinkName                 DisplayString,
+        avAesTsapiTsdiMsgQToTlink               Integer32,   
+        avAesTsapiTsdiMsgQToTsrv                Integer32,  
+        avAesTsapiTsdiMsgQTsrvPriv              Integer32,
+        avAesTsapiTsdiMsgAllocByTlink           Integer32,
+        avAesTsapiTsdiMsgAllocByTsrv            Integer32,
+        avAesTsapiTsdiMsgBytesQToTlink          Integer32,   
+        avAesTsapiTsdiMsgBytesQToTsrv           Integer32,  
+        avAesTsapiTsdiMsgBytesQTsrvPriv         Integer32,
+        avAesTsapiTsdiMsgBytesAllocTlink        Integer32,
+        avAesTsapiTsdiMsgBytesAllocTsrv         Integer32,
+        avAesTsapiTsdiBuffSpaceAlloc            Integer32,
+        avAesTsapiTsdiBuffSize                  Integer32,
+        avAesTsapiTsdiBuffHighWaterMark         Integer32
+}
+
+ avAesTsapiTsdiTlinkName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the TLink"
+    ::= { avAesTsapiTsdiEntry 1 }
+
+
+ avAesTsapiTsdiMsgQToTlink OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of TSDI messages queued to the Tlink"
+     ::= { avAesTsapiTsdiEntry 2 }
+ 
+ avAesTsapiTsdiMsgQToTsrv OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of public TSDI messages queued to the Tserver"
+     ::= { avAesTsapiTsdiEntry 3 }
+ 
+ avAesTsapiTsdiMsgQTsrvPriv OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of private TSDI messages queued to the Tserver"
+     ::= { avAesTsapiTsdiEntry 4 }
+
+ avAesTsapiTsdiMsgAllocByTlink OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of TSDI messages allocated by the Tlink"
+     ::= { avAesTsapiTsdiEntry 5 }
+
+ avAesTsapiTsdiMsgAllocByTsrv OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of TSDI messages allocated by the TSAPI Service"
+     ::= { avAesTsapiTsdiEntry 6 }
+
+ avAesTsapiTsdiMsgBytesQToTlink OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of bytes for public TSDI messages queued to the Tlink"
+     ::= { avAesTsapiTsdiEntry 7 }
+
+ avAesTsapiTsdiMsgBytesQToTsrv OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of bytes for public TSDI messages queued to the Tserver"
+     ::= { avAesTsapiTsdiEntry 8 }
+
+ avAesTsapiTsdiMsgBytesQTsrvPriv OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of bytes for private TSDI messages queued to the Tserver"
+     ::= { avAesTsapiTsdiEntry 9 }
+
+ avAesTsapiTsdiMsgBytesAllocTlink OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of TSDI message bytes allocated by the Tlink"
+     ::= { avAesTsapiTsdiEntry 10 }
+
+ avAesTsapiTsdiMsgBytesAllocTsrv OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "Number of TSDI message bytes allocated by the TSAPI Service"
+     ::= { avAesTsapiTsdiEntry 11 }
+
+ avAesTsapiTsdiBuffSpaceAlloc OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "The number of TSDI bytes allocated for the Tlink"
+     ::= { avAesTsapiTsdiEntry 12 }
+
+ avAesTsapiTsdiBuffSize OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "The maximum number of bytes (excluding privately allocated
+          message bytes) that may be allocated for the Tlink."
+     ::= { avAesTsapiTsdiEntry 13 }
+
+ avAesTsapiTsdiBuffHighWaterMark OBJECT-TYPE
+     SYNTAX      Integer32 
+     MAX-ACCESS  read-only
+     STATUS      current
+     DESCRIPTION
+         "The number of bytes (excluding privately allocated message bytes)
+          that may be allocated for the Tlink before the TSDI begins to
+           indicate that the maximum TSDI size may soon be reached."
+     ::= { avAesTsapiTsdiEntry 14 }
+     
+---
+--- Tsapi Licensing Information
+---
+
+avAesTsapiLicenseVersion OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Version of the license installed"
+    ::= { avAesTsapi 18 }
+
+avAesTsapiIsLicensed OBJECT-TYPE
+    SYNTAX      TruthValue 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates a valid license is installed"
+    ::= { avAesTsapi 19 }
+
+avAesTsapiLicenseMode OBJECT-TYPE
+    SYNTAX      AvAesLicenseMode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error mode associated with the license"
+    ::= { avAesTsapi 20 }
+
+avAesTsapiLicenseError OBJECT-TYPE
+    SYNTAX      AvAesLicenseErrorCode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error code associated with the license"
+    ::= { avAesTsapi 21 }
+
+avAesTsapiLicenseExpirationDate OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date when the license file will expire"
+    ::= { avAesTsapi 22 }
+
+avAesTsapiLicenseGracePeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of days remaining in the trial period"
+    ::= { avAesTsapi 23 }
+
+--
+-- Tsapi License Table
+--
+avAesTsapiLicenseTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesTsapiLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contain license info 
+         used by the Tsapi Service.
+         "
+    ::= { avAesTsapi 24 }
+
+avAesTsapiLicenseEntry OBJECT-TYPE
+    SYNTAX      AvAesTsapiLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific Tsapi license"
+    INDEX   { avAesTsapiLicenseIndex }
+    ::= { avAesTsapiLicenseTable 1 }
+
+AvAesTsapiLicenseEntry ::= 
+    SEQUENCE {
+        avAesTsapiLicenseIndex         Integer32,
+        avAesTsapiLicenseName          DisplayString,
+        avAesTsapiLicenseAcquired      Integer32,
+        avAesTsapiLicenseTotal         Integer32
+}
+
+avAesTsapiLicenseIndex OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Index of an AE Service license"
+    ::= { avAesTsapiLicenseEntry 1 }
+
+avAesTsapiLicenseName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of an AE Service license"
+    ::= { avAesTsapiLicenseEntry 2 }
+
+avAesTsapiLicenseAcquired OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of specific licenses acquired"
+    ::= { avAesTsapiLicenseEntry 3 }
+
+avAesTsapiLicenseTotal OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of a specific license"
+    ::= { avAesTsapiLicenseEntry 4 }
+
+--
+-- TSAPI Service End
+--
+
+--
+-- DLG Service starts
+--
+
+
+avAesDlgName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the AE Service"
+    ::= { avAesDlg 1 }
+
+avAesDlgState OBJECT-TYPE
+    SYNTAX      AvAesServiceState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of the service"
+    ::= { avAesDlg 2 }
+
+avAesDlgStatus OBJECT-TYPE
+    SYNTAX      AvAesServiceStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the service"
+    ::= { avAesDlg 3 }
+
+avAesDlgStartTime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Start time of the service"
+    ::= { avAesDlg 4 }
+
+avAesDlgStatusSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date/time of the last status change"
+    ::= { avAesDlg 5 }
+
+--
+--DLG Links details
+--
+
+avAesDlgCtiLinkTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesDlgCtiLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contains details of each DLG CTI Link ."
+    ::= { avAesDlg 6 }
+
+avAesDlgCtiLinkEntry OBJECT-TYPE
+    SYNTAX      AvAesDlgCtiLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific DLG CTI Link"
+    INDEX   { avAesDlgCtiLinkId, avAesDlgCtiLinkClientInetAddr }
+    ::= { avAesDlgCtiLinkTable 1 }
+
+AvAesDlgCtiLinkEntry ::= SEQUENCE {
+        avAesDlgCtiLinkId                   Integer32,
+        avAesDlgCtiLinkSwName               DisplayString,
+        avAesDlgCtiLinkSwCtiId              Integer32,
+        avAesDlgCtiLinkStatus               AvAesLinkStatus,
+        avAesDlgCtiLinkSince                DisplayString,
+        avAesDlgCtiLinkState                AvAesLinkState,
+        avAesDlgCtiLinkClientInetAddrType   InetAddressType,
+        avAesDlgCtiLinkClientInetAddr       InetAddress,
+        avAesDlgCtiLinkClientInetPort       InetPortNumber,
+        avAesDlgCtiLinkServerInetAddrType   InetAddressType,
+        avAesDlgCtiLinkServerInetAddr       InetAddress,
+        avAesDlgCtiLinkMsgSent              Integer32,
+        avAesDlgCtiLinkMsgRcvd              Integer32,
+        avAesDlgCtiLinkMsgPeriod            Integer32
+}
+
+avAesDlgCtiLinkId OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The DLG Client Link number "
+    ::= { avAesDlgCtiLinkEntry 1 }
+
+avAesDlgCtiLinkSwName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The switch name as administered on AES"
+    ::= { avAesDlgCtiLinkEntry 2 }
+
+avAesDlgCtiLinkSwCtiId OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The CTI link number as administered on the switch (CM interface) "
+    ::= { avAesDlgCtiLinkEntry 3 }
+
+avAesDlgCtiLinkStatus OBJECT-TYPE
+    SYNTAX      AvAesLinkStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates the status of the link connection to CM."
+    ::= { avAesDlgCtiLinkEntry 4 }
+
+avAesDlgCtiLinkSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date and time DLG link entered state"
+    ::= { avAesDlgCtiLinkEntry 5 }
+
+avAesDlgCtiLinkState OBJECT-TYPE
+    SYNTAX      AvAesLinkState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of the link."
+    ::= { avAesDlgCtiLinkEntry 6 }
+    
+avAesDlgCtiLinkClientInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the Inet address administered for the DLG Client"
+    ::= { avAesDlgCtiLinkEntry 7 }
+
+avAesDlgCtiLinkClientInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Hostname or IP Address of the DLG Client"
+    ::= { avAesDlgCtiLinkEntry 8 }
+    
+avAesDlgCtiLinkClientInetPort OBJECT-TYPE
+    SYNTAX      InetPortNumber
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Port of the DLG Client"
+    ::= { avAesDlgCtiLinkEntry 9 }
+
+avAesDlgCtiLinkServerInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of Local IP address in use by the DLG Service"
+    ::= { avAesDlgCtiLinkEntry 10 }
+
+avAesDlgCtiLinkServerInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress (SIZE(1..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Local IP address in use by the DLG Service"
+    ::= { avAesDlgCtiLinkEntry 11 }
+
+
+avAesDlgCtiLinkMsgSent OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The total number of messages from the switch during the message
+         period for each switch connection"
+    ::= { avAesDlgCtiLinkEntry 12 }
+
+avAesDlgCtiLinkMsgRcvd OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The total number of messages to the switch during the message
+         period for each switch connection"
+    ::= { avAesDlgCtiLinkEntry 13 }
+
+avAesDlgCtiLinkMsgPeriod OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The message period in minutes per link to the switch"
+    ::= { avAesDlgCtiLinkEntry 14 }
+    
+---
+--- Dlg Licensing Information
+---
+
+avAesDlgLicenseVersion OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Version of the license installed"
+    ::= { avAesDlg 7 }
+
+avAesDlgIsLicensed OBJECT-TYPE
+    SYNTAX      TruthValue 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates a valid license is installed"
+    ::= { avAesDlg 8 }
+
+avAesDlgLicenseMode OBJECT-TYPE
+    SYNTAX      AvAesLicenseMode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error mode associated with the license"
+    ::= { avAesDlg 9 }
+
+avAesDlgLicenseError OBJECT-TYPE
+    SYNTAX      AvAesLicenseErrorCode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error code associated with the license"
+    ::= { avAesDlg 10 }
+
+avAesDlgLicenseExpirationDate OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date when the license file will expire"
+    ::= { avAesDlg 11 }
+
+avAesDlgLicenseGracePeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of days remaining in the trial period"
+    ::= { avAesDlg 12 }
+
+--
+-- Dlg License Table
+--
+avAesDlgLicenseTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesDlgLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contain license info 
+         used by the Dlg Service.
+         "
+    ::= { avAesDlg 13 }
+
+avAesDlgLicenseEntry OBJECT-TYPE
+    SYNTAX      AvAesDlgLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific Dlg license"
+    INDEX   { avAesDlgLicenseIndex }
+    ::= { avAesDlgLicenseTable 1 }
+
+AvAesDlgLicenseEntry ::= 
+    SEQUENCE {
+        avAesDlgLicenseIndex         Integer32,
+        avAesDlgLicenseName          DisplayString,
+        avAesDlgLicenseAcquired      Integer32,
+        avAesDlgLicenseTotal         Integer32
+}
+
+avAesDlgLicenseIndex OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Index of an AE Service license"
+    ::= { avAesDlgLicenseEntry 1 }
+
+avAesDlgLicenseName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of an AE Service license"
+    ::= { avAesDlgLicenseEntry 2 }
+
+avAesDlgLicenseAcquired OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of specific licenses acquired"
+    ::= { avAesDlgLicenseEntry 3 }
+
+avAesDlgLicenseTotal OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of a specific license"
+    ::= { avAesDlgLicenseEntry 4 }
+
+--
+--DLG service ends
+--
+
+
+--
+-- DMCC Service Start
+--
+avAesDmccName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the AE Service"
+    ::= { avAesDmcc 1 }
+
+avAesDmccState OBJECT-TYPE
+    SYNTAX      AvAesServiceState
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of the DMCC service"
+    ::= { avAesDmcc 2 }
+
+avAesDmccStatus OBJECT-TYPE
+    SYNTAX      AvAesServiceStatus
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Status of the DMCC service"
+    ::= { avAesDmcc 3 }
+
+avAesDmccStartTime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32)) 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Start time of the DMCC Service"
+    ::= { avAesDmcc 4 }
+
+avAesDmccStatusSince OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(1..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date/time of the last status change"
+    ::= {  avAesDmcc 5 }
+
+avAesDmccUsedMemory OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Amount of memory in bytes currently in use by DMCC"
+    ::= {  avAesDmcc 6 }
+    
+avAesDmccFreeMemory OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Amount of free memory in bytes currently available in the DMCC JVM"
+    ::= {  avAesDmcc 7 }
+
+avAesDmccMaxMemory OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Max amount of memory in bytes reserved by the DMCC JVM"
+    ::= {  avAesDmcc 8 }
+
+avAesDmccUsedMonitors OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of monitors currently in use across the DMCC Sessions"
+    ::= {  avAesDmcc 9 }
+
+avAesDmccMaxMonitors OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of monitors available to a DMCC service."
+    ::= {  avAesDmcc 10 }
+
+avAesDmccActiveSessions OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of active DMCC Sessions."
+    ::= {  avAesDmcc 11 }
+
+avAesDmccTotalSessions OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of DMCC Sessions created since the start of the DMCC service"
+    ::= {  avAesDmcc 12 }
+
+avAesDmccActiveDevices OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of active DMCC devices across all the DMCC Sessions"
+    ::= {  avAesDmcc 13 }
+
+avAesDmccTotalDevices OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of DMCC Devices created since the start of the DMCC service"
+    ::= {  avAesDmcc 14 }
+
+--
+-- DMCC Session Table
+--
+
+avAesDmccSessTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesDmccSessEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contain details for each DMCC Session.
+         "
+    ::= { avAesDmcc 15 }
+
+avAesDmccSessEntry OBJECT-TYPE
+    SYNTAX      AvAesDmccSessEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific AES DMCC Session"
+    INDEX   { avAesDmccSessIndex }
+    ::= { avAesDmccSessTable 1 }
+
+AvAesDmccSessEntry ::= 
+    SEQUENCE {
+        avAesDmccSessIndex                Integer32,
+        avAesDmccSessId                   DisplayString,
+        avAesDmccSessUsername             DisplayString,
+        avAesDmccSessAppName              DisplayString,
+        avAesDmccSessClientInetAddrType   InetAddressType,
+        avAesDmccSessClientInetAddr       InetAddress,
+        avAesDmccSessClientPort           InetPortNumber,
+        avAesDmccSessConnType             INTEGER,
+        avAesDmccSessTotalDevices         Integer32,
+        avAesDmccSessState                INTEGER,
+        avAesDmccSessTimestamp            DisplayString,
+        avAesDmccSessUptime               DisplayString,
+        avAesDmccSessCleanupTimer         Integer32,
+        avAesDmccSessDurationTimer        Integer32,
+        avAesDmccSessResetTimer           DisplayString,
+        avAesDmccSessResetCleanupTimer    DisplayString,
+        avAesDmccSessReconnectCounter     Integer32
+        
+}
+
+avAesDmccSessIndex OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "Session Id of a DMCC client connection"
+    ::= { avAesDmccSessEntry 1 }
+
+
+avAesDmccSessId OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Session Id of a DMCC client connection"
+    ::= { avAesDmccSessEntry 2 }
+
+avAesDmccSessUsername OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Username associated with a DMCC client connection"
+    ::= { avAesDmccSessEntry 3 }
+
+avAesDmccSessAppName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the client application associated with the session"
+    ::= { avAesDmccSessEntry 4 }
+
+avAesDmccSessClientInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the client Inetaddress associated with the session"
+    ::= { avAesDmccSessEntry 5 }
+
+avAesDmccSessClientInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Client IP address or hostname associated with the session"
+    ::= { avAesDmccSessEntry 6 }
+    
+avAesDmccSessClientPort OBJECT-TYPE
+    SYNTAX      InetPortNumber
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Client port associated with the session"
+    ::= { avAesDmccSessEntry 7 }
+
+avAesDmccSessConnType OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            xmlUnencrypted(1),
+                            xmlEncrypted(2),
+                            tr87(3),
+                            unknown(4),
+                            resourceUnavailable(5)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the session usage"
+    ::= { avAesDmccSessEntry 8 }
+
+avAesDmccSessTotalDevices OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of devices associated with a session"
+    ::= { avAesDmccSessEntry 9 }
+
+avAesDmccSessState OBJECT-TYPE
+    SYNTAX      INTEGER {
+                           created(1),
+                           active(2),
+                           inactive(3),
+                           cleanedUp(4),
+                           invalid(5),
+                           recovering(6),
+                           unknown(7),
+                           resourceUnavailable(8)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates the state of the session"
+    ::= { avAesDmccSessEntry 10 }
+
+avAesDmccSessTimestamp OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates the date and time when the session
+         was established"
+    ::= { avAesDmccSessEntry 11 }
+
+avAesDmccSessUptime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates the time duration of the active
+         session since it was created"
+    ::= { avAesDmccSessEntry 12 }
+
+avAesDmccSessCleanupTimer OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of seconds a session will remain
+         in the inactive state before it is cleaned up"
+    ::= { avAesDmccSessEntry 13 }
+
+avAesDmccSessDurationTimer OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of seconds DMCC will wait for a 
+         Reset Application Session Timer message
+         or a SIP REINVITE when using TR87, before
+         moving the session to the inactive state"
+    ::= { avAesDmccSessEntry 14 }
+
+avAesDmccSessResetTimer OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The last timestamp when DMCC received a request from 
+         the client application to reset the application session
+         timer"
+    ::= { avAesDmccSessEntry 15 }
+
+avAesDmccSessResetCleanupTimer OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The last timestamp when DMCC received a request from 
+         the client application to reset the cleanup timer"
+    ::= { avAesDmccSessEntry 16 }
+
+avAesDmccSessReconnectCounter OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The number of times a session has been re-established"
+    ::= { avAesDmccSessEntry 17 }
+
+--
+-- DMCC Device Table
+--
+
+avAesDmccDeviceTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesDmccDeviceEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contain details for each of the DMCC devices .
+         "
+    ::= { avAesDmcc 16 }
+
+avAesDmccDeviceEntry OBJECT-TYPE
+    SYNTAX      AvAesDmccDeviceEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific DMCC device"
+    INDEX   { avAesDmccDeviceIndex }
+    ::= { avAesDmccDeviceTable 1 }
+
+AvAesDmccDeviceEntry ::= 
+    SEQUENCE {
+        avAesDmccDeviceIndex                Integer32,
+        avAesDmccDeviceId                   DisplayString,
+        avAesDmccDeviceUsername             DisplayString,   
+        avAesDmccDeviceSessId               DisplayString,
+        avAesDmccDeviceTotalSessions        Integer32,
+        avAesDmccDeviceRegState             INTEGER,          
+        avAesDmccDeviceRegType              INTEGER,
+        avAesDmccDeviceRegTime              DisplayString,
+        avAesDmccDeviceRegDuration          DisplayString,
+        avAesDmccDeviceMediaMode            INTEGER,
+        avAesDmccDeviceDependencyMode       INTEGER,
+        avAesDmccDeviceRtpInetAddrType      InetAddressType,
+        avAesDmccDeviceRtpInetAddr          InetAddress,
+        avAesDmccDeviceRtpInetPort          InetPortNumber,
+        avAesDmccDeviceRtcpInetAddrType     InetAddressType,
+        avAesDmccDeviceRtcpInetAddr         InetAddress,
+        avAesDmccDeviceRtcpInetPort         InetPortNumber,
+        avAesDmccDeviceEncryptionTypes      DisplayString,
+        avAesDmccDeviceCodecs               DisplayString
+}
+
+avAesDmccDeviceIndex OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "Index of a DMCC Device"
+    ::= { avAesDmccDeviceEntry 1 }
+
+avAesDmccDeviceId OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Device Id of a DMCC device"
+    ::= { avAesDmccDeviceEntry 2 }
+
+avAesDmccDeviceUsername OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the user associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 3 }
+
+avAesDmccDeviceSessId OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Session IDs associated with a device"
+    ::= { avAesDmccDeviceEntry 4 }
+
+avAesDmccDeviceTotalSessions OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of sessions associated with a device"
+    ::= { avAesDmccDeviceEntry 5 }
+
+avAesDmccDeviceRegState OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            idle(1),
+                            registering(2),
+                            registered(3),
+                            unregistering(4),
+                            unregistered(5),
+                            unknown(6),
+                            resourceUnavailable(7)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Registration state of a DMCC device"
+    ::= { avAesDmccDeviceEntry 6 }
+
+avAesDmccDeviceRegType OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            csta(1),
+                            tr87(2),
+                            unknown(3),
+                            resourceUnavailable(4)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type registration of a DMCC device"
+    ::= { avAesDmccDeviceEntry 7 }
+
+avAesDmccDeviceRegTime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date and time when a device was registered"
+    ::= { avAesDmccDeviceEntry 8 }
+
+avAesDmccDeviceRegDuration OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total time a device has been registered"
+    ::= { avAesDmccDeviceEntry 9 }
+
+avAesDmccDeviceMediaMode OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            client(1),
+                            server(2),
+                            telecommuter(3),
+                            undefined(4),
+                            unknown(5),
+                            resourceUnavailable(6)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mode of the media associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 10 }
+
+avAesDmccDeviceDependencyMode OBJECT-TYPE
+    SYNTAX      INTEGER {
+                            main(1),
+                            independent(2),
+                            dependent(3),
+                            undefined(4),
+                            unknown(5),
+                            resourceUnavailable(6)
+                        }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Dependency mode of a DMCC device"
+    ::= { avAesDmccDeviceEntry 11 }
+
+avAesDmccDeviceRtpInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the RTP IP address associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 12 }
+
+avAesDmccDeviceRtpInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RTP IP address associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 13 }
+
+avAesDmccDeviceRtpInetPort OBJECT-TYPE
+    SYNTAX      InetPortNumber
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RTP port associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 14 }
+
+avAesDmccDeviceRtcpInetAddrType OBJECT-TYPE
+    SYNTAX      InetAddressType
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the RTCP IP address associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 15 }
+
+avAesDmccDeviceRtcpInetAddr OBJECT-TYPE
+    SYNTAX      InetAddress
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RTCP IP address associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 16 }
+
+avAesDmccDeviceRtcpInetPort OBJECT-TYPE
+    SYNTAX      InetPortNumber
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RTCP port associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 17 }
+
+avAesDmccDeviceEncryptionTypes OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Set of signaling encryption modes associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 18 }
+
+avAesDmccDeviceCodecs OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Set of codecs associated with a DMCC device"
+    ::= { avAesDmccDeviceEntry 19 }
+
+---
+--- DMCC Licensing Information
+---
+
+avAesDmccLicenseVersion OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Version of the license installed"
+    ::= { avAesDmcc 17 }
+
+avAesDmccIsLicensed OBJECT-TYPE
+    SYNTAX      TruthValue 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates a valid license is installed"
+    ::= { avAesDmcc 18 }
+
+avAesDmccLicenseMode OBJECT-TYPE
+    SYNTAX      AvAesLicenseMode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error mode associated with the license"
+    ::= { avAesDmcc 19 }
+
+avAesDmccLicenseError OBJECT-TYPE
+    SYNTAX      AvAesLicenseErrorCode
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Error code associated with the license"
+    ::= { avAesDmcc 20 }
+
+avAesDmccLicenseExpirationDate OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Date when the license file will expire"
+    ::= { avAesDmcc 21 }
+
+avAesDmccLicenseGracePeriod OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of days remaining in the trial period"
+    ::= { avAesDmcc 22 }
+
+--
+-- DMCC License Table
+--
+avAesDmccLicenseTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AvAesDmccLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "This table contain license info 
+         used by the DMCC Service.
+         "
+    ::= { avAesDmcc 23 }
+
+avAesDmccLicenseEntry OBJECT-TYPE
+    SYNTAX      AvAesDmccLicenseEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "A row describing a specific DMCC license"
+    INDEX   { avAesDmccLicenseIndex }
+    ::= { avAesDmccLicenseTable 1 }
+
+AvAesDmccLicenseEntry ::= 
+    SEQUENCE {
+        avAesDmccLicenseIndex         Integer32,
+        avAesDmccLicenseName          DisplayString,
+        avAesDmccLicenseAcquired      Integer32,
+        avAesDmccLicenseTotal         Integer32
+}
+
+avAesDmccLicenseIndex OBJECT-TYPE
+    SYNTAX      Integer32 (0..2147483647)
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+        "Index of an AE Service license"
+    ::= { avAesDmccLicenseEntry 1 }
+
+avAesDmccLicenseName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of an AE Service license"
+    ::= { avAesDmccLicenseEntry 2 }
+
+avAesDmccLicenseAcquired OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of specific licenses acquired"
+    ::= { avAesDmccLicenseEntry 3 }
+
+avAesDmccLicenseTotal OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total number of a specific license"
+    ::= { avAesDmccLicenseEntry 4 }
+
+--
+-- DMCC Service End
+--
+
+--
+-- AES Server Data
+--
+avAesServerOs OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "OS Version used on the AE Server "
+    ::= { avAesServer 1 }
+
+avAesServerVersion OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "AES ISO Version used on the AE Server "
+    ::= { avAesServer 2 }
+
+avAesServerType OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE(0..100))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Type of the AE Server "
+    ::= { avAesServer 3 }
+
+avAesServerCpuUsage OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "CPU usage of the AE Server "
+    ::= { avAesServer 4 }
+
+avAesServerMemUsage OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Memory used of the AE Server "
+    ::= { avAesServer 5 }
+
+avAesServerAvailMem OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total memory available on the AE Server "
+    ::= { avAesServer 6 }
+
+avAesServerDiskUsage OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Disk space used on the AE Server "
+    ::= { avAesServer 7 }
+
+avAesServerAvailDisk OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total disk space available on the AE Server "
+    ::= { avAesServer 8 }
+
+
+
+--
+-- Conformance Information Begin
+--
+avAesCompliances                 OBJECT IDENTIFIER ::= { avAesConformance 1 }
+avAesGroups                      OBJECT IDENTIFIER ::= { avAesConformance 2 }
+avAesNotificationCompliances     OBJECT IDENTIFIER ::= { avAesConformance 3 }
+avAesNotificationGroups          OBJECT IDENTIFIER ::= { avAesConformance 4 }
+
+avAesBasicCompliance MODULE-COMPLIANCE
+    STATUS  current
+    DESCRIPTION
+            "The compliance statement for SNMP entities which
+            implement this MIB module."
+    MODULE  
+          -- Mandatory groups for SNMP entities which implement this MIB.
+        MANDATORY-GROUPS { 
+                           avAesTransportGroup 
+                         }
+
+        GROUP   avAesTsapiGroup
+        DESCRIPTION
+            "This group is only mandatory for SNMP entities which
+            support the TSAPI Service"
+
+        GROUP   avAesCvlanGroup
+        DESCRIPTION
+            "This group is only mandatory for SNMP entities which
+            support the CVLAN Service"
+
+        GROUP   avAesDlgGroup
+        DESCRIPTION
+            "This group is only mandatory for SNMP entities which
+            support the DLG Service"
+           
+        GROUP   avAesDmccGroup
+        DESCRIPTION
+            "This group is only mandatory for SNMP entities which
+            support the DMCC Service"
+            
+        GROUP   avAesServerGroup
+        DESCRIPTION
+            "This group is only mandatory for SNMP entities which
+            support the AE Server"
+
+    ::= { avAesCompliances 1 }
+
+
+avAesTransportGroup OBJECT-GROUP
+    OBJECTS { 
+              avAesTransportName, avAesTransportState, 
+              avAesTransportStatus, avAesTransportStartTime, 
+              avAesTransportStatusSince, avAesAepLinkSwInetAddrType,
+              avAesAepLinkSwInetAddr, avAesAepLinkSessSwName,
+              avAesAepLinkStatus, avAesAepLinkState, 
+              avAesAepLinkSince, avAesAepLinkMsgSent, 
+              avAesAepLinkMsgRcvd, avAesAepLinkMsgPeriod, 
+              avAesAepSessionSwName, avAesAepSessionStatus, 
+              avAesAepSessionSince, avAesAepSessionState, 
+              avAesAepSessionActiveAepConn, avAesAepSessionTotalAepConn,
+              avAesAepSessionAdminTciConn, avAesAepSessionSSL, 
+              avAesAepSessionMsgSent, avAesAepSessionMsgRcvd, 
+              avAesAepSessionMsgPeriod, avAesTciConnCtiLink,
+              avAesTciConnSessSwName, avAesTciConnType, 
+              avAesTciConnStatus, avAesTciConnSince,
+              avAesTciConnMsgSent, avAesTciConnMsgRcvd, 
+              avAesTciConnMsgPeriod, avAesAepSessionProcEth,
+              avAesAepLinkSwRole, avAesAepLinkSwStatus,
+              avAesAepLinkSwClusterID, avAesAepSessionStandbyAepConn
+            }
+    STATUS  current
+    DESCRIPTION
+            "The transport group defines objects which are common
+             to the Transport Service"
+    ::= { avAesGroups 1 }
+
+avAesTsapiGroup OBJECT-GROUP
+    OBJECTS { 
+              avAesTsapiName, avAesTsapiState, 
+              avAesTsapiStatus, avAesTsapiStartTime, 
+              avAesTsapiStatusSince, avAesTsapiCtiLinkId,
+              avAesTsapiCtiLinkSwName, avAesTsapiCtiLinkSwCtiId, 
+              avAesTsapiCtiLinkStatus, avAesTsapiCtiLinkSince, 
+              avAesTsapiCtiLinkState, avAesTsapiCtiLinkSwVersion,
+              avAesTsapiCtiLinkAssociations, avAesTsapiCtiLinkMsgSent, 
+              avAesTsapiCtiLinkMsgRcvd, avAesTsapiCtiLinkMsgPeriod, 
+              avAesTsapiClientSessionId, avAesTsapiClientIsSessionActive,
+              avAesTsapiClientInetAddrType, avAesTsapiClientInetAddr, 
+              avAesTsapiClientTlinkName, avAesTsapiClientMsgSent, 
+              avAesTsapiClientMsgRcvd, avAesTsapiClientDeviceMonitors, 
+              avAesTsapiClientCallMonitors, avAesTsapiClientVdnMonitors, 
+              avAesTsapiClientRegisteredRoutes, avAesTsapiClientUserId, 
+              avAesTsapiClientAppName, avAesTsapiClientLibraryVersion, 
+              avAesTsapiClientTimeOpened, avAesTsapiClientTimeClosed, 
+              avAesTsapiTlinkName, avAesTsapiTlinkIsRegistered,
+              avAesTsapiTlinkOpenStreams, avAesTsapiTlinkVersion, 
+              avAesTsapiTlinkProtocolType, avAesTsapiTlinkSecurity, 
+              avAesTsapiTlinkTsdiBufMaxFlowAllowed,
+              avAesTsapiTlinkTsdiBufMaxFlowReached,
+              avAesTsapiTlinkInvokeIdsInUse, avAesTsapiTlinkMaxInvokeIdsUsed,
+              avAesTsapiTlinkConnections, avAesTsapiTlinkMaxConnections,
+              avAesTsapiTsdiTlinkName, avAesTsapiTsdiMsgQToTlink,
+              avAesTsapiTsdiMsgQToTsrv, avAesTsapiTsdiMsgQTsrvPriv,
+              avAesTsapiTsdiMsgAllocByTlink, avAesTsapiTsdiMsgAllocByTsrv,
+              avAesTsapiTsdiMsgBytesQToTlink, avAesTsapiTsdiMsgBytesQToTsrv, 
+              avAesTsapiTsdiMsgBytesQTsrvPriv, avAesTsapiTsdiMsgBytesAllocTlink,
+              avAesTsapiTsdiMsgBytesAllocTsrv, avAesTsapiTsdiBuffSpaceAlloc,
+              avAesTsapiTsdiBuffSize, avAesTsapiTsdiBuffHighWaterMark,
+              avAesTsapiTLinksRegistered, avAesTsapiClientsConnected, 
+              avAesTsapiMaxClientsConnected, avAesTsapiMemoryInUse, 
+              avAesTsapiOpenUserStreams, avAesTsapiClosedUserStreams,
+              avAesTsapiMaxMemoryUsed, avAesTsapiLicenseVersion, 
+              avAesTsapiIsLicensed,
+              avAesTsapiLicenseMode, avAesTsapiLicenseError,
+              avAesTsapiLicenseExpirationDate, avAesTsapiLicenseGracePeriod,
+              avAesTsapiLicenseName, avAesTsapiLicenseIndex,
+              avAesTsapiLicenseAcquired, avAesTsapiLicenseTotal
+            }
+    STATUS  current
+    DESCRIPTION
+            "The tsapi group defines objects which are common
+             to the TSAPI Service"
+    ::= { avAesGroups 2 }
+
+avAesCvlanGroup OBJECT-GROUP
+    OBJECTS { 
+              avAesCvlanName, avAesCvlanState, 
+              avAesCvlanStatus, avAesCvlanStartTime, 
+              avAesCvlanStatusSince, avAesCvlanCtiLinkId,
+              avAesCvlanCtiLinkSwName, avAesCvlanCtiLinkSwCtiId, 
+              avAesCvlanCtiLinkStatus, avAesCvlanCtiLinkSince, 
+              avAesCvlanCtiLinkState, avAesCvlanCtiLinkAsaiVersion,
+              avAesCvlanCtiLinkAssociations, avAesCvlanCtiLinkMsgSent, 
+              avAesCvlanCtiLinkMsgRcvd, avAesCvlanCtiLinkMsgPeriod, 
+              avAesCvlanCtiLinkClients, avAesCvlanClientId,
+              avAesCvlanClientLinkId, avAesCvlanClientInetAddrType,
+              avAesCvlanClientInetAddr, avAesCvlanClientInetPort,
+              avAesCvlanClientAeSvrInetAddrType, avAesCvlanClientAeSvrInetAddr,
+              avAesCvlanClientAeSvrInetPort, avAesCvlanClientMsgSent,
+              avAesCvlanClientMsgRcvd, avAesCvlanClientMsgPeriod,
+              avAesCvlanClientsLinkId, avAesCvlanClientsInetAddrType,
+              avAesCvlanClientsInetAddr, avAesCvlanClientsStatus,
+              avAesCvlanClientsSecurity, avAesCvlanLicenseVersion, 
+              avAesCvlanIsLicensed,
+              avAesCvlanLicenseMode, avAesCvlanLicenseError,
+              avAesCvlanLicenseExpirationDate, avAesCvlanLicenseGracePeriod,
+              avAesCvlanLicenseName, avAesCvlanLicenseIndex,
+              avAesCvlanLicenseAcquired, avAesCvlanLicenseTotal
+            }
+    STATUS  current
+    DESCRIPTION
+            "The cvlan group defines objects which are common
+             to the CVLAN Service"
+    ::= { avAesGroups 3 }
+
+avAesDlgGroup OBJECT-GROUP
+    OBJECTS { 
+              avAesDlgName, avAesDlgState, 
+              avAesDlgStatus, avAesDlgStartTime, 
+              avAesDlgStatusSince, avAesDlgCtiLinkId, 
+              avAesDlgCtiLinkSwName, avAesDlgCtiLinkSwCtiId, 
+              avAesDlgCtiLinkStatus, avAesDlgCtiLinkSince, 
+              avAesDlgCtiLinkState, avAesDlgCtiLinkClientInetAddrType, 
+              avAesDlgCtiLinkClientInetAddr, avAesDlgCtiLinkClientInetPort, 
+              avAesDlgCtiLinkServerInetAddrType, avAesDlgCtiLinkServerInetAddr,
+              avAesDlgCtiLinkMsgSent, avAesDlgCtiLinkMsgRcvd, 
+              avAesDlgCtiLinkMsgPeriod, avAesDlgLicenseVersion, 
+              avAesDlgIsLicensed,
+              avAesDlgLicenseMode, avAesDlgLicenseError,
+              avAesDlgLicenseExpirationDate, avAesDlgLicenseGracePeriod,
+              avAesDlgLicenseName, avAesDlgLicenseIndex,
+              avAesDlgLicenseAcquired, avAesDlgLicenseTotal
+            }
+    STATUS  current
+    DESCRIPTION
+            "The dlg group defines objects which are common
+             to the DLG Service"
+    ::= { avAesGroups 4 }
+
+avAesDmccGroup OBJECT-GROUP
+    OBJECTS {
+              avAesDmccName, avAesDmccState,
+              avAesDmccStatus, avAesDmccStartTime,
+              avAesDmccStatusSince, avAesDmccUsedMemory,
+              avAesDmccFreeMemory, avAesDmccMaxMemory,
+              avAesDmccUsedMonitors, avAesDmccMaxMonitors,
+              avAesDmccActiveSessions, avAesDmccTotalSessions,
+              avAesDmccActiveDevices, avAesDmccTotalDevices,
+              avAesDmccSessId,
+              avAesDmccSessUsername, avAesDmccSessAppName,
+              avAesDmccSessClientInetAddrType, avAesDmccSessClientInetAddr,
+              avAesDmccSessClientPort, avAesDmccSessConnType,
+              avAesDmccSessTotalDevices, avAesDmccSessState,
+              avAesDmccSessTimestamp, avAesDmccSessUptime,
+              avAesDmccSessCleanupTimer, avAesDmccSessDurationTimer,
+              avAesDmccSessResetTimer, avAesDmccSessResetCleanupTimer,
+              avAesDmccSessReconnectCounter, 
+              avAesDmccDeviceId, avAesDmccDeviceUsername,   
+              avAesDmccDeviceSessId, avAesDmccDeviceTotalSessions,
+              avAesDmccDeviceRegState, avAesDmccDeviceRegType,
+              avAesDmccDeviceRegTime, avAesDmccDeviceRegDuration,
+              avAesDmccDeviceMediaMode, avAesDmccDeviceDependencyMode,
+              avAesDmccDeviceRtpInetAddrType, avAesDmccDeviceRtpInetAddr, 
+              avAesDmccDeviceRtpInetPort, avAesDmccDeviceRtcpInetAddrType,
+              avAesDmccDeviceRtcpInetAddr, avAesDmccDeviceRtcpInetPort,
+              avAesDmccDeviceEncryptionTypes, avAesDmccDeviceCodecs,
+              avAesDmccLicenseVersion, avAesDmccIsLicensed,
+              avAesDmccLicenseMode, avAesDmccLicenseError,
+              avAesDmccLicenseExpirationDate, avAesDmccLicenseGracePeriod,
+              avAesDmccLicenseName,
+              avAesDmccLicenseAcquired, avAesDmccLicenseTotal
+            }
+    STATUS  current
+    DESCRIPTION
+        "This group define objects which are common
+         to the DMCC Service"
+    ::= { avAesGroups 5 }
+  
+avAesServerGroup OBJECT-GROUP
+    OBJECTS {
+              avAesServerOs, avAesServerVersion,
+              avAesServerType, avAesServerCpuUsage,
+              avAesServerMemUsage, avAesServerAvailMem,
+              avAesServerDiskUsage, avAesServerAvailDisk
+            }
+    STATUS  current
+    DESCRIPTION
+        "This group define objects which are common
+         to the AE Server"
+    ::= { avAesGroups 6 }
+
+--
+-- Conformance Information End
+--
+
+END

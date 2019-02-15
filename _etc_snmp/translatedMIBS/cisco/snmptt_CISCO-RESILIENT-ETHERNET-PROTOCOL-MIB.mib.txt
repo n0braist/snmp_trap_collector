@@ -1,0 +1,43 @@
+#
+#
+#
+#
+MIB: CISCO-RESILIENT-ETHERNET-PROTOCOL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-RESILIENT-ETHERNET-PROTOCOL-MIB.mib) converted on Tue Aug 21 15:26:28 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT crepLinkStatus .1.3.6.1.4.1.9.9.601.0.1 "Status Events" Normal
+FORMAT This notification is sent when a REP interface has entered or $*
+SDESC
+This notification is sent when a REP interface has entered or
+left REP link operational status.  The link is considered 
+operational when 'crepIfOperStatus' is 'twoWay'. 
+'crepIfOperStatus' would be 'none' if the 
+crepInterfaceConfigEntry entry has been removed.
+Variables:
+  1: crepIfSegmentId
+  2: crepIfOperStatus
+EDESC
+#
+#
+#
+EVENT crepPreemptionStatus .1.3.6.1.4.1.9.9.601.0.2 "Status Events" Normal
+FORMAT This notification indicates the status of the preemption $*
+SDESC
+This notification indicates the status of the preemption
+triggered on REP primary edge.
+Variables:
+  1: crepSegmentPreemptStatus
+EDESC
+#
+#
+#
+EVENT crepPortRoleChange .1.3.6.1.4.1.9.9.601.0.3 "Status Events" Normal
+FORMAT This notification is sent when the role of a Port changes $*
+SDESC
+This notification is sent when the role of a Port changes
+that are indicated by 'crepIfPortRole'.
+Variables:
+  1: crepIfSegmentId
+  2: crepIfPortRole
+EDESC

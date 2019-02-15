@@ -1,0 +1,29 @@
+#
+#
+#
+#
+MIB: CISCO-MODULE-VIRTUALIZATION-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-MODULE-VIRTUALIZATION-MIB.mib) converted on Tue Aug 21 15:26:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cmVirtContextAdded .1.3.6.1.4.1.9.9.472.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notifications will be sent
+when a virtual context is added.
+Variables:
+  1: cmNotifVirtContextName
+EDESC
+#
+#
+#
+EVENT cmVirtContextRemoved .1.3.6.1.4.1.9.9.472.0.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notifications will be sent
+when a virtual context is removed/deleted.
+Variables:
+  1: cmNotifVirtContextName
+EDESC

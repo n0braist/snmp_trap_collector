@@ -1,0 +1,686 @@
+MCU-MIB DEFINITIONS ::= BEGIN		
+		
+
+			IMPORTS OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-GROUP, Gauge32, Integer32, Unsigned32
+	FROM SNMPv2-SMI
+DisplayString, TruthValue, DateAndTime, TimeInterval, TimeStamp
+	FROM SNMPv2-TC
+InetPortNumber, InetAddressIPv4, InetAddressIPv6, InetAddress, InetAddressType
+	FROM INET-ADDRESS-MIB
+polycom
+	FROM POLYCOM-BASE-MIB
+;
+				mcu-MIB MODULE-IDENTITY
+        LAST-UPDATED        "201204191022Z"
+        ORGANIZATION        "Polycom, Inc."
+        CONTACT-INFO        "	
+	andrew.post@polycom.com
+		"
+        DESCRIPTION			"This module is used for monitoring a unified communications network." 
+			
+    REVISION            "201209180000Z"
+    DESCRIPTION      "1.1a"
+
+	                               		::= { polycom 110 }
+
+	
+--Notification group                           
+		mcuNotifications
+	OBJECT IDENTIFIER
+	::= {  mcu-MIB 0 }
+			
+--Object group                           
+		mcuObjects
+	OBJECT IDENTIFIER
+	::= {  mcu-MIB 1 }
+			
+--Section   
+	identity OBJECT IDENTIFIER
+	::= {  mcuObjects 1 }
+			
+-- Scalar
+  identitySoftwareInfo OBJECT-TYPE
+    	SYNTAX				OCTET STRING
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"Information about software currently installed on the device"
+    	::= { identity 1 }
+		
+-- Scalar
+  identityBuildDate OBJECT-TYPE
+    	SYNTAX				DateAndTime
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The date this product was built"
+    	::= { identity 2 }
+		
+-- Scalar
+  identityDeviceType OBJECT-TYPE
+    	SYNTAX				OCTET STRING
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"This device's type"
+    	::= { identity 3 }
+		
+-- Scalar
+  identityStatus OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The overall status of the device"
+    	::= { identity 6 }
+		
+-- Scalar
+  identityDebugMode OBJECT-TYPE
+    	SYNTAX				TruthValue
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"Is this device in debug mode?"
+    	::= { identity 7 }
+		
+-- Scalar
+  identityConsoleAccess OBJECT-TYPE
+    	SYNTAX				TruthValue
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"Is access to the console enabled?"
+    	::= { identity 8 }
+		
+--Section   
+	service OBJECT IDENTIFIER
+	::= {  mcuObjects 2 }
+			
+--Group                           
+		serviceH323 OBJECT IDENTIFIER
+	::= {	service 7 }
+			
+		
+-- Scalar
+  serviceH323Status OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { serviceH323 1 }
+		
+--Group                           
+		serviceSip OBJECT IDENTIFIER
+	::= {	service 8 }
+			
+		
+-- Scalar
+  serviceSipStatus OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { serviceSip 1 }
+		
+--Group                           
+		serviceIsdn OBJECT IDENTIFIER
+	::= {	service 9 }
+			
+		
+-- Scalar
+  serviceIsdnStatus OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { serviceIsdn 1 }
+		
+--Group                           
+		serviceSecurity OBJECT IDENTIFIER
+	::= {	service 10 }
+			
+		
+-- Scalar
+  serviceSecurityProfile OBJECT-TYPE
+    	SYNTAX				DisplayString
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { serviceSecurity 1 }
+		
+--Group                           
+		serviceConferenceServer OBJECT IDENTIFIER
+	::= {	service 17 }
+			
+		
+-- Scalar
+  serviceConferenceServerTotalPorts OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The total number of ports the device has of any type"
+    	::= { serviceConferenceServer 1 }
+		
+-- Scalar
+  serviceConferenceServerTotalVoicePorts OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The total number of voice ports the device has"
+    	::= { serviceConferenceServer 2 }
+		
+-- Scalar
+  serviceConferenceServerTotalVideoPorts OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The total number of video ports the device has"
+    	::= { serviceConferenceServer 3 }
+		
+-- Scalar
+  serviceConferenceServerTotalPortsUsed OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The total number of ports of any type that are currently in use"
+    	::= { serviceConferenceServer 4 }
+		
+-- Scalar
+  serviceConferenceServerPortsUsedPercentage OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				deprecated
+    	DESCRIPTION		"The percentage of ports of either type in use"
+    	::= { serviceConferenceServer 5 }
+		
+-- Scalar
+  serviceConferenceServerTotalVoicePortsUsed OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The total number of voice ports that are currently in use"
+    	::= { serviceConferenceServer 6 }
+		
+-- Scalar
+  serviceConferenceServerVoicePortsUsedPercentage OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The percentage of voice ports in use"
+    	::= { serviceConferenceServer 7 }
+		
+-- Scalar
+  serviceConferenceServerTotalVideoPortsUsed OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The total number of video ports that are currently in use"
+    	::= { serviceConferenceServer 8 }
+		
+-- Scalar
+  serviceConferenceServerVideoPortsUsedPercentage OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The percentage of video ports in use"
+    	::= { serviceConferenceServer 9 }
+		
+-- Scalar
+  serviceConferenceServerTotalNumberActiveParticipants OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { serviceConferenceServer 10 }
+		
+--Section   
+	hardware OBJECT IDENTIFIER
+	::= {  mcuObjects 3 }
+			
+-- Scalar
+  hardwareOverallStatus OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"The overall status of this agent's hardware"
+    	::= { hardware 1 }
+		
+--Group                           
+		hardwareFan OBJECT IDENTIFIER
+	::= {	hardware 2 }
+			
+		
+-- Scalar
+  hardwareFanStatus OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { hardwareFan 1 }
+		
+--Group                           
+		hardwarePowerSupply OBJECT IDENTIFIER
+	::= {	hardware 3 }
+			
+		
+-- Scalar
+  hardwarePowerSupplyStatus OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { hardwarePowerSupply 1 }
+		
+--Group                           
+		hardwareIntegratedBoard OBJECT IDENTIFIER
+	::= {	hardware 4 }
+			
+		
+-- Scalar
+  hardwareIntegratedBoardStatus OBJECT-TYPE
+    	SYNTAX				
+INTEGER {
+                disabled( 1 ),
+                ok( 2 ),
+                failed( 3 )
+                }
+            
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { hardwareIntegratedBoard 1 }
+		
+--Section   
+	call OBJECT IDENTIFIER
+	::= {  mcuObjects 4 }
+			
+--Group                           
+		callNewCallsLastMin OBJECT IDENTIFIER
+	::= {	call 2 }
+			
+		
+-- Scalar
+  callNewCallsLastMinTotal OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { callNewCallsLastMin 1 }
+		
+-- Scalar
+  callNewCallsLastMinSuccess OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { callNewCallsLastMin 2 }
+		
+-- Scalar
+  callNewCallsLastMinFailed OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { callNewCallsLastMin 3 }
+		
+-- Scalar
+  callNewCallsLastMinSuccessRatio OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"Ratio of successful to failed calls"
+    	::= { callNewCallsLastMin 4 }
+		
+--Group                           
+		callEndedCallsLastMin OBJECT IDENTIFIER
+	::= {	call 3 }
+			
+		
+-- Scalar
+  callEndedCallsLastMinSuccessRatio OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { callEndedCallsLastMin 1 }
+		
+-- Scalar
+  callEndedCallsLastMinTotal OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { callEndedCallsLastMin 2 }
+		
+-- Scalar
+  callEndedCallsLastMinSuccess OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { callEndedCallsLastMin 3 }
+		
+-- Scalar
+  callEndedCallsLastMinFailed OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { callEndedCallsLastMin 4 }
+		
+--Group                           
+		callActiveCallsSummary OBJECT IDENTIFIER
+	::= {	call 4 }
+			
+		
+--Group                           
+		callActiveCallsSummaryVoice OBJECT IDENTIFIER
+	::= {	callActiveCallsSummary 1 }
+			
+		
+-- Scalar
+  callActiveCallsSummaryVoiceTotalCalls OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"Current total of voice calls"
+    	::= { callActiveCallsSummaryVoice 1 }
+		
+--Group                           
+		callActiveCallsSummaryVideo OBJECT IDENTIFIER
+	::= {	callActiveCallsSummary 2 }
+			
+		
+-- Scalar
+  callActiveCallsSummaryVideoTotalCalls OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		"Current total of video calls"
+    	::= { callActiveCallsSummaryVideo 1 }
+		
+--Section   
+	conference OBJECT IDENTIFIER
+	::= {  mcuObjects 5 }
+			
+-- Scalar
+  conferenceNumberActiveConferences OBJECT-TYPE
+    	SYNTAX				Unsigned32
+    	MAX-ACCESS		read-only
+    	STATUS				current
+    	DESCRIPTION		""
+    	::= { conference 1 }
+		mcuMIBConformance OBJECT IDENTIFIER ::= { mcu-MIB 2 }
+		
+		mcuMIBGroups OBJECT IDENTIFIER ::= { mcuMIBConformance 2 }	
+			
+		identityObjects OBJECT-GROUP
+        OBJECTS { 
+        	identitySoftwareInfo, 
+identityBuildDate, 
+identityDeviceType, 
+identityDeviceModel, 
+identityDeviceSerialNumber, 
+identityStatus, 
+identityDebugMode, 
+identityConsoleAccess, 
+identityMIBVersionSupported, 
+identityLastDataUpdateTime
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the identity section"
+        ::= { mcuMIBGroups 1 }
+        
+	serviceObjects OBJECT-GROUP
+        OBJECTS { 
+        	serviceSchedulerMaxReservations, 
+serviceSchedulerScheduledReservations, 
+serviceSchedulerStatus, 
+serviceProvisioningStatus, 
+serviceProvisioningFailuresLast60Mins, 
+serviceProvisioningSuccessLast60Mins, 
+serviceSoftwareUpdateStatus, 
+serviceSoftwareUpdateFailuresLast60Mins, 
+serviceSoftwareUpdateSuccessLast60Mins, 
+serviceSoftwareUpdateNumberOfSWImagesPerTennantTable, 
+serviceDirectoryServicesH350Table, 
+serviceUserManagementStatus, 
+serviceUserManagementMaxUsers, 
+serviceUserManagementProvisionedUsers, 
+serviceUserManagementFailuresToCreateLast60Mins, 
+serviceUserManagementFailuresToReadLast60Mins, 
+serviceUserManagementFailuresToUpdateLast60Mins, 
+serviceUserManagementFailuresToDeleteLast60Mins, 
+serviceUserManagementSuccessCreatingLast60Mins, 
+serviceUserManagementSuccessReadingLast60Mins, 
+serviceUserManagementSuccessUpdatingLast60Mins, 
+serviceUserManagementSuccessDeletingLast60Mins, 
+serviceGatewayStatus, 
+serviceGatewayActiveCalls, 
+serviceH323Status, 
+serviceH323RegistrationStatus, 
+serviceH323GatekeeperTable, 
+serviceSipStatus, 
+serviceSipProxyTable, 
+serviceSipRegistrationTable, 
+serviceIsdnStatus, 
+serviceIsdnLineStatus, 
+serviceSecurityProfile, 
+serviceSecurityConnectedUsersCountByRoleConnectedUserCount, 
+serviceSecurityConnectedUsersCountByRoleConnectedAdminUserCount, 
+serviceSecurityConnectedUsersCountByRoleConnectedOperatorUserCount, 
+serviceSecurityConnectedUsersCountByRoleConnectedSchedulerUserCount, 
+serviceSecurityConnectedUsersCountByRoleConnectedAuditorUserCount, 
+serviceRecordingStatus, 
+serviceRecordingNumberOfAchives, 
+serviceRecordingTotalPorts, 
+serviceRecordingUsedPorts, 
+serviceStreamingStatus, 
+serviceStreamingTotalFTPStreamingSessions, 
+serviceStreamingTotalWMAStreamingSessions, 
+serviceStreamingTotalRSTPStreamingSessions, 
+serviceStreamingTotalQuicktimeStreamingSessions, 
+serviceStreamingTotalISSStreamingSessions, 
+serviceStreamingUsedFTPStreamingSessions, 
+serviceStreamingUsedWMAStreamingSessions, 
+serviceStreamingUsedRSTPStreamingSessions, 
+serviceStreamingUsedQuicktimeStreamingSessions, 
+serviceStreamingUsedISSStreamingSessions, 
+serviceStreamingSessionTable, 
+serviceCdrStatus, 
+serviceTopologySubnetCount, 
+serviceTopologySubnetTable, 
+serviceTopologySiteCount, 
+serviceTopologySiteTable, 
+serviceTopologySiteLinkCount, 
+serviceTopologySiteLinkTable, 
+serviceTopologyTerritoryCount, 
+serviceTopologyTerritoryTable, 
+serviceCallServerClusterName, 
+serviceCallServerActiveRegistrations, 
+serviceCallServerActiveCallsTable, 
+serviceCallServerInactiveRegistrations, 
+serviceCallServerFailedRegistrationsLast24Hours, 
+serviceCallServerFailedEndpointsLast24Hours, 
+serviceHighAvailabilityClusterStatus, 
+serviceHighAvailabilityVirtualIPTable, 
+serviceHighAvailabilityLocalResourceTable, 
+serviceHighAvailabilityClusterResourceTable, 
+serviceHighAvailabilityStatusChangeReason, 
+serviceHighAvailabilityNumberOfNodes, 
+serviceHighAvailabilityNodeTable, 
+serviceConferenceServerTotalPorts, 
+serviceConferenceServerTotalVoicePorts, 
+serviceConferenceServerTotalVideoPorts, 
+serviceConferenceServerTotalPortsUsed, 
+serviceConferenceServerPortsUsedPercentage, 
+serviceConferenceServerTotalVoicePortsUsed, 
+serviceConferenceServerVoicePortsUsedPercentage, 
+serviceConferenceServerTotalVideoPortsUsed, 
+serviceConferenceServerVideoPortsUsedPercentage, 
+serviceConferenceServerTotalNumberActiveParticipants, 
+serviceConferenceServerNumberReservedPorts, 
+serviceConferenceServerNumberReservedVideoPorts, 
+serviceConferenceServerNumberReservedVoicePorts, 
+serviceConferenceServerMCUTable
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the service section"
+        ::= { mcuMIBGroups 2 }
+        
+	hardwareObjects OBJECT-GROUP
+        OBJECTS { 
+        	hardwareOverallStatus, 
+hardwareFanStatus, 
+hardwareFanFanTable, 
+hardwarePowerSupplyStatus, 
+hardwarePowerSupplyPowerSupplyTable, 
+hardwareIntegratedBoardStatus, 
+hardwareIntegratedBoardBoardsTable, 
+hardwareMicrophoneStatus, 
+hardwareMicrophoneMicrophonesTable, 
+hardwareCameraStatus, 
+hardwareCameraCamerasTable, 
+hardwareLineInStatus, 
+hardwareLineInLinesInTable, 
+hardwareLineOutStatus, 
+hardwareLineOutLinesOutTable, 
+hardwareAnalogPhoneStatus, 
+hardwareAnalogPhonePhonesTable, 
+hardwareNICStatus, 
+hardwareNICNICsTable, 
+hardwarePTCStatus, 
+hardwarePTCPTCsTable, 
+hardwareUcBoardStatus, 
+hardwareUcBoardUcBoardsTable, 
+hardwareStorageStatus, 
+hardwareStorageVolumesTable, 
+hardwareChasisTemperature
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the hardware section"
+        ::= { mcuMIBGroups 3 }
+        
+	callObjects OBJECT-GROUP
+        OBJECTS { 
+        	callActiveCallsTable, 
+callNewCallsLastMinTotal, 
+callNewCallsLastMinSuccess, 
+callNewCallsLastMinFailed, 
+callNewCallsLastMinSuccessRatio, 
+callEndedCallsLastMinSuccessRatio, 
+callEndedCallsLastMinTotal, 
+callEndedCallsLastMinSuccess, 
+callEndedCallsLastMinFailed, 
+callActiveCallsSummaryVoiceTotalCalls, 
+callActiveCallsSummaryVoiceUnencrypted, 
+callActiveCallsSummaryVoiceEncrypted, 
+callActiveCallsSummaryVideoTotalCalls, 
+callActiveCallsSummaryVideoUnencrypted, 
+callActiveCallsSummaryVideoEncrypted, 
+callActiveCallsSummaryIVRTotalCalls, 
+callActiveCallsSummaryIVRUnencrypted, 
+callActiveCallsSummaryIVREncrypted, 
+callActiveCallsSummaryVEQTotalCalls, 
+callActiveCallsSummaryVEQUnencrypted, 
+callActiveCallsSummaryVEQEncrypted
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the call section"
+        ::= { mcuMIBGroups 4 }
+        
+	conferenceObjects OBJECT-GROUP
+        OBJECTS { 
+        	conferenceNumberActiveConferences, 
+conferenceConferencesTable
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the conference section"
+        ::= { mcuMIBGroups 5 }
+        
+	externalIntegrationObjects OBJECT-GROUP
+        OBJECTS { 
+        	externalIntegrationStatus, 
+externalIntegrationNTPTable, 
+externalIntegrationSBCTable, 
+externalIntegrationExtDBTable, 
+externalIntegrationPoolOrderStatus, 
+externalIntegrationVMRStatus, 
+externalIntegrationPresenceStatus, 
+externalIntegrationCDRStatus, 
+externalIntegrationSyslogStatus, 
+externalIntegrationSoftwareUpdateStatus, 
+externalIntegrationProvisioningStatus, 
+externalIntegrationExchangeStatus, 
+externalIntegrationExchangeServerTable, 
+externalIntegrationDirectoryServicesStatus, 
+externalIntegrationDirectoryServicesId, 
+externalIntegrationDirectoryServicesServerTable, 
+externalIntegrationTopologyStatus, 
+externalIntegrationTopologyIpAddress, 
+externalIntegrationTopologyLastContactDate, 
+externalIntegrationTopologyTimeSinceLastRefresh, 
+externalIntegrationTopologyTerritories, 
+externalIntegrationTopologySites, 
+externalIntegrationTopologySiteLinks, 
+externalIntegrationTopologyMplsClouds, 
+externalIntegrationDirectoryServicesIntegrationOverallStatus, 
+externalIntegrationTopologyIntegrationTable
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the externalIntegration section"
+        ::= { mcuMIBGroups 6 }
+        
+	notificationVariableObjects OBJECT-GROUP
+        OBJECTS { 
+        	notificationVariableNodeName, 
+notificationVariableReportingNodeName, 
+notificationVariableType, 
+notificationVariableClass, 
+notificationVariableKey, 
+notificationVariableSummary, 
+notificationVariableSeverity
+        }
+        STATUS              current
+        DESCRIPTION     "Contains all objects in the notificationVariable section"
+        ::= { mcuMIBGroups 7 }
+        
+	
+		END
+	

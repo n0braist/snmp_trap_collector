@@ -1,0 +1,144 @@
+#
+#
+#
+#
+MIB: CISCO-GGSN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-GGSN-MIB.mib) converted on Tue Aug 21 15:26:02 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cGgsnNotification .1.3.6.1.4.1.9.9.240.2.0.1 "Status Events" Normal
+FORMAT This notification indicates the occurrence of a GGSN $*
+SDESC
+This notification indicates the occurrence of a GGSN
+related alarm. If and when additional useful information
+is available for specific types of alarms, then that  
+information may be appended to the end of the
+notification in additional varbinds.
+Variables:
+  1: cGgsnHistNotifType
+  2: cGgsnHistNotifSeverity
+  3: cGgsnHistNotifTimestamp
+  4: cGgsnHistNotifGgsnIpAddrType
+  5: cGgsnHistNotifGgsnIpAddr
+  6: cGgsnHistNotifInfo
+EDESC
+#
+#
+#
+EVENT cGgsnInServiceNotif .1.3.6.1.4.1.9.9.240.2.0.2 "Status Events" Normal
+FORMAT A notification of this type is generated when GGSN is $*
+SDESC
+A notification of this type is generated when GGSN is
+placed in inService mode which is specified by
+cGgsnServiceModeStatus.
+Variables:
+EDESC
+#
+#
+#
+EVENT cGgsnMaintenanceNotif .1.3.6.1.4.1.9.9.240.2.0.3 "Status Events" Normal
+FORMAT A notification of this type is generated when GGSN is $*
+SDESC
+A notification of this type is generated when GGSN is
+placed in maintenance mode which is specified by
+cGgsnServiceModeStatus.
+Variables:
+EDESC
+#
+#
+#
+EVENT cGgsnMemThresholdReachedNotif .1.3.6.1.4.1.9.9.240.2.0.4 "Status Events" Normal
+FORMAT A notification of this type is generated when GGSN $*
+SDESC
+A notification of this type is generated when GGSN
+reaches the memory threshold value specified by
+cGgsnMemoryThreshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT cGgsnMemThresholdClearedNotif .1.3.6.1.4.1.9.9.240.2.0.5 "Status Events" Normal
+FORMAT A notification of this type is generated when GGSN $*
+SDESC
+A notification of this type is generated when GGSN
+retains the memory and falls below threshold value 
+speficied by cGgsnMemoryThreshold.
+Variables:
+EDESC
+#
+#
+#
+EVENT cGgsnPdfStateUpNotif .1.3.6.1.4.1.9.9.240.2.0.6 "Status Events" Normal
+FORMAT A notification of this type is generated when PDF $*
+SDESC
+A notification of this type is generated when PDF
+connection comes UP.
+Variables:
+  1: cGgsnPdfServerAddrType
+  2: cGgsnPdfServerAddr
+EDESC
+#
+#
+#
+EVENT cGgsnPdfStateDownNotif .1.3.6.1.4.1.9.9.240.2.0.7 "Status Events" Normal
+FORMAT A notification of this type is generated when PDF $*
+SDESC
+A notification of this type is generated when PDF
+connection goes DOWN.
+Variables:
+  1: cGgsnPdfServerAddrType
+  2: cGgsnPdfServerAddr
+EDESC
+#
+#
+#
+EVENT cGgsnGlobalErrorNotif .1.3.6.1.4.1.9.9.240.2.0.8 "Status Events" Normal
+FORMAT This notification indicates the occurrence of a GGSN $*
+SDESC
+This notification indicates the occurrence of a GGSN
+related alarm.
+Variables:
+  1: cGgsnGlobalErrorTypes
+  2: cGgsnHistNotifSeverity
+  3: cGgsnHistNotifTimestamp
+  4: cGgsnHistNotifGgsnIpAddrType
+  5: cGgsnHistNotifGgsnIpAddr
+  6: cGgsnHistNotifInfo
+EDESC
+#
+#
+#
+EVENT cGgsnAccessPointNameNotif .1.3.6.1.4.1.9.9.240.2.0.9 "Status Events" Normal
+FORMAT This notification indicates the occurrence of a APN $*
+SDESC
+This notification indicates the occurrence of a APN
+related alarm.
+Variables:
+  1: cGgsnAccessPointErrorTypes
+  2: cGgsnHistNotifSeverity
+  3: cGgsnHistNotifTimestamp
+  4: cGgsnHistNotifGgsnIpAddrType
+  5: cGgsnHistNotifGgsnIpAddr
+  6: cGgsnHistNotifInfo
+  7: cGgsnNotifAccessPointName
+EDESC
+#
+#
+#
+EVENT cGgsnPacketDataProtocolNotif .1.3.6.1.4.1.9.9.240.2.0.10 "Status Events" Normal
+FORMAT This notification indicates the occurrence of a User $*
+SDESC
+This notification indicates the occurrence of a User
+related alarm.
+Variables:
+  1: cGgsnPacketDataProtoErrorTypes
+  2: cGgsnHistNotifSeverity
+  3: cGgsnHistNotifTimestamp
+  4: cGgsnHistNotifGgsnIpAddrType
+  5: cGgsnHistNotifGgsnIpAddr
+  6: cGgsnHistNotifInfo
+  7: cGgsnNotifPdpImsi
+  8: cGgsnNotifPdpMsisdn
+  9: cGgsnNotifAccessPointName
+EDESC

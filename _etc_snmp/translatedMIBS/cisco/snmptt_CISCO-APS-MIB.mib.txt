@@ -1,0 +1,68 @@
+#
+#
+#
+#
+MIB: CISCO-APS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-APS-MIB.mib) converted on Tue Aug 21 15:25:37 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cApsEventSwitchover .1.3.6.1.4.1.9.10.71.2.0.1 "Status Events" Normal
+FORMAT An  cApsEventSwitchover notification is sent when the $*
+SDESC
+An  cApsEventSwitchover notification is sent when the
+value of an instance of cApsChanStatusSwitchovers
+increments.
+Variables:
+  1: cApsChanStatusSwitchovers
+  2: cApsChanStatusCurrent
+EDESC
+#
+#
+#
+EVENT cApsEventModeMismatch .1.3.6.1.4.1.9.10.71.2.0.2 "Status Events" Normal
+FORMAT An cApsEventModeMismatch notification is sent when $*
+SDESC
+An cApsEventModeMismatch notification is sent when
+the value of an instance of cApsStatusModeMismatches
+increments.
+Variables:
+  1: cApsStatusModeMismatches
+  2: cApsStatusCurrent
+EDESC
+#
+#
+#
+EVENT cApsEventChannelMismatch .1.3.6.1.4.1.9.10.71.2.0.3 "Status Events" Normal
+FORMAT An  cApsEventChannelMismatch notification is sent when $*
+SDESC
+An  cApsEventChannelMismatch notification is sent when
+the value of an instance of cApsStatusChannelMismatches
+increments.
+Variables:
+  1: cApsStatusChannelMismatches
+  2: cApsStatusCurrent
+EDESC
+#
+#
+#
+EVENT cApsEventPSBF .1.3.6.1.4.1.9.10.71.2.0.4 "Status Events" Normal
+FORMAT An  cApsEventPSBF notification is sent when the $*
+SDESC
+An  cApsEventPSBF notification is sent when the
+value of an instance of  cApsStatusPSBFs increments.
+Variables:
+  1: cApsStatusPSBFs
+  2: cApsStatusCurrent
+EDESC
+#
+#
+#
+EVENT cApsEventFEPLF .1.3.6.1.4.1.9.10.71.2.0.5 "Status Events" Normal
+FORMAT An  cApsEventFEPLFs notification is sent when the $*
+SDESC
+An  cApsEventFEPLFs notification is sent when the
+value of an instance of  cApsStatusFEPLFs increments.
+Variables:
+  1: cApsStatusFEPLFs
+  2: cApsStatusCurrent
+EDESC

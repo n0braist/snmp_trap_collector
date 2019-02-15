@@ -1,0 +1,385 @@
+#
+#
+#
+#
+MIB: CPQSCSI-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQSCSI-MIB.mib) converted on Wed Aug 22 14:19:22 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqScsiCntlrStatusChange .1.3.6.1.4.1.232.5.0.1 "Status Events" CRITICAL
+FORMAT SCSI Controller Status Change: Status is now $1.
+SDESC
+SCSI Controller Status Change.
+The Insight Agent has detected a change in the controller
+status of a SCSI Controller.  The variable
+cpqScsiCntlrStatus indicates the current controller status.
+Variables:
+  1: cpqScsiCntlrStatus
+EDESC
+#
+#
+#
+EVENT cpqScsiLogDrvStatusChange .1.3.6.1.4.1.232.5.0.2 "Status Events" CRITICAL
+FORMAT SCSI Logical Drive Status Change: Status is now $1.
+SDESC
+Logical Drive Status Change.
+The Insight Agent has detected a change in the Logical Drive
+Status of a SCSI logical drive.  The current logical
+drive status is indicated by the cpqScsiLogDrvStatus variable.
+Variables:
+  1: cpqScsiLogDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqScsiPhyDrvStatusChange .1.3.6.1.4.1.232.5.0.3 "Status Events" CRITICAL
+FORMAT SCSI Physical Drive Status Change: Status is now $1.
+SDESC
+Physical Drive Status Change.
+The Insight Agent has detected a change in the status of a
+SCSI physical drive.  The current physical drive
+status is indicated in the cpqScsiPhyDrvStatus variable.
+Variables:
+  1: cpqScsiPhyDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqScsi2CntlrStatusChange .1.3.6.1.4.1.232.0.5001 "Status Events" CRITICAL
+FORMAT SCSI Controller Status Change: Status is now $1.
+SDESC
+SCSI Controller Status Change.
+The Insight Agent has detected a change in the controller
+status of a SCSI Controller.  The variable
+cpqScsiCntlrStatus indicates the current controller status.
+Variables:
+  1: cpqScsiCntlrStatus
+EDESC
+#
+#
+#
+EVENT cpqScsi2LogDrvStatusChange .1.3.6.1.4.1.232.0.5002 "Status Events" CRITICAL
+FORMAT SCSI Logical Drive Status Change: Status is now $1.
+SDESC
+Logical Drive Status Change.
+The Insight Agent has detected a change in the Logical Drive
+Status of a SCSI logical drive.  The current logical
+drive status is indicated by the cpqScsiLogDrvStatus variable.
+Variables:
+  1: cpqScsiLogDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqScsi2PhyDrvStatusChange .1.3.6.1.4.1.232.0.5003 "Status Events" CRITICAL
+FORMAT SCSI Physical Drive Status Change: Status is now $1.
+SDESC
+Physical Drive Status Change.
+The Insight Agent has detected a change in the status of a
+SCSI physical drive.  The current physical drive
+status is indicated in the cpqScsiPhyDrvStatus variable.
+Variables:
+  1: cpqScsiPhyDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqTapePhyDrvStatusChange .1.3.6.1.4.1.232.0.5004 "Status Events" CRITICAL
+FORMAT Tape Drive Status Change: Status is now $1.
+SDESC
+Tape Drive Status Change.
+The Insight Agent has detected a change in the status of a
+Tape drive.  The current physical drive status is
+indicated in the cpqTapePhyDrvCondition variable.
+Variables:
+  1: cpqTapePhyDrvCondition
+EDESC
+#
+#
+#
+EVENT cpqScsi3CntlrStatusChange .1.3.6.1.4.1.232.0.5005 "Status Events" CRITICAL
+FORMAT SCSI Controller Status Change: Status is now $3.
+SDESC
+SCSI Controller Status Change.
+The Insight Agent has detected a change in the controller
+status of a SCSI Controller.  The variable
+cpqScsiCntlrStatus indicates the current controller status.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqScsiCntlrStatus
+EDESC
+#
+#
+#
+EVENT cpqScsi3PhyDrvStatusChange .1.3.6.1.4.1.232.0.5006 "Status Events" CRITICAL
+FORMAT SCSI Physical Drive Status Change: Status is now $3.
+SDESC
+Physical Drive Status Change.
+The Insight Agent has detected a change in the status of a
+SCSI physical drive.  The current physical drive
+status is indicated in the cpqScsiPhyDrvStatus variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqScsiPhyDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqTape3PhyDrvStatusChange .1.3.6.1.4.1.232.0.5007 "Status Events" CRITICAL
+FORMAT Tape Drive Status Change: Status is now $3.
+SDESC
+Tape Drive Status Change.
+The Insight Agent has detected a change in the status of a
+Tape drive.  The current physical drive status is
+indicated in the cpqTapePhyDrvCondition variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapePhyDrvCondition
+EDESC
+#
+#
+#
+EVENT cpqTape3PhyDrvCleaningRequired .1.3.6.1.4.1.232.0.5008 "Status Events" MAJOR
+FORMAT Tape Drive Cleaning Required: Status is now $3.
+SDESC
+Tape Drive Cleaning Required trap.
+The Insight Agent has detected a tape drive that needs to have
+a cleaning tape inserted and run.  This will cause the tape drive
+heads to be cleaned.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapePhyDrvCondition
+EDESC
+#
+#
+#
+EVENT cpqTape3PhyDrvCleanTapeReplace .1.3.6.1.4.1.232.0.5009 "Status Events" MAJOR
+FORMAT Tape Drive Cleaning Tape Needs Replacing: Status is now $3.
+SDESC
+Tape Drive Cleaning Tape Needs Replacing.
+The Insight Agent has detected that an autoloader tape unit has
+a cleaning tape that has been fully used and therefore needs to
+be replaced with a new cleaning tape.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapePhyDrvCondition
+EDESC
+#
+#
+#
+EVENT cpqTape3LibraryFailed .1.3.6.1.4.1.232.0.5010 "Status Events" MAJOR
+FORMAT Tape Library Error: Tape library $3 is not operational.
+SDESC
+Tape Library Error
+The Insight Agent has detected that an autoloader unit has
+an encountered an error.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapeLibrarySerialNumber
+EDESC
+#
+#
+#
+EVENT cpqTape3LibraryOkay .1.3.6.1.4.1.232.0.5011 "Status Events" INFORMATIONAL
+FORMAT Tape Library Okay: Tape Library $3 Recovered
+SDESC
+Tape Library Okay
+The Insight Agent has detected that an autoloader unit has
+recovered from errors.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapeLibrarySerialNumber
+EDESC
+#
+#
+#
+EVENT cpqTape3LibraryDegraded .1.3.6.1.4.1.232.0.5012 "Status Events" CRITICAL
+FORMAT Tape Library Degraded: Tape library $3 is in a degraded condition.
+SDESC
+Tape Library Degraded
+The Insight Agent has detected that an autoloader unit is
+in a degraded condition.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapeLibrarySerialNumber
+EDESC
+#
+#
+#
+EVENT cpqTape3LibraryDoorOpen .1.3.6.1.4.1.232.0.5013 "Status Events" CRITICAL
+FORMAT Tape Library Door Opened: Tape library $3 door opened
+SDESC
+Tape Library Door Open
+The Insight Agent has detected that the door on an autoloader
+is open so the unit is not operational.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapeLibrarySerialNumber
+EDESC
+#
+#
+#
+EVENT cpqTape3LibraryDoorClosed .1.3.6.1.4.1.232.0.5014 "Status Events" INFORMATIONAL
+FORMAT Tape Library Door Closed: Tape library $3 door closed
+SDESC
+Tape Library Door Closed
+The Insight Agent has detected that the door on a an autoloader
+has closed.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapeLibrarySerialNumber
+EDESC
+#
+#
+#
+EVENT cpqScsiCdLibraryStatusChange .1.3.6.1.4.1.232.0.5015 "Status Events" CRITICAL
+FORMAT CD Library Status Change: Status is now $6.
+SDESC
+CD Library Status Change.
+The Insight Agent has detected a change in the status of a
+CD Library device.  The current CD Library status is
+indicated in the cpqScsiCdLibraryCondition variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqCdLibraryCntlrIndex
+  4: cpqCdLibraryBusIndex
+  5: cpqCdLibraryScsiIdIndex
+  6: cpqCdLibraryStatus
+EDESC
+#
+#
+#
+EVENT cpqTape4PhyDrvStatusChange .1.3.6.1.4.1.232.0.5016 "Status Events" CRITICAL
+FORMAT Tape Drive Status Change: Status is now $6.
+SDESC
+Tape Drive Status Change.
+The Storage Agent has detected a change in the status of a
+Tape drive.  The current physical drive status is
+indicated in the cpqTapePhyDrvStatus variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapePhyDrvCntlrIndex
+  4: cpqTapePhyDrvBusIndex
+  5: cpqTapePhyDrvScsiIdIndex
+  6: cpqTapePhyDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqScsi4PhyDrvStatusChange .1.3.6.1.4.1.232.0.5017 "Status Events" CRITICAL
+FORMAT SCSI Physical Drive Status Change: Status is now $3.
+SDESC
+Physical Drive Status Change.
+The Storage Agent has detected a change in the status of a
+SCSI physical drive.  The current physical drive
+status is indicated in the cpqScsiPhyDrvStatus variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqScsiPhyDrvStatus
+  4: cpqScsiPhyDrvCntlrIndex
+  5: cpqScsiPhyDrvBusIndex
+  6: cpqScsiPhyDrvIndex
+  7: cpqScsiPhyDrvVendor
+  8: cpqScsiPhyDrvModel
+  9: cpqScsiPhyDrvFWRev
+  10: cpqScsiPhyDrvSerialNum
+EDESC
+#
+#
+#
+EVENT cpqTapeLibraryStatusChange .1.3.6.1.4.1.232.0.5018 "Status Events" CRITICAL
+FORMAT Tape Library Status Change: Status is now $10.
+SDESC
+Tape Library Status Change
+The Storage Agent has detected a change in the status of a
+tape library.  The current tape library status is
+indicated in the cpqTapeLibraryState variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapeLibraryCntlrIndex
+  4: cpqTapeLibraryBusIndex
+  5: cpqTapeLibraryScsiIdIndex
+  6: cpqTapeLibraryLunIndex
+  7: cpqTapeLibraryName
+  8: cpqTapeLibraryFwRev
+  9: cpqTapeLibrarySerialNumber
+  10: cpqTapeLibraryState
+EDESC
+#
+#
+#
+EVENT cpqTape5PhyDrvStatusChange .1.3.6.1.4.1.232.0.5019 "Status Events" CRITICAL
+FORMAT Tape Drive Status Change: Status is now $10.
+SDESC
+Tape Drive Status Change.
+The Storage Agent has detected a change in the status of a
+tape drive.  The current physical drive status is
+indicated in the cpqTapePhyDrvStatus variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqTapePhyDrvCntlrIndex
+  4: cpqTapePhyDrvBusIndex
+  5: cpqTapePhyDrvScsiIdIndex
+  6: cpqTapePhyDrvLunIndex
+  7: cpqTapePhyDrvName
+  8: cpqTapePhyDrvFwRev
+  9: cpqTapePhyDrvSerialNumber
+  10: cpqTapePhyDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqScsi5PhyDrvStatusChange .1.3.6.1.4.1.232.0.5020 "Status Events" CRITICAL
+FORMAT SCSI Physical Drive Status Change: Status is now $3.
+SDESC
+Physical Drive Status Change.
+The Storage Agent has detected a change in the status of a
+SCSI physical drive.  The current physical drive
+status is indicated in the cpqScsiPhyDrvStatus variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqScsiPhyDrvStatus
+  4: cpqScsiPhyDrvCntlrIndex
+  5: cpqScsiPhyDrvBusIndex
+  6: cpqScsiPhyDrvIndex
+  7: cpqScsiPhyDrvVendor
+  8: cpqScsiPhyDrvModel
+  9: cpqScsiPhyDrvFWRev
+  10: cpqScsiPhyDrvSerialNum
+  11: cpqScsiPhyDrvOsName
+EDESC
+#
+#
+#
+EVENT cpqScsi3LogDrvStatusChange .1.3.6.1.4.1.232.0.5021 "Status Events" CRITICAL
+FORMAT SCSI Logical Drive Status Change: Status is now $3.
+SDESC
+Logical Drive Status Change.
+The Storage Agent has detected a change in the status of a
+SCSI logical drive.  The current logical drive status is
+indicated in the cpqScsiLogDrvStatus variable.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqScsiLogDrvStatus
+  4: cpqScsiLogDrvCntlrIndex
+  5: cpqScsiLogDrvBusIndex
+  6: cpqScsiLogDrvIndex
+  7: cpqScsiLogDrvOsName
+EDESC

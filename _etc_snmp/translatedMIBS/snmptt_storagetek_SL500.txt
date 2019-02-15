@@ -1,0 +1,231 @@
+#
+#
+#
+#
+MIB: STREAMLINE-TAPE-LIBRARY-MIB (file:/tmp/StorageTek_SL500.mib) converted on Wed Aug 22 09:02:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT slTrapError .1.3.6.1.4.1.1211.1.15.0.1 "Status Events" Normal
+FORMAT An error trap - a device condition which is critical to machine operation was encountered $*
+SDESC
+An error trap - a device condition which is critical to machine operation was encountered
+Variables:
+  1: slTrapLibrarySerialNumber
+  2: slTrapDeviceId
+  3: slTrapDeviceTime
+  4: slTrapDeviceAddress
+  5: slTrapDeviceUserName
+  6: slTrapDeviceInterfaceName
+  7: slTrapDeviceActivity
+  8: slTrapDeviceRequestId
+  9: slTrapDeviceSeverity
+  10: slTrapDeviceResultCode
+  11: slTrapDeviceFreeFormText
+EDESC
+#
+#
+#
+EVENT slTrapWarning .1.3.6.1.4.1.1211.1.15.0.2 "Status Events" Normal
+FORMAT An warning trap - a device condition which may need attention has been encountered $*
+SDESC
+An warning trap - a device condition which may need attention has been encountered
+Variables:
+  1: slTrapLibrarySerialNumber
+  2: slTrapDeviceId
+  3: slTrapDeviceTime
+  4: slTrapDeviceAddress
+  5: slTrapDeviceUserName
+  6: slTrapDeviceInterfaceName
+  7: slTrapDeviceActivity
+  8: slTrapDeviceRequestId
+  9: slTrapDeviceSeverity
+  10: slTrapDeviceResultCode
+  11: slTrapDeviceFreeFormText
+EDESC
+#
+#
+#
+EVENT slTrapInformation .1.3.6.1.4.1.1211.1.15.0.3 "Status Events" Normal
+FORMAT An information trap - information is presented for activity monitoring $*
+SDESC
+An information trap - information is presented for activity monitoring
+Variables:
+  1: slTrapLibrarySerialNumber
+  2: slTrapDeviceId
+  3: slTrapDeviceTime
+  4: slTrapDeviceAddress
+  5: slTrapDeviceUserName
+  6: slTrapDeviceInterfaceName
+  7: slTrapDeviceActivity
+  8: slTrapDeviceRequestId
+  9: slTrapDeviceSeverity
+  10: slTrapDeviceResultCode
+  11: slTrapDeviceFreeFormText
+EDESC
+#
+#
+#
+EVENT slTrapConfiguration .1.3.6.1.4.1.1211.1.15.0.4 "Status Events" Normal
+FORMAT A configuration trap - reporting machine configuration activity $*
+SDESC
+A configuration trap - reporting machine configuration activity
+Variables:
+  1: slTrapConfigLibrarySerialNumber
+  2: slTrapConfigDeviceId
+  3: slTrapConfigDeviceTime
+  4: slTrapConfigDeviceAddress
+  5: slTrapConfigDeviceUserName
+  6: slTrapConfigDeviceInterfaceName
+  7: slTrapConfigDeviceActivity
+  8: slTrapConfigDeviceRequestId
+  9: slTrapConfigDeviceSeverity
+  10: slTrapConfigDeviceResultCode
+  11: slTrapConfigPropertyName
+  12: slTrapConfigNewPropertyValue
+  13: slTrapConfigNewPropertyEffective
+EDESC
+#
+#
+#
+EVENT slTrapAgentStart .1.3.6.1.4.1.1211.1.15.0.11 "Status Events" Normal
+FORMAT This trap is sent when the agent starts $*
+SDESC
+This trap is sent when the agent starts
+Variables:
+  1: slAgentBootDate
+EDESC
+#
+#
+#
+EVENT slTrapLibStatusGood .1.3.6.1.4.1.1211.1.15.0.21 "Status Events" Normal
+FORMAT This trap is sent when the library status changes to Good $*
+SDESC
+This trap is sent when the library status changes to Good
+Variables:
+  1: slLibraryTopLevelCondition
+  2: slLibStkBaseModel
+  3: slLibSerialNumber
+EDESC
+#
+#
+#
+EVENT slTrapLibStatusCheck .1.3.6.1.4.1.1211.1.15.0.25 "Status Events" Normal
+FORMAT This trap is sent when the library condition changes to a check condition (degraded, not-operative) $*
+SDESC
+This trap is sent when the library condition changes to a check condition (degraded, not-operative)
+Variables:
+  1: slLibraryTopLevelCondition
+  2: slLibStkBaseModel
+  3: slLibSerialNumber
+EDESC
+#
+#
+#
+EVENT slTrapEnvHdwCheck .1.3.6.1.4.1.1211.1.15.0.27 "Status Events" Normal
+FORMAT This trap is sent when the library environmental or hardware condition changes $*
+SDESC
+This trap is sent when the library environmental or hardware condition changes
+Variables:
+  1: slTrapLibrarySerialNumber
+  2: slTrapDeviceId
+  3: slTrapDeviceTime
+  4: slTrapDeviceAddress
+  5: slTrapDeviceUserName
+  6: slTrapDeviceInterfaceName
+  7: slTrapDeviceActivity
+  8: slTrapDeviceRequestId
+  9: slTrapDeviceSeverity
+  10: slTrapDeviceResultCode
+  11: slTrapDeviceFreeFormText
+EDESC
+#
+#
+#
+EVENT slTrapDrvStatusGood .1.3.6.1.4.1.1211.1.15.0.41 "Status Events" Normal
+FORMAT This trap sent when a drive status changes to good $*
+SDESC
+This trap sent when a drive status changes to good
+Variables:
+  1: slLibSerialNumber
+  2: slDriveState
+  3: slDriveAddress
+  4: slDriveType
+  5: slDriveVendor
+  6: slDriveSerialNum
+EDESC
+#
+#
+#
+EVENT slTrapDrvStatusCheck .1.3.6.1.4.1.1211.1.15.0.45 "Status Events" Normal
+FORMAT This trap sent when a drive status changes to a check condition (error, warning, unknown ...) $*
+SDESC
+This trap sent when a drive status changes to a check condition (error, warning, unknown ...)
+Variables:
+  1: slLibSerialNumber
+  2: slDriveState
+  3: slDriveAddress
+  4: slDriveType
+  5: slDriveVendor
+  6: slDriveSerialNum
+EDESC
+#
+#
+#
+EVENT slTrapCapStatusGood .1.3.6.1.4.1.1211.1.15.0.61 "Status Events" Normal
+FORMAT This trap sent when a CAP status changes to good $*
+SDESC
+This trap sent when a CAP status changes to good
+Variables:
+  1: slLibSerialNumber
+  2: slCapState
+  3: slCapAddress
+EDESC
+#
+#
+#
+EVENT slTrapCapStatusOpen .1.3.6.1.4.1.1211.1.15.0.63 "Status Events" Normal
+FORMAT This trap sent when a CAP status changes to open $*
+SDESC
+This trap sent when a CAP status changes to open
+Variables:
+  1: slLibSerialNumber
+  2: slCapState
+  3: slCapAddress
+EDESC
+#
+#
+#
+EVENT slTrapCapStatusCheck .1.3.6.1.4.1.1211.1.15.0.65 "Status Events" Normal
+FORMAT This trap sent when a CAP status changes to a check condition (error, warning, unknown ...) $*
+SDESC
+This trap sent when a CAP status changes to a check condition (error, warning, unknown ...)
+Variables:
+  1: slLibSerialNumber
+  2: slCapState
+  3: slCapAddress
+EDESC
+#
+#
+#
+EVENT slTrapPtpStatusGood .1.3.6.1.4.1.1211.1.15.0.81 "Status Events" Normal
+FORMAT This trap sent when a PTP status changes to good $*
+SDESC
+This trap sent when a PTP status changes to good
+Variables:
+  1: slLibSerialNumber
+  2: slPtpState
+  3: slPtpAddress
+EDESC
+#
+#
+#
+EVENT slTrapPtpStatusCheck .1.3.6.1.4.1.1211.1.15.0.85 "Status Events" Normal
+FORMAT This trap sent when a PTP status changes to a check condition (error, warning, unknown ...) $*
+SDESC
+This trap sent when a PTP status changes to a check condition (error, warning, unknown ...)
+Variables:
+  1: slLibSerialNumber
+  2: slPtpState
+  3: slPtpAddress
+EDESC

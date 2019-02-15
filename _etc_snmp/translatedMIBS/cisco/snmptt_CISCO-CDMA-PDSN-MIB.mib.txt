@@ -1,0 +1,202 @@
+#
+#
+#
+#
+MIB: CISCO-CDMA-PDSN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CDMA-PDSN-MIB.mib) converted on Tue Aug 21 15:25:44 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cCdmaSessionMaxAllowedNotif .1.3.6.1.4.1.9.9.157.2.0.1 "Status Events" Normal
+FORMAT This notification indicates PDSN has reached the $*
+SDESC
+This notification indicates PDSN has reached the
+maximum number of sessions the system can handle.
+In this state new session request will be rejected.
+Service affected level: critical
+Variables:
+  1: cCdmaSessionMaxAllowed
+EDESC
+#
+#
+#
+EVENT cCdmaPcfMaxAllowedNotif .1.3.6.1.4.1.9.9.157.2.0.2 "Status Events" Normal
+FORMAT This notification indicates PDSN has reached the  $*
+SDESC
+This notification indicates PDSN has reached the 
+maximum number of allowed PCF. In this state
+request from new PCF will be rejected.
+Service affected level: critical
+Variables:
+  1: cCdmaPcfMaxAllowed
+EDESC
+#
+#
+#
+EVENT cCdmaSessionFormatErrorNotif .1.3.6.1.4.1.9.9.157.2.0.3 "Status Events" Normal
+FORMAT This notification indicates PDSN received  $*
+SDESC
+This notification indicates PDSN received 
+invalid
+arguments from PCF leading to session termination.
+The agent should not generate more than 1 trap 
+of this
+type per second to minimize the level of 
+management
+traffic on the network
+Variables:
+  1: cCdmaFailSessionMsid
+  2: cCdmaFailSessionA11HaIp
+  3: cCdmaFailSessionA11FaIp
+  4: cCdmaFailSessionConnId
+EDESC
+#
+#
+#
+EVENT cCdmaSessionRegReqFailedNotif .1.3.6.1.4.1.9.9.157.2.0.4 "Status Events" Normal
+FORMAT This notification indicates a Registration  $*
+SDESC
+This notification indicates a Registration 
+Request received has failed which may be due to
+one of the following reasons:
+insufficient resource, 
+Administrative prohibition,
+MN authentication failure,
+registration id mismatch,
+bad request,
+unknown HA address 
+or T  bit not set or unsupported VID.
+The agent should not generate more than 1 trap 
+of same type per second to minimize the level of
+management traffic on the network.
+Service affected level: minor
+Variables:
+  1: cCdmaFailSessionMsid
+  2: cCdmaFailSessionA11HaIp
+  3: cCdmaFailSessionA11FaIp
+  4: cCdmaFailSessionConnId
+  5: cCdmaFailHistFailType
+EDESC
+#
+#
+#
+EVENT cCdmaPdsnStatusChange .1.3.6.1.4.1.9.9.157.2.0.5 "Status Events" Normal
+FORMAT This notification indicates status change of PDSN. $*
+SDESC
+This notification indicates status change of PDSN.
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaSystemStatus
+EDESC
+#
+#
+#
+EVENT cCdmaSessionHighReached .1.3.6.1.4.1.9.9.157.2.0.6 "Status Events" Normal
+FORMAT This notification indicates a session high  $*
+SDESC
+This notification indicates a session high 
+threshold has been has been reached.
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaSessionHighThreshold
+EDESC
+#
+#
+#
+EVENT cCdmaSessionLowReached .1.3.6.1.4.1.9.9.157.2.0.7 "Status Events" Normal
+FORMAT This notification indicates a session low  $*
+SDESC
+This notification indicates a session low 
+threshold has been has been reached.
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaSessionHighThreshold
+EDESC
+#
+#
+#
+EVENT cCdmaClusterSessionHighReached .1.3.6.1.4.1.9.9.157.2.0.8 "Status Events" Normal
+FORMAT This notification indicates a cluster session  $*
+SDESC
+This notification indicates a cluster session 
+high threshold has been reached by PDSN cluster
+controller.
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaClusterSessHighThreshold
+EDESC
+#
+#
+#
+EVENT cCdmaClusterSessionLowReached .1.3.6.1.4.1.9.9.157.2.0.9 "Status Events" Normal
+FORMAT This notification indicates a cluster session  $*
+SDESC
+This notification indicates a cluster session 
+low threshold has been reached by PDSN cluster
+controller.
+Service affected level: Major/Warning
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaClusterSessLowThreshold
+EDESC
+#
+#
+#
+EVENT cCdmaClusterMemberStatusChange .1.3.6.1.4.1.9.9.157.2.0.10 "Status Events" Normal
+FORMAT Cluster controller detects member PDSN status $*
+SDESC
+Cluster controller detects member PDSN status
+change
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaAffectedAddressType
+  3: cCdmaAffectedAddress
+  4: cCdmaAffectedMemberStatus
+EDESC
+#
+#
+#
+EVENT cCdmaClusterCtrlStatusChange .1.3.6.1.4.1.9.9.157.2.0.11 "Status Events" Normal
+FORMAT Cluster member PDSN detects controller PDSN status $*
+SDESC
+Cluster member PDSN detects controller PDSN status
+change
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaAffectedAddressType
+  3: cCdmaAffectedAddress
+  4: cCdmaAffectedCtrlStatus
+EDESC
+#
+#
+#
+EVENT cCdmaClusterMemberStatusChange2 .1.3.6.1.4.1.9.9.157.2.0.12 "Status Events" Normal
+FORMAT Cluster controller detects member PDSN status $*
+SDESC
+Cluster controller detects member PDSN status
+change
+Variables:
+  1: cCdmaClusterMemberStatus
+EDESC
+#
+#
+#
+EVENT cCdmaClusterCtrlStatusChange2 .1.3.6.1.4.1.9.9.157.2.0.13 "Status Events" Normal
+FORMAT Cluster member PDSN detects controller PDSN status $*
+SDESC
+Cluster member PDSN detects controller PDSN status
+change
+Variables:
+  1: cCdmaClusterCtrlStatus
+EDESC
+#
+#
+#
+EVENT cCdmaSessionLowReached2 .1.3.6.1.4.1.9.9.157.2.0.14 "Status Events" Normal
+FORMAT This notification indicates a session low  $*
+SDESC
+This notification indicates a session low 
+threshold has been has been reached.
+Variables:
+  1: cCdmaServiceAffectedLevel
+  2: cCdmaSessionLowThreshold
+EDESC

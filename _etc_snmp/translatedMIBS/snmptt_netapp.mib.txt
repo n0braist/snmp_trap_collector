@@ -1,0 +1,2534 @@
+#
+#
+#
+#
+MIB: NETAPP-MIB (file:/tmp/netapp.mib) converted on Wed Jan 15 16:04:38 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT userDefined .1.3.6.1.4.1.789.0.2 "Status Events" Normal
+FORMAT A polling-style trap built using the 'snmp traps' $*
+SDESC
+A polling-style trap built using the 'snmp traps'
+command on the filer.    
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT dhmNoticeDegradedIO .1.3.6.1.4.1.789.0.6 "Status Events" Normal
+FORMAT Disk Health Monitor - $*
+SDESC
+Disk Health Monitor -
+Reported a Disk Degraded-I/O  Event
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT dhmNoticePFAEvent .1.3.6.1.4.1.789.0.7 "Status Events" Normal
+FORMAT Disk Health Monitor - $*
+SDESC
+Disk Health Monitor -
+Reported a Disk Predictive-Failure Event
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT emergencyTrap .1.3.6.1.4.1.789.0.11 "Status Events" Normal
+FORMAT A user-defined trap indicating an extremely urgent $*
+SDESC
+A user-defined trap indicating an extremely urgent
+situation, usually indicating that the system has
+failed and is shutting down.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT alertTrap .1.3.6.1.4.1.789.0.12 "Status Events" Normal
+FORMAT A user-defined trap indicating a condition that $*
+SDESC
+A user-defined trap indicating a condition that
+should be corrected immediately, such as a failed disk.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT criticalTrap .1.3.6.1.4.1.789.0.13 "Status Events" Normal
+FORMAT A user-defined trap indicating a critical condition, $*
+SDESC
+A user-defined trap indicating a critical condition,
+such as a hard device error.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT errorTrap .1.3.6.1.4.1.789.0.14 "Status Events" Normal
+FORMAT A user-defined trap indicating an error condition, $*
+SDESC
+A user-defined trap indicating an error condition,
+such as a mistake in a configuration file.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT warningTrap .1.3.6.1.4.1.789.0.15 "Status Events" Normal
+FORMAT A user-defined trap indicating a condition which $*
+SDESC
+A user-defined trap indicating a condition which
+is not an error, but which may require special handling.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT notificationTrap .1.3.6.1.4.1.789.0.16 "Status Events" Normal
+FORMAT A user-defined trap meant to provide notification, $*
+SDESC
+A user-defined trap meant to provide notification,
+such as an hourly uptime message.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT informationalTrap .1.3.6.1.4.1.789.0.17 "Status Events" Normal
+FORMAT A user-defined trap used for informational purposes. $*
+SDESC
+A user-defined trap used for informational purposes.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT dbgTrap .1.3.6.1.4.1.789.0.18 "Status Events" Normal
+FORMAT A user-defined trap used for debugging purposes. $*
+SDESC
+A user-defined trap used for debugging purposes.
+This trap was previously mis-documented as being trap
+number 17, with the name debugTrap.  It has always,
+actually, been trap 18.  The name change is to avoid
+issues with environments that already have a record
+for debugTrap.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT diskFailedShutdown .1.3.6.1.4.1.789.0.21 "Status Events" Normal
+FORMAT System is shutting down because the system has been $*
+SDESC
+System is shutting down because the system has been
+running in degraded mode for 24 hours.
+The trap includes a string describing the failed disk.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT diskFailed .1.3.6.1.4.1.789.0.22 "Status Events" Normal
+FORMAT One or more disks failed. $*
+SDESC
+One or more disks failed.
+The trap includes a string describing the failed disk(s).
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT diskRepaired .1.3.6.1.4.1.789.0.26 "Status Events" Normal
+FORMAT The failed disks have been repaired. $*
+SDESC
+The failed disks have been repaired.
+This trap is a placeholder -
+it is not currently sent by Data ONTAP.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT fanFailureShutdown .1.3.6.1.4.1.789.0.31 "Status Events" Normal
+FORMAT Critical chassis or cpu fans have failed and the system $*
+SDESC
+Critical chassis or cpu fans have failed and the system
+is shutting down.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT fanFailed .1.3.6.1.4.1.789.0.33 "Status Events" Normal
+FORMAT One or more chassis fans failed. $*
+SDESC
+One or more chassis fans failed.
+The trap includes a string describing the failed fan(s).
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT fanWarning .1.3.6.1.4.1.789.0.35 "Status Events" Normal
+FORMAT One or more chassis or cpu fans are in warning state. $*
+SDESC
+One or more chassis or cpu fans are in warning state.
+The trap includes a string describing the fan(s) in
+the warning state.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT fanRepaired .1.3.6.1.4.1.789.0.36 "Status Events" Normal
+FORMAT All fans are repaired. $*
+SDESC
+All fans are repaired.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT powerSupplyFailureShutdown .1.3.6.1.4.1.789.0.41 "Status Events" Normal
+FORMAT Critical power supplies or power rails failed and $*
+SDESC
+Critical power supplies or power rails failed and
+the system is shutting down.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT powerSupplyFailed .1.3.6.1.4.1.789.0.43 "Status Events" Normal
+FORMAT One or more redundant power supplies failed. $*
+SDESC
+One or more redundant power supplies failed.
+Include in the trap a string describing
+the failed power supply(ies).
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT powerSupplyWarning .1.3.6.1.4.1.789.0.45 "Status Events" Normal
+FORMAT One or more power supplies or power rails in $*
+SDESC
+One or more power supplies or power rails in
+warning state.  Include in the trap a string describing
+the power supply(ies) or the power rail(s) in the
+warning state.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT powerSupplyRepaired .1.3.6.1.4.1.789.0.46 "Status Events" Normal
+FORMAT Previously-failed power supplies or power rails have been $*
+SDESC
+Previously-failed power supplies or power rails have been
+repaired.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT cpuTooBusy .1.3.6.1.4.1.789.0.55 "Status Events" Normal
+FORMAT CPU utilization exceeds 90%. $*
+SDESC
+CPU utilization exceeds 90%.
+This trap is not enabled by default.
+To enable this trap set the registry
+entry options.monitor.cpu.enable to on. 
+Note that as the threshold for this trap is
+checked once a minute it is possible to receive
+multiple instances of this trap in a short time.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT cpuOk .1.3.6.1.4.1.789.0.56 "Status Events" Normal
+FORMAT CPU utilization has dropped back below 90%. $*
+SDESC
+CPU utilization has dropped back below 90%.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT nvramBatteryDischarged .1.3.6.1.4.1.789.0.62 "Status Events" Normal
+FORMAT The NVRAM battery is fully discharged. $*
+SDESC
+The NVRAM battery is fully discharged.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT nvramBatteryLow .1.3.6.1.4.1.789.0.63 "Status Events" Normal
+FORMAT The charge in the NVRAM battery is low. $*
+SDESC
+The charge in the NVRAM battery is low.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT clusterNodeFailed .1.3.6.1.4.1.789.0.72 "Status Events" Normal
+FORMAT A node in a Cluster FailOver configuration failed. $*
+SDESC
+A node in a Cluster FailOver configuration failed.
+Its partner will assume service for the failed node.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT clusterNodeTakenOver .1.3.6.1.4.1.789.0.75 "Status Events" Normal
+FORMAT The partner has taken over for a failed cluster node. $*
+SDESC
+The partner has taken over for a failed cluster node.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT clusterNodeRepaired .1.3.6.1.4.1.789.0.76 "Status Events" Normal
+FORMAT A cluster node has resumed operation. $*
+SDESC
+A cluster node has resumed operation.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT clusterNodeRepairing .1.3.6.1.4.1.789.0.77 "Status Events" Normal
+FORMAT A cluster node has rebooted, and a giveback has started. $*
+SDESC
+A cluster node has rebooted, and a giveback has started.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeFull .1.3.6.1.4.1.789.0.82 "Status Events" Normal
+FORMAT At least one volume is more than 98% full. $*
+SDESC
+At least one volume is more than 98% full.
+The string sent with the trap gives the 
+name of the volume or volumes which exceed
+the volumeFull or volumeNearlyFull thresholds
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeNearlyFull .1.3.6.1.4.1.789.0.85 "Status Events" Normal
+FORMAT At least one volume is more than 95% full. $*
+SDESC
+At least one volume is more than 95% full.
+The string sent with the trap gives the 
+name of the volume or volumes which exceed
+the volumeFull or volumeNearlyFull thresholds
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRepaired .1.3.6.1.4.1.789.0.86 "Status Events" Normal
+FORMAT All volumes are now under 95% full. $*
+SDESC
+All volumes are now under 95% full.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumesStillFull .1.3.6.1.4.1.789.0.87 "Status Events" Normal
+FORMAT At least one volume that was full or nearly full is now OK, $*
+SDESC
+At least one volume that was full or nearly full is now OK,
+but more volumes still exceed the volumeNearlyFull or
+volumeFull thresholds. This trap is generally sent within
+a short time of when a volume becomes OK, though if two
+volumes become OK within this timeframe, only one trap is
+sent. The string sent with the trap gives the name of the 
+volume or volumes which still exceed the volumeFull or 
+volumeNearlyFull thresholds. It does not send the name of 
+any volume that is OK.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT overTempShutdown .1.3.6.1.4.1.789.0.91 "Status Events" Normal
+FORMAT System temperature is too high to continue $*
+SDESC
+System temperature is too high to continue
+operating.  The system is shutting down.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT overTemp .1.3.6.1.4.1.789.0.95 "Status Events" Normal
+FORMAT System temperature is too high and in the $*
+SDESC
+System temperature is too high and in the
+warning level.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT overTempRepaired .1.3.6.1.4.1.789.0.96 "Status Events" Normal
+FORMAT System temperature has returned to an $*
+SDESC
+System temperature has returned to an
+acceptable value.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT shelfFault .1.3.6.1.4.1.789.0.103 "Status Events" Normal
+FORMAT A disk storage shelf reported a fault, probably due $*
+SDESC
+A disk storage shelf reported a fault, probably due
+to a problem with drive placement, fans, power,
+or temperature.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT shelfRepaired .1.3.6.1.4.1.789.0.106 "Status Events" Normal
+FORMAT A previously-reported shelf fault is now corrected. $*
+SDESC
+A previously-reported shelf fault is now corrected.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT globalStatusNonRecoverable .1.3.6.1.4.1.789.0.111 "Status Events" Normal
+FORMAT The appliance's overall status changed to $*
+SDESC
+The appliance's overall status changed to
+'nonRecoverable', indicating a problem so severe
+that the appliance is shutting down.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT globalStatusCritical .1.3.6.1.4.1.789.0.113 "Status Events" Normal
+FORMAT The appliance's overall status changed to 'critical', $*
+SDESC
+The appliance's overall status changed to 'critical',
+indicating a problem that needs immediate attention.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT globalStatusNonCritical .1.3.6.1.4.1.789.0.115 "Status Events" Normal
+FORMAT The appliance's overall status changed to 'nonCritical', $*
+SDESC
+The appliance's overall status changed to 'nonCritical',
+indicating a problem that needs attention.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT globalStatusOk .1.3.6.1.4.1.789.0.116 "Status Events" Normal
+FORMAT The appliance's overall status returned to normal. $*
+SDESC
+The appliance's overall status returned to normal.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT softQuotaExceeded .1.3.6.1.4.1.789.0.126 "Status Events" Normal
+FORMAT A user has exceeded their soft quota limit. $*
+SDESC
+A user has exceeded their soft quota limit.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT softQuotaNormal .1.3.6.1.4.1.789.0.127 "Status Events" Normal
+FORMAT A user is safely back under their soft quota limit. $*
+SDESC
+A user is safely back under their soft quota limit.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT autosupportSendError .1.3.6.1.4.1.789.0.134 "Status Events" Normal
+FORMAT Unable to send autosupport. $*
+SDESC
+Unable to send autosupport.
+The trap includes a string describing the reason for the failure.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT autosupportConfigurationError .1.3.6.1.4.1.789.0.135 "Status Events" Normal
+FORMAT Autosupport may be configured incorrectly. $*
+SDESC
+Autosupport may be configured incorrectly.
+The trap includes a string describing the mis-configuration.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT autosupportSent .1.3.6.1.4.1.789.0.136 "Status Events" Normal
+FORMAT Autosupport was sent successfully. $*
+SDESC
+Autosupport was sent successfully.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT upsLinePowerOff .1.3.6.1.4.1.789.0.142 "Status Events" Normal
+FORMAT UPS: Input line power has failed and UPS is now on battery. $*
+SDESC
+UPS: Input line power has failed and UPS is now on battery.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT upsBatteryCritical .1.3.6.1.4.1.789.0.143 "Status Events" Normal
+FORMAT UPS: Battery is nearly exhausted, starting graceful shutdown. $*
+SDESC
+UPS: Battery is nearly exhausted, starting graceful shutdown.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT upsShuttingDown .1.3.6.1.4.1.789.0.144 "Status Events" Normal
+FORMAT UPS: Shutting down now: Time left on battery is exhuasted. $*
+SDESC
+UPS: Shutting down now: Time left on battery is exhuasted.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT upsBatteryWarning .1.3.6.1.4.1.789.0.145 "Status Events" Normal
+FORMAT UPS: Warning: Time left on battery is getting critical. $*
+SDESC
+UPS: Warning: Time left on battery is getting critical.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT upsLinePowerRestored .1.3.6.1.4.1.789.0.146 "Status Events" Normal
+FORMAT UPS:  Input line power has been restored and UPS is now off battery. $*
+SDESC
+UPS:  Input line power has been restored and UPS is now off battery.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appEmergency .1.3.6.1.4.1.789.0.151 "Status Events" Normal
+FORMAT The application encountered an extremely urgent $*
+SDESC
+The application encountered an extremely urgent
+situation and requires an immediate response.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appAlert .1.3.6.1.4.1.789.0.152 "Status Events" Normal
+FORMAT The application is in a condition that should  $*
+SDESC
+The application is in a condition that should 
+be corrected immediately.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appCritical .1.3.6.1.4.1.789.0.153 "Status Events" Normal
+FORMAT The application encountered a critical condition. $*
+SDESC
+The application encountered a critical condition.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appError .1.3.6.1.4.1.789.0.154 "Status Events" Normal
+FORMAT The application encountered an error condition. $*
+SDESC
+The application encountered an error condition.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appWarning .1.3.6.1.4.1.789.0.155 "Status Events" Normal
+FORMAT The application is in a condition which is not an  $*
+SDESC
+The application is in a condition which is not an 
+error, but which may require special handling.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appNotice .1.3.6.1.4.1.789.0.156 "Status Events" Normal
+FORMAT The application is notifing of a certain event. $*
+SDESC
+The application is notifing of a certain event.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appInfo .1.3.6.1.4.1.789.0.157 "Status Events" Normal
+FORMAT The application's message is meant for informational  $*
+SDESC
+The application's message is meant for informational 
+purposes.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT appTrap .1.3.6.1.4.1.789.0.158 "Status Events" Normal
+FORMAT The application requires to be debugged. $*
+SDESC
+The application requires to be debugged.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT alfFilewrap .1.3.6.1.4.1.789.0.162 "Status Events" Normal
+FORMAT The internal audit file has wrapped. You are currently losing event $*
+SDESC
+The internal audit file has wrapped. You are currently losing event
+records.  Warning the user.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT alfFileSaved .1.3.6.1.4.1.789.0.166 "Status Events" Normal
+FORMAT The internal audit log has been autosaved to an external evt file. $*
+SDESC
+The internal audit log has been autosaved to an external evt file.
+Notifying the user.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT alfFileNearlyFull .1.3.6.1.4.1.789.0.167 "Status Events" Normal
+FORMAT The internal audit log file is nearly full. The file is going to  $*
+SDESC
+The internal audit log file is nearly full. The file is going to 
+wrap. Notifying the user.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT quotaExceeded .1.3.6.1.4.1.789.0.176 "Status Events" Normal
+FORMAT One of the quota limits has been exceeded. $*
+SDESC
+One of the quota limits has been exceeded.
+The trap includes a string describing the specific event
+which triggered the trap.  The string is structured
+in the following form:
+Quota Event: status=exceeded, type={hard|soft|threshold},
+user={username}, volume={volume}, limit_item={files|disk},
+limit_value={#files|#kilobytes}
+[ , treeid={tree-id} ] [ , vfiler={vfiler} ]
+An example of a complete message would be:
+Quota Event: status=exceeded, type=soft,
+user=admin, volume=vol1, limit_item=disk, limit_value=1000000,
+treeid=8
+Additional key=value items may, in the future, be appended
+to this message.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT quotaNormal .1.3.6.1.4.1.789.0.177 "Status Events" Normal
+FORMAT One of the quota limits has gone back down to a normal level. $*
+SDESC
+One of the quota limits has gone back down to a normal level.
+The trap includes a string describing the specific event
+which triggered the trap.  The string is structured
+in the following form:
+Quota Event: status=normal, type={hard|soft|threshold},
+user={username}, volume={volume}, limit_item={files|disk},
+limit_value={#files|#kilobytes}
+[ , treeid={tree-id} ] [ , vfiler={vfiler} ]
+An example of a complete message would be:
+Quota Event: status=normal, type=soft,
+user=admin, volume=vol1, limit_item=disk, limit_value=1000000,
+treeid=8
+Additional key=value items may, in the future, be appended
+to this message.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT waflDirFull .1.3.6.1.4.1.789.0.187 "Status Events" Normal
+FORMAT The directory has been filled to its limit $*
+SDESC
+The directory has been filled to its limit
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT eccSummary .1.3.6.1.4.1.789.0.192 "Status Events" Normal
+FORMAT Memory ECC: number of new correctable ECC errors $*
+SDESC
+Memory ECC: number of new correctable ECC errors
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT eccMasked .1.3.6.1.4.1.789.0.195 "Status Events" Normal
+FORMAT Memory ECC: High frequency of ECC errors $*
+SDESC
+Memory ECC: High frequency of ECC errors
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT ftpdError .1.3.6.1.4.1.789.0.204 "Status Events" Normal
+FORMAT Ftp daemon: service stopped $*
+SDESC
+Ftp daemon: service stopped
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT ftpdMaxConnNotice .1.3.6.1.4.1.789.0.206 "Status Events" Normal
+FORMAT Ftp daemon: number of connections hits maximum number $*
+SDESC
+Ftp daemon: number of connections hits maximum number
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT ftpdMaxConnThresholdNotice .1.3.6.1.4.1.789.0.216 "Status Events" Normal
+FORMAT Ftp daemon: number of connections nearly hits maximum number $*
+SDESC
+Ftp daemon: number of connections nearly hits maximum number
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT scsitgtFCPLinkBreak .1.3.6.1.4.1.789.0.222 "Status Events" Normal
+FORMAT SCSI Target: Link Break on FCP adapter $*
+SDESC
+SCSI Target: Link Break on FCP adapter
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT scsitgtPartnerPathMisconfigured .1.3.6.1.4.1.789.0.224 "Status Events" Normal
+FORMAT SCSI Target: FCP Partner Path Misconfigured $*
+SDESC
+SCSI Target: FCP Partner Path Misconfigured
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT scsitgtThrottleNotice .1.3.6.1.4.1.789.0.226 "Status Events" Normal
+FORMAT SCSI Target: Throttle limit event notification $*
+SDESC
+SCSI Target: Throttle limit event notification
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vifPrimaryLinkFailed .1.3.6.1.4.1.789.0.237 "Status Events" Normal
+FORMAT Vif: The primary Interface on a Single mode vif has failed $*
+SDESC
+Vif: The primary Interface on a Single mode vif has failed
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vifAllLinksFailed .1.3.6.1.4.1.789.0.238 "Status Events" Normal
+FORMAT Vif: All the links of the vif have failed $*
+SDESC
+Vif: All the links of the vif have failed
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vfStopped .1.3.6.1.4.1.789.0.245 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A vFiler has stopped.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vfStarted .1.3.6.1.4.1.789.0.246 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A vFiler has started.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vscanVirusDetectedError .1.3.6.1.4.1.789.0.254 "Status Events" Normal
+FORMAT VScan: A virus scanner has detected a virus on the Filer $*
+SDESC
+VScan: A virus scanner has detected a virus on the Filer
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vscanDisConnection .1.3.6.1.4.1.789.0.255 "Status Events" Normal
+FORMAT VScan: A virus scanner has dropped its connection from the Filer $*
+SDESC
+VScan: A virus scanner has dropped its connection from the Filer
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vscanConfigurationChange .1.3.6.1.4.1.789.0.256 "Status Events" Normal
+FORMAT VScan: There has been a change to the vscan configuration $*
+SDESC
+VScan: There has been a change to the vscan configuration
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vscanConnection .1.3.6.1.4.1.789.0.257 "Status Events" Normal
+FORMAT VScan: A virus scanner has made a connection to the Filer $*
+SDESC
+VScan: A virus scanner has made a connection to the Filer
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT vscanServerUpgrade .1.3.6.1.4.1.789.0.266 "Status Events" Normal
+FORMAT VScan: The Vscan server has been upgraded $*
+SDESC
+VScan: The Vscan server has been upgraded
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRestrictedByMirrorBigIo .1.3.6.1.4.1.789.0.272 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A volume that experienced a medium error during reconstruction 
+is restricted and marked wafl-inconsistent, but starting 
+wafliron has failed. This trap is issued to alert operator 
+that a volume is not accessible and wafliron must be started 
+to allow access to it.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeInconsistentUmount .1.3.6.1.4.1.789.0.274 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is issued when we unmount a volume due to an 
+inconsistency.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeStateChanged .1.3.6.1.4.1.789.0.275 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Volume is being taken offline or being restricted. 
+The string sent with trap specifies name of affected volume 
+and its state.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeOnline .1.3.6.1.4.1.789.0.276 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Volume is online now. The string sent with trap specifies 
+name of volume which is online now.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT rmcCardNeedsReplacement .1.3.6.1.4.1.789.0.283 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Remote Management Controller card needs replacement. The trap 
+includes a string specifying the reason for replacement
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT rmcCardMissingCables .1.3.6.1.4.1.789.0.284 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Remote Management Controller card is missing its internal 
+cable, or LAN cable or power supply cable. The trap includes 
+a string specifing the missing component.  
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRemoteUnreachable .1.3.6.1.4.1.789.0.294 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Local volume encountered an error while communicating
+to remote volume.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRemoteOk .1.3.6.1.4.1.789.0.296 "Status Events" Normal
+FORMAT $*
+SDESC
+
+The communication between remote volume and local volume 
+returned to normal.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRemoteRestored .1.3.6.1.4.1.789.0.297 "Status Events" Normal
+FORMAT $*
+SDESC
+
+The data on remote volume has been fully restored to local
+volume.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRemoteRestoreBegin .1.3.6.1.4.1.789.0.298 "Status Events" Normal
+FORMAT $*
+SDESC
+
+The data on remote volume has started being restored to local
+volume by Restore-on-Demand.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRestrictedRootConflict .1.3.6.1.4.1.789.0.304 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Volume is restricted due to a root volume conflict. The 
+string sent with trap specifies name of conflicting volume 
+which is being restricted.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeOfflineTooBig .1.3.6.1.4.1.789.0.314 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Volume can not be brought online because its raw size is 
+larger than maximum allowed size. The string sent with trap 
+specifies name of affected volume and its raw size, and 
+maximum allowed size.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeOffline .1.3.6.1.4.1.789.0.324 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Volume is being taken offline. The string sent with trap 
+specifies name of affected volume and reason for being 
+taken offline.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeRestricted .1.3.6.1.4.1.789.0.334 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Volume is being restricted. The string sent with trap 
+specifies name of affected volume and reason for being 
+restricted.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeDegradedDirty .1.3.6.1.4.1.789.0.344 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Volume is degraded and has dirty parity. WAFL_check must be 
+run on this volume before it can be brought online. The string
+sent with trap specifies name of affected volume.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeError .1.3.6.1.4.1.789.0.354 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is issued when a volume can not be brought online 
+due to an error.  The string sent with trap specifies name of 
+affected volume and error description.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeSelectedRootConflict .1.3.6.1.4.1.789.0.356 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is issued when multiple root volumes are detected
+at boot time and one is selected as the root by default. The
+string sent with the trap specifies the name of the selected
+volume and the reason.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT snapmirrorSyncFailed .1.3.6.1.4.1.789.0.364 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Synchronous SnapMirror failed and went into asynchronous mode.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT snapmirrorSyncOk .1.3.6.1.4.1.789.0.366 "Status Events" Normal
+FORMAT $*
+SDESC
+
+Synchronous SnapMirror went into synchronous mode.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisTemperatureShutdown .1.3.6.1.4.1.789.0.371 "Status Events" Normal
+FORMAT The chassis temperature is extreme.  The appliance has $*
+SDESC
+The chassis temperature is extreme.  The appliance has
+initiated a shutdown to protect itself.  The operating
+environment should be monitored and corrected before
+restarting the appliance.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisTemperatureWarning .1.3.6.1.4.1.789.0.372 "Status Events" Normal
+FORMAT The chassis temperature is either too high or too low. $*
+SDESC
+The chassis temperature is either too high or too low.
+The temperature should be monitored and, if possible, corrected.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisTemperatureUnknown .1.3.6.1.4.1.789.0.375 "Status Events" Normal
+FORMAT The chassis temperature is unknown, because reading can't be $*
+SDESC
+The chassis temperature is unknown, because reading can't be
+obtained from the chassis temperature sensor.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisTemperatureOk .1.3.6.1.4.1.789.0.376 "Status Events" Normal
+FORMAT The chassis temperature is OK. $*
+SDESC
+The chassis temperature is OK.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisCPUFanStopped .1.3.6.1.4.1.789.0.381 "Status Events" Normal
+FORMAT One or more CPU fans have stopped.  The appliance $*
+SDESC
+One or more CPU fans have stopped.  The appliance
+has initiated a shutdown to protect itself.  A new
+motherboard may be required to correct the fan.
+Contact customer support for direction.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisCPUFanSlow .1.3.6.1.4.1.789.0.383 "Status Events" Normal
+FORMAT A CPU fan is spinning too slowly.  A new motherboard $*
+SDESC
+A CPU fan is spinning too slowly.  A new motherboard
+may be required to correct the fan.  Contact customer
+support for direction.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisCPUFanOk .1.3.6.1.4.1.789.0.386 "Status Events" Normal
+FORMAT All CPU fan(s) are properly functioning. $*
+SDESC
+All CPU fan(s) are properly functioning.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerSuppliesFailed .1.3.6.1.4.1.789.0.391 "Status Events" Normal
+FORMAT Multiple chassis power supplies failed. $*
+SDESC
+Multiple chassis power supplies failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerSupplyDegraded .1.3.6.1.4.1.789.0.392 "Status Events" Normal
+FORMAT One or more chassis power supplies are degraded. $*
+SDESC
+One or more chassis power supplies are degraded.
+A description of the degraded state has been
+logged to the console and message log file.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerSupplyFailed .1.3.6.1.4.1.789.0.393 "Status Events" Normal
+FORMAT One chassis power supply failed. $*
+SDESC
+One chassis power supply failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerSupplyRemoved .1.3.6.1.4.1.789.0.394 "Status Events" Normal
+FORMAT One or more chassis power supplies are removed. $*
+SDESC
+One or more chassis power supplies are removed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerSupplyOff .1.3.6.1.4.1.789.0.395 "Status Events" Normal
+FORMAT One or more chassis power supplies are off. $*
+SDESC
+One or more chassis power supplies are off.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerSuppliesOk .1.3.6.1.4.1.789.0.396 "Status Events" Normal
+FORMAT The chassis power supplies are all functioning properly. $*
+SDESC
+The chassis power supplies are all functioning properly.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerSupplyOk .1.3.6.1.4.1.789.0.397 "Status Events" Normal
+FORMAT This chassis power supply is functioning properly.  $*
+SDESC
+This chassis power supply is functioning properly. 
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerDegraded .1.3.6.1.4.1.789.0.403 "Status Events" Normal
+FORMAT The power within the chassis is degraded. $*
+SDESC
+The power within the chassis is degraded.
+A description of the degraded state has been
+logged to the console and message log file.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPowerOk .1.3.6.1.4.1.789.0.406 "Status Events" Normal
+FORMAT The power within the chassis is functioning properly. $*
+SDESC
+The power within the chassis is functioning properly.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisFanDegraded .1.3.6.1.4.1.789.0.412 "Status Events" Normal
+FORMAT A chassis fan has been degraded. $*
+SDESC
+A chassis fan has been degraded.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisFanRemoved .1.3.6.1.4.1.789.0.413 "Status Events" Normal
+FORMAT A chassis fan FRU has been removed. $*
+SDESC
+A chassis fan FRU has been removed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisFanStopped .1.3.6.1.4.1.789.0.414 "Status Events" Normal
+FORMAT One or more chassis fans have stopped. $*
+SDESC
+One or more chassis fans have stopped.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisFanWarning .1.3.6.1.4.1.789.0.415 "Status Events" Normal
+FORMAT One or more chassis fans is spinning slowly or too fast. $*
+SDESC
+One or more chassis fans is spinning slowly or too fast.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisFanOk .1.3.6.1.4.1.789.0.416 "Status Events" Normal
+FORMAT All chassis fans are functioning properly. $*
+SDESC
+All chassis fans are functioning properly.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT writeVerificationFailed .1.3.6.1.4.1.789.0.424 "Status Events" Normal
+FORMAT A write has failed a verification test  $*
+SDESC
+A write has failed a verification test 
+on a SnapValidator enabled volume.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT prefDCDisconnect .1.3.6.1.4.1.789.0.434 "Status Events" Normal
+FORMAT All connections to domain controllers in the preferred domain $*
+SDESC
+All connections to domain controllers in the preferred domain
+controllers list have been lost.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT domainControllerDisconnect .1.3.6.1.4.1.789.0.435 "Status Events" Normal
+FORMAT A CIFS domain controller connection to the filer has failed. $*
+SDESC
+A CIFS domain controller connection to the filer has failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT dcPasswdChangeFailed .1.3.6.1.4.1.789.0.436 "Status Events" Normal
+FORMAT An attempt to change the filer's password with the domain $*
+SDESC
+An attempt to change the filer's password with the domain
+controller has failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT domainControllerConnected .1.3.6.1.4.1.789.0.437 "Status Events" Normal
+FORMAT A CIFS domain controller connection to the filer has been $*
+SDESC
+A CIFS domain controller connection to the filer has been
+established.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT plexFailed .1.3.6.1.4.1.789.0.444 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is issued when one plex of a mirrored 
+traditional volume or aggregate is failed. The string 
+sent with this trap specifies name of affected plex or
+mirrored traditional volume or aggregate.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT plexOffline .1.3.6.1.4.1.789.0.454 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This trap is issued when a plex becomes offline. 
+The string sent with this trap specifies name of 
+affected plex or mirrored traditional volume or aggregate.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT shelfSESElectronicsFailed .1.3.6.1.4.1.789.0.464 "Status Events" Normal
+FORMAT $*
+SDESC
+
+One or more of the enclosure services devices in a
+disk shelf has failed.  Some shelf designs combine
+the enclosure monitoring hardware function into the
+module that provides  the storage interface to
+the shelf.  A failure in the enclosure monitoring
+section of these combined modules does not necessarily
+indicate a failure in disk or loop or bus operation,
+which may be able to continue.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT shelfSESElectronicsInfo .1.3.6.1.4.1.789.0.467 "Status Events" Normal
+FORMAT $*
+SDESC
+
+A previously reported failure of an enclosure
+services device in a disk shelf has been corrected,
+or the device has reported information that does not
+necessarily require customer action.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT shelfIFModuleFailed .1.3.6.1.4.1.789.0.473 "Status Events" Normal
+FORMAT $*
+SDESC
+
+One or more of the storage interface modules in a
+disk shelf has failed.  Some shelf designs combine the
+enclosure monitoring hardware function into the module
+that operates the fibre channel loop or SCSI in the
+shelf.  This failure is of the storage interface
+itself, not a failure of the enclosure monitoring,
+which may be able to continue.  This failure may make
+one or more disks in the shelf or in the loop or bus
+unavailable.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT shelfIFModuleWarning .1.3.6.1.4.1.789.0.475 "Status Events" Normal
+FORMAT One or more of the storage interface modules in a $*
+SDESC
+One or more of the storage interface modules in a
+disk shelf has a warning condition.  Some shelf designs combine the
+enclosure monitoring hardware function into the module
+that operates the fibre channel loop or SCSI in the
+shelf.  This warning condition is of the storage interface
+itself, not a failure of the enclosure monitoring,
+which may be able to continue.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT shelfIFModuleInfo .1.3.6.1.4.1.789.0.477 "Status Events" Normal
+FORMAT A previously reported failure of a disk shelf $*
+SDESC
+A previously reported failure of a disk shelf
+interface module has been corrected, or the module has
+reported information that does not necessarily require
+customer action.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT maxDirSizeAlert .1.3.6.1.4.1.789.0.482 "Status Events" Normal
+FORMAT A directory has reached its maxdirsize limit. Either  $*
+SDESC
+A directory has reached its maxdirsize limit. Either 
+increase the maxdirsize or clean up the directory.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT maxDirSizeWarning .1.3.6.1.4.1.789.0.485 "Status Events" Normal
+FORMAT A directory is getting close to its maxdirsize limit. Either $*
+SDESC
+A directory is getting close to its maxdirsize limit. Either
+increase the maxdirsize or clean up the directory.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT cifsStatsExhaustMemCtrlBlk .1.3.6.1.4.1.789.0.497 "Status Events" Normal
+FORMAT A request for a CIFS control block can not be granted. All $*
+SDESC
+A request for a CIFS control block can not be granted. All
+control blocks are in use.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPSRemovedxMinShutdown .1.3.6.1.4.1.789.0.501 "Status Events" Normal
+FORMAT Power Supply Unit is removed from the system. System will  $*
+SDESC
+Power Supply Unit is removed from the system. System will 
+be shutdown in x minutes if it is not put back.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPSUsMismatch .1.3.6.1.4.1.789.0.505 "Status Events" Normal
+FORMAT Power Supply Units in the system are of different type.  $*
+SDESC
+Power Supply Units in the system are of different type. 
+Please replace them with correct Power Supply Units.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisFanFailxMinShutdown .1.3.6.1.4.1.789.0.511 "Status Events" Normal
+FORMAT Multiple chassis fan failure. System will  $*
+SDESC
+Multiple chassis fan failure. System will 
+shut down in a few minutes if not corrected.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT chassisPSUwrongInput .1.3.6.1.4.1.789.0.515 "Status Events" Normal
+FORMAT Power Supply Unit (PSU) in the system is connected to an $*
+SDESC
+Power Supply Unit (PSU) in the system is connected to an
+incompatible external power source. Please change 
+the power source being used or replace the PSU 
+with one that matches the current power source.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT powerSupplyFanFailxMinShutdown .1.3.6.1.4.1.789.0.521 "Status Events" Normal
+FORMAT Multiple  power supply fans failure. $*
+SDESC
+Multiple  power supply fans failure.
+System will shut down in a few minutes if not corrected.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT remoteSystemMgtAlert .1.3.6.1.4.1.789.0.532 "Status Events" Normal
+FORMAT system remote management detected a system down event. $*
+SDESC
+system remote management detected a system down event.
+The trap includes a string describing the specific event 
+which triggered the trap.  The string is structured in the 
+following form:
+Remote Management Event: type={system_down|system_up|test|keep_alive},
+severity={alert|warning|notice|normal|debug|info}, 
+event={post_error|watchdog_reset|power_loss|abnormal_reboot}, 
+key=value
+An example of a complete message would be:
+Remote Management Event: type=system_down, severity=alert,
+event=watchdog_reset, ss=16bytes
+Additional key=value items may, in the future, be appended 
+to this message.
+The events that would generate this trap would be:
+post_error: Fatal POST error on boot
+power_loss: Loss of power to system
+abnormal_reboot: 
+l2_watchdog_reset
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT remoteSystemMgmtWarning .1.3.6.1.4.1.789.0.535 "Status Events" Normal
+FORMAT system remote management detected a system down event. $*
+SDESC
+system remote management detected a system down event.
+The trap includes a string describing the specific event 
+which triggered the trap.  The string is structured in the 
+following form:
+Remote Management Event: type={system_down|system_up|test|keep_alive},
+severity={alert|warning|notice|normal|debug|info}, 
+event={loss-of-heartbeat}, 
+key=value
+An example of a complete message would be:
+Remote Management Event: type=system_down, severity=warning,
+event=loss_of_heartbeat, ss=16bytes
+Additional key=value items may, in the future, be appended 
+to this message.
+The events that would generate this trap would be:
+loss_of_heartbeat: Loss of heartbeat to the RLM.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT remoteSystemMgmtNotification .1.3.6.1.4.1.789.0.536 "Status Events" Normal
+FORMAT system remote management detected a system down event. $*
+SDESC
+system remote management detected a system down event.
+The trap includes a string describing the specific event 
+which triggered the trap.  The string is structured in the 
+following form:
+Remote Management Event: type={system_down|system_up|test|keep_alive},
+severity={alert|warning|notice|normal|debug|info}, 
+event={power_off_via_rlm,power_cycle_via_rlm,reset_via_rlm}, 
+key=value
+An example of a complete message would be:
+Remote Management Event: type=system_down, severity=notice,
+event=power_off_via_rlm, ss=16bytes
+Additional key=value items may, in the future, be appended 
+to this message.
+The events that would generate this trap would be:
+power_off_via_rlm: This indicates system power off
+power_cycle_via_rlm: This indicates system power cycle
+reset_via_rlm: This indicates system reset.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT remoteSystemMgmtPeriodic .1.3.6.1.4.1.789.0.547 "Status Events" Normal
+FORMAT This is a periodic keep alive from system remote management. $*
+SDESC
+This is a periodic keep alive from system remote management.
+The trap includes a string describing the specific event 
+which triggered the trap.  The string is structured in the 
+following form:
+Remote Management Event: type={system_down|system_up|test|keep_alive},
+severity={alert|warning|notice|normal|debug|info}, 
+event={periodic_message} 
+An example of a complete message would be:
+Remote Management Event: type=keep_alive, severity=info,
+event=periodic_message
+Additional key=value items may, in the future, be appended 
+to this message.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT remotesystemMgmtTest .1.3.6.1.4.1.789.0.556 "Status Events" Normal
+FORMAT This is a test trap from system remote management. $*
+SDESC
+This is a test trap from system remote management.
+The trap includes a string describing the specific event
+which triggered the trap.  The string is structured in the
+following form:
+Remote Management Event: type={system_down|system_up|test|keep_alive},
+severity={alert|warning|notice|normal|debug|info},
+event={periodic_message}
+An example of a complete message would be:
+Remote Management Event: type=test, severity=notice, event=test
+Additional key=value items may, in the future, be appended
+to this message.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT diskMultipathOneSwitch .1.3.6.1.4.1.789.0.562 "Status Events" Normal
+FORMAT A multipathed disk is only connected to one switch. $*
+SDESC
+A multipathed disk is only connected to one switch.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT diskMultipathNoTakeover .1.3.6.1.4.1.789.0.563 "Status Events" Normal
+FORMAT Multipath disks or luns could not be detected for the partner. $*
+SDESC
+Multipath disks or luns could not be detected for the partner.
+The node will be unable to takeover correctly.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT diskMultipathWarning .1.3.6.1.4.1.789.0.565 "Status Events" Normal
+FORMAT Synchronous mirroring is enabled, even though disks are not  $*
+SDESC
+Synchronous mirroring is enabled, even though disks are not 
+multipathed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT driveDisableErr .1.3.6.1.4.1.789.0.574 "Status Events" Normal
+FORMAT A drive has been disabled by the shelf module due to  $*
+SDESC
+A drive has been disabled by the shelf module due to 
+hardware errors.  If it is the only drive in the shelf 
+that is disabled, replace the drive.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT hbaOfflineInformation .1.3.6.1.4.1.789.0.587 "Status Events" Normal
+FORMAT A host bus adapter (HBA) port has been disabled. $*
+SDESC
+A host bus adapter (HBA) port has been disabled.
+This state may be caused either by user command or by
+errors that make the interface unable to communicate
+with attached devices.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT lunSnapRestoreStatus .1.3.6.1.4.1.789.0.606 "Status Events" Normal
+FORMAT Status of the Snap Restore $*
+SDESC
+Status of the Snap Restore
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT lunCloneCreate .1.3.6.1.4.1.789.0.616 "Status Events" Normal
+FORMAT Created a LUN Clone $*
+SDESC
+Created a LUN Clone
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT lunCloneSplitStart .1.3.6.1.4.1.789.0.626 "Status Events" Normal
+FORMAT LUN Clone Split started $*
+SDESC
+LUN Clone Split started
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT lunCloneSplitComplete .1.3.6.1.4.1.789.0.627 "Status Events" Normal
+FORMAT LUN Clone Split completed $*
+SDESC
+LUN Clone Split completed
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT flexCloneSplitStart .1.3.6.1.4.1.789.0.636 "Status Events" Normal
+FORMAT Flex Clone Split started $*
+SDESC
+Flex Clone Split started
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT flexCloneSplitComplete .1.3.6.1.4.1.789.0.637 "Status Events" Normal
+FORMAT Flex Clone Split completed $*
+SDESC
+Flex Clone Split completed
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeCloneCreate .1.3.6.1.4.1.789.0.646 "Status Events" Normal
+FORMAT Created a Volume Clone $*
+SDESC
+Created a Volume Clone
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT snapAutoDelete .1.3.6.1.4.1.789.0.656 "Status Events" Normal
+FORMAT Snapshot Autodeleted $*
+SDESC
+Snapshot Autodeleted
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volumeAutogrow .1.3.6.1.4.1.789.0.666 "Status Events" Normal
+FORMAT Volume is Autogrown $*
+SDESC
+Volume is Autogrown
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT timedTargetNotResponding .1.3.6.1.4.1.789.0.674 "Status Events" Normal
+FORMAT NTP Time Daemon lost contact with the configured target $*
+SDESC
+NTP Time Daemon lost contact with the configured target
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT extcacheCardError .1.3.6.1.4.1.789.0.676 "Status Events" Normal
+FORMAT External cache card failure $*
+SDESC
+External cache card failure
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT extcacheCardOffline .1.3.6.1.4.1.789.0.686 "Status Events" Normal
+FORMAT External cache is taken offline $*
+SDESC
+External cache is taken offline
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT svBackupSnapWarningLimit .1.3.6.1.4.1.789.0.695 "Status Events" Normal
+FORMAT The remaining number of Snapshot copies for a backup $*
+SDESC
+The remaining number of Snapshot copies for a backup
+schedule is below warning limit specified.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avTrendLicenseExpired .1.3.6.1.4.1.789.0.705 "Status Events" Normal
+FORMAT Trend Micro antivirus license has expired $*
+SDESC
+Trend Micro antivirus license has expired
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avTrendLicenseExpiring .1.3.6.1.4.1.789.0.706 "Status Events" Normal
+FORMAT Trend Micro antivirus license is about to expire $*
+SDESC
+Trend Micro antivirus license is about to expire
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT rebootAbnormal .1.3.6.1.4.1.789.0.712 "Status Events" Normal
+FORMAT System rebooted abnormally after any of the following $*
+SDESC
+System rebooted abnormally after any of the following
+events: 
+event = watchdog reset, agent watchdog reset, panic,
+power-glitch.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT rebootNormal .1.3.6.1.4.1.789.0.716 "Status Events" Normal
+FORMAT System rebooted normally after any of the following $*
+SDESC
+System rebooted normally after any of the following
+events:
+event = giveback, revert, WAFL check, power-on, 
+internal reboot, internal halt, rlm system reset, operator
+initiated halt and reboot.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volMoveCutoverDeferred .1.3.6.1.4.1.789.0.724 "Status Events" Normal
+FORMAT A volume move job cannot be completed because cutover phase $*
+SDESC
+A volume move job cannot be completed because cutover phase
+has been deferred.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volMoveCutoverFailed .1.3.6.1.4.1.789.0.734 "Status Events" Normal
+FORMAT A volume move job cannot be completed because the cutover $*
+SDESC
+A volume move job cannot be completed because the cutover
+attempt resulted in failure.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volMoveDone .1.3.6.1.4.1.789.0.736 "Status Events" Normal
+FORMAT A volume move job completed successfully. $*
+SDESC
+A volume move job completed successfully.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT volMoveCutoverDeferredWait .1.3.6.1.4.1.789.0.737 "Status Events" Normal
+FORMAT A volume move has reached the cutover phase and is waiting $*
+SDESC
+A volume move has reached the cutover phase and is waiting
+for the user to trigger cutover because the user specified 
+wait for cutover-action
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT scsibladeOutOfQuorum .1.3.6.1.4.1.789.0.741 "Status Events" Normal
+FORMAT The node has lost connectivitiy with the other nodes $*
+SDESC
+The node has lost connectivitiy with the other nodes
+in the cluster. Both fcp and iscsi traffic have been disabled 
+on this node. The corrective action is to reboot the node, and 
+if the node is waiting for giveback then perform a giveback.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT scsibladeInQuorum .1.3.6.1.4.1.789.0.746 "Status Events" Normal
+FORMAT The node established connectivitiy with the other nodes $*
+SDESC
+The node established connectivitiy with the other nodes
+in the cluster.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT qosMonitorMemoryMaxed .1.3.6.1.4.1.789.0.755 "Status Events" Normal
+FORMAT QoS dynamic memory has reached its limit. Some QoS features  $*
+SDESC
+QoS dynamic memory has reached its limit. Some QoS features 
+may operate in a limited capacity.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT qosMonitorMemoryAbated .1.3.6.1.4.1.789.0.757 "Status Events" Normal
+FORMAT QoS dynamic memory is no longer at its limit. All QoS features  $*
+SDESC
+QoS dynamic memory is no longer at its limit. All QoS features 
+will operate as normal.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT sfoAggregateRelocated .1.3.6.1.4.1.789.0.767 "Status Events" Normal
+FORMAT This trap is issued when an SFO aggregate is relocated permanently $*
+SDESC
+This trap is issued when an SFO aggregate is relocated permanently
+from one node to another.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avUpdateFailed .1.3.6.1.4.1.789.0.773 "Status Events" Normal
+FORMAT The anti-virus software update failed. $*
+SDESC
+The anti-virus software update failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avLicenseCheckFailed .1.3.6.1.4.1.789.0.774 "Status Events" Normal
+FORMAT The anti-virus software license validation failed. $*
+SDESC
+The anti-virus software license validation failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avMcAfeeProductExpired .1.3.6.1.4.1.789.0.775 "Status Events" Normal
+FORMAT McAfee product has expired. $*
+SDESC
+McAfee product has expired.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avRemedy .1.3.6.1.4.1.789.0.776 "Status Events" Normal
+FORMAT Remedy action taken. The file has been repaired, deleted or quarantined. $*
+SDESC
+Remedy action taken. The file has been repaired, deleted or quarantined.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avLicenseCheck .1.3.6.1.4.1.789.0.777 "Status Events" Normal
+FORMAT License validation was successful. $*
+SDESC
+License validation was successful.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avRemedyFailure .1.3.6.1.4.1.789.0.783 "Status Events" Normal
+FORMAT Remedy action failed. The file was not repaired, deleted or quarantined. $*
+SDESC
+Remedy action failed. The file was not repaired, deleted or quarantined.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avMcAfeeEngineExpired .1.3.6.1.4.1.789.0.785 "Status Events" Normal
+FORMAT McAfee product has expired. $*
+SDESC
+McAfee product has expired.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avMcAfeeProductExpiring .1.3.6.1.4.1.789.0.786 "Status Events" Normal
+FORMAT McAfee product is expiring. $*
+SDESC
+McAfee product is expiring.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT av2gbFileNotScanned .1.3.6.1.4.1.789.0.793 "Status Events" Normal
+FORMAT A file larger than 2GB is not scanned and marked as clean. $*
+SDESC
+A file larger than 2GB is not scanned and marked as clean.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avMcAfeeEngineExpiring .1.3.6.1.4.1.789.0.796 "Status Events" Normal
+FORMAT McAfee engine is expiring. $*
+SDESC
+McAfee engine is expiring.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avVirusfound .1.3.6.1.4.1.789.0.802 "Status Events" Normal
+FORMAT Virus found while scanning. $*
+SDESC
+Virus found while scanning.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avMcAfeeLicenseFailed .1.3.6.1.4.1.789.0.803 "Status Events" Normal
+FORMAT McAfee antivirus license activation failed. $*
+SDESC
+McAfee antivirus license activation failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avDisableFailed .1.3.6.1.4.1.789.0.804 "Status Events" Normal
+FORMAT The anti-virus service disabling failed in the cluster. $*
+SDESC
+The anti-virus service disabling failed in the cluster.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avDisable .1.3.6.1.4.1.789.0.805 "Status Events" Normal
+FORMAT The anti-virus service is disabled in the cluster. $*
+SDESC
+The anti-virus service is disabled in the cluster.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avMcAfeeLicenseExpiring .1.3.6.1.4.1.789.0.806 "Status Events" Normal
+FORMAT McAfee antivirus license is about to expire. $*
+SDESC
+McAfee antivirus license is about to expire.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avEnable .1.3.6.1.4.1.789.0.807 "Status Events" Normal
+FORMAT The anti-virus service is enabled in the cluster. $*
+SDESC
+The anti-virus service is enabled in the cluster.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avSpywareFound .1.3.6.1.4.1.789.0.812 "Status Events" Normal
+FORMAT Spyware found while scanning. $*
+SDESC
+Spyware found while scanning.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avEnableFailed .1.3.6.1.4.1.789.0.813 "Status Events" Normal
+FORMAT The anti-virus service enabling failed in the cluster. $*
+SDESC
+The anti-virus service enabling failed in the cluster.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avRollbackFailed .1.3.6.1.4.1.789.0.814 "Status Events" Normal
+FORMAT The anti-virus software rollback failed. $*
+SDESC
+The anti-virus software rollback failed.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avRollback .1.3.6.1.4.1.789.0.816 "Status Events" Normal
+FORMAT The anti-virus software is rolled back. $*
+SDESC
+The anti-virus software is rolled back.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT avUpdate .1.3.6.1.4.1.789.0.817 "Status Events" Normal
+FORMAT The anti-virus software is updated. $*
+SDESC
+The anti-virus software is updated.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC
+#
+#
+#
+EVENT snmpBusy .1.3.6.1.4.1.789.0.824 "Status Events" Normal
+FORMAT The SNMP server is too busy. $*
+SDESC
+The SNMP server is too busy.
+Variables:
+  1: productTrapData
+  2: productSerialNum
+EDESC

@@ -1,0 +1,181 @@
+#
+#
+#
+#
+MIB: CPQSM2-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQSM2-MIB.mib) converted on Wed Aug 22 14:19:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqSm2ServerReset .1.3.6.1.4.1.232.0.9001 "Status Events" CRITICAL
+FORMAT Server Reset Detected (9001): Server reset detected.
+SDESC
+Server Reset Detected.
+The Remote Insight/ Integrated Lights-Out firmware has detected a server reset.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2ServerPowerOutage .1.3.6.1.4.1.232.0.9002 "Status Events" CRITICAL
+FORMAT Server Power Outage (9002): Server power outage detected.
+SDESC
+Server Power Outage.
+The Remote Insight/ Integrated Lights-Out firmware has detected server
+power failure.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2UnauthorizedLoginAttempts .1.3.6.1.4.1.232.0.9003 "Status Events" INFORMATIONAL
+FORMAT Remote Insight/ Integrated Lights-Out Unauthorized Login Attempts (9003): More than $3 unauthorized login attempts detected.
+SDESC
+Remote Insight/ Integrated Lights-Out Unauthorized Login Attempts.
+The Remote Insight/ Integrated Lights-Out firmware has detected
+unauthorized login attempts.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSm2CntlrBadLoginAttemptsThresh
+EDESC
+#
+#
+#
+EVENT cpqSm2BatteryFailed .1.3.6.1.4.1.232.0.9004 "Status Events" CRITICAL
+FORMAT Remote Insight Battery Failed (9004): Remote Insight battery failed.
+SDESC
+Remote Insight Battery Failed.
+The Remote Insight battery has failed and needs to be replaced.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2SelfTestError .1.3.6.1.4.1.232.0.9005 "Status Events" CRITICAL
+FORMAT Remote Insight/ Integrated Lights-Out Self Test Error (9005): Remote Insight/ Integrated Lights-Out self test error $3.
+SDESC
+Remote Insight/ Integrated Lights-Out Self Test Error.
+The Remote Insight/ Integrated Lights-Out firmware has detected a Remote
+Insight self test error.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSm2CntlrSelfTestErrors
+EDESC
+#
+#
+#
+EVENT cpqSm2InterfaceError .1.3.6.1.4.1.232.0.9006 "Status Events" MAJOR
+FORMAT Remote Insight/ Integrated Lights-Out Interface Error (9006): Server $1, Remote Insight/ Integrated Lights-Out interface error.
+SDESC
+Remote Insight/ Integrated Lights-Out Interface Error.
+The host OS has detected an error in the Remote Insight/ Integrated Lights-Out
+interface.  The firmware is not responding.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2BatteryDisconnected .1.3.6.1.4.1.232.0.9007 "Status Events" MAJOR
+FORMAT Remote Insight Battery Disconnected (9007): Remote Insight battery disconnected.
+SDESC
+Remote Insight Battery Disconnected.
+The Remote Insight battery cable has been disconnected.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2KeyboardCableDisconnected .1.3.6.1.4.1.232.0.9008 "Status Events" MAJOR
+FORMAT Remote Insight keyboard cable disconnected (9008): Remote Insight keyboard cable disconnected.
+SDESC
+Keyboard Cable Disconnected.
+The Remote Insight keyboard cable has been disconnected.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2MouseCableDisconnected .1.3.6.1.4.1.232.0.9009 "Status Events" MAJOR
+FORMAT Remote Insight mouse cable disconnected (9009): Remote Insight mouse cable disconnected.
+SDESC
+Mouse Cable Disconnected.
+The Remote Insight mouse cable has been disconnected.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2ExternalPowerCableDisconnected .1.3.6.1.4.1.232.0.9010 "Status Events" MAJOR
+FORMAT Remote Insight external power cable disconnected (9010): Remote Insight external power cable disconnected.
+SDESC
+External Power Cable Disconnected.
+The Remote Insight external power cable has been disconnected.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2LogsFull .1.3.6.1.4.1.232.0.9011 "Status Events" MINOR
+FORMAT Remote Insight/ Integrated Lights-Out Logs Full. (9011): Remote Insight/ Integrated Lights-Out Logs Full
+SDESC
+Logs Full.
+The Remote Insight/ Integrated Lights-Out firmware has detected the logs are full.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2SecurityOverrideEngaged .1.3.6.1.4.1.232.0.9012 "Status Events" INFORMATIONAL
+FORMAT Security override engaged. (9012): Remote Insight/ Integrated Lights-Out firmware has detected the security override jumper has been engaged.
+SDESC
+Security Override Engaged.
+The Remote Insight/ Integrated Lights-Out firmware has detected the security override jumper
+has been toggled to the engaged position.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2SecurityOverrideDisengaged .1.3.6.1.4.1.232.0.9013 "Status Events" INFORMATIONAL
+FORMAT Security override disengaged. (9013): Remote Insight/ Integrated Lights-Out firmware has detected the security override jumper has been disengaged.
+SDESC
+Security Override Disengaged.
+The Remote Insight/ Integrated Lights-Out firmware has detected the security override jumper
+has been toggled to the disengaged position.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+EDESC
+#
+#
+#
+EVENT cpqSm2ServerFatalError .1.3.6.1.4.1.232.0.9014 "Status Events" CRITICAL
+FORMAT Server Fatal Error Detected (9014): Server fatal error detected.
+SDESC
+Server Fatal Error Detected.
+The Remote Insight/ Integrated Lights-Out firmware has 
+detected a server fatal error.
+Variables:
+  1: sysName
+EDESC

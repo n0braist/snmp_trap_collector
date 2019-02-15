@@ -1,0 +1,83 @@
+#
+#
+#
+#
+MIB: CISCO-SRST-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SRST-MIB.mib) converted on Tue Aug 21 15:26:35 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT csrstStateChange .1.3.6.1.4.1.9.9.441.0.1 "Status Events" Normal
+FORMAT An SRST up or down state change notification $*
+SDESC
+An SRST up or down state change notification
+is generated. This indicates one or more phones 
+is registered to the SRST router or none is
+registered. 
+
+Variables:
+  1: csrstSysNotifSeverity
+  2: csrstState
+  3: csrstSysNotifReason
+EDESC
+#
+#
+#
+EVENT csrstFailNotif .1.3.6.1.4.1.9.9.441.0.2 "Status Events" Normal
+FORMAT A failure notification is generated when the $*
+SDESC
+A failure notification is generated when the
+SRST router encounters a catastrophic failure.
+
+Variables:
+  1: csrstSysNotifSeverity
+  2: csrstSysNotifReason
+EDESC
+#
+#
+#
+EVENT csrstSipPhoneUnRegThresholdExceed .1.3.6.1.4.1.9.9.441.0.3 "Status Events" Normal
+FORMAT A SIP phone unregistration notification is $*
+SDESC
+A SIP phone unregistration notification is
+generated when the number of SIP phone
+unregistrations have exceeded the threshold.
+The number of currently registered SIP 
+phones is provided here by 
+csrstSipPhoneCurrentRegistered object
+as a reference such that if 
+csrstSipPhoneCurrentRegistered falls below 
+csrstSipPhoneUnRegThreshold,
+a notification will be generated to indicate
+that the number of unregistered SIP phones
+has crossed the threshold.
+
+Variables:
+  1: csrstSipPhoneUnRegThreshold
+  2: csrstSipPhoneCurrentRegistered
+EDESC
+#
+#
+#
+EVENT csrstSipPhoneRegFailed .1.3.6.1.4.1.9.9.441.0.4 "Status Events" Normal
+FORMAT A SIP phone fail registration notification $*
+SDESC
+A SIP phone fail registration notification
+is generated when the SIP phone fails to 
+register.
+
+Variables:
+  1: csrstSipEndpointIpAddress
+EDESC
+#
+#
+#
+EVENT csrstConferenceFailed .1.3.6.1.4.1.9.9.441.0.5 "Status Events" Normal
+FORMAT A conference failure notification is generated $*
+SDESC
+A conference failure notification is generated
+when the maximum number of conferences are
+exceeded.
+
+Variables:
+  1: csrstMaxConferences
+EDESC

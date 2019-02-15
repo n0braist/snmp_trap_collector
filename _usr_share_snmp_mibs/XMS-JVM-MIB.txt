@@ -1,0 +1,121 @@
+--
+-- Name: 		XMS-JVM-MIB
+--
+
+XMS-JVM-MIB DEFINITIONS ::= BEGIN
+
+--
+-- MIB Dependencies 
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32, enterprises, NOTIFICATION-TYPE         FROM SNMPv2-SMI
+    citrix,xm,xms																	FROM SNMP-XMS-MIB;
+
+jvmManagement  	MODULE-IDENTITY
+   	LAST-UPDATED    "201712191100Z"
+    ORGANIZATION    "Citrix Systems, Inc"
+    CONTACT-INFO    "Citrix Technical Assistance Center
+                    Postal: Citrix Systems, Inc.
+                    851 West Cypress Creek Road
+                    Fort Lauderdale, Florida 33309
+                    United States
+                    Tel: +1-800-4-CITRIX (+1-800-424-8749)
+                    E-mail: customercare@citrix.com"
+    DESCRIPTION     "The enterprise specific MIB for XenMobile Server 10.8"
+    REVISION        "201712191100Z"
+    DESCRIPTION     "Version 1.0"
+    ::= { xms 2 }
+
+
+
+--
+-- Java Management OIDs
+--
+
+	heapMemoryUsage 				 OBJECT IDENTIFIER ::= { jvmManagement 1 }
+	nonHeapMemoryUsage				 OBJECT IDENTIFIER ::= { jvmManagement 2 }
+
+	
+
+	metaspace              	OBJECT-TYPE
+    SYNTAX                 	OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb  "
+    ::= { jvmManagement 3 }
+
+
+    heapMemoryUsedPercentage	OBJECT-TYPE
+    SYNTAX                 		Integer32
+    MAX-ACCESS              	read-only
+    STATUS                  	current
+    DESCRIPTION             	" Displays memory used as fraction of total  "
+    ::= { jvmManagement 4 }
+
+    metaspaceUsedPercentage		OBJECT-TYPE
+    SYNTAX                 		Integer32
+    MAX-ACCESS              	read-only
+    STATUS                  	current
+    DESCRIPTION             	" Displays memory used as fraction of total  "
+    ::= { jvmManagement 5 }
+
+
+	heapInit                OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb  "
+    ::= {heapMemoryUsage 1}
+
+    heapUsed                OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb   "
+    ::= {heapMemoryUsage 2}
+    
+    heapCommitted                OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb   "
+    ::= {heapMemoryUsage 3}
+    
+    heapMax               OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb   "
+    ::= {heapMemoryUsage 4}
+
+
+    nonHeapInit             OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb   "
+    ::= {nonHeapMemoryUsage 1}
+
+    nonHeapUsed             OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb   "
+    ::= {nonHeapMemoryUsage 2}
+    
+    nonHeapCommitted        OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb   "
+    ::= {nonHeapMemoryUsage 3}
+    
+    nonHeapMax              OBJECT-TYPE
+    SYNTAX                  OCTET STRING
+    MAX-ACCESS              read-only
+    STATUS                  current
+    DESCRIPTION             " Displays memory in Mb   "
+    ::= {nonHeapMemoryUsage 4}
+
+END

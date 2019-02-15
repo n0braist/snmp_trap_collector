@@ -1,0 +1,312 @@
+#
+#
+#
+#
+MIB: AV-AES-SERVER-NOTIFICATION-MIB (file:./AV-AES-SERVER-NOTIFICATION-MIB.txt) converted on Tue Jan  2 12:31:41 2018 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: AV-AES-SERVER-NOTIFICATION-MIB (file:./AV-AES-SERVER-NOTIFICATION-MIB.txt) converted on Tue Jan  2 12:33:09 2018 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT avAesServiceDown .1.3.6.1.4.1.6889.2.27.2.2.2.1.0.1 "Status Events" Normal
+FORMAT AES Service died unexpectedly $*
+SDESC
+AES Service died unexpectedly
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: csAlarmSeverity
+  6: sysObjectID
+  7: avAesAlarmType
+  8: avAesServiceName
+  9: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesServiceColdStart .1.3.6.1.4.1.6889.2.27.2.2.2.1.0.2 "Status Events" Normal
+FORMAT AES Service start request received $*
+SDESC
+AES Service start request received
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesServiceName
+  8: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesServiceStopped .1.3.6.1.4.1.6889.2.27.2.2.2.1.0.3 "Status Events" Normal
+FORMAT AES Service stop request received $*
+SDESC
+AES Service stop request received
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesServiceName
+  8: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesAuditServiceError .1.3.6.1.4.1.6889.2.27.2.2.2.1.0.4 "Status Events" Normal
+FORMAT The audit service experienced an error $*
+SDESC
+The audit service experienced an error
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesServiceName
+  8: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesAuditServiceLoggingIssue .1.3.6.1.4.1.6889.2.27.2.2.2.1.0.5 "Status Events" Normal
+FORMAT The audit service experienced a logging issue. $*
+SDESC
+The audit service experienced a logging issue.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesServiceName
+  8: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesHaServiceIssue .1.3.6.1.4.1.6889.2.27.2.2.2.1.0.6 "Status Events" Normal
+FORMAT The AE Services HA service experienced an issue. $*
+SDESC
+The AE Services HA service experienced an issue.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesServiceName
+  8: avAesErrorCode
+  9: avAesResourceName
+  10: avAesHealthObject
+  11: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesCtiLinkDown .1.3.6.1.4.1.6889.2.27.2.2.2.2.0.1 "Status Events" Normal
+FORMAT The CTI Link is down $*
+SDESC
+The CTI Link is down
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: csAlarmSeverity
+  6: sysObjectID
+  7: avAesAlarmType
+  8: avAesApiName
+  9: avAesSwitchName
+  10: avAesCtiLinkNum
+  11: avAesCtiLinkStatus
+  12: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesAepConnLinkDown .1.3.6.1.4.1.6889.2.27.2.2.2.2.0.2 "Status Events" Normal
+FORMAT An AEP Connection link is down $*
+SDESC
+An AEP Connection link is down
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: csAlarmSeverity
+  6: sysObjectID
+  7: avAesAlarmType
+  8: avAesSessionId
+  9: avAesSwitchName
+  10: avAesAepConnIpAddressType
+  11: avAesAepConnIpAddress
+  12: avAesLinkStatus
+  13: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesWebLMConnLinkDown .1.3.6.1.4.1.6889.2.27.2.2.2.2.0.3 "Status Events" Normal
+FORMAT The WebLM Connection link is down $*
+SDESC
+The WebLM Connection link is down
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesLinkStatus
+  8: avAesWeblmUrl
+  9: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesClientLoginFailure .1.3.6.1.4.1.6889.2.27.2.2.2.3.0.1 "Status Events" Normal
+FORMAT An AES Client tried to login but was not authenticated. $*
+SDESC
+An AES Client tried to login but was not authenticated.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: csAlarmSeverity
+  6: sysObjectID
+  7: avAesAlarmType
+  8: avAesClientLogin
+  9: avAesClientIPAddressType
+  10: avAesClientIPAddress
+  11: avAesApiName
+  12: avAesApiLinkName
+  13: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesCertificateFailure .1.3.6.1.4.1.6889.2.27.2.2.2.3.0.2 "Status Events" Normal
+FORMAT Specifies if a certificate is about to expire or has expired. $*
+SDESC
+Specifies if a certificate is about to expire or has expired.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesCertificateUsageID
+  8: avAesDaysRemaining
+  9: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesLoginFailure .1.3.6.1.4.1.6889.2.27.2.2.2.3.0.3 "Status Events" Normal
+FORMAT Indicator of login failures. $*
+SDESC
+Indicator of login failures.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesLoginAccessPoint
+  8: avAesLoginId
+  9: avAesRemoteAddrType
+  10: avAesRemoteAddr
+  11: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesLoginAttemptsExceeded .1.3.6.1.4.1.6889.2.27.2.2.2.3.0.4 "Status Events" Normal
+FORMAT Indicator of login failure attempts exceeded. $*
+SDESC
+Indicator of login failure attempts exceeded.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesLoginAccessPoint
+  8: avAesLoginId
+  9: avAesLoginAttempts
+  10: avAesLoginLimit
+  11: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesLicenseFailure .1.3.6.1.4.1.6889.2.27.2.2.2.4.0.1 "Status Events" Normal
+FORMAT Specifies if a license is about to expire or has expired. $*
+SDESC
+Specifies if a license is about to expire or has expired.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesDaysRemaining
+  8: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesGracePeriodFailure .1.3.6.1.4.1.6889.2.27.2.2.2.4.0.2 "Status Events" Normal
+FORMAT Specifies if a license grace period is about to expire or has expired. $*
+SDESC
+Specifies if a license grace period is about to expire or has expired.
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesServiceName
+  8: avAesLicenseErrorMode
+  9: avAesLicenseErrorCode
+  10: avAesDaysRemaining
+  11: avAesEvtSrvReason
+EDESC
+#
+#
+#
+EVENT avAesHeartbeatFailureThresholdExceeded .1.3.6.1.4.1.6889.2.27.2.2.2.5.0.1 "Status Events" Normal
+FORMAT Indicates if a heartbeat failure threshold was exceeded.  $*
+SDESC
+Indicates if a heartbeat failure threshold was exceeded. 
+Variables:
+  1: sysName
+  2: avAesServerIpAddressType
+  3: avAesServerIpAddress
+  4: entPhysicalAssetID
+  5: sysObjectID
+  6: avAesAlarmSeverity
+  7: avAesHeartbeatType
+  8: avAesMissedHeartbeats
+  9: avAesEvtSrvReason
+EDESC

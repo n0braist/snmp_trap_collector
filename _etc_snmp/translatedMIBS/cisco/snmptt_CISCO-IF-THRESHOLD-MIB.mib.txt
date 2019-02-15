@@ -1,0 +1,61 @@
+#
+#
+#
+#
+MIB: CISCO-IF-THRESHOLD-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IF-THRESHOLD-MIB.mib) converted on Tue Aug 21 15:26:08 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cifthIfThresholdFired .1.3.6.1.4.1.9.9.218.2.0.1 "Status Events" Normal
+FORMAT The agent generates this notification when a threshold defined $*
+SDESC
+The agent generates this notification when a threshold defined
+in a template is asserted on an interface.
+If a threshold is asserted for a given interface and template,
+cifthTemplateNotifyHoldDownTime is set to 'holdDownTimer' for
+that template, and this notification has recently been sent for
+the same threshold on the same interface, then this
+notification may be suppressed.
+Variables:
+  1: cifthIfLastThresholdFired
+  2: cifthIfThresholdFiredLstChange
+  3: cifthIfThresholdFiredLstSeverity
+EDESC
+#
+#
+#
+EVENT cifthIfThresholdCleared .1.3.6.1.4.1.9.9.218.2.0.2 "Status Events" Normal
+FORMAT The agent generates this notification when a threshold, that $*
+SDESC
+The agent generates this notification when a threshold, that
+has previously fired, is cleared on an interface.
+If a threshold is cleared for a given interface and template,
+cifthTemplateNotifyHoldDownTime is set to 'holdDownTimer' for
+that template, and this notification has recently been sent for
+the same threshold on the same interface, then this
+notification may be suppressed.
+Variables:
+  1: cifthIfLastThresholdFired
+  2: cifthIfThresholdFiredLstChange
+  3: cifthIfThresholdFiredLstSeverity
+EDESC
+#
+#
+#
+EVENT cifthTemplateIfStatusChange .1.3.6.1.4.1.9.9.218.2.0.3 "Status Events" Normal
+FORMAT The agent generates this notification when a template comes up $*
+SDESC
+The agent generates this notification when a template comes up
+or goes down on an interface to which it is assigned, i.e.,
+when the value of cifthTemplateIfAssignOperStatus changes.  If
+a template becomes operationally down on an interface upon
+activation of a new entry in the cifthTemplateIfAssignTable,
+the agent generates this notification.  The agent need not
+generate this notification when a new entry in the
+cifthTemplateIfAssignTable is activated, if the template
+becomes operational on the interface.  The agent need not
+generate this notification when an entry in the
+cifthTemplateIfAssignTable is destroyed.
+Variables:
+  1: cifthTemplateIfAssignOperStatus
+EDESC

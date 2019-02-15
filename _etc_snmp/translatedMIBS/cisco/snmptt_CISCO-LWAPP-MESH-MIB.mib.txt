@@ -1,0 +1,160 @@
+#
+#
+#
+#
+MIB: CISCO-LWAPP-MESH-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-LWAPP-MESH-MIB.mib) converted on Tue Aug 21 15:26:18 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoLwappMeshAuthFailure .1.3.6.1.4.1.9.9.616.0.1 "Status Events" Normal
+FORMAT A mesh node can fail to authorize if the MAC address $*
+SDESC
+A mesh node can fail to authorize if the MAC address
+of mesh node is not in the MAC filter list or security 
+failure by authentication server. Reason is specified by 
+'clMeshAuthFailureReason'. This notification is sent by 
+the agent when number of failures exceeds threshold 
+defined by object 'clMeshMeshNodeAuthFailureThreshold'. 
+Object 'clMeshAuthFailureNotifEnabled' controls the 
+generation of this notification.
+Variables:
+  1: clMeshNodeMacAddress
+  2: clMeshAuthFailureReason
+EDESC
+#
+#
+#
+EVENT ciscoLwappMeshChildExcludedParent .1.3.6.1.4.1.9.9.616.0.2 "Status Events" Normal
+FORMAT This notification will be sent by agent when child $*
+SDESC
+This notification will be sent by agent when child
+mesh node exceeds threshold limit of number of 
+discovery response timeouts defined by object 
+'clMeshMeshChildAssociationFailuresThreshold'. The 
+child mesh node will not try to associate excluded 
+parent mesh node for the interval defined by object 
+'clMeshMeshChildExcludedParentInterval'.
+The child mesh node will remember the excluded parent 
+MAC address and when it joins the network it will 
+inform the controller.  
+'cLApName' specifies child mesh node name. Child MAC 
+address is sent as part of index. Object 
+'clMeshChildExcludedParentNotifEnabled' controls the 
+generation of this notification.
+Variables:
+  1: clMeshNodeParentMacAddress
+  2: clMeshPreviousParentMacAddress
+  3: cLApName
+EDESC
+#
+#
+#
+EVENT ciscoLwappMeshParentChange .1.3.6.1.4.1.9.9.616.0.3 "Status Events" Normal
+FORMAT This notification is sent by the agent when a child $*
+SDESC
+This notification is sent by the agent when a child
+mesh node changes its parent. Child mesh node will 
+remember its previous parent and when it joins the 
+network it will inform controller about change 
+of its parent. 'cLApName' specifies child mesh node 
+name. Child mesh node MAC address is sent as part of 
+index. Object 'clMeshParentChangeNotifEnabled' controls 
+the generation of this notification.
+Variables:
+  1: clMeshNodeParentMacAddress
+  2: clMeshPreviousParentMacAddress
+  3: cLApName
+EDESC
+#
+#
+#
+EVENT ciscoLwappMeshChildMoved .1.3.6.1.4.1.9.9.616.0.4 "Status Events" Normal
+FORMAT This notification is sent by the agent when a parent $*
+SDESC
+This notification is sent by the agent when a parent
+mesh node loses connection with its child mesh node. 
+'cLApName' specifies parent mesh node name. Parent and 
+child MAC address are sent as part of index. Object 
+'clMeshChildMovedNotifEnabled' controls 
+the generation of this notification.
+Variables:
+  1: clMeshNeighborType
+  2: cLApName
+EDESC
+#
+#
+#
+EVENT ciscoLwappMeshExcessiveParentChange .1.3.6.1.4.1.9.9.616.0.5 "Status Events" Normal
+FORMAT This notification is sent by the agent when child $*
+SDESC
+This notification is sent by the agent when child
+mesh node changes its parent frequently. Each 
+mesh node keeps count of number of parent changes 
+in fixed time. If it exceeds the threshold defined 
+by 'clMeshExcessiveParentChangeThreshold' then child 
+mesh node informs the controller. 'cLApName' specifies 
+child mesh node name. Child and Parent MAC address are 
+sent as part of index. Object 
+'clMeshExcessiveParentChangeNotifEnabled' controls 
+the generation of this notification.
+Variables:
+  1: clMeshNeighborType
+  2: cLApName
+EDESC
+#
+#
+#
+EVENT ciscoLwappMeshOnsetSNR .1.3.6.1.4.1.9.9.616.0.6 "Status Events" Normal
+FORMAT This notification is sent by the agent when child $*
+SDESC
+This notification is sent by the agent when child
+mesh node detects lower SNR on backhaul link then 
+defined by object 'clMeshSNRThresholdOnset'. SNR 
+value is checked after interval defined by object 
+'clMeshSNRCheckTimeInterval'. 
+'ciscoLwappMeshAbateSNR' notification will be sent 
+to clear this notification. 'cLApName' specifies 
+child mesh node name. Child and parent MAC address 
+are sent as part of index. Object 
+'clMeshPoorSNRNotifEnabled' controls the generation 
+of this notification.
+Variables:
+  1: clMeshNeighborLinkSnr
+  2: cLApName
+EDESC
+#
+#
+#
+EVENT ciscoLwappMeshAbateSNR .1.3.6.1.4.1.9.9.616.0.7 "Status Events" Normal
+FORMAT This notification is sent by the agent to clear $*
+SDESC
+This notification is sent by the agent to clear
+'ciscoLwappMeshOnsetSNR' notification when child mesh 
+node detects SNR on backhaul link is higher then
+the object defined by 'clMeshSNRThresholdAbate'. SNR 
+value is checked after interval defined by object 
+'clMeshSNRCheckTimeInterval'. 
+'cLApName' specifies child mesh node name.
+Child and parent MAC address are sent as part of index.
+Object 'clMeshPoorSNRNotifEnabled' controls the 
+generation of this notification.
+Variables:
+  1: clMeshNeighborLinkSnr
+  2: cLApName
+EDESC
+#
+#
+#
+EVENT ciscoLwappMeshConsoleLogin .1.3.6.1.4.1.9.9.616.0.8 "Status Events" Normal
+FORMAT This notification is sent by the agent when login on $*
+SDESC
+This notification is sent by the agent when login on
+MAP console is successful or failure after three
+attempts. 'cLApName' specifies mesh node name.
+Object 'clMeshPoorSNRNotifEnabled' controls the 
+generation of this notification.
+Variables:
+  1: clMeshNodeMacAddress
+  2: clMeshConsoleLoginStatus
+  3: cLApName
+EDESC

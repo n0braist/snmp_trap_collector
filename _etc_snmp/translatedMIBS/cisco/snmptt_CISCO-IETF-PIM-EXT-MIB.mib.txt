@@ -1,0 +1,65 @@
+#
+#
+#
+#
+MIB: CISCO-IETF-PIM-EXT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IETF-PIM-EXT-MIB.mib) converted on Tue Aug 21 15:26:07 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoIetfPimExtInterfaceUp .1.3.6.1.4.1.9.10.120.0.1 "Status Events" Normal
+FORMAT A ciscoIetfPimExtInterfaceUp notification signifies the $*
+SDESC
+A ciscoIetfPimExtInterfaceUp notification signifies the
+restoration of a PIM interface. This notification
+should be generated whenever cPimIfStatus
+transitions into the 'active' state.
+cPimIfStatus identifies the interface which 
+was involved in the generation of this notification.
+Variables:
+  1: cPimIfStatus
+EDESC
+#
+#
+#
+EVENT ciscoIetfPimExtInterfaceDown .1.3.6.1.4.1.9.10.120.0.2 "Status Events" Normal
+FORMAT A ciscoIetfPimExtInterfaceDown notification signifies the $*
+SDESC
+A ciscoIetfPimExtInterfaceDown notification signifies the
+loss of a PIM interface. This notification should be
+generated whenever an entry is about to be deleted from
+the
+cPimIfTable.
+cPimIfStatus identifies the interface which 
+was involved in the generation of this notification.
+Variables:
+  1: cPimIfStatus
+EDESC
+#
+#
+#
+EVENT ciscoIetfPimExtRPMappingChange .1.3.6.1.4.1.9.10.120.0.3 "Status Events" Normal
+FORMAT A ciscoIetfPimExtRPMappingChange notification signifies a $*
+SDESC
+A ciscoIetfPimExtRPMappingChange notification signifies a
+change in the RP Mapping on the device in question. A
+change in RP Mapping could be because of addition of new
+entries to the RP Mapping cache, deletion of existing
+entries, or a modification to an existing mapping. The
+type of change is indicated by cpimRPMappingChangeType.
+cpimExtRPSetHoldTime is used to identify the row in the
+cpimExtRPSetTable that is responsible for the generation
+of this notification.
+In case of modification to existing entries, a
+notification should be generated once before the
+modification (with cpimRPMappingChangeType set to
+'modifiedOldMapping') and once after modification (with 
+cpimRPMappingChangeType set to 'modifiedNewMapping').
+NOTE: A high frequency of RP Mapping change could result
+in a large number of ciscoIetfPimExtRPMappingChange
+notifications being generated. Hence, in environments
+where the possibility of a high frequency of RP Mapping
+change exists, enable this notification with utmost care.
+Variables:
+  1: cpimExtRPSetHoldTime
+  2: cpimRPMappingChangeType
+EDESC

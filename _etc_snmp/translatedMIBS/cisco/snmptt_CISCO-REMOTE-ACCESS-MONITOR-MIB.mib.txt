@@ -1,0 +1,58 @@
+#
+#
+#
+#
+MIB: CISCO-REMOTE-ACCESS-MONITOR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-REMOTE-ACCESS-MONITOR-MIB.mib) converted on Tue Aug 21 15:26:27 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoRasTooManySessions .1.3.6.1.4.1.9.9.392.0.1 "Status Events" Normal
+FORMAT This notification is generated when the managed entity $*
+SDESC
+This notification is generated when the managed entity
+detects that the number of sessions established exceeds 
+the set threshold crasThrMaxSessions.
+Once the notification has been issued, further 
+notifications are suppressed till the value returns 
+below the specified threshold.
+Variables:
+  1: crasNumSessions
+  2: crasNumUsers
+  3: crasMaxSessionsSupportable
+  4: crasMaxUsersSupportable
+  5: crasThrMaxSessions
+EDESC
+#
+#
+#
+EVENT ciscoRasTooManyFailedAuths .1.3.6.1.4.1.9.9.392.0.2 "Status Events" Normal
+FORMAT This notification is generated when the managed entity $*
+SDESC
+This notification is generated when the managed entity
+detects that the number of login attempts (over all 
+users) exceeds the set threshold for throughput 
+(crasThrMaxFailedAuths).
+Once the notification has been issued, further 
+notifications are suppressed till the value returns 
+below the specified threshold.
+Variables:
+  1: crasNumDeclinedSessions
+  2: crasThrMaxFailedAuths
+EDESC
+#
+#
+#
+EVENT ciscoRasTooHighThroughput .1.3.6.1.4.1.9.9.392.0.3 "Status Events" Normal
+FORMAT This notification is generated when the managed entity $*
+SDESC
+This notification is generated when the managed entity
+detects that the current throughput of the device exceeds
+the set threshold for throughput (crasThrMaxThroughput).
+Once the notification has been issued, further 
+notiifcations are suppressed till the value returns 
+below the specified threshold.
+Variables:
+  1: crasGlobalInOctets
+  2: crasGlobalOutOctets
+  3: crasThrMaxThroughput
+EDESC

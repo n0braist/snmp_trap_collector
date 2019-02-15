@@ -1,0 +1,15 @@
+#
+#
+#
+#
+MIB: CISCO-ATM-CELL-LAYER-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY.mib) converted on Tue Aug 21 15:25:38 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: CISCO-ATM-CELL-LAYER-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY.mib) converted on Tue Aug 21 15:25:38 2012 using snmpttconvertmib v1.3
+#
+#
+#
+#
+MIB: CISCO-ATM-CELL-LAYER-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY.mib) converted on Tue Aug 21 15:25:38 2012 using snmpttconvertmib v1.3

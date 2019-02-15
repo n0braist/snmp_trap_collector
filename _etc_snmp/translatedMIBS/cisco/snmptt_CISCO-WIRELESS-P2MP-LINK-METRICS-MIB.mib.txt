@@ -1,0 +1,70 @@
+#
+#
+#
+#
+MIB: CISCO-WIRELESS-P2MP-LINK-METRICS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WIRELESS-P2MP-LINK-METRICS-MIB.mib) converted on Tue Aug 21 15:26:46 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT p2mpHeChPctErrCWThreshTrap .1.3.6.1.4.1.9.9.181.1.2.0.1 "Status Events" Normal
+FORMAT The p2mpHe1HrPctErrCWThresh for an upstream channel was $*
+SDESC
+The p2mpHe1HrPctErrCWThresh for an upstream channel was
+exceeded.
+Variables:
+  1: p2mpHe1HrPctErrCWThresh
+EDESC
+#
+#
+#
+EVENT p2mpHeMacPctErrCWThreshTrap .1.3.6.1.4.1.9.9.181.1.2.0.2 "Status Events" Normal
+FORMAT The p2mpHe1HrPctErrCWThresh for the subscriber $*
+SDESC
+The p2mpHe1HrPctErrCWThresh for the subscriber
+unit was exceeded.  The subscriber unit was added to 
+the p2mpHeBadSuTable.
+Variables:
+  1: p2mpBadSuMacAddress
+  2: p2mpTotalErroredCodewords
+  3: p2mpPctErroredCodewords
+EDESC
+#
+#
+#
+EVENT p2mpSuErrSecAlarmTrap .1.3.6.1.4.1.9.9.181.1.2.0.3 "Status Events" Normal
+FORMAT The p2mpSuLink1HrESAlarmThresh was exceeded. $*
+SDESC
+The p2mpSuLink1HrESAlarmThresh was exceeded.
+Variables:
+  1: p2mpSuLink1HrESAlarmThresh
+EDESC
+#
+#
+#
+EVENT p2mpSuSevErrSecAlarmTrap .1.3.6.1.4.1.9.9.181.1.2.0.4 "Status Events" Normal
+FORMAT The p2mpSuLink1HrSESAlarmThresh was exceeded. $*
+SDESC
+The p2mpSuLink1HrSESAlarmThresh was exceeded.
+Variables:
+  1: p2mpSuLink1HrSESAlarmThresh
+EDESC
+#
+#
+#
+EVENT p2mpSuConsecSevErrSecAlarmTrap .1.3.6.1.4.1.9.9.181.1.2.0.5 "Status Events" Normal
+FORMAT The p2mpSuLink1HrCSESAlarmThresh was exceeded. $*
+SDESC
+The p2mpSuLink1HrCSESAlarmThresh was exceeded.
+Variables:
+  1: p2mpSuLink1HrCSESAlarmThresh
+EDESC
+#
+#
+#
+EVENT p2mpSuDegradedSecAlarmTrap .1.3.6.1.4.1.9.9.181.1.2.0.6 "Status Events" Normal
+FORMAT The p2mpSuLink1HrDCSAlarmThresh was exceeded. $*
+SDESC
+The p2mpSuLink1HrDCSAlarmThresh was exceeded.
+Variables:
+  1: p2mpSuLink1HrDCSAlarmThresh
+EDESC

@@ -1,0 +1,28 @@
+#
+#
+#
+#
+MIB: CISCO-IETF-MSDP-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IETF-MSDP-MIB.mib) converted on Tue Aug 21 15:26:07 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cMsdpEstablished .1.3.6.1.4.1.9.10.130.1.1.0.1 "Status Events" Normal
+FORMAT The MSDP Established event is generated when the MSDP FSM $*
+SDESC
+The MSDP Established event is generated when the MSDP FSM
+enters the ESTABLISHED state.
+Variables:
+  1: cMsdpPeerFsmEstablishedTransitions
+EDESC
+#
+#
+#
+EVENT cMsdpBackwardTransition .1.3.6.1.4.1.9.10.130.1.1.0.2 "Status Events" Normal
+FORMAT The MSDPBackwardTransition Event is generated when the MSDP $*
+SDESC
+The MSDPBackwardTransition Event is generated when the MSDP
+FSM moves from a higher numbered state to a lower numbered
+state.
+Variables:
+  1: cMsdpPeerState
+EDESC

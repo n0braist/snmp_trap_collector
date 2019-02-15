@@ -1,0 +1,62 @@
+#
+#
+#
+#
+MIB: CISCO-EPC-GATEWAY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-EPC-GATEWAY-MIB.mib) converted on Tue Aug 21 15:25:57 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cegCongestionHighThresholdNotif .1.3.6.1.4.1.9.9.731.0.1 "Status Events" Normal
+FORMAT This notification will be sent when $*
+SDESC
+This notification will be sent when
+the gateway congestion level goes above
+cegCongestionHighThreshold value.
+This gives an indication that the gateway
+is running at high congestion and at this
+state it would reject all new calls.
+Variables:
+  1: cegVersion
+  2: cegCongestionDfpWeight
+  3: cegCongestionStatus
+  4: cegCongestionHighThreshold
+EDESC
+#
+#
+#
+EVENT cegCongestionLowThresholdNotif .1.3.6.1.4.1.9.9.731.0.2 "Status Events" Normal
+FORMAT This notification will be sent when $*
+SDESC
+This notification will be sent when
+the gateway congestion level goes above
+cegCongestionLowThreshold value.
+This gives an indication that the gateway
+is running at low congestion at this
+state it can accept only the high priority
+calls and those with a lower priority would
+be rejected.
+Variables:
+  1: cegVersion
+  2: cegCongestionDfpWeight
+  3: cegCongestionStatus
+  4: cegCongestionLowThreshold
+  5: cegCongestionHighThreshold
+EDESC
+#
+#
+#
+EVENT cegCongestionClearedNotif .1.3.6.1.4.1.9.9.731.0.3 "Status Events" Normal
+FORMAT This notification will be sent when $*
+SDESC
+This notification will be sent when
+the gateway congestion level goes below
+cegCongestionLowThreshold value.
+This gives an indication that the gateway
+has recovered from congestion and it can
+accept all calls.
+Variables:
+  1: cegVersion
+  2: cegCongestionDfpWeight
+  3: cegCongestionStatus
+  4: cegCongestionLowThreshold
+EDESC

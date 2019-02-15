@@ -1,0 +1,21 @@
+#
+#
+#
+#
+MIB: CISCO-WLAN-VLAN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WLAN-VLAN-MIB.mib) converted on Tue Aug 21 15:26:47 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoWlanVlanWepChangeNotif .1.3.6.1.4.1.9.9.268.0.1 "Status Events" Normal
+FORMAT This ciscoWlanVlanWepChangeNotif notification  $*
+SDESC
+This ciscoWlanVlanWepChangeNotif notification 
+will be sent when the WEP configuration 
+in the cwvlWlanNUcastKeyTable is changed. 
+The cwvlWlanNUcastKeyValue specify the new key 
+value for a given key for a VLAN.  The sending 
+of these notifications can be enabled or disabled
+via the cwvlWlanWepChangeNotifEnabled object.
+Variables:
+  1: cwvlWlanNUcastKeyValue
+EDESC

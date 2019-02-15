@@ -1,0 +1,21 @@
+#
+#
+#
+#
+MIB: CISCO-ENTITY-SENSOR-EXT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ENTITY-SENSOR-EXT-MIB.mib) converted on Tue Aug 21 15:25:57 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ceSensorExtThresholdNotification .1.3.6.1.4.1.9.9.745.0.1 "Status Events" Normal
+FORMAT This notification is generated once each time $*
+SDESC
+This notification is generated once each time
+the sensor value crosses the threshold value
+specified by ceSensorExtThresholdValue object.
+Variables:
+  1: entPhysicalName
+  2: entPhysicalDescr
+  3: entPhySensorValue
+  4: entPhySensorType
+  5: ceSensorExtThresholdValue
+EDESC

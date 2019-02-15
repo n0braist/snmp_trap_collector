@@ -1,0 +1,284 @@
+#
+#
+#
+#
+MIB: DATA-DOMAIN-MIB (file:./DATA-DOMAIN-MIB.mib) converted on Tue Jun 12 14:05:09 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT powerSupplyFailedAlarm .1.3.6.1.4.1.19746.2.1 "Status Events" Normal
+FORMAT Meaning: Power Supply failed $*
+SDESC
+Meaning: Power Supply failed
+What to do: replace the power supply
+Variables:
+EDESC
+#
+#
+#
+EVENT systemOverheatWarningAlarm .1.3.6.1.4.1.19746.2.2 "Status Events" Normal
+FORMAT Meaning: the temperature reading of one of the thermometers in the Chassis  has exceeded  $*
+SDESC
+Meaning: the temperature reading of one of the thermometers in the Chassis  has exceeded 
+the 'warning' temperature level.  If it continues to rise, it may eventually trigger a 
+shutdown of the DDR.  The index value of the alarm indicates the thermometer index that
+may be looked up in the environmentals table 'temperatures' for more information about
+the actual thermometer reading the high value.
+What to do: check the Fan status, temperatures of the environment in which the DDR is,
+and other factors which may increase the temperature.
+Variables:
+  1: tempSensorIndex
+EDESC
+#
+#
+#
+EVENT systemOverheatAlertAlarm .1.3.6.1.4.1.19746.2.3 "Status Events" Normal
+FORMAT Meaning: the temperature reading of one of the thermometers in the Chassis is more than $*
+SDESC
+Meaning: the temperature reading of one of the thermometers in the Chassis is more than
+halfway between the 'warning' and 'shutdown' temperature levels.  If it continues to rise, 
+it may eventually trigger a shutdown of the DDR.  The index value of the alarm indicates 
+the thermometer index that may be looked up in the environmentals table 'temperatures' 
+for more information about the actual thermometer reading the high value.
+What to do: check the Fan status, temperatures of the environment in which the DDR is,
+and other factors which may increase the system temperature.
+Variables:
+  1: tempSensorIndex
+EDESC
+#
+#
+#
+EVENT systemOverheatShutdowntAlarm .1.3.6.1.4.1.19746.2.4 "Status Events" Normal
+FORMAT Meaning: the temperature reading of one of the thermometers in the Chassis has reached $*
+SDESC
+Meaning: the temperature reading of one of the thermometers in the Chassis has reached
+or exceeded the 'shutdown' temperature level. The DDR will be shutdown to prevent damage
+to the system.  The index value of the alarm indicates the thermometer index that may be
+looked up in the environmentals table 'temperatures' for more information about the actual 
+thermometer reading the high value.
+What to do: Once the system has been brought back up, after checking for high environment
+temperatures or other factors which may increase the system temperature, check other 
+environmental values, such as Fan Status, Disk Temperatures, etc...
+Variables:
+  1: tempSensorIndex
+EDESC
+#
+#
+#
+EVENT fanModuleFailedAlarm .1.3.6.1.4.1.19746.2.5 "Status Events" Normal
+FORMAT Meaning: a Fan Module in the enclosure has failed.  The index of the fan is given $*
+SDESC
+Meaning: a Fan Module in the enclosure has failed.  The index of the fan is given
+as the index of the alarm.  This same index can be looked up in the environmentals
+table 'fanProperies' for more information about which fan has failed.
+What to do: replace the fan
+Variables:
+  1: fanIndex
+EDESC
+#
+#
+#
+EVENT nvramFailingAlarm .1.3.6.1.4.1.19746.2.6 "Status Events" Normal
+FORMAT Meaning: The system has detected that the NVRAM is potentially failing.  There has $*
+SDESC
+Meaning: The system has detected that the NVRAM is potentially failing.  There has
+been an excessive amount of PCI or Memory errors. The nvram tables 'nvramProperties'
+and 'nvramStats' may provide for information on why the NVRAM is failing.
+What to do: check the status of the NVRAM after reboot, and replace if the
+errors continue.
+Variables:
+EDESC
+#
+#
+#
+EVENT fileSystemFailedAlarm .1.3.6.1.4.1.19746.2.7 "Status Events" Normal
+FORMAT Meaning: The File System process on the DDR has had a serious problem and has had $*
+SDESC
+Meaning: The File System process on the DDR has had a serious problem and has had
+to restart.
+What to do: check the system logs for conditions that may be triggering the failure.
+Other alarms may also indicate why the File System is having problems.
+Variables:
+EDESC
+#
+#
+#
+EVENT fileSpaceMaintenanceAlarm .1.3.6.1.4.1.19746.2.8 "Status Events" Normal
+FORMAT Meaning: DDVAR File System Resource Space is running low for system maintenance activities.  The $*
+SDESC
+Meaning: DDVAR File System Resource Space is running low for system maintenance activities.  The
+system may not have enough space for the routine system activities to run without error.
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.  Consider upgrading the hardware or adding
+shelves to high-end units.  Reducing the retention times for backup data can also help. When 
+files are deleted from outside of the /ddvar space, filesys clean will have to be done before 
+the space is recovered.
+Variables:
+  1: fileSystemResourceIndex
+EDESC
+#
+#
+#
+EVENT fileSpaceWarningAlarm .1.3.6.1.4.1.19746.2.9 "Status Events" Normal
+FORMAT Meaning: A File System Resource space is 90% utilized.  The index value of the alarm indicates  $*
+SDESC
+Meaning: A File System Resource space is 90% utilized.  The index value of the alarm indicates 
+the file system index that may be looked up in the fileSystem table 'fileSystemSpace' 
+for more information about the actual FS that is getting full. 
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.  Consider upgrading the hardware or adding
+shelves to high-end units.  Reducing the retention times for backup data can also help. When 
+files are deleted from outside of the /ddvar space, filesys clean will have to be done before 
+the space is recovered.
+Variables:
+  1: fileSystemResourceIndex
+EDESC
+#
+#
+#
+EVENT fileSpaceSevereAlarm .1.3.6.1.4.1.19746.2.10 "Status Events" Normal
+FORMAT Meaning: A File System Resource space is 95% utilized.  The index value of the alarm indicates  $*
+SDESC
+Meaning: A File System Resource space is 95% utilized.  The index value of the alarm indicates 
+the file system index that may be looked up in the fileSystem table 'fileSystemSpace' 
+for more information about the actual FS that is getting full. 
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.  Consider upgrading the hardware or adding
+shelves to high-end units.  Reducing the retention times for backup data can also help. When 
+files are deleted from outside of the /ddvar space, filesys clean will have to be done before 
+the space is recovered.
+Variables:
+  1: fileSystemResourceIndex
+EDESC
+#
+#
+#
+EVENT fileSpaceCriticalAlarm .1.3.6.1.4.1.19746.2.11 "Status Events" Normal
+FORMAT Meaning: A File System Resource space is 100% utilized.  The index value of the alarm indicates  $*
+SDESC
+Meaning: A File System Resource space is 100% utilized.  The index value of the alarm indicates 
+the file system index that may be looked up in the fileSystem table 'fileSystemSpace' 
+for more information about the actual FS that is full. 
+What to do: Delete unneeded files, such as old log files, support bundles, core files,
+upgrade rpm files stored in the /ddvar file system.  Consider upgrading the hardware or adding
+shelves to high-end units.  Reducing the retention times for backup data can also help. When 
+files are deleted from outside of the /ddvar space, filesys clean will have to be done before 
+the space is recovered.
+Variables:
+  1: fileSystemResourceIndex
+EDESC
+#
+#
+#
+EVENT diskFailingAlarm .1.3.6.1.4.1.19746.2.12 "Status Events" Normal
+FORMAT Meaning: some problem has been detected about the indicated disk.  The index value  $*
+SDESC
+Meaning: some problem has been detected about the indicated disk.  The index value 
+of the alarm indicates the disk index that may be looked up in the disk tables 
+'diskProperties', 'diskPerformance', and 'diskReliability' for more information 
+about the actual disk that is failing.
+What to do: monitor the status of the disk, and consider replacing if the problem
+continues.
+Variables:
+  1: diskPropIndex
+EDESC
+#
+#
+#
+EVENT diskFailedAlarm .1.3.6.1.4.1.19746.2.13 "Status Events" Normal
+FORMAT Meaning: some problem has been detected about the indicated disk.  The index value  $*
+SDESC
+Meaning: some problem has been detected about the indicated disk.  The index value 
+of the alarm indicates the disk index that may be looked up in the disk tables 
+'diskProperties', 'diskPerformance', and 'diskReliability' for more information 
+about the actual disk that has failed.
+What to do: replace the disk.
+Variables:
+  1: diskPropIndex
+EDESC
+#
+#
+#
+EVENT diskOverheatWarningAlarm .1.3.6.1.4.1.19746.2.14 "Status Events" Normal
+FORMAT Meaning: the temperature reading of the indicated disk has exceeded the 'warning'  $*
+SDESC
+Meaning: the temperature reading of the indicated disk has exceeded the 'warning' 
+temperature level.  If it continues to rise, it may eventually trigger a 
+shutdown of the DDR.  The index value of the alarm indicates the disk index that
+may be looked up in the disk tables 'diskProperties', 'diskPerformance', and 
+'diskReliability' for more information about the actual disk reading the high value.
+What to do: check the disk status, temperatures of the environment in which the DDR is,
+and other factors which may increase the temperature.
+Variables:
+  1: diskErrIndex
+EDESC
+#
+#
+#
+EVENT diskOverheatAlertAlarm .1.3.6.1.4.1.19746.2.15 "Status Events" Normal
+FORMAT Meaning: the temperature reading of the indicated disk is more than halfway between $*
+SDESC
+Meaning: the temperature reading of the indicated disk is more than halfway between
+the 'warning' and 'shutdown' temperature levels. If it continues to rise, it will 
+trigger a shutdown of the DDR.  The index value of the alarm indicates the disk index that
+may be looked up in the disk tables 'diskProperties', 'diskPerformance', and 
+'diskReliability' for more information about the actual disk reading the high value.
+What to do: check the disk status, temperatures of the environment in which the DDR is,
+and other factors which may increase the temperature.  If the temperature continues stays
+at this level or rises, and no other disks are reading this trouble, consider 'failing'
+the disk, and get a replacement.
+Variables:
+  1: diskErrIndex
+EDESC
+#
+#
+#
+EVENT diskOverheatShutdowntAlarm .1.3.6.1.4.1.19746.2.16 "Status Events" Normal
+FORMAT Meaning: the temperature reading of the indicated disk has surpassed the 'shutdown'  $*
+SDESC
+Meaning: the temperature reading of the indicated disk has surpassed the 'shutdown' 
+temperature level. The DDR will be shutdown.  The index value of the alarm indicates 
+the disk index that may be looked up in the disk tables 'diskProperties', 'diskPerformance', 
+and 'diskReliability' for more information about the actual disk reading the high value.
+What to do: Boot the DDR and monitor the status and temperatures.  If the same disk has
+continued problems, consider 'failing' it and get a replacement disk.
+Variables:
+  1: diskErrIndex
+EDESC
+#
+#
+#
+EVENT raidReconSevereAlarm .1.3.6.1.4.1.19746.2.17 "Status Events" Normal
+FORMAT Meaning: Raid group reconstruction is currently active and has not completed after 71 $*
+SDESC
+Meaning: Raid group reconstruction is currently active and has not completed after 71
+hours.  Reconstruction occurs when the raid group falls into 'degraded' mode.  This can
+happen due to a disk failing at run-time or boot-up.
+What to do: while it is still possible that the reconstruction could succeed, the disk
+should be replaced to ensure data safety.
+Variables:
+EDESC
+#
+#
+#
+EVENT raidReconCriticalAlarm .1.3.6.1.4.1.19746.2.18 "Status Events" Normal
+FORMAT Meaning: Raid group reconstruction is currently active and has not completed after 72 $*
+SDESC
+Meaning: Raid group reconstruction is currently active and has not completed after 72
+hours.  Reconstruction occurs when the raid group falls into 'degraded' mode.  This can
+happen due to a disk failing at run-time or boot-up.
+What to do: the disk should be replaced to ensure data safety.
+Variables:
+EDESC
+#
+#
+#
+EVENT raidReconCriticalShutdownAlarm .1.3.6.1.4.1.19746.2.19 "Status Events" Normal
+FORMAT Meaning: Raid group reconstruction is currently active and has not completed after more $*
+SDESC
+Meaning: Raid group reconstruction is currently active and has not completed after more
+than 72 hours.  Reconstruction occurs when the raid group falls into 'degraded' mode.  
+This can happen due to a disk failing at run-time or boot-up.
+What to do: the disk must be replaced.
+Variables:
+EDESC

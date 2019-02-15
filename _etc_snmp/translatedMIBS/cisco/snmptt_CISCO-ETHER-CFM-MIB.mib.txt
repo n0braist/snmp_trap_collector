@@ -1,0 +1,138 @@
+#
+#
+#
+#
+MIB: CISCO-ETHER-CFM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ETHER-CFM-MIB.mib) converted on Tue Aug 21 15:25:58 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cEtherCfmCcMepUp .1.3.6.1.4.1.9.9.461.0.0.1 "Status Events" Normal
+FORMAT This notification is generated in the following cases: $*
+SDESC
+This notification is generated in the following cases:
+- when a remote MEP first comes up, that is when we receive 
+a CC message from that MEP for the first time.
+- when the device receives a CC message from a MEP for which 
+it has an expired CCDB entry.
+- when a CC message is received for a remote MEP for which
+the device already has a CCDB entry and the port-state in
+the received CC message is different from the cached 
+previous state.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+  3: cEtherCfmEventLclMepCount
+  4: cEtherCfmEventLclIfCount
+  5: cEtherCfmEventRmtMepid
+  6: cEtherCfmEventRmtMacAddress
+  7: cEtherCfmEventCode
+  8: cEtherCfmEventRmtPortState
+EDESC
+#
+#
+#
+EVENT cEtherCfmCcMepDown .1.3.6.1.4.1.9.9.461.0.0.2 "Status Events" Normal
+FORMAT This notification is generated when a remote MEP goes down;  $*
+SDESC
+This notification is generated when a remote MEP goes down; 
+i.e. the entry in CCDB corresponding to this MEP times out 
+or the device receives a CC message with zero hold-time.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+  3: cEtherCfmEventLclMepCount
+  4: cEtherCfmEventLclIfCount
+  5: cEtherCfmEventRmtMepid
+  6: cEtherCfmEventRmtMacAddress
+  7: cEtherCfmEventCode
+EDESC
+#
+#
+#
+EVENT cEtherCfmCcCrossconnect .1.3.6.1.4.1.9.9.461.0.0.3 "Status Events" Normal
+FORMAT This notification is generated when a device receives a CC $*
+SDESC
+This notification is generated when a device receives a CC
+message with the service ID not matching the one locally 
+configured for the VLAN in question.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+  3: cEtherCfmEventRmtMepid
+  4: cEtherCfmEventRmtMacAddress
+  5: cEtherCfmEventRmtServiceId
+EDESC
+#
+#
+#
+EVENT cEtherCfmCcLoop .1.3.6.1.4.1.9.9.461.0.0.4 "Status Events" Normal
+FORMAT This notification is generated when a device receives a CC $*
+SDESC
+This notification is generated when a device receives a CC
+message with the same MEPID and MAC address as those of
+the device itself, indicating that there is a forwarding
+loop and that the device is receiving its own CC messages.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+  3: cEtherCfmEventLclMepid
+EDESC
+#
+#
+#
+EVENT cEtherCfmCcConfigError .1.3.6.1.4.1.9.9.461.0.0.5 "Status Events" Normal
+FORMAT This notification is generated when a device receives a CC $*
+SDESC
+This notification is generated when a device receives a CC
+message with the same MEPID but different MAC address as 
+those of the device itself, indicating that there is a  
+mis-configuration in the network where a remote device
+has the same MEPID configured.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+  3: cEtherCfmEventLclMepid
+  4: cEtherCfmEventRmtMacAddress
+EDESC
+#
+#
+#
+EVENT cEtherCfmXCheckMissing .1.3.6.1.4.1.9.9.461.0.0.6 "Status Events" Normal
+FORMAT This notification is generated when an expected  $*
+SDESC
+This notification is generated when an expected 
+(configured) MEP does not come up during the cross-check
+start timeout interval.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+  3: cEtherCfmEventRmtMepid
+  4: cEtherCfmEventRmtMacAddress
+EDESC
+#
+#
+#
+EVENT cEtherCfmXCheckUnknown .1.3.6.1.4.1.9.9.461.0.0.7 "Status Events" Normal
+FORMAT This notification is generated when an unexpected MEP $*
+SDESC
+This notification is generated when an unexpected MEP
+comes up.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+  3: cEtherCfmEventRmtMepid
+  4: cEtherCfmEventRmtMacAddress
+EDESC
+#
+#
+#
+EVENT cEtherCfmXCheckServiceUp .1.3.6.1.4.1.9.9.461.0.0.8 "Status Events" Normal
+FORMAT This notification is generated when all the MEPs belonging $*
+SDESC
+This notification is generated when all the MEPs belonging
+to a customer service instance come up before the expiration of
+the cross-check start timeout interval.
+Variables:
+  1: cEtherCfmEventServiceId
+  2: cEtherCfmEventLclMacAddress
+EDESC

@@ -1,0 +1,91 @@
+#
+#
+#
+#
+MIB: CISCO-DIAMETER-BASE-PROTOCOL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DIAMETER-BASE-PROTOCOL-MIB.mib) converted on Tue Aug 21 15:25:50 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoDiaBaseProtProtocolErrorNotif .1.3.6.1.4.1.9.10.133.0.1 "Status Events" Normal
+FORMAT An ciscoDiaBaseProtProtocolErrorNotif notification $*
+SDESC
+An ciscoDiaBaseProtProtocolErrorNotif notification
+is sent when both the following conditions are true:
+1) the value of ciscoDiaBaseProtEnableProtocolErrorNotif 
+is true(1)
+2) the value of cdbpPeerStatsProtocolErrors changes.
+It can be utilized by an NMS to trigger
+logical/physical entity table maintenance polls.
+Variables:
+  1: cdbpPeerId
+  2: cdbpPeerStatsProtocolErrors
+EDESC
+#
+#
+#
+EVENT ciscoDiaBaseProtTransientFailureNotif .1.3.6.1.4.1.9.10.133.0.2 "Status Events" Normal
+FORMAT An ciscoDiaBaseProtTransientFailureNotif notification $*
+SDESC
+An ciscoDiaBaseProtTransientFailureNotif notification
+is sent when both the following conditions are true:
+1) the value of ciscoDiaBaseProtEnableTransientFailureNotif
+is true(1)
+2) the value of cdbpPeerStatsTransientFailures changes.
+It can be utilized by an NMS to trigger
+logical/physical entity table maintenance polls.
+Variables:
+  1: cdbpPeerId
+  2: cdbpPeerStatsTransientFailures
+EDESC
+#
+#
+#
+EVENT ciscoDiaBaseProtPermanentFailureNotif .1.3.6.1.4.1.9.10.133.0.3 "Status Events" Normal
+FORMAT An ciscoDiaBaseProtPermanentFailureNotif notification $*
+SDESC
+An ciscoDiaBaseProtPermanentFailureNotif notification
+is sent when both the following conditions are true:
+1) the value of ciscoDiaBaseProtEnablePermanentFailureNotif
+is true(1)
+2) the value of cdbpPeerStatsPermanentFailures changes.
+It can be utilized by an NMS to trigger
+logical/physical entity table maintenance polls.
+Variables:
+  1: cdbpPeerId
+  2: cdbpPeerStatsPermanentFailures
+EDESC
+#
+#
+#
+EVENT ciscoDiaBaseProtPeerConnectionDownNotif .1.3.6.1.4.1.9.10.133.0.4 "Status Events" Normal
+FORMAT An ciscoDiaBaseProtPeerConnectionDownNotif notification $*
+SDESC
+An ciscoDiaBaseProtPeerConnectionDownNotif notification
+is sent when both the following conditions are true: 
+1) the value of
+ciscoDiaBaseProtEnablePeerConnectionDownNotif is true(1)
+2) cdbpPeerStatsState changes to closed(1).
+It can be utilized by an NMS to trigger logical/physical
+entity table maintenance polls.
+Variables:
+  1: cdbpLocalId
+  2: cdbpPeerId
+EDESC
+#
+#
+#
+EVENT ciscoDiaBaseProtPeerConnectionUpNotif .1.3.6.1.4.1.9.10.133.0.5 "Status Events" Normal
+FORMAT An ciscoDiaBaseProtPeerConnectionUpNotif notification $*
+SDESC
+An ciscoDiaBaseProtPeerConnectionUpNotif notification
+is sent when both the following conditions are true:
+1) the value of ciscoDiaBaseProtEnablePeerConnectionUpNotif
+is true(1)
+2) the value of cdbpPeerStatsState changes to
+either rOpen(6)or iOpen(7).  It can be
+utilized by an NMS to trigger logical/physical entity
+table maintenance polls.
+Variables:
+  1: cdbpLocalId
+  2: cdbpPeerId
+EDESC

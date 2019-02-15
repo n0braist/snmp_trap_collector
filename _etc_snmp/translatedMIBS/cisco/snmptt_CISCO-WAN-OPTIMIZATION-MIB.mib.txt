@@ -1,0 +1,101 @@
+#
+#
+#
+#
+MIB: CISCO-WAN-OPTIMIZATION-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WAN-OPTIMIZATION-MIB.mib) converted on Tue Aug 21 15:26:44 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cwoTfoConnectionOverload .1.3.6.1.4.1.9.9.762.0.1 "Status Events" Normal
+FORMAT This notification indicates that the device has reached its $*
+SDESC
+This notification indicates that the device has reached its
+limit of number of connections it can optimize. No new
+connections will be picked-up for optimization, while the device
+is in this state.
+Variables:
+  1: cwoTfoStatsMaxActiveConn
+EDESC
+#
+#
+#
+EVENT cwoPeerOverload .1.3.6.1.4.1.9.9.762.0.2 "Status Events" Normal
+FORMAT This notification indicates the device has reached its limit of $*
+SDESC
+This notification indicates the device has reached its limit of
+number of peer devices with which it can optimize connections.
+While the device is in this state, connections from new peer
+device will not be picked-up for optimization.
+Variables:
+  1: cwoGeneralMaxActivePeers
+EDESC
+#
+#
+#
+EVENT cwoCpuThrottlingOn .1.3.6.1.4.1.9.9.762.0.3 "Status Events" Normal
+FORMAT This notification indicates that the device has detected that $*
+SDESC
+This notification indicates that the device has detected that
+the current CPU utilization (stored in
+cpmCPUTotalMonIntervalValue) is higher than the
+cwoGeneralCpuThrottleHigh. As a result the device has entered
+into a throttling mode due to which connections under
+optimization may experience slowdown. This notification is
+generated the moment it occurs after a time lapse of 30 minutes
+since the previous notification.
+Variables:
+  1: cwoGeneralCpuThrottleHigh
+  2: cwoGeneralCpuThrottlPeriod
+  3: cpmCPUTotalMonIntervalValue
+EDESC
+#
+#
+#
+EVENT cwoCpuThrottlingOff .1.3.6.1.4.1.9.9.762.0.4 "Status Events" Normal
+FORMAT This notification indicates that device has detected that the $*
+SDESC
+This notification indicates that device has detected that the
+CPU utilization of device (stored in
+cpmCPUTotalMonIntervalValue) has fallen below the
+cwoGeneralCpuThrottleLow from cwoGeneralCpuThrottleHigh. As a
+result the device has come out of the throttling mode and there
+should not be any negative impact of CPU usage on connection
+under optimization. This notification is generated the moment it
+occurs after a time lapse of 30 minutes since the previous
+notification.
+Variables:
+  1: cwoGeneralCpuThrottleLow
+  2: cwoGeneralCpuThrottlPeriod
+  3: cpmCPUTotalMonIntervalValue
+EDESC
+#
+#
+#
+EVENT cwoLicenseExpired .1.3.6.1.4.1.9.9.762.0.5 "Status Events" Normal
+FORMAT This notification is generated when the license on the system $*
+SDESC
+This notification is generated when the license on the system
+expires after the period for which it was installed.
+Variables:
+EDESC
+#
+#
+#
+EVENT cwoLicenseRevoked .1.3.6.1.4.1.9.9.762.0.6 "Status Events" Normal
+FORMAT This notification is generated when a requested revoke ticket $*
+SDESC
+This notification is generated when a requested revoke ticket
+is obtained. This ticket could have been requested in order to
+move the license to a different system.
+Variables:
+EDESC
+#
+#
+#
+EVENT cwoLicenseDeleted .1.3.6.1.4.1.9.9.762.0.7 "Status Events" Normal
+FORMAT This notification is generated when the license on the system $*
+SDESC
+This notification is generated when the license on the system
+is cleared.
+Variables:
+EDESC

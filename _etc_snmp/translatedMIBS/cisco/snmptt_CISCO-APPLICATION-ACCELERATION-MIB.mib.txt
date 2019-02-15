@@ -1,0 +1,17 @@
+#
+#
+#
+#
+MIB: CISCO-APPLICATION-ACCELERATION-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-APPLICATION-ACCELERATION-MIB.mib) converted on Tue Aug 21 15:25:37 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT caaStateChange .1.3.6.1.4.1.9.9.594.0.1 "Status Events" Normal
+FORMAT This object represents the notification to be generated $*
+SDESC
+This object represents the notification to be generated
+when a condenser undergoes a state change. caaState represents
+the new state of the condenser.
+Variables:
+  1: caaState
+EDESC

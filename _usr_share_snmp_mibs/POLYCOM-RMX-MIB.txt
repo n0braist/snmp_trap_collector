@@ -1,0 +1,104 @@
+
+POLYCOM-RMX-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+DateAndTime        FROM SNMPv2-TC
+  MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+    enterprises
+    FROM SNMPv2-SMI ; 
+
+polycom MODULE-IDENTITY
+  LAST-UPDATED  "200703140000Z"
+  ORGANIZATION  "Polycom Ltd."
+  CONTACT-INFO  "Sagi Amiel"
+
+  DESCRIPTION
+"This is RMX MCU MIB"
+  ::= { enterprises 13885 }  
+    
+nsdProducts	         OBJECT IDENTIFIER ::= { polycom    9}
+rmx                      OBJECT IDENTIFIER ::= { nsdProducts 1}
+rmxMib1	                 OBJECT IDENTIFIER ::= { rmx 1}
+rmxMib1General	 	 OBJECT IDENTIFIER ::= { rmxMib1 1}
+rmxMib1Events	 	 OBJECT IDENTIFIER ::= { rmxMib1 2}
+rmxMib1EventsParams	 OBJECT IDENTIFIER ::= { rmxMib1Events 1}
+rmxNotify	  	 OBJECT IDENTIFIER ::= { rmxMib1Events 2}
+rmxTraps	         OBJECT IDENTIFIER ::= { rmxNotify 0 }
+
+
+rmxProducts	         OBJECT IDENTIFIER ::= { rmx 10 }
+rmx2000	                 OBJECT IDENTIFIER ::= { rmxProducts 1 }
+rmx4000					 OBJECT IDENTIFIER ::= { rmxProducts 2 }
+rmx1500					 OBJECT IDENTIFIER ::= { rmxProducts 3 }
+callgenerator			 OBJECT IDENTIFIER ::= { rmxProducts 77 }
+-- PUT HERE MORE PRODUCTS...  
+-- sample : rmx8000	                 OBJECT IDENTIFIER ::= { rmxProducts 8 }
+
+
+rmxStatus OBJECT-TYPE
+	SYNTAX  	Unsigned32 {
+					normal  (1),
+					startup (0),
+					minor   (4),
+					major   (3),
+					Disconnected  (2),
+					Resetting   (5),
+					LowMemory   (6),
+					Diagnostics (7),
+					Critical    (8)
+					
+                                   }
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION	"MCU current status"
+::= { rmxMib1General 1 }
+
+ 
+----------------------------------------------------------
+--   Trap Group
+-------------------------------------------------------
+
+rmxAlarmDescription OBJECT-TYPE
+	SYNTAX  OCTET STRING (SIZE (0..255))
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"Active alarm description"
+::= {rmxMib1EventsParams 1 }  
+
+rmxActiveAlarmDateAndTime OBJECT-TYPE
+	SYNTAX  DateAndTime
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"Active alarm data and time"
+::= {rmxMib1EventsParams 2 } 
+
+rmxActiveAlarmIndex OBJECT-TYPE
+	SYNTAX  Unsigned32
+	MAX-ACCESS  accessible-for-notify
+	STATUS  current
+   	DESCRIPTION	"Active alarm table unique index number"
+::= {rmxMib1EventsParams 3 } 
+
+
+------------------------------------------------------------------------------
+--  TRAP V2
+------------------------------------------------------------------------------
+
+rmxNewAlarm  NOTIFICATION-TYPE
+             OBJECTS   { rmxAlarmDescription , rmxActiveAlarmDateAndTime , rmxActiveAlarmIndex }
+             STATUS  current
+             DESCRIPTION
+                  "New active alarm"
+              ::= { rmxTraps 1 }
+
+--------------------------------------------------------------
+--   TRAP V1
+--------------------------------------------------------------
+ rmxNewAlarm  TRAP-TYPE
+    ENTERPRISE  polycom 
+    VARIABLES   {  rmxAlarmDescription , rmxActiveAlarmDateAndTime , rmxActiveAlarmIndex }
+    DESCRIPTION
+           "New active alarm"
+    ::= 1
+
+END  

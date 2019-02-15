@@ -1,0 +1,52 @@
+#
+#
+#
+#
+MIB: CISCO-ISCSI-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-ISCSI-MIB.mib) converted on Tue Aug 21 15:26:12 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cIscsiTgtLoginFailure .1.3.6.1.4.1.9.10.94.2.0.1 "Status Events" Normal
+FORMAT Sent when a login is failed by a target. $*
+SDESC
+Sent when a login is failed by a target.
+The implementation of this trap should not send more than
+3 notifications of this type in any 10 second time span.
+Variables:
+  1: cIscsiTgtLoginFailures
+  2: cIscsiTgtLastFailureType
+  3: cIscsiTgtLastIntrFailureName
+  4: cIscsiTgtLastIntrFailureAddrType
+  5: cIscsiTgtLastIntrFailureAddr
+EDESC
+#
+#
+#
+EVENT cIscsiIntrLoginFailure .1.3.6.1.4.1.9.10.94.2.0.2 "Status Events" Normal
+FORMAT Sent when a login is failed by a initiator. $*
+SDESC
+Sent when a login is failed by a initiator.
+The implementation of this trap should not send more than
+3 notifications of this type in any 10 second time span.
+Variables:
+  1: cIscsiIntrLoginFailures
+  2: cIscsiIntrLastFailureType
+  3: cIscsiIntrLastTgtFailureName
+  4: cIscsiIntrLastTgtFailureAddrType
+  5: cIscsiIntrLastTgtFailureAddr
+EDESC
+#
+#
+#
+EVENT cIscsiInstSessionFailure .1.3.6.1.4.1.9.10.94.2.0.3 "Status Events" Normal
+FORMAT Sent when an active session is failed by either the initiator $*
+SDESC
+Sent when an active session is failed by either the initiator
+or the target.
+The implementation of this trap should not send more than
+3 notifications of this type in any 10 second time span.
+Variables:
+  1: cIscsiInstSsnFailures
+  2: cIscsiInstLastSsnFailureType
+  3: cIscsiInstLastSsnRmtNodeName
+EDESC

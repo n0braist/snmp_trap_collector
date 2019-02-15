@@ -1,0 +1,1532 @@
+#
+#
+#
+#
+MIB: CPQRACK-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQRACK-MIB.mib) converted on Wed Aug 22 14:19:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqRackNameChanged .1.3.6.1.4.1.232.0.22001 "Status Events" INFORMATIONAL
+FORMAT Rack name changed (22001): The rack name has changed to $3.
+SDESC
+Rack name has changed.
+This trap signifies that an agent or utility has changed the name
+of the rack.  Each of the server blades in each of the enclosure
+within the rack will be updated to reflect the new rack name.
+It may take several minutes for the rack name change to be
+propagated throughout the entire rack.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackSerialNum
+  6: cpqRackTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureNameChanged .1.3.6.1.4.1.232.0.22002 "Status Events" INFORMATIONAL
+FORMAT Enclosure name changed (22002): The enclosure name has changed to $5 in rack $3.
+SDESC
+The enclosure name has changed.
+This trap signifies that an agent or utility has changed the name
+of an enclosure within the rack.  Each of the components
+within the rack will be updated to reflect the new enclosure name.
+It may take several minutes for the enclosure name change to be
+propagated throughout the entire enclosure.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureModel
+  8: cpqRackCommonEnclosureSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureRemoved .1.3.6.1.4.1.232.0.22003 "Status Events" INFORMATIONAL
+FORMAT Enclosure removed (22003): The enclosure $5 has been removed from rack $3.
+SDESC
+The enclosure has been removed.
+This trap signifies that an enclosure has been removed from
+the rack.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureModel
+  7: cpqRackCommonEnclosureSerialNum
+  8: cpqRackCommonEnclosureSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureInserted .1.3.6.1.4.1.232.0.22004 "Status Events" INFORMATIONAL
+FORMAT Enclosure inserted (22004): The enclosure $5 has been inserted into rack $3.
+SDESC
+The enclosure has been inserted.
+This trap signifies that an enclosure has been inserted into
+the rack.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureModel
+  7: cpqRackCommonEnclosureSerialNum
+  8: cpqRackCommonEnclosureSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureTempFailed .1.3.6.1.4.1.232.0.22005 "Status Events" CRITICAL
+FORMAT Enclosure temperature failed (22005): The enclosure $5 temperature sensor in rack $3 has been set to failed.
+SDESC
+The enclosure temperature status has been set to failed.
+This trap signifies that a enclosure temperature sensor has
+been tripped indicating an overheat condition.
+User Action: Shutdown the enclosure and possibly the rack
+as soon as possible.  Insure all fans are working properly and
+that air flow in the rack has not been blocked.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureTempLocation
+  8: cpqRackCommonEnclosureSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureTempDegraded .1.3.6.1.4.1.232.0.22006 "Status Events" MAJOR
+FORMAT Enclosure temperature degraded (22006): The enclosure $5 temperature sensor in rack $3 has been set to degraded.
+SDESC
+The enclosure temperature status has been set to degraded.
+This trap signifies that an enclosure temperature sensor has
+been tripped indicating a possible overheat condition.
+User Action: Shutdown the enclosure and possibly the rack
+as soon as possible.  Insure all fans are working properly and
+that air flow in the rack has not been blocked.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureTempLocation
+  8: cpqRackCommonEnclosureSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureTempOk .1.3.6.1.4.1.232.0.22007 "Status Events" INFORMATIONAL
+FORMAT Enclosure temperature ok (22007): The enclosure $5 temperature sensor in rack $3 has been set to ok.
+SDESC
+The enclosure temperature status has been set to ok.
+This trap signifies that an enclosure temperature sensor has
+returned to normal.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureTempLocation
+  8: cpqRackCommonEnclosureSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureFanFailed .1.3.6.1.4.1.232.0.22008 "Status Events" CRITICAL
+FORMAT Enclosure fan failed (22008): The enclosure $5 fan in rack $3 has been set to failed.
+SDESC
+The enclosure fan status has been set to failed.
+This trap signifies that an enclosure fan has failed and
+no other fans in the redundant fan group are operating.
+This may result in overheating of the enclosure.
+User Action: Replace the fan as soon as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureFanLocation
+  8: cpqRackCommonEnclosureFanSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureFanDegraded .1.3.6.1.4.1.232.0.22009 "Status Events" MAJOR
+FORMAT Enclosure fan degraded (22009): The enclosure $5 fan in rack $3 has been set to degraded.
+SDESC
+The enclosure fan status has been set to degraded.
+This trap signifies that an enclosure fan has failed but
+other fans in the redundant fan group are still operating.
+This may result in overheating of the enclosure.
+User Action: Replace the fan as soon as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureFanLocation
+  8: cpqRackCommonEnclosureFanSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureFanOk .1.3.6.1.4.1.232.0.22010 "Status Events" INFORMATIONAL
+FORMAT Enclosure fan ok (22010): The enclosure $5 fan in rack $3 has been set to ok.
+SDESC
+The enclosure fan status has been set to ok.
+This trap signifies that an enclosure fan has returned
+to normal operation.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureFanLocation
+  8: cpqRackCommonEnclosureFanSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureFanRemoved .1.3.6.1.4.1.232.0.22011 "Status Events" MINOR
+FORMAT Enclosure fan removed (22011): The enclosure $5 fan in rack $3 has been removed.
+SDESC
+The enclosure fan has been removed.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureFanLocation
+  8: cpqRackCommonEnclosureFanSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureFanInserted .1.3.6.1.4.1.232.0.22012 "Status Events" INFORMATIONAL
+FORMAT Enclosure fan inserted (22012): The enclosure $5 fan in rack $3 has been inserted.
+SDESC
+The enclosure fan has been inserted.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureFanLocation
+  8: cpqRackCommonEnclosureFanSparePartNumber
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSupplyFailed .1.3.6.1.4.1.232.0.22013 "Status Events" CRITICAL
+FORMAT Rack power supply failed (22013): The power supply $7 in enclosure $5 in rack $3 has been set to failed.
+SDESC
+The power supply status has been set to failed.
+This trap signifies that a power supply has failed.
+User Action: Replace the power supply as soon as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerSupplyEnclosureName
+  6: cpqRackPowerSupplySerialNum
+  7: cpqRackPowerSupplyPosition
+  8: cpqRackPowerSupplyFWRev
+  9: cpqRackPowerSupplySparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSupplyDegraded .1.3.6.1.4.1.232.0.22014 "Status Events" MAJOR
+FORMAT Rack power supply degraded (22014): The power supply $7 in enclosure $5 in rack $3 has been set to degraded.
+SDESC
+The power supply status has been set to degraded.
+This trap signifies that a power supply has degraded.
+User Action: Replace the power supply as soon as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerSupplyEnclosureName
+  6: cpqRackPowerSupplySerialNum
+  7: cpqRackPowerSupplyPosition
+  8: cpqRackPowerSupplyFWRev
+  9: cpqRackPowerSupplySparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSupplyOk .1.3.6.1.4.1.232.0.22015 "Status Events" INFORMATIONAL
+FORMAT Rack power supply ok (22015): The power supply $7 in enclosure $5 in rack $3 has been set to ok.
+SDESC
+The power supply status has been set to ok.
+This trap signifies that a power supply has returned to normal
+operation.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerSupplyEnclosureName
+  6: cpqRackPowerSupplySerialNum
+  7: cpqRackPowerSupplyPosition
+  8: cpqRackPowerSupplyFWRev
+  9: cpqRackPowerSupplySparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSupplyRemoved .1.3.6.1.4.1.232.0.22016 "Status Events" MINOR
+FORMAT Rack power supply removed (22016): The power supply $7 in enclosure $5 in rack $3 has been removed.
+SDESC
+The power supply has been removed.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerSupplyEnclosureName
+  6: cpqRackPowerSupplySerialNum
+  7: cpqRackPowerSupplyPosition
+  8: cpqRackPowerSupplyFWRev
+  9: cpqRackPowerSupplySparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSupplyInserted .1.3.6.1.4.1.232.0.22017 "Status Events" INFORMATIONAL
+FORMAT Rack power supply inserted (22017): The power supply $7 in enclosure $5 in rack $3 has been inserted.
+SDESC
+The power supply has been inserted.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerSupplyEnclosureName
+  6: cpqRackPowerSupplySerialNum
+  7: cpqRackPowerSupplyPosition
+  8: cpqRackPowerSupplyFWRev
+  9: cpqRackPowerSupplySparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSubsystemNotRedundant .1.3.6.1.4.1.232.0.22018 "Status Events" MAJOR
+FORMAT Rack power subsystem not redundant (22018): The power subsystem in enclosure $5 in rack $3 is no longer redundant.
+SDESC
+The rack power subsystem is no longer in a redundant state.
+User Action: Replace any failed power supplies as soon as possible
+to return the system to a redundant state.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSubsystemLineVoltageProblem .1.3.6.1.4.1.232.0.22019 "Status Events" MAJOR
+FORMAT Rack power supply input voltage problem (22019): The rack power supply detected an input line voltage problem in power supply $6, enclosure $5, rack $3.
+SDESC
+The rack power supply detected an input line voltage problem.
+User Action: Check the power input for the power supply or replace
+any failed power supplies as soon as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerSupplyEnclosureName
+  6: cpqRackPowerSupplyPosition
+  7: cpqRackPowerSupplyFWRev
+  8: cpqRackPowerSupplyInputLineStatus
+  9: cpqRackPowerSupplySparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerSubsystemOverloadCondition .1.3.6.1.4.1.232.0.22020 "Status Events" MAJOR
+FORMAT Rack power subsystem overload condition (22020): The power subsystem in enclosure $5 in rack $3 is in an overload condition.
+SDESC
+The rack power subsystem overload condition.
+User Action: Replace any failed power supplies as soon as possible
+to return the system to a redundant state.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackPowerEnclosureName
+  6: cpqRackCommonEnclosureSparePartNumber
+  7: cpqRackCommonEnclosureSerialNum
+  8: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerShedAutoShutdown .1.3.6.1.4.1.232.0.22021 "Status Events" CRITICAL
+FORMAT Server shutdown due to power shedding (22021): The server shutdown due to lack of power blade $6, in enclosure $5, in rack $3.
+SDESC
+Server shutdown due to power shedding.
+The server blade was shutdown due to a lack of power.
+User Action: Check power connections or add power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladePosition
+  7: cpqRackServerBladeSparePartNumber
+  8: cpqRackCommonEnclosureSerialNum
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerPowerOnFailedNotRedundant .1.3.6.1.4.1.232.0.22022 "Status Events" CRITICAL
+FORMAT Server power on prevented to preserve redundancy (22022): Server power on prevented to preserve redundancy in blade $6, in enclosure $5, in rack $3.
+SDESC
+Server power on prevented to preserve redundancy.
+There is not enough power to power on the server blade and
+maintain redundancy for the other blades in the enclosure.
+User Action: Check power connections or add power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladePosition
+  7: cpqRackServerBladeSparePartNumber
+  8: cpqRackCommonEnclosureSerialNum
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerPowerOnFailedNotEnoughPower .1.3.6.1.4.1.232.0.22023 "Status Events" CRITICAL
+FORMAT Inadequate power to power on (22023): Inadequate power to power on blade $6, in enclosure $5, in rack $3.
+SDESC
+Inadequate power to power on.
+There is not enough power to power on the server blade.
+User Action: Check power connections or add power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladePosition
+  7: cpqRackServerBladeSparePartNumber
+  8: cpqRackCommonEnclosureSerialNum
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerPowerOnFailedEnclosureNotFound .1.3.6.1.4.1.232.0.22024 "Status Events" CRITICAL
+FORMAT Inadequate power to power on (22024): Inadequate power to power on blade $6, in enclosure $5, in rack $3.
+SDESC
+Inadequate power to power on.
+There is not enough power to power on the server blade.  The
+server enclosure micro-controller was not found.
+User Action: Check server enclosure connections or add power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladePosition
+  7: cpqRackServerBladeSparePartNumber
+  8: cpqRackCommonEnclosureSerialNum
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerPowerOnFailedPowerChassisNotFound .1.3.6.1.4.1.232.0.22025 "Status Events" CRITICAL
+FORMAT Inadequate power to power on (22025): Inadequate power to power on blade $6, in enclosure $5, in rack $3.
+SDESC
+Inadequate power to power on.
+There is not enough power to power on the server blade.  The
+power enclosure micro-controller was not found.
+User Action: Check power enclosure connections or add power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladePosition
+  7: cpqRackServerBladeSparePartNumber
+  8: cpqRackCommonEnclosureSerialNum
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerPowerOnManualOverride .1.3.6.1.4.1.232.0.22026 "Status Events" MAJOR
+FORMAT Server power on via manual override (22026): Server power on via manual override on blade $6, in enclosure $5, in rack $3.
+SDESC
+Server power on via manual override.
+The server blade was powered on by a manual override.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladePosition
+  7: cpqRackServerBladeSparePartNumber
+  8: cpqRackCommonEnclosureSerialNum
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackFuseOpen .1.3.6.1.4.1.232.0.22027 "Status Events" MAJOR
+FORMAT Fuse open (22027): Fuse open fuse $6, in enclosure $5, in rack $3.
+SDESC
+Fuse open.
+The fuse has been tripped.
+User Action: Check enclosure and / or blade power connections and
+reset the fuse.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureFuseLocation
+  7: cpqRackCommonEnclosureSparePartNumber
+  8: cpqRackCommonEnclosureSerialNum
+  9: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeRemoved .1.3.6.1.4.1.232.0.22028 "Status Events" INFORMATIONAL
+FORMAT Server blade removed (22028): Server blade $6 removed from position $7, in enclosure $5, in rack $3.
+SDESC
+Server blade removed.
+The server blade has been removed from the enclosure.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeInserted .1.3.6.1.4.1.232.0.22029 "Status Events" INFORMATIONAL
+FORMAT Server blade inserted (22029): Server blade $6 inserted into position $7, in enclosure $5, in rack $3.
+SDESC
+Server blade inserted.
+The server blade has been inserted into the enclosure.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerChassisNotLoadBalanced .1.3.6.1.4.1.232.0.22030 "Status Events" MAJOR
+FORMAT Power subsystem not load balanced (22030): Power subsystem not load balanced in enclosure $5, in rack $3.
+SDESC
+Power subsystem not load balanced.
+The power subsystem is out of balance for this power enclosure.
+User Action: Check the power enclosure and power supplies.  Replace
+any failed or degraded power supplies.  Add additional power supplies
+if needed.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureSparePartNumber
+  8: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerChassisDcPowerProblem .1.3.6.1.4.1.232.0.22031 "Status Events" MAJOR
+FORMAT Power subsystem DC power problem (22031): Power subsystem DC power problem in enclosure $5, in rack $3.
+SDESC
+Power subsystem DC power problem.
+There is a power subsystem DC power problem for this power enclosure.
+User Action: Check the power enclosure and power supplies.  Replace
+any failed or degraded power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureSparePartNumber
+  8: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerChassisAcFacilityPowerExceeded .1.3.6.1.4.1.232.0.22032 "Status Events" MAJOR
+FORMAT Power subsystem AC facility input power exceeded (22032): Power subsystem AC facility input power exceeded in enclosure $5, in rack $3.
+SDESC
+Power subsystem AC facility input power exceeded.
+There is a power subsystem Power subsystem AC facility input power
+exceeded for this power enclosure.
+User Action: Check the power enclosure and power supplies.  Replace
+any failed or degraded power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureSparePartNumber
+  8: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerUnknownPowerConsumption .1.3.6.1.4.1.232.0.22033 "Status Events" MAJOR
+FORMAT Unknown power consumption (22033): Unknown power consumption in rack $3.
+SDESC
+Unknown power consumption.
+There is an unknown power consumer drawing power.
+User Action: Check the power enclosure and power supplies.  Replace
+any failed or degraded power supplies.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureSerialNum
+  6: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerChassisLoadBalancingWireMissing .1.3.6.1.4.1.232.0.22034 "Status Events" MAJOR
+FORMAT Power subsystem load balancing wire missing (22034): Power subsystem load balancing wire missing for enclosure $5, in rack $3.
+SDESC
+Power subsystem load balancing wire missing.
+The power subsystem load balancing wire missing.
+User Action: Connect the load balancing wire.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureSparePartNumber
+  8: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerChassisTooManyPowerChassis .1.3.6.1.4.1.232.0.22035 "Status Events" MAJOR
+FORMAT Power subsystem has too may power enclosures (22035): Power subsystem has too may power enclosures $5, in rack $3.
+SDESC
+Power subsystem has too may power enclosures.
+The maximum number of power enclosures has been exceeded.
+User Action: Remove the extra power enclosure.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackPowerChassisConfigError .1.3.6.1.4.1.232.0.22036 "Status Events" MAJOR
+FORMAT Power subsystem improperly configured (22036): Power subsystem has been improperly configured in enclosure $5, in rack $3.
+SDESC
+Power subsystem improperly configured.
+The power subsystem has been improperly configured.
+User Action: Check the cabling of the power enclosure.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureSparePartNumber
+  8: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureManagerDegraded .1.3.6.1.4.1.232.0.22037 "Status Events" MAJOR
+FORMAT Enclosure manager degraded (22037): The enclosure $5 manager in rack $3 has been set to degraded.
+SDESC
+The Onboard Administrator or other management processor status has been set to degraded.
+This trap signifies that either an Onboard Administrator has failed but
+the other Onboard Administrator is still operating, or one or more management processors is in 
+a non-optimal operating state.
+User Action: For C-Class enclosures, replace the Onboard Administrator as soon as possible.
+For all others please refer to product documenation for possible corrective actions
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureManagerLocation
+  8: cpqRackCommonEnclosureManagerSparePartNumber
+  9: cpqRackCommonEnclosureManagerSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureManagerOk .1.3.6.1.4.1.232.0.22038 "Status Events" INFORMATIONAL
+FORMAT Onboard or management processor ok (22038): The Onboard Administrator or management processor $5 in rack $3 has been set to ok.
+SDESC
+The Onboard Administrator or other management processor's status has been set to ok.
+This trap signifies that an Onboard Administrator or other management processor has returned
+to normal operation.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureManagerLocation
+  8: cpqRackCommonEnclosureManagerSparePartNumber
+  9: cpqRackCommonEnclosureManagerSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureManagerRemoved .1.3.6.1.4.1.232.0.22039 "Status Events" MINOR
+FORMAT Onboard Administrator removed (22039): The Onboard Administrator $5 in rack $3 has been removed.
+SDESC
+The Onboard Administrator has been removed.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureManagerLocation
+  8: cpqRackCommonEnclosureManagerSparePartNumber
+  9: cpqRackCommonEnclosureManagerSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackEnclosureManagerInserted .1.3.6.1.4.1.232.0.22040 "Status Events" INFORMATIONAL
+FORMAT Onboard Administrator or other management processor inserted (22040): The Onboard Administrator or other management processor $5 in rack $3 has been inserted.
+SDESC
+The Onboard Administrator or other management processor has been inserted.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureManagerLocation
+  8: cpqRackCommonEnclosureManagerSparePartNumber
+  9: cpqRackCommonEnclosureManagerSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackManagerPrimaryRole .1.3.6.1.4.1.232.0.22041 "Status Events" MAJOR			
+FORMAT Onboard Administrator or other management processor has taken the role of primary (UID).: Onboard Administrator or other management processor has taken the role of primary, in enclosure $6, in rack $4.				
+SDESC
+
+The Onboard Administrator or other management processor has taken the role of primary.
+User Action: None.           
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackCommonEnclosureName
+  6: cpqRackCommonEnclosureSerialNum
+  7: cpqRackCommonEnclosureManagerLocation
+  8: cpqRackCommonEnclosureManagerSparePartNumber
+  9: cpqRackCommonEnclosureManagerSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeEKeyingFailed .1.3.6.1.4.1.232.0.22042 "Status Events" MAJOR
+FORMAT Server Blade e-keying failed (22042): Server blade $6 e-keying failed in position $7, in enclosure $5, in rack $3.
+SDESC
+The server blade e-keying has failed.
+This trap signifies that a server blade e-keying has failed and
+there is a port mapping problem between a server mezz card
+and the interconnect.
+User Action: Reconfigure server blade mezz cards.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeEKeyingOK .1.3.6.1.4.1.232.0.22043 "Status Events" INFORMATIONAL
+FORMAT Server Blade e-keying ok (22043): Server blade $6 e-keying is ok in position $7, in enclosure $5, in rack $3.
+SDESC
+The server blade e-keying is ok.
+This trap signifies that a server blade e-keying has returned to
+normal operation.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackNetConnectorRemoved .1.3.6.1.4.1.232.0.22044 "Status Events" MAJOR
+FORMAT Interconnect removed (22044): Interconnect $6 removed from position $7, in enclosure $5, in rack $3.
+SDESC
+Interconnect removed.
+The interconnect has been removed from the enclosure.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackNetConnectorEnclosureName
+  6: cpqRackNetConnectorName
+  7: cpqRackNetConnectorLocation
+  8: cpqRackNetConnectorSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackNetConnectorInserted .1.3.6.1.4.1.232.0.22045 "Status Events" MAJOR
+FORMAT Interconnect inserted (22045): Interconnect $6 inserted into position $7, in enclosure $5, in rack $3.
+SDESC
+Interconnect inserted.
+The interconnect has been inserted into the enclosure.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackNetConnectorEnclosureName
+  6: cpqRackNetConnectorName
+  7: cpqRackNetConnectorLocation
+  8: cpqRackNetConnectorSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackNetConnectorFailed .1.3.6.1.4.1.232.0.22046 "Status Events" CRITICAL
+FORMAT Interconnect failed (22046): Interconnect $6 failed in position $7, in enclosure $5, in rack $3.
+SDESC
+The interconnect status has been set to failed.
+This trap signifies that a interconnect has failed.
+User Action: Replace the interconnect as soon as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackNetConnectorEnclosureName
+  6: cpqRackNetConnectorName
+  7: cpqRackNetConnectorLocation
+  8: cpqRackNetConnectorSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackNetConnectorDegraded .1.3.6.1.4.1.232.0.22047 "Status Events" MAJOR
+FORMAT Interconnect degraded (22047): Interconnect $6 degraded in position $7, in enclosure $5, in rack $3.
+SDESC
+The interconnect status has been set to degraded.
+This trap signifies that a interconnect has degraded.
+User Action: Replace the interconnect as soon as possible.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackNetConnectorEnclosureName
+  6: cpqRackNetConnectorName
+  7: cpqRackNetConnectorLocation
+  8: cpqRackNetConnectorSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackNetConnectorOk .1.3.6.1.4.1.232.0.22048 "Status Events" INFORMATIONAL
+FORMAT Interconnect ok (22048): Interconnect $6 ok in position $7, in enclosure $5, in rack $3.
+SDESC
+The interconnect status has been set to ok.
+This trap signifies that a interconnect has returned to
+normal operation.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackNetConnectorEnclosureName
+  6: cpqRackNetConnectorName
+  7: cpqRackNetConnectorLocation
+  8: cpqRackNetConnectorSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeToLowPower .1.3.6.1.4.1.232.0.22049 "Status Events" INFORMATIONAL
+FORMAT Server Blade requested to low power (22049): Server blade $6 requested to low power in position $7, in enclosure $5, in rack $3.
+SDESC
+The server blade requested to low power.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeRemoved2 .1.3.6.1.4.1.232.0.22050 "Status Events" INFORMATIONAL
+FORMAT Server blade removed (22050): Server blade $6 removed from position $7, in enclosure $5, in rack $3.
+SDESC
+Server blade removed.
+The server blade has been removed from the enclosure.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeInserted2 .1.3.6.1.4.1.232.0.22051 "Status Events" INFORMATIONAL
+FORMAT Server blade inserted (22051): Server blade $6 inserted into position $7, in enclosure $5, in rack $3.
+SDESC
+Server blade inserted.
+The server blade has been inserted into the enclosure.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeStatusRepaired .1.3.6.1.4.1.232.0.22052 "Status Events" INFORMATIONAL
+FORMAT Server blade repaired (22052): Server blade $6 in position $8, in enclosure $5, in rack $3 status has changed to OK.
+SDESC
+Server blade repaired.
+The server blade status has changed to OK.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladeProductId
+  8: cpqRackServerBladePosition
+  9: cpqRackServerBladeSparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackServerBladeSerialNum
+  12: cpqRackServerBladeUid
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeStatusDegraded .1.3.6.1.4.1.232.0.22053 "Status Events" MAJOR
+FORMAT Server blade health status degraded (22053): Server blade $6 in position $8, in enclosure $5, in rack $3 health status has changed to degraded.  Reason:  $15.
+SDESC
+Server blade health status Degraded.
+The server blade health status has changed to Degraded.
+User Action: Check blade server and enclosure SYSLOG.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladeProductId
+  8: cpqRackServerBladePosition
+  9: cpqRackServerBladeSparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackServerBladeSerialNum
+  12: cpqRackServerBladeUid
+  13: cpqRackServerBladeFaultMajor
+  14: cpqRackServerBladeFaultMinor
+  15: cpqRackServerBladeFaultDiagnosticString
+  16: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeStatusCritical .1.3.6.1.4.1.232.0.22054 "Status Events" CRITICAL
+FORMAT Server blade health status critical (22054): Server blade $6 in position $8, in enclosure $5, in rack $3 health status has changed to critical.   Reason:  $15.
+SDESC
+Server blade health status Critical.
+The server blade health status has changed to Critical.
+User Action: Check blade server and enclosure SYSLOG.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladeProductId
+  8: cpqRackServerBladePosition
+  9: cpqRackServerBladeSparePartNumber
+  10: cpqRackCommonEnclosureSerialNum
+  11: cpqRackServerBladeSerialNum
+  12: cpqRackServerBladeUid
+  13: cpqRackServerBladeFaultMajor
+  14: cpqRackServerBladeFaultMinor
+  15: cpqRackServerBladeFaultDiagnosticString
+  16: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeGrpCapTimeout .1.3.6.1.4.1.232.0.22055 "Status Events" CRITICAL
+FORMAT Server blade not responding to group capping requests (22055): Server blade $6 in position $7, in enclosure $5, in rack $3 is not responding to requests from the enclosure group capper.
+SDESC
+The server blade is not responding to the group capper.
+The server blade is not responding to capping requests from the enclosure group capper
+User Action: Reset the iLO management processor.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeUnexpectedShutdown .1.3.6.1.4.1.232.0.22056 "Status Events" INFORMATIONAL
+FORMAT Server blade unexpected shutdown (22056): Server blade $6 in position $7, in enclosure $5, in rack $3 has unexpectedly shutdown.
+SDESC
+Server blade shutdown unexpectadly.
+An unexpected shutdown event has occurred for this server blade.
+User Action: Check blade server and enclosure SYSLOG.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeMangementControllerFirmwareUpdating .1.3.6.1.4.1.232.0.22057 "Status Events" INFORMATIONAL
+FORMAT Server blade management controller firmware update started (22057): Server blade $6 in position $7, in enclosure $5, in rack $3 has started updating it's management controller firmware.
+SDESC
+Server blade's management controller firmware updating.
+This server blade's management controller has started updating it's firmware.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeManagementDeviceFirmwareFlashingStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeMangementControllerFirmwareUpdateComplete .1.3.6.1.4.1.232.0.22058 "Status Events" INFORMATIONAL
+FORMAT Server blade management controller firmware update completed (22058): Server blade $6 in position $7, in enclosure $5, in rack $3 has finished updating it's management controller firmware.
+SDESC
+Server blade's management controller firmware update has completed.
+This server blade's management controller has finished updating it's firmware.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeManagementDeviceFirmwareFlashingStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeSystemBIOSFirmwareUpdating .1.3.6.1.4.1.232.0.22059 "Status Events" INFORMATIONAL
+FORMAT Server blade system BIOS firmware update started (22059): Server blade $6 in position $7, in enclosure $5, in rack $3 has started updating it's system BIOS firmware.
+SDESC
+Server blade's system BIOS firmware updating.
+This server blade's system BIOS has started updating.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeSystemBIOSFlashingStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeSystemBIOSFirmwareUpdateCompleted .1.3.6.1.4.1.232.0.22060 "Status Events" INFORMATIONAL
+FORMAT Server blade system BIOS firmware update completed (22060): Server blade $6 in position $7, in enclosure $5, in rack $3 has completed updating it's system BIOS firmware.
+SDESC
+Server blade's system BIOS firmware update complete.
+This server blade's system BIOS has completed updating.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeSystemBIOSFlashingStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeFrontIOBlankingActive .1.3.6.1.4.1.232.0.22061 "Status Events" INFORMATIONAL
+FORMAT Server blade front IO blanking active (22061): Server blade $6 in position $7, in enclosure $5, in rack $3 has disabled front IO.
+SDESC
+Server blade has disabled front IO ports.
+Front IO blanking status has changed to active for this server blade.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeFrontIOBlankingModeStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeRemoteFrontIOBlankingInactive .1.3.6.1.4.1.232.0.22062 "Status Events" INFORMATIONAL
+FORMAT Server blade front IO blanking inactive (22062): Server blade $6 in position $7, in enclosure $5, in rack $3 has enabled front IO.
+SDESC
+Server blade has front IO blanking mode now inactive.
+Front IO blanking status has changed to inactive for this server blade.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeFrontIOBlankingModeStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeDiagnosticAdaptorInserted .1.3.6.1.4.1.232.0.22063 "Status Events" INFORMATIONAL
+FORMAT Server blade diagnostic adaptor inserted (22063): Server blade $6 in position $7, in enclosure $5, in rack $3 diagnostic adaptor inserted.
+SDESC
+Server blade diagnostic adaptor inserted.
+Blade diagnostic adaptor status has changed to inserted for this server blade.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeDiagnosticAdaptorPresence
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeDiagnosticAdaptorRemoved .1.3.6.1.4.1.232.0.22064 "Status Events" INFORMATIONAL
+FORMAT Server blade diagnostic adaptor removed (22064): Server blade $6 in position $7, in enclosure $5, in rack $3 diagnostic adaptor removed.
+SDESC
+Server blade diagnostic adaptor removed.
+Blade diagnostic adaptor status has changed to removed for this server blade.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladeDiagnosticAdaptorPresence
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeEnteredPXEBootMode .1.3.6.1.4.1.232.0.22065 "Status Events" INFORMATIONAL
+FORMAT Server blade has entered PXE Boot Mode (22065): Server blade $6 in position $7, in enclosure $5, in rack $3 has entered PXE Boot Mode.
+SDESC
+Server blade has entered PXE Boot Mode.
+Server blade Pre-Boot-eXecution (PXE) Mode started.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladePXEBootModeStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeExitedPXEBootMode .1.3.6.1.4.1.232.0.22066 "Status Events" INFORMATIONAL
+FORMAT Server blade has exited PXE Boot Mode (22066): Server blade $6 in position $7, in enclosure $5, in rack $3 has exited PXE Boot Mode.
+SDESC
+Server blade has exited PXE Boot Mode.
+Server blade Pre-Boot-eXecution (PXE) Mode exited.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladePXEBootModeStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladeWarmReset .1.3.6.1.4.1.232.0.22067 "Status Events" INFORMATIONAL
+FORMAT Server blade warm reset occurred (22067): Server blade $6 in position $7, in enclosure $5, in rack $3 has been warm reset.
+SDESC
+Server blade has been warm reset.
+Server blade has experienced a warm reset.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladePOSTStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladePOSTCompleted .1.3.6.1.4.1.232.0.22068 "Status Events" INFORMATIONAL
+FORMAT Server blade system BIOS POST completed (22068): Server blade $6 in position $7, in enclosure $5, in rack $3 system BIOS POST completed.
+SDESC
+Server blade system BIOS POST complete.
+Server blade has completed system BIOS Power-On-Self-Test (POST).
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladePOSTStatus
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladePoweredOn .1.3.6.1.4.1.232.0.22069 "Status Events" INFORMATIONAL
+FORMAT Server blade has powered on (22069): Server blade $6 in position $7, in enclosure $5, in rack $3 has powered on.
+SDESC
+Server blade has powered on.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladePowered
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC
+#
+#
+#
+EVENT cpqRackServerBladePoweredOff .1.3.6.1.4.1.232.0.22070 "Status Events" INFORMATIONAL
+FORMAT Server blade has powered off (22070): Server blade $6 in position $7, in enclosure $5, in rack $3 has powered off.
+SDESC
+Server blade has powered off.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqRackName
+  4: cpqRackUid
+  5: cpqRackServerBladeEnclosureName
+  6: cpqRackServerBladeName
+  7: cpqRackServerBladePosition
+  8: cpqRackServerBladeSparePartNumber
+  9: cpqRackCommonEnclosureSerialNum
+  10: cpqRackServerBladeSerialNum
+  11: cpqRackServerBladeUid
+  12: cpqRackServerBladePowered
+  13: cpqRackCommonEnclosureTrapSequenceNum
+EDESC

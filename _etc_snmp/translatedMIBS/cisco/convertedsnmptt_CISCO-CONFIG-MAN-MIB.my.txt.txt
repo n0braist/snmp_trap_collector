@@ -1,0 +1,18 @@
+#
+#
+#
+#
+MIB: CISCO-CONFIG-MAN-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-CONFIG-MAN-MIB.my.txt) converted on Tue Sep  6 13:51:21 2016 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoConfigManEvent .1.3.6.1.4.1.9.9.43.2.0.1 "Status Events" Normal
+FORMAT Notification of a configuration management event as $*
+SDESC
+Notification of a configuration management event as
+recorded in ccmHistoryEventTable.
+Variables:
+  1: ccmHistoryEventCommandSource
+  2: ccmHistoryEventConfigSource
+  3: ccmHistoryEventConfigDestination
+EDESC

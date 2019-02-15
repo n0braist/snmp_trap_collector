@@ -1,0 +1,94 @@
+#
+#
+#
+#
+MIB: CISCO-L2-CONTROL-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-L2-CONTROL-MIB.mib) converted on Tue Aug 21 15:26:16 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT clcVlanMacLimitNotif .1.3.6.1.4.1.9.9.313.0.1 "Status Events" Normal
+FORMAT Notification is sent when the number of MAC addresses   $*
+SDESC
+Notification is sent when the number of MAC addresses  
+(the value of clcFdbVlanMacUsage) has crossed the 
+configured limit of MAC addresses(clcVlanMaxMacLimit)
+either rising above or falling below it.
+Variables:
+  1: clcFdbVlanMacUsage
+  2: clcVlanMaxMacLimit
+EDESC
+#
+#
+#
+EVENT clcVlanMacLimitHighNotif .1.3.6.1.4.1.9.9.313.0.2 "Status Events" Normal
+FORMAT Notification is sent when the number of MAC addresses   $*
+SDESC
+Notification is sent when the number of MAC addresses  
+(the value of clcFdbVlanMacUsage) has crossed the 
+configured higher threshold limit of MAC 
+addresses(clcVlanMacLimitHigh)
+either rising above or falling below it. 
+Variables:
+  1: clcFdbVlanMacUsage
+  2: clcVlanMacLimitHigh
+EDESC
+#
+#
+#
+EVENT clcIfMacLimitLowNotif .1.3.6.1.4.1.9.9.313.0.3 "Status Events" Normal
+FORMAT Notification is sent when the number of MAC addresses   $*
+SDESC
+Notification is sent when the number of MAC addresses  
+(the value of clcFdbIfMacUsage) has crossed the 
+configured lower threshold limit of MAC 
+addresses(clcIfMacLimitLow) either rising above or falling 
+below it. 
+Variables:
+  1: clcFdbIfMacUsage
+  2: clcIfMacLimitLow
+EDESC
+#
+#
+#
+EVENT clcIfMacLimitHighNotif .1.3.6.1.4.1.9.9.313.0.4 "Status Events" Normal
+FORMAT Notification is sent when the number of MAC addresses   $*
+SDESC
+Notification is sent when the number of MAC addresses  
+(the value of clcFdbIfMacUsage) has crossed the 
+configured higher threshold limit of MAC 
+addresses(clcIfMacLimitHigh)
+either rising above or falling below it. 
+Variables:
+  1: clcFdbIfMacUsage
+  2: clcIfMacLimitHigh
+EDESC
+#
+#
+#
+EVENT clcIfVlanMacLimitLowNotif .1.3.6.1.4.1.9.9.313.0.5 "Status Events" Normal
+FORMAT Notification is sent when the number of MAC addresses   $*
+SDESC
+Notification is sent when the number of MAC addresses  
+(the value of clcFdbIfVlanMacUsage) has crossed the 
+configured lower threshold limit of MAC 
+addresses(clcIfVlanMacLimitLow)
+either rising above or falling below it. 
+Variables:
+  1: clcFdbIfVlanMacUsage
+  2: clcIfVlanMacLimitLow
+EDESC
+#
+#
+#
+EVENT clcIfVlanMacLimitHighNotif .1.3.6.1.4.1.9.9.313.0.6 "Status Events" Normal
+FORMAT Notification is sent when the number of MAC addresses   $*
+SDESC
+Notification is sent when the number of MAC addresses  
+(the value of clcFdbIfVlanMacUsage) has crossed the 
+configured higher threshold limit of MAC 
+addresses(clcIfVlanMacLimitHigh)
+either rising above or falling below it. 
+Variables:
+  1: clcFdbIfVlanMacUsage
+  2: clcIfVlanMacLimitHigh
+EDESC

@@ -1,0 +1,160 @@
+#
+#
+#
+#
+MIB: IBM-SVC-MIB (file:/tmp/IBM_Hardware/IBM_SVC_MIB_6.4.1.MIB) converted on Mon Dec  2 13:54:34 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT tsveETrap .1.3.6.1.4.1.2.6.190.1 "Status Events" Normal
+FORMAT tsve error trap $*
+SDESC
+tsve error trap
+Variables:
+  1: tsveMACH
+  2: tsveSERI
+  3: tsveERRI
+  4: tsveERRC
+  5: tsveSWVE
+  6: tsveFRUP
+  7: tsveCLUS
+  8: tsveNODE
+  9: tsveERRS
+  10: tsveTIME
+  11: tsveOBJT
+  12: tsveOBJI
+  13: tsveADD1
+  14: tsveADD2
+  15: tsveCOPY
+  16: tsveMPNO
+EDESC
+#
+#
+#
+EVENT tsveWTrap .1.3.6.1.4.1.2.6.190.2 "Status Events" Normal
+FORMAT tsve warning trap $*
+SDESC
+tsve warning trap
+Variables:
+  1: tsveMACH
+  2: tsveSERI
+  3: tsveERRI
+  4: tsveERRC
+  5: tsveSWVE
+  6: tsveFRUP
+  7: tsveCLUS
+  8: tsveNODE
+  9: tsveERRS
+  10: tsveTIME
+  11: tsveOBJT
+  12: tsveOBJI
+  13: tsveADD1
+  14: tsveADD2
+  15: tsveCOPY
+  16: tsveMPNO
+EDESC
+#
+#
+#
+EVENT tsveITrap .1.3.6.1.4.1.2.6.190.3 "Status Events" Normal
+FORMAT tsve information trap $*
+SDESC
+tsve information trap
+Variables:
+  1: tsveMACH
+  2: tsveSERI
+  3: tsveERRI
+  4: tsveERRC
+  5: tsveSWVE
+  6: tsveFRUP
+  7: tsveCLUS
+  8: tsveNODE
+  9: tsveERRS
+  10: tsveTIME
+  11: tsveOBJT
+  12: tsveOBJI
+  13: tsveADD1
+  14: tsveADD2
+  15: tsveCOPY
+  16: tsveMPNO
+EDESC
+#
+#
+#
+#
+MIB: IBM-SVC-MIB (file:/tmp/IBM_Hardware/IBM_SVC_MIB_6.4.1.MIB) converted on Tue Nov 11 11:37:55 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT tsveETrap .1.3.6.1.4.1.2.6.190.1 "Status Events" Normal
+FORMAT tsve error trap $*
+SDESC
+tsve error trap
+Variables:
+  1: tsveMACH
+  2: tsveSERI
+  3: tsveERRI
+  4: tsveERRC
+  5: tsveSWVE
+  6: tsveFRUP
+  7: tsveCLUS
+  8: tsveNODE
+  9: tsveERRS
+  10: tsveTIME
+  11: tsveOBJT
+  12: tsveOBJI
+  13: tsveADD1
+  14: tsveADD2
+  15: tsveCOPY
+  16: tsveMPNO
+EDESC
+#
+#
+#
+EVENT tsveWTrap .1.3.6.1.4.1.2.6.190.2 "Status Events" Normal
+FORMAT tsve warning trap $*
+SDESC
+tsve warning trap
+Variables:
+  1: tsveMACH
+  2: tsveSERI
+  3: tsveERRI
+  4: tsveERRC
+  5: tsveSWVE
+  6: tsveFRUP
+  7: tsveCLUS
+  8: tsveNODE
+  9: tsveERRS
+  10: tsveTIME
+  11: tsveOBJT
+  12: tsveOBJI
+  13: tsveADD1
+  14: tsveADD2
+  15: tsveCOPY
+  16: tsveMPNO
+EDESC
+#
+#
+#
+EVENT tsveITrap .1.3.6.1.4.1.2.6.190.3 "Status Events" Normal
+FORMAT tsve information trap $*
+SDESC
+tsve information trap
+Variables:
+  1: tsveMACH
+  2: tsveSERI
+  3: tsveERRI
+  4: tsveERRC
+  5: tsveSWVE
+  6: tsveFRUP
+  7: tsveCLUS
+  8: tsveNODE
+  9: tsveERRS
+  10: tsveTIME
+  11: tsveOBJT
+  12: tsveOBJI
+  13: tsveADD1
+  14: tsveADD2
+  15: tsveCOPY
+  16: tsveMPNO
+EDESC

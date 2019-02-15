@@ -1,0 +1,41 @@
+#
+#
+#
+#
+MIB: IEEE8021-CFM-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/IEEE8021-CFM-MIB.mib) converted on Tue Aug 21 15:26:48 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cdot1agFaultAlarm .1.3.6.1.4.1.9.9.604.0.1 "Status Events" Normal
+FORMAT A MEP has a persistent defect condition. A notification $*
+SDESC
+A MEP has a persistent defect condition. A notification
+(fault alarm) is sent to the management entity with the OID
+of the MEP that has detected the fault.
+Whenever a MEP has a persistent defect,
+it may or may not generate a Fault Alarm to warn the system
+administrator of the problem, as controlled by the MEP
+Fault Notification Generator State Machine and associated
+Managed Objects. Only the highest-priority defect, as shown
+in Table 20-1, is reported in the Fault Alarm.
+If a defect with a higher priority is raised after a Fault
+Alarm has been issued, another Fault Alarm is issued.
+The management entity receiving the notification can identify
+the system from the network source address of the
+notification, and can identify the MEP reporting the defect
+by the indices in the OID of the cdot1agMepHighestPrDefect
+variable in the notification:
+cdot1agMdIndex - Also the index of the MEP's
+Maintenance Domain table entry
+(cdot1agMdTable).
+cdot1agMaIndex - Also an index (with the MD table index)
+of the MEP's Maintenance Association
+table entry (cdot1agMaTable).
+cdot1agMepIdentifier - MEP Identifier and final index
+into the MEP table (cdot1agMepTable).
+
+REFERENCE
+802.1ag clause 12.14.7.7
+Variables:
+  1: cdot1agMepHighestPrDefect
+EDESC

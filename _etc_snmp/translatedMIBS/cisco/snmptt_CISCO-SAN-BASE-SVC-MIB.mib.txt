@@ -1,0 +1,47 @@
+#
+#
+#
+#
+MIB: CISCO-SAN-BASE-SVC-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-SAN-BASE-SVC-MIB.mib) converted on Tue Aug 21 15:26:30 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoSanBaseSvcInterfaceCreate .1.3.6.1.4.1.9.9.702.0.1 "Status Events" Normal
+FORMAT This notification is generated when a service interface $*
+SDESC
+This notification is generated when a service interface
+associated with a local device is created.  The generation 
+of this notification is controlled by 
+cSanBaseSvcNotifyEnable
+Variables:
+  1: ifDescr
+EDESC
+#
+#
+#
+EVENT ciscoSanBaseSvcInterfaceDelete .1.3.6.1.4.1.9.9.702.0.2 "Status Events" Normal
+FORMAT This notification is generated when a service interface $*
+SDESC
+This notification is generated when a service interface
+associated with a local device is deleted. The generation 
+of this notification is controlled by 
+cSanBaseSvcNotifyEnable
+Variables:
+  1: ifDescr
+EDESC
+#
+#
+#
+EVENT ciscoSanBaseSvcClusterNewMaster .1.3.6.1.4.1.9.9.702.0.3 "Status Events" Normal
+FORMAT This notification is generated when the sending device $*
+SDESC
+This notification is generated when the sending device
+who is participating in a service cluster has transitioned 
+to be the master of the cluster. The generation 
+of this notification is controlled by 
+cSanBaseSvcNotifyEnable
+Variables:
+  1: cSanBaseSvcClusterName
+  2: cSanBaseSvcClusterMasterInetAddrType
+  3: cSanBaseSvcClusterMasterInetAddr
+EDESC

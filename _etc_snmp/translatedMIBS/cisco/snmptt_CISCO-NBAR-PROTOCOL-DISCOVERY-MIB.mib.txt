@@ -1,0 +1,41 @@
+#
+#
+#
+#
+MIB: CISCO-NBAR-PROTOCOL-DISCOVERY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB.mib) converted on Tue Aug 21 15:26:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cnpdThresholdRisingEvent .1.3.6.1.4.1.9.9.244.0.1 "Status Events" Normal
+FORMAT A cnpdThresholdRisingEvent is sent whenever  $*
+SDESC
+A cnpdThresholdRisingEvent is sent whenever 
+a notification entry crosses its rising threshold 
+and generates an event that is added to the
+cnpdThresholdHistoryTable.
+Variables:
+  1: cnpdThresholdConfigIfIndex
+  2: cnpdThresholdConfigStatsSelect
+  3: cnpdThresholdHistoryValue
+  4: cnpdThresholdConfigRising
+  5: cnpdThresholdConfigProtocol
+  6: cnpdThresholdHistoryTime
+EDESC
+#
+#
+#
+EVENT cnpdThresholdFallingEvent .1.3.6.1.4.1.9.9.244.0.2 "Status Events" Normal
+FORMAT A cnpdThresholdConfigFallingEvent is sent  $*
+SDESC
+A cnpdThresholdConfigFallingEvent is sent 
+whenever a notification entry crosses its 
+falling threshold and generates an event 
+that is added to the cnpdThresholdHistoryTable.
+Variables:
+  1: cnpdThresholdConfigIfIndex
+  2: cnpdThresholdConfigStatsSelect
+  3: cnpdThresholdHistoryValue
+  4: cnpdThresholdConfigFalling
+  5: cnpdThresholdConfigProtocol
+  6: cnpdThresholdHistoryTime
+EDESC

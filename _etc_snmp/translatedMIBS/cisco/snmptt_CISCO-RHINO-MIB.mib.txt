@@ -1,0 +1,37 @@
+#
+#
+#
+#
+MIB: CISCO-RHINO-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-RHINO-MIB.mib) converted on Tue Aug 21 15:26:28 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciscoLS1010ChassisFailureNotification .1.3.6.1.4.1.9.5.11.2.0.1 "Status Events" Normal
+FORMAT Agent detects a change in the status of ps0, ps1,  $*
+SDESC
+Agent detects a change in the status of ps0, ps1, 
+fan, 12V line, and/or chassis temperature. 
+This notification will be generated when the status
+changes from no-fault to fault, and also when the status 
+changes from fault to no-fault.
+Variables:
+  1: ciscoLS1010ChassisPs0Status
+  2: ciscoLS1010ChassisPs1Status
+  3: ciscoLS1010ChassisFanStatus
+  4: ciscoLS1010Chassis12VoltStatus
+  5: ciscoLS1010ChassisTempStatus
+EDESC
+#
+#
+#
+EVENT ciscoLS1010ChassisChangeNotification .1.3.6.1.4.1.9.5.11.2.0.2 "Status Events" Normal
+FORMAT The compliance statement for entities which implement $*
+SDESC
+The compliance statement for entities which implement
+the Cisco LS1010 Chassis MIB. This statement was
+obsoleted by ciscoLS1010ChassisMIBComplianceRev1.
+MODULE  -- this module
+MANDATORY-GROUPS { ciscoLS1010ChassisMIBGroup }
+Variables:
+  1: ciscoLS1010ChassisMIBNotifications2
+EDESC

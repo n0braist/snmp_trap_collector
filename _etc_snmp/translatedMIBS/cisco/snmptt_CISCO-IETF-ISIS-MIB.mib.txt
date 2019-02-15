@@ -1,0 +1,354 @@
+#
+#
+#
+#
+MIB: CISCO-IETF-ISIS-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IETF-ISIS-MIB.mib) converted on Tue Aug 21 15:26:06 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ciiDatabaseOverload .1.3.6.1.4.1.9.10.118.0.1 "Status Events" Normal
+FORMAT This notification is generated when the system $*
+SDESC
+This notification is generated when the system
+enters or leaves the Overload state.  The number
+of times this has be generated and cleared is kept
+track of by ciiSysStatLSPDbaseOloads.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiSysLevelOverloadState
+EDESC
+#
+#
+#
+EVENT ciiManualAddressDrops .1.3.6.1.4.1.9.10.118.0.2 "Status Events" Normal
+FORMAT This notification is generated when one of the $*
+SDESC
+This notification is generated when one of the
+manual areaAddresses assigned to this system is
+ignored when computing routes.  The object
+ciiNotifManualAddress describes the area that
+has been dropped.
+The number of times this event has been generated
+is counted by ciiSysStatManAddrDropFromAreas.
+This notification is edge triggered, and should not
+be regenerated until an address that was used in
+the previous computation has been dropped.
+Variables:
+  1: ciiNotifManualAddress
+EDESC
+#
+#
+#
+EVENT ciiCorruptedLSPDetected .1.3.6.1.4.1.9.10.118.0.3 "Status Events" Normal
+FORMAT This notification is generated when we find that $*
+SDESC
+This notification is generated when we find that
+an LSP that was stored in memory has become
+corrupted.  The number of times this has been
+generated is counted by ciiSysStatCorrLSPs.
+We forward an LSP ID.  We may have independent
+knowledge of the ID, but in some implementations
+there is a chance that the ID itself will be
+corrupted.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiPduLspId
+EDESC
+#
+#
+#
+EVENT ciiAttemptToExceedMaxSequence .1.3.6.1.4.1.9.10.118.0.4 "Status Events" Normal
+FORMAT When the sequence number on an LSP we generate $*
+SDESC
+When the sequence number on an LSP we generate
+wraps the 32 bit sequence counter, we purge and
+wait to re-announce this information.  This
+notification describes that event.  Since these
+should not be generated rapidly, we generate
+an event each time this happens.
+While the first 6 bytes of the LSPID are ours,
+the other two contain useful information.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiPduLspId
+EDESC
+#
+#
+#
+EVENT ciiIDLenMismatch .1.3.6.1.4.1.9.10.118.0.5 "Status Events" Normal
+FORMAT A notification sent when we receive a PDU $*
+SDESC
+A notification sent when we receive a PDU
+with a different value of the System ID Length.
+This notification includes an index to identify
+the circuit where we saw the PDU and the header of
+the PDU which may help a network manager identify
+the source of the confusion.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received on the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiPduFieldLen
+  3: ciiCircIfIndex
+  4: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiMaxAreaAddressesMismatch .1.3.6.1.4.1.9.10.118.0.6 "Status Events" Normal
+FORMAT A notification sent when we receive a PDU $*
+SDESC
+A notification sent when we receive a PDU
+with a different value of the Maximum Area
+Addresses.  This notification includes the
+header of the packet, which may help a
+network manager identify the source of the
+confusion.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiPduMaxAreaAddress
+  3: ciiCircIfIndex
+  4: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiOwnLSPPurge .1.3.6.1.4.1.9.10.118.0.7 "Status Events" Normal
+FORMAT A notification sent when we receive a PDU $*
+SDESC
+A notification sent when we receive a PDU
+with our systemID and zero age.  This
+notification includes the circuit Index
+and router ID from the LSP, if available,
+which may help a network manager
+identify the source of the confusion.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduLspId
+EDESC
+#
+#
+#
+EVENT ciiSequenceNumberSkip .1.3.6.1.4.1.9.10.118.0.8 "Status Events" Normal
+FORMAT When we receive an LSP with our System ID $*
+SDESC
+When we receive an LSP with our System ID
+and different contents, we may need to reissue
+the LSP with a higher sequence number.
+We send this notification if we need to increase
+the sequence number by more than one.  If two
+Intermediate Systems are configured with the same
+System ID, this notification will fire.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduLspId
+EDESC
+#
+#
+#
+EVENT ciiAuthenticationTypeFailure .1.3.6.1.4.1.9.10.118.0.9 "Status Events" Normal
+FORMAT A notification sent when we receive a PDU $*
+SDESC
+A notification sent when we receive a PDU
+with the wrong authentication type field.
+This notification includes the header of the
+packet, which may help a network manager
+identify the source of the confusion.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiAuthenticationFailure .1.3.6.1.4.1.9.10.118.0.10 "Status Events" Normal
+FORMAT A notification sent when we receive a PDU $*
+SDESC
+A notification sent when we receive a PDU
+with incorrect authentication information
+field.  This notification includes the header
+of the packet, which may help a network manager
+identify the source of the confusion.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiVersionSkew .1.3.6.1.4.1.9.10.118.0.11 "Status Events" Normal
+FORMAT A notification sent when we receive a Hello $*
+SDESC
+A notification sent when we receive a Hello
+PDU from an IS running a different version
+of the protocol. This notification includes
+the header of the packet, which may help a
+network manager identify the source of the
+confusion.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduProtocolVersion
+  4: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiAreaMismatch .1.3.6.1.4.1.9.10.118.0.12 "Status Events" Normal
+FORMAT A notification sent when we receive a Hello $*
+SDESC
+A notification sent when we receive a Hello
+PDU from an IS which does not share any
+area address. This notification includes
+the header of the packet, which may help a
+network manager identify the source of the
+confusion.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiCircIfIndex
+  2: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiRejectedAdjacency .1.3.6.1.4.1.9.10.118.0.13 "Status Events" Normal
+FORMAT A notification sent when we receive a Hello $*
+SDESC
+A notification sent when we receive a Hello
+PDU from an IS, but do not establish an
+adjacency for some reason.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiLSPTooLargeToPropagate .1.3.6.1.4.1.9.10.118.0.14 "Status Events" Normal
+FORMAT A notification sent when we attempt to propagate $*
+SDESC
+A notification sent when we attempt to propagate
+an LSP which is larger than the dataLinkBlockSize
+for the circuit.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduLspSize
+  4: ciiPduLspId
+EDESC
+#
+#
+#
+EVENT ciiOrigLSPBuffSizeMismatch .1.3.6.1.4.1.9.10.118.0.15 "Status Events" Normal
+FORMAT A notification sent when a Level 1 LSP or Level $*
+SDESC
+A notification sent when a Level 1 LSP or Level
+2 LSP is received which is larger than the local
+value for ciiSysLevelOrigLSPBuffSize, or when an
+LSP is received containing the originatingLSPBufferSize
+option and the value in the PDU option field does
+not match the local value for ciiSysLevelOrigLSPBuffSize.
+We pass up the size from the option field or the
+size of the LSP that exceeds our configuration.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduLspId
+  4: ciiPduOriginatingBufferSize
+EDESC
+#
+#
+#
+EVENT ciiProtocolsSupportedMismatch .1.3.6.1.4.1.9.10.118.0.16 "Status Events" Normal
+FORMAT A notification sent when a non-pseudonode $*
+SDESC
+A notification sent when a non-pseudonode
+segment 0 LSP is received that has no matching
+protocols supported.
+This may be because the system does not generate
+the field, or because there are no common elements.
+The list of protocols supported should be included
+in the notification: it may be empty if the TLV
+is not supported, or if the TLV is empty.
+This should be an edge-triggered notification.
+We should not send a second notification about
+PDUs received from the same circuit.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduProtocolsSupported
+  4: ciiPduLspId
+  5: ciiPduFragment
+EDESC
+#
+#
+#
+EVENT ciiAdjacencyChange .1.3.6.1.4.1.9.10.118.0.17 "Status Events" Normal
+FORMAT A notification sent when an adjacency changes $*
+SDESC
+A notification sent when an adjacency changes
+state, entering or leaving state up.
+The first 6 bytes of the ciiPduLspId are the
+SystemID of the adjacent IS.
+The ciiAdjState is the new state of the adjacency.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiCircIfIndex
+  3: ciiPduLspId
+  4: ciiAdjState
+EDESC
+#
+#
+#
+EVENT ciiLSPErrorDetected .1.3.6.1.4.1.9.10.118.0.18 "Status Events" Normal
+FORMAT This notification is generated when we receive $*
+SDESC
+This notification is generated when we receive
+an LSP with a parse error.  The ciiCircIfIndex
+holds in index of the circuit on which the PDU
+arrived.  The ciiPduFragment holds start of the LSP,
+and the ciiErrorOffset points to the problem.
+If the problem is a mal-formed TLV, ciiErrorOffset
+points to start of the TLV and ciiErrorTLVType
+holds the value of the type.
+If the problem is with the LSP header, ciiErrorOffset
+points to the suspicious byte.
+The number of such LSPs is accumulated in
+ciiSysStatLSPErrors.
+Variables:
+  1: ciiNotifIsLevelIndex
+  2: ciiPduLspId
+  3: ciiCircIfIndex
+  4: ciiPduFragment
+  5: ciiErrorOffset
+  6: ciiErrorTLVType
+EDESC

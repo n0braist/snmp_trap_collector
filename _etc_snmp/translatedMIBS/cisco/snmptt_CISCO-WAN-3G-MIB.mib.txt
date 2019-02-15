@@ -1,0 +1,178 @@
+#
+#
+#
+#
+MIB: CISCO-WAN-3G-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-WAN-3G-MIB.mib) converted on Tue Aug 21 15:26:44 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT c3gModemUpNotif .1.3.6.1.4.1.9.9.661.0.1 "Status Events" Normal
+FORMAT This is the notification that the modem has been detected by $*
+SDESC
+This is the notification that the modem has been detected by
+host interface. Users can enable or disable the generation of
+this notification by using object c3gModemUpNotifEnabled.
+Variables:
+  1: entPhysicalName
+EDESC
+#
+#
+#
+EVENT c3gModemDownNotif .1.3.6.1.4.1.9.9.661.0.2 "Status Events" Normal
+FORMAT This is the notification that the modem has not been detected $*
+SDESC
+This is the notification that the modem has not been detected
+by host interface, or has been disconnected from host interface.
+Users can enable or disable the generation of this notification
+by using object c3gModemDownNotifEnabled.
+Variables:
+  1: entPhysicalName
+EDESC
+#
+#
+#
+EVENT c3gServiceChangedNotif .1.3.6.1.4.1.9.9.661.0.3 "Status Events" Normal
+FORMAT Notification for service change event.  Objects $*
+SDESC
+Notification for service change event.  Objects
+c3gPreviousServiceType and c3gCurrentServiceType will be
+included in the notification.  Users can enable or disable the
+generation of this notification by using object
+c3gServiceChangedNotifEnabled.
+Variables:
+  1: c3gPreviousServiceType
+  2: c3gCurrentServiceType
+EDESC
+#
+#
+#
+EVENT c3gNetworkChangedNotif .1.3.6.1.4.1.9.9.661.0.4 "Status Events" Normal
+FORMAT Notification for network change event.  Objects c3gCurrentSid, $*
+SDESC
+Notification for network change event.  Objects c3gCurrentSid,
+c3gCurrentNid, c3gGsmMcc, c3gGsmMnc and c3gRoamingStatus will
+be included in the notification.  Users can enable or disable
+the generation of this notification by using object
+c3gNetworkChangedNotifEnabled.
+Variables:
+  1: c3gCurrentSid
+  2: c3gCurrentNid
+  3: c3gGsmMcc
+  4: c3gGsmMnc
+  5: c3gRoamingStatus
+EDESC
+#
+#
+#
+EVENT c3gConnectionStatusChangedNotif .1.3.6.1.4.1.9.9.661.0.5 "Status Events" Normal
+FORMAT Notification for connection status change event.  Objects $*
+SDESC
+Notification for connection status change event.  Objects
+c3gConnectionStatus and c3gCurrentServiceType will be included
+in the notification.  Users can use object
+c3gConnectionStatusChangedNotifFlag to control what connection
+status changes will cause the generation of this notification.
+Variables:
+  1: c3gConnectionStatus
+  2: c3gCurrentServiceType
+EDESC
+#
+#
+#
+EVENT c3gRssiOnsetNotif .1.3.6.1.4.1.9.9.661.0.6 "Status Events" Normal
+FORMAT If RSSI goes below c3gRssiOnsetNotifThreshold and the service $*
+SDESC
+If RSSI goes below c3gRssiOnsetNotifThreshold and the service
+bit in c3gRssiOnsetNotifFlag is set, this notification will be
+generated.  Object c3gNotifRadioService will indicate which 
+service generates this notification and the associated RSSI 
+will be reported in c3gNotifRssi.  Please note that c3gNotifRssi
+is used to indicate the RSSI value that triggers the
+notification, user should go to the corresponding radio table to
+get the current RSSI value.
+Variables:
+  1: c3gNotifRadioService
+  2: c3gNotifRssi
+EDESC
+#
+#
+#
+EVENT c3gRssiAbateNotif .1.3.6.1.4.1.9.9.661.0.7 "Status Events" Normal
+FORMAT If RSSI goes above c3gRssiAbateNotifThreshold and the service $*
+SDESC
+If RSSI goes above c3gRssiAbateNotifThreshold and the service
+bit in c3gRssiAbateNotifFlag is set, this notification will be
+generated.  Object c3gNotifRadioService will indicate which 
+service generates this notification and the associated RSSI 
+will be reported in c3gNotifRssi.  Please note that c3gNotifRssi
+is used to indicate the RSSI value that triggers the
+notification, user should go to the corresponding radio table to
+get the current RSSI value.
+Variables:
+  1: c3gNotifRadioService
+  2: c3gNotifRssi
+EDESC
+#
+#
+#
+EVENT c3gEcIoOnsetNotif .1.3.6.1.4.1.9.9.661.0.8 "Status Events" Normal
+FORMAT If Ec/Io goes below c3gEcIoOnsetNotifThreshold and the service $*
+SDESC
+If Ec/Io goes below c3gEcIoOnsetNotifThreshold and the service
+bit in c3gEcIoOnsetNotifFlag is set, this notification will be
+generated.  Object c3gNotifRadioService will indicate which 
+service generates this notification and the associated Ec/Io
+will be reported in c3gNotifEcIo.  Please note that c3gNotifEcIo
+is used to indicate the Ec/Io value that triggers the
+notification, user should go to the corresponding radio table to
+get the current Ec/Io value.
+Variables:
+  1: c3gNotifRadioService
+  2: c3gNotifEcIo
+EDESC
+#
+#
+#
+EVENT c3gEcIoAbateNotif .1.3.6.1.4.1.9.9.661.0.9 "Status Events" Normal
+FORMAT If Ec/Io goes above c3gEcIoAbateNotifThreshold and the service $*
+SDESC
+If Ec/Io goes above c3gEcIoAbateNotifThreshold and the service
+bit in c3gEcIoAbateNotifFlag is set, this notification will be
+generated.  Object c3gNotifRadioService will indicate which 
+service generates this notification and the associated Ec/Io
+will be reported in c3gNotifEcIo.  Please note that c3gNotifEcIo
+is used to indicate the Ec/Io value that triggers the
+notification, user should go to the corresponding radio table to
+get the current Ec/Io value.
+Variables:
+  1: c3gNotifRadioService
+  2: c3gNotifEcIo
+EDESC
+#
+#
+#
+EVENT c3gModemTemperOnsetNotif .1.3.6.1.4.1.9.9.661.0.10 "Status Events" Normal
+FORMAT If modem temperature goes above $*
+SDESC
+If modem temperature goes above
+c3gModemTemperOnsetNotifThreshold and the value of
+c3gModemTemperOnsetNotifEnabled is 'true', this notification
+will be generated and the current value of c3gModemTemperature
+will be included in this notification.
+Variables:
+  1: c3gModemTemperature
+EDESC
+#
+#
+#
+EVENT c3gModemTemperAbateNotif .1.3.6.1.4.1.9.9.661.0.11 "Status Events" Normal
+FORMAT If modem temperature goes below $*
+SDESC
+If modem temperature goes below
+c3gModemTemperAbateNotifThreshold and the value of
+c3gModemTemperAbateNotifEnabled is 'true', this notification
+will be generated and the current value of c3gModemTemperature
+will be included in this notification.
+Variables:
+  1: c3gModemTemperature
+EDESC

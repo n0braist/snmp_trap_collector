@@ -1,0 +1,616 @@
+#
+#
+#
+#
+MIB: CPQFCA-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQFCA-MIB.mib) converted on Wed Aug 22 14:19:06 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqFcaLogDrvStatusChange .1.3.6.1.4.1.232.0.16001 "Status Events" CRITICAL
+FORMAT External Array Logical Drive Status Change (16001): Status is now $6.
+SDESC
+External Array Logical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a External Array logical drive.  The variable
+cpqFcaLogDrvStatus indicates the current logical drive status.
+User Action: If the logical drive status is failed, examine
+the array for failed drives that need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaLogDrvIndex
+  6: cpqFcaLogDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqFcaSpareStatusChange .1.3.6.1.4.1.232.0.16002 "Status Events" CRITICAL
+FORMAT External Array Spare Drive Status Change (16002): Spare Status is now $7 on bus $5.
+SDESC
+External Array Spare Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a External Array spare drive.  The variable
+cpqFcaSpareStatus indicates the current spare drive status.  The
+variable cpqFcaSpareBusNumber indicates the SCSI bus number
+associated with this drive.
+User Action: If the spare drive status is failed, replace the
+drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaSpareBusNumber
+  6: cpqFcaSpareBay
+  7: cpqFcaSpareStatus
+EDESC
+#
+#
+#
+EVENT cpqFcaPhyDrvStatusChange .1.3.6.1.4.1.232.0.16003 "Status Events" CRITICAL
+FORMAT External Array Physical Drive Status Change (16003): Status is now $7 for a physical drive on bus $5.
+SDESC
+External Array Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a physical drive.  The variable cpaFcaPhyDrvStatus
+indicates the current physical drive status.  The variable
+cpqFcaPhyDrvBusNumber indicates the SCSI bus number associated
+with this drive.
+User Action: If the physical drive status is threshExceeded(4),
+predictiveFailure(5) or failed(6), replace the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaPhyDrvBusNumber
+  6: cpqFcaPhyDrvBay
+  7: cpqFcaPhyDrvStatus
+EDESC
+#
+#
+#
+EVENT cpqFcaAccelStatusChange .1.3.6.1.4.1.232.0.16004 "Status Events" CRITICAL
+FORMAT External Array Accelerator Board Status Change (16004): Status is now $6.
+SDESC
+External Array Accelerator Board Status Change.
+This trap signifies that the agent has detected a change in the
+cpqFcaAccelStatus of a Array Accelerator Cache Board.  The
+current status is represented by the variable cpqFcaAccelStatus.
+User Action: None.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaAccelBoxIoSlot
+  6: cpqFcaAccelStatus
+EDESC
+#
+#
+#
+EVENT cpqFcaAccelBadDataTrap .1.3.6.1.4.1.232.0.16005 "Status Events" CRITICAL
+FORMAT External Array Accelerator Board Bad Data (16005): Accelerator lost battery power.  Data Loss possible.
+SDESC
+External Array Accelerator Board Bad Data.
+This trap signifies that the agent has detected a Array
+Accelerator Cache Board that has lost battery power.  If data
+was being stored in the accelerator memory when the system lost
+power, that data has been lost.
+User Action: Verify that no data has been lost.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaAccelBoxIoSlot
+EDESC
+#
+#
+#
+EVENT cpqFcaAccelBatteryFailed .1.3.6.1.4.1.232.0.16006 "Status Events" CRITICAL
+FORMAT External Array Accelerator Board Battery Failed (16006): Battery status is failed.
+SDESC
+External Array Accelerator Board Battery Failed.
+This trap signifies that the agent has detected a battery
+failure associated with the Array Accelerator Cache Board.
+User Action: Replace the Accelerator Cache Board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaAccelBoxIoSlot
+EDESC
+#
+#
+#
+EVENT cpqFcaCntlrStatusChange .1.3.6.1.4.1.232.0.16007 "Status Events" CRITICAL
+FORMAT External Array Controller Status Change (16007): Status is now $6.
+SDESC
+External Array Controller Status Change.
+This trap signifies that the agent has detected a change in the
+status of a External Array Controller.  The variable
+cpqFcaCntlrStatus indicates the current controller status.
+User Action: If the controller status is offline, access to the
+storage box has been lost.  Check the storage box and all fibre
+channel connections for problems.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaCntlrBoxIoSlot
+  6: cpqFcaCntlrStatus
+EDESC
+#
+#
+#
+EVENT cpqFcTapeCntlrStatusChange .1.3.6.1.4.1.232.0.16008 "Status Events" CRITICAL
+FORMAT Fibre Channel Tape Controller Status Change (16008): Status is now $4 for tape controller $3.
+SDESC
+Fibre Channel Tape Controller Status Change.
+This trap signifies that the agent has detected a change in the
+status of a Fiber Channel Tape Controller.  The variable
+cpqFcTapeCntlrStatus indicates the current tape controller
+status.  The variable cpqFcTapeCntlrWWN indicates the unique
+tape controller world wide name associated with this controller.
+User Action: If the tape controller status is offline, access to
+the tape library and tapes has been lost.  Check the tape library
+and all Fibre connections for problems.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeCntlrWWN
+  4: cpqFcTapeCntlrStatus
+EDESC
+#
+#
+#
+EVENT cpqFcTapeLibraryStatusChange .1.3.6.1.4.1.232.0.16009 "Status Events" CRITICAL
+FORMAT Fibre Channel Tape Library Status Change (16009): Status is now $7 for the tape library.
+SDESC
+Fibre Channel Tape Library Status Change.
+This trap signifies that the agent has detected a change in the
+status of a Fiber Channel Tape library.  The variable
+cpqFcTapeLibraryStatus indicates the current tape library
+status.  The variable cpqFcTapeLibraryScsiTarget indicates the
+SCSI ID of the tape library.
+User Action: If the tape library is failed or offline, check the tape
+library front panel and all fibre channel connections.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeCntlrWWN
+  4: cpqFcTapeLibraryScsiBus
+  5: cpqFcTapeLibraryScsiTarget
+  6: cpqFcTapeLibraryScsiLun
+  7: cpqFcTapeLibraryStatus
+EDESC
+#
+#
+#
+EVENT cpqFcTapeLibraryDoorStatusChange .1.3.6.1.4.1.232.0.16010 "Status Events" CRITICAL
+FORMAT Fibre Channel Tape Library Door Status Change (16010): The door is $7 for tape library.
+SDESC
+Fibre Channel Tape Library Door Status Change.
+This trap signifies that the agent has detected a change in the
+door status of a Fiber Channel Tape library.  The variable
+cpqFcTapeLibraryDoorStatus indicates the current tape library
+door status.  The variable cpqFcTapeLibraryScsiTarget indicates
+the the SCSI ID of the tape library.
+User Action: If the tape library door is open, close the tape
+library door.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeCntlrWWN
+  4: cpqFcTapeLibraryScsiBus
+  5: cpqFcTapeLibraryScsiTarget
+  6: cpqFcTapeLibraryScsiLun
+  7: cpqFcTapeLibraryDoorStatus
+EDESC
+#
+#
+#
+EVENT cpqFcTapeDriveStatusChange .1.3.6.1.4.1.232.0.16011 "Status Events" CRITICAL
+FORMAT Fibre Channel Tape Drive Status Change (16011): Status is now $7 for a tape drive.
+SDESC
+Fibre Channel Tape Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a Fiber Channel Tape Drive.  The variable
+cpqFcTapeDriveStatus indicates the current tape status.  The
+variable cpqFcTapeDriveScsiTarget indicates the the SCSI ID of
+the tape drive.
+User Action: If the tape is failed or offline, check the tape
+and all fibre channel connections.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeCntlrWWN
+  4: cpqFcTapeDriveScsiBus
+  5: cpqFcTapeDriveScsiTarget
+  6: cpqFcTapeDriveScsiLun
+  7: cpqFcTapeDriveStatus
+EDESC
+#
+#
+#
+EVENT cpqFcTapeDriveCleaningRequired .1.3.6.1.4.1.232.0.16012 "Status Events" MAJOR
+FORMAT Fibre Channel Tape Drive Cleaning Required (16012): Cleaning is needed for tape drive.
+SDESC
+Fibre Channel Tape Drive Cleaning Required trap.
+The agent has detected a tape drive that needs to have a
+cleaning tape inserted and run.  This will cause the tape drive
+heads to be cleaned.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeCntlrWWN
+  4: cpqFcTapeDriveScsiBus
+  5: cpqFcTapeDriveScsiTarget
+  6: cpqFcTapeDriveScsiLun
+EDESC
+#
+#
+#
+EVENT cpqFcTapeDriveCleanTapeReplace .1.3.6.1.4.1.232.0.16013 "Status Events" MAJOR
+FORMAT Fibre Channel Tape Drive Cleaning Tape Needs Replacing (16013): Cleaning tape needs replacing
+SDESC
+Fibre Channel Tape Drive Cleaning Tape Needs Replacing.
+The agent has detected that an autoloader tape unit has a
+cleaning tape that has been fully used and therefore needs to be
+replaced with a new cleaning tape.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeCntlrWWN
+  4: cpqFcTapeDriveScsiBus
+  5: cpqFcTapeDriveScsiTarget
+  6: cpqFcTapeDriveScsiLun
+EDESC
+#
+#
+#
+EVENT cpqFcaCntlrActive .1.3.6.1.4.1.232.0.16014 "Status Events" INFORMATIONAL
+FORMAT External Array Redundant Controller Active (16014): Controller in i/o slot $5 is now active on chassis $3.
+SDESC
+External Array Redundant Controller Active.
+This trap signifies that the Storage Agent has detected that
+a backup array controller in a duplexed pair has switched over
+to the active role.  The variable cpqFcaCntlrBoxIoSlot indicates
+the new active controller index.
+User Action: Check the partner controller for problems.
+If this was the result of a user initiated switch over,
+no action is required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaCntlrBoxIoSlot
+EDESC
+#
+#
+#
+EVENT cpqFcaHostCntlrStatusChange .1.3.6.1.4.1.232.0.16015 "Status Events" CRITICAL
+FORMAT Fibre Channel Host Controller Status Change (16015): Host controller in slot $3 has a new status of $4.
+SDESC
+Fibre Channel Host Controller Status Change.
+This trap signifies that the Insight Agent has detected a change
+in the status of a Fibre Channel Host Controller.  The variable
+cpqFcaHostCntlrStatus indicates the current controller status.
+User Action: If the controller status is failed, replace the
+controller.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcaHostCntlrSlot
+  4: cpqFcaHostCntlrStatus
+EDESC
+#
+#
+#
+EVENT cpqFca2PhyDrvStatusChange .1.3.6.1.4.1.232.0.16016 "Status Events" CRITICAL
+FORMAT External Array Physical Drive Status Change (16016): Status is now $7 for a physical drive on bus $5, bay $6.
+SDESC
+External Array Physical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of a physical drive.  The variable cpaFcaPhyDrvStatus
+indicates the current physical drive status.
+User Action: If the physical drive status is threshExceeded(4),
+predictiveFailure(5), failed(6) or unsupportedDrive(7), replace
+the drive.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaPhyDrvBusNumber
+  6: cpqFcaPhyDrvBay
+  7: cpqFcaPhyDrvStatus
+  8: cpqFcaPhyDrvModel
+  9: cpqFcaPhyDrvSerialNum
+  10: cpqFcaPhyDrvFWRev
+  11: cpqFcaPhyDrvFailureCode
+EDESC
+#
+#
+#
+EVENT cpqFca2AccelStatusChange .1.3.6.1.4.1.232.0.16017 "Status Events" CRITICAL
+FORMAT External Array Accelerator Board Status Change (16017): Status is now $6.
+SDESC
+External Array Accelerator Board Status Change.
+This trap signifies that the agent has detected a change in the
+status of a Array Accelerator Cache Board.  The current status
+is represented by the variable cpqFcaAccelStatus.
+User Action: If the accelerator board status is permDisabled(5),
+you may need to replace the accelerator board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaAccelBoxIoSlot
+  6: cpqFcaAccelStatus
+  7: cpqFcaCntlrModel
+  8: cpqFcaAccelSerialNumber
+  9: cpqFcaAccelTotalMemory
+  10: cpqFcaAccelErrCode
+EDESC
+#
+#
+#
+EVENT cpqFca2AccelBadDataTrap .1.3.6.1.4.1.232.0.16018 "Status Events" CRITICAL
+FORMAT External Array Accelerator Board Bad Data (16018): Accelerator lost battery power.  Data Loss possible.
+SDESC
+External Array Accelerator Board Bad Data.
+This trap signifies that the agent has detected a Array
+Accelerator Cache Board that has lost battery power.  If data
+was being stored in the accelerator memory when the system lost
+power, that data has been lost.
+User Action: Verify that no data has been lost.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaAccelBoxIoSlot
+  6: cpqFcaCntlrModel
+  7: cpqFcaAccelSerialNumber
+  8: cpqFcaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqFca2AccelBatteryFailed .1.3.6.1.4.1.232.0.16019 "Status Events" CRITICAL
+FORMAT External Array Accelerator Board Battery Failed (16019): Battery status is failed.
+SDESC
+External Array Accelerator Board Battery Failed.
+This trap signifies that the agent has detected a battery
+failure associated with the Array Accelerator Cache Board.
+User Action: Replace the Accelerator Cache Board.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaAccelBoxIoSlot
+  6: cpqFcaCntlrModel
+  7: cpqFcaAccelSerialNumber
+  8: cpqFcaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqFca2CntlrStatusChange .1.3.6.1.4.1.232.0.16020 "Status Events" CRITICAL
+FORMAT External Array Controller Status Change (16020): Status is now $6.
+SDESC
+External Array Controller Status Change.
+This trap signifies that the agent has detected a change in the
+status of a External Array Controller.  The variable
+cpqFcaCntlrStatus indicates the current controller status.
+User Action: If the controller status is offline(4), access to
+the storage box has been lost.  Check the storage box and all
+fibre channel connections for problems.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaCntlrBoxIoSlot
+  6: cpqFcaCntlrStatus
+  7: cpqFcaCntlrModel
+  8: cpqFcaCntlrSerialNumber
+  9: cpqFcaAccelTotalMemory
+EDESC
+#
+#
+#
+EVENT cpqFca2HostCntlrStatusChange .1.3.6.1.4.1.232.0.16021 "Status Events" CRITICAL
+FORMAT Fibre Channel Host Controller Status Change (16021): Host controller in slot $3 has a new status of $4.
+SDESC
+Fibre Channel Host Controller Status Change.
+This trap signifies that the agent has detected a change in the
+status of a Fibre Channel Host Controller.  The variable
+cpqFcaHostCntlrStatus indicates the current controller status.
+User Action: If the controller status is failed, replace the
+controller.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcaHostCntlrSlot
+  4: cpqFcaHostCntlrStatus
+  5: cpqFcaHostCntlrModel
+  6: cpqFcaHostCntlrWorldWideName
+EDESC
+#
+#
+#
+EVENT cpqExtArrayLogDrvStatusChange .1.3.6.1.4.1.232.0.16022 "Status Events" CRITICAL
+FORMAT External Array Logical Drive Status Change (16022): Status is now $7.
+SDESC
+External Array Logical Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of an External Array logical drive.  The variable
+cpqFcaLogDrvStatus indicates the current logical drive status.
+User Action: If the logical drive status is failed, examine
+the array for failed drives that need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSsChassisName
+  4: cpqSsChassisTime
+  5: cpqFcaLogDrvBoxIndex
+  6: cpqFcaLogDrvIndex
+  7: cpqFcaLogDrvStatus
+  8: cpqFcaLogDrvOsName
+  9: cpqFcaLogDrvFaultTol
+  10: cpqFcaLogDrvSize
+EDESC
+#
+#
+#
+EVENT cpqExtTapeDriveStatusChange .1.3.6.1.4.1.232.0.16023 "Status Events" CRITICAL
+FORMAT External Tape Drive Status Change (16023): Status is now $11 for a tape drive.
+SDESC
+External Tape Drive Status Change.
+This trap signifies that the agent has detected a change in the
+status of an External Tape Drive.  The variable
+cpqFcTapeDriveStatus indicates the current tape status.
+User Action: If the tape is failed or offline, check the tape
+and all connections.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeDriveCntlrIndex
+  4: cpqFcTapeDriveScsiBus
+  5: cpqFcTapeDriveScsiTarget
+  6: cpqFcTapeDriveScsiLun
+  7: cpqFcTapeDriveModel
+  8: cpqFcTapeDriveFWRev
+  9: cpqFcTapeDriveSerialNumber
+  10: cpqFcTapeDriveLocation
+  11: cpqFcTapeDriveStatus
+EDESC
+#
+#
+#
+EVENT cpqExtTapeDriveCleaningRequired .1.3.6.1.4.1.232.0.16024 "Status Events" MAJOR
+FORMAT External Tape Drive Cleaning Required (16024): Cleaning is needed for tape drive.
+SDESC
+External Tape Drive Cleaning Required.
+The agent has detected a tape drive that needs to have a
+cleaning tape inserted and run.  This will cause the tape drive
+heads to be cleaned.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeDriveCntlrIndex
+  4: cpqFcTapeDriveScsiBus
+  5: cpqFcTapeDriveScsiTarget
+  6: cpqFcTapeDriveScsiLun
+  7: cpqFcTapeDriveModel
+  8: cpqFcTapeDriveFWRev
+  9: cpqFcTapeDriveSerialNumber
+  10: cpqFcTapeDriveLocation
+EDESC
+#
+#
+#
+EVENT cpqExtTapeDriveCleanTapeReplace .1.3.6.1.4.1.232.0.16025 "Status Events" MAJOR
+FORMAT External Tape Drive Cleaning Tape Needs Replacing (16025): Cleaning tape needs replacing
+SDESC
+External Tape Drive Cleaning Tape Needs Replacing.
+The agent has detected that an autoloader tape unit has a
+cleaning tape that has been fully used and therefore needs to be
+replaced with a new cleaning tape.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeDriveCntlrIndex
+  4: cpqFcTapeDriveScsiBus
+  5: cpqFcTapeDriveScsiTarget
+  6: cpqFcTapeDriveScsiLun
+  7: cpqFcTapeDriveModel
+  8: cpqFcTapeDriveFWRev
+  9: cpqFcTapeDriveSerialNumber
+  10: cpqFcTapeDriveLocation
+EDESC
+#
+#
+#
+EVENT cpqExtTapeLibraryStatusChange .1.3.6.1.4.1.232.0.16026 "Status Events" CRITICAL
+FORMAT External Tape Library Status Change (16026): Status is now $11 for the tape library.
+SDESC
+External Tape Library Status Change.
+This trap signifies that the agent has detected a change in
+the status of an External Tape library.  The variable
+cpqFcTapeLibraryStatus indicates the current tape library
+status.
+User Action: If the tape library is failed or offline, check
+the tape library front panel and all connections.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeLibraryCntlrIndex
+  4: cpqFcTapeLibraryScsiBus
+  5: cpqFcTapeLibraryScsiTarget
+  6: cpqFcTapeLibraryScsiLun
+  7: cpqFcTapeLibraryModel
+  8: cpqFcTapeLibraryFWRev
+  9: cpqFcTapeLibrarySerialNumber
+  10: cpqFcTapeLibraryLocation
+  11: cpqFcTapeLibraryStatus
+EDESC
+#
+#
+#
+EVENT cpqExtTapeLibraryDoorStatusChange .1.3.6.1.4.1.232.0.16027 "Status Events" CRITICAL
+FORMAT External Tape Library Door Status Change (16027): The door is $11 for tape library.
+SDESC
+External Tape Library Door Status Change.
+This trap signifies that the agent has detected a change
+in the door status of an External Tape library.  The variable
+cpqFcTapeLibraryDoorStatus indicates the current tape library
+door status.
+User Action: If the tape library door is open, close the
+tape library door.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcTapeLibraryCntlrIndex
+  4: cpqFcTapeLibraryScsiBus
+  5: cpqFcTapeLibraryScsiTarget
+  6: cpqFcTapeLibraryScsiLun
+  7: cpqFcTapeLibraryModel
+  8: cpqFcTapeLibraryFWRev
+  9: cpqFcTapeLibrarySerialNumber
+  10: cpqFcTapeLibraryLocation
+  11: cpqFcTapeLibraryDoorStatus
+EDESC
+#
+#
+#
+EVENT cpqFca3HostCntlrStatusChange .1.3.6.1.4.1.232.0.16028 "Status Events" CRITICAL
+FORMAT Fibre Channel Host Controller Status Change (16028): Host controller has a new status of $5.
+SDESC
+Fibre Channel Host Controller Status Change.
+This trap signifies that the agent has detected a change in the
+status of a Fibre Channel Host Controller.  The variable
+cpqFcaHostCntlrStatus indicates the current controller status.
+User Action: If the controller status is failed, replace the
+controller.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqFcaHostCntlrHwLocation
+  4: cpqFcaHostCntlrIndex
+  5: cpqFcaHostCntlrStatus
+  6: cpqFcaHostCntlrModel
+  7: cpqFcaHostCntlrSerialNumber
+  8: cpqFcaHostCntlrWorldWideName
+  9: cpqFcaHostCntlrWorldWidePortName
+EDESC

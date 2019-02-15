@@ -1,0 +1,783 @@
+-- ***************************************************************************
+-- ***************************************************************************
+--
+-- File         : rtalert.mib
+-- Description  : IBM Remote Supervisor Adapter II traps
+--                 MIB for traps(Alerts) based on Blade v1.2
+-- By           : Joe Bolan, IBM
+-- Update       : Phuong Nguyen, IBM
+-- Version      : 1.0
+-- Date         : March 11, 2003
+--
+--
+-- Copyright (c) 2002/2003 IBM  All Rights Reserved.
+--
+--
+-- Contains trap descriptions for:
+--  (1) Remote Superivor Adapter II (RSA II)
+--
+--
+-- Changes History
+--
+-- Date       Reason
+-- *****************
+-- 3/11/03    Phuong Nguyen - Created
+--
+-- ***************************************************************************
+-- This MIB is used by the RSA to describe
+-- traps for alert conditions detected by the RSA II
+-- ***************************************************************************
+-- ***************************************************************************
+        RSASPPALT-MIB DEFINITIONS ::= BEGIN
+
+
+        IMPORTS
+            OBJECT-TYPE                          FROM RFC-1212
+            enterprises                          FROM RFC1155-SMI
+            DisplayString                        FROM RFC1213-MIB
+            TRAP-TYPE                            FROM RFC-1215;
+
+
+        ibm            OBJECT IDENTIFIER ::=   { enterprises 2 }
+
+        -- IBM products group
+
+        ibmProd        OBJECT IDENTIFIER ::=   { ibm 6 }
+
+        -- IBM Netfinity SP
+
+        supportProcessor OBJECT IDENTIFIER ::= { ibmProd 158 }
+
+        -- IBM Netfinity SP Alert
+
+        ibmRemoteSupTrapMIB     OBJECT IDENTIFIER ::= { supportProcessor 4 }
+
+-- *************************************************************
+-- Start: Remote Supervisor Adapter SP Alerts
+-- *************************************************************
+
+        -- the rsspalt generic trap generator group
+
+        ibmRemoteSupTrapMibObjects OBJECT IDENTIFIER ::= { ibmRemoteSupTrapMIB 1 }
+
+
+        ibmSpTrapInfo OBJECT IDENTIFIER ::= { ibmRemoteSupTrapMibObjects 1 }
+
+        ibmSpTrapDateTime  OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Timestamp of Local Date and Time when alert was generated"
+                       ::= { ibmSpTrapInfo 1 }
+
+        ibmSpTrapAppId    OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Application ID, always 'Remote Supervisor Adapter'"
+                       ::= { ibmSpTrapInfo 2 }
+
+        ibmSpTrapSpTxtId  OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "SP System Identification - Text Identification"
+                       ::= { ibmSpTrapInfo 3 }
+
+        ibmSpTrapSpNumId     OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "SP System Identification - Numeric Identification"
+                       ::= { ibmSpTrapInfo 4 }
+
+        ibmSpTrapSysUuid  OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Host System UUID(Universal Unique ID)"
+                       ::= { ibmSpTrapInfo 5 }
+
+        ibmSpTrapSysSern  OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Host System Serial Number"
+                       ::= { ibmSpTrapInfo 6 }
+
+        ibmSpTrapAppType  OBJECT-TYPE
+                       SYNTAX  INTEGER (1..65535)
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Application Alert Type - Event Number ID"
+                       ::= { ibmSpTrapInfo 7 }
+
+        ibmSpTrapPriority  OBJECT-TYPE
+                       SYNTAX  INTEGER (1..65535)
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Alert Severity Value
+                          - Critical Alert(0)
+                          - Non-Critical Alert(2)
+                          - System Alert(4)
+                          - Recovery Alert(8)
+                          - Informational Only Alert(255)"
+                       ::= { ibmSpTrapInfo 8 }
+
+        ibmSpTrapMsgText  OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Alert Message Text"
+                       ::= { ibmSpTrapInfo 9 }
+
+        ibmSpTrapHostContact  OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Host Contact"
+                       ::= { ibmSpTrapInfo 10 }
+
+        ibmSpTrapHostLocation  OBJECT-TYPE
+                       SYNTAX  DisplayString
+                       ACCESS  read-only
+                       STATUS  mandatory
+                       DESCRIPTION
+                       "Host Location"
+                       ::= { ibmSpTrapInfo 11 }
+
+-- ******************************************
+-- Critical Traps
+-- ******************************************
+        -- 4.2.1.1
+        ibmSpTrapTempC          TRAP-TYPE
+                                ENTERPRISE  ibmRemoteSupTrapMIB
+                                VARIABLES
+                                  {
+                                  ibmSpTrapDateTime,
+                                  ibmSpTrapAppId,
+                                  ibmSpTrapSpTxtId,
+                                  ibmSpTrapSpNumId,
+                                  ibmSpTrapSysUuid,
+                                  ibmSpTrapSysSern,
+                                  ibmSpTrapAppType,
+                                  ibmSpTrapPriority,
+                                  ibmSpTrapMsgText,
+                                  ibmSpTrapHostContact,
+                                  ibmSpTrapHostLocation
+                                  }
+                                  DESCRIPTION
+                                    "Critical Alert: Temperature threshold exceeded."
+                                  ::= 0
+
+        -- 4.2.1.2
+        ibmSpTrapVoltC        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB  
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Voltage threshold exceeded."
+                                ::= 1
+
+        -- 4.2.1.3 
+        ibmSpTrapTampC        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Physical intrusion of system has occurred."
+                                ::= 2
+
+        -- 4.2.1.4
+        ibmSpTrapMffC         TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Multiple fan failure."
+                                ::= 3
+
+        -- 4.2.1.5
+        ibmSpTrapPsC          TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Power supply failure."
+                                ::= 4
+
+        -- 4.2.1.6
+        ibmSpTrapHdC          TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Hard disk drive failure."
+                                ::= 5
+
+        -- 4.2.1.7
+        ibmSpTrapVrmC         TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Voltage Regulator Module(VRM) failure."
+                                ::= 6
+
+        -- 4.2.2.2
+        ibmSpTrapSffC         TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Single Fan failure."
+                                ::= 11
+
+
+        -- 4.2.1.9
+        ibmSpTrapIhcC         TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Critical Alert: Incompatible hardware configuration."
+                                ::= 36
+
+-- ******************************************
+-- Non-Critical Traps
+-- ******************************************
+
+        -- 4.2.2.1
+        ibmSpTrapRdpsN          TRAP-TYPE
+                                ENTERPRISE  ibmRemoteSupTrapMIB 
+                                VARIABLES
+                                  {
+                                  ibmSpTrapDateTime,
+                                  ibmSpTrapAppId,
+                                  ibmSpTrapSpTxtId,
+                                  ibmSpTrapSpNumId,
+                                  ibmSpTrapSysUuid,
+                                  ibmSpTrapSysSern,
+                                  ibmSpTrapAppType,
+                                  ibmSpTrapPriority,
+                                  ibmSpTrapMsgText,
+                                  ibmSpTrapHostContact,
+                                  ibmSpTrapHostLocation
+                                  }
+                                  DESCRIPTION
+                                    "Non-Critical Alert: Redundant Power Supply failure."
+                                  ::= 10
+
+        -- 4.2.2.3
+        ibmSpTrapTempN        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Non-Critical Alert: Temperature threshold exceeded."
+                                ::= 12
+
+        -- 4.2.2.4
+        ibmSpTrapVoltN        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Non-Critical Alert: Voltage threshold exceeded."
+                                ::= 13
+
+        -- 4.2.2.6
+        ibmSpTrapRmN          TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Non-Critical Alert: Redundant module."
+                                ::= 32
+
+
+-- ******************************************
+-- System Traps
+-- ******************************************
+
+        -- PTN
+        -- 5.2.6
+        ibmSpTrapRLogin       TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Sev-Off Alert: Event Remote Login."
+                                ::= 30
+
+        -- PTN
+        -- 5.2.8
+        ibmSpTrapLogFull      TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Sev-Off Alert: Event error log 100 percent full."
+                                ::= 7
+
+        -- PTN
+        -- 5.2.12
+        ibmSpTrapLog75        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "Sev-Off Alert: Event error log 75 percent full."
+                                ::= 14
+        -- 5.2.14
+        ibmSpTrapSecDvS       TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Secondary Device warning."
+                                ::= 15
+
+        -- 4.2.3.1
+        ibmSpTrapPostToS      TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Post Timeout value exceeded."
+                                ::= 20
+
+        -- 4.2.3.2
+        ibmSpTrapOsToS        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: OS Timeout value exceeded."
+                                ::= 21
+
+        -- 4.2.3.3
+        ibmSpTrapAppS         TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Application Alert."
+                                ::= 22
+
+        -- 4.2.3.4
+        ibmSpTrapPoffS        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Power Off."
+                                ::= 23
+
+        -- 4.2.3.5
+        ibmSpTrapPonS         TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Power On."
+                                ::= 24
+
+        -- 4.2.3.6
+        ibmSpTrapBootS        TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: System Boot Failure."
+                                ::= 25
+
+        -- 4.2.3.7
+        ibmSpTrapLdrToS       TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: OS Loader Timeout."
+                                ::= 26
+
+        -- 4.2.3.8
+        ibmSpTrapPFAS         TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Predictive Failure Analysis(PFA) information."
+                                ::= 27
+
+        -- 4.2.3.9
+        ibmSpTrapKVMSwitchS   TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Keyboard/Video/Mouse(KVM) or Medial Tray(MT) switching failure."
+                                ::= 33
+
+        -- 4.2.3.10
+        ibmSpTrapSysInvS      TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Inventory."
+                                ::= 34
+
+        -- 4.2.3.11
+        ibmSpTrapSysLogS      TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: System Log 75% full."
+                                ::= 35
+
+        -- 4.2.3.12
+        ibmSpTrapNwChangeS    TRAP-TYPE
+                              ENTERPRISE  ibmRemoteSupTrapMIB 
+                              VARIABLES
+                                {
+                                ibmSpTrapDateTime,
+                                ibmSpTrapAppId,
+                                ibmSpTrapSpTxtId,
+                                ibmSpTrapSpNumId,
+                                ibmSpTrapSysUuid,
+                                ibmSpTrapSysSern,
+                                ibmSpTrapAppType,
+                                ibmSpTrapPriority,
+                                ibmSpTrapMsgText,
+                                ibmSpTrapHostContact,
+                                ibmSpTrapHostLocation
+                                }
+                                DESCRIPTION
+                                  "System Alert: Network change notification."
+                                ::= 37
+END
+

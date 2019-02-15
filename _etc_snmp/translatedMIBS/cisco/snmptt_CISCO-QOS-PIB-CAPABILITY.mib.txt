@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-QOS-PIB-CAPABILITY (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-QOS-PIB-CAPABILITY.mib) converted on Tue Aug 21 15:26:27 2012 using snmpttconvertmib v1.3

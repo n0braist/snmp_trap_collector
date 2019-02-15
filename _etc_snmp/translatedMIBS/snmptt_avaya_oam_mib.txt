@@ -1,0 +1,21 @@
+#
+#
+#
+#
+MIB: MN-MIB (file:/tmp/avaya/avaya_oam_mib) converted on Fri Jan 18 14:21:55 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT msgTrapAlarms .1.3.6.1.4.1.6889.2.3.4.1 "Status Events" Normal
+FORMAT Traps sent by the agent for alarm and resolution events. $*
+SDESC
+Traps sent by the agent for alarm and resolution events.
+This is a generic defintion that is used by the following
+specific traps: Resolution event (id 100),
+Warning alarm (id 101), Minor alarm (id 102),
+Major alarm (id 103)
+Variables:
+  1: msgAlarmText
+  2: msgAlarmEvnInfo
+  3: msgSysAlarmsCurrLvl
+EDESC

@@ -1,0 +1,132 @@
+#
+#
+#
+#
+MIB: CISCO-IETF-ISNS-MGMT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IETF-ISNS-MGMT-MIB.mib) converted on Tue Aug 21 15:26:06 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cIsnsServerStart .1.3.6.1.4.1.9.10.116.1.3.0.1 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is sent when an iSNS Server begins 
+operation.  The notification provides the following: 
+cIsnsInstInfo         : iSNS Server textual information 
+cIsnsAddrTypeNotifctn : iSNS Server address type 
+cIsnsAddrNotifctn     : iSNS Server address 
+cIsnsTcpPortNotifctn  : iSNS Server TCP Port 
+cIsnsUdpPortNotifctn  : iSNS Server UDP Port 
+ 
+Variables:
+  1: cIsnsInstInfo
+  2: cIsnsAddrTypeNotifctn
+  3: cIsnsAddrNotifctn
+  4: cIsnsTcpPortNotifctn
+  5: cIsnsUdpPortNotifctn
+EDESC
+#
+#
+#
+EVENT cIsnsServerShutdown .1.3.6.1.4.1.9.10.116.1.3.0.2 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is sent when an iSNS Server is 
+shutdown.  The notification provides the following: 
+cIsnsInstInfo         : iSNS Server textual information 
+cIsnsAddrTypeNotifctn : iSNS Server address type 
+cIsnsAddrNotifctn     : iSNS Server address 
+cIsnsTcpPortNotifctn  : iSNS Server TCP Port 
+cIsnsUdpPortNotifctn  : iSNS Server UDP Port 
+ 
+Variables:
+  1: cIsnsInstInfo
+  2: cIsnsAddrTypeNotifctn
+  3: cIsnsAddrNotifctn
+  4: cIsnsTcpPortNotifctn
+  5: cIsnsUdpPortNotifctn
+EDESC
+#
+#
+#
+EVENT cIsnsClientStart .1.3.6.1.4.1.9.10.116.1.3.0.3 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is sent when an iSNS Client begins 
+operation.  The notification provides the following: 
+cIsnsInstInfo         : iSNS Client textual information 
+cIsnsAddrTypeNotifctn : iSNS Client address type 
+cIsnsAddrNotifctn     : iSNS Client address 
+cIsnsTcpPortNotifctn  : iSNS Client TCP Port 
+cIsnsUdpPortNotifctn  : iSNS Client UDP Port 
+ 
+Variables:
+  1: cIsnsInstInfo
+  2: cIsnsAddrTypeNotifctn
+  3: cIsnsAddrNotifctn
+  4: cIsnsTcpPortNotifctn
+  5: cIsnsUdpPortNotifctn
+EDESC
+#
+#
+#
+EVENT cIsnsClientInitalRegistration .1.3.6.1.4.1.9.10.116.1.3.0.4 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is sent when an iSNS Client initially 
+registers with a server.  The notification provides the 
+following: 
+cIsnsInstInfo         : iSNS Client textual information 
+cIsnsAddrTypeNotifctn : iSNS Server address type 
+cIsnsAddrNotifctn     : iSNS Server address 
+cIsnsTcpPortNotifctn  : iSNS Server TCP Port (if used) 
+cIsnsUdpPortNotifctn  : iSNS Server UDP Port (if used) 
+ 
+Variables:
+  1: cIsnsInstInfo
+  2: cIsnsAddrTypeNotifctn
+  3: cIsnsAddrNotifctn
+  4: cIsnsTcpPortNotifctn
+  5: cIsnsUdpPortNotifctn
+EDESC
+#
+#
+#
+EVENT cIsnsClientLostConnection .1.3.6.1.4.1.9.10.116.1.3.0.5 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is sent when an iSNS Client loses 
+connection with an iSNS Server.  The notification provides 
+the following: 
+cIsnsInstInfo         : iSNS Client textual information 
+cIsnsAddrTypeNotifctn : iSNS Server address type 
+cIsnsAddrNotifctn     : iSNS Server address 
+cIsnsTcpPortNotifctn  : iSNS Server TCP Port (if used) 
+cIsnsUdpPortNotifctn  : iSNS Server UDP Port (if used) 
+ 
+Variables:
+  1: cIsnsInstInfo
+  2: cIsnsAddrTypeNotifctn
+  3: cIsnsAddrNotifctn
+  4: cIsnsTcpPortNotifctn
+  5: cIsnsUdpPortNotifctn
+EDESC
+#
+#
+#
+EVENT cIsnsClientNoServerDiscovered .1.3.6.1.4.1.9.10.116.1.3.0.6 "Status Events" Normal
+FORMAT $*
+SDESC
+
+This notification is sent when a server discovery process 
+completes and no iSNS servers were found.  The notification 
+provides the following: 
+cIsnsInstInfo         : iSNS Client textual information 
+ 
+Variables:
+  1: cIsnsInstInfo
+EDESC

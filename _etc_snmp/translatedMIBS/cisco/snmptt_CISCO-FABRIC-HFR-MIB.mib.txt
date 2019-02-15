@@ -1,0 +1,47 @@
+#
+#
+#
+#
+MIB: CISCO-FABRIC-HFR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-FABRIC-HFR-MIB.mib) converted on Tue Aug 21 15:25:59 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cfhPlaneStateNotification .1.3.6.1.4.1.9.9.257.0.1 "Status Events" Normal
+FORMAT Fabric plane operational state change notification. $*
+SDESC
+Fabric plane operational state change notification.
+This notification is sent when the fabric plane operational
+state transition occurs.
+Variables:
+  1: cfhPlaneOperStatus
+EDESC
+#
+#
+#
+EVENT cfhBundleStateNotification .1.3.6.1.4.1.9.9.257.0.2 "Status Events" Normal
+FORMAT Fabric bundle operational state change notification. $*
+SDESC
+Fabric bundle operational state change notification.
+This notification is sent when the cfhBundleOperStatus
+state transition occurs.
+Variables:
+  1: cfhBundleOperStatus
+  2: cfhBundlePlane
+  3: cfhBundleName
+EDESC
+#
+#
+#
+EVENT cfhBundleDownedLinkNotification .1.3.6.1.4.1.9.9.257.0.3 "Status Events" Normal
+FORMAT Fabric bundle link notification. $*
+SDESC
+Fabric bundle link notification.
+This notification is sent if the value of cfhBundleOperStatus
+is 'up' and the value of cfhBundleDownedLinks is changed from
+0 to nonzero or from non-zero to zero.
+Variables:
+  1: cfhBundleOperStatus
+  2: cfhBundlePlane
+  3: cfhBundleDownedLinks
+  4: cfhBundleName
+EDESC

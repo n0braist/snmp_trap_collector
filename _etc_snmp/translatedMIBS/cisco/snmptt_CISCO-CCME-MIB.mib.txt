@@ -1,0 +1,131 @@
+#
+#
+#
+#
+MIB: CISCO-CCME-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-CCME-MIB.mib) converted on Tue Aug 21 15:25:44 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ccmeStatusChangeNotif .1.3.6.1.4.1.9.9.439.0.0.1 "Status Events" Normal
+FORMAT A ccmeStatusChangeNotif is generated if there is a change $*
+SDESC
+A ccmeStatusChangeNotif is generated if there is a change
+in ccmeEnabled. This notification is generated only when 
+value of the 'ccmeNotificationEnable' object is 'true'.
+Variables:
+  1: ccmeSysTrapSeverity
+  2: ccmeEnabled
+  3: ccmeSysNotificationReason
+EDESC
+#
+#
+#
+EVENT ccmeEphoneUnRegThresholdExceed .1.3.6.1.4.1.9.9.439.0.0.2 "Status Events" Normal
+FORMAT This notification is generated every time the total $*
+SDESC
+This notification is generated every time the total
+number of Ephones registered is exceeded and then dropped 
+below threshold specified by 'ccmeEphoneUnRegThreshold' 
+object. This objects is generated only if 
+'ccmeNotificationEnable' object is 'true'.
+Variables:
+  1: ccmeEphoneUnRegThreshold
+EDESC
+#
+#
+#
+EVENT ccmeEPhoneDeceased .1.3.6.1.4.1.9.9.439.0.0.3 "Status Events" Normal
+FORMAT This notification is generated every time registered Ephone $*
+SDESC
+This notification is generated every time registered Ephone
+changes state to 'Deceased', indicating that the connection
+to the Cisco IP phone was closed because of a keepalive
+timeout.  This objects is generated only if 
+'ccmeNotificationEnable' object is 'true'.
+Variables:
+  1: ccmeEphoneIpAddress
+  2: ccmeEphoneRegState
+EDESC
+#
+#
+#
+EVENT ccmeEPhoneRegFailed .1.3.6.1.4.1.9.9.439.0.0.4 "Status Events" Normal
+FORMAT This notification is generated every time an Ephone $*
+SDESC
+This notification is generated every time an Ephone
+attempts to register but fails. This notification is
+only for those failures seen by the CCME or SRST 
+gateway. This objects is generated only if 
+'ccmeNotificationEnable' object is 'true'.
+Variables:
+  1: ccmeEphoneIpAddress
+  2: ccmeEphoneTrapReason
+EDESC
+#
+#
+#
+EVENT ccmeEphoneLoginFailed .1.3.6.1.4.1.9.9.439.0.0.5 "Status Events" Normal
+FORMAT This notification is generated every time an Ephone user $*
+SDESC
+This notification is generated every time an Ephone user
+login is rejected/failed.
+This objects is generated only if 'ccmeNotificationEnable' 
+object is 'true'.
+Variables:
+  1: ccmeEphoneIpAddress
+  2: ccmeEphoneTrapReason
+EDESC
+#
+#
+#
+EVENT ccmeNightServiceChangeNotif .1.3.6.1.4.1.9.9.439.0.0.6 "Status Events" Normal
+FORMAT A ccmeNightServiceChangeNotif notification is generated $*
+SDESC
+A ccmeNightServiceChangeNotif notification is generated
+if there is change in night service status on this 
+device. This objects is generated only if 
+'ccmeNotificationEnable' object is 'true'.
+Variables:
+  1: ccmeEphoneTrapReason
+EDESC
+#
+#
+#
+EVENT ccmeLivefeedMohFailedNotif .1.3.6.1.4.1.9.9.439.0.0.7 "Status Events" Normal
+FORMAT A ccmeLivefeedMohFailedNotif notification is generated $*
+SDESC
+A ccmeLivefeedMohFailedNotif notification is generated
+when the Music-on-hold (Moh) live feed has failed. This 
+objects is generated only if 'ccmeNotificationEnable' 
+object is 'true'.
+Variables:
+  1: ccmeEphoneTrapReason
+EDESC
+#
+#
+#
+EVENT ccmeMaxConferenceNotif .1.3.6.1.4.1.9.9.439.0.0.8 "Status Events" Normal
+FORMAT A ccmeMaxConferenceNotif notification is generated $*
+SDESC
+A ccmeMaxConferenceNotif notification is generated
+if the maximum number of simultaneous three-party
+conferences supported by the Cisco CallManager
+Express is exceeded. This objects is generated only if
+'ccmeNotificationEnable' object is 'true'.
+Variables:
+  1: ccmeEphoneTrapReason
+EDESC
+#
+#
+#
+EVENT ccmeKeyEphoneRegChangeNotif .1.3.6.1.4.1.9.9.439.0.0.9 "Status Events" Normal
+FORMAT A ccmeKeyEphoneRegChangeNotif notification is generated $*
+SDESC
+A ccmeKeyEphoneRegChangeNotif notification is generated
+if there is a change in the registration status of Key 
+IP phone.  This objects is generated only if
+'ccmeNotificationEnable' object is 'true'.
+Variables:
+  1: ccmeEphoneIpAddress
+  2: ccmeEphoneRegState
+EDESC

@@ -1,0 +1,31 @@
+#
+#
+#
+#
+MIB: CISCO-POP-MGMT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-POP-MGMT-MIB.mib) converted on Tue Aug 21 15:26:25 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpmDS0BusyoutNotification .1.3.6.1.4.1.9.10.19.2.0.1 "Status Events" Normal
+FORMAT This notification is sent when there is a state change $*
+SDESC
+This notification is sent when there is a state change
+in cpmDS0BusyoutStatus object.
+Variables:
+  1: cpmDS0BusyoutStatus
+  2: cpmDS0BusyoutTime
+  3: cpmDS0BusyoutSource
+  4: cpmDS0InterfaceIndex
+EDESC
+#
+#
+#
+EVENT cpmDS1LoopbackNotification .1.3.6.1.4.1.9.10.19.2.0.2 "Status Events" Normal
+FORMAT This notification is sent when there is a state change $*
+SDESC
+This notification is sent when there is a state change
+in dsx1LineStatus object of RFC1406-MIB.
+Variables:
+  1: dsx1LineStatus
+  2: dsx1LineIndex
+EDESC

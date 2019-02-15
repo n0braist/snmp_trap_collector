@@ -1,0 +1,538 @@
+#
+#
+#
+#
+MIB: IMMALERT-MIB (file:/tmp/IBM_Hardware/IMMALERT-MIB.txt) converted on Wed Mar 20 18:24:33 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ibmSpTrapTempC .1.3.6.1.4.1.2.6.158.5.0.0 "Status Events" Normal
+FORMAT Critical Alert: Temperature threshold exceeded. $*
+SDESC
+Critical Alert: Temperature threshold exceeded.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapVoltC .1.3.6.1.4.1.2.6.158.5.0.1 "Status Events" Normal
+FORMAT Critical Alert: Voltage threshold exceeded. $*
+SDESC
+Critical Alert: Voltage threshold exceeded.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPowerC .1.3.6.1.4.1.2.6.158.5.0.4 "Status Events" Normal
+FORMAT Critical Alert: Power failure. $*
+SDESC
+Critical Alert: Power failure.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapHdC .1.3.6.1.4.1.2.6.158.5.0.5 "Status Events" Normal
+FORMAT Critical Alert: Hard disk drive failure. $*
+SDESC
+Critical Alert: Hard disk drive failure.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapFanC .1.3.6.1.4.1.2.6.158.5.0.11 "Status Events" Normal
+FORMAT Critical Alert: Single Fan failure. $*
+SDESC
+Critical Alert: Single Fan failure.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapIhcC .1.3.6.1.4.1.2.6.158.5.0.36 "Status Events" Normal
+FORMAT Critical Alert: Incompatible hardware configuration. $*
+SDESC
+Critical Alert: Incompatible hardware configuration.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapCPUC .1.3.6.1.4.1.2.6.158.5.0.40 "Status Events" Normal
+FORMAT Critical Alert: CPU Error. $*
+SDESC
+Critical Alert: CPU Error.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapMemoryC .1.3.6.1.4.1.2.6.158.5.0.41 "Status Events" Normal
+FORMAT Critical Alert: Memory Error. $*
+SDESC
+Critical Alert: Memory Error.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapRdpsC .1.3.6.1.4.1.2.6.158.5.0.9 "Status Events" Normal
+FORMAT Critical Alert: Redundant Power Supply failure. $*
+SDESC
+Critical Alert: Redundant Power Supply failure.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapHardwareC .1.3.6.1.4.1.2.6.158.5.0.50 "Status Events" Normal
+FORMAT Critical Alert: Other Failure - refer to Message ID for specific condition. $*
+SDESC
+Critical Alert: Other Failure - refer to Message ID for specific condition.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapRdpsN .1.3.6.1.4.1.2.6.158.5.0.10 "Status Events" Normal
+FORMAT Non-Critical Alert: Redundant Power Supply failure. $*
+SDESC
+Non-Critical Alert: Redundant Power Supply failure.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapTempN .1.3.6.1.4.1.2.6.158.5.0.12 "Status Events" Normal
+FORMAT Non-Critical Alert: Temperature threshold exceeded. $*
+SDESC
+Non-Critical Alert: Temperature threshold exceeded.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapVoltN .1.3.6.1.4.1.2.6.158.5.0.13 "Status Events" Normal
+FORMAT Non-Critical Alert: Voltage threshold exceeded. $*
+SDESC
+Non-Critical Alert: Voltage threshold exceeded.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPowerN .1.3.6.1.4.1.2.6.158.5.0.164 "Status Events" Normal
+FORMAT Non-Critical Alert: Power. $*
+SDESC
+Non-Critical Alert: Power.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapFanN .1.3.6.1.4.1.2.6.158.5.0.165 "Status Events" Normal
+FORMAT Non-Critical Alert: Fan Error. $*
+SDESC
+Non-Critical Alert: Fan Error.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapCPUN .1.3.6.1.4.1.2.6.158.5.0.42 "Status Events" Normal
+FORMAT Non-Critical Alert: CPU Error. $*
+SDESC
+Non-Critical Alert: CPU Error.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapMemoryN .1.3.6.1.4.1.2.6.158.5.0.43 "Status Events" Normal
+FORMAT Non-Critical Alert: Memory Error. $*
+SDESC
+Non-Critical Alert: Memory Error.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapHardwareN .1.3.6.1.4.1.2.6.158.5.0.60 "Status Events" Normal
+FORMAT Non-Critical Alert: Warning - refer to Message ID for specific condition. $*
+SDESC
+Non-Critical Alert: Warning - refer to Message ID for specific condition.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapRLogin .1.3.6.1.4.1.2.6.158.5.0.30 "Status Events" Normal
+FORMAT Sev-Off Alert: Event Remote Login. $*
+SDESC
+Sev-Off Alert: Event Remote Login.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapOsToS .1.3.6.1.4.1.2.6.158.5.0.21 "Status Events" Normal
+FORMAT System Alert: OS Timeout value exceeded. $*
+SDESC
+System Alert: OS Timeout value exceeded.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapAppS .1.3.6.1.4.1.2.6.158.5.0.22 "Status Events" Normal
+FORMAT System Alert: Application Alert. Refer to Message ID for specific condition. $*
+SDESC
+System Alert: Application Alert. Refer to Message ID for specific condition.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPoffS .1.3.6.1.4.1.2.6.158.5.0.23 "Status Events" Normal
+FORMAT System Alert: Power Off. $*
+SDESC
+System Alert: Power Off.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPonS .1.3.6.1.4.1.2.6.158.5.0.24 "Status Events" Normal
+FORMAT System Alert: Power On. $*
+SDESC
+System Alert: Power On.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapBootS .1.3.6.1.4.1.2.6.158.5.0.25 "Status Events" Normal
+FORMAT System Alert: System Boot Failure. $*
+SDESC
+System Alert: System Boot Failure.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapLdrToS .1.3.6.1.4.1.2.6.158.5.0.26 "Status Events" Normal
+FORMAT System Alert: OS Loader Timeout. $*
+SDESC
+System Alert: OS Loader Timeout.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapPFAS .1.3.6.1.4.1.2.6.158.5.0.27 "Status Events" Normal
+FORMAT System Alert: Predictive Failure Analysis(PFA) information. $*
+SDESC
+System Alert: Predictive Failure Analysis(PFA) information.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapSysLogS .1.3.6.1.4.1.2.6.158.5.0.35 "Status Events" Normal
+FORMAT System Alert: System Log 75% full. $*
+SDESC
+System Alert: System Log 75% full.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+#
+#
+#
+EVENT ibmSpTrapNwChangeS .1.3.6.1.4.1.2.6.158.5.0.37 "Status Events" Normal
+FORMAT System Alert: Network change notification. $*
+SDESC
+System Alert: Network change notification.
+Variables:
+1: altDateTime
+2: altSpTxtId
+3: altSysUuid
+4: altSysSern
+5: altMsgID
+6: altMsgIDPrefix
+7: altPriority
+8: altMsgText
+9: altHostContact
+10: altHostLocation
+EDESC
+

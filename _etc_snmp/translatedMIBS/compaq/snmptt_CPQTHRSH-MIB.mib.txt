@@ -1,0 +1,161 @@
+#
+#
+#
+#
+MIB: CPQTHRSH-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQTHRSH-MIB.mib) converted on Wed Aug 22 14:19:24 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqMeRisingAlarm .1.3.6.1.4.1.232.0.10001 "Status Events" CRITICAL
+FORMAT Rising Threshold Passed (10001): $5: Variable $1 has value $3 >= $4.
+SDESC
+Rising Threshold passed.
+An alarm entry has crossed its rising threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: cpqMeAlarmVariable
+  2: cpqMeAlarmSampleType
+  3: cpqMeAlarmValue
+  4: cpqMeAlarmRisingThreshold
+  5: cpqMeAlarmOwner
+EDESC
+#
+#
+#
+EVENT cpqMeFallingAlarm .1.3.6.1.4.1.232.0.10002 "Status Events" CRITICAL
+FORMAT Falling Threshold Passed (10002): $5: Variable $1 has value $3 <= $4.
+SDESC
+Falling Threshold passed.
+An alarm entry has crossed its falling threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: cpqMeAlarmVariable
+  2: cpqMeAlarmSampleType
+  3: cpqMeAlarmValue
+  4: cpqMeAlarmFallingThreshold
+  5: cpqMeAlarmOwner
+EDESC
+#
+#
+#
+EVENT cpqMe2RisingAlarm .1.3.6.1.4.1.232.0.10003 "Status Events" CRITICAL
+FORMAT Rising Threshold Passed (10003): $7: Variable $3 has value $5 >= $6.
+SDESC
+Rising Threshold passed.
+An alarm entry has crossed its rising threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqMeAlarmVariable
+  4: cpqMeAlarmSampleType
+  5: cpqMeAlarmValue
+  6: cpqMeAlarmRisingThreshold
+  7: cpqMeAlarmOwner
+EDESC
+#
+#
+#
+EVENT cpqMe2FallingAlarm .1.3.6.1.4.1.232.0.10004 "Status Events" CRITICAL
+FORMAT Falling Threshold Passed (10004): $7: Variable $3 has value $5 <= $6.
+SDESC
+Falling Threshold passed.
+An alarm entry has crossed its falling threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqMeAlarmVariable
+  4: cpqMeAlarmSampleType
+  5: cpqMeAlarmValue
+  6: cpqMeAlarmFallingThreshold
+  7: cpqMeAlarmOwner
+EDESC
+#
+#
+#
+EVENT cpqMeRisingAlarmExtended .1.3.6.1.4.1.232.0.10005 "Status Events" MAJOR
+FORMAT Rising Threshold Passed (10005): $7: Variable $3 has value $5 >= $6.
+SDESC
+Rising Threshold passed.
+An alarm entry has crossed its rising threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqMeAlarmVariable
+  4: cpqMeAlarmSampleType
+  5: cpqMeAlarmValue
+  6: cpqMeAlarmRisingThreshold
+  7: cpqMeAlarmOwner
+  8: cpqMeAlarmSeverity
+  9: cpqMeAlarmExtendedDescription
+EDESC
+#
+#
+#
+EVENT cpqMeFallingAlarmExtended .1.3.6.1.4.1.232.0.10006 "Status Events" MAJOR
+FORMAT Falling Threshold Passed (10006): $7: Variable $3 has value $5 <= $6.
+SDESC
+Falling Threshold passed.
+An alarm entry has crossed its falling threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqMeAlarmVariable
+  4: cpqMeAlarmSampleType
+  5: cpqMeAlarmValue
+  6: cpqMeAlarmFallingThreshold
+  7: cpqMeAlarmOwner
+  8: cpqMeAlarmSeverity
+  9: cpqMeAlarmExtendedDescription
+EDESC
+#
+#
+#
+EVENT cpqMeCriticalRisingAlarmExtended .1.3.6.1.4.1.232.0.10007 "Status Events" CRITICAL
+FORMAT Critical Rising Threshold Passed (10007): $7: Variable $3 has value $5 >= $6.
+SDESC
+Critical Rising Threshold passed.
+An alarm entry has crossed its Critical rising threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqMeAlarmVariable
+  4: cpqMeAlarmSampleType
+  5: cpqMeAlarmValue
+  6: cpqMeAlarmRisingThreshold
+  7: cpqMeAlarmOwner
+  8: cpqMeAlarmSeverity
+  9: cpqMeAlarmExtendedDescription
+EDESC
+#
+#
+#
+EVENT cpqMeCriticalFallingAlarmExtended .1.3.6.1.4.1.232.0.10008 "Status Events" CRITICAL
+FORMAT Critical Falling Threshold Passed (10008): $7: Variable $3 has value $5 <= $6.
+SDESC
+Critical Falling Threshold passed.
+An alarm entry has crossed its Critical falling threshold.  The
+instances of those objects contained within the variable
+list are those of the alarm entry which generated this trap.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqMeAlarmVariable
+  4: cpqMeAlarmSampleType
+  5: cpqMeAlarmValue
+  6: cpqMeAlarmFallingThreshold
+  7: cpqMeAlarmOwner
+  8: cpqMeAlarmSeverity
+  9: cpqMeAlarmExtendedDescription
+EDESC

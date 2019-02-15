@@ -1,0 +1,137 @@
+#
+#
+#
+#
+MIB: OPL-SP-MIB (file:/tmp/MIB_2014-02-04/sun_OPL-SP-MIB.mib) converted on Tue Feb  4 11:05:09 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT scfSPFailover .1.3.6.1.4.1.211.1.15.3.1.2.0.1 "Status Events" Normal
+FORMAT Indicates that a failover from the active SP to the standby  $*
+SDESC
+Indicates that a failover from the active SP to the standby 
+SP has occurred.  The Board ID included is the ID of the 
+SP that has been failed over to.
+Variables:
+  1: scfAgentIndex
+EDESC
+#
+#
+#
+EVENT scfComponentEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.2 "Status Events" Normal
+FORMAT Indicates that a component has been added to or removed from $*
+SDESC
+Indicates that a component has been added to or removed from
+the system, or that a component-specific event has occurred.
+When indicating that a component has been added to or removed
+from the system, the event will be based on the highest level
+component possible.  For example, if a CMU is removed, then
+only a trap for the CMU is generated and not for the CPU and
+Memory that are on that CMU.
+Variables:
+  1: scfComponentSerialNumber
+  2: scfTrapEventType
+EDESC
+#
+#
+#
+EVENT scfComponentStatusEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.3 "Status Events" Normal
+FORMAT Indicates that a component has changed to a status $*
+SDESC
+Indicates that a component has changed to a status
+of interest, including fault, degraded, and recovery from
+a previous fault or degraded state condition.
+Variables:
+  1: scfComponentStatus
+  2: scfTrapStatusEventType
+EDESC
+#
+#
+#
+EVENT scfXsbModeChangeEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.4 "Status Events" Normal
+FORMAT Indicates that an XSB mode has been changed to either $*
+SDESC
+Indicates that an XSB mode has been changed to either
+a divided or non-divided state.
+Variables:
+  1: scfBoardXsbs
+EDESC
+#
+#
+#
+EVENT scfDomainStatusAlarm .1.3.6.1.4.1.211.1.15.3.1.2.0.5 "Status Events" Normal
+FORMAT Indicates that a status alarm condition has occurred on a  $*
+SDESC
+Indicates that a status alarm condition has occurred on a 
+domain.  This includes a status change and a panic.
+Variables:
+  1: scfDomainStatus
+  2: scfTrapDomainStatusAlarmType
+EDESC
+#
+#
+#
+EVENT scfDomainXsbEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.6 "Status Events" Normal
+FORMAT Indicates that an XSB has been added to or removed from $*
+SDESC
+Indicates that an XSB has been added to or removed from
+a domain.
+Variables:
+  1: scfXsbDomainId
+  2: scfTrapEventType
+EDESC
+#
+#
+#
+EVENT scfIoBoxEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.7 "Status Events" Normal
+FORMAT Indicates that an I/O Box component has been added to or $*
+SDESC
+Indicates that an I/O Box component has been added to or
+removed from the system.
+Variables:
+  1: scfTrapIoBoxId
+  2: scfTrapIoBoxSubType
+  3: scfTrapIoBoxSubId
+  4: scfTrapEventType
+EDESC
+#
+#
+#
+EVENT scfIoBoxLedEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.8 "Status Events" Normal
+FORMAT Indicates that an I/O Box component LED changed.  Depending $*
+SDESC
+Indicates that an I/O Box component LED changed.  Depending
+on the LED type, this will notify of errors detected in an
+I/O Box component.
+Variables:
+  1: scfTrapIoBoxId
+  2: scfTrapIoBoxSubType
+  3: scfTrapIoBoxSubId
+  4: scfTrapIoBoxLedType
+  5: scfTrapIoBoxLedValue
+EDESC
+#
+#
+#
+EVENT scfIoBoxTemperatureEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.9 "Status Events" Normal
+FORMAT Indicates that an I/O Box temperature sensor has triggered $*
+SDESC
+Indicates that an I/O Box temperature sensor has triggered
+an event.
+Variables:
+  1: scfTrapIoBoxId
+  2: scfTrapIoBoxSubType
+  3: scfTrapIoBoxSubId
+  4: scfTrapIoBoxTempEventType
+EDESC
+#
+#
+#
+EVENT scfModeSwitchEvent .1.3.6.1.4.1.211.1.15.3.1.2.0.10 "Status Events" Normal
+FORMAT Indicates that a panel switch has triggered an event. $*
+SDESC
+Indicates that a panel switch has triggered an event.
+Variables:
+  1: scfTrapModeSwitchEventType
+  2: scfModeSwitch
+EDESC

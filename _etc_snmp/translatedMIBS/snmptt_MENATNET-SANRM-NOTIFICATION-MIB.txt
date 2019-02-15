@@ -1,0 +1,32 @@
+#
+#
+#
+#
+MIB: MENATNET-SANRM-NOTIFICATION-MIB (file:/MENATNET-SANRM-NOTIFICATION-MIB.mib) converted on Wed Jun 20 16:49:43 2018 using snmpttconvertmib v1.4
+#
+#
+#
+EVENT snEventNotification .1.3.6.1.4.1.15902.1.1.4.1.1.0.1 "Status Events" Normal
+FORMAT An snEventNotification trap reports an event received or $*
+SDESC
+An snEventNotification trap reports an event received or
+detected by SAN RM. Note that not all of the objects mentioned
+above are necessarily included with the trap message.
+Variables:
+  1: snEventID
+  2: snEventTypeID
+  3: snEventTypeName
+  4: snEventComponent
+  5: snEventCategory
+  6: snEventFamily
+  7: snEventLifecycleState
+  8: snEventSeverity
+  9: snEventPriority
+  10: snEventCreationTimestamp
+  11: snEventRegistrationTimestamp
+  12: snEventSourceNode
+  13: snEventMessage
+  14: snEventDetails
+  15: snEventRefEntity
+  16: snEventRefType
+EDESC

@@ -1,0 +1,340 @@
+#
+#
+#
+#
+MIB: IPSECV1-MIB (file:/tmp/IBM_asn1-2-mibs/IPSECV1-MIB.mib) converted on Wed Mar 13 15:58:09 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ikeTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.1 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is created.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+EDESC
+#
+#
+#
+EVENT ikeTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.2 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is stopped.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+  3: ikeTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.3 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is created.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.4 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is stopped.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecAuthFail .1.3.6.1.4.1.2.6.119.4.9.0.5 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+authenication failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC
+#
+#
+#
+EVENT ipSecDecryptFail .1.3.6.1.4.1.2.6.119.4.9.0.6 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+decryption failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC
+#
+#
+#
+#
+MIB: IPSECV1-MIB (file:/tmp/IBM_asn1-2-mibs/IPSECV1-MIB.mib) converted on Wed Mar 13 16:00:03 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ikeTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.1 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is created.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+EDESC
+#
+#
+#
+EVENT ikeTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.2 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is stopped.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+  3: ikeTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.3 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is created.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.4 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is stopped.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecAuthFail .1.3.6.1.4.1.2.6.119.4.9.0.5 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+authenication failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC
+#
+#
+#
+EVENT ipSecDecryptFail .1.3.6.1.4.1.2.6.119.4.9.0.6 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+decryption failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC
+#
+#
+#
+#
+MIB: IPSECV1-MIB (file:/tmp/IBM_asn1-2-mibs/IPSECV1-MIB.mib) converted on Fri Mar 15 09:47:06 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ikeTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.1 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is created.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+EDESC
+#
+#
+#
+EVENT ikeTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.2 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is stopped.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+  3: ikeTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.3 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is created.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.4 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is stopped.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecAuthFail .1.3.6.1.4.1.2.6.119.4.9.0.5 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+authenication failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC
+#
+#
+#
+EVENT ipSecDecryptFail .1.3.6.1.4.1.2.6.119.4.9.0.6 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+decryption failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC
+#
+#
+#
+#
+MIB: IPSECV1-MIB (file:/tmp/IBM_asn1-2-mibs/IPSECV1-MIB.mib) converted on Fri Mar 15 11:27:21 2013 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ikeTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.1 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is created.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+EDESC
+#
+#
+#
+EVENT ikeTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.2 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec IKE Phase-1 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec IKE Phase-1 Tunnel
+is stopped.
+Variables:
+  1: ikeTunnelIndex
+  2: ikeTunnelId
+  3: ikeTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStart .1.3.6.1.4.1.2.6.119.4.9.0.3 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is created.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+EDESC
+#
+#
+#
+EVENT ipSecTunnelStop .1.3.6.1.4.1.2.6.119.4.9.0.4 "Status Events" Normal
+FORMAT This TRAP is generated when an IPsec Phase-2 Tunnel $*
+SDESC
+This TRAP is generated when an IPsec Phase-2 Tunnel
+is stopped.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecTunnelActiveTime
+EDESC
+#
+#
+#
+EVENT ipSecAuthFail .1.3.6.1.4.1.2.6.119.4.9.0.5 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+authenication failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC
+#
+#
+#
+EVENT ipSecDecryptFail .1.3.6.1.4.1.2.6.119.4.9.0.6 "Status Events" Normal
+FORMAT This TRAP is generated when a IPsec Phase-2 $*
+SDESC
+This TRAP is generated when a IPsec Phase-2
+decryption failure is detected.
+Variables:
+  1: ipSecTunnelIndex
+  2: ipSecTunnelId
+  3: ipSecFailTime
+  4: ipSecFailPktSrcAddr
+  5: ipSecFailPktDstAddr
+EDESC

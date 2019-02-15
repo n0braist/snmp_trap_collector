@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: CISCO-MEMORY-POOL-MIB (file:/tmp/MIB/cigesm_mibs_complete/CIGESM-MIBs/CISCO-MEMORY-POOL-MIB.my.txt) converted on Tue Sep  6 13:51:21 2016 using snmpttconvertmib v1.3

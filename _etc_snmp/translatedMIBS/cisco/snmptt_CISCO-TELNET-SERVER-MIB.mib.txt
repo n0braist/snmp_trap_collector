@@ -1,0 +1,59 @@
+#
+#
+#
+#
+MIB: CISCO-TELNET-SERVER-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-TELNET-SERVER-MIB.mib) converted on Tue Aug 21 15:26:39 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT ctsSessionEnded .1.3.6.1.4.1.9.9.630.0.1 "Status Events" Normal
+FORMAT This notification signifies that the agent entity has detected $*
+SDESC
+This notification signifies that the agent entity has detected
+end of a telnet session.
+Variables:
+  1: ctsSessionClientAddressType
+  2: ctsSessionsClientAddress
+  3: ctsSessionUserID
+  4: ctsSessionTcpPort
+EDESC
+#
+#
+#
+EVENT ctsSessionStarted .1.3.6.1.4.1.9.9.630.0.2 "Status Events" Normal
+FORMAT This notification is sent when the agent entity has accepted a $*
+SDESC
+This notification is sent when the agent entity has accepted a
+new telnet session.
+Variables:
+  1: ctsSessionClientAddressType
+  2: ctsSessionsClientAddress
+  3: ctsSessionUserID
+EDESC
+#
+#
+#
+EVENT ctsSessionDenied .1.3.6.1.4.1.9.9.630.0.3 "Status Events" Normal
+FORMAT This notification signifies that the agent has refused a telnet $*
+SDESC
+This notification signifies that the agent has refused a telnet
+session.
+Variables:
+  1: ctsSessionClientAddressType
+  2: ctsSessionsClientAddress
+  3: ctsSessionTcpPort
+EDESC
+#
+#
+#
+EVENT ctsSessionLoginFailure .1.3.6.1.4.1.9.9.630.0.4 "Status Events" Normal
+FORMAT This notification is sent when the agent entity has detected $*
+SDESC
+This notification is sent when the agent entity has detected
+attempt to login with wrong credentials.
+Variables:
+  1: ctsSessionClientAddressType
+  2: ctsSessionsClientAddress
+  3: ctsSessionUserID
+  4: ctsSessionTcpPort
+EDESC

@@ -1,0 +1,5 @@
+#
+#
+#
+#
+MIB: WITS-CSCM-MIB (file:/tmp/avaya/Avaya_WinnessMIBs/WITS-CSCM-MIB.txt) converted on Mon Apr 27 15:30:48 2015 using snmpttconvertmib v1.3

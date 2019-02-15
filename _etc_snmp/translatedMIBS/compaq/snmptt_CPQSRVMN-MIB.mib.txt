@@ -1,0 +1,124 @@
+#
+#
+#
+#
+MIB: CPQSRVMN-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQSRVMN-MIB.mib) converted on Wed Aug 22 14:19:23 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqSmBoardFailed .1.3.6.1.4.1.232.4.0.1 "Status Events" CRITICAL
+FORMAT Server Manager/R Board Failed: Server Manager/R board failure detected.
+SDESC
+Server Manager board failure.
+The Insight Agent has detected a failure of the Compaq Server 
+Manager/R board in the server.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqSmBoardReset .1.3.6.1.4.1.232.4.0.2 "Status Events" MINOR
+FORMAT Server Manager/R Board Reset: Server Manager/R board has been reset.
+SDESC
+Server Manager board reset.
+The Insight Agent has detected a reset of the Server Manager/R
+board in the server.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqSmServerManagerAlert .1.3.6.1.4.1.232.4.0.3 "Status Events" CRITICAL
+FORMAT Server Manager/R Threshhold Exceeded: The $2 - $3 = $1.
+SDESC
+Threshold exeeded on Server Manager monitored item.
+The Insight Agent has detected a monitored item on the Server 
+Manager board exceeding a threshold when alerting is
+enabled for the monitored item.
+Variables:
+  1: cpqSmMonItemCurVal
+  2: cpqSmObjectLabel
+  3: cpqSmMonItemLabel
+  4: cpqSmMonItemDataType
+  5: cpqSmMonItemSeverity
+  6: cpqSmMonItemLimit
+  7: cpqSmMonItemOptional
+  8: cpqSmMonItemLogicalOperator
+  9: cpqSmMonItemTimeStamp
+EDESC
+#
+#
+#
+EVENT cpqSmCommFailed .1.3.6.1.4.1.232.4.0.4 "Status Events" CRITICAL
+FORMAT Async Comm Failure: Async comm failure on Server Manager/R Board.
+SDESC
+Server Manager asynchronous communications failure.
+The Insight Agent has detected a failure in the Server Manager 
+board's asynchronous communication system.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqSmBatteryFailed .1.3.6.1.4.1.232.4.0.5 "Status Events" MAJOR
+FORMAT Battery Failure: Server Manager/R battery has failed.
+SDESC
+Server Manager battery failure.
+The Insight Agent has detected a failure in the Server Manager 
+board's onboard battery.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqSmBoardTimeout .1.3.6.1.4.1.232.4.0.6 "Status Events" CRITICAL
+FORMAT Board Timeout: Server Manager/R board is not responding.
+SDESC
+Server Manager board time-out.
+The Insight Agent has detected a time-out of the Server
+Manager board as reported by the Server Manager Board driver.
+Variables:
+EDESC
+#
+#
+#
+EVENT cpqSmAlertDestinationBlacklisted .1.3.6.1.4.1.232.4.0.7 "Status Events" MINOR
+FORMAT Alert Destination Blacklisted: Phone# $2, Pager ID $3 blacklisted.
+SDESC
+Alert destination blacklisted.
+The Server Manager board modem has blacklisted an alert 
+destination phone number.  Once blacklisted, that alert 
+destination is no longer available for use as an alert 
+destination.  Blacklisting, which only occurs in 
+international modems, is a requirement imposed by certain 
+European countries on modems, to prevent a phone number 
+from being dialed multiple times without getting a connection.  
+The number of attempts required to have blacklisting occur,
+vary from country to country.  Once an alert destination has 
+been blacklisted, the only way to remove the blacklisted phone 
+number is to remove power from the modem.  
+On external modems this is a trival task.  When a blacklisting
+occurs on the Server Manager board's internal modem the
+task is slightly more difficult as the modem gets power 
+from the Server Manager board.  
+To remove power from the Server Manager board's internal modem,
+the Server Manager board must be forced into Dormant Mode.
+This is an operating mode, used to conserve battery life,
+which is entered automatically if the board looses power.
+To cause the board to enter Dormant Mode, the following
+steps should be performed:
+1) Disable alerting via CPQCAUI.NLM.
+2) Disable async communication via CPQCAUI.NLM.
+3) Down the server.
+4) Exit to DOS (if applicable).
+5) Shut power off to the computer.
+6) Wait 5 minutes before restoring power.
+Once the 5 minutes has expired, and power to the computer
+has been restored, the modem will have flushed its
+blacklist, and the board's alerting functions will work
+as expected.
+Variables:
+  1: cpqSmAlertDestType
+  2: cpqSmAlertDestPhoneNumber
+  3: cpqSmAlertDestPagerId
+EDESC

@@ -1,0 +1,58 @@
+#
+#
+#
+#
+MIB: VMWARE-VC-EVENT-MIB (file:/tmp/ESX/asn1-6876-mibs/VMWARE-VC-EVENT-MIB.mib) converted on Tue Oct 21 10:49:45 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT vpxdAlarm .1.3.6.1.4.1.6876.4.3.0.201 "Status Events" Normal
+FORMAT This notification is sent on entity alarm state change, by the vCenter Server SNMP agent. $*
+SDESC
+This notification is sent on entity alarm state change, by the vCenter Server SNMP agent.
+This information is also available through the vSphere client, through the Alarms screen,
+or through the Managed Object Browser(MOB) interface for alarms at
+https://<vCenter Server machine address>/mob/?moid=AlarmManager.
+Listing individual objects of a specific type or ID can be done through the PropertyCollector SDK API.
+See http://www.vmware.com/support/developer/vc-sdk/visdk2xpubs/ReferenceGuide/vmodl.query.PropertyCollector.html
+for details.
+Variables:
+  1: vmwVpxdTrapType
+  2: vmwVpxdHostName
+  3: vmwVpxdVMName
+  4: vmwVpxdOldStatus
+  5: vmwVpxdNewStatus
+  6: vmwVpxdObjValue
+EDESC
+#
+#
+#
+EVENT vpxdDiagnostic .1.3.6.1.4.1.6876.4.3.0.202 "Status Events" Normal
+FORMAT This notification is sent on starting or restarting vCenter Server, $*
+SDESC
+This notification is sent on starting or restarting vCenter Server,
+on requesting a test notification explicitly, and can also be
+configured to be sent periodically at a specified time interval via
+vCenter Server configuration by the vCenter Server SNMP agent.
+Variables:
+EDESC
+#
+#
+#
+EVENT vpxdAlarmInfo .1.3.6.1.4.1.6876.4.3.0.203 "Status Events" Normal
+FORMAT This notification is sent on entity alarm state change, by the vCenter Server SNMP agent. $*
+SDESC
+This notification is sent on entity alarm state change, by the vCenter Server SNMP agent.
+This information is also available through the vSphere client, through the Alarms screen,
+or through the Managed Object Browser(MOB) interface for alarms at
+https://<vCenter Server machine address>/mob/?moid=AlarmManager.
+Listing individual objects of a specific type or ID can be done through the PropertyCollector SDK API.
+See http://www.vmware.com/support/developer/vc-sdk/visdk2xpubs/ReferenceGuide/vmodl.query.PropertyCollector.html
+for details.
+Variables:
+  1: vmwVpxdTargetObjType
+  2: vmwVpxdOldStatus
+  3: vmwVpxdNewStatus
+  4: vmwVpxdObjValue
+  5: vmwVpxdTargetObj
+EDESC

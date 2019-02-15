@@ -1,0 +1,382 @@
+#
+#
+#
+#
+MIB: DELL-RAC-MIB (file:/tmp/polycom/DELL-RAC-MIB.mib) converted on Fri Mar 13 12:28:36 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alertCMCTestTrap .1.3.6.1.4.1.674.10892.2.0.2000 "Status Events" INFORMATIONAL
+FORMAT CMC Test Trap: CMC Test Trap
+SDESC
+The CMC has generated a test trap
+Variables:
+EDESC
+#
+#
+#
+EVENT alertCMCNormalTrap .1.3.6.1.4.1.674.10892.2.0.2002 "Status Events" NORMAL
+FORMAT CMC Return-to-Normal / Informational Trap: Return-to-Normal / Informational Trap from CMC in system $1 in location $2, message: $8
+SDESC
+The CMC reported a return-to-normal or informational event.
+Variables:
+  1: drsProductChassisName
+  2: drsProductChassisLocation
+  3: drsGlobalCurrStatus
+  4: drsCASubSystem
+  5: drsCASSCurrStatus
+  6: drsCASSPrevStatus
+  7: drsCASSChangeTime
+  8: drsCAMessage
+EDESC
+#
+#
+#
+EVENT alertCMCWarningTrap .1.3.6.1.4.1.674.10892.2.0.2003 "Status Events" WARNING
+FORMAT CMC Warning Trap: Warning Trap from CMC in system $1 in location $2, message: $8
+SDESC
+The CMC reported a warning event.
+Variables:
+  1: drsProductChassisName
+  2: drsProductChassisLocation
+  3: drsGlobalCurrStatus
+  4: drsCASubSystem
+  5: drsCASSCurrStatus
+  6: drsCASSPrevStatus
+  7: drsCASSChangeTime
+  8: drsCAMessage
+EDESC
+#
+#
+#
+EVENT alertCMCCriticalTrap .1.3.6.1.4.1.674.10892.2.0.2004 "Status Events" CRITICAL
+FORMAT CMC Critical Trap: Critical Trap from CMC in system $1 in location $2, message: $8
+SDESC
+The CMC reported a critical event.
+Variables:
+  1: drsProductChassisName
+  2: drsProductChassisLocation
+  3: drsGlobalCurrStatus
+  4: drsCASubSystem
+  5: drsCASSCurrStatus
+  6: drsCASSPrevStatus
+  7: drsCASSChangeTime
+  8: drsCAMessage
+EDESC
+#
+#
+#
+EVENT alertCMCNonRecoverableTrap .1.3.6.1.4.1.674.10892.2.0.2005 "Status Events" NON-RECOVERABLE
+FORMAT CMC Non-Recoverable Trap: Non-Recoverable Trap from CMC in system $1 in location $2, message: $8
+SDESC
+The CMC reported a catastrophic event.
+Variables:
+  1: drsProductChassisName
+  2: drsProductChassisLocation
+  3: drsGlobalCurrStatus
+  4: drsCASubSystem
+  5: drsCASSCurrStatus
+  6: drsCASSPrevStatus
+  7: drsCASSChangeTime
+  8: drsCAMessage
+EDESC
+#
+#
+#
+EVENT alertDrscTestTrapEvent .1.3.6.1.4.1.674.10892.2.0.1001 "Status Events" INFORMATIONAL
+FORMAT Dell RAC Test TRAP Event: $3
+SDESC
+The RAC generated a test trap event in response to a user request.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscAuthError .1.3.6.1.4.1.674.10892.2.0.1002 "Status Events" MINOR
+FORMAT Dell RAC Authentication Error: $3
+SDESC
+The RAC Authentication Failures during a time period have Exceeded a Threshold.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscLostESM .1.3.6.1.4.1.674.10892.2.0.1003 "Status Events" MINOR
+FORMAT Dell RAC Lost Communication with ESM: $3
+SDESC
+The RAC cannot communicate with the baseboard management controller (ESM).
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscFoundESM .1.3.6.1.4.1.674.10892.2.0.1004 "Status Events" INFORMATIONAL
+FORMAT Dell RAC Communication with ESM is OK: $3
+SDESC
+The RAC is communicating normally with the baseboard management controller (ESM).
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscPowerOff .1.3.6.1.4.1.674.10892.2.0.1005 "Status Events" CRITICAL
+FORMAT Dell RAC Detected System Powered-Off: $3
+SDESC
+The RAC has detected a System power state change to powered-off.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscPowerOn .1.3.6.1.4.1.674.10892.2.0.1006 "Status Events" INFORMATIONAL
+FORMAT Dell RAC Detected System Powered-On: $3
+SDESC
+The RAC has detected a system power state change to powered-on.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscWatchdogExpired .1.3.6.1.4.1.674.10892.2.0.1007 "Status Events" CRITICAL
+FORMAT Dell RAC Detected Watchdog Expired: $3
+SDESC
+The RAC has detected that the system watchdog has expired indicating a system hang.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscBattLow .1.3.6.1.4.1.674.10892.2.0.1008 "Status Events" MINOR
+FORMAT Dell RAC Battery Charge Low: $3
+SDESC
+The RAC Battery charge is below 25% indicating that the battery may only be able to power the DRSC for 8-10 minutes.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscTempNormal .1.3.6.1.4.1.674.10892.2.0.1009 "Status Events" INFORMATIONAL
+FORMAT Dell RAC Temperature Normal: $3
+SDESC
+The RAC Temperature probe has retured to a normal value.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscTempWarning .1.3.6.1.4.1.674.10892.2.0.1010 "Status Events" MINOR
+FORMAT Dell RAC Temperature Warning: $3
+SDESC
+The RAC Temperature probe has detected a Warning value.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscTempCritical .1.3.6.1.4.1.674.10892.2.0.1011 "Status Events" CRITICAL
+FORMAT Dell RAC Temperature Failure: $3
+SDESC
+The RAC Temperature probe has detected a failure (or critical) value.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscVoltNormal .1.3.6.1.4.1.674.10892.2.0.1012 "Status Events" INFORMATIONAL
+FORMAT Dell RAC Voltage Normal: $3
+SDESC
+The RAC voltage has returned to a normal value.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscVoltWarning .1.3.6.1.4.1.674.10892.2.0.1013 "Status Events" MINOR
+FORMAT Dell RAC Battery Warning: $3
+SDESC
+The RAC voltage probe has detected a warning value.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscVoltCritical .1.3.6.1.4.1.674.10892.2.0.1014 "Status Events" CRITICAL
+FORMAT Dell RAC Voltage Failure: $3
+SDESC
+The RAC voltage probe has detected a failure (or critical) value.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscSELWarning .1.3.6.1.4.1.674.10892.2.0.1015 "Status Events" MAJOR
+FORMAT Dell RAC System Event Log Warning: $3
+SDESC
+The RAC has detected a new event in the System Event Log with Severity: Warning.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscSELCritical .1.3.6.1.4.1.674.10892.2.0.1016 "Status Events" CRITICAL
+FORMAT Dell RAC System Event Log Critical: $3
+SDESC
+The RAC has detected a new event in the System Event Log with Severity: Critical.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscSEL80percentFull .1.3.6.1.4.1.674.10892.2.0.1017 "Status Events" MAJOR
+FORMAT Dell System Event Log 80% Full Warning: $3
+SDESC
+The RAC has detected that the System Event Log is 80% full.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscSEL90percentFull .1.3.6.1.4.1.674.10892.2.0.1018 "Status Events" MAJOR
+FORMAT  Dell System Event Log 90% Full Warning : $3
+SDESC
+The RAC has detected that the System Event Log is 90% full.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscSEL100percentFull .1.3.6.1.4.1.674.10892.2.0.1019 "Status Events" MAJOR
+FORMAT  Dell System Event Log 100% Full Warning : $3
+SDESC
+The RAC has detected that the System Event Log is 100% full.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC
+#
+#
+#
+EVENT alertDrscSELNormal .1.3.6.1.4.1.674.10892.2.0.1020 "Status Events" INFORMATIONAL
+FORMAT Dell RAC System Event Log Normal: $3
+SDESC
+The RAC has detected a new event in the System Event Log with Severity: Normal.
+Variables:
+  1: drsAlertSystem
+  2: drsAlertTableIndexOID
+  3: drsAlertMessage
+  4: drsAlertCurrentStatus
+  5: drsAlertPreviousStatus
+  6: drsAlertData
+EDESC

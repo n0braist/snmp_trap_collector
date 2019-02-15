@@ -1,0 +1,33 @@
+#
+#
+#
+#
+MIB: CISCO-MODULE-AUTO-SHUTDOWN-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-MODULE-AUTO-SHUTDOWN-MIB.mib) converted on Tue Aug 21 15:26:21 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cmasModuleAutoShutdown .1.3.6.1.4.1.9.9.386.0.1 "Status Events" Normal
+FORMAT This notification is generated when the module auto $*
+SDESC
+This notification is generated when the module auto
+shutdown feature shuts down a module.
+Variables:
+  1: entPhysicalName
+  2: entPhysicalModelName
+  3: cmasModuleNumResets
+  4: cmasModuleLastResetReason
+EDESC
+#
+#
+#
+EVENT cmasModuleSysActionNotif .1.3.6.1.4.1.9.9.386.0.2 "Status Events" Normal
+FORMAT This notification is generated when a system initiated $*
+SDESC
+This notification is generated when a system initiated
+action occurs on a module.
+Variables:
+  1: entPhysicalName
+  2: entPhysicalModelName
+  3: cmasModuleSysAction
+  4: cmasModuleSysActionReason
+EDESC

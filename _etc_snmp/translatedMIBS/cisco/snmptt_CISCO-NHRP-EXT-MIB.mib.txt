@@ -1,0 +1,202 @@
+#
+#
+#
+#
+MIB: CISCO-NHRP-EXT-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-NHRP-EXT-MIB.mib) converted on Tue Aug 21 15:26:22 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cneNotifNextHopRegServerUp .1.3.6.1.4.1.9.9.680.0.1 "Status Events" Normal
+FORMAT This notification signifies that the SNMP entity, acting as an $*
+SDESC
+This notification signifies that the SNMP entity, acting as an
+agent, has detected that one of its NHRP entities, acting as an
+NHRC, has successfully registered with an NHRS to which it was 
+not already registered.
+Variables:
+  1: nhrpClientInternetworkAddrType
+  2: nhrpClientInternetworkAddr
+  3: nhrpClientNbmaAddrType
+  4: nhrpClientNbmaAddr
+  5: nhrpClientNbmaSubaddr
+  6: nhrpClientNhsInternetworkAddrType
+  7: nhrpClientNhsInternetworkAddr
+  8: nhrpClientNhsNbmaAddrType
+  9: nhrpClientNhsNbmaAddr
+  10: nhrpClientNhsNbmaSubaddr
+  11: nhrpClientHoldTime
+  12: nhrpClientRegUniqueness
+  13: nhrpClientNhsInUse
+EDESC
+#
+#
+#
+EVENT cneNotifNextHopRegServerDown .1.3.6.1.4.1.9.9.680.0.2 "Status Events" Normal
+FORMAT This notification signifies that the SNMP entity, acting as an $*
+SDESC
+This notification signifies that the SNMP entity, acting as an
+agent, has detected that that one of its NHRP entities, acting 
+as a NHRC, has detected(by repeated registration retries or 
+learnt from some other source(e.g. from a lower layer protocol))
+that the NHRS it was registered to, or was trying to register 
+to, is operationally down(from the NHRC's perspective).
+This notification doesn't indicate that the concerned NHRP 
+server is down or unreachable or not even that it is unable to
+provide (other)NHRP services. It just indicates that the NHRC 
+couldn't register successfully with the NHRS.
+This notification will be be sent only once for a down  event 
+i.e. two consecutive cneNotifNextHopRegServerDown notifications
+(for the same NHRS) must always be interspersed by a 
+cneNotifNextHopRegServerUp notification(for the same NHRS).
+Variables:
+  1: nhrpClientInternetworkAddrType
+  2: nhrpClientInternetworkAddr
+  3: nhrpClientNbmaAddrType
+  4: nhrpClientNbmaAddr
+  5: nhrpClientNbmaSubaddr
+  6: nhrpClientNhsInternetworkAddrType
+  7: nhrpClientNhsInternetworkAddr
+  8: nhrpClientNhsNbmaAddrType
+  9: nhrpClientNhsNbmaAddr
+  10: nhrpClientNhsNbmaSubaddr
+  11: cneNextHopDownReason
+  12: cneNHRPException
+EDESC
+#
+#
+#
+EVENT cneNotifNextHopRegClientUp .1.3.6.1.4.1.9.9.680.0.3 "Status Events" Normal
+FORMAT This notification signifies that the SNMP entity, acting as an $*
+SDESC
+This notification signifies that the SNMP entity, acting as an
+agent, has detected that one of its NHRP entities, acting as an
+NHRS perceives that an NHRP entity(an NHRC), which was not 
+already registered, has just now successfully registered.
+Variables:
+  1: nhrpServerInternetworkAddrType
+  2: nhrpServerInternetworkAddr
+  3: nhrpServerNbmaAddrType
+  4: nhrpServerNbmaAddr
+  5: nhrpServerNbmaSubaddr
+  6: nhrpServerNhcInternetworkAddrType
+  7: nhrpServerNhcInternetworkAddr
+  8: nhrpServerNhcNbmaAddrType
+  9: nhrpServerNhcNbmaAddr
+  10: nhrpServerNhcNbmaSubaddr
+  11: nhrpServerNhcPrefixLength
+  12: nhrpServerNhcInUse
+  13: nhrpServerCacheUniqueness
+EDESC
+#
+#
+#
+EVENT cneNotifNextHopRegClientDown .1.3.6.1.4.1.9.9.680.0.4 "Status Events" Normal
+FORMAT This notification signifies that the SNMP entity, acting as an $*
+SDESC
+This notification signifies that the SNMP entity, acting as an
+agent, has detected that one of its NHRP entities, acting as an
+NHRS perceives that an NHRP entity, acting as an NHRC, is no 
+more registered or failed to register.
+This notification will be be sent only once for a down event 
+i.e. two consecutive cneNotifNextHopRegClientDown notifications
+(for the same NHRC) must always be interspersed by a 
+cneNotifNextHopRegclientUp notification(for the same NHRC).
+Variables:
+  1: nhrpServerInternetworkAddrType
+  2: nhrpServerInternetworkAddr
+  3: nhrpServerNbmaAddrType
+  4: nhrpServerNbmaAddr
+  5: nhrpServerNbmaSubaddr
+  6: nhrpServerNhcInternetworkAddrType
+  7: nhrpServerNhcInternetworkAddr
+  8: nhrpServerNhcNbmaAddrType
+  9: nhrpServerNhcNbmaAddr
+  10: nhrpServerNhcNbmaSubaddr
+  11: nhrpServerNhcPrefixLength
+  12: nhrpServerCacheUniqueness
+  13: cneNextHopDownReason
+  14: cneNHRPException
+EDESC
+#
+#
+#
+EVENT cneNotifNextHopPeerUp .1.3.6.1.4.1.9.9.680.0.5 "Status Events" Normal
+FORMAT This notification signifies that the SNMP entity, acting as an $*
+SDESC
+This notification signifies that the SNMP entity, acting as an
+agent, has detected that one of its NHRP entities perceives that
+it has learnt the protocol-to-NBMA address binding information
+for an NBMA next hop(which it didn't have). An NHRP entity might
+learn the same address binding information for a next hop peer
+as part of multiple address resolutions; this notification 
+should be sent only when it first learns this address binding
+information.
+Variables:
+  1: nhrpClientInternetworkAddrType
+  2: nhrpClientInternetworkAddr
+  3: nhrpClientNbmaAddrType
+  4: nhrpClientNbmaAddr
+  5: nhrpClientNbmaSubaddr
+  6: nhrpCacheNextHopInternetworkAddr
+  7: nhrpCacheNbmaAddrType
+  8: nhrpCacheNbmaAddr
+  9: nhrpCacheNbmaSubaddr
+  10: nhrpCacheType
+EDESC
+#
+#
+#
+EVENT cneNotifNextHopPeerDown .1.3.6.1.4.1.9.9.680.0.6 "Status Events" Normal
+FORMAT This notification signifies that the SNMP entity, acting as an $*
+SDESC
+This notification signifies that the SNMP entity, acting as an
+agent, has detected that one of its NHRP entities perceives that
+it has lost the protocol-to-NBMA address binding information for
+an NBMA next hop(which it earlier had).
+An NHRP entity might maintain multiple cache entries, with the 
+same address binding information, for the same next hop peer
+(corresponding to different destinations reachable via this next
+hop peer); This notification will be be sent only when the 
+address binding information is lost meaning only when all such 
+entries are deleted.
+This notification will be be sent only once for a 'down' event 
+i.e. two consecutive cneNotifNextHopPeerDown notifications
+(for the same NHP) must always be interspersed by a
+cneNotifNextHopUp notification(for the same NHP).
+Variables:
+  1: nhrpClientInternetworkAddrType
+  2: nhrpClientInternetworkAddr
+  3: nhrpClientNbmaAddrType
+  4: nhrpClientNbmaAddr
+  5: nhrpClientNbmaSubaddr
+  6: nhrpCacheNextHopInternetworkAddr
+  7: nhrpCacheNbmaAddrType
+  8: nhrpCacheNbmaAddr
+  9: nhrpCacheNbmaSubaddr
+  10: cneNextHopDownReason
+  11: cneNHRPException
+EDESC
+#
+#
+#
+EVENT cneNotifRateLimitExceeded .1.3.6.1.4.1.9.9.680.0.7 "Status Events" Normal
+FORMAT This notification signifies that the $*
+SDESC
+This notification signifies that the
+SNMP entity, acting in an agent role, has detected that one of
+its NHRP entities(identified by the ifIndex) has been very
+frequently reaching the threshold on the rate of NHRP protocol
+messages exchanged in an NBMA network. It is left to each
+individual implementation to determine the threshold frequency
+of this event(threshold being reached on the rate of NHRP
+protocol messages exchanged) which should result in a
+notification.
+The ifIndex object in this notification represents the use of a
+generic ifIndex which reflects a specific NBMA subnetwork
+related interface as determined by an implementation.
+REFERENCE
+Sec.3.1.1(for ifIndex only) of RFC 2677 (August 1999)
+Variables:
+  1: ifIndex
+  2: ifName
+EDESC

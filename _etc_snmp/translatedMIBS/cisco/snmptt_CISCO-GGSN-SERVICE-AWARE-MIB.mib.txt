@@ -1,0 +1,165 @@
+#
+#
+#
+#
+MIB: CISCO-GGSN-SERVICE-AWARE-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-GGSN-SERVICE-AWARE-MIB.mib) converted on Tue Aug 21 15:26:02 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cGgsnSACsgStateUpNotif .1.3.6.1.4.1.9.9.497.2.0.1 "Status Events" Normal
+FORMAT This notification is generated when CSG state goes $*
+SDESC
+This notification is generated when CSG state goes
+up. This notification is deprecated and replaced by
+cGgsnSACsgR100StateUpNotif.
+Variables:
+  1: cGgsnSANotifCsgRealAddressType
+  2: cGgsnSANotifCsgRealAddress
+  3: cGgsnSANotifCsgVirtualAddrType
+  4: cGgsnSANotifCsgVirtualAddress
+  5: cGgsnSANotifCsgPort
+EDESC
+#
+#
+#
+EVENT cGgsnSACsgStateDownNotif .1.3.6.1.4.1.9.9.497.2.0.2 "Status Events" Normal
+FORMAT This notification is generated when CSG state goes $*
+SDESC
+This notification is generated when CSG state goes
+down. This notification is deprecated and replaced
+by cGgsnSACsgR100StateDownNotif.
+Variables:
+  1: cGgsnSANotifCsgRealAddressType
+  2: cGgsnSANotifCsgRealAddress
+  3: cGgsnSANotifCsgVirtualAddrType
+  4: cGgsnSANotifCsgVirtualAddress
+  5: cGgsnSANotifCsgPort
+EDESC
+#
+#
+#
+EVENT cGgsnSADccaEndUsrServDeniedNotif .1.3.6.1.4.1.9.9.497.2.0.3 "Status Events" Normal
+FORMAT This notification is generated when the credit- $*
+SDESC
+This notification is generated when the credit-
+control server denies the service request due to
+service restrictions.  On reception of this notif
+on category level, the CLCI-C shall discard all future
+user traffic for that category on that PDP context and
+not attempt to ask for more quotas during the same PDP
+context.
+Variables:
+  1: cGgsnNotifPdpImsi
+  2: cGgsnNotifPdpMsisdn
+EDESC
+#
+#
+#
+EVENT cGgsnSADccaCreditLimReachedNotif .1.3.6.1.4.1.9.9.497.2.0.4 "Status Events" Normal
+FORMAT This notification is generated when the credit limit $*
+SDESC
+This notification is generated when the credit limit
+is reached.  The credit-control server denies the service
+request since the end user's account could not cover the
+requested service.  Client shall behave exactly as with
+cGgsnSADccaEndUsrServDeniedNotif.
+Variables:
+  1: cGgsnNotifPdpImsi
+  2: cGgsnNotifPdpMsisdn
+EDESC
+#
+#
+#
+EVENT cGgsnSADccaUserUnknownNotif .1.3.6.1.4.1.9.9.497.2.0.5 "Status Events" Normal
+FORMAT This notification is generated when the specified $*
+SDESC
+This notification is generated when the specified
+end user is unknown in the credit-control server.
+Such permanent failures cause the client to enter
+the Idle state.  The client shall reject or terminate the
+PDP context depending on whether the result code was
+received in a CCA (Initial) or CCA (Update).
+Variables:
+  1: cGgsnNotifPdpImsi
+  2: cGgsnNotifPdpMsisdn
+EDESC
+#
+#
+#
+EVENT cGgsnSADccaRatingFailed .1.3.6.1.4.1.9.9.497.2.0.6 "Status Events" Normal
+FORMAT This notification is generated when the credit-control $*
+SDESC
+This notification is generated when the credit-control
+server cannot rate the service request, due to insufficient
+rating input, incorrect AVP combination or due to an AVP or
+an AVP value that is not recognized or supported in the
+rating.
+Variables:
+  1: cGgsnNotifPdpImsi
+  2: cGgsnNotifPdpMsisdn
+EDESC
+#
+#
+#
+EVENT cGgsnSADccaAuthRejectedNotif .1.3.6.1.4.1.9.9.497.2.0.7 "Status Events" Normal
+FORMAT This notification is generated when credit-control $*
+SDESC
+This notification is generated when credit-control
+server failed in authorization of end user.  The PDP
+context is deleted and category is blacklisted.
+Variables:
+  1: cGgsnNotifPdpImsi
+  2: cGgsnNotifPdpMsisdn
+EDESC
+#
+#
+#
+EVENT cGgsnSACsgR100StateUpNotif .1.3.6.1.4.1.9.9.497.2.0.8 "Status Events" Normal
+FORMAT This notification is generated when CSG state goes $*
+SDESC
+This notification is generated when CSG state goes
+up. The objects in the varbind list represents -
+cGgsnSANotifCsgName: CSG group Name.
+cGgsnSANotifCsgRealAddressType: Type of CSG group real
+IP address.
+cGgsnSANotifCsgRealAddress: Real IP address of the
+CSG group.
+cGgsnSANotifCsgVirtualAddrType: Type of CSG group virtual
+IP address.
+cGgsnSANotifCsgVirtualAddress: Virtual IP address of the
+CSG group.
+cGgsnSANotifCsgPort: CSG group port number.
+Variables:
+  1: cGgsnSANotifCsgName
+  2: cGgsnSANotifCsgRealAddressType
+  3: cGgsnSANotifCsgRealAddress
+  4: cGgsnSANotifCsgVirtualAddrType
+  5: cGgsnSANotifCsgVirtualAddress
+  6: cGgsnSANotifCsgPort
+EDESC
+#
+#
+#
+EVENT cGgsnSACsgR100StateDownNotif .1.3.6.1.4.1.9.9.497.2.0.9 "Status Events" Normal
+FORMAT This notification is generated when CSG state goes $*
+SDESC
+This notification is generated when CSG state goes
+down. The objects in the varbind list represents -
+cGgsnSANotifCsgName: CSG group Name.
+cGgsnSANotifCsgRealAddressType: Type of CSG group real
+IP address.
+cGgsnSANotifCsgRealAddress: Real IP address of the
+CSG group.
+cGgsnSANotifCsgVirtualAddrType: Type of CSG group virtual
+IP address.
+cGgsnSANotifCsgVirtualAddress: Virtual IP address of the
+CSG group.
+cGgsnSANotifCsgPort: CSG group port number.
+Variables:
+  1: cGgsnSANotifCsgName
+  2: cGgsnSANotifCsgRealAddressType
+  3: cGgsnSANotifCsgRealAddress
+  4: cGgsnSANotifCsgVirtualAddrType
+  5: cGgsnSANotifCsgVirtualAddress
+  6: cGgsnSANotifCsgPort
+EDESC

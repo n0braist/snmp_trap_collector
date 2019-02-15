@@ -1,0 +1,19 @@
+#
+#
+#
+#
+MIB: HP-ICF-CHASSIS (file:/tmp/SL_MIBS_2012-08-20/HP/HP-ICF-CHASSIS.mib) converted on Mon Aug 20 14:09:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT hpicfSensorTrap .1.3.6.1.4.1.11.2.14.12.1.0.3 "Status Events" Normal
+FORMAT An hpicfSensorTrap indicates that there has been a $*
+SDESC
+An hpicfSensorTrap indicates that there has been a
+change of state on one of the sensors in this
+chassis.  The hpicfSensorStatus indicates the new
+status value for the changed sensor.
+Variables:
+  1: hpicfSensorStatus
+  2: hpicfSensorDescr
+EDESC

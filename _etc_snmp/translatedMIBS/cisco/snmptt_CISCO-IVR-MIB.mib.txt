@@ -1,0 +1,69 @@
+#
+#
+#
+#
+MIB: CISCO-IVR-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-IVR-MIB.mib) converted on Tue Aug 21 15:26:15 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT civrZoneActivationDoneNotify .1.3.6.1.4.1.9.9.371.0.1 "Status Events" Normal
+FORMAT This notification is generated on completion of an IV  $*
+SDESC
+This notification is generated on completion of an IV 
+zoneset activation.
+civrZoneSetActDeactPartialSucss is valid only if the
+activation was successful.
+Variables:
+  1: civrZoneSetName
+  2: civrZoneSetActvatDeactvatResult
+  3: civrZoneSetActDeactPartialSucss
+EDESC
+#
+#
+#
+EVENT civrZoneDeactivationDoneNotify .1.3.6.1.4.1.9.9.371.0.2 "Status Events" Normal
+FORMAT This notification is generated on completion of an IV  $*
+SDESC
+This notification is generated on completion of an IV 
+zoneset deactivation.
+civrZoneSetActDeactPartialSucss is valid only if the
+deactivation was successful.
+Variables:
+  1: civrZoneSetName
+  2: civrZoneSetActvatDeactvatResult
+  3: civrZoneSetActDeactPartialSucss
+EDESC
+#
+#
+#
+EVENT civrDomainConflictNotify .1.3.6.1.4.1.9.9.371.0.3 "Status Events" Normal
+FORMAT This notification is sent when domainID conflict  $*
+SDESC
+This notification is sent when domainID conflict 
+occurs in a VSAN. The domainIDs in all the VSANs 
+(dmDatabaseTable in CISCO-DM-MIB) which 
+are configured to be carrying inter-VSAN trafic 
+(civrTopologyConfigTable) must be unique. If not, there
+could be domainID conflicts.
+Variables:
+  1: civrZoneEnforcedZoneMemberID
+  2: civrZoneEnforcedZoneMemberVsan
+  3: civrZoneMemberFabricId
+  4: civDomainIdConflictVsan
+EDESC
+#
+#
+#
+EVENT civrAfidConfigNotify .1.3.6.1.4.1.9.9.371.0.4 "Status Events" Normal
+FORMAT This notification is sent when an IVR $*
+SDESC
+This notification is sent when an IVR
+AFID mis-configuration occurs.
+Variables:
+  1: civrAfidMisConfigLocalAfid
+  2: civrAfidMisConfigRemoteAfid
+  3: civrAfidMisConfigLocalSWwn
+  4: civrAfidMisConfigRemoteSWwn
+  5: civrAfidMisConfigVsan
+  6: civrTopologyMisConfigReason
+EDESC

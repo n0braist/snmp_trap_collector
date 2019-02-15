@@ -1,0 +1,339 @@
+#
+#
+#
+#
+MIB: CPQNIC-MIB (file:/tmp/SL_MIBS_2012-08-20/compaq/CPQNIC-MIB.mib) converted on Wed Aug 22 14:19:20 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqNicConnectivityRestored .1.3.6.1.4.1.232.0.18001 "Status Events" INFORMATIONAL
+FORMAT NIC Status Trap (18001): Connectivity is restored for adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time connectivity is restored
+to a logical adapter.  This occurs when the physical
+adapter in a single adapter configuration returns to
+the OK condition or at least one physical adapter
+in a logical adapter group returns to the OK condition.
+This can be caused by replacement of a faulty cable
+or re-attaching a cable that was unplugged.
+User Action: None required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+EDESC
+#
+#
+#
+EVENT cpqNicConnectivityLost .1.3.6.1.4.1.232.0.18002 "Status Events" MAJOR
+FORMAT NIC Status Trap (18002): Connectivity lost for adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time the status of a logical
+adapter changes to the Failed condition.  This occurs
+when the adapter in a single adapter configuration fails,
+or when the last adapter in a redundant configuration fails.
+This can be caused by loss of link due to a cable being
+removed from the adapter or the Hub or Switch.  Internal
+adapter, Hub, or Switch failures can also cause this
+condition.
+User Action: Check the cables to the adapter and the Hub or
+Switch.  If no cable problems are found, the adapter, Hub,
+or Switch may need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+EDESC
+#
+#
+#
+EVENT cpqNicRedundancyIncreased .1.3.6.1.4.1.232.0.18003 "Status Events" INFORMATIONAL
+FORMAT NIC Status Trap (18003): Redundancy increased by adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time a previously failed physical
+adapter in a connected logical adapter group returns to the OK
+condition.  This trap is not sent when a logical adapter
+group has connectivity restored from a Failed condition.  The
+cpqNicConnectivityRestored trap is sent instead.
+This can be caused by replacement of a faulty cable
+or re-attaching a cable that was unplugged.
+User Action:  None required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqNicIfLogMapAdapterOKCount
+EDESC
+#
+#
+#
+EVENT cpqNicRedundancyReduced .1.3.6.1.4.1.232.0.18004 "Status Events" MAJOR
+FORMAT NIC Status Trap (18004): Redundancy decreased by adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time a physical adapter in a
+logical adapter group changes to the Failed condition, but
+at least one physical adapter remains in the OK condition..
+This can be caused by loss of link due to a cable being
+removed from the adapter or the Hub or Switch.  Internal
+adapter, Hub, or Switch failures can also cause this
+condition.
+User Action: Check the cables to the adapter and the Hub or
+Switch.  If no cable problems are found, the adapter, Hub,
+or Switch may need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqNicIfLogMapAdapterOKCount
+EDESC
+#
+#
+#
+EVENT cpqNic2ConnectivityRestored .1.3.6.1.4.1.232.0.18005 "Status Events" INFORMATIONAL
+FORMAT NIC Connectivity Restored Trap (18005): Connectivity is restored for adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time connectivity is restored
+to a logical adapter.  This occurs when the physical
+adapter in a single adapter configuration returns to
+the OK condition or at least one physical adapter
+in a logical adapter group returns to the OK condition.
+This can be caused by replacement of a faulty cable
+or re-attaching a cable that was unplugged.
+User Action: None required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+EDESC
+#
+#
+#
+EVENT cpqNic2ConnectivityLost .1.3.6.1.4.1.232.0.18006 "Status Events" MAJOR
+FORMAT NIC Connectivity Lost Trap (18006): Connectivity lost for adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time the status of a logical
+adapter changes to the Failed condition.  This occurs
+when the adapter in a single adapter configuration fails,
+or when the last adapter in a redundant configuration fails.
+This can be caused by loss of link due to a cable being
+removed from the adapter or the Hub or Switch.  Internal
+adapter, Hub, or Switch failures can also cause this
+condition.
+User Action: Check the cables to the adapter and the Hub or
+Switch.  If no cable problems are found, the adapter, Hub,
+or Switch may need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+EDESC
+#
+#
+#
+EVENT cpqNic2RedundancyIncreased .1.3.6.1.4.1.232.0.18007 "Status Events" INFORMATIONAL
+FORMAT NIC Redundancy Increased Trap (18007): Redundancy increased by adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time a previously failed physical
+adapter in a connected logical adapter group returns to the OK
+condition.  This trap is not sent when a logical adapter
+group has connectivity restored from a Failed condition.  The
+cpqNicConnectivityRestored trap is sent instead.
+This can be caused by replacement of a faulty cable
+or re-attaching a cable that was unplugged.
+User Action:  None required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+  10: cpqNicIfLogMapAdapterOKCount
+EDESC
+#
+#
+#
+EVENT cpqNic2RedundancyReduced .1.3.6.1.4.1.232.0.18008 "Status Events" MAJOR
+FORMAT NIC Redundancy Reduced Trap (18008): Redundancy decreased by adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time a physical adapter in a
+logical adapter group changes to the Failed condition, but
+at least one physical adapter remains in the OK condition..
+This can be caused by loss of link due to a cable being
+removed from the adapter or the Hub or Switch.  Internal
+adapter, Hub, or Switch failures can also cause this
+condition.
+User Action: Check the cables to the adapter and the Hub or
+Switch.  If no cable problems are found, the adapter, Hub,
+or Switch may need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+  10: cpqNicIfLogMapAdapterOKCount
+EDESC
+#
+#
+#
+EVENT cpqNicVirusLikeActivityDetected .1.3.6.1.4.1.232.0.18009 "Status Events" MAJOR
+FORMAT NIC Virus-like Activity Detected Trap (18009): Virus-like activity detected
+SDESC
+This trap will be sent when the Virus Throttle Filter
+Driver detects virus like activity.
+User Action:  The system reporting this trap requires
+immediate attention.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiServerSystemId
+EDESC
+#
+#
+#
+EVENT cpqNicVirusLikeActivityStopped .1.3.6.1.4.1.232.0.18010 "Status Events" INFORMATIONAL
+FORMAT NIC Virus-like Activity No Longer Detected Trap (18010): Virus-like activity no longer detected
+SDESC
+This trap will be sent when the Virus Throttle Filter
+Driver no longer detects virus like activity.
+User Action:  None required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqSiServerSystemId
+EDESC
+#
+#
+#
+EVENT cpqNic3ConnectivityRestored .1.3.6.1.4.1.232.0.18011 "Status Events" INFORMATIONAL
+FORMAT NIC Connectivity Restored Trap (18011): Connectivity is restored for adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time connectivity is restored
+to a logical adapter.  This occurs when the physical
+adapter in a single adapter configuration returns to
+the OK condition or at least one physical adapter
+in a logical adapter group returns to the OK condition.
+This can be caused by replacement of a faulty cable
+or re-attaching a cable that was unplugged.
+User Action: None required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+  10: cpqNicIfLogMapIPV6Address
+EDESC
+#
+#
+#
+EVENT cpqNic3ConnectivityLost .1.3.6.1.4.1.232.0.18012 "Status Events" MAJOR
+FORMAT NIC Connectivity Lost Trap (18012): Connectivity lost for adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time the status of a logical
+adapter changes to the Failed condition.  This occurs
+when the adapter in a single adapter configuration fails,
+or when the last adapter in a redundant configuration fails.
+This can be caused by loss of link due to a cable being
+removed from the adapter or the Hub or Switch.  Internal
+adapter, Hub, or Switch failures can also cause this
+condition.
+User Action: Check the cables to the adapter and the Hub or
+Switch.  If no cable problems are found, the adapter, Hub,
+or Switch may need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+  10: cpqNicIfLogMapIPV6Address
+EDESC
+#
+#
+#
+EVENT cpqNic3RedundancyIncreased .1.3.6.1.4.1.232.0.18013 "Status Events" INFORMATIONAL
+FORMAT NIC Redundancy Increased Trap (18013): Redundancy increased by adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time a previously failed physical
+adapter in a connected logical adapter group returns to the OK
+condition.  This trap is not sent when a logical adapter
+group has connectivity restored from a Failed condition.  The
+cpqNicConnectivityRestored trap is sent instead.
+This can be caused by replacement of a faulty cable
+or re-attaching a cable that was unplugged.
+User Action:  None required.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+  10: cpqNicIfLogMapIPV6Address
+  11: cpqNicIfLogMapAdapterOKCount
+EDESC
+#
+#
+#
+EVENT cpqNic3RedundancyReduced .1.3.6.1.4.1.232.0.18014 "Status Events" MAJOR
+FORMAT NIC Redundancy Reduced Trap (18014): Redundancy decreased by adapter in slot $3, port $4.
+SDESC
+This trap will be sent any time a physical adapter in a
+logical adapter group changes to the Failed condition, but
+at least one physical adapter remains in the OK condition..
+This can be caused by loss of link due to a cable being
+removed from the adapter or the Hub or Switch.  Internal
+adapter, Hub, or Switch failures can also cause this
+condition.
+User Action: Check the cables to the adapter and the Hub or
+Switch.  If no cable problems are found, the adapter, Hub,
+or Switch may need replacement.
+Variables:
+  1: sysName
+  2: cpqHoTrapFlags
+  3: cpqNicIfPhysAdapterSlot
+  4: cpqNicIfPhysAdapterPort
+  5: cpqSiServerSystemId
+  6: cpqNicIfPhysAdapterStatus
+  7: cpqSePciSlotBoardName
+  8: cpqNicIfPhysAdapterPartNumber
+  9: ipAdEntAddr
+  10: cpqNicIfLogMapIPV6Address
+  11: cpqNicIfLogMapAdapterOKCount
+EDESC

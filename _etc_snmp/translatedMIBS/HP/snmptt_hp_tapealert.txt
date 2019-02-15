@@ -1,0 +1,966 @@
+#
+#
+#
+#
+MIB: TapeAlert-MIB (file:/tmp/SL_MIBS_2012-08-20/HP/TapeAlert-MIB.mib) converted on Mon Aug 20 10:45:43 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT tapeAlertTrap1 .1.3.6.1.4.1.11.2.3.9.7.1.0.1 "Status Events" MINOR
+FORMAT HP TapeAlert #1: Hba$1:Channel$2:ScsiID$3 Tape Device Has Problems Reading Data
+SDESC
+The tape drive is having problems reading data. No
+data has been lost, but there has been a reduction
+in the performance of the tape.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap2 .1.3.6.1.4.1.11.2.3.9.7.1.0.2 "Status Events" MINOR
+FORMAT HP TapeAlert #2: Hba$1:Channel$2:ScsiID$3 Tape Device Has Problems Writing Data
+SDESC
+The tape drive is having problems writing data. No
+data has been lost, but there has been a reduction
+in the capacity of the tape.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap3 .1.3.6.1.4.1.11.2.3.9.7.1.0.3 "Status Events" MINOR
+FORMAT HP TapeAlert #3: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Read or Write Data Error
+SDESC
+The operation has stopped because an error has
+occured while reading or writing data which the
+drive cannot correct.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap4 .1.3.6.1.4.1.11.2.3.9.7.1.0.4 "Status Events" CRITICAL
+FORMAT HP TapeAlert #4: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Faulty Media [$4]
+SDESC
+Your data is at risk:
+1. Copy any data you require from this tape
+2. Do not use this tape again
+3. Restart the operation with a different tape
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+  4: currentMedia
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap5 .1.3.6.1.4.1.11.2.3.9.7.1.0.5 "Status Events" CRITICAL
+FORMAT HP TapeAlert #5: Hba$1:Channel$2:ScsiID$3 Tape Device May Have Read Fault - Call Helpline
+SDESC
+The tape is damaged or the drive is faulty.
+Call the tape drive supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap6 .1.3.6.1.4.1.11.2.3.9.7.1.0.6 "Status Events" CRITICAL
+FORMAT HP TapeAlert #6: Hba$1:Channel$2:ScsiID$3 Tape Device May Have Write Fault - Call Helpline
+SDESC
+The tape is from a faulty batch or the tape drive
+is faulty:
+1. Use a good tape to test the drive.
+2. If the problem persists, call the tape drive 
+supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap7 .1.3.6.1.4.1.11.2.3.9.7.1.0.7 "Status Events" MINOR
+FORMAT HP TapeAlert #7: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Worn Out Media [$4]
+SDESC
+The tape cartridge has reached the end of its 
+calculated useful life:
+1. Copy any data you need to another tape
+2. Discard the old tape.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+  4: currentMedia
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap8 .1.3.6.1.4.1.11.2.3.9.7.1.0.8 "Status Events" MINOR
+FORMAT HP TapeAlert #8: Hba$1:Channel$2:ScsiID$3 Media Loaded In Tape Device Is Not Data Grade
+SDESC
+The tape cartridge is not data-grade. 
+Any data you back up to the tape is at risk. 
+Replace the cartridge with a data-grade tape.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap9 .1.3.6.1.4.1.11.2.3.9.7.1.0.9 "Status Events" CRITICAL
+FORMAT HP TapeAlert #9: Hba$1:Channel$2:ScsiID$3 Tape Device Attempted Backup to Write-Protected Tape
+SDESC
+You are trying to write to a write-protected 
+cartridge. Remove the write-protection or use 
+another tape.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap10 .1.3.6.1.4.1.11.2.3.9.7.1.0.10 "Status Events" INFORMATIONAL
+FORMAT HP TapeAlert #10: Hba$1:Channel$2:ScsiID$3 Tape Device Eject Attempted When Media Locked
+SDESC
+You cannot eject the cartridge because the tape 
+drive is in use. Wait until the operation is 
+complete before ejecting the cartridge.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap11 .1.3.6.1.4.1.11.2.3.9.7.1.0.11 "Status Events" INFORMATIONAL
+FORMAT HP TapeAlert #11: Hba$1:Channel$2:ScsiID$3 Tape Device Attempted Backup/Restore To Cleaning Tape
+SDESC
+The tape in the drive is a cleaning cartridge.
+If you want to back up or restore, insert a 
+data-grade tape.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap12 .1.3.6.1.4.1.11.2.3.9.7.1.0.12 "Status Events" INFORMATIONAL
+FORMAT HP TapeAlert #12: Hba$1:Channel$2:ScsiID$3 Media Loaded In Tape Device Is Unsupported Type
+SDESC
+You have tried to load a cartridge of a type 
+which is not supported by this drive.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap13 .1.3.6.1.4.1.11.2.3.9.7.1.0.13 "Status Events" CRITICAL
+FORMAT HP TapeAlert #13: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Snapped Tape
+SDESC
+The operation has failed because the tape in the 
+drive has snapped:
+1. Discard the old tape.
+2. Restart the operation with a different tape.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap14 .1.3.6.1.4.1.11.2.3.9.7.1.0.14 "Status Events" CRITICAL
+FORMAT HP TapeAlert #14: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Snapped Tape
+SDESC
+The operation has failed because the tape in the 
+drive has snapped:
+1. Do not attempt to extract the tape cartridge.
+2. Call the tape drive supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap15 .1.3.6.1.4.1.11.2.3.9.7.1.0.15 "Status Events" MINOR
+FORMAT HP TapeAlert #15: Hba$1:Channel$2:ScsiID$3 Tape Device Has Memory Chip in Cartridge Failure [$4]
+SDESC
+The memory in the tape cartridge has failed, which reduces performance. 
+Do not use the cartridge for further backup operations.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+  4: currentMedia
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap16 .1.3.6.1.4.1.11.2.3.9.7.1.0.16 "Status Events" CRITICAL
+FORMAT HP TapeAlert #16: Hba$1:Channel$2:ScsiID$3 Tape Cartridge Ejected While Actively Writing/Reading
+SDESC
+The operation has failed because the tape cartridge was 
+manually ejected while the tape drive was actively writing 
+or reading.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap17 .1.3.6.1.4.1.11.2.3.9.7.1.0.17 "Status Events" MINOR
+FORMAT HP TapeAlert #17: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Read Only Media
+SDESC
+You have loaded a cartridge of a type that is read-only in this drive.
+The cartridge will appear as write-protected
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap18 .1.3.6.1.4.1.11.2.3.9.7.1.0.18 "Status Events" MINOR
+FORMAT HP TapeAlert #18: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Corrupted Directory On Tape
+SDESC
+The directory on the tape cartridge has been corrupted.
+File search performance will be degraded.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap19 .1.3.6.1.4.1.11.2.3.9.7.1.0.19 "Status Events" INFORMATIONAL
+FORMAT HP TapeAlert #19: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Worn Out Media [$4]
+SDESC
+The tape cartridge is nearing the end of its useful life.  
+It is recommended that you: 
+1. Use another tape cartridge for your next backup.  
+2. Store this tape cartridge in a safe place in case you 
+need to restore data from it.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+  4: currentMedia
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap20 .1.3.6.1.4.1.11.2.3.9.7.1.0.20 "Status Events" CRITICAL
+FORMAT HP TapeAlert #20: Hba$1:Channel$2:ScsiID$3 Tape Device Needs Cleaning
+SDESC
+The tape drive needs cleaning:
+1. If the operation has stopped, eject the tape 
+and clean the drive
+2. If the operation has not stopped, wait for it 
+to finish and then clean the drive.
+Check the tape drive users manual for device 
+specific cleaning instructions.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap21 .1.3.6.1.4.1.11.2.3.9.7.1.0.21 "Status Events" MINOR
+FORMAT HP TapeAlert #21: Hba$1:Channel$2:ScsiID$3 Tape Device Requests Routine Cleaning
+SDESC
+The tape drive is due for routine cleaning:
+1. Wait for the current operation to finish.
+2. Then use a cleaning cartridge.
+Check the tape drive users manual for device 
+specific cleaning instructions.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap22 .1.3.6.1.4.1.11.2.3.9.7.1.0.22 "Status Events" CRITICAL
+FORMAT HP TapeAlert #22: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Worn Out Cleaning Cartridge
+SDESC
+The last cleaning cartridge used in the tape 
+drive has worn out:
+1. Discard the worn out cleaning cartridge.
+2. Wait for the current operation to finish.
+3. Then use a new cleaning cartridge.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap23 .1.3.6.1.4.1.11.2.3.9.7.1.0.23 "Status Events" CRITICAL
+FORMAT HP TapeAlert #23: Hba$1:Channel$2:ScsiID$3 Tape Device Has Detected Invalid Cleaning Cartridge
+SDESC
+The last cleaning cartridge used in the tape drive was an invalid type:
+1. Do not use this cleaning cartridge in this drive.
+2. Wait for the current operation to finish.
+3. Then use a valid cleaning cartridge.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap29 .1.3.6.1.4.1.11.2.3.9.7.1.0.29 "Status Events" MINOR
+FORMAT HP TapeAlert #29: Hba$1:Channel$2:ScsiID$3 Tape Device Requires Preventative Maintenance
+SDESC
+Preventive maintenance of the tape drive is required.
+Check the tape drive users manual for device specific 
+preventive maintenance tasks or call the tape drive 
+supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap30 .1.3.6.1.4.1.11.2.3.9.7.1.0.30 "Status Events" CRITICAL
+FORMAT HP TapeAlert #30: Hba$1:Channel$2:ScsiID$3 Tape Device Has Hardware Fault - Reset Drive
+SDESC
+The tape drive has a hardware fault:
+1. Eject the tape or magazine.
+2. Reset the drive.
+3. Restart the operation.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap31 .1.3.6.1.4.1.11.2.3.9.7.1.0.31 "Status Events" CRITICAL
+FORMAT HP TapeAlert #31: Hba$1:Channel$2:ScsiID$3 Tape Device Has Hardware Fault - Call Helpline
+SDESC
+The tape drive has a hardware fault:
+1. Turn the tape drive off and then on again.
+2. Restart the operation.
+3. If the problem persists, call the tape 
+drive supplier helpline.
+Check the tape drive users manual for device specific 
+instructions on turning the device power on and off.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap32 .1.3.6.1.4.1.11.2.3.9.7.1.0.32 "Status Events" MINOR
+FORMAT HP TapeAlert #32: Hba$1:Channel$2:ScsiID$3 Tape Device Has Host Interface Fault
+SDESC
+The tape drive has a problem with the host 
+interface:
+1. Check the cables and cable connections.
+2. Restart the operation.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap33 .1.3.6.1.4.1.11.2.3.9.7.1.0.33 "Status Events" CRITICAL
+FORMAT HP TapeAlert #33: Hba$1:Channel$2:ScsiID$3 Tape Device Has Eject Media Request
+SDESC
+The operation has failed:
+1. Eject the tape or magazine.
+2. Insert the tape or magazine again.
+3. Restart the operation.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap34 .1.3.6.1.4.1.11.2.3.9.7.1.0.34 "Status Events" MINOR
+FORMAT HP TapeAlert #34: Hba$1:Channel$2:ScsiID$3 Tape Device Has Firmware Download Fault
+SDESC
+The firmware download has failed because you 
+have tried to use the incorrect firmware for 
+this tape drive.
+Obtain the correct firmware and try again.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap35 .1.3.6.1.4.1.11.2.3.9.7.1.0.35 "Status Events" MINOR
+FORMAT HP TapeAlert #35: Hba$1:Channel$2:ScsiID$3 Tape Device Humidity Specification Exceeded
+SDESC
+Environmental conditions inside the tape drive are 
+exceeding the humidity specifications
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap36 .1.3.6.1.4.1.11.2.3.9.7.1.0.36 "Status Events" MINOR
+FORMAT HP TapeAlert #36: Hba$1:Channel$2:ScsiID$3 Tape Device Temperature Specification Exceeded
+SDESC
+Environmental conditions inside the tape drive are 
+exceeding the temperature specifications
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap37 .1.3.6.1.4.1.11.2.3.9.7.1.0.37 "Status Events" MINOR
+FORMAT HP TapeAlert #37: Hba$1:Channel$2:ScsiID$3 Tape Device Voltage Specification Exceeded
+SDESC
+The voltage supply to the tape drive exceeds specifications
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap38 .1.3.6.1.4.1.11.2.3.9.7.1.0.38 "Status Events" CRITICAL
+FORMAT HP TapeAlert #38: Hba$1:Channel$2:ScsiID$3 Tape Device Predicted to Fail - Call Helpline
+SDESC
+A hardware failure of the tape drive is predicted. 
+Call the tape drive supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap39 .1.3.6.1.4.1.11.2.3.9.7.1.0.39 "Status Events" MINOR
+FORMAT HP TapeAlert #39: Hba$1:Channel$2:ScsiID$3 Tape Device May Have Hardware Fault - Run Diagnostics
+SDESC
+The tape drive may have a hardware fault.
+Run extended diagnostics to verify and diagnose the problem.
+Check the tape drive users manual for device specific 
+instructions on running extended diagnostic tests.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap40 .1.3.6.1.4.1.11.2.3.9.7.1.0.40 "Status Events" CRITICAL
+FORMAT HP TapeAlert #40: Hba$1:Channel$2:ScsiID$3 Tape Device Has Autoloader Communications Fault
+SDESC
+The changer mechanism is having difficulty 
+communicating with the tape drive:
+1. Turn the autoloader off then on.
+2. Restart the operation.
+3. If problem persists, call the tape drive 
+supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap41 .1.3.6.1.4.1.11.2.3.9.7.1.0.41 "Status Events" CRITICAL
+FORMAT HP TapeAlert #41: Hba$1:Channel$2:ScsiID$3 Tape Device Detects Stray Tape In Autoloader
+SDESC
+A tape has been left in the autoloader by a 
+previous hardware fault:
+1. Insert an empty magazine to clear the fault.
+2. If the fault does not clear, turn the autoloader 
+off and then on again.
+3. If the problem persists, call the tape drive 
+supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap42 .1.3.6.1.4.1.11.2.3.9.7.1.0.42 "Status Events" MINOR
+FORMAT HP TapeAlert #42: Hba$1:Channel$2:ScsiID$3 Tape Device Has Autoloader Mechanism Fault
+SDESC
+There is a problem with the autoloader mechanism.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap43 .1.3.6.1.4.1.11.2.3.9.7.1.0.43 "Status Events" CRITICAL
+FORMAT HP TapeAlert #43: Hba$1:Channel$2:ScsiID$3 Tape Device Has Autoloader Door Open
+SDESC
+The operation has failed because the autoloader 
+door is open:
+1. Clear any obstructions from the autoloader door.
+2. Eject the magazine and then insert it again.
+3. If the fault does not clear, turn the autoloader 
+off and then on again.
+4. If the problem persists, call the tape drive 
+supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap44 .1.3.6.1.4.1.11.2.3.9.7.1.0.44 "Status Events" CRITICAL
+FORMAT HP TapeAlert #44: Hba$1:Channel$2:ScsiID$3 Autoloader Has Hardware Fault - Call Helpline
+SDESC
+The autoloader has a hardware fault:
+1. Turn the autoloader off and then on again.
+2. Restart the operation.
+3. If the problem persists, call the tape drive supplier helpline.
+Check the autoloader users manual for device specific 
+instructions on turning the device power on and off.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap45 .1.3.6.1.4.1.11.2.3.9.7.1.0.45 "Status Events" CRITICAL
+FORMAT HP TapeAlert #45: Hba$1:Channel$2:ScsiID$3 Autoloader Cannot Operate Without Magazine
+SDESC
+The autoloader cannot operate without the magazine.
+1. Insert the magazine into the autoloader
+2. Restart the operation.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap46 .1.3.6.1.4.1.11.2.3.9.7.1.0.46 "Status Events" MINOR
+FORMAT HP TapeAlert #46: Hba$1:Channel$2:ScsiID$3 Autoloader Predicted to Fail - Call Helpline
+SDESC
+A hardware failure of the changer mechanism is predicted. 
+Call the tape drive supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap256 .1.3.6.1.4.1.11.2.3.9.7.1.0.256 "Status Events" CRITICAL
+FORMAT HP TapeAlert #256: Hba$1:Channel$2:ScsiID$3 Library Has Drive Communications Fault
+SDESC
+The library  mechanism is having difficulty communicating with the drive:
+1. Turn the library off then on.
+2. Restart the operation.
+3. If problem persists, call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap257 .1.3.6.1.4.1.11.2.3.9.7.1.0.257 "Status Events" MINOR
+FORMAT HP TapeAlert #257: Hba$1:Channel$2:ScsiID$3 Library Has Changer Mechanism Fault
+SDESC
+There is a problem with the library mechanism.
+If problem persists, call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap258 .1.3.6.1.4.1.11.2.3.9.7.1.0.258 "Status Events" CRITICAL
+FORMAT HP TapeAlert #258: Hba$1:Channel$2:ScsiID$3 Library Has Hardware Fault - Reset Library
+SDESC
+The library has a hardware fault:
+1. Reset the library
+2. Restart the operation.
+Check the library users manual for device specific 
+instructions on resetting the device.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap259 .1.3.6.1.4.1.11.2.3.9.7.1.0.259 "Status Events" CRITICAL
+FORMAT HP TapeAlert #259: Hba$1:Channel$2:ScsiID$3 Library Has Hardware Fault - Call Helpline
+SDESC
+The library has a hardware fault:
+1. Turn the library off and then on again.
+2. Restart the operation.
+3. If the problem persists, call the library supplier helpline.
+Check the library users manual for device specific 
+instructions on turning the device power on and off.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap260 .1.3.6.1.4.1.11.2.3.9.7.1.0.260 "Status Events" MINOR
+FORMAT HP TapeAlert #260: Hba$1:Channel$2:ScsiID$3 Library May Have Hardware Fault - Run Diagnostics
+SDESC
+The library mechanism may have a hardware fault.
+Run extended diagnostics to verify and diagnose the problem.
+Check the library users manual for device specific 
+instructions on running extended diagnostic tests.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap261 .1.3.6.1.4.1.11.2.3.9.7.1.0.261 "Status Events" CRITICAL
+FORMAT HP TapeAlert #261: Hba$1:Channel$2:ScsiID$3 Library Has Host Interface Fault
+SDESC
+The library has a problem with the host interface:
+1. Check the cables and cable connections.
+2. Restart the operation.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap262 .1.3.6.1.4.1.11.2.3.9.7.1.0.262 "Status Events" MINOR
+FORMAT HP TapeAlert #262: Hba$1:Channel$2:ScsiID$3 Library Predicted to Fail - Call Helpline
+SDESC
+A hardware failure of the library is predicted. 
+Call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap263 .1.3.6.1.4.1.11.2.3.9.7.1.0.263 "Status Events" MINOR
+FORMAT HP TapeAlert #263: Hba$1:Channel$2:ScsiID$3 Library Requires Preventative Maintenance
+SDESC
+Preventative maintenance of the library is required.
+Check the library users manual for device specific 
+preventative maintenance tasks, or call your library 
+supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap264 .1.3.6.1.4.1.11.2.3.9.7.1.0.264 "Status Events" CRITICAL
+FORMAT HP TapeAlert #264: Hba$1:Channel$2:ScsiID$3 Library Humidity Specification Exceeded
+SDESC
+General environmental conditions inside the library have 
+exceeded the humidity specifications.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap265 .1.3.6.1.4.1.11.2.3.9.7.1.0.265 "Status Events" CRITICAL
+FORMAT HP TapeAlert #265: Hba$1:Channel$2:ScsiID$3 Library Temperature Specification Exceeded
+SDESC
+General environmental conditions inside the library have 
+exceeded the temperature specifications.e
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap266 .1.3.6.1.4.1.11.2.3.9.7.1.0.266 "Status Events" CRITICAL
+FORMAT HP TapeAlert #266: Hba$1:Channel$2:ScsiID$3 Library Voltage Specification Exceeded
+SDESC
+he voltage supply to the library exceeds specifications.  
+There is a potential problem with the power supply or failure 
+of a redundant power supply
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap267 .1.3.6.1.4.1.11.2.3.9.7.1.0.267 "Status Events" CRITICAL
+FORMAT HP TapeAlert #267: Hba$1:Channel$2:ScsiID$3 Library Detects Stray Tape In Drive
+SDESC
+A cartridge has been left in a drive inside the library by a 
+previous hardware fault:
+1. Insert an empty magazine to clear the fault.
+2. If the fault does not clear, turn the library off and then on again.
+3. If the problem persists, call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap268 .1.3.6.1.4.1.11.2.3.9.7.1.0.268 "Status Events" MINOR
+FORMAT HP TapeAlert #268: Hba$1:Channel$2:ScsiID$3 Library Has Problems Picking Cartridge from Slot
+SDESC
+There is a potential problem with a drive ejecting cartridges short or 
+with the library mechanism picking a cartridge from a slot.
+1. No action needs to be taken at this time. 
+2. If the problem persists, call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap269 .1.3.6.1.4.1.11.2.3.9.7.1.0.269 "Status Events" MINOR
+FORMAT HP TapeAlert #269: Hba$1:Channel$2:ScsiID$3 Library Has Problems Placing Cartridge into Slot
+SDESC
+There is a potential problem with the library mechanism 
+placing a cartridge into a slot
+1. No action needs to be taken at this time. 
+2. If the problem persists, call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap270 .1.3.6.1.4.1.11.2.3.9.7.1.0.270 "Status Events" MINOR
+FORMAT HP TapeAlert #270: Hba$1:Channel$2:ScsiID$3 Library Has Problems Loading Cartridge into Drive
+SDESC
+There is a potential problem with a drive or the library 
+mechanism loading cartridges, or an incompatible cartridge.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap271 .1.3.6.1.4.1.11.2.3.9.7.1.0.271 "Status Events" CRITICAL
+FORMAT HP TapeAlert #271: Hba$1:Channel$2:ScsiID$3 Library Door is Open
+SDESC
+The operation has failed because the library door is open:
+1. Clear any obstructions from the library door.
+2. Close the library door.
+3. If the problem persists, call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap272 .1.3.6.1.4.1.11.2.3.9.7.1.0.272 "Status Events" CRITICAL
+FORMAT HP TapeAlert #272: Hba$1:Channel$2:ScsiID$3 Library Has Mechanical Fault with Mailslot
+SDESC
+There is a mechanical problem with the 
+library media import/export mailslot.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap273 .1.3.6.1.4.1.11.2.3.9.7.1.0.273 "Status Events" CRITICAL
+FORMAT HP TapeAlert #273: Hba$1:Channel$2:ScsiID$3 Library Cannot Operate Without Magazine
+SDESC
+The library cannot operate without the magazine.
+1. Insert the magazine into the library
+2. Restart the operation.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap274 .1.3.6.1.4.1.11.2.3.9.7.1.0.274 "Status Events" MINOR
+FORMAT HP TapeAlert #274: Hba$1:Channel$2:ScsiID$3 Library Security Has Been Compromised
+SDESC
+Library security has been compromised
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap275 .1.3.6.1.4.1.11.2.3.9.7.1.0.275 "Status Events" INFORMATIONAL
+FORMAT HP TapeAlert #275: Hba$1:Channel$2:ScsiID$3 Library Security Mode Changed
+SDESC
+The security mode of the library has been changed.
+The library has either been put into secure mode, 
+or the library has exited the secure mode.
+This is for information purposes only. No action is required.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap276 .1.3.6.1.4.1.11.2.3.9.7.1.0.276 "Status Events" INFORMATIONAL
+FORMAT HP TapeAlert #276: Hba$1:Channel$2:ScsiID$3 Library Manually Turned Offline
+SDESC
+The library has been manually turned offline and is unavailable for use.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap277 .1.3.6.1.4.1.11.2.3.9.7.1.0.277 "Status Events" INFORMATIONAL
+FORMAT HP TapeAlert #277: Hba$1:Channel$2:ScsiID$3 Library Drive Turned Offline
+SDESC
+A drive inside the library has been taken offline.
+This is for information purposes only. No action is required.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap278 .1.3.6.1.4.1.11.2.3.9.7.1.0.278 "Status Events" MINOR
+FORMAT HP TapeAlert #278: Hba$1:Channel$2:ScsiID$3 Library Has Problems Reading Barcode Labels
+SDESC
+There is a potential problem with the barcode label or 
+the scanner hardware in the library mechanism.
+1. No action needs to be taken at this time. 
+2. If the problem persists, call the library supplier helpline.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap279 .1.3.6.1.4.1.11.2.3.9.7.1.0.279 "Status Events" CRITICAL
+FORMAT HP TapeAlert #279: Hba$1:Channel$2:ScsiID$3 Library Inventory is Inconsistent
+SDESC
+The library has detected a inconsistency in its inventory.
+1. Redo the library inventory to correct inconsistency.
+2. Restart the operation 
+Check the applications users manual or the hardware users 
+manual for specific instructions on redoing the library inventory.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC
+#
+#
+#
+EVENT tapeAlertTrap280 .1.3.6.1.4.1.11.2.3.9.7.1.0.280 "Status Events" MINOR
+FORMAT HP TapeAlert #280: Hba$1:Channel$2:ScsiID$3 Invalid Library Operation Attempted
+SDESC
+A library operation has been attempted that is invalid at this time.
+Variables:
+  1: hbaNumber
+  2: hbaChannel
+  3: driveScsiID
+EDESC

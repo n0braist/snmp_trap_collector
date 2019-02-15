@@ -1,0 +1,51 @@
+#
+#
+#
+#
+MIB: CISCO-PORT-SECURITY-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-PORT-SECURITY-MIB.mib) converted on Tue Aug 21 15:26:25 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpsSecureMacAddrViolation .1.3.6.1.4.1.9.9.315.0.0.1 "Status Events" Normal
+FORMAT The address violation notification is generated $*
+SDESC
+The address violation notification is generated
+when port security address violation is detected
+on a secure non-trunk, access interface (that carries
+a single vlan) and the cpsIfViolationAction is set to
+'dropNotify'.
+Variables:
+  1: ifIndex
+  2: ifName
+  3: cpsIfSecureLastMacAddress
+EDESC
+#
+#
+#
+EVENT cpsTrunkSecureMacAddrViolation .1.3.6.1.4.1.9.9.315.0.0.2 "Status Events" Normal
+FORMAT The address violation notification is generated when port $*
+SDESC
+The address violation notification is generated when port
+security address violation is detected on a secure trunk
+or a multi-vlan interface and the cpsIfViolationAction is
+set to 'dropNotify'.
+Variables:
+  1: ifName
+  2: vtpVlanName
+  3: cpsIfSecureLastMacAddress
+EDESC
+#
+#
+#
+EVENT cpsIfVlanSecureMacAddrViolation .1.3.6.1.4.1.9.9.315.0.0.3 "Status Events" Normal
+FORMAT The address violation notification is generated $*
+SDESC
+The address violation notification is generated
+when port security address violation is detected
+on a multi-vlan interface and the cpsIfViolationAction
+is set to 'dropNotify'.
+Variables:
+  1: ifName
+  2: cpsIfSecureLastMacAddrVlanId
+  3: cpsIfSecureLastMacAddress
+EDESC

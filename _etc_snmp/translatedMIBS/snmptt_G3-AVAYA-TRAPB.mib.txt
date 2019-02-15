@@ -1,0 +1,318 @@
+#
+MIB: G3-AVAYA-TRAP (file:/usr/share/snmp/mibs/G3-AVAYA-TRAP.mib) converted on Mon Apr 20 17:03:31 2015 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT alarmClear .1.3.6.1.4.1.6889.1.8.1.0.0 "Status Events" Normal
+FORMAT The PBX has issued a Cleared Alarm Notification  $*
+SDESC
+The PBX has issued a Cleared Alarm Notification 
+indicating that all alarms on the switch have been
+cleared.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmCritical .1.3.6.1.4.1.6889.1.8.1.0.1 "Status Events" Normal
+FORMAT This trap is defined for future use. $*
+SDESC
+This trap is defined for future use.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT alarmMajor .1.3.6.1.4.1.6889.1.8.1.0.2 "Status Events" Normal
+FORMAT The PBX has issued a Major alarm.  The variables  $*
+SDESC
+The PBX has issued a Major alarm.  The variables 
+describe the location and nature of the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT alarmMinor .1.3.6.1.4.1.6889.1.8.1.0.3 "Status Events" Normal
+FORMAT The PBX has issued a Minor alarm.  The variables  $*
+SDESC
+The PBX has issued a Minor alarm.  The variables 
+describe the location and nature of the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT alarmWarning .1.3.6.1.4.1.6889.1.8.1.0.4 "Status Events" Normal
+FORMAT This trap is defined for future use. $*
+SDESC
+This trap is defined for future use.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+EDESC
+#
+#
+#
+EVENT extalarmMajor .1.3.6.1.4.1.6889.1.8.1.0.5 "Status Events" Normal
+FORMAT The PBX has issued an external device Major alarm.   $*
+SDESC
+The PBX has issued an external device Major alarm.  
+The variables describe the location and nature of 
+the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+  8: g3extdevAltName
+  9: g3extdevDescription
+  10: g3extdevID
+  11: g3extdevBuilding
+  12: g3extdevAddress
+EDESC
+#
+#
+#
+EVENT extalarmMinor .1.3.6.1.4.1.6889.1.8.1.0.6 "Status Events" Normal
+FORMAT The PBX has issued an external device Minor alarm. $*
+SDESC
+The PBX has issued an external device Minor alarm.
+The variables describe the location and nature of 
+the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3alarmsPort
+  5: g3alarmsMaintName
+  6: g3alarmsOnBrd
+  7: g3alarmsAlarmType
+  8: g3extdevAltName
+  9: g3extdevDescription
+  10: g3extdevID
+  11: g3extdevBuilding
+  12: g3extdevAddress
+EDESC
+#
+#
+#
+EVENT alarmDispatch .1.3.6.1.4.1.6889.1.8.1.0.7 "Status Events" Normal
+FORMAT INADS has dispatched the alarm. $*
+SDESC
+INADS has dispatched the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmClose .1.3.6.1.4.1.6889.1.8.1.0.8 "Status Events" Normal
+FORMAT INADS has closed the alarm. $*
+SDESC
+INADS has closed the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmRestart .1.3.6.1.4.1.6889.1.8.1.0.9 "Status Events" Normal
+FORMAT The PBX has issued a system restart alarm. $*
+SDESC
+The PBX has issued a system restart alarm.
+The variables describe the location and nature of 
+the alarm.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+  4: g3restartDateTime
+  5: g3restartLevel
+  6: g3restartCarrier
+  7: g3restartCraftDemand
+  8: g3restartEscalated
+  9: g3restartInterchange
+  10: g3restartUnavailable
+  11: g3restartCause
+  12: g3vintageSpeArelease
+  13: g3vintageSpeBrelease
+  14: g3vintageSpeAupID
+  15: g3vintageSpeBupID
+EDESC
+#
+#
+#
+EVENT alarmNak .1.3.6.1.4.1.6889.1.8.1.0.10 "Status Events" Normal
+FORMAT A NAK was received in an attempt to forward the $*
+SDESC
+A NAK was received in an attempt to forward the
+alarm to INADS.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT alarmNoAck .1.3.6.1.4.1.6889.1.8.1.0.11 "Status Events" Normal
+FORMAT A response other than an ACK or NAK was received $*
+SDESC
+A response other than an ACK or NAK was received
+in an attempt to forward the alarm to INADS.
+Variables:
+  1: g3clientExternalName
+  2: g3alarmsProductID
+  3: g3alarmsAlarmNumber
+EDESC
+#
+#
+#
+EVENT connectOther .1.3.6.1.4.1.6889.1.8.1.0.101 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to OTHER. This status indicates that the connect is
+in an unknown state.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectOff .1.3.6.1.4.1.6889.1.8.1.0.102 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to OFF. This status indicates that user set the
+connection state to off so that the Proxy Agent
+will not start up a connection with the PBX/ECS.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectDown .1.3.6.1.4.1.6889.1.8.1.0.103 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to DOWN. This status indicates that the Proxy
+Agent attempted to establish a connection with the
+PBX/ECS and failed.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectInit .1.3.6.1.4.1.6889.1.8.1.0.104 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to INIT. This status indicates that the Proxy
+Agent is in the process of attempting to connect
+to the PBX/ECS.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectUp .1.3.6.1.4.1.6889.1.8.1.0.105 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to UP. This status indicates that the Proxy
+Agent has a connection established with the PBX/ECS.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectIdle .1.3.6.1.4.1.6889.1.8.1.0.106 "Status Events" Normal
+FORMAT The connection status of the PBX/ECS has changed $*
+SDESC
+The connection status of the PBX/ECS has changed
+to IDLE. This status indicates that a connection
+with the PBX/ECS is currently inactive due to the 
+dynamic timeout having been reached without any 
+activity. The connection will stay in the IDLE state
+until an SNMP request or alarm is received. This 
+connection status only applies if the connection 
+type is 'dynamic'.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT connectMax .1.3.6.1.4.1.6889.1.8.1.0.110 "Status Events" Normal
+FORMAT The connection to a PBX/ECS could not be established $*
+SDESC
+The connection to a PBX/ECS could not be established
+due to the maximum allowed number of simultaneous
+connections already being active.
+Variables:
+  1: g3clientExternalName
+EDESC
+#
+#
+#
+EVENT proxyDown .1.3.6.1.4.1.6889.1.8.1.0.150 "Status Events" Normal
+FORMAT The user has issued a stop proxy-agent command to $*
+SDESC
+The user has issued a stop proxy-agent command to
+bring down the Proxy Agent.
+Variables:
+  1: sysName
+EDESC
+#
+#
+#
+EVENT proxyUp .1.3.6.1.4.1.6889.1.8.1.0.151 "Status Events" Normal
+FORMAT The user has issued a start proxy-agent command to $*
+SDESC
+The user has issued a start proxy-agent command to
+bring up the Proxy Agent.
+Variables:
+  1: sysName
+EDESC

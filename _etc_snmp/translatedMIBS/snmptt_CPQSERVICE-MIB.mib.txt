@@ -1,0 +1,123 @@
+#
+#
+#
+#
+MIB: CPQSERVICE-MIB (file:/tmp/CPQ/CPQSERVICE-MIB.mib) converted on Mon Nov 10 12:24:50 2014 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT cpqServiceInformation .1.3.6.1.4.1.232.164.0.164001 "Status Events" MAJOR
+FORMAT A Service Incident has been reported (Type 1).: $1 reported an $3 Service Incident Trap whose status is located at $4.
+SDESC
+This trap will be sent any time a service incident is logged or
+updated. A service incident is generated when it is determined that
+a service event has occurred based upon an analysis of system
+initiated event traps or an update to a service event has occurred.
+User Action: None Required
+--                              (the argument consists of the
+--                             following:
+--                             - text string containing a brief description of the
+--                              event type with an associated url pointing to a
+--                              description of the service event provided by
+--                              OSEM/MSADB
+--                            - text containing the device name with an associated
+--                              URL pointing to the server agent that initiated the
+--                              event.
+--                            - the Event Time)
+Variables:
+  1: sysName
+  2: cpqServiceIncidentSeverity
+  3: cpqServiceIncidentStatus
+  4: cpqServiceIncidentInformation
+  5: cpqServiceIncidentEvent
+  6: cpqServiceIncidentUniqueID
+  7: cpqServiceIncidentTimeofOriginalEvent
+  8: cpqServiceIncidentSourceSystemName
+  9: cpqServiceIncidentIPAddessOfSource
+  10: cpqServiceISEEIncidentInformation
+  11: cpqServiceIncidentIdentifier
+  12: cpqServiceIncidentReceiveTrapOID
+  13: cpqServiceIncidentFilterOID
+  14: cpqServiceIncidentFilterValue
+EDESC
+#
+#
+#
+EVENT cpqService2Information .1.3.6.1.4.1.232.164.0.164002 "Status Events" MAJOR
+FORMAT A Service Incident has been reported (Type 2).: $1 reported a Service Incident Trap whose status is located at $2.
+SDESC
+This event will be sent any time a service incident is reported. 
+A service incident is generated when it is determined that a serviceable 
+event has occurred based upon analysis of system-initiated events.
+User Action: Refer to the Recommended Action section under the event details section
+--                              (the argument consists of the
+--                             following:
+--                             - text string containing a brief description of the
+--                              event type with an associated url pointing to a
+--                              description of the service event provided by
+--                              OSEM/MSADB
+--                            - text containing the device name with an associated
+--                              URL pointing to the server agent that initiated the
+--                              event.
+--                            - the Event Time)
+Variables:
+  1: sysName
+  2: cpqServiceIncidentStatus
+  3: cpqServiceIncidentInformation
+  4: cpqServiceIncidentEvent
+  5: cpqServiceIncidentUniqueID
+  6: cpqServiceIncidentTimeofOriginalEvent
+  7: cpqServiceIncidentSourceSystemName
+  8: cpqServiceIncidentIPAddessOfSource
+  9: cpqServiceISEEIncidentInformation
+  10: cpqServiceIncidentIdentifier
+  11: cpqServiceIncidentReceiveTrapOID
+  12: cpqServiceRecommendedAction1
+  13: cpqServiceRecommendedAction2
+  14: cpqServiceRecommendedAction3
+  15: cpqServiceCustomerSelfRepairInstructionURL
+EDESC
+#
+#
+#
+EVENT cpqService3Information .1.3.6.1.4.1.232.164.0.164003 "Status Events" MAJOR
+FORMAT A Service Incident has been reported (Type 3).: $1 reported a Service Incident Trap whose status is located at $5.
+SDESC
+This event will be sent any time a service incident is reported. 
+A service incident is generated when it is determined that a serviceable 
+event has occurred based upon analysis of system-initiated events.
+User Action: Refer to the Recommended Action section under the event details section
+--                              (the argument consists of the
+--                             following:
+--                             - text string containing a brief description of the
+--                              event type with an associated url pointing to a
+--                              description of the service event provided by
+--                              OSEM/MSADB
+--                            - text containing the device name with an associated
+--                              URL pointing to the server agent that initiated the
+--                              event.
+--                            - the Event Time)
+Variables:
+  1: cpqServiceIncidentSourceSystemName
+  2: cpqServiceIncidentIPAddessOfSource
+  3: cpqServiceEventSeverity
+  4: cpqServiceIncidentStatus
+  5: cpqServiceIncidentInformation
+  6: cpqServiceIncidentEvent
+  7: cpqServiceIncidentUniqueID
+  8: cpqServiceIncidentTimeofOriginalEvent
+  9: cpqServiceAnalyzerSystemName
+  10: cpqServiceISEEIncidentInformation
+  11: cpqServiceIncidentIdentifier
+  12: cpqServiceIncidentReceiveTrapOID
+  13: cpqServiceRecommendedAction1
+  14: cpqServiceRecommendedAction2
+  15: cpqServiceRecommendedAction3
+  16: cpqServiceFRUList1
+  17: cpqServiceFRUList2
+  18: cpqServiceFRUList3
+  19: cpqServiceFRUList4
+  20: cpqServiceLocation1
+  21: cpqServiceLocation2
+  22: cpqServiceCustomerSelfRepairInstructionURL
+EDESC

@@ -1,0 +1,155 @@
+#
+#
+#
+#
+MIB: CISCO-DSPU-MIB (file:/tmp/SL_MIBS_2012-08-20/cisco/CISCO-DSPU-MIB.mib) converted on Tue Aug 21 15:25:54 2012 using snmpttconvertmib v1.3
+#
+#
+#
+EVENT dspuPuStateChangeTrap .1.3.6.1.4.1.9.9.24.1.4.4.1 "Status Events" Normal
+FORMAT Generated when the operational state  $*
+SDESC
+Generated when the operational state 
+of the PU changes between active<-->inactive.
+The following information is returned:
+dspuPuOperName  -> PU name
+dspuPuOperState -> Current operational state of the PU
+Variables:
+  1: dspuPuOperName
+  2: dspuPuOperState
+EDESC
+#
+#
+#
+EVENT dspuPuActivationFailureTrap .1.3.6.1.4.1.9.9.24.1.4.4.2 "Status Events" Normal
+FORMAT Generated whenever a PU activation failure is detected. $*
+SDESC
+Generated whenever a PU activation failure is detected.
+The following information is returned:
+dspuPuOperName
+-> PU name
+dspuPuOperState 
+-> Current operational state of the PU
+dspuPuStatsLastActivationFailureReason
+-> Reason for PU activation failure
+Variables:
+  1: dspuPuOperName
+  2: dspuPuOperState
+  3: dspuPuStatsLastActivationFailureReason
+EDESC
+#
+#
+#
+EVENT newdspuPuStateChangeTrap .1.3.6.1.4.1.9.9.24.1.4.4.0.1 "Status Events" Normal
+FORMAT Generated when the operational state  $*
+SDESC
+Generated when the operational state 
+of the PU changes between active<-->inactive.
+The following information is returned:
+dspuPuOperName  -> PU name
+dspuPuOperState -> Current operational state of the PU
+Variables:
+  1: dspuPuOperName
+  2: dspuPuOperState
+EDESC
+#
+#
+#
+EVENT newdspuPuActivationFailureTrap .1.3.6.1.4.1.9.9.24.1.4.4.0.2 "Status Events" Normal
+FORMAT Generated whenever a PU activation failure is detected. $*
+SDESC
+Generated whenever a PU activation failure is detected.
+The following information is returned:
+dspuPuOperName
+-> PU name
+dspuPuOperState 
+-> Current operational state of the PU
+dspuPuStatsLastActivationFailureReason
+-> Reason for PU activation failure
+Variables:
+  1: dspuPuOperName
+  2: dspuPuOperState
+  3: dspuPuStatsLastActivationFailureReason
+EDESC
+#
+#
+#
+EVENT dspuLuStateChangeTrap .1.3.6.1.4.1.9.9.24.1.5.3.1 "Status Events" Normal
+FORMAT Generated when the operational state  $*
+SDESC
+Generated when the operational state 
+of the PU changes between active<-->inactive.
+The following information is returned:
+dspuPuOperName 
+-> PU name
+dspuLuOperLuLocalAddress 
+-> NAU address of LU
+dspuLuOperState  
+-> Current operational state of the LU
+Variables:
+  1: dspuPuOperName
+  2: dspuLuOperLuLocalAddress
+  3: dspuLuOperState
+EDESC
+#
+#
+#
+EVENT newdspuLuStateChangeTrap .1.3.6.1.4.1.9.9.24.1.5.3.0.1 "Status Events" Normal
+FORMAT Generated when the operational state  $*
+SDESC
+Generated when the operational state 
+of the LU changes between active<-->inactive.
+The following information is returned:
+dspuPuOperName 
+-> PU name
+dspuLuOperState  
+-> Current operational state of the LU
+Variables:
+  1: dspuPuOperName
+  2: dspuLuOperState
+EDESC
+#
+#
+#
+EVENT dspuLuActivationFailureTrap .1.3.6.1.4.1.9.9.24.1.5.3.0.2 "Status Events" Normal
+FORMAT Generated whenever an LU activation failure is detected. $*
+SDESC
+Generated whenever an LU activation failure is detected.
+The following information is returned:
+dspuPuOperName
+-> PU name
+dspuLuOperState 
+-> Current operational state of the LU
+dspuLuOperLastActivationFailureReason
+->  Reason for LU activation failure
+Variables:
+  1: dspuPuOperName
+  2: dspuLuOperState
+  3: dspuLuOperLastActivationFailureReason
+EDESC
+#
+#
+#
+EVENT dspuSapStateChangeTrap .1.3.6.1.4.1.9.9.24.1.6.2.1 "Status Events" Normal
+FORMAT Generated when the operational state of the SAP changes $*
+SDESC
+Generated when the operational state of the SAP changes
+between 'open' or 'closed'.
+The following information is returned:
+dspuSapOperDlcType
+-> DLC type of the adapter on which SAP is located
+dspuSapOperDlcUnit
+-> Unit ID of the adapter on which SAP is located
+dspuSapOperDlcPort
+-> Port ID of the adapter on which SAP is located
+dspuSapOperAddress
+-> SAP address
+dspuSapOperState
+-> Current operational state of the SAP
+Variables:
+  1: dspuSapDlcType
+  2: dspuSapDlcUnit
+  3: dspuSapDlcPort
+  4: dspuSapAddress
+  5: dspuSapOperState
+EDESC
