@@ -34,11 +34,10 @@ snmpttconvertmib --in=/tmp/SL_MIBS_2012-08-20/LSERIES-TAPE-LIBRARY-MIB.mib --out
 
 ### or use script:
 
- ```
- ./convert_mibs -S PATHTOORIGIALMIBS -G PATHTOSTORECONVERTEDMIBS
- e.g.
- ./convert_mibs -S /tmp/SL_MIBS_2012-08-20/compaq/ -G /etc/snmp/compaq/
-```
+
+ ~~./convert_mibs -S PATHTOORIGIALMIBS -G PATHTOSTORECONVERTEDMIBS~~
+ ~~e.g.~~
+ ~~./convert_mibs -S /tmp/SL_MIBS_2012-08-20/compaq/ -G /etc/snmp/compaq/~~
 
 after that, you have to restart the snmpt daemon:
 
