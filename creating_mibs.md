@@ -1,3 +1,6 @@
+## Free collection of mibs
+http://www.circitor.fr/Mibs/Html
+
 ## Adding MIBS to config on server
 
 
@@ -16,10 +19,11 @@ snmpttconvertmib --in=/PATH/MIBFILE.mib --out=/PATH/DefinitionFileName
 snmpttconvertmib --in=/tmp/SL_MIBS_2012-08-20/LSERIES-TAPE-LIBRARY-MIB.mib --out=/etc/snmp/snmptt_storagetek_LSERIES-TAPE-LIBRARY.txt
 ```
 
-#### The Definitionfile has to be added to snmptt.conf:
+#### The Definitionfile has to be added to snmptt.conf (or sometimes snmptt.ini):
 
 ```
  vi /etc/snmp/snmptt.conf
+ (vi /etc/snmp/snmptt.ini)
  
  [TrapFiles]
  # A list of snmptt.conf files (this is NOT the snmptrapd.conf file).  The COMPLETE path
