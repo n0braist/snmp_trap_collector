@@ -68,7 +68,7 @@ except of using the MIB-Text you can use the OID also
 ### example:
 
 ```
-snmptrap -v 2c -c public 10.128.96.31 "" .1.3.6.1.4.1.2606.7.0.2 SNMPv2-MIB::sysLocation.0 s "TEXT YOU WANT TO USE"
+snmptrap -v 2c -c public XXX.XXX.XXX.XXX "" .1.3.6.1.4.1.2606.7.0.2 SNMPv2-MIB::sysLocation.0 s "TEXT YOU WANT TO USE"
 ```
  
 
