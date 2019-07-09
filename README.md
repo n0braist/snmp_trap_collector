@@ -263,8 +263,8 @@ USE snmptt;
 #### Now it's time to convert some MIBS for the snmptt:
 ```
 cd /usr/share/snmp/mibs/
-snmpttconvertmib --in=NET-SNMP-AGENT-MIB.txt --out=/etc/snmp/ translatedMIBS/snmptt.conf
-snmpttconvertmib --in=SNMPv2-MIB.txt --out=/etc/snmp/ translatedMIBS/snmptt.conf
+snmpttconvertmib --in=NET-SNMP-AGENT-MIB.txt --out=/etc/snmp/translatedMIBS/snmptt.conf
+snmpttconvertmib --in=SNMPv2-MIB.txt --out=/etc/snmp/translatedMIBS/snmptt.conf
 ```
 
 #### configure the snmptrapd.conf (see part Konfigurationen below)
@@ -461,6 +461,18 @@ diff snmptt.ini snmptt.ini-sample
 > #stat_time_format_sql =
 ```
 
+#### also add all converted mibs with path between 
+like in ![snmptt.ini](_etc_snmp/snmptt.ini "snmptt.ini")
+> /etc/snmp/snmptt.ini
+```
+[TrapFiles]
+# A list of snmptt.conf files (this is NOT the snmptrapd.conf file).  The COMPLETE path 
+# and filename.  Ex: '/etc/snmp/snmptt.conf'
+snmptt_conf_files = <<END
+/PATH/TRANSLATEDMIB 
+END
+```
+
 > /etc/sysconfig/snmptrapd
 ```
 # snmptrapd command line options
@@ -470,7 +482,7 @@ OPTIONS="-On -Lsd"
 umask 002
 ```
 
-#### SNMP ionformation:
+#### SNMP information:
 (http://snmptt.sourceforge.net/docs/snmptt.shtml)
 
 (http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/mib-options.html)
