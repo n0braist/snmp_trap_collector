@@ -1,6 +1,12 @@
 ## Free collection of mibs
 http://www.circitor.fr/Mibs/Html
 
+## another collection of mibs (no download)
+https://mibs.observium.org/
+
+## Global OID reference database
+https://oidref.com/
+
 ## Adding MIBS to config on server
 
 
@@ -75,6 +81,8 @@ snmptrap -v 2c -c public XXX.XXX.XXX.XXX "" .1.3.6.1.4.1.2606.7.0.2 SNMPv2-MIB::
 
 
 ## MIB Problems:
+
+Be sure that you have all required (import) MIBS inside /usr/share/snmp/mibs
 
 ### Problem 1:
 
