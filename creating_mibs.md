@@ -40,6 +40,7 @@ snmpttconvertmib --in=/tmp/SL_MIBS_2012-08-20/LSERIES-TAPE-LIBRARY-MIB.mib --out
 
 
  ~~./convert_mibs -S PATHTOORIGIALMIBS -G PATHTOSTORECONVERTEDMIBS~~
+ 
  ~~e.g.~~
  ~~./convert_mibs -S /tmp/SL_MIBS_2012-08-20/compaq/ -G /etc/snmp/compaq/~~
 
