@@ -1,5 +1,6 @@
 ## Free collection of mibs
 http://www.circitor.fr/Mibs/Html
+https://github.com/librenms/librenms/tree/master/mibs
 
 ## another collection of mibs (no download)
 https://mibs.observium.org/
